@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- Web Service Categories -->
+
+    <type name="CAST_SpringMVC_Service" id="1020037">
+        <description>Spring MVC Service</description>
+        <inheritedCategory name="CAST_WebService_Service" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_Port" id="1020038">
+        <description>Spring MVC Port</description>
+        <inheritedCategory name="CAST_WebService_Port" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_GetOperation" id="1020039">
+        <description>Spring MVC Get Operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_PostOperation" id="1020040">
+        <description>Spring MVC Post Operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_PutOperation" id="1020041">
+        <description>Spring MVC Put Operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_DeleteOperation" id="1020042">
+        <description>Spring MVC Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SpringMVC_AnyOperation" id="1020082">
+        <description>Spring MVC Any Operation</description>
+        <inheritedCategory name="CAST_WebService_AnyOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+	<!-- For linking html to java thymeleaf   -->
+    <type name="CAST_Thymeleaf_GetResourceService" id="1020230">
+        <description>Thymeleaf GET resource service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Thymeleaf_PutResourceService" id="1020231">
+        <description>Thymeleaf PUT resource service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Thymeleaf_PostResourceService" id="1020232">
+        <description>Thymeleaf POST resource service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Thymeleaf_DeleteResourceService" id="1020233">
+        <description>Thymeleaf DELETE resource service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+
+</metaModel>

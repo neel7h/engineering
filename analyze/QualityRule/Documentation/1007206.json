@@ -1,0 +1,84 @@
+{
+    "id": 1007206,
+    "name": "Avoid using @error suppression (PHP)",
+    "href": "AIP/quality-rules/1007206",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts having @ in order to hide the errors. Artifacts considered for this QR are PHP Secion, method, constructor and functions.",
+    "output": "This report lists all the artifacts having @ in order to hide the errors.\n      \nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Use of @ decreases the performance of application. Instead of trying to hide the errors it is much better to handle them.",
+    "remediation": "Try to reduce use of @ and instead provide a mechanism for error handling.",
+    "remediationSample": "<?php\n      \nfunction getFiles($dir) {\n   if (file_exists($dir)) {\n      return scandir($dir);\n   } else {\n      return null;\n   }\n}\n \n$files = getFiles(\"C:\\\\non-existant\");\n \nif (null === $files) {\n   echo \"Could not get files!\", PHP_EOL;\n}\n\n?>",
+    "sample": "<?php\n\nfunction getFiles($dir) {\n   return @scandir($dir);\n   } \n$files = getFiles(\"C:\\\\non-existant\");\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using @error suppression (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-392",
+            "name": "Missing Report of Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

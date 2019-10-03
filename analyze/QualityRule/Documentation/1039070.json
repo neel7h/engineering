@@ -1,0 +1,72 @@
+{
+    "id": 1039070,
+    "name": "Avoid using URL.equals(Object obj) or URL.hashCode()",
+    "href": "AIP/quality-rules/1039070",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks the Implementation of equals() and/or hashcode() in java.net.URL, if used, it reports a violation.",
+    "output": "Total number of violation related to Java Methods\n-Primary Bookmark to Method.",
+    "rationale": "the Implementation of equals() and hashcode() calls a naming service(DNS) to resolve the IP address. This may take a lot of time and causes a dependency on Network Connection.\n\nIt is inconsistent and may give different results with or without a network connection and takes long time to execute. The implementation is known to be incompatible with virtual hosting and should not be used.",
+    "reference": "https://javaantipatterns.wordpress.com/2007/11/24/comparing-urls-with-urlequals/\nhttp://michaelscharf.blogspot.com/2006/11/javaneturlequals-and-hashcode-make.html",
+    "remediation": "use java.net.URI instead of java.net.URL",
+    "remediationSample": "____________________________________________________________\n(A)\npublic class Main {\n  public static void main(String[] argv) throws Exception {\n    URL relativeURL, baseURL;\n    baseURL = new URL(\"http://www.yourserver.com/\");\n    relativeURL = new URL(baseURL, \"./a.htm\");\n    URI.uri1 = relativeURL.toURI();\n    URI.uri2 = relativeURL.toURI();\n    System.out.println(uri1.equals(uri2));//compliant\n\n  }\n}\n_______________________________________________________________\n(B)\npublic void checkUrl(URL url) {\n  Set<URI> sites = new HashSet<URI>();  // Compliant\n\n  URI homepage = new URI(\"http://sonarsource.com\");  // Compliant\n  URI uri = url.toURI();\n  if (homepage.equals(uri)) {  // Compliant\n    // ...\n  }\n}______________________________________________________________\n\n(C)\nimport java.net.URI;\nimport java.net.URISyntaxException;\npublic class Main {\n  public static void main(String[] args) throws NullPointerException, URISyntaxException {\n    URI uri = new URI(\"http://www.castsoftware.com\");\n    System.out.println(\"URI      : \" + uri);\n    System.out.println(uri.hashCode());\n  }\n}",
+    "sample": "__________________________________________________________________________\n(A)\npublic class Main {\n  public static void main(String[] argv) throws Exception {\n    URL relativeURL, baseURL;\n    baseURL = new URL(\"http://www.yourserver.com/\");\n    relativeURL = new URL(baseURL, \"./a.htm\");\n    System.out.println(relativeURL.equals(baseURL)); //non-compliant\n\n  }\n}\n___________________________________________________________________________\n(B)\npublic void checkUrl(URL url) {\n  Set<URL> sites = new HashSet<URL>();  // Noncompliant\n\n  URL homepage = new URL(\"http://castsoftware.com\");  // Compliant\n  if (homepage.equals(url)) { // Noncompliant\n    // ...\n  }\n}\n\n____________________________________________________________________________\n(C)\nimport java.io.IOException;\nimport java.net.URL;\npublic class Main {\n\n  public static void main(String[] args) {\n    try {\n      URL url = new URL(\"http://www.castsoftware.com\");\n      System.out.println(\"URL is \" + url.hashCode());\n    } catch (IOException e) {\n      e.printStackTrace();\n    }\n  }\n\n}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Prefer using java.net.URI instead of java.net.URL",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-581",
+            "name": "Object Model Violation: Just One of Equals and Hashcode Defined",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

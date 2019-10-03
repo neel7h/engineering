@@ -1,0 +1,68 @@
+{
+    "id": 1050010,
+    "name": "Avoid using NSURLRequest setAllowsAnyHTTPSCertificate:forHost",
+    "href": "AIP/quality-rules/1050010",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Disabling server trust evaluation puts the user's security at risk. Do not do it in any code you intend to ship to end users. If server trust evaluation is failing, you must understand why it's failing and decide on the best way to resolve that failure. It is not a public API and is thus not supported by Apple; moreover, use of non-public APIs is not allowed in App Store apps.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "HTTPS is a cornerstone of Internet security. When making a connection over HTTPS, the client must evaluate whether to trust the server. If this trust evaluation fails, the client refuses to connect.",
+    "reference": "https://www.owasp.org/index.php/Mobile_Top_10_2014-M3\n\nhttps://developer.apple.com/library/prerelease/content/technotes/tn2232/_index.html",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Avoid using NSURLRequest setAllowsAnyHTTPSCertificate:forHost",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

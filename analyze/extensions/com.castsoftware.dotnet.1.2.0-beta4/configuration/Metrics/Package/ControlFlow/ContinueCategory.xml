@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="ControlFlow.Continue">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH IN TREE ELEMENT" >
+					<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>					
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST> 
+		
+		<CATEGORY NAME="MATCH_CONTINUE">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="JAVA_CONTINUE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<TOKEN NAME="_CONTINUE_" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="PB_CONTINUE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>
+						<TOKEN NAME="_CONTINUE_" />
+					</SUB_TREE_OR>
+				</TREE>			
+			</PROPERTY>
+			<PROPERTY NAME="ABAP_CONTINUE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_AB4_ContinueStatement" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="C_CONTINUE" type="pattern">
+				<TREE>
+					<OR>						
+						<SIGNATURE>NODE_C_BODY</SIGNATURE>	
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE>																			
+					</OR>
+														
+					<SUB_TREE_OR>
+						<TOKEN NAME="_CONTINUE_" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>	
+			<PROPERTY NAME="DB2_Continue" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>LIST_UDB_SQL_STATEMENT_LIST</SIGNATURE>													
+							<SIGNATURE>LIST_DSN_SQL_STATEMENT_LIST</SIGNATURE>
+							<SIGNATURE>NODE_UDB_CREATE_TRIGGER_BEFORE</SIGNATURE>
+							<SIGNATURE>NODE_UDB_CREATE_TRIGGER_AFTER</SIGNATURE>
+							<SIGNATURE>NODE_DSN_CREATE_TRIGGER_BEFORE</SIGNATURE>
+							<SIGNATURE>NODE_DSN_CREATE_TRIGGER_AFTER</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_UDB_CTRL_ITERATE" />	
+							<SIGNATURE NAME="NODE_DSN_CTRL_ITERATE" />
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_CONTINUE" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VB6_STATEMENT_DECLARE_LIST</SIGNATURE>																				
+						</OR>
+															
+						<SUB_TREE_OR>
+							<TOKEN NAME="_RESUME_" />								
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="DELPHI_CONTINUE" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+							<SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+							<SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+							<SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+						</OR>															
+						<TREE>
+							<OR>
+								<SIGNATURE>NODE_DP6_REPEAT_STATEMENT</SIGNATURE>
+								<SIGNATURE>NODE_DP6_WHILE_STATEMENT</SIGNATURE>
+								<SIGNATURE>NODE_DP6_FOR_STATEMENT</SIGNATURE>
+							</OR>															
+
+							<SUB_TREE_OR>
+								<TOKEN NAME="IDENTIFIER" EQUAL="CONTINUE"/> 
+							</SUB_TREE_OR>							
+						</TREE>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="JAVA_SCRIPT_CONTINUE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_JS15_Script</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<SIGNATURE NAME="NODE_JS15_ContinueStatement"  />																		
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+		
+			<PROPERTY NAME="VB_NET_CONTINUE" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+							<SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<TOKEN NAME="_CONTINUE_" />													
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_SHARP_CONTINUE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<TOKEN NAME="_CONTINUE_" />													
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+							
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>VB_NET_CONTINUE</MATCH>
+				<MATCH>C_SHARP_CONTINUE</MATCH>
+				<MATCH>JAVA_SCRIPT_CONTINUE</MATCH>
+				<MATCH>DELPHI_CONTINUE</MATCH>
+				<MATCH>VB_CONTINUE</MATCH>
+				<MATCH>DB2_Continue</MATCH> 
+				<MATCH>C_CONTINUE</MATCH> 
+				<MATCH>ABAP_CONTINUE</MATCH> 								
+				<MATCH>PB_CONTINUE</MATCH> 								
+				<MATCH>JAVA_CONTINUE</MATCH> 								
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_CLUMP>VALUE</RESULT_CLUMP> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+</METRIC>

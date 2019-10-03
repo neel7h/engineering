@@ -1,0 +1,70 @@
+{
+    "id": 1008126,
+    "name": "Avoid defining File Disk if not used  (RPG400)\"",
+    "href": "AIP/quality-rules/1008126",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the unreferenced file disks.",
+    "output": "This report lists RPG400 unreferenced file disks.\nIt provides the following information:\nRPG400 File Disk full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. \nWarning: \nUnreferenced code can also be the symptoms of missing code",
+    "remediation": "Verify that the unreferenced file disks are not dead code. If it is the case remove it. If it is not the case, report it to the CAST administrator.",
+    "remediationSample": "Sample1: File Disk defined in a Program.\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\n\n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     C               OPEN(E)        DISK_NAME2\n     C      *LOVAL   SETLL          RECORD2\n\n     Sample2: File Disk defined in a Copy Member included by a Program.\nCOPY1\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\nCOPY2\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\nPGM1\n      /COPY COPYSRC,COPY1\n      /COPY COPYSRC,COPY2\n     \n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     C               OPEN(E)        DISK_NAME2\n     C      *LOVAL   SETLL          RECORD2",
+    "sample": "Sample1: File Disk defined in a Program.\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\n\n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1\n\n     Sample2: File Disk defined in a Copy Member included by a Program.\nCOPY1\n     FDISK_NAME1IF   E           K DISK    rename(REC1:RECORD1)\nCOPY2\n     FDISK_NAME2IF   E           K DISK    rename(REC2:RECORD2)\nPGM1\n      /COPY COPYSRC,COPY1\n      /COPY COPYSRC,COPY2\n     \n     C               OPEN(E)        DISK_NAME1\n     C      *LOVAL   SETLL          RECORD1",
+    "total": "Total number of RPG400 File Disks",
+    "alternativeName": "Avoid defining File Disk if not used  (RPG400)\"",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

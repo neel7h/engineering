@@ -1,0 +1,68 @@
+{
+    "id": 1007064,
+    "name": "Avoid unreferenced Methods (PHP)",
+    "href": "AIP/quality-rules/1007064",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all unreferenced Methods.",
+    "output": "This report lists all unreferenced Methods.\n\nThis QR provides the following information:\nMethod full name.",
+    "rationale": "Unreferenced code may be a symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of software maintenance.\n\nWarning:\nUnreferenced code can also be an indication of missing code (code referring to the method not included in the source code analysis) or can be a symptom of the use of polymorphism.\nThe intensive use of polymorphism can make the application easier to change but much more difficult to test, debug and stabilize.",
+    "remediation": "Review the source code of the application to minimize the number of unreferenced Methods.",
+    "total": "Number of Methods",
+    "alternativeName": "Avoid unreferenced Methods (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

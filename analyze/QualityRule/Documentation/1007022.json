@@ -1,0 +1,78 @@
+{
+    "id": 1007022,
+    "name": "Avoid artifacts using \"for\" loops which can be simplified to a \"while\" loop (PHP)",
+    "href": "AIP/quality-rules/1007022",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing \"for\" loops which can be simplified to \"while\" loops.",
+    "output": "This report lists all artifacts containing \"for\" loops which can be simplified to \"while\" loops.\n\nThis QR provides the following information:\nartifact full name.",
+    "rationale": "If for-loop does not have initialization and increment step, while loop is better suited.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_ForLoopShouldBeWhileLoopSniff.html",
+    "remediation": "Modify the source code to reduce the number of artifacts having \"for\" loops which can be simplified to \"while\" loops.",
+    "remediationSample": "<?php\nclass CastTest\n {\n     public function test($x)\n     {\n         while (true) true;  // the violation is corrected\n     }\n }\n?>",
+    "sample": "<?php\n class CastTest\n {\n     public function test($x)\n     {\n         for (;true;) true; // VIOLATION : there is no init or update part so it can be as well be: while (true)\n     }\n }\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid artifacts using \"for\" loops which can be simplified to a \"while\" loop (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

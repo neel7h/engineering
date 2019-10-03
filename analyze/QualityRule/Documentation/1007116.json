@@ -1,0 +1,64 @@
+{
+    "id": 1007116,
+    "name": "Avoid artifacts with Object Instantiation in loops (PHP)",
+    "href": "AIP/quality-rules/1007116",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the artifacts with object instantiation in loops. Artifacts considered for this QR are PHP Section are PHP Section, method, function and constructor.",
+    "output": "This report lists all artifacts with object instantiation in loops.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Creating objects in loops can be expensive. Code creating objects in loops should be avoided especially in performance-critical code.",
+    "remediation": "Modify the source code to reduce the number of artifacts containing object instantiation in loops.",
+    "sample": "<?php\nclass Test {\n    function do_something() {\n      echo \"Hello\";\n    }\n}\nclass ClassTest {\n    function methodCreatingObjectsInLoops() {\n        for ($i=0; $i<10; $i++) {   \n            $bar = new Test();        //VIOLATION\n            $bar->do_something();\n        }\n    }\n}\n$obj = new ClassTest();\n$obj-> test1();\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts with Object Instantiation in loops (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

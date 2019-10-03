@@ -1,0 +1,78 @@
+{
+    "id": 1007056,
+    "name": "Avoid unnecessary final modifiers inside final Classes (PHP)",
+    "href": "AIP/quality-rules/1007056",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the Methods with unnecessary final modifiers.",
+    "output": "This report lists all methods of final Classes with unnecessary final modifiers.\n\nThis QR provides the following information:\nMethod full name.",
+    "rationale": "Final classes cannot be derived from. If the class itself is defined final then it cannot be extended and the modifier is useless.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_UnnecessaryFinalModifierSniff.html",
+    "remediation": "Reduce number of methods in final classes with final modifiers.",
+    "remediationSample": "<?php\n\nfinal class CastTest\n {\n     public function Test() // Violation removed\n     {\n     }\n }\n\n?>",
+    "sample": "<?php\n\nfinal class CastTest\n {\n     public final function Test() // Violation - Unnecessary final modifiers inside a final class\n     {\n     }\n }\n\n?>",
+    "total": "Number of Methods",
+    "alternativeName": "Avoid unnecessary final modifiers inside final Classes (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.CodeAnalysis.UnnecessaryFinalModifier.Found"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,135 @@
+module Core.String;
+
+
+/** 
+* NOTE that in the following function definition, the parameters type(s), objType, propertyName, metamodelProperty are constant string that are defined in the MetaModel.
+* All custom functions should have theirs parameters with different names from those used for native functions.
+*/
+
+/** 
+* Concat the two strings. 
+* 
+* @param word_1
+* @param word_2
+*/
+native string concat(string word_1,string word_2);
+
+/** 
+* Return the substring between the two indexes
+* 
+* @param word			: original string
+* @param index_begin	: beginning index
+* @param length         : substring length
+*/
+native string substring(string word, int index_begin, int length);
+
+/** 
+* Return the substring from the index
+* 
+* @param word					: original string
+* @param index_begin	: beginning index
+*/
+native string substring(string word, int index_begin);
+
+/** 
+* Return the string length
+* 
+* @param word					: original string
+*/
+native int getLength(string word);
+
+/** 
+* Return the string with lower case letters
+* 
+* @param word					: original string
+*/
+native string toLower(string word);
+
+/**
+ * Lower the beginning of a string.
+ */
+public string toLower(string word, int length) {
+  string beg = substring (word, 0, length);
+  string end = substring (word, length);
+  
+  beg = toLower(beg);
+  return concat(beg, end);
+}
+
+/** 
+* Return the string with upper case letters
+* 
+* @param word					: original string
+*/
+native string toUpper(string word);
+
+/** 
+* Look for the substring in the word.
+* If found, return the first index, -1 otherwise
+* 
+* @param word					: original string
+* @param substring		: string to find
+*/
+native int getFirstIndex(string word,string substring);
+
+/* Look for the substring in the word.
+* If found, return the last index, -1 otherwise
+* 
+* @param word			: original string
+* @param substring		: string to find
+*/
+public int getLastIndex (string word,string substring) {
+   int last = -1;
+   string myword = word;
+   int length = getLength(substring);
+   int loop = getFirstIndex (myword, substring);               
+   while (loop > -1) {
+      last = last + loop + length;
+	  myword = substring(myword,loop+length);
+	  loop = getFirstIndex (myword, substring);
+   }
+   
+   return last;
+}
+
+/** 
+* Look for the regular expression in the word.
+* If found, return the matching substring, "" otherwise
+* 
+* @param word					: original string
+* @param regexp			  : regular expression to match
+*/
+native string substringMatch(string word,string regexp);
+
+
+/** 
+* Return the convertion of the boolean to string
+* 
+* @param value					: boolean value
+*/
+native string toString(boolean value);
+
+/** 
+* Return the convertion of the integer to string
+* 
+* @param value					: integer value
+*/
+native string toString(int value);
+
+
+/**
+ * Prints a list of string. 
+ * For debug purpose.
+ */
+public string toString (list(string) listString) {
+   string result = "{";
+   string delimiter = ", ";
+   
+   foreach (string s in listString) {
+     result = result + s + delimiter;
+   }
+   
+   string final_result = substring(result, 0, getLength(result)-getLength(delimiter)) + "}";
+   return final_result;
+}
+

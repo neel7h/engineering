@@ -1,0 +1,72 @@
+{
+    "id": 1003046,
+    "name": "Avoid variable with name too short (Flex)",
+    "href": "AIP/quality-rules/1003046",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that define variable with name too short.",
+    "output": "This QR reports artifacts that define variable with name too short. It provides following information:\n\n- Artifact full name",
+    "rationale": "Naming variable with name too short reduces readability.",
+    "remediation": "Give meaningful names to the variables.",
+    "sample": "public class Something \n{\n   private var q : int = 15; // VIOLATION - Field\n\n   public function foo( as : String ) : void // VIOLATION - Formal \n   {\n      var r : int = 20 + q; // VIOLATION - Local\n   }\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid variable with name too short (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.naming.TooShortVariable"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

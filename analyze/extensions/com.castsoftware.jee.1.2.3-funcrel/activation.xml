@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension>
+	<profiles>
+		<!-- The profile with the specified id will be activated by default -->
+    <activate>JEE - Mokito</activate>
+    <activate>JEE - Jackson 2.0 annotations to ignore</activate>
+    <activate>JEE - Guava 18.0 annotations to ignore</activate>
+    <activate>Log4j 2.x</activate>
+    <activate>JEE - Logger JBOSS</activate>
+    <activate>JEE - Logger Weblogic</activate>
+    <activate>JEE - Logger SLF4J</activate>
+    <activate>JEE - Logger java.util.logging</activate>
+    <activate>JEE - Logger Monolog</activate>
+    <activate>JEE - Logger Mortbay</activate>
+    <activate>JEE - Logger Avalon Escalibur</activate>
+    <activate>JEE - Logger Apache commons logging</activate>
+    <activate>JEE - Logger Krysalis</activate>
+    <activate>JEE - Logger ATG</activate>
+    <activate>JEE - Logger Spring</activate>
+    <activate>JEE - Logger Eclipse</activate>
+    <activate>JEE - Logger Plexus</activate>
+    <activate>JEE - Logger Camel</activate>
+    <activate>JEE - Logger jnlp</activate>
+    <activate>JEE - Logger xwork2</activate>
+    <activate>JEE - XStream</activate>
+    <activate>JEE - TestNG</activate>
+    <activate>Spring Framework 3.x add-on for simpleJDBC</activate>
+    <activate>JEE - PowerMock</activate>
+    <activate>JEE - JSE org.w3c.dom</activate>
+    <activate>JEE - Logger JBOSS Seam 2.2.2</activate>
+    <activate>JEE - EasyMock</activate>
+    <activate>JEE - Unit Test Unitils</activate>
+    <activate>JEE - jBehave</activate>
+    <activate>JEE - JAX-WS</activate>
+    <activate>JEE - MeltingPot</activate>
+    <activate>Generic Default EnvProfiles</activate>
+    <activate>Struts 1.1-CAST_JAVA_STRUTS_11</activate>
+    <activate>Struts 2.5-CAST_JAVA_STRUTS_25</activate>
+
+		<!-- The profile with the specified id will be deactivated by default -->
+		<deactivate></deactivate>
+		<!-- If the profile with the specified id is active, replace it with the target profile -->
+		<replace>
+			<source></source>
+			<target></target>
+		</replace>
+		
+		<latestJava id="253">
+			<profile>JSE 8.0 JRE-CAST_JAVA_JDK_80</profile>
+		</latestJava>
+		
+		<latestJEE id="630">
+			<profile>JEE 7.0-CAST_JAVA_EE_17</profile>
+			<profile>JSF 2.2-CAST_JSF_22</profile>
+			<profile>EJB 3.1+-CAST_EJB_31_2</profile>
+		</latestJEE>
+		
+		<latestPersistence id="0">
+			<profile>Hibernate 4.3-5.1 JPA 2.1-CAST_JAVA_HIBERNATE_5x</profile>
+		</latestPersistence>
+		
+		<latestStruts id="0">
+			<profile>Struts 2.5-CAST_JAVA_STRUTS_25</profile>
+		</latestStruts>
+		
+		<latestSpring id="0">
+			<profile>Spring Framework 4.x-CAST_JAVA_SPRING_4x</profile>
+		</latestSpring>
+	</profiles>
+</extension>

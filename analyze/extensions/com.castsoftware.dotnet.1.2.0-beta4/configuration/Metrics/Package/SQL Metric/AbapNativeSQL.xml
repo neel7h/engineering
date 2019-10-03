@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="SQL Metrics.AbapNativeSQL">
+  <ACTIVE>YES</ACTIVE>
+    <ACTION_LIST>
+       <ACTION NAME="MATCH IN TREE ELEMENT" >
+         <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+         <ACTIVE>YES</ACTIVE>
+       </ACTION>
+       <ACTION NAME="MATCH" >
+         <INTERNAL_UID>1E981836-A530-4185-BA82-56E92E784545</INTERNAL_UID>
+         <ACTIVE>YES</ACTIVE>
+       </ACTION>
+       <ACTION NAME="PERSISTENCE" >
+         <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+         <ACTIVE>YES</ACTIVE>
+       </ACTION>
+    </ACTION_LIST>
+	
+    <CATEGORY_LIST>
+      <CATEGORY NAME="MATCH_ABAP_NATIVE_SQL">
+        <PROPERTY NAME="VALUE" TYPE="integer" />
+        <PROPERTY NAME="NATIVE_SQL" type="pattern">
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_ExecSqlStatement" />
+            </SUB_TREE_OR>
+          </TREE>
+        </PROPERTY>
+        
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+          <MATCH>NATIVE_SQL</MATCH>
+          <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+          <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+          <RESULT_COUNT>VALUE</RESULT_COUNT>
+        </ADD_ACTION>
+
+        <ADD_ACTION NAME="PERSISTENCE">
+          <SAVE>VALUE</SAVE>
+          <NAME>Use of ABAP Native SQL</NAME>
+        </ADD_ACTION>
+        
+      </CATEGORY>
+    </CATEGORY_LIST>
+</METRIC>

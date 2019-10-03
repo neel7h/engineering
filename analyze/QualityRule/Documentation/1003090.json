@@ -1,0 +1,66 @@
+{
+    "id": 1003090,
+    "name": "Avoid style block embedded in the MXML file (Flex)",
+    "href": "AIP/quality-rules/1003090",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports Flex scripts which has style blocks instead of use of external CSS files.",
+    "output": "This QR reports Flex scripts which has style blocks instead of use of external CSS files. It provides following information:\n\n- Flex script full name",
+    "rationale": "It is not a good practice to embed style blocks inside the MXML component.",
+    "remediation": "Use external CSS files instead.",
+    "total": "Number of Flex Scripts",
+    "alternativeName": "Avoid style block embedded in the MXML file (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.css.StyleBlockInMxml"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

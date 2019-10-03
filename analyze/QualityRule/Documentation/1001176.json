@@ -1,0 +1,59 @@
+{
+    "id": 1001176,
+    "name": "Avoid Programs having FIXED without BIN or BINARY or DEC or DECIMAL.The character \"(\"  is mandatory. (PL1)",
+    "href": "AIP/quality-rules/1001176",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches all the PL1 Main Procedures (Programs), PL1 Functions and PL1 Procedures having the DCL statements containing  the word FIXED and not containing  the word BIN or BINARY or DEC or DECIMAL nor an open parentheses for every line of code.\nIf the result is greater 0 then the quality rule is listed as a violation.",
+    "output": "The report lists all the PL1 Main Procedures , PL1 Functions and PL1 Procedures having the DCL statements containing  the word FIXED and not containing  the word BIN or BINARY or DEC or DECIMAL nor an open parentheses for every line of code.\n\nIt provides following information: \n-  PL1 Main Procedure , PL1 Function and PL1 Procedure full name",
+    "rationale": "Declaring variables  partially can cause trouble in managing the data conversions and can cause bad behavior.",
+    "remediation": "Each declaration has to be explicit",
+    "remediationSample": "DCL TEST BIN FIXED(31);\nor\nDCL TEST FIXED BIN(31);\nor\nDCL TEST DEC FIXED(5);\nor\nDCL TEST FIXED DEC(5);",
+    "sample": "DCL TEST FIXED;",
+    "total": "Number of PL1 Main Procedures , PL1 Functions and PL1 Procedures.",
+    "alternativeName": "Avoid Programs having FIXED without BIN or BINARY or DEC or DECIMAL.The character \"(\"  is mandatory. (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "id": 1001136,
+    "name": "Avoid Main Procedures having \"SELECT * FROM ...\" clause (PL1)",
+    "href": "AIP/quality-rules/1001136",
+    "critical": true,
+    "description": "This rule searches all the PL1 Main Procedures (Programs) having \"SELECT * FROM ...\" clause.",
+    "output": "The report lists all PL1 Main Procedures  having \"SELECT * FROM \" clause.\n\nIt provides following information: \n- PL1 Main Procedures  full name",
+    "rationale": "You incur an extra CPU cost for passing the columns from DB2 to your application. But this is not the\nonly consideration, retrieving additional columns can cause an additional access to the data\npages instead of an index-only access, resulting in additional I/Os, accumulating higher CPU,\nand elapsed time.",
+    "remediation": "Limit the columns in your SQL select statements to those applications really needing it.",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Main Procedures having \"SELECT * FROM ...\" clause (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

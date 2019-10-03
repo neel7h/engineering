@@ -1,0 +1,6 @@
+Build date: 01/03/2019 14:51:08,53 
+Build number: 1000035 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.springsecurity.git origin/master ea0f611effaa95108af7a3a6d65f016b88fc245b
+Publish date: 01/03/2019 15:04:41,04 
+Original version: 1.0.1-funcrel 

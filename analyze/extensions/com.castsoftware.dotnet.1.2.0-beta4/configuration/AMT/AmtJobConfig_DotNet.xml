@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+
+    <!-- Analyzer actions -->
+    <import file="AmtJobConfig_DotNetRaw.xml"/>
+
+    <actions>
+      <excludeStandardActions/>
+    </actions>
+
+    <analyzer name = "DotNet" keyName="DotNet" maxMem="1200" unlockTreeWalk="true"/>
+
+</configuration>

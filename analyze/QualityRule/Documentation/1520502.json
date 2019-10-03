@@ -1,0 +1,63 @@
+{
+    "id": 1520502,
+    "name": "SiebelReview: Link Specification For BusComp Field Property Set To TRUE",
+    "href": "AIP/quality-rules/1520502",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Reports if :\nUnecessary LinkSpec\nMissing LinkSpec, used as Pre or Post DefVal\nMissing LinkSpec, used as ParentFieldValue\nMissing LinkSpec for, used as Parent Read Only Field",
+    "description": "Setting Link Specification to TRUE has the following impacts on performance when set unnecessarily:\n* Increases the size of the result set returned to the client.\n* For joined fields, it will result in a join to an additional table where this join may not have been present.\n* For MVFs, it will result in an extra primary join to the child table where a primary is configured or secondary queries to the child table where a primary is not configured.",
+    "output": "This rule reports Fields in Business Components having an invalid Link Specification",
+    "rationale": "There are many fields with the Link Specification property set to TRUE.  These fields may not require this property to be set to TRUE.  When this property is TRUE, it specifies that the field's value can be passed as a default value to a field in a child business component (using the \"Parent: BusComp.Field\" default functionality, ParentFieldValue calculated field function, or Parent Read Only Field BusComp User Property).",
+    "remediation": "The Link Specification property should only be set to TRUE:\n* Where a child BusComp field refers to a parent BusComp field in the pre- or post-default properties,\n* Through use of the ParentFieldValue() calculated function, or\n* When referenced in a Parent Read Only Field BusComp User Property.\nFor any fields where none of the above cases apply, set the Link Specification property to FALSE.\nWhere the out of the box property is TRUE, do not change it.",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "SiebelReview: Link Specification For BusComp Field Property Set To TRUE",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

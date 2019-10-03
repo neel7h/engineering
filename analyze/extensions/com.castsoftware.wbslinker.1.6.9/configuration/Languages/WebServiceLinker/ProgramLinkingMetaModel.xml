@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="core" file_no="0">
+
+    <category name="CAST_CallToJavaProgram" id="142334">
+        <description>Call to a Java program</description>
+        <property name="javaClassFullName" type="string" id="140917">
+            <description>Fullname of the class, e.g., com.xxx.MyClass</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140917"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_CallToProgram" id="142335">
+        <description>Call to a program</description>
+        <property name="programName" type="string" id="140918">
+            <description>Name of the program called</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140918"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+    </category>
+
+	<!-- Programs for dotnet -->
+	<type name="CAST_DotNet_Executable" id="142380">
+		<description>.NET Program</description>
+		<attribute name="KEY_CLASS" intValue="38350"/>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <inheritedCategory name="CAST_Program" />
+        <tree parent="CAST_DotNet_CSharpObject" category="EnlightenTree"/>
+	</type>
+
+</metaModel>

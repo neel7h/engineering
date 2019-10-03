@@ -1,0 +1,26 @@
+Info   : Total physical memory: 16275 MB.
+Info   : Using default serialization memory threshold of 11392 MB.
+Info   : Saving for AipLight in directory : './output/Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4_9c859e6f9fe0e18e6e506846fae90a42d9525d2c'
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.userProjectId on instance CAST_UA_JobOptions #2
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.jobId on instance CAST_UA_JobOptions #2
+Warning: Unable to initialize greep tool for link search
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql': D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql:0
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql': D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql:0
+Info   : [com.castsoftware.sqlanalyzer] Start creating symbols for file D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql
+Info   : [com.castsoftware.sqlanalyzer] File D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql has ascii as detected encoding
+Info   : [com.castsoftware.sqlanalyzer] This file is analyzed against Mysql variant
+Info   : [com.castsoftware.sqlanalyzer] File D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql is considered as DDL
+Info   : [com.castsoftware.sqlanalyzer] End creating symbols for file D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql
+Info   : [com.castsoftware.sqlanalyzer] Max memory used is 239K
+Info   : [com.castsoftware.sqlanalyzer] Start resolving pending references
+Info   : [com.castsoftware.sqlanalyzer] End resolving pending references
+Info   : [com.castsoftware.sqlanalyzer] Start saving symbol links
+Info   : [com.castsoftware.sqlanalyzer] End saving symbol links
+Info   : [com.castsoftware.sqlanalyzer] Start creating links for file D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql
+Info   : [com.castsoftware.sqlanalyzer] End creating links for file D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\bugtracking.sql
+Info   : [com.castsoftware.sqlanalyzer] 1 Schema(s) created.
+Info   : [com.castsoftware.sqlanalyzer] 9 Table(s) created.
+Info   : [com.castsoftware.sqlanalyzer] 9 Unique Constraint(s) created.
+Info   : [com.castsoftware.sqlanalyzer] Max memory used is 28K
+Info   : Starting UA resolution
+Info   : End UA resolution

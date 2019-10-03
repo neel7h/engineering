@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- File describing JSP language -->
+
+<LanguagePattern id="jsp">
+
+
+
+<version_num value="1.0">
+
+	<identifier>
+		<!--<definition>[a-zA-Z_]+[a-zA-Z0-9_]*</definition>-->
+        <definition>[[:L*:]_]+[[:L*:][:Nd:]_]*</definition>
+        <!--
+            The character classes supported by Unicode Regular Expression:
+                [:L*:] represent all Letter 
+                [:Nd:] represent all Decimal Digit Number
+        -->
+		<case_sensitivity>true</case_sensitivity>
+	</identifier>
+
+	<language_characters>
+		<!--<a>[a-zA-Z0-9_]</a>-->
+        <a>[[:L*:][:Nd:]_]</a>
+	</language_characters>
+
+	<comment>
+		<begin>&lt;%--</begin>
+		<end>--%&gt;</end>
+	</comment>
+
+
+	<string>
+		<begin>"</begin>
+		<end>"</end>
+		<escape_char>\</escape_char>
+	</string>
+
+	<string>
+		<begin>'</begin>
+		<end>'</end>
+		<escape_char>\</escape_char>
+	</string>
+
+</version_num>
+
+
+</LanguagePattern>
+
+
+
+

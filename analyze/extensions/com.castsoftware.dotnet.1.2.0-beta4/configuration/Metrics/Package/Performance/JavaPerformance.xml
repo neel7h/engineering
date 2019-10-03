@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="Performance.JavaPerformance">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+				<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+				<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="CALCULATE" >
+				<INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>				
+				<ACTIVE>YES</ACTIVE>
+		</ACTION>		
+
+		<ACTION NAME="PERSISTENCE" >
+				<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+				<ACTIVE>YES</ACTIVE>
+		</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>		
+		<CATEGORY NAME="MATCH_OUT">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="PRINTLN_IN_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_J11_TryStatement</SIGNATURE> 							
+						</OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_ExpressionStatement</SIGNATURE>
+              </OR>        
+              <SUB_TREE_CONTINUE>
+                <TOKEN NAME="IDENTIFIER" EQUAL="System" />
+                <TOKEN NAME="."/>
+                <TOKEN NAME="IDENTIFIER" EQUAL="out" />
+                <TOKEN NAME="."/>
+                <TOKEN NAME="IDENTIFIER" />
+                <TOKEN NAME="("/>
+              </SUB_TREE_CONTINUE>
+            </TREE> 
+					</TREE>
+				</TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>PRINTLN_IN_CATCH</MATCH> 				
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>System.err and System.out in try blocks</NAME>				
+			</ADD_ACTION>
+
+		</CATEGORY>
+		<CATEGORY NAME="MATCH_ERR">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="ERR_IN_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_TryStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_ExpressionStatement</SIGNATURE>
+              </OR>
+              <SUB_TREE_CONTINUE>
+                <TOKEN NAME="IDENTIFIER" EQUAL="System" />
+                <TOKEN NAME="."/>
+                <TOKEN NAME="IDENTIFIER" EQUAL="err" />
+                <TOKEN NAME="."/>
+                <TOKEN NAME="IDENTIFIER" />
+                <TOKEN NAME="("/>
+              </SUB_TREE_CONTINUE>
+            </TREE>
+          </TREE>
+        </TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+				<MATCH>ERR_IN_CATCH</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>System.err and System.out in try blocks</NAME>				
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+		<CATEGORY NAME="MATCH_PRINTSTACKTRACE">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="ERR_PRINTSTACKTRACE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_J11_TryStatement</SIGNATURE>
+						</OR>
+							<SUB_TREE_OR>								
+								<TOKEN NAME="IDENTIFIER" EQUAL="printStackTrace" /> 							
+							</SUB_TREE_OR>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+				<MATCH>ERR_PRINTSTACKTRACE</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Throwable.printStackTrace in try block</NAME>				
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+		<CATEGORY NAME="MATCH_ALL_OUT">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="PRINTLN" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_ExpressionStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="IDENTIFIER" EQUAL="System" />
+              <TOKEN NAME="."/>
+              <TOKEN NAME="IDENTIFIER" EQUAL="out" />
+              <TOKEN NAME="."/>
+              <TOKEN NAME="IDENTIFIER" />
+              <TOKEN NAME="("/>
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>PRINTLN</MATCH> 				
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+		<CATEGORY NAME="MATCH_ALL_ERR">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="ERR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_ExpressionStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="IDENTIFIER" EQUAL="System" />
+              <TOKEN NAME="."/>
+              <TOKEN NAME="IDENTIFIER" EQUAL="err" />
+              <TOKEN NAME="."/>
+              <TOKEN NAME="IDENTIFIER" />
+              <TOKEN NAME="("/>
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+				<MATCH>ERR</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+		<CATEGORY NAME="MATCH_ALL_PRINTSTACKTRACE">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="PRINTSTACKTRACE" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+					<SUB_TREE_OR>						
+						<TOKEN NAME="IDENTIFIER" EQUAL="printStackTrace" /> 							
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+				<MATCH>PRINTSTACKTRACE</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_COUNT>VALUE</RESULT_COUNT> 
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+		<CATEGORY NAME="OUT_ERR_WITHOUT_TRY">
+			<PROPERTY NAME="VALUE" type="integer" />
+			<ADD_ACTION NAME="CALCULATE">
+				<ADD_VALUE>MATCH_ALL_ERR.VALUE</ADD_VALUE>
+				<ADD_VALUE>MATCH_ALL_OUT.VALUE</ADD_VALUE>
+				<LESS_VALUE>MATCH_OUT.VALUE</LESS_VALUE>
+				<LESS_VALUE>MATCH_ERR.VALUE</LESS_VALUE>
+				<RESULT>VALUE</RESULT>
+			</ADD_ACTION>
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>System.err and System.out not in try blocks</NAME>				
+			</ADD_ACTION>
+		
+		</CATEGORY>
+
+		<CATEGORY NAME="PRINTSTACKTRACE_WITHOUT_TRY">
+			<PROPERTY NAME="VALUE" type="integer" />
+			<ADD_ACTION NAME="CALCULATE">
+				<ADD_VALUE>MATCH_ALL_PRINTSTACKTRACE.VALUE</ADD_VALUE>				
+				<LESS_VALUE>MATCH_PRINTSTACKTRACE.VALUE</LESS_VALUE>				
+				<RESULT>VALUE</RESULT>
+			</ADD_ACTION>
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Throwable.printStackTrace not in try blocks</NAME>				
+			</ADD_ACTION>
+		
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+
+</METRIC>
+
+
+
+			
+

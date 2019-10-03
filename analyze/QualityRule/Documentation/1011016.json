@@ -1,0 +1,69 @@
+{
+    "id": 1011016,
+    "name": "Avoid unreferenced Logical file  (DDS400)",
+    "href": "AIP/quality-rules/1011016",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all the unreferenced logical  files.",
+    "output": "This report lists DDS400 unreferenced logical File.\nIt provides the following information:\nDDS400 Logical File full name",
+    "rationale": "Unreferenced Logical files may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.\n\nWarning:\nUnreferenced code can also be the symptoms of missing code",
+    "remediation": "Check if the unreferenced Logical files is not the symptome of missing code and if it is not the case, remove them.",
+    "remediationSample": "Reduce number of unreferenced logical files. Logical file are referred in RPG programs in following way\n\nFMYFILE IF E DISK INFDS(FILEFBK) ",
+    "total": "Total number of DDS400 Logical File",
+    "alternativeName": "Avoid unreferenced Logical file  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

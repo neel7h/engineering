@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalLinksRules xmlns="http://tempuri.org/ExternalLinksRules.xsd">
+  <When-NotMatch-FullName>
+    <callee>JSP_SERVLET_MAPPING</callee>
+  </When-NotMatch-FullName >
+  <Remove>    
+    <When-Match-Regexp>
+      <callee type="JSP_PROPERTY_MAPPING">
+        <regexp>.</regexp>
+      </callee>
+      <right-part-extracted-string-from-code>
+        <regexp>[ \t\r\n]*\.</regexp>
+      </right-part-extracted-string-from-code>      
+    </When-Match-Regexp>
+    <When-Match-Regexp>
+      <callee type="JSP_SERVLET_MAPPING">        
+      </callee>
+    </When-Match-Regexp>
+  </Remove>
+  
+  <Valid>    
+    <When-Match-Regexp>
+      <callee type="JSP_SERVLET_MAPPING">
+        <regexp>.</regexp>
+      </callee>
+      
+      <right-part-extracted-string-from-code>
+        <regexp>[ \t\r\n]*\?</regexp>
+      </right-part-extracted-string-from-code>
+    </When-Match-Regexp>
+    
+    <When-Match-Regexp>
+      <callee type="JSP_PROPERTY_MAPPING">
+        <regexp>.</regexp>
+      </callee>
+      <right-part-extracted-string-from-code>
+        <regexp>[ \t\r\n]*([^.]|)</regexp>
+      </right-part-extracted-string-from-code>
+      <left-part-extracted-string-from-code>
+        <regexp>\.[ \r\n]*</regexp>
+      </left-part-extracted-string-from-code>      
+    </When-Match-Regexp>    
+  </Valid>
+  
+  <Remove>    
+    <When-Match-Regexp>
+      <callee type="JSP_PROPERTY_MAPPING">
+        <regexp>.</regexp>
+      </callee>      
+      <caller type="JSP_PROPERTY_MAPPING">
+        <regexp>.</regexp>	  
+      </caller>
+    </When-Match-Regexp>    
+  </Remove>
+  
+</ExternalLinksRules>
+
+
+<!-- help for this parametrization:
+    As an AI Admin, there are lot of links to validate in the dynamic link manager (links from grep on string in code), 
+    some of them has no meaning for a specific technology, 
+    I would like them to be validated or drop automatically according to specific rules 
+    so that I don't spend time to do this.
+    It is possible to filter (Drop or Validate link) with :
+    => Possibly to match with Full Name and not with name.
+    => Possibly to filter with Caller Name (with a regular expression)
+    => Possibly to filter with Caller Type (category or type from metamodel)
+    => Possibly to filter with Callee Name (with a regular expression)
+    => Possibly to filter with Callee Type (category or type from metamodel)
+    => Possibly to filter string from code (with a regular expression)
+    => Possibly to filter on the right part of string from code (with a regular expression)
+    => Possibly to filter on the left part of string from code (with a regular expression)
+    
+    If there is a rule validate a link and an other Drop a link, the link is validate.
+  
+  <ExternalLinksRules>
+      <When-NotMatch-FullName> 
+        <callee>JSP_SERVLET_MAPPING</callee> => Match only with Full Name.
+      </When-NotMatch-FullName >    
+      <Remove>  => if a link mach any rule in <Remove>, then the link is dropped.
+         <When-Match-Regexp> => All links to callee of type JSP_PROPERTY_MAPPING and name begins with P_ are droped.
+            <callee type="JSP_PROPERTY_MAPPING">
+              <regexp>P_[a-z0-9]+</regexp>  
+            </callee>
+         </When-Match-Regexp>   
+         <When-Match-Regexp>   => No link when the caller is a Java member
+            <caller type="JV_FIELD">
+         </caller>
+         </When-Match-Regexp> 
+         <When-Match-Regexp>   => No link when the caller is a Java member
+            <caller type="JV_CLASS"> 
+            </callee>
+            <caller type="CAST_COBOL_Program"> => All links to callee of type CAST_COBOL_Program with name begings P_ and caller with type JV_CLASS are droped.
+              <regexp>P_[a-z0-9]+</regexp>  
+            </callee>            
+         </When-Match-Regexp>
+         <When-Match-Regexp> => No link are created when string contains MsBox. Exemple "MsgBox : select * from Authors"
+            <string-from-code>
+              <regexp>MsgBox</regexp>
+            </string-from-code>
+         </When-Match-Regexp>
+         <callee type="JSP_SERVLET_MAPPING"> => If there is "?" after the string matched, there is no Link. Example : " Mysevlet?"
+            <right-part-extracted-string-from-code>
+              <regexp>"[ \t\r\n]*\?"</regexp>
+            </right-part-extracted-string-from-code>        
+         </callee>         
+         <callee type="JSP_SERVLET_MAPPING"> => If there is "#" before the string matched, there is no Link. Example : " #Mysevlet"
+            <left-part-extracted-string-from-code>
+              <regexp>"#"</regexp>
+            </right-part-extracted-string-from-code>        
+         </callee>         
+         
+      </Remove>    
+      <Valid> => if a link mach any rule in <Valide>, then the link is not shown in the dynamic link manager.
+          you can put the same rules 
+      </Valid>
+  </ExternalLinksRules>
+ 
+  
+  -->
+
+

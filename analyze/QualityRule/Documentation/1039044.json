@@ -1,0 +1,76 @@
+{
+    "id": 1039044,
+    "name": "Avoid usage of BannedAPI when using ESAPI library",
+    "href": "AIP/quality-rules/1039044",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of the following APIs:\n\nSystem.out.println()\nThrowable.printStackTrace()\nRuntime.exec()\nSession.getId()\nServletRequest.getUserPrincipal()\nServletRequest.isUserInRole()\nSession.invalidate()\nMath.Random.*\nFile.createTempFile()\nServletResponse.setContentType()\nServletResponse.sendRedirect()\nRequestDispatcher.forward()\nServletResponse.addHeader()\nServletResponse.addCookie()\nServletRequest.isSecure()\nProperties.*\nServletContext.log()\njava.security and javax.crypto\njava.net.URLEncoder/Decoder\njava.sql.Statement.execute\nServletResponse.encodeURL\nServletResponse.encodeRedirectURL",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components.\n\nThe following calls/api are dangerous and should be replaced with the safer calls provided by ESAPI.\nAvoid using of the list of Banned API\n\nSystem.out.println()\nThrowable.printStackTrace()\nRuntime.exec()\nSession.getId()\nServletRequest.getUserPrincipal()\nServletRequest.isUserInRole()\nSession.invalidate()\nMath.Random.*\nFile.createTempFile()\nServletResponse.setContentType()\nServletResponse.sendRedirect()\nRequestDispatcher.forward()\nServletResponse.addHeader()\nServletResponse.addCookie()\nServletRequest.isSecure()\nProperties.*\nServletContext.log()\njava.security and javax.crypto\njava.net.URLEncoder/Decoder\njava.sql.Statement.execute\nServletResponse.encodeURL\nServletResponse.encodeRedirectURL",
+    "reference": "https://www.owasp.org/index.php/ESAPI_Secure_Coding_Guideline",
+    "remediation": "Use the equivalent API provided OWASP ESAPI (see the reference)",
+    "remediationSample": "Use the available OWASP ESAPI or equivalent.\n\nBAN001  System.out.println()                Logger.*    \nBAN002  Throwable.printStackTrace()         Logger.*    \nBAN003  Runtime.exec()                      Executor.safeExec() \nBAN004  Session.getId()                     Randomizer.getRandomString (better not to use at all)   \nBAN005  ServletRequest.getUserPrincipal()   Authenticator.getCurrentUser()  \nBAN006  ServletRequest.isUserInRole()       AccessController.isAuthorized*()    \nBAN007  Session.invalidate()                Authenticator.logout()  \nBAN008  Math.Random.*                       Randomizer.*    \nBAN009  File.createTempFile()               Randomizer.getRandomFilename()  \nBAN010  ServletResponse.setContentType()    HTTPUtilities.setContentType()  \nBAN011  ServletResponse.sendRedirect()      HTTPUtilities.safeSendRedirect()    \nBAN012  RequestDispatcher.forward()         HTTPUtilities.safeSendForward() \nBAN013  ServletResponse.addHeader()         HTTPUtilities.safeSetHeader()/safeSetHeader()   \nBAN014  ServletResponse.addCookie()         HTTPUtilities.safeAddCookie()   \nBAN015  ServletRequest.isSecure()           HTTPUtilties.isSecureChannel()  \nBAN016  Properties.*                        EncryptedProperties.*   \nBAN017  ServletContext.log()                Logger.*    \nBAN018  java.security and javax.crypto      Encryptor.* \nBAN019  java.net.URLEncoder/Decoder         Encoder.encodeForURL()/decodeForURL()   \nBAN020  java.sql.Statement.execute          PreparedStatement.execute   \nBAN021  ServletResponse.encodeURL           HTTPUtilities.safeEncodeURL() (better not to use at all)    \nBAN022  ServletResponse.encodeRedirectURL   HTTPUtilities.safeEncodeRedirectURL() (better not to use at all)",
+    "sample": "The following calls in the code.\n\nSystem.out.println()\nThrowable.printStackTrace()\nRuntime.exec()\nSession.getId()\nServletRequest.getUserPrincipal()\nServletRequest.isUserInRole()\nSession.invalidate()\nMath.Random.*\nFile.createTempFile()\nServletResponse.setContentType()\nServletResponse.sendRedirect()\nRequestDispatcher.forward()\nServletResponse.addHeader()\nServletResponse.addCookie()\nServletRequest.isSecure()\nProperties.*\nServletContext.log()\njava.security and javax.crypto\njava.net.URLEncoder/Decoder\njava.sql.Statement.execute\nServletResponse.encodeURL\nServletResponse.encodeRedirectURL",
+    "total": "Number of Java artifacts",
+    "alternativeName": "BannedAPI should not be used because they are considered deprecated and unsafe",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

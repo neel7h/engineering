@@ -1,0 +1,929 @@
+module Core.JEE.Spring.Spring;
+
+use Core.JEE.Annotations;
+use Core.JEE.JEE;
+use Core.ConstantsMetamodel;
+use Core.Log;
+use Core.Bookmark;
+use Core.String;
+
+
+private const string scopeAnnotationFullName          = "org.springframework.context.annotation.Scope";
+private const string componentAnnotationFullName      = "org.springframework.stereotype.Component";
+private const string controllerAnnotationFullName     = "org.springframework.stereotype.Controller";
+private const string repositoryAnnotationFullName     = "org.springframework.stereotype.Repository";
+private const string serviceAnnotationFullName        = "org.springframework.stereotype.Service";
+private const string configurationAnnotationFullName  = "org.springframework.context.annotation.Configuration";
+private const string beanAnnotationFullName           = "org.springframework.context.annotation.Bean";
+private const string lazyAnnotationFullName           = "org.springframework.context.annotation.Lazy";
+private const string autowiredAnnotationFullName      = "org.springframework.beans.factory.annotation.Autowired";
+
+private const string kSPRING_BEAN_SUBTYPE_COMPONENT  = "Component";
+private const string kSPRING_BEAN_SUBTYPE_CONTROLLER = "Controller";
+private const string kSPRING_BEAN_SUBTYPE_REPOSITORY = "Repository";
+private const string kSPRING_BEAN_SUBTYPE_SERVICE    = "Service";
+
+
+
+
+/**
+*	Add an alias to a Spring bean.
+*
+*	@param bean: A Spring bean.
+*	@param alias: An alias of the Spring bean.
+*/
+void addAlias( symbol bean, string alias )
+{
+	addProperty( bean, CAST_Spring_Properties_Aliases, alias);
+}
+
+
+/**
+*	Add an alias to a Spring bean.
+*
+*	@param beanName: A Spring bean name.
+*	@param alias: An alias of the Spring bean.
+*/
+void addAlias( string beanName, string alias )
+{
+	symbol bean = findUniqueSymbol( beanName, { SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW } );
+	if ( bean == null )
+	{
+		log( DEBUG, " Cannot find Spring bean whose name is '" + beanName + "' in order to add the alias '" + alias + "'.");
+		return ;
+	}
+	
+	addAlias( bean, alias);
+}
+
+/**
+* Create a link between the analyzed file and the imported one
+* 
+* @param path: relative path of the imported file.
+*/
+void createLinkToIncludedFile(string path)
+{
+    symbol callingFile = getCurrentConfigurationFile(JSP_XMLCONFIG_FILE);
+    
+    if(callingFile == null)
+    {
+      log(WARNING,"The analyzed file could not be retrieved.");
+      return;   
+    }
+    
+   importFile( callingFile, getConfigurationFileRelativeRootPath(callingFile) + path );
+}
+
+/**
+*	Import files described in import tag of Spring definition file.
+*
+*	@param springDefinitionFile: A Spring definition file.
+*	@param importedFilePath: Imported file path.
+*/
+void importFile( symbol springDefinitionFile, string importedFilePath )
+{
+	/**
+	 * /!\ The imported file will be added to the analysis
+	 */
+	symbol importedFile = findUniqueSymbol(importedFilePath, JSP_XMLCONFIG_FILE);
+
+    if(springDefinitionFile != null && importedFile != null)
+	{
+		log(DEBUG,">>> creating included link for imported file.");
+        createLink( springDefinitionFile, importedFile, includeLink);
+	}
+}
+
+/**
+*	Set the common properties for a Spring bean.
+*
+*	@param springBean: Spring bean.
+*	@param abstract : Spring bean abstract property.
+*   @param singleton : Spring bean singleton property.
+*   @param autowire : Spring bean autowir property.
+*   @param dependencyCheck : Spring bean dependency property.
+*   @param lazyInit : Spring bean lazy-init property.
+*/
+void setBeanGeneralProperties(symbol springBean, string abstract, string autowire, string dependencyCheck, string lazyInit)
+{
+   setProperty( springBean, Cast_Spring_Properties_isAbstract, booleanToString( abstract == "true" ) );
+	
+	if(autowire != "")
+	{
+		setProperty( springBean, Cast_Spring_Properties_autowire, autowire);
+	}
+
+	if(dependencyCheck != "")
+	{
+		setProperty( springBean, Cast_Spring_Properties_dependencyCheck, dependencyCheck);
+	}
+	
+	setProperty( springBean, Cast_Spring_Properties_lazyInit, booleanToString( lazyInit == "true" ) ); 
+}
+
+private string booleanToString( boolean value )
+{
+	if ( value )
+	{
+		return "true";
+	}
+	else
+	{
+		return "false";
+	}
+}
+
+/**
+*	Set the general properties of a Spring bean.
+*
+*	@param bean: Spring bean name.
+*	@param beanImplClassFullName: Spring bean implementating class full name.
+*   @param scope : Spring bean singleton property.
+*
+*	@return The created spring bean.
+*/
+symbol createSpringBean(	string beanName,
+							string beanImplClassFullName,
+							string scope )
+{
+	log( DEBUG, ">>> Creating a Spring Bean " + beanName );
+	
+	symbol implClass = findUniqueSymbol( beanImplClassFullName, { JV_CLASS, JV_GENERIC_CLASS } );
+	symbol springBean = null;
+	
+	if ( scope == "singleton" || scope == "prototype" )
+	{
+		string beanType = SPRING_BEAN;
+		if( isImplementingOrInheriting( implClass, "org.springframework.web.servlet.mvc.Controller" ) )
+		{
+			beanType = SPRING_CONTROLLER;
+		}
+	
+		if( isImplementingOrInheriting( implClass, "org.springframework.web.servlet.View" ) )
+		{
+			beanType = SPRING_VIEW;
+		}
+		
+		springBean = findOrCreateSymbol( beanName, beanType );
+		setProperty( springBean, Cast_Spring_Properties_isSingleton, booleanToString( scope == "singleton" ) );
+		setProperty( springBean, Cast_Spring_Properties_BeanClass, beanImplClassFullName );
+	}
+	else
+	{
+		switch( scope )
+		{
+		case "request"   :
+			{
+				springBean = findOrCreateScopedBean( beanName, request_scope);
+				break;
+			}
+		case "session"   :
+			{
+				springBean = findOrCreateScopedBean( beanName, session_scope);
+				break;
+			}
+		case "globalSession":
+			{
+				springBean = findOrCreateScopedBean( beanName, application_scope);
+				break;
+			}
+		}
+	}
+	
+	createLink( springBean, implClass, relyonLink );
+	return springBean;
+}
+
+/**
+*	Set the general properties of a Spring bean.
+*
+*	@param bean: Spring bean name.
+*	@param beanImplClassFullName: Spring bean implementating class full name.
+*   @param scope : Spring bean singleton property.
+*   @param abstract : Spring bean abstract property.
+*   @param autowire : Spring bean autowir property.
+*   @param dependencyCheck : Spring bean dependency property.
+*   @param lazyInit : Spring bean lazy-init property.
+*
+*	@return The created spring bean.
+*/
+symbol createSpringBean(	string beanName,
+							string beanImplClassFullName,
+							string scope,
+							string abstract,
+							string parent,
+							string autowire,
+							string dependencyCheck,
+							string lazyInit,
+							string factoryMethod)
+{
+	symbol springBean = createSpringBean( beanName, beanImplClassFullName, scope );
+	
+	if ( scope == "singleton" || scope == "prototype" )
+	{
+		setBeanGeneralProperties(springBean, abstract, autowire, dependencyCheck, lazyInit);
+        if(parent != "")
+	    {
+		    setProperty( springBean, Cast_Spring_Properties_ParentBean, parent );
+	    }
+
+	}
+	
+	if(factoryMethod != "")
+	{
+	    string factoryMethodFQName = beanImplClassFullName + "." + factoryMethod;
+	    list(symbol) factoryMethods = findSymbols(factoryMethodFQName, {JV_METHOD}); 
+		foreach(symbol method in factoryMethods)
+		{
+                    setProperty(method, Cast_MethodProperties_FactoryMethod, "true");					
+                    log(DEBUG, "add property factory method on method: " + factoryMethodFQName);		
+		}
+	}
+	
+	return springBean;
+}
+
+
+
+
+/**
+*	Entry point for bean creation from annotations.
+*
+*/
+void createSpringBeansFromAnnotations()
+{
+	log( DEBUG, "Execute createSpringBeansFromConfigurationAnnotation" );
+	createSpringBeansFromConfigurationAnnotation();
+	log( DEBUG, "Execute createSpringBeansFromScopeAnnotation" );
+    createSpringBeansFromScopeAnnotation();
+	log( DEBUG, "Execute createSpringBeansFromComponentAnnotation" );
+    createSpringBeansFromComponentAnnotation();
+	log( DEBUG, "Execute createSpringBeansFromRepositoryAnnotation" );
+    createSpringBeansFromRepositoryAnnotation();
+	log( DEBUG, "Execute createSpringBeansFromServiceAnnotation" );
+    createSpringBeansFromServiceAnnotation();
+	log( DEBUG, "Execute createSpringBeansFromControllerAnnotation" );
+    createSpringBeansFromControllerAnnotation();
+
+//@Repository, @Service and @Controller as respectively Spring Repository (new property), Spring Service (new property) and Spring Controller	
+}
+
+/**
+*	Instantiate beans created from annotations @Configuration / @Bean.
+*
+*   @return the list of beans created from the annotaion
+*/
+void createSpringBeansFromConfigurationAnnotation()
+{
+	log( DEBUG, "Start createSpringBeansFromConfigurationAnnotationd" );
+
+	list(symbol) beanCreationMethods = getSymbolsAnnotatedWith( beanAnnotationFullName , JV_METHOD );
+
+	foreach( symbol beanMethod in beanCreationMethods)
+	{
+         log( DEBUG, "Start new @Bean annotated method" );
+
+	     symbol parentClass = getSymbolUniqueParent(beanMethod);
+
+		 if (hasAnnotation(parentClass,configurationAnnotationFullName))
+		 {
+			findOrCreateSpringBeanFromBeanAnnotation(beanMethod,parentClass);
+		 }
+		 else
+		 {
+			string nameClass = getStringProperty(parentClass,identification_name);
+			log( DEBUG, "@Bean annotation found outside class with @Configuration annotation : " + nameClass );
+		 }
+
+		 log( DEBUG, "End new @Bean annotated method" );
+	}
+
+	log( DEBUG, "End createSpringBeansFromConfigurationAnnotation" );
+}
+
+/**
+*	Return the list of beans created from annotation @Scope.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromScopeAnnotation()
+{
+    /**
+	*	creation of all beans from annotation Scope
+	*/
+	log( DEBUG, "Try to retrieve classes" );
+
+	list(symbol) beanClasses = getSymbolsAnnotatedWith( scopeAnnotationFullName , JV_CLASS );
+	
+	log( DEBUG, "Bean classes retrieved successfully" );
+
+	list(symbol) beans = {};
+	symbol springBean = null;
+	
+	foreach( symbol beanClass in beanClasses)
+	{
+		springBean = findOrCreateSpringBeanFromScopeAnnotation(beanClass);		
+		if(springBean != null)
+		{
+			createLink( springBean, beanClass, relyonLink );
+		    beans = beans + springBean;
+		}
+		
+		springBean = null;
+	}
+	
+	return beans;
+}
+
+void findOrCreateSpringBeanFromBeanAnnotation(symbol beanMethod, symbol parentClass)
+{
+	string scope  =  null;
+	if (hasAnnotation(beanMethod,scopeAnnotationFullName))
+	{
+		scope = getParameterStringFromAnnotation( beanMethod, scopeAnnotationFullName , "value");
+	}
+	
+	// default scope is singleton
+	if (   scope != "prototype" && scope != "singleton" && scope != "request" 
+	    && scope != "session" && scope != "globalSession")
+	{
+		log( DEBUG, "Default value for Scope is singleton" );
+		scope = "singleton";
+	}
+
+	//string beanName = getParameterStringFromAnnotation(beanMethod,beanAnnotationFullName,"name");
+	string beanName = null;
+	list(string) listAlias = {} ;
+	list(string) allNames = getParameterStringListFromAnnotation(beanMethod,beanAnnotationFullName,"name");
+	if ( allNames == null )
+	{
+		beanName = getStringProperty(beanMethod,identification_name);
+		int ix = getFirstIndex(beanName,"(");
+		if (ix > -1)
+		{
+			beanName = substring (beanName, 0, ix);
+		}
+		log( DEBUG, "Assign bean name from method name : " + beanName);
+	}
+	else
+	{
+		foreach(string alias in allNames)
+		{
+			if (beanName == null)
+			{
+				beanName = alias ;
+				log( DEBUG, "Assign first alias as name : " + beanName);
+			}
+			else
+			{
+				listAlias = listAlias + alias;
+			}
+		}
+	}
+
+	// Get actual implementation : it is not clearly specify what to do if different implementation may be returned
+	symbol beanClass = null ;
+
+	list(symbol) listImpl = findReturnedSymbols(beanMethod) ;
+	foreach(symbol clazz in listImpl)
+	{
+		beanClass = clazz;
+	}
+	if (beanClass == null)
+	{
+		log( DEBUG, "Spring bean implementation class not found");
+		return;
+	}
+	
+	string beanImplClassFullName = getStringProperty(beanClass,identification_fullName);
+	symbol beanClassFile = getJavaSymbolFile( beanClass );
+	if ( beanClassFile == null )
+	{
+		log( DEBUG, ">>> Failed to find Java file for bean '" + beanName + "'" );
+		return;
+	}
+	symbol springBean = null;
+	
+	if ( scope == "singleton" || scope == "prototype" )
+	{
+		log( DEBUG, ">>> Creating " + SPRING_BEAN + " spring bean '" + beanName + "' from annotation" );
+		string beanType = SPRING_BEAN;
+		if( isImplementingOrInheriting( beanClass, "org.springframework.web.servlet.mvc.Controller" ) )
+		{
+			beanType = SPRING_CONTROLLER;
+		}
+	
+		if( isImplementingOrInheriting( beanClass, "org.springframework.web.servlet.View" ) )
+		{
+			beanType = SPRING_VIEW;
+		}
+		springBean = findOrCreateSymbol( beanName, beanType, beanClassFile );
+		setProperty( springBean, Cast_Spring_Properties_isSingleton, booleanToString( scope == "singleton" ) );
+		setProperty( springBean, Cast_Spring_Properties_BeanClass, beanImplClassFullName );
+
+		// Add alias
+		foreach (string springNameAlias in listAlias)
+		{
+			log( DEBUG, "Add alias : " + springNameAlias);
+			addAlias(springBean,springNameAlias);
+		}
+
+		string isLazy = getParameterStringFromAnnotation(beanMethod,lazyAnnotationFullName,"value");
+		if (isLazy == null)
+		{
+			isLazy = getParameterStringFromAnnotation(parentClass,lazyAnnotationFullName,"value");
+		}
+
+		string autoWired = "false" ;
+		if ( hasAnnotation(beanMethod, autowiredAnnotationFullName) )
+		{
+			autoWired = "true";
+		}
+		else
+		{
+			if ( hasAnnotation(parentClass, autowiredAnnotationFullName) )
+			{
+				autoWired = "true";
+			}
+		}
+
+		setBeanGeneralProperties(springBean, "", autoWired, "", isLazy);
+
+		// Manage DI in the bean
+		list(symbol) methodsOfBean = findSymbols({JV_METHOD},beanClass);
+		foreach (symbol methodOrfield in methodsOfBean)
+		{
+			if ( hasAnnotation(methodOrfield, autowiredAnnotationFullName) )
+			{
+				string methodName = getStringProperty(methodOrfield,identification_name);
+				string propName = beanMethodToFieldName(methodName);
+				symbol beanProperty = findOrCreateSymbol(propName, CAST_JEE_SpringBeanProperty, springBean);
+				createLink(beanProperty,methodOrfield,relyonLink);
+			}
+		}
+
+	}
+	else
+	{
+		switch( scope )
+		{
+		case "request"   :
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, request_scope, beanClassFile);
+				break;
+			}
+		case "session"   :
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, session_scope, beanClassFile);
+				break;
+			}
+		case "globalSession":
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, application_scope, beanClassFile);
+				break;
+			}
+		}
+	}
+	
+	if(springBean != null)
+	{
+	    symbol beanAnnotation = findUniqueSymbol( beanAnnotationFullName, CAST_Java_Annotation, beanMethod );
+		if ( beanAnnotation == null )
+		{
+			log( DEBUG, "Annotation symbol is null");
+		}
+		else
+		{
+			setBookmark( springBean, getBookmark( beanAnnotation ) );
+		}
+		createLink(springBean,beanClass,relyonLink);
+	}
+	
+	return;
+}
+
+symbol createSpringBeanProperty(string beanName, string beanImplClass, string propertyName)
+{
+	log( DEBUG, "createSpringBeanProperty : " + propertyName);
+
+	symbol parentBean = findUniqueSymbol(beanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW});
+	if (parentBean == null)
+	{
+		log( DEBUG, "createSpringBeanProperty : no parent found");
+		return null;
+	}
+
+	symbol beanProperty = findOrCreateSymbol(propertyName, CAST_JEE_SpringBeanProperty, parentBean);
+
+	symbol beanClass = findUniqueSymbol(beanImplClass, {JV_CLASS});
+	if ( beanClass == null )
+	{
+		log( DEBUG, "createSpringBeanProperty : no bean class found");
+		return beanProperty;
+	}
+
+	// Create setter name
+	string setterName = fieldNameToSetter(propertyName);
+
+	symbol classSetter = findUniqueSymbol(setterName, {JV_METHOD}, beanClass);
+	if ( beanClass == null )
+	{
+		log( DEBUG, "createSpringBeanProperty : no class setter found");
+		return beanProperty;
+	}
+
+	createLink(beanProperty,classSetter,relyonLink);
+	
+	return beanProperty;
+}
+
+string fieldNameToSetter(string fieldName)
+{
+	string firstChar = substring(fieldName, 0, 1);
+	string result = concat("set",toUpper(firstChar) );
+	result = concat(result,substring(fieldName,1));
+	return result;
+}
+
+/* 
+ * Return the field name from the method name when it respects the bean specification 
+ * returns "" otherwise
+ */
+string beanMethodToFieldName(string methodName) {
+   list(string) prefix = {"get","set","is"};
+   foreach (string p in prefix) {
+      /* does the method match the prefix ? */
+      if (substringMatch(methodName, concat(p,".*")) != "") {
+	    /* remove the prefix and lower the first method letter */
+	    string fieldName = toLower(substring(methodName,getLength(p)),1);
+		/* look for the first '(' to remove the signature */
+		int index = getFirstIndex(fieldName, "(");
+		if (index > -1) {
+		  fieldName = substring(fieldName, 0, index);
+		}
+	    return fieldName;
+	  }
+   }
+   return "";
+}
+
+
+symbol findOrCreateSpringBeanFromScopeAnnotation(symbol beanClass)
+{
+	log( DEBUG, "Start findOrCreateSpringBeanFromScopeAnnotation" );
+
+	string scope  =  getParameterStringFromAnnotation( beanClass, scopeAnnotationFullName , "value");
+	
+	// default scope is singleton
+	if (   scope != "prototype" && scope != "singleton" && scope != "request" 
+	    && scope != "session" && scope != "globalSession")
+	{
+		log( DEBUG, "Default value for Scope is singleton" );
+		scope = "singleton";
+	}
+	
+	string beanName = getBeanName(beanClass);
+	string beanImplClassFullName = getStringProperty(beanClass,identification_fullName);
+	symbol beanClassFile = getJavaSymbolFile( beanClass );
+	symbol springBean = null;
+	
+	if ( scope == "singleton" || scope == "prototype" )
+	{
+		log( DEBUG, ">>> Creating " + SPRING_BEAN + " spring bean " + beanName + " from annotation" );
+		springBean = findOrCreateSymbol( beanName, SPRING_BEAN, beanClassFile );
+		setProperty( springBean, Cast_Spring_Properties_isSingleton, booleanToString( scope == "singleton" ) );
+		setProperty( springBean, Cast_Spring_Properties_BeanClass, beanImplClassFullName );
+	}
+	else
+	{
+		switch( scope )
+		{
+		case "request"   :
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, request_scope, beanClassFile);
+				break;
+			}
+		case "session"   :
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, session_scope, beanClassFile);
+				break;
+			}
+		case "globalSession":
+			{
+				springBean = findOrCreateScopedBeanFromJavaFile( beanName, application_scope, beanClassFile);
+				break;
+			}
+		}
+	}
+	
+	if(springBean != null)
+	{
+	    symbol beanAnnotation = findUniqueSymbol( scopeAnnotationFullName, CAST_Java_Annotation, beanClass );
+	    setBookmark( springBean, getBookmark( beanAnnotation ) );
+	}
+	
+	return springBean;
+}
+
+/**
+*	Return the beans created from the given annotation with type.
+*
+*   @param annotation: full qualified name of the annotation
+*   @param type: metatype of the beans
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromAnnotation(string annotation, string type)
+{
+	log( DEBUG, "Start createSpringBeansFromAnnotation" );
+
+	list(symbol) beanClasses = getSymbolsAnnotatedWith( annotation , JV_CLASS );
+	
+	list(symbol) beans = {};
+	symbol springBean = null;
+	
+	foreach( symbol beanClass in beanClasses)
+	{
+		string name = getBeanName(beanClass);
+		symbol beanClassFile = getJavaSymbolFile( beanClass );
+		    
+		// beans with a @Scope annotation have already been processed, don't recreate
+		if( !hasAnnotation(beanClass, scopeAnnotationFullName))
+		{
+		    string fullname = getStringProperty(beanClass,identification_fullName);
+		    log( DEBUG, ">>> Creating spring bean " + name + " from " + annotation + " annotation" );
+		    springBean = findOrCreateSymbol(name, type, beanClassFile);
+		    symbol beanAnnotation = findUniqueSymbol( scopeAnnotationFullName, CAST_Java_Annotation, beanClass );
+		    setBookmark( springBean, getBookmark( beanClass ) );
+		    setProperty(springBean,Cast_Spring_Properties_BeanClass,fullname);
+		    createLink(springBean,beanClass,relyonLink);
+		}
+		else
+		{
+			// symbol should have been created already, simply return it
+		    springBean = findOrCreateSpringBeanFromScopeAnnotation(beanClass);
+		}
+		
+		if((beans == null) && (springBean != null))
+		{
+		    beans = {springBean};
+		}
+		
+		if((beans != null) && (springBean != null))
+		{
+		    beans = beans + springBean;
+		}
+		
+		springBean = null;
+	}
+	return beans;
+    
+}
+
+/**
+*	Return the list of beans created from annotation @Component.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromComponentAnnotation()
+{
+    /**
+	*	creation of all beans from annotation Component
+	*/
+	return createSpringSubTypeBeansFromAnnotation( componentAnnotationFullName , SPRING_BEAN, kSPRING_BEAN_SUBTYPE_COMPONENT);
+}
+
+/**
+*	Return the list of beans created from annotation @Controller.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromControllerAnnotation()
+{
+    /**
+	*	creation of all beans from annotation Controller
+	*/
+	return createSpringSubTypeBeansFromAnnotation( controllerAnnotationFullName , SPRING_BEAN, kSPRING_BEAN_SUBTYPE_CONTROLLER);
+}
+
+/**
+*	Return the list of beans created from annotation @Service.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromServiceAnnotation()
+{
+    /**
+	*	creation of all beans from annotation Service
+	*/
+	return createSpringSubTypeBeansFromAnnotation( serviceAnnotationFullName , SPRING_BEAN, kSPRING_BEAN_SUBTYPE_SERVICE);
+}
+
+/**
+*	Return the list of beans created from annotation @Repository.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringBeansFromRepositoryAnnotation()
+{
+    /**
+	*	creation of all beans from annotation Repository
+	*/
+	return createSpringSubTypeBeansFromAnnotation( repositoryAnnotationFullName , SPRING_BEAN, kSPRING_BEAN_SUBTYPE_REPOSITORY);
+}
+
+/**
+*	Return the list of beans created from annotation with a subtype.
+*
+*   @return the list of beans created from the annotaion
+*/
+list(symbol) createSpringSubTypeBeansFromAnnotation(string annotation, string type, string subtype)
+{
+    /**
+	*	creation of all beans from annotation Repository
+	*/
+	list(symbol) beans = createSpringBeansFromAnnotation( annotation , type);
+	
+	foreach(symbol bean in beans)
+	{
+		string beanType = getMetaType(bean);
+		if (beanType == SPRING_BEAN || beanType == SPRING_CONTROLLER || beanType == SPRING_VIEW)
+		{
+			setProperty(bean,CAST_JEE_BeansProperties_subtype,subtype);
+	    }
+	}
+	
+	return beans;
+}
+
+/**
+*	Create a link between Spring beans
+*
+* @param callerBeanName: the caller bean name
+* @param calleeBeanNameOrAlias : the callee bean name or alias
+* @param type : type of the link
+*/
+void createLinkBetweenBeans(string callerBeanName, string calleeBeanNameOrAlias, string type)
+{
+    log( DEBUG, ">>> Creating link between bean " + callerBeanName + " and bean " + calleeBeanNameOrAlias );
+    
+    symbol callerBean = findUniqueSymbol(callerBeanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW});
+    symbol calleeBean = findUniqueSymbol(calleeBeanNameOrAlias, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW});
+    
+    if(calleeBean != null)
+    {
+        createLink( callerBean, calleeBean, type);
+    }
+}
+
+/**
+*	Create a link between Spring beans
+*
+* @param callerBeanName: the caller bean name
+* @param calleeBeanNameOrAlias : the callee bean name or alias
+* @param type : type of the link
+*/
+void createLinkBetweenBeanAndClass(string callerBeanName, string calleeClassName, string type)
+{
+    log( DEBUG, ">>> Creating link between bean " + callerBeanName + " and bean " + calleeClassName );
+    
+    symbol callerBean = findUniqueSymbol(callerBeanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW});
+    symbol calleeClass = findUniqueSymbol(calleeClassName, JV_CLASS);
+    
+    if(calleeClass != null)
+    {
+        createLink( callerBean, calleeClass, type);
+    }
+}
+
+/**
+*	Create a link between a Spring Bean and a JSP Page for Jstl views.
+*
+*	@param springBeanName : Spring Bean name.
+*	@param jspPagePath    : JSP Page path. Can be abscolute or relative to server root path.
+*/
+void createJstlLink( string springBeanName, string jspPagePath )
+{
+	log( DEBUG, ">>> Creating link between bean " + springBeanName + " and JSP Page " + jspPagePath );
+	symbol springBean = findUniqueSymbol( springBeanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW} );
+	symbol jspPage = findUniqueSymbol( jspPagePath, SPRING_BEANS_FILE );
+	
+	if ( springBean == null )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and JSP Page '" + jspPagePath + "'. The bean is not found." )
+		return;
+	}
+	if ( jspPage == null )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and JSP Page '" + jspPagePath + "'. The JspPage is not found." )
+		return;
+	}
+	createLink( springBean, jspPage, callLink );
+}
+
+
+
+/**
+*	Create a link between a Spring Bean and a XML File for XML View Resolver.
+*
+*	@param springBeanName : Spring Bean name.
+*	@param jspPagePath    : XML File path. Can be abscolute or relative to server root path.
+*/
+void createXmlViewLink( string springBeanName, string xmlFilePath )
+{
+	log( DEBUG, ">>> Creating link between bean " + springBeanName + " and XML File " + xmlFilePath );
+	symbol springBean = findUniqueSymbol( springBeanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW} );
+	symbol xmlFile = findUniqueSymbol( xmlFilePath, JSP_XMLCONFIG_FILE );
+	
+	if ( springBean == null )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and XML File '" + xmlFilePath + "'. The bean is not found." )
+		return;
+	}
+	if ( xmlFile == null )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and XML File '" + xmlFilePath + "'. The XML File is not found." )
+		return;
+	}
+	createLink( springBean, xmlFile, callLink );
+}
+
+
+
+/**
+*	Create a link between a Spring Bean and a SQL entity
+*
+*	@param springBeanName : Spring Bean name.
+*	@param sqlQuery       : SQL query
+*/
+void createSqlQueryLink( string springBeanName, string dbRequest )
+{
+	log( DEBUG, ">>> Creating link between bean " + springBeanName + " and SQL query " + dbRequest );
+	symbol springBean = findUniqueSymbol( springBeanName, {SPRING_BEAN, SPRING_CONTROLLER, SPRING_VIEW} );
+	
+	if ( springBean == null )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and SQL query '" + dbRequest + "'. The bean is not found." )
+		return;
+	}
+	
+	if ( dbRequest == "" )
+	{
+		log ( DEBUG, "Cannot create link between bean '" + springBeanName + "' and SQL query '" + dbRequest + "'. The SQL query is empty." )
+		return;
+	}
+	
+    addProperty(springBean, CAST_SQL_MetricableQuery_sqlQuery, dbRequest);
+    linkDBQueryToPersistenceLayer(springBean, SPRING_BEAN, dbRequest);
+}
+
+
+/**
+*	Get the symbol of a java symbol
+*
+*	@param javaSymbol : java object.
+*/
+private symbol getJavaSymbolFile( symbol javaSymbol )
+{
+	symbol parent = javaSymbol;
+	if ( parent == null || getMetaType( parent ) == JV_FILE )
+	{
+		return parent;
+	}
+	return getJavaSymbolFile( getSymbolUniqueParent( parent ) );
+}
+
+/**
+*	Return the name of the spring bean.
+*
+*	@param beanClass : Spring Bean class.
+*/
+string getBeanName(symbol beanClass)
+{
+    string value = getParameterStringFromAnnotation( beanClass, componentAnnotationFullName , "value");	
+	if(value != null)
+	{
+	    return value;
+	}
+	
+    value = getParameterStringFromAnnotation( beanClass, controllerAnnotationFullName , "value");	
+	if(value != null)
+	{
+	    return value;
+	}
+	
+    value = getParameterStringFromAnnotation( beanClass, repositoryAnnotationFullName , "value");	
+	if(value != null)
+	{
+	    return value;
+	}
+	
+    value = getParameterStringFromAnnotation( beanClass, serviceAnnotationFullName , "value");	
+	if(value != null)
+	{
+	    return value;
+	}
+	
+	string name  = toLower(getStringProperty(beanClass,identification_name),1);	
+	return name;	
+}

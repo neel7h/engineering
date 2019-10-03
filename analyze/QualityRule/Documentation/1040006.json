@@ -1,0 +1,96 @@
+{
+    "id": 1040006,
+    "name": "Always set Content-Security-Policy for spring application",
+    "href": "AIP/quality-rules/1040006",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if 'Content-Security-Policy' is set in Java source and/or in XML configuration. If not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "One way to help protect your site from XSS is to restrict the web domains where scripts can be served from, as is made possible by Content Security Policy (CSP) headers. CSP headers allow the server to instruct the browser to only accept content served from specific domains, e.g. safedomain.com. The 'Content-Security-Policy' header can restrict the source of all content served, or just specific content types, such as images, media and scripts. This is why It is important to note that Spring Security does not add Content Security Policy by default.\nThe web application author must declare the security policy(s) to enforce and/or monitor for the protected resources.",
+    "reference": "https://cwe.mitre.org/data/definitions/1021.html\nhttps://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)",
+    "remediation": "Enable CSP header in XML configuration and JAVA configuration with \"the content-security-policy\" element.",
+    "remediationSample": "You can enable the CSP header using XML configuration with \"the content-security-policy\" element as shown below:\n\n<http>\n  <headers>\n     <content-security-policy\n            policy-directives=\"script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/\" />\n     <report-only=\"true\" /> // This enable the CSP 'report-only' header,\n  </headers>\n</http>\n\n\n// Similarly, you can enable the CSP header using Java configuration as shown below ( and enable the CSP 'report-only' header)\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n        .headers()\n        .contentSecurityPolicy(\"script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/\") // NO VIOLATION, CSP is enabled\n        .reportOnly();\n    }\n}",
+    "sample": "// The CSP header is not enabled in XML configuration or with JAVA configuration\n// JAVA source\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n        .headers() // Content Security Policy is not enabled\n            .cacheControl()\n            .frameOptions();\n\n    }\n}\n\n// XML Configuration\n\n<http>\n    <headers> // Content Security Policy is not enabled\n        <cache-control/>\n        <content-type-options/>\n    <headers/>\n<http/>",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure setting Content-Security-Policy for Spring application to enforce data protection.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

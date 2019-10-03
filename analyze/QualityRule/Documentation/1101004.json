@@ -1,0 +1,67 @@
+{
+    "id": 1101004,
+    "name": "Avoid non-indexed SQL queries",
+    "href": "AIP/quality-rules/1101004",
+    "critical": false,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves the artifacts with at least one table accessed on non-indexed columns.\nA SQL query is considered indexed when all the following conditions are true:\n\n- At least one index is accessed for each non XXS table\n- the access is on the left-most columns of the indexes\n\nAn XXS table is a table containing an extremely low amount of data. Default is 10. The threshold that determines when a table XXS can be configured by the user in the same manner as for XXL tables.",
+    "output": "Associated to each Artifact with violations, the Quality Rule provides:\n- The number of violation patterns.\n- Each violation pattern shows :\n- the query \n- each table accessed on non-indexed columns\n- the table's indexes",
+    "rationale": "Non-indexed SQL Queries are potentially performance killers.\nIndeed, each execution of the query will result in a full table scan which is extremely time consuming.",
+    "reference": "Enhancing the Quality of ABAP Development\nMeijs - Krouwels - Heuvelmans - Sommen\nSAP Press\nISBN 1-59229-030-2",
+    "remediation": "Check the statement and if so, add secondary index on queried columns.",
+    "remediationSample": "The remediation is to add index on TABLE1 (COL3, COL1).",
+    "sample": "TABLE1 is indexed on (COL2, COL1) and TABLE2 on COL3. Both tables are not XXS.\nFor the following statement :\nSelect O.COL1, O.COL2, O.COL2, 1, 0, 0, 1\nFrom TABLE1 O, TABLE2 OT\nWhere O.COL3       = OT.COL3\nAnd O.COL1      in (1, 2)\nAnd OT.COL4    = 1;\nTABLE2's index cover the statement.\nTABLE1 is reported in violation.",
+    "total": "Number of Artifacts with SQL code from schemas containing tables or views.",
+    "alternativeName": "Avoid non-indexed SQL queries",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-5",
+            "name": "Data Resource Read Access Unsupported by Index Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

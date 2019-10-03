@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author  : YLE@CAST
+£ Date    : 2007.03.02
+£ Filename: DoubleChkLock.xml
+£ Role    : Detection of the double checked locking pattern
+£           which is something like :
+£              if(x == null)
+£              {
+£                synchronized(this)
+£                {
+£                  if(x == null)
+£                  {
+£                    /* truncated code */
+£ Since the MA can not see that we've got the same member variable
+£ in both tests we'll simply look for an "IfStatement" containing
+£ a "synchronized" block which in turn contains an "IfStatement".
+£ This metric is Java specific.
+£ 2007.04.16 => Added the count of the number of occurences of the
+£ 'synchronized' keyword
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££-->
+
+
+<METRIC PACKAGE_NAME="Java.DoubleChkLock" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+		  <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+		  <ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="PERSISTENCE" >
+		  <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+		  <ACTIVE>YES</ACTIVE>
+		</ACTION>
+  </ACTION_LIST>
+  <!-- End of actions used -->
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+      
+      <!-- Match an IfStatement containing a "synchronized" containing
+      £ an IfStatement -->
+      <CATEGORY NAME="MATCH_IF_SYNCHRO_IF">
+        <PROPERTY NAME="VALUE" type="integer" />
+
+        <PROPERTY NAME="PATT_IF_SYNCHRO_IF" type="pattern">
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+              <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+              <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+              <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+            </OR>
+              <TREE>
+                <OR>
+                  <SIGNATURE>NODE_J11_IfThenStatement</SIGNATURE>
+                  <SIGNATURE>NODE_J11_IfThenElseStatement</SIGNATURE>
+                </OR>
+                  <TREE>
+                    <OR>
+                      <SIGNATURE>NODE_J11_SynchronizedStatement</SIGNATURE>
+                    </OR>
+                      <SUB_TREE_OR>
+                        <TOKEN NAME="_IF_" />
+                      </SUB_TREE_OR>
+                  </TREE>
+              </TREE>
+          </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				  <MATCH>PATT_IF_SYNCHRO_IF</MATCH> 				
+				  <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				  <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				  <RESULT_COUNT>VALUE</RESULT_COUNT> 
+			  </ADD_ACTION>
+
+
+        <ADD_ACTION NAME="PERSISTENCE">
+          <SAVE>VALUE</SAVE>
+          <NAME>Avoid double checked locking</NAME>
+        </ADD_ACTION>
+
+      </CATEGORY>
+      <!-- End of Match an IfStatement containing ... -->
+      
+      <!-- begin match the Java 'synchronized' keyword -->
+      <CATEGORY NAME="MATCH_JAVA_SYNCHRONIZED_KW">
+        <PROPERTY NAME="VALUE" type="integer" />
+        <PROPERTY NAME="PATT_JAVA_SYNCHRONIZED_KW" type="pattern">
+          <TREE>
+            <OR>
+              <!-- synchronized can also appear as a method/constructor modifier
+              £    that's why we have NODE_J11_...Declaration instead of
+              £    NODE_J11_...Body -->
+              <SIGNATURE>NODE_J11_MethodDeclaration</SIGNATURE>
+              <SIGNATURE>NODE_J11_ConstructorDeclaration</SIGNATURE>
+            </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="_SYNCHRONIZED_"/>
+              </SUB_TREE_OR>
+          </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+          <MATCH>PATT_JAVA_SYNCHRONIZED_KW</MATCH> 				
+          <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+          <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+          <RESULT_COUNT>VALUE</RESULT_COUNT> 
+			  </ADD_ACTION>
+
+        <ADD_ACTION NAME="PERSISTENCE">
+          <SAVE>VALUE</SAVE>
+          <NAME>Number of occurences of the ''synchronized'' keyword</NAME>
+        </ADD_ACTION>
+
+      </CATEGORY>
+      <!-- end of match the Java 'synchronized' keyword -->
+
+  </CATEGORY_LIST>
+  <!-- End of categories -->
+
+</METRIC>
+
+<!-- End of file -->

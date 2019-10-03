@@ -1,0 +1,65 @@
+{
+    "id": 1007050,
+    "name": "Avoid method invocation in loop termination expression (PHP)",
+    "href": "AIP/quality-rules/1007050",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing function calls in loop test expressions. \nNote: foreach loop is not considered for this QR.",
+    "output": "This report lists all artifact containing function calls in loop test expressions.\n\nThis QR provides the following information:\nartifact full name.",
+    "rationale": "When calling a function in a test expression of loop, the function will be computed in each loop iteration and will reduce performance dramatically.",
+    "remediation": "Reduce the number of artifacts containing function calls in loop test expressions.",
+    "remediationSample": "<?php\n\nfunction getMaxValue() { return 2; }\n\n$maxValue = getMaxValue();\n\nfor ($i=0; $i < $maxValue; $i++) { //Violation removed\n  echo \"for: \", $i, PHP_EOL;\n}\n\n$i = 0;\nwhile($i < $maxValue) { //Violation removed\n  echo \"while: \", $i++, PHP_EOL;\n}\n\n$i = 0;\ndo {\n  echo \"do-while: \", $i++, PHP_EOL;\n} while($i < $maxValue); //Violation removed\n?>",
+    "sample": "<?php\nfunction getMaxValue() { return 2; }\n\nfor ($i=0; $i < getMaxvalue(); $i++) { //Violation - a method is invocated in a loop termination expression\n  echo \"for: \", $i, PHP_EOL;\n}\n\n$i = 0;\nwhile($i < getMaxValue()) { //Violation - a method is invocated in a loop termination expression\n  echo \"while: \", $i++, PHP_EOL;\n}\n\n$i = 0;\ndo {\n  echo \"do-while: \", $i++, PHP_EOL;\n} while($i < getMaxValue()); //Violation - a method is invocated in a loop termination expression\n\n\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid method invocation in loop termination expression (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

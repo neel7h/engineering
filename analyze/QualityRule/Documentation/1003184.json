@@ -1,0 +1,71 @@
+{
+    "id": 1003184,
+    "name": "Avoid redundant type metadata argument for handler type (Flex)",
+    "href": "AIP/quality-rules/1003184",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports classes having methods with redundant type metadata argument for handler type.",
+    "output": "This QR reports classes having methods with redundant type metadata argument for handler type. It provides following information:\n- Class full name",
+    "rationale": "Redundant metadata causes code to become confusing and less maintainable over time.",
+    "remediation": "Remove redundant metadata.",
+    "sample": "class RedundantTypeMetadataArgument {\n   [MessageHandler(type=\"a.b.MyMessage\")] // VIOLATION\n   public function doSomething( message : MyMessage ) : void\n   {\n      message.toString();\n   }\n}",
+    "total": "Number of classes",
+    "alternativeName": "Avoid redundant type metadata argument for handler type (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.parsley.RedundantMessageHandlerTypeAttribute"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "id": 1009054,
+    "name": "Avoid Programs with COUNT(*) statement  (RPG300)",
+    "href": "AIP/quality-rules/1009054",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches all the programs having COUNT(*) statements.",
+    "output": "This report lists RPG300 programs accessing directly to Physical Files.\nIt provides the following information:\nRPG300 Program full name",
+    "rationale": "COUNT(*) statement is time and ressource consuming and it can dramatically slow your application.",
+    "remediation": "Try to reduce the number of COUNT(*) in yout programs.",
+    "remediationSample": "Remediation for Sample:\nC/EXEC SQL      \nC+ select column1,column2,count(Primary_key_column)      \nC+ from sample_table;    \nC/END-EXEC",
+    "sample": "C/EXEC SQL      \nC+ select column1,column2,count(*)    // Quality Rule Violation  \nC+ from sample_table;    \nC/END-EXEC",
+    "total": "Total number of RPG300 Programs",
+    "alternativeName": "Avoid Programs with COUNT(*) statement  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

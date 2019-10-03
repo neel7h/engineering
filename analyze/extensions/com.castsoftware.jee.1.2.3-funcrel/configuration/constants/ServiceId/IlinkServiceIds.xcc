@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<!-- Link Extern -->
+		<constant>
+			<name>IFactoryILinkExt</name>
+			<value>AAEDC30D-F6F5-4c9e-9AB4-9CE96EE8A7E9</value>
+		</constant>
+
+		<constant>
+			<name>IMetricEmbedded</name>
+			<value>EA5DDACB-9375-4f14-B2F3-4C892A3D8CCB</value>
+		</constant>
+
+	</constantFamily>
+</constants>
+
+

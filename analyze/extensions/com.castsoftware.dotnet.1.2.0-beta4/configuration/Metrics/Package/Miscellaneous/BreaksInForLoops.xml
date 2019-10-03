@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="BreaksInLoops">
+  <ACTIVE>YES</ACTIVE>
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <CATEGORY_LIST>
+
+    <CATEGORY NAME="NUMBER_OF_LOOPS">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NUMBER_OF_LOOPS_PTY" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_C_BODY</SIGNATURE>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_C_FOR" />
+            <SIGNATURE NAME="NODE_C_FOR_MISSING_BRACKET" />
+            <SIGNATURE NAME="NODE_J11_ForStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NUMBER_OF_LOOPS_PTY</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number Of For Loops</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+
+    <CATEGORY NAME="NUMBER_OF_BREAKS_IN_FOR_LOOPS">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="BREAK_IN_FOR_LOOP_JAVA_PTY" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_ForStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_J11_ForBreakStatement" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <PROPERTY NAME="BREAK_IN_FOR_LOOP_C_PTY" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_C_BODY</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_C_FOR</SIGNATURE>
+              <SIGNATURE>NODE_C_FOR_MISSING_BRACKET</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_C_BREAK_FOR_LOOP" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>BREAK_IN_FOR_LOOP_JAVA_PTY</MATCH>
+        <MATCH>BREAK_IN_FOR_LOOP_C_PTY</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number Of Breaks In For Loops</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+</METRIC>

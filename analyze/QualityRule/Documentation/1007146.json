@@ -1,0 +1,78 @@
+{
+    "id": 1007146,
+    "name": "Avoid unconditional \"if\" and \"else if\\elseif\" statements (PHP)",
+    "href": "AIP/quality-rules/1007146",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing unconditional \"if\" and \"else if\\elseif\" statements. Artifacts considered for this quality rule are PHP Section, function, method and constructors.",
+    "output": "This report lists all artifacts containing unconditional \"if\" and \"else if\\elseif\" statements.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Unconditional \"if\" and \"else if\\elseif\" statements are not necessary.",
+    "reference": "Code Sniffer http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_UnconditionalIfStatementSniff.html",
+    "remediation": "Modify the source code to reduce the number of unconditional \"if\" and \"else if\\elseif\" statements.",
+    "remediationSample": "<?php\nclass CastTest {\n    public function close() {\n        echo \"test\";\n    }\n}\n$obj = new CastTest();\n$obj-> close();\n?>",
+    "sample": "<?php\nclass CastTest {\n    public function close() {\n        if (true) {\n            echo \"test\";\n        }\n    }\n}\n$obj = new CastTest();\n$obj-> close();\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid unconditional \"if\" and \"else if\\elseif\" statements (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UnconditionalIfStatement"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

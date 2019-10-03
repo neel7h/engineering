@@ -1,0 +1,70 @@
+{
+    "id": 1008048,
+    "name": "Avoid Programs with a very low comment/code ratio  (RPG400)",
+    "href": "AIP/quality-rules/1008048",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the programs having a very low comment/code ratio.",
+    "output": "This report lists RPG400 Programs with a very low comment/code ratio\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is comments in the code.",
+    "remediation": "Add the comments for the RPG400 programs in order to improve the maintanebility of the code.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid Programs with a very low comment/code ratio  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Min percent",
+            "description": "Min percent",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

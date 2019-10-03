@@ -1,0 +1,71 @@
+{
+    "id": 1020002,
+    "name": "Avoid programs with low comment / code ratio  (HTML5/Javascript)",
+    "href": "AIP/quality-rules/1020002",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Comment/code ratio",
+    "description": "This rule searches all the programs having a low comment/code ratio.",
+    "output": "The report lists all the  unreferenced HTML5/Javascript Programs\nIt provides following information: \n- program name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the program.",
+    "remediation": "Try to increase the comment/code ratio for programs.",
+    "total": "Number of HTML5/Javascript Programs",
+    "alternativeName": "Avoid programs with low comment / code ratio  (HTML5/Javascript)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "CommCode Ratio",
+            "description": "CommCode Ratio",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

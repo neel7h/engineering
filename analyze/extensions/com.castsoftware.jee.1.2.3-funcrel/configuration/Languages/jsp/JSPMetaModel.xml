@@ -1,0 +1,3551 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<metaModel file_level="core" file_no="0">
+
+  <!--
+	Is a SQL named query found in source code.
+	Has properties to store the SQL query in order to be processed by Metric Assistant.
+	-->
+  <type name="CAST_SQL_NamedQuery" id="139003">
+    <description>SQL Named Query</description>
+    <inheritedCategory name="KB object"/>
+    <attribute name="KEY_CLASS" intValue="11380"/>
+    <inheritedCategory name="EnlightenStandard"/>
+    <inheritedCategory name="CAST_DevelopmentVisible"/>
+    <inheritedCategory name="CAST_Web"/>
+    <inheritedCategory name="CastSystemViews"/>
+    <inheritedCategory name="ParameterizeTreePrivate"/>
+    <inheritedCategory name="CAST_CodeViewable"/>
+    <inheritedCategory name="APM Client-Server Artifacts"/>
+    <inheritedCategory name="APM Java Artifacts"/>
+    <inheritedCategory name="APM All Artifacts"/>
+    <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+    <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+    <inheritedCategory name="CAST_MetricAssistant_WithMetrics_PLSQL"/>
+    <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    <tree parent="EnlightenServerObjects" category="ParameterizeTree"/>
+  </type>
+
+  <type name="CAST_SQL_NamedStoredProcedureQuery" id="142123">
+    <description>SQL Named Stored Procedure Query</description>
+    <inheritedCategory name="KB object"/>
+    <attribute name="KEY_CLASS" intValue="11358"/>
+    <inheritedCategory name="EnlightenStandard"/>
+    <inheritedCategory name="CAST_DevelopmentVisible"/>
+    <inheritedCategory name="CAST_Web"/>
+    <inheritedCategory name="CastSystemViews"/>
+    <inheritedCategory name="ParameterizeTreePrivate"/>
+    <inheritedCategory name="CAST_CodeViewable"/>
+    <inheritedCategory name="APM Client-Server Artifacts"/>
+    <inheritedCategory name="APM Java Artifacts"/>
+    <inheritedCategory name="APM All Artifacts"/>
+    <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+    <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+    <inheritedCategory name="CAST_MetricAssistant_WithMetrics_PLSQL"/>
+    <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+  </type>
+
+  <category name="CAST_JEE_KB_Object" id="140327">
+        <description>Represent a JEE symbol that can be persisted</description>
+        <inheritedCategory name="KB object"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+    </category>
+
+  <!-- stores xml files pathes that are selected from jars -->
+  <category name="CAST_JEE_XMLJarSelection" id="141191">
+    <description></description>
+    <inheritedCategory name="CAST_ContextualItem"/>
+    <property name="files" type="CAST_JEE_ExtractedFile" maximalCardinality="*" id="139624">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+  
+    <!-- JSP Section [136000, 137000[ -->
+    <type name="JSP_APP" id="281">
+        <description>JSP Application</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="8050"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="project"/>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="EnlightenBrowserRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_APM_JEE_Module"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_JEE_XMLJarSelection"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <property name="javaProjectRef" type="reference" id="140333">
+          <description>A reference to the associated JAVA project.</description>
+        </property>
+    </type>
+
+  <category name="CAST_JEE_AvoidPageWithoutErrorHandling" id="141619">
+    <description></description>
+    <property name="violation" type="integer" id="140268"> 
+      <description></description>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="111"/>
+    </property>
+  </category>
+  
+    <type name="JSP_APPDESCRIPTOR" id="364">
+        <description>J2EE Web Application Descriptor</description>
+        <attribute name="KEY_CLASS" intValue="11110"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <inheritedCategory name="CAST_JEE_AvoidPageWithoutErrorHandling"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <!-- Contains properties dynamically discovered  -->
+    <category name="CAST_JEE_ConfigurationItemDynamicProperties" id="141008">
+        <description>Contains properties dynamically discovered</description>
+
+        <!--
+            Is the property that will store all properties dynamically discovered.
+            It's a list of string with the form key=value.
+            Most of these propertis comes from CAST XML Query management.
+        -->
+        <property name="listOfDynamicProperties" type="stringList" id="139518">
+            <description>Store the properties dynamically discovered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11003"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_ConfigurationFile" id="139965">
+        <description>JEE Application configuration File</description>
+		<inheritedCategory name="CAST_WithMetadata"/>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="POSITIONABLE"/>
+        <inheritedCategory name="shell"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_JavaScript"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CAST_JEE_TagLibCommonProperties"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_Hibernate_ConfigurationOptions"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_XML_PositionnableObject"/>
+        <inheritedCategory name="CAST_JEE_ValidationProperties"/>
+        <property name="java-package" type="string"  id="138864" >
+            <description></description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="75"/>
+        </property>
+        <property name="default-cascade" type="string"  id="138865" >
+            <description></description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="76"/>
+        </property>
+        <property name="auto-import" type="string"  id="138866" >
+            <description></description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="77"/>
+        </property>
+        <property name="module" type="string"  id="138873" >
+            <description>Module</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="29"/>
+        </property>
+        <property name="required" type="string"  id="139509" >
+            <description>Required</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="110"/>
+        </property>
+        <property name="includedFiles" type="CAST_JEE_ConfigurationFile"   minimalCardinality="0" maximalCardinality="*"  id="139611" >
+            <description>Included configuration files</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="JSP_SERVLET_MAPPING" id="290">
+        <description>Servlet Mapping</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11114"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_MappingProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="JSP_BEAN" id="282">
+        <description>J2EE Scoped Bean</description>
+        <attribute name="KEY_CLASS" intValue="11070"/>
+        <inheritedCategory name="CAST_Web_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <category name="CAST_Web_AllBeans" id="140656">
+        <description>Common category for all beans</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>        
+
+    </category>
+
+    <type name="JSP_BEAN_PROP" id="283">
+        <description>Bean Property</description>
+        <attribute name="KEY_CLASS" intValue="11080"/>
+        <inheritedCategory name="CAST_Web_AllBeanProperties"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+
+    <category name="CAST_Web_AllBeanProperties" id="140657">
+        <description>Common category for all bean properties</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObjectProperty"/>
+    </category>
+
+    <type name="JSP_TAG_LIB" id="284">
+        <description>JSP Custom Tag Library</description>
+        <attribute name="KEY_CLASS" intValue="11040"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+
+        <property name="archivedTabligExtractionFolder" type="string" id="139546">
+            <description>Folder where is extracted this taglib if founded in an archive</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <category name="CAST_JEE_TagLibCommonProperties" id="139957">
+        <description>JSP Custom Tag Library Common properties</description>
+        <property name="hostDirectory" type="string" id="138840">
+            <description>Jsp tag library host directory</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+        <property name="shortName" type="string" id="138841">
+            <description>Jsp tag library "short name"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+        <property name="uri" type="string" id="138842">
+            <description>Jsp tag library "uri"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+        </property>
+        <property name="info" type="string" id="138843">
+            <description>Jsp tag library "info"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+        </property>
+        <inheritedCategory name="PersistentForMigration_7_0_x"/>
+    </category>
+
+    <category name="CAST_JEE_XMLObjectCommonProperties" id="139959">
+        <description>J2EE XML Object Common properties</description>
+        <property name="XPath" type="string" id="138848">
+            <description>Xml object xpath path</description>
+            <attribute name="ACCESS_APPVIEW" intValue="0"/>
+            <attribute name="ACCESS_CVS" intValue="0"/>
+            <attribute name="ACCESS_HTML" intValue="0"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/>
+        </property>
+        <property name="Comment" type="string"  id="138837" >
+            <description>Comment</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="101"  />
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="implementationClass" type="string"  id="138823" >
+            <description>Class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="26"/>
+        </property>
+        <property name="duplicates" type="integer"  id="139280" >
+            <description>Duplicate Declarations</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="28"/>
+        </property>
+        <property name="javaReference" type="reference"  id="139558" >
+            <description>Mapped java object</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="isAbstract" type="string" id="138262">
+            <description>Is bean abstract</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="21"/>
+        </property>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="CAST_JEE_XML_PositionnableObject"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationItemDynamicProperties"/>
+    </category>
+
+    <category name="CAST_JEE_XML_PositionnableObject" id="140705">
+        <description>J2EE XML Object position</description>
+        <property name="file" type="string" id="139378">
+            <description>Xml object file path</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="sLine" type="string" id="139374">
+            <description>sLine</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="eLine" type="string" id="139375">
+            <description>eLine</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="sCol" type="string" id="139376">
+            <description>sCol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="eCol" type="string" id="139377">
+            <description>eCol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="JSP_TAG" id="285">
+        <description>JSP Custom Tag</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11050"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_TagProperties"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="PersistentForMigration_7_0_x"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <category name="CAST_JEE_TagProperties" id="139958">
+        <description>JSP Custom Tag Common properties</description>
+        <property name="implementationClass" type="string" id="138845">
+            <description>Jsp tag "class"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+        </property>
+        <property name="teiClass" type="string" id="138846">
+            <description>Jsp tag "tei class"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+        </property>
+        <property name="info" type="string" id="138847">
+            <description>Jsp tag "info"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>
+        <property name="bodyContent" type="integer" id="139012">
+            <description>Jsp tag "body content"</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+        </property>
+    </category>
+
+    <type name="JSP_TAG_ATTR" id="286">
+        <description>JSP Custom Tag Attribute</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11060"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObjectProperty"/>
+        <property name="attributeOptions" type="integer" id="139013">
+            <description>Jsp tag attribute options</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+        </property>
+        <inheritedCategory name="PersistentForMigration_7_0_x"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JSP_ELFUNCTION" id="972">
+        <description>JSP EL Function</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11051"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JSP_PROPERTIES_FILE" id="365">
+        <description>Java Properties File</description>
+        <attribute name="KEY_CLASS" intValue="11090"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JSP_PROPERTY_MAPPING" id="363">
+        <description>Java Property Mapping</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11100"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_MappingProperties"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JSP_XMLCONFIG_FILE" id="366">
+        <description>J2EE XML File</description>
+        <attribute name="KEY_CLASS" intValue="11120"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_Annotation_file" id="140757">
+        <description>J2EE XML Annotation File</description>
+        <attribute name="KEY_CLASS" intValue="11372"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="object"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="POSITIONABLE"/>
+        <inheritedCategory name="shell"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+		<inheritedCategory name="CAST_JEE_XML_PositionnableObject"/>
+    </type>
+
+    <type name="STRUTS_CONFIG_FILE" id="136004">
+        <description>Struts Configuration File</description>
+        <attribute name="KEY_CLASS" intValue="11145"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+
+  <type name="CAST_JEE_Struts2_ConfigurationFile" id="141245">
+    <description>Struts2 Configuration File</description>
+    <attribute name="KEY_CLASS" intValue="11403"/>
+    <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+    <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+    <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+  </type>
+
+  <type name="JSP_ACTION_MAPPING" id="367">
+        <description>Struts Action Mapping</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11130"/>
+        <inheritedCategory name="CAST_JEE_Action"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_StrutsAction" id="141139">
+        <description>Struts Action</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11134"/>
+        <inheritedCategory name="CAST_JEE_Action"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <category name="CAST_JEE_Action" id="141159">
+        <description>Common Struts Action</description>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_MappingProperties"/>
+        <inheritedCategory name="CAST_JEE_ValidationProperties"/>
+        <inheritedCategory name="CAST_JEE_Struts2Properties"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <property name="strutsParameter" type="string" maximalCardinality="1" id="139842">
+            <description>parameter</description>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_Struts2Properties" id="141150">
+        <description>All struts2 properties for flex framework</description>
+        <property name="namespace" type="string" maximalCardinality="*" id="139579">
+            <description>Namespace</description>
+        </property>
+        <property name="webFile" type="string" maximalCardinality="1" id="139591">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="isWildcard" type="integer" id="139596">
+            <description>True for a wildcard action</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="method" type="string" id="139597">
+            <description>Java method name for an action</description>
+            <attribute name="INF_TYPE" intValue="11111"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+        </property>
+        <property name="globalResults" type="CAST_JEE_StrutsResult" maximalCardinality="*" id="139620">
+            <description>global results applicable to the action</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+		<property name="defaultActionRef" type="CAST_JEE_StrutsAction" maximalCardinality="1" id="139625">
+			<description>default-action-ref</description>
+			<attribute name="TRANSIENT" intValue="1"/>
+		</property>
+	</category>
+
+    <!-- To be used on contextual objects in Struts2.
+       i.e. the way the object is called indicate who he calls the others -->
+    <category name="CAST_JEE_Struts2Context" id="141156">
+        <description>Allow to indicate the all the contexts that allowed to call the symbol in Struts2 framework</description>
+		<inheritedCategory name="CAST_JEE_Context"/>
+		<property name="callContext" type="CAST_JEE_StrutsAction" maximalCardinality="*" id="139581">
+            <description>Call context of the symbol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+	<category name="CAST_JEE_Context" id="141210">
+		<description>Allow to indicate all the contexts that allowed to call the symbol in any framework</description>
+		<property name="genericContext" type="referenceList" id="139685">
+			<description>Generic context of the symbol</description>
+			<attribute name="TRANSIENT" intValue="1"/>
+		</property>
+	</category>
+
+	<type name="CAST_JEE_StrutsInterceptor" id="141140">
+        <description>Struts Interceptor</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11135"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_StrutsInterceptorStack" id="141167">
+        <description>Struts Interceptor Stack</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11139"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <category name="CAST_JEE_Result" id="141166">
+        <description>Struts Result</description>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_ResultRedirectAction"/>
+    </category>
+
+    <category name="CAST_JEE_ResultRedirectAction" id="141175">
+        <description>Redirect Action Result</description>
+
+        <property name="actionName" type="string" id="139594">
+            <description>Action Name</description>
+        </property>
+
+        <property name="namespace" type="string" id="139595">
+            <description>Namespace</description>
+        </property>
+    </category>
+
+    <type name="CAST_JEE_StrutsResult" id="141141">
+        <description>Struts Result</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11136"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_Result"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_JEE_Struts2Properties"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_StrutsPackage" id="141142">
+        <description>Struts Package</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11137"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_AST_WithInheritanceList"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_Struts2Properties"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_StrutsFilter" id="141143">
+        <description>Struts Filter</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11138"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JEE_StrutsValidator" id="141190">
+        <description>Struts Validator</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="141190"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+	
+    <type name="JSP_ATTRIBUTES_SCOPE" id="973">
+        <description>Servlet Attributes Scope</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11190"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <property name="scopeId" type="integer" id="138975">
+            <description>Attributes scope</description>
+            <attribute name="SCOPE_PAGE" intValue="1"/>
+            <attribute name="SCOPE_REQUEST" intValue="2"/>
+            <attribute name="SCOPE_SESSION" intValue="3"/>
+            <attribute name="SCOPE_APPLICATION" intValue="4"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="20"/>
+        </property>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+
+    <type name="FORM_VALIDATION_FILE" id="136001">
+        <description>Form Validation File</description>
+        <attribute name="KEY_CLASS" intValue="11191"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="VALIDATION_FORMS_SET" id="136006">
+        <description>Validation Forms Set</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11194"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="VALIDATION_FORM" id="136002">
+        <description>Validation Form</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11192"/>
+        <inheritedCategory name="CAST_JEE_STRUTS_VALIDATION_FORM"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <category name="CAST_JEE_UpdatableObject" id="140659">
+        <description>Updatable configuration item</description>
+    </category>
+
+    <type name="VALIDATION_FORM_FIELD" id="136003">
+        <description>Validation Form Field</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="CAST_JEE_STRUTS_VALIDATION_FIELD"/>		
+        <attribute name="KEY_CLASS" intValue="11193"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+	
+    <type name="CAST_JEE_VALIDATION_FORM" id="141203">
+        <description>Validation Form</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11401"/>
+        <inheritedCategory name="CAST_JEE_STRUTS_VALIDATION_FORM"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JEE_VALIDATION_FORM_FIELD" id="141204">
+        <description>Validation Form Field</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11402"/>
+        <inheritedCategory name="CAST_JEE_STRUTS_VALIDATION_FIELD"/>		
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+	
+    <category name="CAST_JEE_STRUTS_VALIDATION_FORM" id="141206">
+        <description>CAST_JEE_STRUTS_VALIDATION</description>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>		
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+		<inheritedCategory name="CAST_JEE_UpdatableObject"/>
+		<inheritedCategory name="CAST_JEE_FrameworkObjectProperty"/>
+	</category>
+
+	<category name="CAST_JEE_STRUTS_VALIDATION_FIELD" id="141207">
+		<description>CAST_JEE_STRUTS_VALIDATION_FIELD</description>
+		<inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+		<inheritedCategory name="CAST_Web"/>
+		<inheritedCategory name="CastSystemViews"/>
+		<inheritedCategory name="CAST_CodeViewable"/>
+		<inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+		<inheritedCategory name="CAST_JEE_FrameworkObjectSubproperty"/>
+	</category>
+
+  <category name="CAST_AvoidLongTableAndColumnNames" id="142345">
+      <description>Avoid table and column names that are too long (portability)</description>
+      <property name="avoidLongTableAndColumnNames" type="integer" merge="sum" id="140927">
+          <description>Avoid table and column names that are too long (portability)</description>
+          <attribute name="INF_TYPE" intValue="11002"/>
+          <attribute name="INF_SUB_TYPE" intValue="118"/>
+          <attribute name="ACCESS_APPVIEW" intValue="1"/>
+          <attribute name="ACCESS_HTML" intValue="1"/>
+          <attribute name="ACCESS_CVS" intValue="1"/>
+      </property>
+  </category>
+
+  <!-- For objects that are made persistent by a persisting framework. E.g Hibernate -->
+  <category name="CAST_PersistentEntity" id="136996">
+    <description>Persistent Entity</description>
+    <inheritedCategory name="CAST_IdentifiableEntity"/>
+    <inheritedCategory name="CAST_FetchableEntity"/>
+    <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+    <inheritedCategory name="CAST_PersistentCommonProperties"/>
+    <inheritedCategory name="CAST_WithMetadata"/>
+    <inheritedCategory name="CAST_AvoidLongTableAndColumnNames"/>
+    <property name="proxy" type="string"  id="138811" >
+      <description>proxy</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="30"/>
+    </property>
+    <property name="discriminator-value" type="string"  id="138813" >
+      <description>discriminator-value</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="68"/>
+    </property>
+    <property name="isMutable" type="string"  id="138814" >
+      <description>mutable</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="43"/>
+    </property>
+    <property name="polymorphism" type="string"  id="138815" >
+      <description>polymorphism</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="31"/>
+    </property>
+    <property name="check" type="string"  id="138821" >
+      <description>check</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="38"/>
+    </property>
+    <property name="mapping-strategy" type="string"  id="138822" >
+      <description>mapping-strategy</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="48"/>
+    </property>
+    <property name="inheritance" type="string"  id="138826" >
+      <description>inheritance</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="60"/>
+    </property>
+    <property name="table name" type="string"  id="138981" >
+      <description>Table name</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="78"/>
+    </property>
+  </category>
+
+  <!-- For objects that are  persistentpropertiues of a  CAST:PersistentEntity. E.g Hibernate -->
+  <category name="CAST_PersistentEntityProperty" id="136995">
+    <description>Persistent Entity Property</description>
+    <inheritedCategory name="CAST_IdentifiableEntity"/>
+    <inheritedCategory name="CAST_FetchableEntity"/>
+    <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+    <inheritedCategory name="CAST_PersistentCommonProperties"/>
+    <inheritedCategory name="CAST_AvoidLongTableAndColumnNames"/>
+    <property name="collection-type"  type="string" id="138849">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="49"/>
+    </property>
+    <property name="component"  type="string" id="138850">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="57"/>
+    </property>
+    <property name="access"  type="string" id="138851">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="74"/>
+    </property>
+    <property name="length"  type="string" id="138852">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="73"/>
+    </property>
+    <property name="unsaved-value"  type="string" id="138853">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="72"/>
+    </property>
+    <property name="formula"  type="string" id="138854">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="39"/>
+    </property>
+    <property name="timestamp"  type="string" id="138856">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="52"/>
+    </property>
+    <property name="discriminator"  type="string" id="138859">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="71"/>
+    </property>
+    <property name="default-name"  type="string" id="138860">
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="50"/>
+    </property>
+    <property name="column name" type="string"  id="138982" >
+      <description></description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="79"/>
+    </property>
+  </category>
+
+  <!-- Refers to a SQL, JPQL, HQL Query or any other framework related query -->
+  <category name="CAST_PersistenceFrameworkQuery" id="139148">
+    <description>Persistence framework query</description>
+    <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+  </category>
+
+
+  <type name="HIB_CONFIG_FILE" id="136007">
+        <description>Hibernate Configuration File</description>
+        <attribute name="KEY_CLASS" intValue="11300"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_MAPPING_FILE" id="136008">
+        <description>Hibernate Mapping File</description>
+        <attribute name="KEY_CLASS" intValue="11301"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_ENTITY" id="136009">
+        <description>Hibernate Entity</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11302"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_PersistentEntity"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_ENTITY_PROPERTY" id="136010">
+        <description>Hibernate Entity Property</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11303"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_PersistentEntityProperty"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObjectProperty"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_HQL_NAMED_QUERY" id="136011">
+        <description>Hibernate HQL Named Query</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11304"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+        <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+        <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_SQL_NAMED_QUERY" id="136012">
+        <description>Hibernate SQL Named Query</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11305"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_JavaScript"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="APM All Artifacts"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+        <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_HQL_QUERY" id="136999">
+        <description>Hibernate HQL Query</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="HIB_SQL_QUERY" id="136998">
+        <description>Hibernate SQL Query</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <!-- Objects issus de la prise en compte de l'API Java de persistence JPA  -->
+
+	<!-- Fichier de mapping entre classes java et tables de base de données.  -->
+	<!-- Fichier generalement nommé orm.xml et contenant la description des objets persistants  -->
+    <type name="JPA_ORM_CONFIG_FILE" id="136020">
+        <description>JPA ORM Configuration File</description>
+        <attribute name="KEY_CLASS" intValue="11350"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <!-- Category correspondant aux options du framework Hibernate. -->
+    <category name="CAST_Hibernate_ConfigurationOptions" id="140478">
+        <description>Hibernate configuration options</description>
+        <property name="hibernate_dialect" type="string"  id="139238" >
+            <description>hibernate.dialect</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="81"/>
+        </property>
+        <property name="hibernate_connection_driver_class" type="string"  id="139239" >
+            <description>hibernate.connection.driver_class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="82"/>
+        </property>
+        <property name="hibernate_connection_username" type="string"  id="139240" >
+            <description>hibernate.connection.username</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="83"/>
+        </property>
+        <property name="hibernate_hbm2ddl_auto" type="string"  id="139241" >
+            <description>hibernate.hbm2ddl.auto</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="84"/>
+        </property>
+        <property name="hibernate_connection_url" type="string"  id="139242" >
+            <description>hibernate.connection.url</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="85"/>
+        </property>
+        <property name="hibernate_connection_pool_size" type="string"  id="139243" >
+            <description>hibernate.connection.pool_size</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="86"/>
+        </property>
+        <property name="hibernate_c3p0_max_statements" type="string"  id="139244" >
+            <description>hibernate.c3p0.max_statements</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="87"/>
+        </property>
+        <property name="hibernate_c3p0_min_size" type="string" id="139245">
+            <description>hibernate.c3p0.min_size</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="88"/>
+        </property>
+        <property name="hibernate_c3p0_max_size" type="string" id="139246">
+            <description>hibernate.c3p0.max_size</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="89"/>
+        </property>
+        <property name="hibernate_c3p0_idle_test_period" type="string" id="139247">
+            <description>hibernate.c3p0.idle_test_period</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="90"/>
+        </property>
+        <property name="hibernate_c3p0_timeout" type="string" id="139248">
+            <description>hibernate.c3p0.timeout</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="91"/>
+        </property>
+        <property name="hibernate_dbcp_whenexhaustedaction" type="string" id="139249">
+            <description>hibernate.dbcp.whenExhaustedAction</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="92"/>
+        </property>
+        <property name="hibernate_dbcp_maxactive" type="string" id="139250">
+            <description>hibernate.dbcp.maxActive</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="93"/>
+        </property>
+        <property name="hibernate_dbcp_maxidle" type="string" id="139251">
+            <description>hibernate.dbcp.maxIdle</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="94"/>
+        </property>
+        <property name="hibernate_dbcp_maxwait" type="string" id="139252">
+            <description>hibernate.dbcp.maxWait</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="95"/>
+        </property>
+        <property name="hibernate_dbcp_initialsize" type="string" id="139253">
+            <description>hibernate.dbcp.initialSize</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="96"/>
+        </property>
+        <property name="hibernate_proxool_pool_alias" type="string" id="139254">
+            <description>hibernate.proxool.pool_alias</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="97"/>
+        </property>
+        <property name="hibernate_proxool_existing_pool" type="string" id="139255">
+            <description>hibernate.proxool.existing_pool</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="98"/>
+        </property>
+        <property name="hibernate_connection_datasource" type="string" id="139256">
+            <description>hibernate.connection.datasource</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="99"/>
+        </property>
+        <property name="connection_datasource" type="string" id="139265">
+            <description>connection.datasource</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="100"/>
+        </property>
+        <property name="hibernate_connection_password" type="string" id="139277">
+            <description>hibernate.connection.password</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="101"/>
+        </property>
+        <property name="hibernate_show_sql" type="string" id="139278">
+            <description>hibernate.show_sql</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="102"/>
+        </property>
+        <property name="hibernate_format_sql" type="string" id="139279">
+            <description>hibernate.format_sql</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="103"/>
+        </property>
+        <property name="hibernate_use_outer_join" type="string" id="139400">
+            <description>hibernate.use_outer_join</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="104"/>
+        </property>
+        <property name="hibernate_transaction_factory_class" type="string" id="139401">
+            <description>hibernate.transaction.factory_class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="105"/>
+        </property>
+        <property name="jta_UserTransaction" type="string" id="139402">
+            <description>jta.UserTransaction</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="106"/>
+        </property>
+        <property name="hibernate_default_schema" type="string" id="139418">
+            <description>hibernate.default_schema</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="107"/>
+        </property>
+        <property name="connection_autocommit" type="string" id="139419">
+            <description>connection.autocommit</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="108"/>
+        </property>
+        <property name="hibernate_bytecode_use_reflection_optimizer" type="string" id="139428">
+            <description>hibernate.bytecode.use_reflection_optimizer</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="109"/>
+        </property>
+    </category>
+
+	<!-- Objet correspondant a une entité persistante. Mappé a une table de BDD  -->
+	<!-- Peut etre raccroché a un XML (orm.xml) ou un fichier java   -->
+    <type name="JPA_ENTITY" id="136021">
+        <description>JPA Entity</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11351"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntity"/>
+        <inheritedCategory name="CAST_PersistentEntity"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+
+    <category name="CAST_JPA_PersistentEntity" id="140210">
+        <description>JPA Persistent Entity</description>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="Cast_JPA_FrameworkCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="CAST_AvoidLongTableAndColumnNames"/>
+    </category>
+
+	<!-- Objet correspondant a une proprieté d'une entité persistante. Mappé a une colonne de table.  -->
+	<!-- Raccroché a une entité persistante  -->
+    <type name="JPA_ENTITY_PROPERTY" id="136022">
+        <description>JPA Entity Property</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11352"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntityProperty"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_PersistentEntityProperty"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+    </type>
+
+  <category name="Cast_JPA_FrameworkCommonProperties" id="141244">
+    <description>JPA Framework common properties</description>
+    <property name="optional" type="string"  id="138834" >
+      <description>optional</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="64"/>
+    </property>
+  </category>
+
+  <category name="CAST_JPA_PersistentEntityProperty" id="140211">
+        <description>JPA Persistent Entity Property</description>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="Cast_JPA_FrameworkCommonProperties"/>
+        <inheritedCategory name="CAST_AvoidLongTableAndColumnNames"/>
+        <property name="transient" type="string"  id="139379" >
+            <description>transient</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="113"/>
+        </property>
+    </category>
+
+    <type name="JPA_EMBEDDABLE" id="136023">
+        <description>JPA Embeddable</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11353"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntity"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_PersistentEntity"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="JPA_EMBEDDABLE_PROPERTY" id="136024">
+        <description>JPA Embeddable Property</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11354"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntityProperty"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_PersistentEntityProperty"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+    </type>
+
+
+    <type name="JPA_NAMED_QUERY" id="136025">
+        <description>JPA Named Query</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11355"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_JavaScript"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="APM Client-Server Artifacts"/>
+        <inheritedCategory name="APM All Artifacts"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+        <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+        <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntity"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JPA_NAMED_NATIVE_QUERY" id="136026">
+        <description>JPA Named Native Query</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11356"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_JavaScript"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="APM All Artifacts"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+        <inheritedCategory name="APM Client-Server Artifacts"/>
+        <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+        <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+        <inheritedCategory name="CAST_JPA_PersistentEntity"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JPA_SQL_RESULT_SET" id="136027">
+        <description>JPA Result Set</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11357"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="CAST_JSP_JPQLQuery" id="137545">
+        <description>JPA JPQL Query</description>
+        <inheritedCategory name="CAST_Web"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JPA_PERS_CONFIG_FILE" id="136028">
+        <description>JPA Persistence configuration File</description>
+        <attribute name="KEY_CLASS" intValue="11370"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JPA_PERSISTENCE_UNIT" id="136029">
+        <description>JPA Persistence Unit</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11371"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_PersistenceUnitCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_Hibernate_ConfigurationOptions"/>
+        <tree parent="PERSISTENCE_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <!-- JPA End -->
+
+    <category name="CAST_JEE_PersistenceUnitCommonProperties" id="139963">
+        <description>Persistence Unit common properties</description>
+        <property name="provider" type="string" id="138862">
+            <description></description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="65"/>
+        </property>
+        <property name="exclude-unlisted-classes" type="string" id="138863">
+            <description></description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="66"/>
+        </property>
+    </category>
+
+    <type name="JSF_FACES_CONFIG_FILE" id="136013">
+        <description>JSF Faces Config File</description>
+        <attribute name="KEY_CLASS" intValue="11310"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="JSF_MANAGED_BEAN" id="136014">
+        <description>JSF Managed Bean</description>
+        <attribute name="KEY_CLASS" intValue="11070"/>
+        <inheritedCategory name="CAST_Web_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>		
+        <inheritedCategory name="EnlightenStandard"/>
+		<inheritedCategory name="CAST_JEE_Managed"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="JSF_OUTCOME" id="136015">
+        <description>JSF Outcome</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11313"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="JSF_VALIDATOR" id="136016">
+        <description>JSF Validator</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11312"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="JSF_CONVERTER" id="136017">
+        <description>JSF Converter</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11314"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="JSF_VIEW_ID_PATTERN" id="136018">
+        <description>JSF View Id Pattern</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11316"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="JSF_INPUT_FIELD" id="136019">
+        <description>JSF Input Field</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11315"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_ValidationProperties"/>
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <property name="validator" type="string"  id="139814" >
+            <description>Validator</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="114"/>
+        </property>
+        <property name="Required" type="string" id="140345" >
+            <description>Indicates if input is mandatory</description>
+        </property>
+    </type>
+    <type name="URL" id="136997">
+        <description>URL</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_TypesToDisplay"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <!-- End JSP Section [136000, 137000[ -->
+
+    <type name="STRUTS_FORM_BEAN" id="136005">
+        <description>Struts Form Bean</description>
+        <attribute name="KEY_CLASS" intValue="11070"/>
+        <inheritedCategory name="CAST_Web_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="JSP_FORWARD" id="958">
+        <description>Struts Forward</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11132"/>
+        <inheritedCategory name="CAST_JEE_Result"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+		<inheritedCategory name="CAST_JEE_UpdatableObject"/>
+		<tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JSP_STXX_TRANSFORMS_FILE" id="961">
+        <description>STXX Transforms File</description>
+        <attribute name="KEY_CLASS" intValue="11150"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JSP_STXX_PIPELINE" id="959">
+        <description>STXX Pipeline</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11160"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+    <type name="JSP_STXX_TRANSFORM" id="960">
+        <description>STXX Transform</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11170"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+  <category name="CAST_JEE_SpringBatchKeyInterfaces" id="142180">
+    <description>key Interface can be itemReader itemProcessor or itemWriter</description>
+    <inheritedCategory name="CAST_JEE_KB_Object"/>
+    <inheritedCategory name="EnlightenStandard"/>
+    <property name="ITEMREADER" type="string" id="140752">
+      <description>Item Reader</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="115"/>
+      <attribute name="INDEX" intValue="1"/>
+    </property>
+    <property name="ITEMPROCESSOR" type="string" id="140753">
+      <description>Item Processor</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="116"/>
+      <attribute name="INDEX" intValue="1"/>
+    </property>
+    <property name="ITEMWRITER" type="string" id="140754">
+      <description>Item Writer</description>
+      <attribute name="ACCESS_APPVIEW" intValue="1"/>
+      <attribute name="ACCESS_CVS" intValue="1"/>
+      <attribute name="ACCESS_HTML" intValue="1"/>
+      <attribute name="INF_TYPE" intValue="11002"/>
+      <attribute name="INF_SUB_TYPE" intValue="117"/>
+      <attribute name="INDEX" intValue="1"/>
+    </property>
+  </category>
+
+  <type name="CAST_JEE_Spring_Batch_Job" id="142175">
+        <description>Spring Batch Job</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11205"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_AST_WithInheritanceList"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_Mangled"/>
+      <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+      <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+  
+    <type name="CAST_JEE_Spring_Batch_Step" id="142176">
+        <description>Spring Batch Step</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11206"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_AST_WithInheritanceList"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_JEE_SpringBatchKeyInterfaces"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+  
+    <type name="SPRING_BEANS_FILE" id="985">
+        <description>Spring Beans File</description>
+        <attribute name="KEY_CLASS" intValue="11200"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="SPRING_BEAN" id="986">
+        <description>Spring Bean</description>
+        <attribute name="KEY_CLASS" intValue="11201"/>
+        <inheritedCategory name="CAST_Spring_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <category name="CAST_Spring_DoNotUseAutoWiring" id="142336">
+        <description>Do not use auto-wiring</description>
+        <property name="UseAutoWiring" type="integer" merge="sum" id="140919">
+            <description>Use auto-wiring</description>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Spring_AllBeans" id="140655">
+        <description>Common category for Spring Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_SpringBeansProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_UpdatableObject"/>
+        <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+        <inheritedCategory name="CAST_PersistenceFrameworkQuery"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+    </category>
+
+   <type name="CAST_JEE_SpringBeanProperty" id="141906">
+        <description>Property of a Spring bean used for dependency injection</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11204"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+   </type>
+
+    <type name="SPRING_CONTROLLER" id="992">
+        <description>Spring Controller</description>
+        <attribute name="KEY_CLASS" intValue="11202"/>
+        <inheritedCategory name="CAST_Spring_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>  
+    </type>
+    <type name="SPRING_VIEW" id="993">
+        <description>Spring View</description>
+        <attribute name="KEY_CLASS" intValue="11203"/>
+        <inheritedCategory name="CAST_Spring_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="XML_BEAN" id="987">
+        <description>Xml Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11133"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="CAST_J2EE_GROUP" id="141466">
+        <description>J2EE</description>
+    </type>
+    <type name="WEB_JSP_GROUP" id="519">
+        <description>Web</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <tree parent="CAST_J2EE_GROUP" category="EnlightenTree"/>
+        <tree parent="CAST_J2EE_GROUP" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+    <type name="PERSISTENCE_GROUP" id="142159">
+        <description>Persistence</description>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <tree parent="CAST_J2EE_GROUP" category="EnlightenTree"/>
+        <tree parent="CAST_J2EE_GROUP" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+    <type name="JSP_TILES_DEF_FILE" id="623">
+        <description>Tiles Configuration File</description>
+        <attribute name="KEY_CLASS" intValue="11140"/>
+        <inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JSP_BEAN_TILES_DEF" id="678">
+        <description>Tiles Definition</description>
+        <attribute name="KEY_CLASS" intValue="11070"/>
+        <inheritedCategory name="CAST_Web_AllBeans"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JSP_BEAN_PROP_TILES_DEF_ATTRIBUTE" id="679">
+        <description>Tiles Definition Attribute</description>
+        <attribute name="KEY_CLASS" intValue="11080"/>
+        <inheritedCategory name="CAST_Web_AllBeanProperties"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JSP_FILE_TEMPLATE" id="680" status="deprecated">
+        <description>JSP File Template</description>
+        <attribute name="KEY_CLASS" intValue="8070"/>
+        <inheritedCategory name="CAST_Web_All_Files"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+		<inheritedCategory name="APM Inventory Files"/>		
+		<inheritedCategory name="APM_Inventory_Web_Pages"/>		
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+    </type>
+
+
+    <!--********************************************************************-->
+    <!-- JEE Job Options Description                                        -->
+    <!--********************************************************************-->
+
+    <category name="CAST_JEE_JobOptions" id="138794">
+        <description>General JEE Job Options</description>
+        <!-- General Configuration -> Settings ; asks confirmation before saving-->
+        <property name="confirmBeforeSaving" type="integer" id="138658">
+            <description>Select this option when you want to confirm saving or not</description>
+        </property>
+
+        <!-- Web Files Options-->
+        <property name="isWebApplication" type="integer" id="138646">
+            <description>Set to true when your JEE application is a Web application.</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="7"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+
+        <!--Extensions of the form "*.jsp;"  -->
+        <property name="serverFilter" type="string" id="139455">
+            <description>Server file extensions</description>
+        </property>
+
+        <!--Extensions of the form "*.html;*.tag"  -->
+        <property name="clientFilter" type="string" id="139456">
+            <description>Client files extensions</description>
+        </property>
+
+        <inheritedCategory name="CAST_JEE_JavascriptExternal"/>
+        <property name="generateAndSaveCodeLayers" type="integer" id="139929">
+            <description>Client files extensions</description>
+        </property>
+
+        <property name="castScriptFolder" type="string" id="140004">
+             <description>Folder containing Cast Scripts</description>
+        </property>
+
+        <property name="castTagsExtensionFolder" type="string" id="140005">
+             <description>Folder containing tags extension</description>
+        </property>
+
+        <property name="definedInExecutionUnit" type="integer" id="140272">
+            <description>created from execution unit</description>
+        </property>
+
+        <property name="runLegacyWebAnalyzer" type="integer" id="140687">
+            <description>If 1 the legacy HTML JS analyzer is executed</description>
+        </property>
+
+    </category>
+
+    <!--JEE Job Options - General Configuration - Trace Settings -->
+    <category name="CAST_JEE_JobOptions_TraceSettings" id="139477">
+        <description>JEE Job Option - Keeping Information Generated During Annalysis For Debugging Purpose</description>
+      <!-- Keep Generated Files From JSP -->
+      <property name="keepGeneratedFilesFromEJB" type="integer" id="139911">
+        <description>Keep Generated Files From EJB</description>
+      </property>
+        <!-- Keep Generated Files From JSP -->
+        <property name="keepGeneratedFilesFromJSP" type="integer" id="138605">
+            <description>Keep Generated Files From JSP</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="1"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Keep Generated Files from Java Annotations -->
+        <property name="keepGeneratedFilesFromJavaAnnotations" type="integer" id="138606">
+            <description>Keep Generated Files from Java Annotations</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="9"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Enable CAST Scripts DEBUG -->
+        <property name="enableCASTScriptsDEBUG" type="integer" id="138608">
+            <description>Enable CAST Scripts DEBUG</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="10"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Keep Generated CAST Scripts from XML & Annotations -->
+        <property name="keepGeneratedCASTScriptsFromXMLAndAnnotations" type="integer" id="138609">
+            <description>Keep Generated CAST Scripts from XML and Annotations</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="11"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Keep Generated Files from User Input Security Analyzer -->
+        <property name="keepGeneratedFilesFromUserInputSecurityDiagnostics" type="integer" id="138610">
+            <description>Keep Generated Files from User Input Security Diagnostics</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="12"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Generated Trace Folder Path -->
+        <property name="generatedTraceFolderPath" type="string" id="138607">
+            <description>Generated Trace Folder Path</description>
+            <attribute name="ANA_INF_TYPE" intValue="11000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="2"/>
+            <attribute name="isSystemPath" intValue="1"/>
+        </property>
+    </category>
+
+
+    <type name="JOB_JSP_ANALYZER" id="719">
+        <description>J2EE Analyzer</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="ANALYZER_JOB"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_AnalysisOption_GeneralJobDefinition"/>
+        <property name="bootstrapOnly" type="integer" id="140712">
+            <description>If equals to 1, the job is used only as bootstrap to execute another exe</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <type name="CAST_JEE_AnalysisContext" id="141918">
+        <description>Bundle of configuration settings associated to a source file of any kind</description>
+        <inheritedCategory name="CAST_JEE_JobOptions"/>
+        <inheritedCategory name="CAST_Java_JobOptions"/>
+        <inheritedCategory name="CAST_WEB_JobOptions_Settings"/>
+        <inheritedCategory name="CAST_JEE_JobOptions_TraceSettings"/>
+        <inheritedCategory name="CAST_JEE_JavascriptExternal"/>
+        <inheritedCategory name="CAST_AnalysisOption_WithAnalysisUnitReference"/>
+      <property name="visibleContexts" type="referenceList" id="140542">
+            <description>The list of visible context from the current one</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+    
+	<type name="CAST_JEE_ExtractedFile" id="141209">
+		<description>Extracted file from jar</description>
+		<inheritedCategory name="shell"/>
+    <inheritedCategory name="CAST_ContextualItem"/>
+		<!-- archive -->
+		<property name="archive" type="string" id="139684">
+			<description>Archive</description>
+		</property>
+        <!-- reference to the project -->
+        <property name="auid" type="reference" id="140261">
+            <description>Reference toward the project</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+	</type>
+
+	<type name="CAST_JEE_TextReplacementOption" id="139534">
+        <description>Advanced options centred around replacing Regular Expressions in the files that are to be analyzed</description>
+        <inheritedCategory name="CAST_WEB_JobOptions_TextReplacement"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_JavaFilesSelectionOption" id="139519">
+        <description>JavaFiles Selection option. It allows you to select files that are to be analyzed when the job is run</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_ServerFilesSelectionOption" id="139520">
+        <description>Server Files Selection option. It allows you to select files that are to be analyzed when the job is run</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_ClientFilesSelectionOption" id="139521">
+        <description>Client Files Selection option. It allows you to select files that are to be analyzed when the job is run</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_PropertyFilesSelectionOption" id="139522">
+        <description>Property Files Selection option. It allows you to select files that are to be analyzed when the job is run</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_XMLFilesSelectionOption" id="139523">
+        <description>Property Files Selection option. It allows you to select files that are to be analyzed when the job is run</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <type name="CAST_JEE_ClasspathSelectionOption" id="139546">
+        <description>Classpath of a job. For a JEE job, this is specific to the Java files in your project.</description>
+        <inheritedCategory name="CAST_AnalysisOption_WithIncludeFolders"/>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+  
+    <type name="CAST_JEE_WebAppDescriptorOption" id="141837" status="deprecated">
+        <description>Use this option to choose your J2EE application's Web Deployment Descriptor</description>
+        <inheritedCategory name="CAST_WithProject"/>
+        <property name="path" type="string" id="140391">
+          <description>The path of the web.xml file</description>
+          <attribute name="isSystemPath" intValue="1"/>
+        </property>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type> 
+
+    <!-- Simple selection used by a simplified 'job' -->
+    <category name="CAST_JEE_Selection" id="141134">
+        <description></description>
+        <property name="selection" type="stringList" id="139566">
+            <description>The selected files or directories</description>
+            <attribute name="OptionName" stringValue="selection"/>
+            <attribute name="DefaultValue" stringValue="."/>
+        </property>
+        <property name="javaExtension" type="string" id="139567">
+            <description>The extensions for java files. Of The form *.java;...</description>
+            <attribute name="OptionName" stringValue="java-extensions"/>
+            <attribute name="DefaultValue" stringValue="*.java"/>
+        </property>
+        <property name="serverExtension" type="string" id="139570">
+            <description>The extensions for web server files. Of The form *.jsp;...</description>
+            <attribute name="OptionName" stringValue="server-extensions"/>
+            <attribute name="DefaultValue" stringValue="*.jsp"/>
+        </property>
+        <property name="clientExtension" type="string" id="139571">
+            <description>The extensions for web client files. Of The form *.html;...</description>
+            <attribute name="OptionName" stringValue="client-extensions"/>
+            <attribute name="DefaultValue" stringValue="*.html;*.htm;*.htc;*.js;*.vbs"/>
+        </property>
+        <property name="xmlExtension" type="string" id="139572">
+            <description>The extensions for web xml files. Of The form *.xml;...</description>
+            <attribute name="OptionName" stringValue="xml-extensions"/>
+            <attribute name="DefaultValue" stringValue="*.xml"/>
+        </property>
+        <property name="propertyExtension" type="string" id="139573">
+            <description>The extensions for property files. Of The form *.properties;...</description>
+            <attribute name="OptionName" stringValue="property-extensions"/>
+            <attribute name="DefaultValue" stringValue="*.properties"/>
+        </property>
+    </category>
+
+   <type name="CAST_JEE_TestSelection" id="141920">
+       <description>Files selection used inside unit tests.</description>
+       <inheritedCategory name="CAST_JEE_Selection"/>
+       <inheritedCategory name="CAST_ContextualItem"/>
+   </type>
+  
+   <type name="CAST_JEE_TestClasspath" id="141921">
+       <description>Files selection used inside unit tests.</description>
+       <inheritedCategory name="CAST_ContextualItem"/>
+       <property name="paths" type="stringList" id="140544">
+         <description>Classpath folders and files</description>
+       </property>
+   </type>
+  
+   <type name="CAST_JEE_TestProfile" id="141922">
+       <description>Environment profiles used inside unit tests.</description>
+       <inheritedCategory name="CAST_ContextualItem"/>
+       <property name="profiles" type="stringList" id="140545">
+         <description>Profiles</description>
+       </property>
+       <property name="profilesEJB2" type="stringList" id="140604">
+         <description>Profiles</description>
+       </property>
+       <property name="profilesWS" type="stringList" id="140605">
+         <description>Profiles</description>
+        </property>
+   </type>
+
+  <type name="CAST_JEE_EJB2Profile" id="141988">
+    <description>Parameters of an EJB2 environment profile</description>
+    <property name="deploymentDescriptor" type="string" id="140598">
+      <description>Deployment descriptor</description>
+    </property>
+    <property name="xsltFile" type="string" id="140599">
+      <description>Transformation file</description>
+    </property>
+    <inheritedCategory name="CAST_ContextualItem"/>
+  </type>
+  
+  <type name="CAST_JEE_WebServicesProfile" id="141989">
+    <description>Parameters of a Web Services environment profile</description>
+    <property name="mappingFile" type="string" id="140600">
+      <description>Mapping file</description>
+    </property>
+    <property name="xsltFile" type="string" id="140601">
+      <description>Transformation file</description>
+    </property>
+    <inheritedCategory name="CAST_ContextualItem"/>
+  </type>
+
+  <type name="CAST_JEE_SimplifiedJob" id="141135">
+    <description></description>
+    <inheritedCategory name="CAST_AnalysisOption_GeneralJobDefinition"/>
+
+    <property name="selections" type="referenceList" id="140543">
+      <description>The list of selected files for the current analysis</description>
+    </property>
+    
+    <property name="profiles" type="referenceList" id="139574">
+      <description>Selected profiles id, eg CAST_JAVA_LOG4J_1214. See configuration/EnvProf/Cast.aex</description>
+      <attribute name="OptionName" stringValue="profile"/>
+    </property>
+
+    <property name="ejb2Profiles" type="referenceList" id="140602">
+      <description>Selected EJB2 profiles id</description>
+      <attribute name="OptionName" stringValue="profileEJB2"/>
+    </property>
+
+    <property name="wsProfiles" type="referenceList" id="140603">
+      <description>Selected Web Services profiles id</description>
+      <attribute name="OptionName" stringValue="profileWS"/>
+    </property>
+
+    <property name="classpathes" type="referenceList" id="139575">
+      <description>Selected classpath. You may select a jar file or a directory of jars. You must select at least a rt.jar</description>
+      <attribute name="OptionName" stringValue="classpath"/>
+    </property>
+
+    <inheritedCategory name="CAST_JEE_JavascriptExternal"/>
+    
+        <property name="customAex" type="stringList" id="139932">
+          <description>Additional profile definition files.</description>
+          <attribute name="OptionName" stringValue="profile-definition"/>
+        </property>
+    </type>
+
+  <!-- simplified job used for command line launch -->
+  <type name="CAST_JEE_CommandLineOptions" id="141985">
+    <description></description>
+
+    <inheritedCategory name="CAST_AnalysisOption_GeneralJobDefinition"/>
+    <inheritedCategory name="CAST_JEE_JavascriptExternal"/>
+    <inheritedCategory name="CAST_JEE_Selection"/>
+
+    <property name="profiles" type="stringList" id="140581">
+      <description>Selected profiles id, eg CAST_JAVA_LOG4J_1214. See configuration/EnvProf/Cast.aex</description>
+      <attribute name="OptionName" stringValue="profile"/>
+    </property>
+
+    <property name="classpathes" type="stringList" id="140582">
+      <description>Selected classpath. You may select a jar file or a directory of jars. You must select at least a rt.jar</description>
+      <attribute name="OptionName" stringValue="classpath"/>
+    </property>
+
+    <property name="applicationRootPath" type="string" id="140583">
+      <description>Application root path</description>
+      <attribute name="OptionName" stringValue="root-path"/>
+      <attribute name="DefaultValue" stringValue="."/>
+    </property>
+
+    <property name="JSPVersion" type="string" id="140584">
+      <description>JSP version, values are 1.1, 1.2, 2.0</description>
+      <attribute name="OptionName" stringValue="jsp-version"/>
+      <attribute name="DefaultValue" stringValue="1.1"/>
+    </property>
+
+    <property name="javaVersion" type="string" id="140585">
+      <description>Java version, values are 1.2, 1.3, 1.4, 1.5, 1.6</description>
+      <attribute name="OptionName" stringValue="java-version"/>
+      <attribute name="DefaultValue" stringValue="1.6"/>
+    </property>
+
+    <property name="customAex" type="stringList" id="140586">
+      <description>Additional profile definition files.</description>
+      <attribute name="OptionName" stringValue="profile-definition"/>
+    </property>
+
+    <!-- Make this 'job' launchable in command line through analyzer.exe -->
+    <attribute name="AnalyzerName" stringValue="JEE"/>
+    <attribute name="AnalyzerConfigurationFile" stringValue="AmtJobConfig_JEEAnalyzerExe.xml"/>
+  </type>
+          
+  
+  
+    <type name="JOB_RF_JSP" id="741">
+        <description>J2EE Reference Finder</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="JOB"/>
+    </type>
+    <type name="JOB_CHILD_RF_JSP" id="768">
+        <description>J2EE Reference Finder</description>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="JOB"/>
+    </type>
+
+    <type name="JSP_GENERIC" id="790">
+        <description>J2EE XML Object</description>
+        <attribute name="KEY_CLASS" intValue="11131"/>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CAST_Web"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <inheritedCategory name="CAST_JEE_MappingProperties"/>
+        <inheritedCategory name="CAST_JEE_FrameworkObject"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JSP_SERVLET" id="268">
+        <description>Servlet</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="11112"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_CodeViewable"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_JEE_ServletProperties"/>
+        <inheritedCategory name="CAST_JEE_XMLObjectCommonProperties"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+
+    <category name="CAST_JEE_ServletProperties" id="139968">
+        <description>Servlet properties</description>
+        <property name="description" type="string" id="138868">
+            <description>Servlet description</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+        </property>
+        <property name="URLMappings" type="string" id="138869">
+            <description>Servlet URL mapings</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/>
+        </property>
+        <property name="servletClass" type="string" id="138870">
+            <description>Servlet class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+        </property>
+        <property name="servletJSPFile" type="string" id="138871">
+            <description>Servlet jsp_file</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+        </property>
+    </category>
+
+    <category name="APM JSP Module" id="-11" status="deprecated">
+        <!--"APM JSP Module" is deprecated from Lindbergh Technology Preview version; replaced with CAST_APM_JEE_Module-->
+        <description>JSP</description>
+        <inheritedCategory name="APM Client Modules"/>
+    </category>
+
+    <!-- Needed for FlexFramework. -->
+    <category name="CAST_JEE_AllProperties" id="138093">
+        <description>J2EE frameworks All properties</description>
+        <inheritedCategory name="CAST_JEE_SpringBeansProperties"/>
+        <inheritedCategory name="CAST_JEE_BeansProperties"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+    </category>
+
+    <!--
+		JEE language specific properties
+		@see category 'properties'
+	-->
+    <category name="CAST_JEE_Properties" id="138092">
+        <description>specific properties for J2EE frameworks objects</description>
+        <inheritedCategory name="properties"/>
+        <property name="isTilesDefinition" type="integer" merge="bitor" id="139046">
+            <description>Tiles definition</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isTilesDefinitionAttribute" type="integer" merge="bitor" id="139047">
+            <description>Tiles definition attribute</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isXmlLanguage" type="integer" merge="bitor" id="139048">
+            <description>XML object</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isSpringController" type="integer" merge="bitor" id="139049">
+            <description>Spring controller</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isSpringView" type="integer" merge="bitor" id="139050">
+            <description>Spring view</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isSpringDispatcher" type="integer" merge="bitor" id="139051">
+            <description>Spring dispatcher servlet</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isSpringUrlHandler" type="integer" merge="bitor" id="139052">
+            <description>Spring URL handler</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isStrutsAction" type="integer" merge="bitor" id="139053">
+            <description>Struts action</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isStrutsFormBean" type="integer" merge="bitor" id="139054">
+            <description>Struts struts form bean</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="isJSFManagedBean" type="integer" merge="bitor" id="139055">
+            <description>JSF managed bean</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+		<property name="nonProxyableViolation" type="integer" id="140666">
+		    <description>Set to one if the object cannot be proxied though it is expected by a framework</description>
+		    <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+		</property>		
+    </category>
+
+    <!-- Properties proper to Spring beans -->
+    <category name="CAST_JEE_SpringBeansProperties" id="138974">
+        <description>Commmon Spring Beans properties</description>
+        <property name="aliases" type="stringList" id="138260">
+            <description>Aliases of the Spring bean</description>
+        </property>
+        <property name="beanClass" type="string" id="138261">
+            <description>Implementation class</description>
+        </property>
+        <property name="isSingleton" type="string" id="138263">
+            <description>Is bean singleton</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="22"/>
+        </property>
+        <property name="autowire" type="string" id="138264">
+            <description>Autowire strategy</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="23"/>
+        </property>
+        <property name="dependencyCheck" type="string" id="138265">
+            <description>Dependecy check strategy</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="25"/>
+        </property>
+        <property name="lazyInit" type="string" id="138266">
+            <description>Is lazy init</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="24"/>
+        </property>
+        <property name="urlMap" type="string" id="138806">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="alwaysUseFullPath" type="integer" id="138807">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="factoryMethod" type="string" id="138808">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="factoryBean" type="string" id="138809">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="parentBean" type="string" id="138810">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="112"/>
+        </property>
+        <property name="excluded-props" type="string" id="139380">
+            <description>excluded-props</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="excluded-args" type="string" id="139381">
+            <description>excluded-args</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <inheritedCategory name="CAST_JEE_BeansProperties"/>
+    </category>
+
+    <category name="CAST_JEE_BeansProperties" id="138994">
+        <description>Commmon Beans properties</description>
+        <property name="subtype" type="string" id="138290">
+            <description>Subtype attribute of the bean</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="80"/>
+        </property>
+    </category>
+
+
+    <partialCategory name="CAST_LinkWithServerObjectProperties">
+        <inheritedCategory name="CAST_JEE_SQLLink"/>
+    </partialCategory>
+
+    <!-- Properties on SQL links for JEE Framework  -->
+    <category name="CAST_JEE_SQLLink" id="140054">
+        <description>Properties on SQL links for JEE Framework</description>
+
+        <!-- Type of the inheritance strategy (JSP analyzer: JPA, hibernate) -->
+        <property name="inheritanceStrategy" type="string"  id="138914">
+            <description>Strategy</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="110"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+        </property>
+    </category>
+
+    <!-- Type for JEE environment profiles -->
+    <type name="CAST_JEE_EnvironmentProfile" id="139716">
+        <description>JEE Environment profile</description>
+        <inheritedCategory name="CAST_AnalysisOption_EnvironmentProfile"/>
+        <property name="annotationGroups" type="CAST_JEE_AnnotationGroup" minimalCardinality="0" maximalCardinality="*" id="138722">
+            <description>List of annotation groups</description>
+        </property>
+        <property name="xmlGroups" type="CAST_JEE_XMLManagementGroup" minimalCardinality="0" maximalCardinality="*" id="138723">
+            <description>List of XML management groups</description>
+        </property>
+        <inheritedCategory name="CAST_ContextualItem"/>
+    </type>
+
+    <!-- JEE Annotation group management -->
+    <type name="CAST_JEE_AnnotationGroup" id="139717">
+        <description>Annotation group</description>
+        <property name="groupName" type="string" id="138724">
+            <description></description>
+        </property>
+        <property name="analysisMethod" type="integer" id="138725">
+            <description></description>
+        </property>
+        <property name="parameters" type="string" id="138726">
+            <description></description>
+        </property>
+        <property name="annotations" type="CAST_JEE_AnnotationStatus" minimalCardinality="0" maximalCardinality="*" id="138727">
+            <description></description>
+        </property>
+    </type>
+
+    <!-- JEE Annotation management -->
+    <type name="CAST_JEE_AnnotationStatus" id="139722">
+        <description></description>
+        <property name="value" type="string" id="138728">
+            <description></description>
+        </property>
+        <property name="isIgnored" type="integer" id="138729">
+            <description></description>
+        </property>
+    </type>
+
+    <!-- JEE XML group management -->
+    <type name="CAST_JEE_XMLManagementGroup" id="139723">
+        <description></description>
+        <property name="parsingMode" type="integer" id="138730">
+            <description></description>
+        </property>
+        <property name="parameters" type="string" id="138731">
+            <description></description>
+        </property>
+        <property name="filters" type="CAST_JEE_XMLManagementFilter" minimalCardinality="0" maximalCardinality="*" id="138732">
+            <description></description>
+        </property>
+    </type>
+
+    <!-- JEE XML management filter -->
+    <type name="CAST_JEE_XMLManagementFilter" id="139724">
+        <description></description>
+        <property name="type" type="integer" id="138733">
+            <description></description>
+        </property>
+        <property name="value" type="string" id="138734">
+            <description></description>
+        </property>
+    </type>
+
+    <category name="CAST_JEE_MappingProperties" id="140148">
+        <description>Servlet Mapping Properties</description>
+        <property name="mappingType" type="integer" id="138976">
+            <description>Mapping type</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+        </property>
+        <property name="mapValue" type="string" id="138977">
+            <description>Map value</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+        </property>
+        <property name="mapDefault" type="integer" id="138978">
+            <description>Map default value</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+        </property>
+    </category>
+
+    <!-- Properties for Struts Actions -->
+    <category name="CAST_JEE_ValidationProperties" id="141295">
+        <description>Properties for validation properties</description>
+
+        <property name="validate" type="string"  id="139565" >
+            <description>Validate</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="11002"/>
+            <attribute name="INF_SUB_TYPE" intValue="27"/>
+        </property>
+
+    </category>
+
+    <category name="CAST_JEE_FrameworkObject" id="140196">
+        <description>JEE framework object</description>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </category>
+
+    <category name="CAST_JEE_FrameworkObjectProperty" id="140197">
+        <description>JEE framework object property</description>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </category>
+
+    <category name="CAST_JEE_FrameworkObjectSubproperty" id="140198">
+        <description>JEE framework object subproperty</description>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="CAST_JEE_Properties"/>
+    </category>
+
+    <!-- EJB -->
+    <type name="JV_EJB_ENTITY" id="215">
+        <description>Entity Java Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5150"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="Cast_EJB_AllProperties"/>
+        <inheritedCategory name="Java_properties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_EJB"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+        <tree parent="PROFILE_JAVABEANS" category="EnlightenTree"/>
+        <tree parent="PROFILE_JAVABEANS" category="ParameterizeTree"/>
+    </type>
+    <type name="JV_EJB_SESSION" id="216">
+        <description>Session Java Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5160"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="Cast_EJB_AllProperties"/>
+        <inheritedCategory name="Java_properties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_EJB"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+        <tree parent="PROFILE_JAVABEANS" category="EnlightenTree"/>
+        <tree parent="PROFILE_JAVABEANS" category="ParameterizeTree"/>
+    </type>
+    <type name="JV_EJB_MESSAGE" id="541">
+        <description>Message Driven Java Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5165"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="Cast_EJB_AllProperties"/>
+        <inheritedCategory name="Java_properties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_EJB"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+        <tree parent="PROFILE_JAVABEANS" category="EnlightenTree"/>
+        <tree parent="PROFILE_JAVABEANS" category="ParameterizeTree"/>
+    </type>
+    <type name="CAST_JEE_SINGLETON" id="142121">
+        <description>Singleton Java Bean</description>
+        <inheritedCategory name="CAST_JEE_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5155"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="Cast_EJB_AllProperties"/>
+        <inheritedCategory name="Java_properties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_EJB"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+        <tree parent="PROFILE_JAVABEANS" category="EnlightenTree"/>
+        <tree parent="PROFILE_JAVABEANS" category="ParameterizeTree"/>
+    </type>
+
+    <category name="CAST_JEE_Struts2_WithResolutionTemplates" id="141176">
+        <description></description>
+        <property name="templates" type="CAST_JEE_Struts2_ResolutionTemplate" maximalCardinality="*" id="139598">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <inheritedCategory name="CAST_JEE_Struts2_WildcardContext"/>
+    </category>
+
+    <category name="CAST_JEE_Struts2_ResolutionData" id="141177">
+        <description></description>
+        <property name="value" type="string" id="139599">
+            <description></description>
+        </property>
+        <property name="resolveAsLow" type="integer" id="139600">
+            <description></description>
+        </property>
+        <property name="resolveAsHigh" type="integer" id="139612">
+            <description></description>
+        </property>
+        <property name="caller" type="reference" id="139601">
+            <description></description>
+        </property>
+        <property name="context" type="reference" id="139602">
+            <description></description>
+        </property>
+        <property name="linkType" type="string" id="139603">
+            <description></description>
+        </property>
+        <property name="linkStatus" type="integer" id="139604">
+            <description></description>
+        </property>
+        <property name="position" type="bookmark" id="139605">
+            <description></description>
+        </property>
+        <property name="resolutionScope" type="string" id="139606">
+            <description></description>
+        </property>
+        <property name="namespace" type="string" maximalCardinality="*" id="139607">
+            <description></description>
+        </property>
+        <property name="page" type="reference" id="139608">
+            <description></description>
+        </property>
+        <property name="matchWholeWord" type="integer" id="139609">
+            <description></description>
+        </property>
+    </category>
+
+    <type name="CAST_JEE_Struts2_ResolutionTemplate" id="141178">
+        <description>A general resolution query to be instantiated</description>
+        <inheritedCategory name="CAST_JEE_Struts2_ResolutionData"/>
+    </type>
+
+    <category name="CAST_JEE_Struts2_WildcardContext" id="141180">
+        <description></description>
+        <property name="callContext" type="CAST_JEE_StrutsAction" maximalCardinality="1" id="139610">
+            <description></description>
+        </property>
+    </category>
+
+    <type name="CAST_JEE_TranslationPosition" id="141477">
+        <description></description>
+        <property name="kind" type="integer" id="140013">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="classId" type="string" id="140014">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="staticPos" type="bookmark" id="140016">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="drowfrom" type="integer" id="140015">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <category name="CAST_JEE_LocalizableJSPEntity" id="141481">
+        <description></description>
+        <property name="location" type="bookmark" id="140019">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_DescribableJSPEntity" id="141487">
+        <description></description>
+        <property name="description" type="string" id="140022">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140021">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_CallableJSPEntity" id="141488">
+        <description></description>
+        <property name="description" type="string" id="140025">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140024">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_ScopableJSPEntity" id="141493">
+        <description></description>
+        <property name="scope" type="string" id="140037">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140036">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_TrimJSPEntity" id="141505">
+        <description></description>
+        <property name="flagTrim" type="integer" id="140051">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140052">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_ElementAttribJSPEntity" id="141506">
+        <description></description>
+        <property name="elementAttrib" type="integer" id="140053">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140054">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+  
+    <category name="CAST_JEE_TypeJSPEntity" id="141511">
+        <description></description>
+        <property name="type" type="string" id="140059">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140060">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+  
+    <category name="CAST_JEE_RequiredJSPEntity" id="141512">
+        <description></description>
+        <property name="required" type="string" id="140061">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140062">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+  
+    <category name="CAST_JEE_RuntimeExprValueJSPEntity" id="141513">
+        <description></description>
+        <property name="rtexpr" type="string" id="140063">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140064">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+  <category name="CAST_JEE_BodyContentJSPEntity" id="141517">
+    <description></description>
+    <property name="content" type="string" id="140071">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140072">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_DynamicAttributesJSPEntity" id="141518">
+    <description></description>
+    <property name="attribute" type="string" id="140073">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140074">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_LanguageJSPEntity" id="141519">
+    <description></description>
+    <property name="language" type="string" id="140075">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140076">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_ImportJSPEntity" id="141520">
+    <description></description>
+    <property name="import" type="string" id="140077">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140078">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_PageEncodingJSPEntity" id="141521">
+    <description></description>
+    <property name="encoding" type="string" id="140079">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140080">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_ELIgnoredJSPEntity" id="141522">
+    <description></description>
+    <property name="ignored" type="integer" id="140081">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140082">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_WithVarJSPEntity" id="141501">
+        <description></description>
+        <property name="varName" type="string" id="140044">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140045">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WithVarReaderJSPEntity" id="141502">
+        <description></description>
+        <property name="varReaderName" type="string" id="140046">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140047">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WithFragmentJSPEntity" id="141503">
+        <description></description>
+        <property name="fragment" type="string" id="140048">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140049">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WithAliasJSPEntity" id="141509">
+        <description></description>
+        <property name="alias" type="string" id="140056">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140057">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_NameFromAttributeJSPEntity" id="141514">
+        <description></description>
+        <property name="nameFromAttribute" type="string" id="140065">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140066">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_VariableClassJSPEntity" id="141515">
+        <description></description>
+        <property name="variableClass" type="string" id="140067">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140068">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_DeclaredJSPEntity" id="141516">
+        <description></description>
+        <property name="declared" type="string" id="140069">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140070">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_CallJSPEntity" id="141523">
+        <description></description>
+        <property name="instanceStr" type="string" id="140083">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="instanceTypeStr" type="string" id="140084">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="method" type="string" id="140085">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="prefix" type="string" id="140086">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="kind" type="integer" id="140087">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_UriJSPEntity" id="141524">
+        <description></description>
+        <property name="uri" type="string" id="140088">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140089">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_TagDirectoryJSPEntity" id="141525">
+        <description></description>
+        <property name="tagDir" type="string" id="140090">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140091">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WithIdJSPEntity" id="141526">
+        <description></description>
+        <property name="id" type="string" id="140092">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140093">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WithClassJSPEntity" id="141527">
+        <description></description>
+        <property name="className" type="string" id="140094">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140095">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+  <category name="CAST_JEE_WithTeiClassJSPEntity" id="141545">
+    <description></description>
+    <property name="className" type="string" id="140126">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140127">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_WithValueJSPEntity" id="141546">
+    <description></description>
+    <property name="value" type="string" id="140128">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="occurence" type="integer" id="140129">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_JEE_BeanNameJSPEntity" id="141528">
+        <description></description>
+        <property name="beanName" type="string" id="140096">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140097">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_WidthJSPEntity" id="141529">
+        <description></description>
+        <property name="width" type="string" id="140098">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140099">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_HeightJSPEntity" id="141530">
+        <description></description>
+        <property name="height" type="string" id="140100">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140101">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_CodeJSPEntity" id="141531">
+        <description></description>
+        <property name="code" type="string" id="140102">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140103">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_CodebaseJSPEntity" id="141532">
+        <description></description>
+        <property name="codebase" type="string" id="140104">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140105">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_JreVersionJSPEntity" id="141533">
+        <description></description>
+        <property name="jreVersion" type="string" id="140106">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140107">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_FallbackJSPEntity" id="141534">
+        <description></description>
+        <property name="fallback" type="string" id="140108">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140109">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_ArchiveJSPEntity" id="141535">
+        <description></description>
+        <property name="archive" type="string" id="140110">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140111">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_NsPluginJSPEntity" id="141536">
+        <description></description>
+        <property name="nsPlugin" type="string" id="140112">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140113">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_IePluginJSPEntity" id="141537">
+        <description></description>
+        <property name="iePlugin" type="string" id="140114">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140115">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_HSpaceJSPEntity" id="141538">
+        <description></description>
+        <property name="hspace" type="string" id="140116">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140117">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_VSpaceJSPEntity" id="141539">
+        <description></description>
+        <property name="vspace" type="string" id="140118">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140119">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_AlignJSPEntity" id="141540">
+        <description></description>
+        <property name="align" type="string" id="140120">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140121">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_PrefixableJSPEntity" id="141496">
+        <description></description>
+        <property name="prefix" type="string" id="140042">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140041">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="uri" type="string" id="140040">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="uriOccurence" type="integer" id="140039">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_PageJSPEntity" id="141490">
+        <description></description>
+        <property name="page" type="string" id="140027">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140028">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="flush" type="string" id="140029">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="flushOccurence" type="integer" id="140030">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JEE_PropertyJSPEntity" id="141492">
+        <description></description>
+        <property name="setproperty" type="string" id="140034">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="occurence" type="integer" id="140033">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="param" type="string" id="140032">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="paramOccurence" type="integer" id="140031">
+            <description></description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="CAST_JEE_JSPEntity" id="141482">
+        <description></description>
+        <inheritedCategory name="CAST_JEE_LocalizableJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_DescribableJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_CallableJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_PageJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_PropertyJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_ScopableJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_PrefixableJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithVarJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithVarReaderJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithFragmentJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_TrimJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_ElementAttribJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_TypeJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_RequiredJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_RuntimeExprValueJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithAliasJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_NameFromAttributeJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_VariableClassJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_DeclaredJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_BodyContentJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_DynamicAttributesJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_LanguageJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_ImportJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_PageEncodingJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_ELIgnoredJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_CallJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_UriJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_TagDirectoryJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithIdJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithClassJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_BeanNameJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WidthJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_HeightJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_CodeJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_CodebaseJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_JreVersionJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_FallbackJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_ArchiveJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_NsPluginJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_IePluginJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_HSpaceJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_VSpaceJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_AlignJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithTeiClassJSPEntity"/>
+        <inheritedCategory name="CAST_JEE_WithValueJSPEntity"/>
+    </type>
+	<type name="CDI_BEAN" id="142074">
+        <description>CDI Named Bean</description>
+      <!--  <attribute name="KEY_CLASS" intValue="11070"/> -->
+        <inheritedCategory name="CAST_Web_AllBeans"/>
+		<inheritedCategory name="CAST_JEE_Managed"/>
+        <inheritedCategory name="CAST_Saving_WithDynamicType"/>
+		<inheritedCategory name="EnlightenStandard"/>
+        <tree parent="WEB_JSP_GROUP" category="EnlightenTree"/>
+        <tree parent="WEB_JSP_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="CAST_JEE_ServletFilter" id="142077">
+        <description>Filter</description>
+        <attribute name="KEY_CLASS" intValue="11117"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithParent"/>
+    </type>
+	
+    <category name="CAST_JEE_Managed" id="142095">
+        <description>JEE objects managed by a framework</description>
+    </category>
+
+  <!-- Enhance platform type with struts 2 properties -->
+    <partial_type name="CAST_Web_File">
+      <inheritedCategory name="CAST_JEE_Struts2Context"/>
+      <inheritedCategory name="CAST_JEE_Struts2_WithResolutionTemplates"/>
+      <inheritedCategory name="CAST_Java_Metric_avoidUnusedImports"/>
+      <inheritedCategory name="CAST_Web_TranferedJavaProperties"/>
+      <inheritedCategory name="CAST_JEE_AvoidPageWithoutErrorHandling"/>
+      <inheritedCategory name="Cast_UseHibernateApiForDBResource"/>
+      <inheritedCategory name="Cast_AvoidStringInitialiseWithStringObject"/>
+    </partial_type>
+	 
+    <category name="CAST_JEE_UseDeclarativeTransactions" id="142339">
+        <description>Use Declarative Transactions</description>
+        <property name="programmaticTransactions" type="integer" merge="sum" id="140920">
+            <description>use declarative transactions</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="25"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+</metaModel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" contributorId="1065004" contributorType="quality-rule" contributorOriginalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." critical="false" weight="2" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" contributorId="1065000" contributorType="quality-rule" contributorOriginalName="Avoid using &quot;continue&quot; statement" critical="false" weight="1" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" contributorId="1065002" contributorType="quality-rule" contributorOriginalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." critical="false" weight="2" />
+  <metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" contributorId="1065008" contributorType="quality-rule" contributorOriginalName="Avoid use of unvalidated input in array indexing and memory allocation" critical="false" weight="2" />
+  <metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" contributorId="592" contributorType="quality-rule" contributorOriginalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" critical="true" weight="8" />
+  <metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" contributorId="1065006" contributorType="quality-rule" contributorOriginalName="Avoid iterator invalidation." critical="true" weight="7" />
+</metrics>

@@ -1,0 +1,82 @@
+{
+    "id": 1042012,
+    "name": "Avoid Unused Validation Form in Struts 1.x",
+    "href": "AIP/quality-rules/1042012",
+    "critical": false,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "An unused validation form indicates that validation logic is not up-to-date.\n\nThis rule will check that each validation form defined in validation.xml correspends to a specified form-bean. If not it gives the violation.\n\nThis check is done when used used struts version is 1.x",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Primary and Secondary Bookmarks for violation occurrences found in the source code",
+    "rationale": "An unused validation form indicates that validation logic is not up-to-date.\nIt is easy for developers to forget to update validation logic when they remove or rename action form mappings. One indication that validation logic is not being properly maintained is the presence of an unused validation form.",
+    "reference": "https://cwe.mitre.org/data/definitions/107.html",
+    "remediation": "Each validation form defined in validation.xml should correspend to a specified form-bean.\nAs here : we have the form-beans with associated form-validation: \n\n<form-beans>\n    <form-bean name=\"LoginForm\" type=\"org.apache.struts.validator.DynaValidatorForm\">\n        <form-property name=\"userName\" type=\"java.lang.String\" />\n        <form-property name=\"password\" type=\"java.lang.String\" />\n    </form-bean>\n</form-beans>\n\n___________________\n\n\n<form-validation>\n    <formset>\n        <form name=\"LoginForm\">\n            <field property=\"userName\" depends=\"required\">\n                <arg key=\"LoginForm.userName\"/>\n            </field>\n            <field property=\"password\" depends=\"required,minlength\">\n                <arg0 key=\"LoginForm.password\"/>\n                <arg1 key=\"${var:minlength}\" name=\"minlength\" resource=\"false\"/><br>\n                <var>\n                <var-name>minlength</var-name>\n                <var-value>6</var-value>\n                </var>\n            </field>\n        </form>\n    </formset>\n</form-validation>",
+    "sample": "Some of validation forms defined in validation.xml does not correspond to any specified form-bean.",
+    "total": "Number of field in struts1 XML Config File",
+    "alternativeName": "Ensure to not have Unused Validation Form in Struts 1.x to correctly maintain the validation logic",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-107",
+            "name": "Struts: Unused Validation Form",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

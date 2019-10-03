@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  	<metric id="7776" type="quality-rule" originalName="Avoid Artifacts with High Fan-In" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7778" type="quality-rule" originalName="Avoid Artifacts with High Fan-Out" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7782" type="quality-rule" originalName="Avoid empty finally blocks" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7784" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7788" type="quality-rule" originalName="Avoid empty catch blocks" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7792" type="quality-rule" originalName="Avoid Classes with a High Number Of Children" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code" filter="1020000" filterLabel="HTML5" />
+	<metric id="7844" type="quality-rule" originalName="Avoid undocumented Classes" filter="1020000" filterLabel="HTML5" />
+  	<metric id="7944" type="quality-rule" originalName="Avoid High Response for Classes" filter="1020000" filterLabel="HTML5" />
+  	<metric id="8028" type="quality-rule" originalName="Avoid missing default in switch statements" filter="1020000" filterLabel="HTML5" />
+  	<metric id="8032" type="quality-rule" originalName="Avoid using break statement in FOR loops" filter="1020000" filterLabel="HTML5" />
+  	<metric id='1020000' type='quality-rule' originalName='Avoid Artifacts with High Cyclomatic Complexity (HTML5/Javascript)' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020002' type='quality-rule' originalName='Avoid programs with low comment / code ratio  (HTML5/Javascript)' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020004' type='quality-rule' originalName='Avoid to use querySelectorAll' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020006' type='quality-rule' originalName='Avoid to call a function in a termination loop' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020008' type='quality-rule' originalName='Avoid for-in loop' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020010' type='quality-rule' originalName='Avoid using forEach()' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020012' type='quality-rule' originalName='Avoid using a web service with WebSocket inside a loop' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020014' type='quality-rule' originalName='Avoid using a web service with XMLHttpRequest inside a loop' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020016' type='quality-rule' originalName='Avoid using too much dot notation in loop' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020018' type='quality-rule' originalName='Avoid using Web SQL databases' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020020' type='quality-rule' originalName='Avoid blocking page loading with synchronous Javascript import' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020022' type='quality-rule' originalName='Avoid using submitted markup containing &quot;form&quot; and &quot;formaction&quot; attributes' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020024' type='quality-rule' originalName='Avoid &quot;id&quot; attributes for forms as well as submit' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020026' type='quality-rule' originalName='Avoid using autofocus and onfocus in submitted markup' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020028' type='quality-rule' originalName='Avoid using autofocus and onblur in submitted markup' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020030' type='quality-rule' originalName='Avoid using javascript or expression in the CSS file' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020032' type='quality-rule' originalName='Avoid using video poster attributes in combination with javascript' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020034' type='quality-rule' originalName='Avoid hosting HTML code in iframe srcdoc' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020036' type='quality-rule' originalName='Avoid using onscroll event with autofocus input' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020038' type='quality-rule' originalName='Avoid defining and calling functions inside loops' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020040' type='quality-rule' originalName='Avoid using delete with no object properties' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020042' type='quality-rule' originalName='Avoid having iframe inside a tag' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020044' type='quality-rule' originalName='Avoid using setData in ondragstart with attribute draggable set to true' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020046' type='quality-rule' originalName='Avoid using oninput in body containing input autofocus' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020048' type='quality-rule' originalName='Avoid using source tag in video/audio with event handler' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020050' type='quality-rule' originalName='Avoid white-listing the &quot;dirname&quot; attribute in user generated content' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020052' type='quality-rule' originalName='Avoid using import with external URI' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020054' type='quality-rule' originalName='Avoid using delete on arrays' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020056' type='quality-rule' originalName='Avoid using Javascript Document.all collection' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020058' type='quality-rule' originalName='Avoid using eval()' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020060' type='quality-rule' originalName='Avoid using console.log()' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020062' type='quality-rule' originalName='Avoid using non thread-safe Javascript singleton pattern' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020064' type='quality-rule' originalName='Avoid Superclass knowing Subclass in Javascript' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020066' type='quality-rule' originalName='Avoid using Javascript Function constructor' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020068' type='quality-rule' originalName='Avoid return statement in finally block' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020070' type='quality-rule' originalName='Avoid hardcoded network resource names in Javascript' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020072' type='quality-rule' originalName='Avoid direct access to Database Tables in Javascript' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020074' type='quality-rule' originalName='Avoid enabling autocomplete &quot;on&quot; for inputs/forms' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020076' type='quality-rule' originalName='Avoid Artifacts with too many parameters (Javascript)' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020078' type='quality-rule' originalName='Avoid using setTimeout()' filter='1020000' filterLabel='HTML5' />
+  	<metric id='1020080' type='quality-rule' originalName='Avoid using setInterval()' filter='1020000' filterLabel='HTML5' />
+  	<metric id="1020082" type="quality-rule" originalName="Avoid undocumented Functions (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020084" type="quality-rule" originalName="Avoid unreferenced Functions (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020086" type="quality-rule" originalName="Avoid Functions having a very low Comment/Code ratio (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020088" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020090" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020092" type="quality-rule" originalName="Avoid direct definition of JavaScript Functions in a Web page (Javascript/HTML5)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020094" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (Javascript)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020096" type="quality-rule" originalName="Avoid using unsecured cookie (Javascript)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020098" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Javascript)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020100" type="quality-rule" originalName="Avoid having cookie with an overly broad domain (Javascript)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020102" type="quality-rule" originalName="Always use JSON.parse &amp; JSON.stringify with try/catch block (Javascript)" filter="1020000" filterLabel="HTML5" />
+  	<metric id="1020104" type="quality-rule" originalName="Avoid hardcoded passwords (Javascript)" filter="1020000" filterLabel="HTML5" />
+</root>

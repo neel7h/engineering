@@ -1,0 +1,101 @@
+{
+    "id": 1043044,
+    "name": "Ensure that CSRF Protection is enabled (ASP.NET MVC)",
+    "href": "AIP/quality-rules/1043044",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In ASP.NET MVC, you must ensure that anti-forgery tokens are enabled for any non safe methods (POST, PUT, DELETE) in Razor Templates",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "CSRF takes advantage of the fact that most web apps allow attackers to predict all the details of a particular action. Because browsers send credentials like session cookies automatically, attackers can create malicious web pages which generate forged requests that are indistinguishable from legitimate ones.",
+    "reference": "https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks\nhttps://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)\nhttp://cwe.mitre.org/data/definitions/352.html\n\nOWASP Top 10 2007 -A5-Cross Site Request Forgery (CSRF)\nOWASP Top 10 2010 -A5-Cross Site Request Forgery (CSRF)\nOWASP Top 10 2013 -A8-Cross Site Request Forgery (CSRF)",
+    "remediation": "Ensure you have enable AntiForgery token in Razor Templates.",
+    "remediationSample": "@using (Html.BeginForm(\"Manage\", \"Account\")) {\n    @Html.AntiForgeryToken()\n\n    ...\n}",
+    "sample": "@using (Html.BeginForm(\"Manage\", \"Account\")) {\n\n    ...\n}",
+    "total": "Number of cshtml source codes using forms template",
+    "alternativeName": "Ensure that CSRF Protection is enabled (ASP.NET MVC)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70259",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

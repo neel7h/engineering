@@ -1,0 +1,63 @@
+{
+    "id": 1001164,
+    "name": "Avoid Main procedures using the DATE builtin function (PL1)",
+    "href": "AIP/quality-rules/1001164",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches for all PL1 Main Procedures that are declaring the DATE function.",
+    "output": "The report lists all the PL1 Main Procedures using the DATE builtin function.\n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "The DATE function is a deprecated functionality and causes issues in your program.",
+    "remediation": "Try to replace the DATE built in function with alternative functions.",
+    "sample": "....\nDCL DATE BUILTIN;\n....",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Main procedures using the DATE builtin function (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

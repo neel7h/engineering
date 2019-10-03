@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metaModel file_level="builtin" file_no="21">
+    
+    <!--  
+    Please reserve ids at : 
+    
+    -->
+
+    <category name="CAST_Python_APM_Module" id="1021000">
+        <description>Python</description>
+        <inheritedCategory name="APM Client Modules" />
+    </category>
+
+    <category name="CAST_Python_APM_Artifacts" id="1021001">
+        <description>Python Artifacts</description>
+        <inheritedCategory name="APM Client Language Artifacts" />
+    </category>
+
+    <type name="CAST_Python_SUBSET" id="1021002">
+        <description>Python Subset</description>
+        <inheritedCategory name="PROJECT_SUBSET" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="CAST_Python_APM_Module" />
+    </type>
+
+    <type name="CAST_Python_Enlighten" id="1021003">
+        <description>Python</description>
+        <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+    </type>
+
+    <category name="Python" id="1021004">
+        <description>Python</description>
+        <attribute name="extensions" stringValue="*.py" />
+        <inheritedCategory name="UniversalLanguage" />
+        <inheritedCategory name="CsvLanguage" />
+    </category>
+
+    <!-- Python project -->
+    <type name="CAST_Python_Project" id="1021005">
+        <description>Python Project</description>
+        <inheritedCategory name="UAProject" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="CAST_Python_APM_Module" />
+    </type>
+
+    <!-- Python Types -->
+
+    <type name="CAST_Python_SourceCode" id="1021006">
+        <description>Python Module</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="CAST_Python_Rule" />
+        <inheritedCategory name="CAST_Python_PEP8Rule" />
+        <inheritedCategory name="CAST_Python_Metric" />
+        <inheritedCategory name="CAST_Python_APM_Artifacts" />
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_External_Library" id="1021036">
+        <description>Python external library</description>
+        <inheritedCategory name="UAObject" />    
+        <inheritedCategory name="Python" />
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+        <!--
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_Python_APM_Artifacts" /> -->
+    </type>
+
+    <type name="CAST_Python_Class" id="1021007">
+        <description>Python class</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="APM Classes" />
+        <inheritedCategory name="CAST_Python_PEP8Rule" />
+        <inheritedCategory name="CAST_Python_ClassRule" />
+        <inheritedCategory name="CAST_Python_Metric" />
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+ 
+    <category name="CAST_Python_Rule" id="1021031">
+        <description>Rules</description>
+        <!-- Detail -->
+        <property name="httplibWebServiceInsideLoop" type="integer" merge="sum" id="1021000">
+            <description>Number of httplib web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfHttplibWebService" type="integer" id="1021001">
+            <description>Use httplib web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>  
+              
+        <!-- Detail -->
+        <property name="requestsWebServiceInsideLoop" type="integer" merge="sum" id="1021002"> 
+            <description>Number of requests web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfRequestsWebService" type="integer" id="1021003">
+            <description>Use requests web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+        </property>   
+        
+        <!-- Detail -->
+        <property name="aiohttpWebServiceInsideLoop" type="integer" merge="sum" id="1021004"> 
+            <description>Number of aiohttp web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfAiohttpWebService" type="integer" id="1021005">
+            <description>Use aiohttp web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+        </property>  
+        
+          <!-- Detail -->
+        <property name="urllibWebServiceInsideLoop" type="integer" merge="sum" id="1021006"> 
+            <description>Number of urllib web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfUrllibWebService" type="integer" id="1021007">
+            <description>Use urllib web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>        
+        
+          <!-- Detail -->
+        <property name="urllib2WebServiceInsideLoop" type="integer" merge="sum" id="1021008"> 
+            <description>Number of urllib2 web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfUrllib2WebService" type="integer" id="1021009">
+            <description>Use urllib2 web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+        </property>   
+               
+        <!-- Detail -->
+        <property name="httplib2WebServiceInsideLoop" type="integer" merge="sum" id="1021010"> 
+            <description>Number of httplib2 web service calls in loop</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- Total -->
+        <property name="useOfHttplib2WebService" type="integer" id="1021011">
+            <description>Use httplib2 web service</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+        </property>
+        <!-- xxx -->
+        <property name="returnWithValueInsideGenerator" type="integer" merge="sum" id="1021012">
+            <description>Return statement with a value inside a generator</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="useOfMd5Hashes" type="integer" merge="sum" id="1021013">
+            <description>Usage of exploitable MD5 hashes</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="SqlQueryStringConcatenation" type="integer" merge="sum" id="1021014">
+            <description>Unsafely concatenated SQL query string vulnerable to SQL injection attacks</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="emptyCatchAllExceptionClause" type="integer" merge="sum" id="1021015">
+            <description>Empty catch-all exception clause in try statements</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property> 
+        <property name="avoidWildCardImport" type="integer" merge="sum" id="1021016">
+            <description>Use of wildcard character while importing</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="InitializeAncestorWhenOverriding" type="integer" merge="sum" id="1021017">
+            <description>Overriden __init__ method without ancestor initialization</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="avoidReturnInFinally" type="integer" merge="sum" id="1021018">
+            <description>Return statement in finally clause</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>  
+        <property name="AlwaysCloseFileResources" type="integer" merge="sum" id="1021019">
+            <description>File resource with non-ensured closing</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="19"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="avoidEmptyFinallyBlock" type="integer" merge="sum" id="1021020">
+            <description>Avoid Empty Finally Block</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="20"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- burnt id - 1021021 : CAST_Python_Rule.AvoidHardcodedNetworkResourceNames -->
+        <property name="AvoidHardcodedNetworkResourceNames" type="integer" merge="sum" id="1021022">
+            <description>Avoid hardcoded network resource names</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="22"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+		<property name="avoidDisablingCertificateCheckWhenRequestingSecuredURLs" type="integer" merge="sum" id="1021023">
+            <description>Avoid disabling SSL Certificate Check</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="23"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+		<property name="InconsistentInitializationWhenSubclassingException" type="integer" merge="sum" id="1021024">
+            <description>Inconsistent initialization when deriving a new exception</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="24"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="avoidUsingEval" type="integer" merge="sum" id="1021025">
+            <description>Avoid using eval</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="25"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="avoidUsingExec" type="integer" merge="sum" id="1021026">
+            <description>Avoid using exec</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="26"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidHardcodedPasswords" type="integer" merge="sum" id="1021028">
+            <description>Avoid hardcoded passwords</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="28"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidNotIs" type="integer" merge="sum" id="1021029">
+            <description>Avoid Not Is</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="29"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="PreventDataDisclosureOStack" type="integer" merge="sum" id="1021031">
+            <description>Protect sensitive data in config files from disclosure</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="31"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidUnsecuredCookie" type="integer" merge="sum" id="1021032">
+            <description>Avoid using unsecured cookie</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="32"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidSuperfluousParenthesis" type="integer" merge="sum" id="1021035">
+            <description>Avoid superfluous parenthesis</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="35"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>    
+       	<property name="AvoidUsingGlobalStatement" type="integer" merge="sum" id="1021041">
+            <description>Avoid using global statement</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="41"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Python_ClassRule" id="1021043">
+        <description>Class-only rules</description>
+        <property name="AttributesOnlyDifferingByCaps" type="integer" merge="sum" id="1021027">
+            <description>Avoid attributes only differing by capitalization</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="27"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidSuperClassKnowingSubClass" type="integer" merge="sum" id="1021042">
+            <description>Avoid superclass knowing subclass</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="42"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Python_PEP8Rule" id="1021048">
+        <description>PEP-8 rules</description>
+        <property name="AvoidLongLines" type="integer" merge="sum" id="1021030">
+            <description>Avoid too long lines</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="30"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidLongDocstringLines" type="integer" merge="sum" id="1021033">
+            <description>Avoid long docstring lines</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="33"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="MissingWhitespaceAfterComma" type="integer" merge="sum" id="1021034">
+            <description>Missing whitespace after comma</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="34"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="AvoidTrailingWhitespace" type="integer" merge="sum" id="1021036">
+            <description>Avoid trailing whitespace</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="36"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+            <property name="RespectVariableNamingConventions" type="integer" merge="sum" id="1021037">
+            <description>Respect variable naming conventions</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="37"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="RespectFunctionNamingConventions" type="integer" merge="sum" id="1021038">
+            <description>Respect function naming conventions</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="38"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="RespectClassNamingConventions" type="integer" merge="sum" id="1021039">
+            <description>Respect class naming conventions</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="39"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Python_Metric" id="1021049">
+        <description>General metrics of Python artifacts</description>
+        <property name="has_docstring" type="integer" merge="sum" id="1021040">
+            <description>Has a docstring</description>
+            <attribute name="INF_TYPE" intValue="1021000"/>
+            <attribute name="INF_SUB_TYPE" intValue="40"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="CAST_Python_Method" id="1021008">
+        <description>Python method</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="CAST_Python_Rule" />
+        <inheritedCategory name="CAST_Python_PEP8Rule" />
+        <inheritedCategory name="CAST_Python_Metric" />
+        <inheritedCategory name="CAST_Python_APM_Artifacts" />
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <!-- A main function, python way  -->
+    <type name="CAST_Python_Script" id="1021009">
+        <description>Python main</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <inheritedCategory name="CAST_Python_Rule" />
+        <inheritedCategory name="CAST_Python_PEP8Rule" />
+        <inheritedCategory name="CAST_Python_APM_Artifacts" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_GetRequestsService" id="1021010">
+        <description>Python GET requests service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostRequestsService" id="1021011">
+        <description>Python POST requests service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PutRequestsService" id="1021012">
+        <description>Python PUT requests service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_DeleteRequestsService" id="1021013">
+        <description>Python DELETE requests service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_GetHttplibService" id="1021014">
+        <description>Python GET httplib service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostHttplibService" id="1021015">
+        <description>Python POST httplib service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PutHttplibService" id="1021016">
+        <description>Python PUT httplib service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_DeleteHttplibService" id="1021017">
+        <description>Python DELETE httplib service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_GetHttplib2Service" id="1021018">
+        <description>Python GET httplib2 service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostHttplib2Service" id="1021019">
+        <description>Python POST httplib2 service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PutHttplib2Service" id="1021020">
+        <description>Python PUT httplib2 service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_DeleteHttplib2Service" id="1021021">
+        <description>Python DELETE httplib2 service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_GetAiohttpService" id="1021022">
+        <description>Python GET aiohttp service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostAiohttpService" id="1021023">
+        <description>Python POST aiohttp service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PutAiohttpService" id="1021024">
+        <description>Python PUT aiohttp service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_DeleteAiohttpService" id="1021025">
+        <description>Python DELETE aiohttp service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_GetUrllibService" id="1021026">
+        <description>Python GET urllib service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostUrllibService" id="1021027">
+        <description>Python POST urllib service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PutUrllibService" id="1021037">
+        <description>Python PUT urllib service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_DeleteUrllibService" id="1021038">
+        <description>Python DELETE urllib service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <!-- BURNT ID  do not use : <type name="xxxx"> id="1021028" -->
+    
+    <type name="CAST_Python_GetUrllib2Service" id="1021029">
+        <description>Python GET urllib2 service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_Python_PostUrllib2Service" id="1021030">
+        <description>Python POST urllib2 service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Flask_GetOperation" id="1021032">
+        <description>Python Flask Web Service GET operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Flask_PostOperation" id="1021033">
+        <description>Python Flask Web Service POST operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Flask_PutOperation" id="1021034">
+        <description>Python Flask Web Service PUT operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Flask_DeleteOperation" id="1021035">
+        <description>Python Flask Web Service DELETE operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Aiohttp_GetOperation" id="1021039">
+        <description>Python Aiohttp Web Service GET operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Aiohttp_PostOperation" id="1021040">
+        <description>Python Aiohttp Web Service POST operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Aiohttp_PutOperation" id="1021041">
+        <description>Python Aiohttp Web Service PUT operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_Python_Aiohttp_DeleteOperation" id="1021042">
+        <description>Python Aiohttp Web Service DELETE operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="Python" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    
+    <type name="CAST_RabbitMQ_Python_QueueCall" id="1021044">
+       <description>RabbitMQ Python QueueCall</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />  
+       <inheritedCategory name="CAST_MQE_QueueCall"/>
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />   
+    </type>
+
+
+    <type name="CAST_RabbitMQ_Python_QueueReceive" id="1021045">
+       <description>RabbitMQ Python QueueReceive</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+       <inheritedCategory name="CAST_MQE_QueueReceive"/> 
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+  
+  
+	<type name="CAST_ActiveMQ_Python_QueueCall" id="1021046">
+       <description>ActiveMQ Python QueueCall</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />  
+       <inheritedCategory name="CAST_MQE_QueueCall"/>
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />   
+    </type>
+
+
+    <type name="CAST_ActiveMQ_Python_QueueReceive" id="1021047">
+       <description>Active Python QueueReceive</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+       <inheritedCategory name="CAST_MQE_QueueReceive"/> 
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_IBMMQ_Python_QueueCall" id="142300">
+       <description>IBM MQ Python QueueCall</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />  
+       <inheritedCategory name="CAST_MQE_QueueCall"/>
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />   
+    </type>
+
+
+    <type name="CAST_IBMMQ_Python_QueueReceive" id="142301">
+       <description>IBM MQ Python QueueReceive</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+       <inheritedCategory name="CAST_MQE_QueueReceive"/> 
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <type name="CAST_RabbitMQ_Python_Exchange" id="142273">
+       <description>RabbitMQ Python Exchange</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" />
+       <inheritedCategory name="METRICABLE" /> 
+       <inheritedCategory name="CAST_RabbitMQ_Exchange"/> 
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />  
+    </type>
+
+
+    <type name="CAST_RabbitMQ_Python_Queue" id="142274">
+       <description>RabbitMQ Python Queue</description>
+       <inheritedCategory name="Python" />
+       <inheritedCategory name="UAObject" /> 
+       <inheritedCategory name="METRICABLE" />        
+       <inheritedCategory name="CAST_RabbitMQ_Queue"/> 
+       <tree parent="CAST_Python_Enlighten" category="EnlightenTree" />  
+    </type>
+  
+
+</metaModel>

@@ -1,0 +1,57 @@
+{
+    "id": 1007166,
+    "name": "Avoid classes without matching __get and __set (PHP)",
+    "href": "AIP/quality-rules/1007166",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes not having matching __get and __set.",
+    "output": "This rule searches for all the classes not having matching __get and __set\n\nThis QR provides the following information:\nClass  full name.",
+    "rationale": "PHP __get and __set magic methods are used to have control over dynamic properties. It is a practice to have matching __get and __set.",
+    "remediation": "Evaluate and add missing methods.",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes without matching __get and __set (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

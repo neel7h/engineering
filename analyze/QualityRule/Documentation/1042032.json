@@ -1,0 +1,68 @@
+{
+    "id": 1042032,
+    "name": "Avoid using setters with Struts 2",
+    "href": "AIP/quality-rules/1042032",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The ActionSupport (com.opensymphony.xwork2.ActionSupport), a very powerful and convenience class that provides default implementation of few of the important interfaces \n\nAn action class extending ActionSupport will receive all HTTP parameters sent and these parameters will be automatically mapped to the setters of the Struts 2 action class. One should review the use of the fields set by the setters, to be sure they are used safely. By default, they should be considered as untrusted inputs. Thus can leads to potential security vulnerabilities\n\n\nThis rule will check if a setter is used in Struts2 ActionSupport. If yes, it gives violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code\n- Secondary Bookmark for violation",
+    "rationale": "You should carefully design your actions without exposing anything via setters and getters, thus can leads to potential security vulnerabilities. Any action\u2019s setter can be used to set incoming untrusted user\u2019s value which can contain suspicious expression. Some Struts Results automatically populate params based on values in  ValueStack (action in most cases is the root) which means incoming value will be evaluated as an expression during this process",
+    "reference": "https://struts.apache.org/security/#do-not-define-setters-when-not-needed",
+    "remediation": "Do not define setters when not needed as recommanded by : https://struts.apache.org/security/#do-not-define-setters-when-not-needed\n\nSanitize the user input. \nThis can be for example done by implementing the validate() method of com.opensymphony.xwork2.ActionSupport.",
+    "remediationSample": "public interface\u00a0WritableValue<T> \npublic interface\u00a0ReadOnlyProperty<T>\nextends\u00a0ObservableValue<T>",
+    "sample": "public class AccountBalanceAction extends ActionSupport {\n  private static final long serialVersionUID = 1L;\n  private Integer accountId;\n\n  // this setter might be called with user input\n  public void setAccountId(Integer accountId) {\n    this.accountId = accountId;\n  }\n\n  @Override\n  public String execute() throws Exception {\n    // call a service to get the account's details and its balance\n    [...]\n    return SUCCESS;\n  }\n}\n\nSample 2: \n\npublic String execute() {\n        // add a cookie to response\n        response.addCookie(new Cookie(\"user\", \"Pankaj\"));\n        if (requestCookies == null)\n            requestCookies = new HashMap<String, String>();\n        requestCookies.put(\"test\", \"test\");\n\n        System.out.println(\"Session Attributes: \" + sessionAttributes);\n        // add session attribute\n        HttpSession mySession = request.getSession();\n        mySession.setAttribute(\"user\", \"Pankaj\");\n        //OR\n        sessionAttributes.put(\"test\", \"Test\");\n\n        System.out.println(\"Context Attributes: \"\n                + contextAttributes.get(\"user\"));\n        // add context attribute\n        contextAttributes.put(\"user\", \"Pankaj\");\n        \n        setUser(getText(\"user\"));\n        setPassword(getText(\"password\"));\n        setMessage(getText(\"user\"));\n\n        System.out.println(\"Request Attributes: \" + requestAttributes);\n        \n        System.out.println(\"Request getText: \" + getText(\"user\"));\n        System.out.println(\"Request getText: \" + getText(\"password\"));\n        return SUCCESS;\n    }\n\nprivate String user;\n    private String password;\n    private String message;\n\n    public String getUser() {\n        return user;\n    }\n\n    public void setUser(String user) {\n        this.user = user;\n    }\n\n    public String getPassword() {\n        return password;\n    }\n\n    public void setPassword(String password) {\n        this.password = password;\n    }\n\n    public String getMessage() {\n        return message;\n    }\n\n    public void setMessage(String message) {\n        this.message = message;\n    }",
+    "total": "Number of Java Methods",
+    "alternativeName": "Ensure not defining setters with Struts 2 to avoid exposing sensitive data.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

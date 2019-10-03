@@ -1,0 +1,82 @@
+{
+    "id": 1007240,
+    "name": "Avoid artifacts having object instantiation without parenthesis - Symfony STD (PHP)",
+    "href": "AIP/quality-rules/1007240",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR will have violations if parenthesis are not used while instantiating objects.",
+    "output": "This report will list all artifacts that instantiate object without using parenthesis. It provides:\nArtifact full name",
+    "rationale": "Parenthesis should be used when instantiating classes regardless of the number of arguments since when method is being called PHP requires \"()\" and constructors are methods. \n      Also, it's more consistent with instantiations that have parameters.",
+    "remediation": "Use parenthesis when instantiating classes regardless of the number of arguments of the constructor.",
+    "remediationSample": "<?php\n\n   class Test\n   {\n      public function test() {\n      }\n   }\n                           \n   $obj = new Test();\n\n?>",
+    "sample": "<?php\n\n   class Test\n   {\n      public function test() {\n      }\n   }\n                           \n   $obj = new Test;\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts having object instantiation without parenthesis - Symfony STD (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61029,
+            "name": "Complexity - Dynamic Instantiation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Symfony2.Objects.ObjectInstantiation"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

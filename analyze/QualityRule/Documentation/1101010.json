@@ -1,0 +1,60 @@
+{
+    "id": 1101010,
+    "name": "Avoid NATURAL JOIN queries",
+    "href": "AIP/quality-rules/1101010",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all SQL Artifacts containing a query that has NATURAL JOINs.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "A NATURAL JOIN is a type of equi-join which implicitly compares all identically-named columns of the two tables. While this a feature may seem convenient at first, it becomes hard to maintain over time.",
+    "remediation": "Check the statement and if so, replace NATURAL JOINs with INNER JOINs.",
+    "remediationSample": "Could be rewritten as:\nSELECT first_name,department_name\nFROM employees\n     JOIN departments\nON (employees.manager_id = departments.manager_id\n     AND employees.department_id = departments.department_id);\n\nor as:\n\nSELECT first_name, department_name\nFROM employees\n     JOIN departments\n     USING(manager_id, department_id);",
+    "sample": "SELECT first_name, department_name\nFROM employees\n     NATURAL JOIN departments;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid NATURAL JOIN queries",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

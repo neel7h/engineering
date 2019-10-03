@@ -1,0 +1,75 @@
+{
+    "id": 1020760,
+    "name": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+    "href": "AIP/quality-rules/1020760",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of Buffer with specific encoding and the Node.js version used by the application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In all versions of Node.js prior to 6.14.4, 8.11.4 and 10.9.0 when used with UCS-2 encoding (recognized by Node.js under the names `'ucs2'`, `'ucs-2'`, `'utf16le'` and `'utf-16le'`), `Buffer#write()` can be abused to write outside of the bounds of a single `Buffer`. This rule has been listed as CVE-2018-12115 in the CVE registry.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12115",
+    "remediation": "Update the Node.js library to have a fixed Buffer implementation",
+    "sample": "console.log(Buffer.from('fhqwhgads', 'utf16le'));",
+    "total": "Number of NodeJS source code using Buffer library",
+    "alternativeName": "Avoid using Buffer library and UCS-2 encoding with vulnerable versions",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

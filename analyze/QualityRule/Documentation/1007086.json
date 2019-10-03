@@ -1,0 +1,73 @@
+{
+    "id": 1007086,
+    "name": "Use lowercase for control structures (PHP)",
+    "href": "AIP/quality-rules/1007086",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts that do not use lowercase for control structures. Artifacts considered for this quality rule are PHP section, method, function and constructors.",
+    "output": "This report lists all artifacts that do not use lowercase for control structures.\n\nThis QR provides the following information:\n- Artifact full name",
+    "rationale": "Use of naming convention makes the source code easier to read and therefore to maintain.",
+    "reference": "Code Sniffer - http://pear.php.net/reference/PHP_CodeSniffer-1.5.2/PHP_CodeSniffer/Squiz_Sniffs_ControlStructures_LowercaseDeclarationSniff.html",
+    "remediation": "Modify the source code to reduce the number of Methods and Functions containing control structures not in lowercase.",
+    "remediationSample": "<?php\nclass ClassTest {\n    function testCondition() {\n        $status = 0;\n\n        if ($status === 0) {          //VIOLATION REMOVED\n            echo \"section: status\",PHP_EOL;\n        } elseif ($status === 1) {    //VIOLATION REMOVED\n            echo \"section: status\",PHP_EOL;\n        }\n    }\n}\n$obj = new ClassTest();\n$obj-> testCondition();\n?>",
+    "sample": "<?php\nclass ClassTest {\n    function testCondition() {\n        $status = 0;\n\n        IF ($status === 0) {          //VIOLATION  \n            echo \"section: status\",PHP_EOL;\n        } elseIf ($status === 1) {    //VIOLATION \n            echo \"section: status\",PHP_EOL;\n        }\n    }\n}\n$obj = new ClassTest();\n$obj-> testCondition();\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Use lowercase for control structures (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "LowercaseDeclaration"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

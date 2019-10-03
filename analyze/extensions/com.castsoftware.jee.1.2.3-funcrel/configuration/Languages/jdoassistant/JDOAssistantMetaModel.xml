@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!-- 
+  Categories and types for JDO.
+  What is JDO ??
+-->
+
+<metaModel file_level="core" file_no="0">
+
+	<type name="JOB_JDO_ASSISTANT" id="771">
+		<description>JDO Assistant</description>
+		<inheritedCategory name="Java"/>
+		<inheritedCategory name="ANALYZER_JOB"/>
+	</type>
+	<type name="JV_JDO_GROUP" id="774">
+        <description>JDO</description>
+        <inheritedCategory name="KB object"/>
+        <attribute name="KEY_CLASS" intValue="5179"/>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="EnlightenBrowserRoot"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="project"/>
+        <inheritedCategory name="CastSystemViews"/>
+	</type>
+	<type name="JV_JDO" id="780">
+		<description>Java Data Object</description>
+		<inheritedCategory name="KB object"/>
+		<attribute name="KEY_CLASS" intValue="5180"/>
+		<inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>			
+		<inheritedCategory name="EnlightenBrowserDomainRoot"/>
+		<inheritedCategory name="Java"/>
+		<inheritedCategory name="CastSystemViews"/>
+		<tree parent="JV_COMPONENT" category="EnlightenTree"/>
+		<tree parent="JV_COMPONENT" category="ParameterizeTree"/>
+	</type>
+
+
+</metaModel>

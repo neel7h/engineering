@@ -1,0 +1,56 @@
+{
+    "id": 1001140,
+    "name": "Avoid Functions and Procedures with DB2 SQL containing the builtin function UPPER, LOWER or SUBSTR in the WHERE clause (PL1)",
+    "href": "AIP/quality-rules/1001140",
+    "critical": true,
+    "description": "This rule searches all PL1 Main Procedures, PL1 Functions and PL1 Procedures having DB2 SQL containing builtin function UPPER, LOWER or SUBSTR  in the WHERE clause.",
+    "output": "This report lists all the PL1 Main Procedures, PL1 Functions and PL1 Procedures having DB2 SQL containing builtin function UPPER, LOWER or SUBSTR  in the WHERE clause.\n\nIt provides the following information: PL1 Main Procedures, PL1 Functions and PL1 Procedures full name.",
+    "rationale": "A builtin function on column table increases CPU consumption and changes access path.",
+    "remediation": "Create a column table that contains the result of the builtin function",
+    "total": "Number of PL1 Main Procedures, PL1 Functions and PL1 Procedures.",
+    "alternativeName": "Avoid Functions and Procedures with DB2 SQL containing the builtin function UPPER, LOWER or SUBSTR in the WHERE clause (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

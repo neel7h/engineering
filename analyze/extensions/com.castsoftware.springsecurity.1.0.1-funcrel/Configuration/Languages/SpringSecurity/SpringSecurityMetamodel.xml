@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<metamodel file_level="builtin" file_no="40">
+
+    <partialCategory name="APM Java Artifacts">
+        <inheritedCategory name="APM Client Language Artifacts" />
+        <inheritedCategory name="CAST_Java_SpringSecurity_Version" />
+    </partialCategory>
+
+    <partialCategory name="CAST_Java_MethodsMetrics">
+        <inheritedCategory name="APM Client Language Artifacts" />
+        <inheritedCategory name="CAST_Java_Metric_SpringSecurityCSRFProtectionMustNotBeDisabled" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureRequestIsAuthenticatedWithHTTPBasic" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureContentSecurityPolicy" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureFormLoginAfterAuthenticationAndAuthorization" /> 
+        <inheritedCategory name="CAST_Java_Metric_DeleteCookiesDuringLogout" /> 
+        <inheritedCategory name="CAST_Java_Metric_EnsureInvalidatingHttpSessionDuringLogout" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingSpringSecurityDebugMode" />
+        <inheritedCategory name="CAST_Java_Metric_SpecifyPermitAllOrUserRoleToAccessUrlOfApplication" />
+        <inheritedCategory name="CAST_Java_Metric_SetXFrameOptionCorrectlyToAvoidClickjackingAttack" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureToSpecifyHttpMethodsInRequestMapping" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingGenericAuthenticationExceptionClass" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingControllerAdviceAndHandlerExceptionResolverSimultaneously" />
+        <inheritedCategory name="CAST_Java_SpringSecurity_Version" />
+        
+    </partialCategory>
+    
+    <partialType name="JSP_PROPERTIES_FILE">
+		<inheritedCategory name="APM Client Language Artifacts" />
+		<inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+		<inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" />
+		<inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootAdminMBean" />
+		<inheritedCategory name="CAST_Java_Metric_EnsureSpringBootShutdownActuatorEndpointisDisabled" />
+       
+    </partialType>
+    
+	<partialType name="JV_PROJECT">
+    	<inheritedCategory name="APM Client Language Artifacts" />
+		
+		<inheritedCategory name="CAST_Java_Metric_AvoidUsingControllerAdviceAndHandlerExceptionResolverSimultaneously"/>
+		<inheritedCategory name="CAST_Java_SpringSecurity_Version" />
+		<inheritedCategory name="CAST_Java_StrictHttpFirewallShouldBeDefaultHttpFirewall" />
+	 </partialType>
+	 
+	 <partialType name="JSP_APP">			
+    	<inheritedCategory name="APM Client Language Artifacts" />
+    	<inheritedCategory name="CAST_Java_SpringSecurity_Version" />
+		<inheritedCategory name="CAST_Java_StrictHttpFirewallShouldBeDefaultHttpFirewall" />
+	 </partialType>
+  
+      <partialType name="JSP_PROPERTIES_FILE">
+		<inheritedCategory name="APM Client Language Artifacts" />
+		<inheritedCategory name="CAST_JEE_ConfigurationFile"/>
+		<inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" />
+		<inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootAdminMBean" />
+		<inheritedCategory name="CAST_Java_Metric_EnsureSpringBootShutdownActuatorEndpointisDisabled" />
+       
+    </partialType>
+    
+    <partialCategory name="CAST_Java_Types">
+    	<inheritedCategory name="APM Client Language Artifacts" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingSpringSecurityDebugMode" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" />
+        <inheritedCategory name="CAST_Java_Metric_EnsureToSpecifyHttpMethodsInRequestMapping" />
+    </partialCategory>
+           
+    <category name="CAST_Java_Metric_SpringSecurityCSRFProtectionMustNotBeDisabled" id="1040001">
+        <description>Spring Security CSRF Protection must not be disabled
+        </description>
+        <property name="CSRFProtection" type="integer" merge="sum" id="1040001">
+            <description>CSRF Protection must not be disabled</description>
+            <attribute name="INF_TYPE" intValue="1040001" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureRequestIsAuthenticatedWithHTTPBasic" id="1040003">
+        <description>Ensure that any application request is authenticated with HTTP basic
+        </description>
+        <property name="AuthenticationWithHTTPBasic" type="integer" merge="sum" id="1040003">
+            <description>Ensure that any application request is authenticated with HTTP basic</description>
+            <attribute name="INF_TYPE" intValue="1040003" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureContentSecurityPolicy" id="1040007">
+        <description>Ensure that Content-Security-Policy is set for Spring Application
+        </description>
+        <property name="ContentSecurityPolicy" type="integer" merge="sum" id="1040007">
+            <description>Ensure that Content-Security-Policy is set for Spring Application</description>
+            <attribute name="INF_TYPE" intValue="1040007" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureFormLoginAfterAuthenticationAndAuthorization" id="1040009">
+        <description>Ensure that login form is declared after requesting authorization and authentication
+        </description>
+        <property name="FormLoginDeclaration" type="integer" merge="sum" id="1040009">
+            <description>Ensure that login form is declared after requesting authorization and authentication</description>
+            <attribute name="INF_TYPE" intValue="1040009" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    
+    <category name="CAST_Java_Metric_DeleteCookiesDuringLogout" id="1040011">
+        <description>Cookies must be deleted during the logout
+        </description>
+        <property name="DeleteCookiesDuringLogout" type="integer" merge="sum" id="1040011">
+            <description>Cookies must be deleted during the logout</description>
+            <attribute name="INF_TYPE" intValue="1040011" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureInvalidatingHttpSessionDuringLogout" id="1040013">
+        <description>Ensure that HTTP Session has been Invalidating during logout
+        </description>
+        <property name="InvalidatingHttpSessionDuringLogout" type="integer" merge="sum" id="1040013">
+            <description>Ensure that HTTP Session is invalidated during logout</description>
+            <attribute name="INF_TYPE" intValue="1040013" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidUsingSpringSecurityDebugMode" id="1040015">
+        <description>Avoid using Spring Security's debug mode
+        </description>
+        <property name="AvoidSpringSecurityDebugMode" type="integer" merge="sum" id="1040015">
+            <description>Avoid using Spring Security's debug mode</description>
+            <attribute name="INF_TYPE" intValue="1040015" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_SpecifyPermitAllOrUserRoleToAccessUrlOfApplication" id="1040017">
+        <description>PermitAll or user role should be specified to access URL(s) of the application
+        </description>
+        <property name="SpecifyPermitAllOrUserRoleToAccessUrl" type="integer" merge="sum" id="1040017">
+            <description>PermitAll or user role should be specified to access URL(s) of the application</description>
+            <attribute name="INF_TYPE" intValue="1040017" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_SetXFrameOptionCorrectlyToAvoidClickjackingAttack" id="1040019">
+        <description>X-Frame-Option should be correctly set to avoid Clickjacking attack
+        </description>
+        <property name="SetXFrameOptionCorrectlyToAvoidClickjackingAttack" type="integer" merge="sum" id="1040019">
+            <description>X-Frame-Option should be correctly set to avoid Clickjacking attack</description>
+            <attribute name="INF_TYPE" intValue="1040019" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" id="1040021">
+        <description>Ensure to enable Spring Boot Actuator Endpoint
+        </description>
+        <property name="EnsureToEnableSpringBootActuatorEndpoint" type="integer" merge="sum" id="1040021">
+            <description>Ensure to enable Spring Boot Actuator Endpoint</description>
+            <attribute name="INF_TYPE" intValue="1040021" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    
+    <category name="CAST_Java_Metric_EnsureToEnableSpringBootAdminMBean" id="1040023">
+        <description>Ensure to enable Spring Boot Admin MBean
+        </description>
+        <property name="EnsureToEnableSpringBootAdminMBean" type="integer" merge="sum" id="1040023">
+            <description>Ensure to enable Spring Boot Admin MBean</description>
+            <attribute name="INF_TYPE" intValue="1040023" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureSpringBootShutdownActuatorEndpointisDisabled" id="1040025">
+        <description>Ensure Spring Boot Shutdown Actuator Endpoint is disabled
+        </description>
+        <property name="EnsureSpringBootShutdownActuatorEndpointisDisabled" type="integer" merge="sum" id="1040025">
+            <description>Ensure Spring Boot Shutdown Actuator Endpoint is disabled</description>
+            <attribute name="INF_TYPE" intValue="1040025" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_EnsureToSpecifyHttpMethodsInRequestMapping" id="1040027">
+        <description>Ensure To Specify Http Methods In RequestMapping
+        </description>
+        <property name="EnsureToSpecifyHttpMethodsInRequestMapping" type="integer" merge="sum" id="1040027">
+            <description>Ensure To Specify Http Methods In RequestMapping</description>
+            <attribute name="INF_TYPE" intValue="1040027" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_NeverEnableSpringBootDevtoolsInProduction" id="1040029">
+        <description>Never Enable Spring Boot Devtools in Production
+        </description>
+        <property name="NeverEnableSpringBootDevtoolsInProduction" type="integer" merge="sum" id="1040029">
+            <description>Never Enable Spring Boot Devtools in Production</description>
+            <attribute name="INF_TYPE" intValue="1040029" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    
+    <category name="CAST_Java_Metric_AvoidUsingGenericAuthenticationExceptionClass" id="1040031">
+        <description>Avoid Using Generic Authentication Exception Class
+        </description>
+        <property name="AvoidUsingGenericAuthenticationExceptionClass" type="integer" merge="sum" id="1040031">
+            <description>Avoid Using Generic Authentication Exception Class</description>
+            <attribute name="INF_TYPE" intValue="1040031" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidUsingControllerAdviceAndHandlerExceptionResolverSimultaneously" id="1040033">
+        <description>Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously
+        </description>
+        <property name="AvoidUsingControllerAdviceAndHandlerExceptionResolverSimultaneously" type="integer" merge="sum" id="1040033">
+            <description>Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously</description>
+            <attribute name="INF_TYPE" intValue="1040033" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+     <category name="CAST_Java_SpringSecurity_Version" id="1040035">
+        <description>Spring security version
+        </description>
+        <property name="SpringSecurityVersion" type="integer" merge="sum" id="1040035">
+            <description>Spring security version</description>
+            <attribute name="INF_TYPE" intValue="1040017" />
+            <attribute name="INF_SUB_TYPE" intValue="16" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_StrictHttpFirewallShouldBeDefaultHttpFirewall" id="1040037">
+        <description>Strict Http Firewall Should Be Default HttpFirewall
+        </description>
+        <property name="StrictHttpFirewallShouldBeDefaultHttpFirewall" type="integer" merge="sum" id="1040037">
+            <description>Ensure Default Http Firewall is Strict Http Firewall</description>
+            <attribute name="INF_TYPE" intValue="1040018" />
+            <attribute name="INF_SUB_TYPE" intValue="17" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+
+    </category>
+    
+    <category name="CAST_SpringSecurity_XML_Configuration" id="1040005">
+        <description>Spring Security XML Configuration
+        </description>
+        <property name="SpringSecurityConfiguration" type="integer" merge="sum" id="1040005">
+            <description>Spring Security XML Configuration</description>
+            <attribute name="INF_TYPE" intValue="1040005" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+        
+    <type name="CAST_SpringSecurity_Configuration" id="142302">
+       <description>Spring Security Xml Configuration</description>
+       <inheritedCategory name="CAST_PluginObject"/>  
+       <inheritedCategory name="Java" />
+       <inheritedCategory name="APM Java Artifacts" />
+       <inheritedCategory name="APM Client Language Artifacts" />
+       <inheritedCategory name="CAST_SpringSecurity_XML_Configuration" />
+       <inheritedCategory name="CAST_Java_Metric_SpringSecurityCSRFProtectionMustNotBeDisabled" />
+       <inheritedCategory name="CAST_Java_Metric_EnsureRequestIsAuthenticatedWithHTTPBasic" />
+       <inheritedCategory name="CAST_Java_Metric_EnsureFormLoginAfterAuthenticationAndAuthorization" />  
+       <inheritedCategory name="CAST_Java_Metric_EnsureContentSecurityPolicy" />
+       <inheritedCategory name="CAST_Java_Metric_DeleteCookiesDuringLogout" />
+       <inheritedCategory name="CAST_Java_Metric_EnsureInvalidatingHttpSessionDuringLogout" />
+       <inheritedCategory name="CAST_Java_Metric_AvoidUsingSpringSecurityDebugMode" />
+       <inheritedCategory name="CAST_Java_Metric_SpecifyPermitAllOrUserRoleToAccessUrlOfApplication" />
+       <inheritedCategory name="CAST_Java_Metric_SetXFrameOptionCorrectlyToAvoidClickjackingAttack" />
+       <inheritedCategory name="CAST_Java_Metric_EnsureToEnableSpringBootActuatorEndpoint" />
+       <inheritedCategory name="CAST_Java_Metric_NeverEnableSpringBootDevtoolsInProduction" />
+       
+    </type>
+   
+</metamodel>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ********************************************** -->
+<!-- Function call in a loop termination expression -->
+<!-- ********************************************** -->
+
+<METRIC PACKAGE_NAME="Performance.FunCallInLoopTermExpr">
+  <ACTIVE>YES</ACTIVE>
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="CALCULATE" >
+      <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <CATEGORY_LIST>
+    <CATEGORY NAME="MATCH_FUNCALLINLOOPTERM">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <!-- Function call in loop termination expression in VB -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_VB" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_VB6_STATEMENT_DECLARE_LIST</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_VB6_LOOP_TERM_EXPR</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_VB6_FCT_CALL_EXPR"/>
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <!-- Function call in loop termination expression in C -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_C" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_C_BODY</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_C_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_C_WHILE_MISSING_BRACKET</SIGNATURE>
+              <SIGNATURE>NODE_C_DO_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_C_FOR</SIGNATURE>
+              <SIGNATURE>NODE_C_FOR_MISSING_BRACKET</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_C_LOOP_TERM_EXPR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_C_CALL"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      
+      <!-- Function call in loop termination expression in C# -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_CSHARP" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_CSharp_BODY</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_CSharp_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_CSharp_DO_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_CSharp_FOR</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_CSharp_LOOP_TERM_EXPR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_CSharp_CALL"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <!-- Function call in loop termination expression in VB.NET -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_VBNET" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+            <SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_VbNet_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_VbNet_DO_WHILE_UNTIL</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_VbNet_LOOP_TERM_EXPR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_VbNet_CALL"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <!-- Function call in a loop termination in PL/SQL -->
+      <!-- As far as i know there is only one possibility to do this in PL/SQL : -->
+      <!-- WHILE MyFunction(a) LOOP ... END LOOP; -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_PLSQL" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+            <SIGNATURE>NODE_P23_TRIGGER</SIGNATURE>
+            <SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_P23_STATEMENT_LOOP_WHILE</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_P23_LOOP_TERM_EXPR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_P23_FUNCTION_ARGS"/>
+                <SIGNATURE NAME="NODE_P23_FUNCTION_VOID_ARGS"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <!-- Function call in a loop termination expression in TSQL -->
+      <!-- As far as i know there is only one possibility to do this in TSQL : -->
+      <!-- WHILE MyFunction(a) -->
+      <!--   statements -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_TSQL" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>LIST_NV_INSTRUCTIONS</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_49X_WHILE</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_49X_WHILE_COND</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_49X_FCT_CALL"/>
+                <SIGNATURE NAME="NODE_49X_ODBC_FCT_CALL"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <!-- Function call in a loop termination expression in DB2 -->
+      <!-- Two ways : WHILE condition -->
+      <!--              statements    -->
+      <!--            END WHILE;      -->
+      <!-- and :      REPEAT          -->
+      <!--              statements    -->
+      <!--            UNTIL condition -->
+      <!--            END REPEAT;     -->
+      <!-- Seems the last one is note allowed in scalar functions -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_DB2" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>LIST_UDB_SQL_STATEMENT_LIST</SIGNATURE>
+            <SIGNATURE>LIST_DSN_SQL_STATEMENT_LIST</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_UDB_CTRL_REPEAT</SIGNATURE>
+              <SIGNATURE>NODE_UDB_CTRL_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_DSN_CTRL_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_DSN_CTRL_REPEAT</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_UDB_LOOP_TERM_EXPR</SIGNATURE>
+                <SIGNATURE>NODE_DSN_LOOP_TERM_EXPR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_UDB_CALL_FUNCTION"/>
+                <SIGNATURE NAME="NODE_DSN_CALL_FUNCTION"/>
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <!-- end DB2 -->
+
+      <!-- Function call in a loop termination expression in PowerBuilder -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_PB" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_PB6_LOOP_TERM_EXPR</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_PB6_CALL_FCT"/>
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <!-- end PB -->
+
+      <!-- Function call in loop termination expression in VB SCRIPT -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_VBSCRIPT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_VBS5_Script</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_VBS5_LoopTermExpr</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_VBS5_FunctionCall" />
+              <SIGNATURE NAME="NODE_VBS5_FunctionCallForParenthesisMember" />
+              <SIGNATURE NAME="NODE_VBS5_MemberAccessForFunctionCall" />
+              <SIGNATURE NAME="NODE_VBS5_MemberAccessForParenthesisFunctionCall" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <!-- Function call in loop termination expression in JavaScript -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_JAVASCRIPT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_JS15_Script</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_JS15_LoopTermExpr</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_JS15_MethodInvocation" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <!-- Function call in loop termination expression in Delphi -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_DELPHI" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+            <SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+            <SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+            <SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_DP6_LOOP_TERM_EXPR</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_DP6_FUNCTION_CALL_PARAM_LIST" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">        
+        <MATCH>FUNCALLINLOOPTERM_VB</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_C</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_CSHARP</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_VBNET</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_PLSQL</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_TSQL</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_DB2</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_PB</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_VBSCRIPT</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_JAVASCRIPT</MATCH>
+        <MATCH>FUNCALLINLOOPTERM_DELPHI</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid method invocation in a loop termination expression</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="MATCH_FUNCALLINLOOPTERM_JAVA">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <!-- Function call in loop termination expression in Java -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_JAVA" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_LoopTermExpr</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_J11_MethodInvocation"  SUB_NAME="METHOD_INVOC_1"/>
+              <SIGNATURE NAME="NODE_J11_MethodInvocation"  SUB_NAME="METHOD_INVOC_2"/>
+              <SIGNATURE NAME="NODE_J11_MethodInvocation"  SUB_NAME="METHOD_INVOC_3"/>
+              <SIGNATURE NAME="NODE_J11_MethodInvocation"  SUB_NAME="METHOD_INVOC_4"/>
+              <SIGNATURE NAME="NODE_J11_MethodInvocation"	SUB_NAME="METHOD_INVOC_5"/>
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>FUNCALLINLOOPTERM_JAVA</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="MATCH_FUNCALLINLOOPTERM_EXCEPT_JAVA">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <!-- Function call in loop termination expression in Java - Exception -->
+      <PROPERTY NAME="FUNCALLINLOOPTERM_EXCEPT_JAVA" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_LoopTermExpr</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_1</SIGNATURE>
+                <SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_2</SIGNATURE>
+                <SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_3</SIGNATURE>
+                <SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_4</SIGNATURE>
+                <SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_5</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="IDENTIFIER" EQUAL="hasNext" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="next" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="previous" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="isAfterLast" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="hasMoreTokens" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="nextElement" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="hasPrevious" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="hasMoreElements" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="nextIndex" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="previousIndex" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="isBeforeFirst" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="isLast" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="isFirst" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="last" />
+                <TOKEN NAME="IDENTIFIER" EQUAL="nextToken" />  
+             </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>FUNCALLINLOOPTERM_EXCEPT_JAVA</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="MATCH_FUNCALLINLOOPTERM_RESULT_JAVA">
+      <PROPERTY NAME="MATCH_FUNCALLINLOOPTERM_VALUE_JAVA" type="integer" />
+      
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>MATCH_FUNCALLINLOOPTERM_JAVA.VALUE</ADD_VALUE>
+        <LESS_VALUE>MATCH_FUNCALLINLOOPTERM_EXCEPT_JAVA.VALUE</LESS_VALUE>
+        <RESULT>MATCH_FUNCALLINLOOPTERM_VALUE_JAVA</RESULT>
+      </ADD_ACTION>
+      
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>MATCH_FUNCALLINLOOPTERM_VALUE_JAVA</SAVE>
+        <NAME>Avoid method invocation in a loop termination expression</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+  </CATEGORY_LIST>
+
+</METRIC>
+
+
+
+
+

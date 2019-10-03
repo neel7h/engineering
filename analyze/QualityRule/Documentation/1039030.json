@@ -1,0 +1,75 @@
+{
+    "id": 1039030,
+    "name": "Avoid using DefaultHttpClient constructor",
+    "href": "AIP/quality-rules/1039030",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Secure Socket Layer (SSL) technology is security that is implemented at the transport layer (see Transport-Layer Security for more information about transport-layer security). SSL allows web browsers and web servers to communicate over a secure connection. In this secure connection, the data is encrypted before being sent and then is decrypted upon receipt and before processing. Both the browser and the server encrypt all traffic before sending any data. SSL addresses the following important security considerations: Authentication, Confidentiality and Integrity",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "DefaultHttpClient constructor is not compatible with TLS 1.2. It is required to upgrade the implementation and use specific constructor that will benefit from the latest security JVM options.",
+    "reference": "https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https",
+    "remediation": "Do not use DefaultHttpClient",
+    "remediationSample": "HttpClient client = HttpClientBuilder.create().useSystemProperties().build();",
+    "sample": "HttpClient client = new DefaultHttpClient();",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Prefer not using DefaultHttpClient Constructor to ensure better transport layer security",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-319",
+            "name": "Cleartext Transmission of Sensitive Information",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

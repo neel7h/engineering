@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.sqlanalyzer</id>
+    <version>2.6.9-funcrel</version>
+    <title>SQL Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/SQL+Analyzer+-+2.6</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.sqlanalyzer.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SQL Analyzer provides official support for PostgreSQL, MySQL, MariaDB, SQLite, DB2, Informix, Sybase ASE, Microsoft SQL Server and Teradata. Especially designed to analyze sql files, both DDL and DML, it is intended for determining transactions and assessing quality. ANSI SQL-92 and ANSI SQL-99 compliant.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/SQL+Analyzer+-+2.6</releaseNotes>
+    <tags>SQL DDL DML FunctionPoint Quality CAIP8.0 CAIP8.1 CAIP8.2 CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.internal.platform" version="0.7.0-alpha1" />
+    </dependencies>
+  </metadata>
+</package>

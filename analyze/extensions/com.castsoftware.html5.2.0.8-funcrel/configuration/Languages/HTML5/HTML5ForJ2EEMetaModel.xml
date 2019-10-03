@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+
+    <!-- HTML5 Types -->
+
+    <type name="CAST_J2EE_HTML5_JavaScript_SourceCode_Fragment" id="1020058">
+        <description>J2EE HTML5 JavaScript source code fragment</description>
+        <inheritedCategory name="CAST_JavaScript_SourceCode_Fragment" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+    </type>
+
+    <type name="CAST_J2EE_HTML5_Applet" id="1020314">
+        <description>J2EE HTML5 Applet</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+    </type>
+
+</metaModel>

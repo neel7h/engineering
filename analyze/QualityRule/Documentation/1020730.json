@@ -1,0 +1,76 @@
+{
+    "id": 1020730,
+    "name": "Ensure Node.js filesystem are closed",
+    "href": "AIP/quality-rules/1020730",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the official Node.js syntax fs are closed.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a file is opened by Node.js filesystem, resources are allocated until the file is closed. Thus it is important to ensure the file is closed as soon as the file manipulation is done by handling correctly potential exceptions. Delegating file closing to the underlying interpreter/compiler can have a negative impact on code portability and can result in unexpected behavior.",
+    "reference": "https://nodejs.org/api/fs.html \nOMG CISQ Recommendation: ASCRM-CWE-772 and ASCSM-CWE-772",
+    "remediation": "Always close a filesystem after using open. \nAlways use closeSync after using openSync.",
+    "remediationSample": "var fs = require('fs'); \n\nfs.open('myfile', 'wx', (err, fd) => { \n  if (err) { \n    if (err.code === 'EEXIST') { \n      console.error('myfile already exists'); \n      return; \n    } \n\n    throw err; \n  } \n\n  writeMyData(fd); \n  fs.close(fd, function(error) {}) \n});",
+    "sample": "var fs = require('fs'); \n\n// NOT VIOLATION \nfs.readFile('/etc/passwd', (err, data) => { \n  if (err) throw err; \n  console.log(data); \n}); \n\n// VIOLATION \nfs.open('myfile', 'wx', (err, fd) => { \n  if (err) { \n    if (err.code === 'EEXIST') { \n      console.error('myfile already exists'); \n      return; \n    } \n\n    throw err; \n  } \n\n  writeMyData(fd); \n});",
+    "total": "Number of javascript source codes using fs",
+    "alternativeName": "Ensure Node.js filesystem are closed",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

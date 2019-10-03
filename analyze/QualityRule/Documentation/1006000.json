@@ -1,0 +1,62 @@
+{
+    "id": 1006000,
+    "name": "Avoid scripts using SQL static statements (Shell)",
+    "href": "AIP/quality-rules/1006000",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all Script using SQL static statements",
+    "output": "The report lists all the  Shell Scripts using  SQL  Static  statements\n\nIt provides following information: \n- script name",
+    "rationale": "This rule searches all Script using SQL static statements",
+    "remediation": "Try to reduce the use of  SQL static statements.",
+    "total": "Number of  Shell Scripts",
+    "alternativeName": "Avoid scripts using SQL static statements (Shell)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

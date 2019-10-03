@@ -1,0 +1,64 @@
+{
+    "id": 1008074,
+    "name": "Specify Error Subroutine for File Exception Handling  (RPG400)",
+    "href": "AIP/quality-rules/1008074",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the artifacts not having File Exception Handling and not specifying Error Subroutines.",
+    "output": "This report lists RPG400 Programs not having File Exception Handling.\nIt provides the following information:\n- RPG400 Program full name",
+    "rationale": "The error handling subroutine needs to be specific to prevent the application from unhandled exceptions. These can lead to application halt or unvalidated results. No specifying this on the file declaration part (F-spec) can show that the exceptions are not handled properly.",
+    "remediation": "Implement subroutines dedicated to File Exception Handling.",
+    "remediationSample": "Use following syntax for specifying error subroutine:\n    INFSR(Subroutine_name) \n    Or\n    KINFSR Subroutine_name\n    Flog if e k disk infds(infds) \nD infds ds \nD recname 261 270 \nD input ds qualified \nD rec1 likerec(rec1) overlay(input) \nD rec2 likerec(rec2) overlay(input) ",
+    "sample": "    Flog if e k disk \nD infds ds \nD recname 261 270 \nD input ds qualified \nD rec1 likerec(rec1) overlay(input) \nD rec2 likerec(rec2) overlay(input) ",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Specify Error Subroutine for File Exception Handling  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

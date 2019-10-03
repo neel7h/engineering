@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" thresholdToGet1="99.0" thresholdToGet2="95.0" thresholdToGet3="90.0" thresholdToGet4="50.0" />
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+</root>

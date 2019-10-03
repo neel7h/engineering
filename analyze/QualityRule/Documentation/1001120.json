@@ -1,0 +1,62 @@
+{
+    "id": 1001120,
+    "name": "Avoid Functions and Procedures having subscripts used in arrays or in do loops and not declared as BINARY FIXED(31) (PL1)",
+    "href": "AIP/quality-rules/1001120",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches all PL1 Procedures and PL1 Functions having variables enclosed between parentheses and not  declared as FIXED BIN(31) or BIN FIXED (31). If the variable is declared differently, then the procedure is listed as a violation. The assumption is made that the variable needs to be declared inside the procedure itself.",
+    "output": "The report lists all the PL1 Procedures and PL1 Functions violating the rule. \nIt provides the following information: \nPL1 Procedure and PL1 Function full name. The value is the name of the subscript not declared as BINARY FIXED(31).",
+    "rationale": "A variable declared BIN FIXED(31) gives a better performance then any other type when used as a  subscript.",
+    "remediation": "Declaration type has to be adjusted.",
+    "total": "Number of PL1  Procedures and PL1 Functions",
+    "alternativeName": "Avoid Functions and Procedures having subscripts used in arrays or in do loops and not declared as BINARY FIXED(31) (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

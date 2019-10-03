@@ -1,0 +1,58 @@
+{
+    "id": 1520760,
+    "name": "SiebelReview: Adding System Columns as BusComp Field Objects Definitions",
+    "href": "AIP/quality-rules/1520760",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Name of the System column",
+    "description": "The fields Id, Updated, Updated By, Created, and Created By are available system fields that can be exposed and presented in the user interface or used in script without explicitly defining them as BusComp fields.\nIf these fields are explicitly defined in a business component, the application may attempt to write a value to these columns twice in an INSERT or UPDATE statement and could cause a duplicate column SQL error.\nFrom version 7.0, this will not generally produce a runtime error, as the SQL generation will generally exclude any explicit attempt to write to system columns.  However, this introduces a data integrity issue, as if such a field is exposed in the UI and the user enters data into it, the data will not be saved to the database.  The application will ignore the user's data and use the system data.  When a user enters a value in such a field and later accesses the same record, they will not see the value entered.",
+    "output": "This rule reports Fields exposing system columns",
+    "rationale": "System columns are exposed as BusComp fields.  These columns can be exposed as controls or list columns on applets without explicitly defining them in the BusComp definition.",
+    "remediation": "Do not create BusComp fields mapped to system columns, as they are available for use in configuration and scripting without being explicitly defined, and doing so may introduce the type of error shown above.\nWhere such fields have been created, remove them from the BusComp definition and remap any existing references, such as list columns, controls, joins, and so forth to the supplied system column.  Do not forget to verify that any script that references the custom fields is also updated.\nNote:  In many implementations, this occurs when the joins to S_EMPLOYEE or S_USER are set up to display the actual creator or updater of a record, and the integration team has added a field mapped to a system column for use in the join.  This is not necessary\u0097the system fields Created By and Updated By can be used in a join specification.  There are numerous examples of how to do this in the standard application.",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "SiebelReview: Adding System Columns as BusComp Field Objects Definitions",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

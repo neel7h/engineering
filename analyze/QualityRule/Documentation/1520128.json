@@ -1,0 +1,63 @@
+{
+    "id": 1520128,
+    "name": "SiebelReview: PickList Not Defined",
+    "href": "AIP/quality-rules/1520128",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "List of undefined PickList",
+    "description": "A PickList determines the BusComp from which Fields may be picked into the current BusComp.  If the PickList is not defined, it will not be possible to pick any values.  This will prevent the user from being able to use the field in question properly, and may result in more serious issues if the field is required or has other validation that may prevent the user from saving the record.",
+    "output": "This rule reports all Fields in which PickList are not defined",
+    "rationale": "BusComp Fields refer to PickList objects that have not been defined.",
+    "remediation": "Ensure that all PickList attributes refer to valid objects.",
+    "total": "Number of added or modified Fields with PickList or PickMap",
+    "alternativeName": "SiebelReview: PickList Not Defined",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

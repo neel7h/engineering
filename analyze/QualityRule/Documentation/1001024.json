@@ -1,0 +1,75 @@
+{
+    "id": 1001024,
+    "name": "Avoid PLI Procedures & Functions with a High Fan-in (PL1)",
+    "href": "AIP/quality-rules/1001024",
+    "critical": false,
+    "maxWeight": 2,
+    "description": "This rule searches for all the procedures and functions having the number of other Artifacts that are referenced in it very high. When computing the Fan-Out of an Artifact, multiple accesses to the same component of an Artifact are counted as one access. \nThe threshold is a parameter and can be changed at will.\nPlease note that special procedures ignored in the calculation of this quality rule are PT%, ERROR, ERRORMSG, ERRORDB, DEBUG, ERR_DL1 and XERR_DL1. The default parameter value is 10.",
+    "output": "The report lists all the PLI procedures or functions having a High Fan-in. \n\nIt provides following information: \n- procedure or function full name",
+    "rationale": "The higher the number of referenced Artifacts, the more difficult the maintenance and evolution as all updates in referenced Artifacts will have to be tested and taken into account. Avoid Artifacts with High Fan-Out (Fan-Out > X).",
+    "remediation": "Reduce the number of artifacts referring the procedure or the function.",
+    "total": "Number of PLI Procedures and Functions.",
+    "alternativeName": "Avoid PLI Procedures & Functions with a High Fan-in (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Fan-in",
+            "description": "Max Fan-in",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

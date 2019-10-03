@@ -1,0 +1,40 @@
+CREATE OR REPLACE FUNCTION DIAG_ARTIFAC_TOTAL (
+	I_SNAPSHOT_ID IN INT,		-- the metric snapshot id
+	I_METRIC_PARENT_ID IN INT,	-- the metric parent id
+	I_METRIC_ID IN INT,			-- the metric id
+	I_METRIC_VALUE_INDEX IN INT
+)
+Return int
+Is
+	ERRORCODE	int := 0;
+Begin
+--<<NAME>>DIAG_ARTIFAC_TOTAL<</NAME>>*/
+--<<COMMENT>> Template name   = TOTALARTIFACTSALLTECHNO. <</COMMENT>>
+--<<COMMENT>> Definition      = Count of Artifacts. <</COMMENT>>
+    Insert Into DSS_METRIC_RESULTS
+		(METRIC_NUM_VALUE, METRIC_OBJECT_ID, OBJECT_ID, METRIC_ID, METRIC_VALUE_INDEX, SNAPSHOT_ID)
+    Select 
+		Count(T1.OBJECT_ID), 0, SC.OBJECT_PARENT_ID, I_METRIC_ID, I_METRIC_VALUE_INDEX, I_SNAPSHOT_ID 
+    From 
+    	DSSAPP_ARTIFACTS T1, DSS_METRIC_SCOPES SC
+    Where                    
+	    SC.SNAPSHOT_ID             	= I_SNAPSHOT_ID
+	    And SC.METRIC_PARENT_ID    	= I_METRIC_PARENT_ID
+	    And SC.METRIC_ID           	= I_METRIC_ID
+ 		And SC.COMPUTE_VALUE		= 0
+		And T1.APPLICATION_ID		= SC.OBJECT_ID
+		And Not Exists 
+		(
+			Select 1 
+			From 
+				DSS_OBJECT_EXCEPTIONS E
+			Where 
+				E.METRIC_ID		= I_METRIC_ID 
+				And E.OBJECT_ID	= T1.OBJECT_ID 
+		)
+		and T1.TECHNO_TYPE not in ( 1101000 ) -- SQLScript objects
+    Group By SC.OBJECT_PARENT_ID, SC.OBJECT_ID
+	; 
+Return ERRORCODE;
+End DIAG_ARTIFAC_TOTAL;
+/

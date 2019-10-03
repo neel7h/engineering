@@ -1,0 +1,79 @@
+{
+    "id": 1043034,
+    "name": "Avoid having applications with the tracing activated in the web config file",
+    "href": "AIP/quality-rules/1043034",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "it is mandatory before making any deployment of the application of the web application into the live environment, the tracing in the web.config file is to be disabled, because this information it is not revealed to the users.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "Failure frequently compromises all data that should have been protected. Typically, this information includes sensitive personal information (PII) data such as health records, credentials, personal data, and credit cards, which often require protection as defined by laws or regulations such as the EU GDPR or local privacy laws.",
+    "remediation": "Review the source code and have the tracing deactivated.",
+    "remediationSample": "<system.web>\n   <trace enabled=\u201dfalse\u201d>\n</system.web>",
+    "sample": "<system.web>\n    <trace enabled=\u201dtrue\u201d>\n</system.web>",
+    "total": "Number of config files",
+    "alternativeName": "Avoid having applications with the tracing activated in the web config file",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-489",
+            "name": "Leftover Debug Code",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

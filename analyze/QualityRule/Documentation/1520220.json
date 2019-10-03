@@ -1,0 +1,54 @@
+{
+    "id": 1520220,
+    "name": "Siebel eScript: Avoid empty Functions",
+    "href": "AIP/quality-rules/1520220",
+    "critical": false,
+    "maxWeight": 1,
+    "output": "This rule reports Functions without source code",
+    "total": "Number of added or modified eScripts except (declarations)",
+    "alternativeName": "Siebel eScript: Avoid empty Functions",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

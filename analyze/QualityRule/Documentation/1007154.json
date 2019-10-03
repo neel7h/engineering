@@ -1,0 +1,83 @@
+{
+    "id": 1007154,
+    "name": "Avoid using goto statements (PHP)",
+    "href": "AIP/quality-rules/1007154",
+    "critical": true,
+    "description": "This rule searches for all the artifacts containing goto statements. Artifacts considered for this quality rule are PHP Section, method, function and constructor.",
+    "output": "This report lists all the artifacts containing goto statements.\n\nThis QR provides the following information:\n-Artifact full name.",
+    "rationale": "Goto statements make code harder to read and it is nearly impossible to understand the control flow of an application that uses this language construct.",
+    "reference": "PHPMD - http://phpmd.org/rules/design.html#gotostatement",
+    "remediation": "Modify the source code and consider replacing Goto statements with regular control structures and separate methods/functions, which are easier to read.",
+    "remediationSample": "<?php\nclass CastTest {\n    public function test($param) {\n        if ($param === 10) {\n          if ($foo % 10 === 90) {\n            if ($bar % 90 === 10) {\n               return 90;\n            }\n         }\n      }\n   }\n}\n$obj = new CastTest();\n$obj -> bar(10);\n?>",
+    "sample": "<?php\nclass CastTest {\n\n    public function test($param) {\n        A:\n        if ($param === 10) {\n           goto C;\n        }\n\n        B:\n        if ($foo % 90 === 10) {\n            goto D;\n        }\n\n        C:\n        if ($bar % 10 === 90) {\n            goto B;\n        }\n\n        D: return 90;\n    }\n}\n$obj = new CastTest();\n$obj-> bar(10);\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using goto statements (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "GotoStatement"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

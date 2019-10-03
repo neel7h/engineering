@@ -1,0 +1,96 @@
+{
+    "id": 1020726,
+    "name": "Ensure that CSRF Protection is enabled (Node.js)",
+    "href": "AIP/quality-rules/1020726",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In Node.js, to avoid Cross-Site forgery, you need to activate a csrf module.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "CSRF takes advantage the fact that most web apps allow attackers to predict all the details of a particular action. Because browsers send credentials like session cookies automatically, attackers can create malicious web pages which generate forged requests that are indistinguishable from legitimate ones.",
+    "reference": "https://expressjs.com/en/advanced/best-practice-security.html \nhttps://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)\nhttp://cwe.mitre.org/data/definitions/352.html",
+    "remediation": "Ensure you have enable CSRF module in Express and pass the information to the templates",
+    "remediationSample": "// default csrf library \n\nvar express = require('express'); \nvar app = express(); \napp.use(csrf()); \n\napp.use(function (req, res, next) { \n  res.cookie('XSRF-TOKEN', req.csrfToken()); \n  res.locals.csrftoken = req.csrfToken(); \n  next(); \n}); \napp.use(app.router); \n\napp.listen(3000); \n\n// or example with csurf library \n\nvar csrf = require('csurf') \n// setup route middlewares \nvar csrfProtection = csrf({ cookie: true }) \n\n// create express app \nvar app = express() \n\napp.get('/form', csrfProtection, function (req, res) { \n  // pass the csrfToken to the view \n  res.render('send', { csrfToken: req.csrfToken() }) \n}) \n\n// or example with express-csrf library \n\nvar express = require('express'), \n    csrf = require('express-csrf'); \n\napp = express.createServer(); \n\napp.dynamicHelpers({ \n    csrf: csrf.token \n}); \n\napp.use(express.cookieParser()); \napp.use(express.bodyParser()); \napp.use(express.session()); \napp.use(csrf.check()); \n\napp.listen(3000);",
+    "sample": "var express = require('express'); \nvar app = express(); \n\napp.listen(3000);",
+    "total": "Number of javascript source codes using express",
+    "alternativeName": "Ensure that CSRF Protection is enabled (Node.js)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70259",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

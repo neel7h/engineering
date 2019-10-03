@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- Web Service Categories -->
+
+    <type name="CAST_Struts_PostOperation" id="1020267">
+        <description>Struts Post Operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Struts_GetOperation" id="1020268">
+        <description>Struts Get Operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Struts_Operation" id="1020269">
+        <description>Struts Operation</description>
+        <inheritedCategory name="CAST_WebService_AnyOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+</metaModel>

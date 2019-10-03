@@ -1,0 +1,75 @@
+{
+    "id": 1020706,
+    "name": "Ensure the Content-Security-Policy is activated (Node.js)",
+    "href": "AIP/quality-rules/1020706",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In Node.js, to avoid connection to untrusted source, you have to make sure that Content-Security-Policy HTTP header has been activated.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure the developer will work with a list of trusted source. Thanks to Content-Security-Policy HTTP header setup, you will only access the white-list of trusted sources.",
+    "reference": "https://expressjs.com/en/advanced/best-practice-security.html \nhttps://www.owasp.org/index.php/Content_Security_Policy",
+    "remediation": "Ensure you are manually setting up the Content-Security-Policy header in your express instance or use third-party helmet package",
+    "remediationSample": "var express = require('express'); \nvar app = express(); \n\napp.use(function(req, res, next){ \n    res.header(\"Content-Security-Policy\", \"default-src 'self';script-src 'self';object-src 'none';img-src 'self';media-src 'self';frame-src 'none';font-src 'self' data:;connect-src 'self';style-src 'self'\"); \n    next(); \n}); \n\napp.get('/', function(req, res){ \n    res.send(\"<html><body><p>hello world</p><script type='text/javascript'>alert('got you')</script></body><html>\"); \n}); \n\napp.listen(3000); \n\n// or with helmet \n\nvar express = require('express'); \nvar app = express(); \nvar helmet = require('helmet'); \n\n// @see https://github.com/evilpacket/helmet \n// you should activate even more headers provided by helmet \napp.use(helmet.csp({ \n    defaultSrc: [\"'self'\"], \n    scriptSrc: [\"'self'\"], \n    styleSrc: [\"'self'\"], \n    imgSrc: [\"'self'\"], \n    connectSrc: [\"'self'\"], \n    fontSrc: [\"'self'\"], \n    objectSrc: [\"'none'\"], \n    mediaSrc: [\"'self'\"], \n    frameSrc: [\"'none'\"], \n    // reportUri: '/report-violation', \n    reportOnly: false, // set to true if you only want to report errors \n    setAllHeaders: false, // set to true if you want to set all headers \n    safari5: false // set to true if you want to force buggy CSP in Safari 5 \n})); \n\n\napp.get('/', function(req, res){ \n    res.send(\"<html><body><p>hello world</p><script type='text/javascript'>alert('got you')</script></body><html>\"); \n}); \n\napp.listen(3000);",
+    "sample": "var express = require('express'); \nvar app = express(); \n\napp.get('/', function(req, res){ \n    res.send(\"<html><body>hello world<script type='text/javascript'>alert('got you')</script></body><html>\"); \n});\n\napp.listen(3000);",
+    "total": "Number of javascript source codes using express",
+    "alternativeName": "Ensure the Content-Security-Policy is activated (Node.js)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

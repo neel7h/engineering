@@ -1,0 +1,70 @@
+09/19/19 14:13:26 - [START] Compute Quality Rules
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 2230	Use of style sheets
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7378	Use of style sheets
+09/19/19 14:13:28 -   ->  quality rule DISABLED: 7908	Avoid unreferenced Methods
+09/19/19 14:13:28 - [START] load object, links and properties
+09/19/19 14:13:28 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_1.json (1/3)
+09/19/19 14:13:28 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_2.json (2/3)
+09/19/19 14:13:28 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_3.json (3/3)
+09/19/19 14:13:28 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_1.json (1/3)
+09/19/19 14:13:28 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_2.json (2/3)
+09/19/19 14:13:28 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_3.json (3/3)
+09/19/19 14:13:28 -   Total loaded: 
+09/19/19 14:13:28 -     603 objects
+09/19/19 14:13:28 -     777 links
+09/19/19 14:13:28 -     1488 properties
+09/19/19 14:13:28 - [END] load object, links and properties
+09/19/19 14:13:28 - [START] Process Quality Rules
+09/19/19 14:13:28 -   -> processing quality rule: Avoid_direct_definition_of_JavaScript_Functions_in_a_Web_page
+09/19/19 14:13:28 -   -> processing quality rule: Avoid artifacts having recursive calls
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/19/19 14:13:28 -   -> processing quality rule: Avoid undocumented Function
+09/19/19 14:13:28 -   -> processing quality rule: Avoid undocumented Methods
+09/19/19 14:13:28 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/19/19 14:13:28 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/19/19 14:13:28 - [END] Process Quality Rules
+09/19/19 14:13:28 - [END] Compute Quality Rules
+09/19/19 14:19:18 - [START] Compute Quality Rules
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 2230	Use of style sheets
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7378	Use of style sheets
+09/19/19 14:19:21 -   ->  quality rule DISABLED: 7908	Avoid unreferenced Methods
+09/19/19 14:19:21 - [START] load object, links and properties
+09/19/19 14:19:21 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_1.json (1/3)
+09/19/19 14:19:21 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_2.json (2/3)
+09/19/19 14:19:21 -   -> loading objects from file: output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_3.json (3/3)
+09/19/19 14:19:21 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_1.json (1/3)
+09/19/19 14:19:21 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_2.json (2/3)
+09/19/19 14:19:21 -   -> loading links from file:output\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894\repository\UA_HTML5\ObjectDescriptors_3.json (3/3)
+09/19/19 14:19:21 -   Total loaded: 
+09/19/19 14:19:21 -     603 objects
+09/19/19 14:19:21 -     777 links
+09/19/19 14:19:21 -     1488 properties
+09/19/19 14:19:21 - [END] load object, links and properties
+09/19/19 14:19:21 - [START] Process Quality Rules
+09/19/19 14:19:21 -   -> processing quality rule: Avoid_direct_definition_of_JavaScript_Functions_in_a_Web_page
+09/19/19 14:19:21 -   -> processing quality rule: Avoid artifacts having recursive calls
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/19/19 14:19:21 -   -> processing quality rule: Avoid undocumented Function
+09/19/19 14:19:21 -   -> processing quality rule: Avoid undocumented Methods
+09/19/19 14:19:21 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/19/19 14:19:21 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/19/19 14:19:21 - [END] Process Quality Rules
+09/19/19 14:19:21 - [END] Compute Quality Rules

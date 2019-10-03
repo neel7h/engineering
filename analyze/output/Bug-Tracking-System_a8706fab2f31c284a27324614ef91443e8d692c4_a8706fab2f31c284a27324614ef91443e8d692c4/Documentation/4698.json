@@ -1,0 +1,60 @@
+{
+    "id": 4698,
+    "name": "Avoid using 'System.err' and 'System.out' outside a try catch block",
+    "href": "AIP/quality-rules/4698",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "'System.err' and 'System.out' should not be used outside a try catch block.",
+    "output": "This report lists all Methods using 'System.err' and 'System.out' outside a try catch block. It provides the following information: Method full name",
+    "total": "Number of non-abstract Java artifacts.",
+    "alternativeName": "Ensure to have other ways of listing errors outside a try/catch  than 'System.err' and 'System.out'",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

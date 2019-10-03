@@ -1,0 +1,26 @@
+Info   : Total physical memory: 16275 MB.
+Info   : Using default serialization memory threshold of 11392 MB.
+Info   : Saving for AipLight in directory : './output/Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_ef843e1f70362de8888cda6c790f04929042aa1d'
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.userProjectId on instance CAST_UA_JobOptions #2
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.jobId on instance CAST_UA_JobOptions #2
+Warning: Unable to initialize greep tool for link search
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql': D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql:0
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql': D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql:0
+Info   : [com.castsoftware.sqlanalyzer] Start creating symbols for file D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql
+Info   : [com.castsoftware.sqlanalyzer] File D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql has ascii as detected encoding
+Info   : [com.castsoftware.sqlanalyzer] This file is analyzed against Mysql variant
+Info   : [com.castsoftware.sqlanalyzer] File D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql is considered as DDL
+Info   : [com.castsoftware.sqlanalyzer] End creating symbols for file D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql
+Info   : [com.castsoftware.sqlanalyzer] Max memory used is 283K
+Info   : [com.castsoftware.sqlanalyzer] Start resolving pending references
+Info   : [com.castsoftware.sqlanalyzer] End resolving pending references
+Info   : [com.castsoftware.sqlanalyzer] Start saving symbol links
+Info   : [com.castsoftware.sqlanalyzer] End saving symbol links
+Info   : [com.castsoftware.sqlanalyzer] Start creating links for file D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql
+Info   : [com.castsoftware.sqlanalyzer] End creating links for file D:\AIP_lite\castcoregitintegration\sourceCode\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d\abhyuday4_.sql
+Info   : [com.castsoftware.sqlanalyzer] 1 Schema(s) created.
+Info   : [com.castsoftware.sqlanalyzer] 12 Table(s) created.
+Info   : [com.castsoftware.sqlanalyzer] 10 Unique Constraint(s) created.
+Info   : [com.castsoftware.sqlanalyzer] Max memory used is 28K
+Info   : Starting UA resolution
+Info   : End UA resolution

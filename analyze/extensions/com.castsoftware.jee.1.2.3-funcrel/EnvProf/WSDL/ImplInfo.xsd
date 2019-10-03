@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by sdvsdfv (sqfcdscs) -->
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="webservices-impl">
+		<xs:annotation>
+			<xs:documentation>the root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceImpl" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>this node stores information about a single webservice implementation. 
+The name attribute holds the name of the service that is being described.
+The wsdlFile attribute specifies the full path of  the WSDL file that contains the declaration of the service being described</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="serviceType"/>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="portType" type="portTypeType"/>
+	<xs:complexType name="serviceType">
+		<xs:sequence>
+			<xs:element name="portTypeImpl" type="portTypeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>this node stores information about a single Port Type implementation. 
+The name attribute holds the name of the Port Type as specified in the wsdl file.
+The implClassFQName attribute specifies the fully qulified name of the class or interface that is mapped to the Port Type.
+The cwClass attribute holds an integer value that specifies the type of the objet whose name in implClassFQName. These values can be found in the keyClass field of the Keys table within the knowledge base(Application warehouse) for each type of object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="wsdlFile" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="portTypeType">
+		<xs:sequence>
+			<xs:element name="operationImpl" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>this node stores information about a single Operation implementation. 
+The name attribute holds the name of the Operation as specified in the wsdl file.
+The cwClass attribute holds an integer value that specifies the type of the objet that implements the operation. 
+These values can be found in the keyClass field of the Keys table within the knowledge base(Application warehouse) for each type of object.
+Use cwClassId elements instead
+The implProcName attribute specifies the simple name(not the signature) of the method/procedure that implements the Operation</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="operationType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="cwClassId" type="xs:unsignedInt" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>This element holds an integer value that specifies the type of the objets that are assumed to be implementing the Port Type and among which resolution will be carried out. 
+These values can be found in the keyClass field of the Keys table within the knowledge base(Application warehouse) for each type of object.
+Note that all the types specified are looked for(an inclusive OR operator between the spaecified values).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+		<xs:attribute name="implClassFQName" type="xs:string" use="optional"/>
+		<xs:attribute name="cwClass" type="xs:nonNegativeInteger" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="implClassType">
+		<xs:sequence/>
+		<xs:attribute name="fqName" type="xs:string" use="required"/>
+		<xs:attribute name="cwClass" type="xs:positiveInteger" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="operationType">
+		<xs:sequence>
+			<xs:element name="param" type="paramType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Not required yet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cwClassId" type="xs:unsignedInt" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>This element holds an integer value that specifies the type of the objets that are assumed to be implementing the operation and among which resolution will be carried out. 
+These values can be found in the keyClass field of the Keys table within the knowledge base(Application warehouse) for each type of object.
+Note that all the types specified are looked for(an inclusive OR operator between the spaecified values).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="cwClass" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="implProcName" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="paramType">
+		<xs:sequence>
+			<xs:element name="type">
+				<xs:annotation>
+					<xs:documentation>Not required yet</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="portType">
+		<xs:sequence>
+			<xs:element name="portTypeImpl">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="portTypeType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="cwClass" type="xs:nonNegativeInteger" use="required"/>
+	</xs:complexType>
+</xs:schema>

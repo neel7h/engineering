@@ -1,0 +1,57 @@
+{
+    "id": 1001028,
+    "name": "Avoid duplicated Main Procedures (PL1)",
+    "href": "AIP/quality-rules/1001028",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all the main procedures having exactly the same number of code lines with the same number of comment lines and the same cyclomatic complexity.",
+    "output": "The report lists all the  PL1 duplicated Main Procedures.\n\nIt provides following information: \n-  duplicated PL1 Main Procedures full name",
+    "rationale": "The aim is here to clean-up the code delivered in production.",
+    "remediation": "Remove the main duplicated main procedure  and review the rest of the source code.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid duplicated Main Procedures (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

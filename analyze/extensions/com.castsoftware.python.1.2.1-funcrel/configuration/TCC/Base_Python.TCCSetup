@@ -1,0 +1,204 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_Python" version="1.0.0.0" encoding="UTF-8" date="Mon Oct 02 14:45:36 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - Python" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_Python_Script</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - Python Web Service Operations" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <!-- Flask -->
+    <value>CAST_Python_Aiohttp_GetOperation</value>
+    <value>CAST_Python_Aiohttp_PostOperation</value>
+    <value>CAST_Python_Aiohttp_PutOperation</value>
+    <value>CAST_Python_Aiohttp_DeleteOperation</value>
+     <!-- Aiohttp -->   
+    <value>CAST_Python_Aiohttp_GetOperation</value>
+    <value>CAST_Python_Aiohttp_PostOperation</value>
+    <value>CAST_Python_Aiohttp_PutOperation</value>
+    <value>CAST_Python_Aiohttp_DeleteOperation</value> 
+   </property>
+   <excluded-from set ="Standard Entry Point - Python Called Web Service Operations (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - Python Called Web Service Operations (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <!-- Flask -->
+    <value>CAST_Python_Flask_GetOperation</value>
+    <value>CAST_Python_Flask_PostOperation</value>
+    <value>CAST_Python_Flask_PutOperation</value>
+    <value>CAST_Python_Flask_DeleteOperation</value>    
+    <!-- Aiohttp -->
+    <value>CAST_Python_Aiohttp_GetOperation</value>
+    <value>CAST_Python_Aiohttp_PostOperation</value>
+    <value>CAST_Python_Aiohttp_PutOperation</value>
+    <value>CAST_Python_Aiohttp_DeleteOperation</value> 
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - Python (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "All Objects - Python (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "Standard End Point - Python - Query" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_SQL_NamedQuery</value>
+   </property>
+   <excluded-from set ="Standard End Point - Python - Query CallerDB (GS)"/>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - Python - Query CallerDB (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_SQL_NamedQuery</value>    
+   </property>
+   <caller-of>
+    <link-type>Use</link-type>
+    <member-of set ="All Objects - Python (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - Python" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >    
+    <!-- requests -->
+    <value>CAST_Python_GetRequestsService</value>
+    <value>CAST_Python_PostRequestsService</value>
+    <value>CAST_Python_PutRequestsService</value>
+    <value>CAST_Python_DeleteRequestsService</value>
+    <!-- httplib -->
+    <value>CAST_Python_GetHttplibService</value>
+    <value>CAST_Python_PostHttplibService</value>
+    <value>CAST_Python_PutHttplibService</value>
+    <value>CAST_Python_DeleteHttplibService</value>
+    <!-- httplib2 -->
+    <value>CAST_Python_GetHttplib2Service</value>
+    <value>CAST_Python_PostHttplib2Service</value>
+    <value>CAST_Python_PutHttplib2Service</value>
+    <value>CAST_Python_DeleteHttplib2Service</value>
+    <!-- aiohttp -->
+    <value>CAST_Python_GetAiohttpService</value>
+    <value>CAST_Python_PostAiohttpService</value>
+    <value>CAST_Python_PutAiohttpService</value>
+    <value>CAST_Python_DeleteAiohttpService</value>
+    <!-- urllib -->
+    <value>CAST_Python_GetUrllibService</value>
+    <value>CAST_Python_PostUrllibService</value>
+    <value>CAST_Python_PutUrllibService</value>
+    <value>CAST_Python_DeleteUrllibService</value>
+    <!-- urllib2 -->
+    <value>CAST_Python_GetUrllib2Service</value>
+    <value>CAST_Python_PostUrllib2Service</value>
+   </property>
+   <excluded-from set ="Standard End Point - Python (GS)"/>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - Python (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <!-- requests -->
+    <value>CAST_Python_GetRequestsService</value>
+    <value>CAST_Python_PostRequestsService</value>
+    <value>CAST_Python_PutRequestsService</value>
+    <value>CAST_Python_DeleteRequestsService</value>
+    <!-- httplib -->
+    <value>CAST_Python_GetHttplibService</value>
+    <value>CAST_Python_PostHttplibService</value>
+    <value>CAST_Python_PutHttplibService</value>
+    <value>CAST_Python_DeleteHttplibService</value>
+    <!-- httplib2 -->
+    <value>CAST_Python_GetHttplib2Service</value>
+    <value>CAST_Python_PostHttplib2Service</value>
+    <value>CAST_Python_PutHttplib2Service</value>
+    <value>CAST_Python_DeleteHttplib2Service</value>
+    <!-- aiohttp -->
+    <value>CAST_Python_GetAiohttpService</value>
+    <value>CAST_Python_PostAiohttpService</value>
+    <value>CAST_Python_PutAiohttpService</value>
+    <value>CAST_Python_DeleteAiohttpService</value>
+    <!-- urllib -->
+    <value>CAST_Python_GetUrllibService</value>
+    <value>CAST_Python_PostUrllibService</value>
+    <value>CAST_Python_PutUrllibService</value>
+    <value>CAST_Python_DeleteUrllibService</value>
+    <!-- urllib2 -->
+    
+    <value>CAST_Python_GetUrllib2Service</value>
+    <value>CAST_Python_PostUrllib2Service</value>
+   </property>
+   <caller-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - Python (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "Standard End Point - Python - Read / Write" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_Python_Method</value>
+   </property>   
+   <property name = "fullname" operator = "eq" >
+    <value>builtins.write</value>
+    <value>builtins.writelines</value>
+    <!-- <value>builtins.read</value> -->
+   </property>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

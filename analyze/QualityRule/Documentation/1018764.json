@@ -1,0 +1,58 @@
+{
+    "id": 1018764,
+    "name": "Avoid Processes using JDBC SQL Direct  (TIBCO BW)",
+    "href": "AIP/quality-rules/1018764",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for ProcessActivities of type JDBCGeneralActivity.\nProcessActivity is a property captured in the metamodel.",
+    "output": "This report lists all  Processes having a JDBCGeneraleActivity.\nIt provides the following information:\nProcess Activity full name.",
+    "rationale": "The SQL Direct allows to execute custom SQL commands.\nHowever it can lead to inconsistency because of underlying different SQL dialects.",
+    "reference": "3.2.3 REL-003: Uses of JDBC SQL Direct",
+    "remediation": "Use another built-in dedicated activity to the target RDBMS.",
+    "total": "Number of  Process Activity",
+    "alternativeName": "Avoid Processes using JDBC SQL Direct  (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

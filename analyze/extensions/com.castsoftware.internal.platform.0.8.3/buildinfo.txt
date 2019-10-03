@@ -1,0 +1,8 @@
+Build date: 22/07/2019 13:40:21,33 
+Build number: 1000107 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master dc4a489b4aaf39ff380ccb4df63e2476461b470d
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.internal.platform.git origin/master be4868e9ea228bd9158bf472a7c0d331210f15a2
+Publish date: 22/07/2019 16:12:39,28 
+Original version: 0.8.3-beta01000107 
+Publish date: 04/09/2019 14:39:26,37 
+Original version: 0.8.3-funcrel 

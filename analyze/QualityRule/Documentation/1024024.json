@@ -1,0 +1,102 @@
+{
+    "id": 1024024,
+    "name": "All traffic to particular domains should use HTTPS",
+    "href": "AIP/quality-rules/1024024",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Applications intending to connect to destinations using only secure connections can opt-out of supporting cleartext (using the unencrypted HTTP protocol instead of HTTPS) to those destinations. setting cleartextTrafficPermitted to false helps prevent accidental regressions in apps due to changes in URLs provided by external sources such as backend servers. \n\nThe configuration of this option is done in the network's security settings via configuration file \n\nThis path of this configuration file is in manifest file by setting android:networkSecurityConfig tag as follow \n\n<manifest ... > \n    <application \n        android:networkSecurityConfig=\"@xml/network_security_config\" \n        ... > \n        <!-- Place child elements of <application> element here. --> \n    </application> \n</manifest> \n\n\n\nThis check should be applied only to Android Application 8.1 (API level 27) or lower. Starting with Android 9 (API level 28), cleartext support is disabled by default \n",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.",
+    "reference": "https://cwe.mitre.org/data/definitions/404.html \nhttps://developer.android.com/training/articles/security-config",
+    "remediationSample": "For example, an app may want to ensure that all connections to secure.example.com are always done over HTTPS to protect sensitive traffic from hostile networks. \nso you need to proceed as follow : \n1- Declare the configuration in your app's manifest: \n<manifest ... > \n    <application \n        android:networkSecurityConfig=\"@res/xml/network_security_config.xml:\" \n        ... > \n        <!-- Place child elements of <application> element here. --> \n    </application> \n</manifest> \n\n\n2- In the res/xml/network_security_config.xml, set cleartextTrafficPermitted option to false: \n\nres/xml/network_security_config.xml: \n\n<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config> \n    <domain-config cleartextTrafficPermitted=\"false\"> \n        <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config>",
+    "sample": "<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config> \n    <domain-config cleartextTrafficPermitted=\"True\"> \n        <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config> \n\n\nor \n<?xml version=\"1.0\" encoding=\"utf-8\"?> \n<network-security-config>\n    <domain-config> \n       <domain includeSubdomains=\"true\">secure.example.com</domain> \n    </domain-config> \n</network-security-config>",
+    "total": "Number of Android manifests",
+    "alternativeName": "Ensure that you use HTTPS protocol for traffic to particular domains for applications in Android 8.1 or lower",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-319",
+            "name": "Cleartext Transmission of Sensitive Information",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70245",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

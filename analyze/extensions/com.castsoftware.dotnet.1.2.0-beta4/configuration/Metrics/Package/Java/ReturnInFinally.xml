@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : CNU@CAST 
+£ Date     : 11/12/2009
+£ Filename : ReturnInFinally.xml
+£ Role     : Used to detect the "return" statement in the "finally" blocks
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+<METRIC PACKAGE_NAME="Java.ReturnInFinallyBlock" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+
+    <!-- Match call to Return, break, continue and Throw in the finally block -->
+    <CATEGORY NAME="MATCH_RETURN_IN_FINALLY">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="RETURN_IN_FINALLY" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_FinallyClause</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_J11_ReturnStatement"/>
+              <SIGNATURE NAME="NODE_J11_ForBreakStatement"/>
+              <SIGNATURE NAME="NODE_J11_SwitchBreakStatement"/>
+              <SIGNATURE NAME="NODE_J11_BreakStatement"/>
+              <SIGNATURE NAME="NODE_J11_ContinueStatement"/>
+              <SIGNATURE NAME="NODE_J11_ThrowStatement"/>
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>RETURN_IN_FINALLY</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number of return, break, continue, throw Statement In finally Block</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Match finally blocks -->
+    <CATEGORY NAME="MATCH_FINALLY_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="FINALLY_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_J11_FinallyClause"/>
+              <SIGNATURE NAME="NODE_J11_FinallyClause" SUB_NAME="EMPTY_FINALLY_BLOCK" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>FINALLY_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number of finally Block</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+  </CATEGORY_LIST>
+  <!-- End categories -->
+
+
+</METRIC>

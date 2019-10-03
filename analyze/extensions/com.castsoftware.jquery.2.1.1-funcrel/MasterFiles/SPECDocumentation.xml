@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="description">
+    <english>When designing web service to get/post/put data, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official jQuery ajax syntax to do call to web service.</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="name">
+    <english>Avoid using the call of web service jQuery ajax inside a loop</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="rationale">
+    <english>When designing web service to get/put/post data, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="remediation">
+    <english>Try to create a process queue that will manage all the requests with a limited number of concurrents requests. When a request callback has been managed a new request could be fired.</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="sample">
+    <english>for (i = 0; i &lt; options.length; i += 1) { 
+    $.ajax({
+        type: 'GET',
+        headers: {'Cookie' : 'USER=' + pseudo },
+        url: './launch_analysis?' + choice,
+        success: function (data, textStatus, jqXHR) {
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            bootbox.alert('error:' + errorThrown);
+        }
+    });
+}</english>
+  </metric>
+  <metric id="1020300" type="quality-rule" originalName="Avoid using the call of web service jQuery ajax inside a loop" section="total">
+    <english>Number of JQuery resource service artifacts (JQuery GET resource service, JQuery PUT resource service, JQuery POST resource service)</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="description">
+    <english>When using class selectors, don't use the element type in your selector.</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="name">
+    <english>Avoid using element type in jQuery</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="rationale">
+    <english>Ensure that using jQuery selector request do not lead to a performance issue.</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="remediation">
+    <english>var $products = $(".products"); // FAST</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="sample">
+    <english>var $products = $("div.products"); // SLOW</english>
+  </metric>
+  <metric id="1020302" type="quality-rule" originalName="Avoid using element type in jQuery" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="description">
+    <english>Before jQuery 3.0, when using $.ajax, $.get, $.getJSON interface to do web service calls, always ensure you have implemented the success and error or complete callbacks.</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="name">
+    <english>Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="rationale">
+    <english>Ensure that each web service callback is going to be properly checked in order to make sure you will not miss any problem that occurred in your application and you will give the information to the user.</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="remediation">
+    <english>$.ajax({ ... }).then(successHandler, failureHandler); 
+// OR 
+var jqxhr = $.ajax({ ... }); 
+jqxhr.done(successHandler); 
+jqxhr.fail(failureHandler);</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="sample">
+    <english>$.ajax({ ... });</english>
+  </metric>
+  <metric id="1020304" type="quality-rule" originalName="Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0" section="total">
+    <english>Number of JQuery resource service artifacts (JQuery GET resource service, JQuery PUT resource service, JQuery POST resource service)</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="description">
+    <english>Use find for Id-&gt;Child nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine.</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="name">
+    <english>Always use find for Id-&gt;Child nested selectors</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="rationale">
+    <english>Ensure that using jQuery selector request do not lead to a performance issue.</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="remediationSample">
+    <english>var $productIds = $("#products").find("div.id"); // FAST</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="sample">
+    <english>var $productIds = $("#products div.id"); // SLOW</english>
+  </metric>
+  <metric id="1020306" type="quality-rule" originalName="Always use find for Id-&gt;Child nested selectors" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="description">
+    <english>Always cache your jQuery selector, based on class, returned objects in variables for reuse.</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="name">
+    <english>Always cache the returned objects in variables to be reused</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="rationale">
+    <english>Ensure that using jQuery selector will not lead to a performance issue. Requesting Id or caching the results is a good way to improve performance.</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="remediationSample">
+    <english>var $myClass = $(".myClass"); 
+$myClass.click(function(){...}); // FAST</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="sample">
+    <english>$("#myDiv").click(function(){...}); // FAST BECAUSE ID
+$(".myClass").click(function(){...}); // SLOW</english>
+  </metric>
+  <metric id="1020308" type="quality-rule" originalName="Always cache the returned objects in variables to be reused" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="description">
+    <english>Using [type=xxx] is far faster because it can take advantage of the DOM querySelectorAll method in modern browsers. 
+The check will be done on the following selectors 
+:checkbox, :file, :image, :password, :radio, :reset, :text</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="name">
+    <english>Use "type=" to select elements by type</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="rationale">
+    <english>Ensure using the "type=" annotation to improve the performance.</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="reference">
+    <english>http://learn.jquery.com/performance/optimize-selectors/ 
+CISQ OMG</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="remediation">
+    <english>Use "type=" notation instead of ":".</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="remediationSample">
+    <english>var input = $( "form input[type=radio]" ); // Compliant</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="sample">
+    <english>var input = $( "form input:radio" ); // Noncompliant 
+ var input = $( "form :radio" ); // Noncompliant</english>
+  </metric>
+  <metric id="1020310" type="quality-rule" originalName="Use &quot;type=&quot; to select elements by type" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="description">
+    <english>Avoid use of anonymous functions to attach events. Anonymous functions are difficult to debug, maintain, test, or reuse.</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="name">
+    <english>Avoid use of anonymous functions to attach events</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="rationale">
+    <english>Ensure the maintainability of the code, providing explicit function name instead of using anonymous function.</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="reference">
+    <english>http://learn.jquery.com/code-organization/beware-anonymous-functions/</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="remediation">
+    <english>Use explicit function name</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="remediationSample">
+    <english>function myLinkClickHandler(){...} $("#myLink").on("click", myLinkClickHandler); // GOOD</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="sample">
+    <english>$("#myLink").on("click", function(){...}); // BAD</english>
+  </metric>
+  <metric id="1020312" type="quality-rule" originalName="Avoid use of anonymous functions to attach events" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="description">
+    <english>If you're changing the CSS of more than 20 elements using .css(), consider adding a style tag to the page instead for a nearly 60% increase in speed.</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="name">
+    <english>Avoid using css() of many elements</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="rationale">
+    <english>Changing display attributes thanks to .css() method could generate some performance issues.</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="reference">
+    <english>CISQ OMG, https://learn.jquery.com/performance/use-stylesheets-for-changing-css/</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="remediation">
+    <english>Use stylesheets style tag</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="remediationSample">
+    <english>$( "&lt;style type=\"text/css\"&gt;a.swedberg { color: #0769ad }&lt;/style&gt;") 
+    .appendTo( "head" );</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="sample">
+    <english>$( "a.swedberg" ).css( "color", "#0769ad" );</english>
+  </metric>
+  <metric id="1020314" type="quality-rule" originalName="Avoid using css() of many elements" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="description">
+    <english>Avoid Universal Selectors because element selections that could be matched anywhere in the document can be very slow.</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="name">
+    <english>Avoid Universal Selectors</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="rationale">
+    <english>Ensure that using jQuery selector request do not lead to a performance issue.</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="reference">
+    <english>http://learn.jquery.com/performance/optimize-selectors/</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="remediationSample">
+    <english>$('div.container').children(); // BETTER
+or
+$( "input:radio" ); // Much better.</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="sample">
+    <english>$('div.container &gt; *'); // SLOW
+or
+$( ":radio" ); // Implied universal selection.
+or
+$( "*:radio" ); // Implied universal selection.</english>
+  </metric>
+  <metric id="1020316" type="quality-rule" originalName="Avoid Universal Selectors" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="description">
+    <english>Be careful when using deprecated methods. The deprecation period should be used to smoothly make the transition. The rule raises an issue when any of the following methods is used:
+- .andSelf()
+- .context
+- .die()
+- .error()
+- jQuery.boxModel
+- jQuery.browser
+- jQuery.sub()
+- jQuery.support
+- .live()
+- .load()
+- .selector
+- .size()
+- .toggle()
+- .unload()</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="name">
+    <english>Avoid using jQuery deprecated methods</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="rationale">
+    <english>Using deprecated jQuery API could lead to security compliancy issues.</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="reference">
+    <english>http://api.jquery.com/die/</english>
+  </metric>
+  <metric id="1020318" type="quality-rule" originalName="Avoid using jQuery deprecated methods" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="description">
+    <english>Using deprecated jQuery API could lead to security compliancy issues. $.cookie library has been deprecated and must not be used.</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="name">
+    <english>Avoid using jQuery $.cookie</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="rationale">
+    <english>Component-heavy development patterns can lead to development teams not even understanding which components they use in their application or API, much less keeping them up to date.</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="reference">
+    <english>https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="remediation">
+    <english>Use the Cookie framework instead (https://github.com/js-cookie/js-cookie)</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="remediationSample">
+    <english>// set value 
+Cookies.set('name', 'value', { domain: 'subdomain.site.com' }); 
+
+// get value 
+Cookies.get('name'); // =&gt; 'value'</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="sample">
+    <english>// set value 
+$.cookie('name', 'value'); 
+
+// get value 
+$.cookie('name'); // =&gt; "value"</english>
+  </metric>
+  <metric id="1020320" type="quality-rule" originalName="Avoid using jQuery $.cookie" section="total">
+    <english>Number of JQuery artifacts (Javascript source code containing JQuery)</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="description">
+    <english>jQuery versions older than 3.0.0 are vulnerable to Cross-site Scripting (XSS) attacks when a cross-domain Ajax request is performed without the dataType option, causing text/javascript responses to be executed. This rule has been listed as CVE-2015-9251 in the CVE registry.</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="name">
+    <english>Avoid using Ajax method without dataType with jQuery version older than 3.0.0</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="remediation">
+    <english>Always provide dataType parameter.</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="remediationSample">
+    <english>&lt;script src="https://code.jquery.com/jquery-2.1.4.js"&gt;&lt;/script&gt; 
+    &lt;script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"&gt;&lt;/script&gt; 
+    &lt;link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/base/ 
+jquery-ui.css"&gt; 
+    &lt;script&gt; 
+        $(document).ready(function () { 
+            $('#dialog').dialog({ closeText: '&lt;script&gt;alert("XSS")&lt;\/script&gt;' }); 
+        }); 
+    &lt;/script&gt;</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="sample">
+    <english>$.ajax({ 
+    type : "POST", 
+    url : /v1/user, 
+    success : function() { 
+
+    }, 
+    error : function(error) { 
+
+    }});</english>
+  </metric>
+  <metric id="1020322" type="quality-rule" originalName="Avoid using Ajax method without dataType before jQuery 3.0" section="total">
+    <english>Number of JQuery artifacts calling Ajax function</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="description">
+    <english>jQuery UI versions older than 1.12.0 are vulnerable to Cross-site Scripting (XSS) attacks when using dialog API with closeText argument containing html content. This rule has been listed as CVE-2016-7103 in the CVE registry.</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="name">
+    <english>Avoid using dialog with closeText parameter with jQuery UI version older than 1.12</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7103</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="remediation">
+    <english>Use a newer version of jQuery UI.</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="sample">
+    <english>&lt;script src="https://code.jquery.com/jquery-2.1.4.js"&gt;&lt;/script&gt; 
+    &lt;script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"&gt;&lt;/script&gt; 
+    &lt;link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/base/ 
+jquery-ui.css"&gt; 
+    &lt;script&gt; 
+        $(document).ready(function () { 
+            $('#dialog').dialog({ closeText: '&lt;script&gt;alert("XSS")&lt;\/script&gt;' }); 
+        }); 
+    &lt;/script&gt;</english>
+  </metric>
+  <metric id="1020324" type="quality-rule" originalName="Avoid using dialog with closeText parameter before jQuery UI 1.12" section="total">
+    <english>Number of JQuery artifacts using jquery dialog</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="description">
+    <english>After jQuery 3.0, when using $.ajax, $.get, $.getJSON interface to do web service calls, always ensure you have implemented the done and fail or always callbacks.</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="name">
+    <english>Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="rationale">
+    <english>Ensure that each web service callback is going to be properly checked in order to make sure you will not miss any problem that occurred in your application and you will give the information to the user.</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="reference">
+    <english>http://api.jquery.com/jQuery.ajax/#options</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="remediation">
+    <english>Ensure the done, fail and/or always callbacks have been implemented</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="remediationSample">
+    <english>var jqxhr = $.ajax( "example.php" )
+  .done(function() {
+    alert( "success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "complete" );
+  });
+
+// OR 
+ 
+// Set another completion function for the request above
+jqxhr.always(function() {
+  alert( "second complete" );
+});</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="sample">
+    <english>var jqxhr = $.ajax( "example.php" )
+ 
+// Perform other work here ...</english>
+  </metric>
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" section="total">
+    <english>Number of JQuery resource service artifacts (JQuery GET resource service, JQuery PUT resource service, JQuery POST resource service)</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="description">
+    <english>Cross-site scripting (XSS) vulnerability in jQuery older than version 1.6.3, when using location.hash to select elements, allows remote attackers to inject arbitrary web script or HTML via a crafted tag. This rule has been listed as CVE-2011-4969 in the CVE registry.</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="name">
+    <english>Avoid using $(location.hash) with jQuery version older than 1.6.3</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4969</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="remediation">
+    <english>Do not use jQuery $(location.hash)</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="remediationSample">
+    <english>&lt;script src="https://code.jquery.com/jquery-1.6.3.js"&gt;&lt;/script&gt; 
+
+...
+$(location.hash) // XSS vulnerability blocked
+...</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="sample">
+    <english>&lt;script src="https://code.jquery.com/jquery-1.6.2.js"&gt;&lt;/script&gt; 
+
+...
+$(location.hash) // XSS vulnerability
+...</english>
+  </metric>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" section="total">
+    <english>Number of JQuery artifacts</english>
+  </metric>
+  
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="description">
+    <english>This rule will search for the usage of "append" and "after" jQuery functions in code using jQuery 1.4.2 (or older) library</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="name">
+    <english>Avoid using .append() after() with jQuery 1.4.2 (or older)</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list. jQuery 1.4.2 allows remote attackers to conduct cross-site scripting (XSS) attacks via vectors related to use of the text method inside after. This rule has been listed as CVE-2014-6071 in the CVE registry.</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6071</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="remediation">
+    <english>Do not use append(), after() or upgrade the version of jQuery</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="remediationSample">
+    <english>&lt;script src="https://code.jquery.com/jquery-1.6.0.js"&gt;&lt;/script&gt; 
+  &lt;script&gt;
+    $(function() {
+      $('#users').each(function() {
+        var select = $(this);
+        var option = select.children('option').first();
+        select.after(option.text()); // NO VULNERABILITY
+        select.hide();
+      });
+    });
+  &lt;/script&gt;</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="sample">
+    <english>&lt;script src="https://code.jquery.com/jquery-1.4.2.js"&gt;&lt;/script&gt; 
+  &lt;script&gt;
+    $(function() {
+      $('#users').each(function() {
+        var select = $(this);
+        var option = select.children('option').first();
+        select.after(option.text()); // VULNERABILITY
+        select.hide();
+      });
+    });
+  &lt;/script&gt;</english>
+  </metric>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" section="total">
+    <english>Number of jQuery methods</english>
+  </metric>
+  
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="description">
+    <english>This rule will search for calls to "attr" function with jQuery library 3.0.0-rc1.</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="name">
+    <english>Avoid using attr() with jQuery 3.0.0-rc1</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list. jQuery 3.0.0-rc1 is vulnerable to Denial of Service (DoS) due to removing a logic that lowercased attribute names. Any attribute getter using a mixed-cased name for boolean attributes goes into an infinite recursion, exceeding the stack call limit. This rule has been listed as CVE-2012-6708 in the CVE registry.</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10707
+https://github.com/jquery/jquery/issues/2914</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="remediation">
+    <english>Do not use jQuery "attr" function or update the jQuery library version</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="remediationSample">
+    <english>&lt;script src="https://code.jquery.com/jquery-3.0.1.js"&gt;&lt;/script&gt; 
+...
+
+console.log($('&lt;div&gt;').attr('requiRed'));
+
+...</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="sample">
+    <english>&lt;script src="https://code.jquery.com/jquery-3.0.0-rc1.js"&gt;&lt;/script&gt; 
+...
+
+console.log($('&lt;div&gt;').attr('requiRed'));
+
+...</english>
+  </metric>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" section="total">
+    <english>Number of jQuery methods</english>
+  </metric>
+  
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="description">
+    <english>This rule will search the use of html(), with some HTML content like &lt;...&gt;, in code using jQuery libraries with version before 1.9.0.</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="name">
+    <english>Avoid using html() with jQuery 1.9.0 (or older)</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="rationale">
+    <english>jQuery before 1.9.0 is vulnerable to Cross-site Scripting (XSS) attacks. The jQuery(strInput) function does not differentiate selectors from HTML in a reliable fashion. In vulnerable versions, jQuery determined whether the input was HTML by looking for the '&lt;' character anywhere in the string, giving attackers more flexibility when attempting to construct a malicious payload. In fixed versions, jQuery only deems the input to be HTML if it explicitly starts with the '&lt;' character, limiting exploitability only to attackers who can control the beginning of a string, which is far less common. This rule has been listed as CVE-2012-6708 in the CVE registry.</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="remediation">
+    <english>Do not use .html() or upgrade the jQuery library version</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="remediationSample">
+    <english>// version NOT impacted by the vulnerability
+&lt;script src="https://code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+
+
+&lt;div id="log"&gt;Test passed&lt;/div&gt;
+
+...
+&lt;script&gt;
+$("#log").html(
+    $("element[attribute='&lt;div&gt;&lt;strong&gt;you should not see this&lt;/strong&gt;&lt;/div&gt;']").html()
+);
+&lt;/script&gt;
+...</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="sample">
+    <english>// version impacted by the vulnerability
+&lt;script src="https://code.jquery.com/jquery-1.9.0.js"&gt;&lt;/script&gt; 
+
+
+&lt;div id="log"&gt;Test passed&lt;/div&gt;
+
+...
+&lt;script&gt;
+$("#log").html(
+    $("element[attribute='&lt;div&gt;&lt;strong&gt;you should not see this&lt;/strong&gt;&lt;/div&gt;']").html()
+);
+&lt;/script&gt;
+...</english>
+  </metric>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" section="total">
+    <english>Number of jQuery methods</english>
+  </metric>
+  
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="description">
+    <english>This rule will search for the usage of "dialog" function in jQuery code using jQuery UI version older than 1.10.0</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="name">
+    <english>Avoid using Dialog Widget with jQuery UI version older than 1.10.0</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list. Cross-site scripting (XSS) vulnerability in jquery.ui.dialog.js in the Dialog widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title option.
+This rule has been listed as CVE-2010-5312 in the CVE registry.</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5312</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="remediation">
+    <english>Do not use .dialog() or update the version of jQuery</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="remediationSample">
+    <english>// version of library is NOT vulnerable
+&lt;script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"&gt;&lt;/script&gt; 
+...
+$('&lt;div&gt;Hi&lt;/div&gt;').dialog({title:'&lt;script type="text/javascript"&gt;alert("XSS");&lt;/script&gt;"});
+..</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="sample">
+    <english>// version of library vulnerable
+&lt;script src="https://code.jquery.com/ui/1.9.1/jquery-ui.js"&gt;&lt;/script&gt; 
+...
+$('&lt;div&gt;Hi&lt;/div&gt;').dialog({title:'&lt;script type="text/javascript"&gt;alert("XSS");&lt;/script&gt;"});
+..</english>
+  </metric>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" section="total">
+    <english>Number of jQuery methods</english>
+  </metric>
+  
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="description">
+    <english>This will search for the usage of jQuery function "tooltip" where title attribute is changed using the jQuery UI library version older than 1.10.0</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="name">
+    <english>Avoid using Tooltip widget with jQuery UI version older than 1.10.0</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="rationale">
+    <english>Cross-site scripting (XSS) vulnerability in the default content option in jquery.ui.tooltip.js in the Tooltip widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title attribute, which is not properly handled in the autocomplete combo box demo. While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list. This rule has been listed as CVE-2012-6662 in the CVE registry.</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6662</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="remediation">
+    <english>Do not use jQuery tooltip or update the jQuery UI library</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="remediationSample">
+    <english>// version of the jquery ui library is NOT vulnerable
+&lt;script src="https://code.jquery.com/ui/1.10.0/jquery-ui.js"&gt;&lt;/script&gt; 
+...
+$( element )
+.attr( "title", '&lt;script type="text/javascript"&gt;alert("XSS");&lt;/script&gt;')
+.tooltip( "open" );
+..</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="sample">
+    <english>// version of the jquery ui library is vulnerable
+&lt;script src="https://code.jquery.com/ui/1.9.1/jquery-ui.js"&gt;&lt;/script&gt; 
+...
+$( element )
+.attr( "title", '&lt;script type="text/javascript"&gt;alert("XSS");&lt;/script&gt;')
+.tooltip( "open" );
+..</english>
+  </metric>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" section="total">
+    <english>Number of jQuery methods</english>
+  </metric>
+</root>

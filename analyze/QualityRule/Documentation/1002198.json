@@ -1,0 +1,67 @@
+{
+    "id": 1002198,
+    "name": "Avoid Modules with a low Comments Frequency (FORTRAN)",
+    "href": "AIP/quality-rules/1002198",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This is a derived value from the number if comment blocks and statements. The division of the both provides the result of this diagnostic.",
+    "rationale": "COMF: Number of blocks of comments per statement in the component (Comments Frequency).\nThe following formula is used to calculate this metric:\n         COMF = (BCOM) / STMT\n where:\n         BCOM is the number of blocks of comments in the component,\n         STMT is the number of executable statements in the component",
+    "alternativeName": "Avoid Modules with a low Comments Frequency (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum Comment Frequency",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        2.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 1021040,
+    "name": "Avoid instance attributes only differing by capitalization",
+    "href": "AIP/quality-rules/1021040",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Python is a case-sensitive language which allows reutilization of identifier names for different types by simple capitalization changes. A typical example would be using capitalized class names and the corresponding lowercase names for their instances. However defining attributes (methods and fields) in a class that only differ by capitalization can lead to confusion and to unexpected behaviour when used with case-insensitive interfaces.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Differentiating instance attributes by only changing name capitalization is a poor naming practice and source of confusion for future users of the class.",
+    "remediation": "Rename the attributes in a more discernible way.",
+    "remediationSample": ">>> class Transmission:\n>>>     def __init__(self, callObject):\n>>>         self.callObject = callObject\n>>>\n>>>     def call(self):\n>>>         self.callObject.call()",
+    "sample": ">>> class Transmission:\n>>>     def __init__(self, callObject):\n>>>         self.Call = callObject\n>>>\n>>>     def call(self):\n>>>         self.Call.call()",
+    "total": "Number of Python classes",
+    "alternativeName": "Avoid instance attributes only differing by capitalization",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

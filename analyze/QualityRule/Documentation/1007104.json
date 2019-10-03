@@ -1,0 +1,71 @@
+{
+    "id": 1007104,
+    "name": "Avoid classes with a very low comment/code ratio (PHP)",
+    "href": "AIP/quality-rules/1007104",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Current Comment Percent",
+    "description": "This rule searches for all Classes with comment/code ratio below five percent. This parameter can be changed to suit the scenario.",
+    "output": "This report lists all Classes with very low comment/code ratio.\n\nThis QR provides the following information:\n- Class full name\n- Comment/code ratio",
+    "rationale": "A very low comment/code ratio makes the source code difficult to read, maintain and test. It is highly recommended to keep this ratio at least five percent.",
+    "remediation": "Modify the source code to reduce the number of Classes with very low comment/code ratio.",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes with a very low comment/code ratio (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

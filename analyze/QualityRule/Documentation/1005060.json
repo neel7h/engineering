@@ -1,0 +1,58 @@
+{
+    "id": 1005060,
+    "name": "Avoid using GROUP BY in SQL statement (EGL)",
+    "href": "AIP/quality-rules/1005060",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all programs having a GROUP BY inside the SQL code.",
+    "output": "This report provides the following information: Function full name, Count of GROUP BY",
+    "rationale": "Having complex queries in Artifacts can cause performance problems. Queries using group by is considered complex and not performant.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the use of GROUP BY.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid using GROUP BY in SQL statement (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

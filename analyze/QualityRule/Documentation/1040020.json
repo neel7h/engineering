@@ -1,0 +1,67 @@
+{
+    "id": 1040020,
+    "name": "Ensure to enable Spring Boot Actuator Endpoint",
+    "href": "AIP/quality-rules/1040020",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "Actuator endpoints lets the user to monitor and interact with application. Spring Boot includes a number of built-in endpoints and lets the user for.example, the health endpoint provides basic application health information.",
+    "rationale": "Each individual endpoint can be enabled or disabled. This controls whether or not the endpoint is created and its bean exists in the application context. To be remotely accessible an endpoint also has to be exposed via JMX or HTTP. Most applications choose HTTP, where the ID of the endpoint along with a prefix of /actuator is mapped to a URL. For example, by default, the health endpoint is mapped to /actuator/health.\n\nEndpoint Security\nTo enable the features of Endpoint security authentication \nMakes the critical endpoints as non-critical and non-sensitive",
+    "reference": "https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html\n\nStandards :\nOWASP Top 10 2010 A6 - Security Misconfiguration\nOWASP Top 10 2013 A5 - Security Misconfiguration\nOWASP Top 10 2017 A6 - Security Misconfiguration\n\nOWASP Mobile 2014 M1 - Weak Server Side Controls\n\nAIP-GDPR\n\nWeb Application Security Consortium Version 2.00 - WASC-15 : Application Misconfiguration",
+    "remediation": "1) management.security.enabled=true\n\n2) endpoints.health.sensitive=true",
+    "remediationSample": "1) management.security.enabled=true\n\n2) endpoints.health.sensitive=true",
+    "sample": "1) management.security.enabled=false\n\n2) endpoints.health.sensitive=false",
+    "total": "Number of Properties file object",
+    "alternativeName": "[WeakDescription to be splitted?]Ensure to enable Spring Boot Actuator Endpoint",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

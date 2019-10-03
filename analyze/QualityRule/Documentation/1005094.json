@@ -1,0 +1,71 @@
+{
+    "id": 1005094,
+    "name": "Avoid Programs with more than X Functions (EGL)",
+    "href": "AIP/quality-rules/1005094",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all programs having less than X Functions. X is a parameter and can be changed at will.",
+    "output": "This report lists the following information: Program Full Name, Number of Functions",
+    "rationale": "For maintainability and readability reasons, Programs should not have too many Functions",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the number of Programs having more than X Functions.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid Programs with more than X Functions (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Functions",
+            "description": "Max Functions",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        50.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

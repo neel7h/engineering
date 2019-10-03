@@ -1,0 +1,79 @@
+{
+    "id": 1020800,
+    "name": "Avoid jump statements in finally ",
+    "href": "AIP/quality-rules/1020800",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports the code when a jump statment (break, continue, return ,throw)  would force control flow to leave a finally block. Using jump statements from a finally block suppresses the propagation of any unhandled Throwable which was thrown in the try or catch block.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using return, break, throw, and continue from a finally block overwrites similar statements from the suspended try and catch blocks. This create an issue when a jump statement (break, continue, return and throw) would force control flow to leave a finally block.",
+    "reference": "CISQ : ASCSM-CWE-835",
+    "remediation": "Avoid using jump statements in finally block. If used, it will swallow the exception raised but not handled in above try catch block.",
+    "remediationSample": "function experiment(){ \n     try {\n         throw new RuntimeException();\n     } finally {\n         console.log (\"Finally Block\")\n     }}  #Return should not be used inside finally",
+    "sample": "function experiment () { \ntry {\n   throw new RuntimeException();\n   } finally {\n   console.log(\"Finally Block\");\n    return;\n}}",
+    "total": "Number of Typescript artifacts",
+    "alternativeName": "Avoid jump statements in finally ",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-584",
+            "name": "Return Inside Finally Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

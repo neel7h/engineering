@@ -1,0 +1,77 @@
+{
+    "id": 1024000,
+    "name": "Avoid using AbsoluteLayout",
+    "href": "AIP/quality-rules/1024000",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "An Absolute Layout lets you specify exact locations (x/y coordinates) of its children. \nAbsolute layouts are less flexible and harder to maintain than other types of layouts without absolute positioning. \n\nAbsolute Layout are also Deprecated since API level 3",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "An Absolute Layout lets you specify exact locations (x/y coordinates) of its children. \nAbsolute layouts are less flexible and harder to maintain than other types of layouts without absolute positioning. \n\nAbsolute Layout are also Deprecated since API level 3",
+    "remediation": "Use FrameLayout, RelativeLayout or a custom layout instead.",
+    "sample": "public class AbsoluteLayout \nextends ViewGroup \n\njava.lang.Object \n    android.view.View \n        android.view.ViewGroup\n            android.widget.AbsoluteLayout",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Prefer using FrameLayout, RelativeLayout or CustomLayout in place of AbsoluteLayout",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

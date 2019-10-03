@@ -1,0 +1,58 @@
+{
+    "id": 1520548,
+    "name": "SiebelReview: MVL Primary Configuration",
+    "href": "AIP/quality-rules/1520548",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Reason for violation (Do not define PrimaryIDField|Do not use PrimaryJoin)",
+    "description": "In general, to improve performance, it is recommended to configure all MVLs by specifying the \"Primary Id Field\" property and setting the \"Use Primary Join\" property to TRUE. With these settings, the application will only generate and execute the additional select statement to retrieve all child records when the user invokes the MVG applet.This is valid even when the aforementioned occurrences come from cloning standard BCs.The above can be configured as follows:1. Identify an appropriate primary ID field to use:  * Consider using an unused standard column that contains the correct foreign key relationship to the table.  * If an unused standard column cannot be found, it will be necessary to extend the base table with new columns to store the primary Id fields and expose this column in the parent BC.2. The Primary Id field property of the MVL should be set to the new field.3. The Use Primary Join property of the MVL should be set to TRUE.4. Modify the MVG applets to expose the [SSA Primary Field] as the primary indicator if necessary.",
+    "output": "This rule reports Multi-Value Links with an invalid configuration",
+    "rationale": "Without a primary join, a secondary query must be issued to retrieve the first record to be displayed in MVFs for each record being displayed. If an MVF based on an MVL without a primary is exposed on any applet within a list view (list applet or form applet), a serious performance issue may occur, as secondary queries are performed for each of the records displayed in the view. The exception to this is if the MVF is exposed only in the More Info section of a form applet. In this case, the application will fire the multiple secondary queries only when the user clicks on the More Info button to expand the applet. At this time, a sub-query will be fired for each record exposed in the list applet for each MVG exposed.",
+    "remediation": "The Check No Match property should be set to FALSE for most MVLs because of the performance ramifications.  It should only be set to TRUE if the child BusComp could have records added to it outside of the MVG itself.\nAs an example where it would be appropriate to set Check No Match to TRUE, consider an account which has no addresses that exists in the database.  When a user views the account record, the application will set the primary address to the special value \"No Match Row Id\".\nAssume now that an address for this account is loaded via EIM, and no primary address is loaded for the related account.\nThe next time a user visits this account, the application will note the special value \"No Match Row Id\".\n* If Check No Match is TRUE, the application will not assume the accuracy of \"No Match Row Id\", will query for any child records, and find the new address.  The primary address will be updated, and the user will see the record.\n* If Check No Match is FALSE, the application will assume that \"No Match Row Id\" accurately portrays that there are no related addresses.  No attempt to query for an account address will occur, the primary address will not be updated, and the user will not see the record in the base applet.\nUnless there is a case similar to the example provided here, the Check No Match property should be FALSE.",
+    "total": "Number of added or modified Multi-Value Links",
+    "alternativeName": "SiebelReview: MVL Primary Configuration",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

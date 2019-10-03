@@ -1,0 +1,101 @@
+{
+    "id": 1020544,
+    "name": "Avoid disabling Strict Contextual Escaping (SCE) when created",
+    "href": "AIP/quality-rules/1020544",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Strict Contextual Escaping (SCE) gives you a lot of security benefits for little coding overhead. It will be much harder to take an SCE disabled application and either secure it on your own or enable SCE at a later stage.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "To be secure by default, you want to ensure that any such bindings are disallowed unless you can determine that something explicitly says it's safe to use a value for binding in that context. It helps detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.",
+    "reference": "https://docs.angularjs.org/api/ng/service/$sce",
+    "sample": "angular.module('myAppWithSceDisabledmyApp', []).config(function($sceProvider) {// Completely disable SCE. $sceProvider.enabled(false); });",
+    "total": "Number of angular applications (may be represented by an html file, most often index.html, or no html if such html file does not exist)",
+    "alternativeName": "Avoid disabling Strict Contextual Escaping (SCE) when created",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

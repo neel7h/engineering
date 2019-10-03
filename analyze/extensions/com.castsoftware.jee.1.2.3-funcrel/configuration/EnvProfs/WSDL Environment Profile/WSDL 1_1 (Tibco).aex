@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<WSDLEnvironmentProfile-2147>
+			<Item>
+				<Name>WSDL 1.1 (Tibco)</Name>
+				<Uid>CAST_WSDL_DEFAULT_WSDL_TIBCO</Uid>
+			</Item>
+		</WSDLEnvironmentProfile-2147>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>WSDL 1.1 (Tibco)</Name>
+		<Uid>CAST_WSDL_DEFAULT_WSDL_TIBCO</Uid>
+		<Type>WSDL Environment Profile-1147</Type>
+		<ImplementationLanguage-1746>Tibco</ImplementationLanguage-1746>
+		<MappingInformationFile-1242>*.wsdl</MappingInformationFile-1242>
+		<TransformationFile-1593>$(CastDir)\EnvProf\WSDL\tibco-mapping.xslt</TransformationFile-1593>
+	</Entity>
+</Root>

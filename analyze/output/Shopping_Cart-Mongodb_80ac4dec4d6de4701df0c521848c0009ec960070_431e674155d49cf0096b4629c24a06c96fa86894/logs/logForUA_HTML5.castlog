@@ -1,0 +1,258 @@
+Info   : Total physical memory: 16275 MB.
+Info   : Using default serialization memory threshold of 11392 MB.
+Info   : Saving for AipLight in directory : './output/Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070_431e674155d49cf0096b4629c24a06c96fa86894'
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.userProjectId on instance CAST_UA_JobOptions #2
+Warning: using default value for property CAST_AnalysisOption_GeneralJobDefinition.jobId on instance CAST_UA_JobOptions #2
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\simpleCart.min.js:0
+Warning: Unable to initialize greep tool for link search
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\responsiveslides.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js has been skipped (filepath matches pattern **/JQUERY*.JS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.flexslider.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery.easing.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js has been skipped (filepath matches pattern **/JQUERY*.JS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-ui.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\jquery-2.1.4.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\bootstrap-3.1.1.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css has been skipped (filepath matches pattern **/JQUERY*.CSS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\jquery-ui.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css has been skipped (filepath matches pattern **/BOOTSTRAP.CSS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\bootstrap.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js has been skipped (filepath matches pattern **/RAPHAEL*.JS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\raphael-min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\lightbox-plus-jquery.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js has been skipped (filepath matches pattern **/JQUERY*.JS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.nicescroll.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.jqcandlestick.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery.basictable.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js has been skipped (filepath matches pattern **/JQUERY*.JS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-ui.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\jquery-2.1.4.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js
+Info   : [com.castsoftware.angularjs] Start file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js has been skipped (minified or test file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\bootstrap.min.js:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css has been skipped (filepath matches pattern **/JQUERY*.CSS)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jquery-ui.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css has been skipped (minified file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\icon-font.min.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css
+Info   : [com.castsoftware.html5] File D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css has been skipped (minified file)
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\bootstrap.min.css:0
+Info   : Starting processing of file 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css:0
+Info   : [com.castsoftware.html5] start_file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css
+Info   : File processed : 'D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css': D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css:0
+Info   : [com.castsoftware.html5] end_analysis
+Info   : [com.castsoftware.html5] <_io.TextIOWrapper name='C:\\Users\\aka\\AppData\\Local\\Temp\\CAST\\CAST\\8.3\\LISA\\DEFAULT\\com.castsoftware.html5\\html5.txt' mode='w' encoding='cp1252'>
+Info   : [com.castsoftware.html5] writing {}
+Info   : [com.castsoftware.html5] Root directories:
+Info   : [com.castsoftware.html5]   shop_cart: 1 html files, 11 css files, 7 js files,0 jsp files, 0 asp files
+Info   : [com.castsoftware.angularjs] Start root analysis shop_cart
+Info   : [com.castsoftware.jquery] start root analysis shop_cart
+Info   : [com.castsoftware.nodejs] start root analysis shop_cart
+Info   : [com.castsoftware.html5] Start analyzing root shop_cart
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js
+Info   : [com.castsoftware.html5] Light parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.html5] Ending tag "body" with no corresponding opening on line 323.
+Info   : [com.castsoftware.html5] Ending tag "html" with no corresponding opening on line 324.
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\checkout.html
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\style.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\pignose.layerslider.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\css\flexslider.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\table-style.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\style.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\morris.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\monthly.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\lightbox.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\jqcandlestick.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\font-awesome.css
+Info   : [com.castsoftware.html5] Starting file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\css\basictable.css
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\pignose.layerslider.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\imagezoom.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\js\easyResponsiveTabs.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\scripts.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 6
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 6
+Info   : [com.castsoftware.html5] Object already passed in evaluation 13, heap size = 4
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\morris.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\monthly.js
+Info   : [com.castsoftware.html5] Full parsing of file D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js
+Info   : [com.castsoftware.html5] Creating services
+Info   : [com.castsoftware.jquery] analyzing D:\AIP_lite\castcoregitintegration\sourceCode\Shopping_Cart-Mongodb_80ac4dec4d6de4701df0c521848c0009ec960070\shop_cart\Admin\js\Chart.js
+Info   : [com.castsoftware.angularjs] End root analysis shop_cart
+Info   : [com.castsoftware.jquery] end root analysis shop_cart
+Info   : [com.castsoftware.nodejs] end root analysis shop_cart
+Info   : [com.castsoftware.angularjs] AngularJS applications found:
+Info   : [com.castsoftware.angularjs] 0 AngularJS controllers created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS factories created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS services created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS directives created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS directive controllers created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS resource services created.
+Info   : [com.castsoftware.angularjs] 0 AngularJS http services created.
+Info   : [com.castsoftware.jquery] 15 JQuery selectors created.
+Info   : [com.castsoftware.jquery] 0 JQuery resource services created.
+Info   : [com.castsoftware.jquery] jquery versions: 
+Info   : [com.castsoftware.jquery] Max jquery version: 0
+Info   : [com.castsoftware.jquery] jquery-ui versions: 
+Info   : [com.castsoftware.jquery] Max jquery-ui version: 0
+Info   : [com.castsoftware.nodejs] 0 NodeJS applications created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS web service operations created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS mongoose models created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS database accesses found.
+Info   : [com.castsoftware.nodejs] 0 NodeJS marklogic databases created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS marklogic collections created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS CouchDB databases created.
+Info   : [com.castsoftware.nodejs] 0 NodeJS loopback models created.
+Info   : [com.castsoftware.html5] create_WebSocket
+Info   : [com.castsoftware.html5] create_XMLHttpRequest
+Info   : [com.castsoftware.html5] create_HttpRequest
+Info   : [com.castsoftware.html5] create_EventSourceRequest
+Info   : [com.castsoftware.html5] find_external_links_from_queries
+Info   : [com.castsoftware.html5] 0 HTML5 Web sockets created
+Info   : [com.castsoftware.html5] 0 HTML5 XML HTTP requests created
+Info   : [com.castsoftware.html5] 22 HTML5 HTTP requests created
+Info   : [com.castsoftware.html5] 0 HTML5 Razor services created
+Info   : [com.castsoftware.html5] 0 HTML5 applet references created
+Info   : [com.castsoftware.html5] 0 HTML5 bean method references created
+Info   : [com.castsoftware.html5] Ending javascript analysis
+Info   : Starting UA resolution
+Info   : End UA resolution

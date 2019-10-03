@@ -1,0 +1,76 @@
+{
+    "id": 1007048,
+    "name": "Avoid Interfaces with excessive number of methods (PHP)",
+    "href": "AIP/quality-rules/1007048",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Interfaces which have excessive number of methods.",
+    "output": "This report lists all large Interfaces.\n\nThis QR provides the following information:\nInterface full name.",
+    "rationale": "For maintainability and readability reasons, interfaces should not have excessive number of methods.",
+    "remediation": "Review the architecture of the application to reduce the number of methods in an Interface.",
+    "sample": "<?php\ninterface ILargeInterface // Violation - the interface has too many methods\n{\n public function setVariable1($name1, $var1);\n public function setVariable2($name2, $var2);\n public function setVariable3($name3, $var3);\n public function setVariable4($name4, $var4);\n //...many other methods\n public function setVariable30($name30, $var30);\n public function setVariable31($name31, $var31);\n}\n\n?>",
+    "total": "Number of Interfaces",
+    "alternativeName": "Avoid Interfaces with excessive number of methods (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Count",
+            "description": "Max Count",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        30.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

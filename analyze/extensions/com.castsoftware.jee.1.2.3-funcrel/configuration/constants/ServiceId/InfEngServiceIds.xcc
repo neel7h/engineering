@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<!-- Inference engine -->
+		<constant>
+			<name>IFactoryInfEngManager</name>
+			<value>2CC37A8A-94BB-43f1-8C2F-8784356B44B1</value>
+		</constant>
+	</constantFamily>
+</constants>

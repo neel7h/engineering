@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Average Size Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>100.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Large Size Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>500.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Very Large Size Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>1000.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Average Coupling Artifacts Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>4.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="High Coupling Artifacts Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>10.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Very High Coupling Artifacts Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Average Complexity Artifact Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>5.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="High Complexity Artifact Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>15.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Very High Complexity Artifact Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+
+    <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Average Reuse Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>4.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="High Reuse Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>10.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Very High Reuse Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>50.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="Average Class Complexity Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>100.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="High Class Complexity Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>500.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="Very High Class Complexity Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>1000.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="Average Class Fan-Out Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>5.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="High Class Fan-Out Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>15.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="Very High Class Fan-Out Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>30.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="Average Class Fan-In Threshold" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>4.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="High Class Fan-In Threshold" parameterType="float" parameterIndex="2" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>10.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    <metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="Very High Class Fan-In Threshold" parameterType="float" parameterIndex="3" filter="1021000" filterLabel="Python" parameterDescription="N/A">
+        <defaultValue>30.0</defaultValue>
+        <defaultValuesList>N/A</defaultValuesList>
+    </metric>
+    
+    <metric id="7792" type="quality-rule" originalName="Avoid Classes with a High Number Of Children" parameterName="Maximum Number Of Children" parameterType="integer" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="Max Number Of Children per class">
+    <defaultValue>9</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+    
+	<metric id="1021000" type="quality-rule" originalName="Avoid Artifacts with High Cyclomatic Complexity (Python)" parameterName="Max Cyclomatic Complexity" parameterType="float" parameterIndex="1" filter="1021000" filterLabel="Python" parameterDescription="Max Cyclomatic Complexity per artifact">
+		<defaultValue>20</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+</root>

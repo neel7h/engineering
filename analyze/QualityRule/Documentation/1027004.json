@@ -1,0 +1,100 @@
+{
+    "id": 1027004,
+    "name": "Avoid using deprecated XmlTextReader .NET API",
+    "href": "AIP/quality-rules/1027004",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Be careful when using deprecated APIs. The deprecation period should be used to smoothly make the transition. The rule raises an issue when any of the class XmlTextReader is used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using deprecated .Net API could lead to security compliancy issues.",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmltextreader?view=netframework-4.7.2",
+    "remediation": "Use XmlReader instead",
+    "remediationSample": "public class XMLHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        // GOOD: use XmlReader\n        XmlReader reader = XmlReader.create(ctx.Request.QueryString[\"document\"]);\n    ...\n  }\n}",
+    "sample": "public class XMLHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        XmlTextReader reader = new XmlTextReader(ctx.Request.QueryString[\"document\"]);\n    ...\n  }\n}",
+    "total": "Number of methods and classes using System.Xml namespace",
+    "alternativeName": "Suggestion: Use XmlReader instead of XmlTextReader since it is deprecated and may lead to security issues",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2017",
+            "name": "XML External Entities (XXE)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

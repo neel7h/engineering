@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================================================== -->
+<!-- ==================================       cast-orm-congfig.xml      		============================= -->
+<!-- ==================================  based on version 2.0 of JPA orm configuration file   		  ======= -->
+<!-- ================================== Applies to orm.xml file 			  =============================== -->
+<!-- ================================== since version 7.0 of CAST products    =============================== -->
+<!-- ======================================================================================================== -->
+
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+	<config-file-node xpath ="/entity-mappings"  content-type = "jpa-orm-configuration" location=".">
+		
+		<!-- =====================================  ORM FILE PROPERTIES  ================================== -->
+		<object-attribute name = "java-package"			select = "./package" 		/>
+		<object-attribute name = "Comment"				select = "./@description" 	/>
+		<object-attribute name = "metadata-complete"	xpath ="self::node()[xml-mapping-metadata-complete]"  			value = "true" />
+		<object-attribute name = "metadata-complete"	xpath ="self::node()[count(xml-mapping-metadata-complete) = 0]" value = "false" />
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+
+		<!-- Entities And Mapped Super Classes -->	
+		<object-node xpath ="/entity-mappings/entity | /entity-mappings/mapped-superclass" name = "./@name" default-name = "./@class" type = "jpa-entity" id = "JPAEntityConfig">
+									
+									<!-- ====================  ATTRIBUTES  ======================== -->
+			<object-attribute name = "class"						select = "./@class"	/>
+			<object-attribute name = "metadata-complete"			select = "./@metadata-complete"		value = "false"/>
+			<object-attribute name = "Comment"						select = "./@description" />
+			<object-attribute name = "id-class"						select = "./@id-class" />
+			<object-attribute name = "inheritance"					select = "./inheritance/@strategy" 	value = "javax.persistence.InheritanceType.JOINED" />
+			<object-attribute name = "table name"					xpath = "self::node()" select = "./@name"	trim='"' after-last="." />
+			<object-attribute name = "table name"					xpath = "./table | ./secondary-table" select = "./@name"	trim='"' after-last="." />
+
+			<!-- Property For Mapped Super Class -->
+			<object-attribute name = "abstract"	xpath = "self::node()[name()='mapped-superclass']" value = "true" />
+
+									<!-- ====================  LINKS  ============================= -->
+			<link-node xpath = "."	called-object = "./@class"		resolve-as = "java-type" 				resolution-scope-src = "/entity-mappings/package" link-type = "relyon" inverse = "true" />
+			<link-node xpath = "./table | ./secondary-table"		called-object = "./@name"				default = "../@name" resolve-as="server-object" link-type = "use"/>			
+			<link-node xpath = "./attributes/element-collection/collection-table"	called-object = "./@name" resolve-as="server-object" link-type = "use"/>
+			<link-node xpath = "./attributes/element-collection[@target-class]" called-object = "./@target-class"	resolve-as="jpa-embeddable" link-type = "use"/>
+			<link-node xpath = "./attributes/element-collection[not(@target-class)]" called-object = "./@name"	resolution-scope-src="../../@class" resolve-as="jpa-embeddable" link-type = "use"/>
+			<link-node xpath = "./id-class"							called-object = "./@class"				resolve-as="java-type" link-type = "use"/>
+			
+				<!--Associations-->
+			<link-node xpath = "./attributes/many-to-one"			called-object = "./@target-entity"		resolve-as="jpa-entity" link-type = "use">
+				<object-attribute name = "Cardinality"   			value = "many-to-one"   />
+			</link-node>
+			<link-node xpath = "./attributes/one-to-many"			called-object = "./@target-entity"		resolve-as="jpa-entity" link-type = "use">
+				<object-attribute name = "Cardinality"   			value = "one-to-many"   />
+			</link-node>
+			<link-node xpath = "./attributes/one-to-one"			called-object = "./@target-entity"		resolve-as="jpa-entity" link-type = "use">
+				<object-attribute name = "Cardinality"   			value = "one-to-one"   />
+			</link-node>
+			<link-node xpath = "./attributes/many-to-many"			called-object = "./@target-entity"		resolve-as="jpa-entity" link-type = "use">
+				<object-attribute name = "Cardinality"   			value = "many-to-many"   />
+			</link-node>
+			<link-node xpath = "./attributes/embedded"				called-object = "./@target-entity"		resolve-as="jpa-embeddable" link-type = "use"/>
+			<link-node xpath = "./attributes/embedded"				called-object = "./@name"   resolution-scope-src = "../../@class"	resolve-as="jpa-embeddable" link-type = "use"/>
+	
+									<!-- ====================  PROPERTIES  ======================== -->
+			<object-node xpath ="./attributes/embedded 	 |
+								./attributes/embedded-id | 
+								./attributes/id	 		 |
+								./attributes/version" 			name = "./@name" type = "jpa-entity-property" >
+								
+				<object-attribute xpath ="self::node()[name()='id']" 								name = "id-strategy"	select = "./generated-value/@strategy"  value = "javax.persistence.GenerationType.AUTO"/>
+				<object-attribute xpath ="self::node()[name()='id']" 								name = "id-generator"	select = "./generated-value/@generator" />
+				<object-attribute xpath ="self::node()[name()='id' or name()='embedded-id']" 		name = "id"				value = "true" />
+				<object-attribute xpath ="self::node()[name()='embedded-id' or name()='embedded']" 	name = "component"		value = "true" />
+				<object-attribute xpath ="self::node()[name()='version']" 							name = "version"		value = "true" />
+				<object-attribute xpath = "self::node()" name = "column name"	select = "./@name"	trim='"' after-last="." />
+				<object-attribute xpath = "self::node()[name()='column']" name = "column name"	select = "./column/@name"	trim='"' after-last="." />
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "."	called-object = "./@name"	resolve-as="java-field;java-property" resolution-scope-src = "../../@class" link-type = "relyon" inverse = "true" />
+			</object-node>
+
+			<object-node xpath ="./attributes/many-to-one |
+								 ./attributes/one-to-one  |
+								 ./attributes/one-to-many |
+								 ./attributes/many-to-many|
+								 ./attributes/element-collection |
+								 ./attributes/basic 	  " 	name = "./@name" type = "jpa-entity-property" >
+								 
+				<object-attribute name = "fetch-type"	select = "./@fecth"  	value = "javax.persistence.FetchType.EAGER"/>
+				<object-attribute name = "optional"		select = "./@optional" 	value = "true"/>
+
+				<object-attribute xpath ="self::node()[name()='one-to-many' or name()='many-to-many' or 'element-collection']" name = "collection"	value = "true" />
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "."	called-object = "./@name"	resolve-as="java-field;java-property" resolution-scope-src = "../../@name | ../../@class" link-type = "relyon" inverse = "true" />
+			</object-node>
+
+		</object-node>
+	
+		<!-- Embeddables -->	
+		<object-node xpath ="/entity-mappings/embeddable" 			name = "./@class" type = "jpa-embeddable">
+			<object-attribute name = "class"						select = "./@class"	/>
+			<object-attribute name = "metadata-complete"			select = "./@metadata-complete"		value = "false"/>
+			<object-attribute name = "Comment"						select = "./@description" />
+      
+      <link-node xpath = "."	called-object = "./@class"	resolve-as="java-type" link-type = "relyon" />
+
+			<!-- Properties -->
+			<object-node xpath ="./attributes/basic" 				name = "./@name" type = "jpa-embeddable-property" >
+								
+				<object-attribute name = "fetch-type"	select = "./@fecth"  	value = "javax.persistence.FetchType.EAGER"/>
+				<object-attribute name = "optional"		select = "./@optional" 	value = "true"/>
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "."	called-object = "./@name"	resolve-as="java-field;java-property" resolution-scope-src = "../@name | ../@class" link-type = "relyon" inverse = "true" />
+			</object-node>
+		</object-node>
+		
+		<!-- Named Query -->
+		<object-node xpath = "/entity-mappings/named-query | /entity-mappings/entity/named-query" name = "./@name" type = "jpa-named-query">
+			<object-attribute name = "value" select = "./query"	/>
+			<!--Links-->
+			<link-node xpath = "."	called-object = "./query"	resolve-as="server-object" link-type = "use" />
+		</object-node>
+
+		<!-- Named Native Query -->
+		<object-node xpath = "/entity-mappings/named-native-query | /entity-mappings/entity/named-native-query"  name = "./@name" type = "jpa-named-native-query">
+			<object-attribute name = "value" select = "./query"	/>
+			<!--Links-->
+			<link-node xpath = "."	called-object = "./query"	resolve-as="server-object" link-type = "use" />
+			<link-node xpath = "."	called-object = "./@result-class"	resolve-as = "java-type" link-type = "use" default = "ancestor::entity/@class" resolution-scope-src = "/entity-mappings/package"/>
+		</object-node>
+
+        <!-- Named Stored Procedure Query -->
+        <object-node xpath = "/entity-mappings/named-stored-procedure-query" name = "./@name" type = "jpa-named-sp-query">">
+            <object-attribute name = "value" select = "./@procedure-name"	/>
+            <!--Links-->
+            <link-node xpath = "."	called-object = "./@procedure-name"	resolve-as="server-object" link-type = "call" />
+        </object-node>
+
+		<!-- SQL ResultSet -->
+		<object-node xpath = "/entity-mappings/sql-result-set-mapping | /entity-mappings/entity/sql-result-set-mapping" name = "./@name" type = "jpa-sql-result-set">
+			<!--Links-->
+			<link-node xpath = "."	called-object = "./entity-result/@entity-class"	resolve-as = "java-type" link-type = "use" resolution-scope-src = "/entity-mappings/package"/>
+		</object-node>
+		
+	</config-file-node>
+</xml-config>

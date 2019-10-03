@@ -1,0 +1,88 @@
+{
+    "id": 1043054,
+    "name": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy",
+    "href": "AIP/quality-rules/1043054",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using the * as the value of the Access-Control-Allow-Origin header indicates that the application's data is accessible to JavaScript running on any domain.",
+    "reference": "OWASP Top 10 2017: A6-Security Misconfiguration\nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration\n\nhttps://cwe.mitre.org/data/definitions/16.html",
+    "remediation": "Donot mention \"*\" use specific domain",
+    "remediationSample": "// globally in Web.config file\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n  </system.web>\n  <system.webServer>\n    <httpProtocol>\n      <customHeaders>\n        <add name=\"Access-Control-Allow-Origin\" value=\"domain\" />\n      </customHeaders>\n    </httpProtocol>\n  </system.webServer>\n</configuration>\n\n// or in the source code\n\nprotected void Application_BeginRequest(object sender, EventArgs e)\n{\n    HttpContext.Current.Response.AddHeader(\"Access-Control-Allow-Origin\", \"domain\");\n}\n\n// In case of .NetCore app, in Configure method of Startup class:-\n\napp.Use(async (context, next) =>\n{\n    context.Response.Headers.Add(\"Access-Control-Allow-Origin\", \"domain\");\n    await next();\n});",
+    "sample": "// globally in Web.config file\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n  </system.web>\n  <system.webServer>\n    <httpProtocol>\n      <customHeaders>\n        <add name=\"Access-Control-Allow-Origin\" value=\"*\" />\n      </customHeaders>\n    </httpProtocol>\n  </system.webServer>\n</configuration>\n\n// or in the source code\n\nprotected void Application_BeginRequest(object sender, EventArgs e)\n{\n    HttpContext.Current.Response.AddHeader(\"Access-Control-Allow-Origin\", \"*\");\n}\n\n// In case of .NetCore app, in Configure method of Startup class:-\n\napp.Use(async (context, next) =>\n{\n    context.Response.Headers.Add(\"Access-Control-Allow-Origin\", \"*\");\n    await next();\n});",
+    "total": "Number of Root Web.config file and Global methods",
+    "alternativeName": "Avoid overly permissive Cross-Origin Resource Sharing (CORS) policy",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-942",
+            "name": "Overly Permissive Cross-domain Whitelist",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "id": 1520422,
+    "name": "Siebel: Applets from the same view cannot have the same title",
+    "href": "AIP/quality-rules/1520422",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Other applet with same name in the view",
+    "output": "This rule reports Applets having the same title and included in the same view",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Applets from the same view cannot have the same title",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

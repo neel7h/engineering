@@ -1,0 +1,60 @@
+{
+    "id": 1002142,
+    "name": "Unavoid un-deallocated variables or arrays in Fortran-90 Modules  (FORTRAN)",
+    "href": "AIP/quality-rules/1002142",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The number of Allocate statements is compared to the number of Deallocate statements. More allocate statements than deallocate statements indicates un-allocated variables from memory",
+    "rationale": "If an array or variable is not de-allocated, memory is not freed up. This main lead to memory issues. Advised standard is to both limit the use of ALLOCATE and to make sure that variables are de-allocated from memory",
+    "remediation": "Make sure each allocated variable is deallocated in the same artifact.",
+    "alternativeName": "Unavoid un-deallocated variables or arrays in Fortran-90 Modules  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

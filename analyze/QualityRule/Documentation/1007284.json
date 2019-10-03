@@ -1,0 +1,102 @@
+{
+    "id": 1007284,
+    "name": "Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+    "href": "AIP/quality-rules/1007284",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "httpOnly flag prevents that the cookie is accessed by malicious scripts, for example during a Cross-Site Scripting attack. This QR detects scenarios where httpOnly flag can be used but has not.",
+    "output": "This report lists all artifacts that cause cookie misconfiguration (http flag). \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Cookies are often used to store a session identifier of the web application's state for a specific user. In order to harden against related attacks, such as session riding that can lead to the compromise of user data or the takeover of adminstrator sessions, a secure configuration of sensitive cookies is crucial. It has been detected that a new cookie is set insecure within the HTTP response header which can be improved by enabling additional flags.",
+    "reference": "https://cwe.mitre.org/data/definitions/200.html",
+    "remediation": "For additional security, set httpOnly flag - the httpOnly flag can be set to TRUE in the 7th parameter.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Cookie Misconfiguration (httpOnly flag) (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-1004",
+            "name": "Sensitive Cookie Without 'HttpOnly' Flag",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70201",
+            "name": "The application must set the HTTPOnly flag on session cookies.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

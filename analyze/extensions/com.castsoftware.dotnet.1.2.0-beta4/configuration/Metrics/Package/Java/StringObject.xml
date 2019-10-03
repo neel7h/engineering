@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : YLE@CAST 
+£ Date     : 25/10/2006
+£ Filename : StringObject.xml
+£ Role     : Used to detect instantiations of String objects made using
+£            the 'new' keyword
+£££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+
+
+<METRIC PACKAGE_NAME="Java.StringObject" >
+	<ACTIVE>YES</ACTIVE>
+
+	<!-- Actions used -->
+	<ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+			<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="CALCULATE" >
+			<INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="PERSISTENCE" >
+			<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+	</ACTION_LIST>
+
+	<!-- Categories -->
+	<CATEGORY_LIST>
+
+		<!-- Match instatiation of string objects made using operator 'new' -->
+		<CATEGORY NAME="MATCH_NEW_WITH_STRING">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<PROPERTY NAME="NEW_WITH_STRING_PATT" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+					</OR>
+					<TREE>
+						<OR>
+							<!-- to detect nodes having a subsignature at an intermediary level 
+							£    we use the syntax <SIGNATURE>NodeNameSubname</SIGNATURE>
+							£    (concatenation of name and subname)
+							£-->
+							<SIGNATURE>NODE_J11_InstanceCreationCLASS_CREAT_1</SIGNATURE>
+						</OR>
+						<TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_InstanceDeclaration</SIGNATURE>
+              </OR>
+              <TREE>
+						    <OR>
+							    <SIGNATURE>NODE_J11_ClassOrInterfaceType</SIGNATURE>
+						    </OR>
+						    <SUB_TREE_OR>
+							    <TOKEN NAME="IDENTIFIER" EQUAL="String" />
+						    </SUB_TREE_OR>
+              </TREE>
+						</TREE>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+			
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>NEW_WITH_STRING_PATT</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+		</CATEGORY>
+
+    <!-- Match instatiation of string objects made using operator 'new String[]' -->
+    <CATEGORY NAME="MATCH_NEW_WITH_STRING_ARRAY">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="NEW_WITH_STRING_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <!-- to detect nodes having a subsignature at an intermediary level 
+							£    we use the syntax <SIGNATURE>NodeNameSubname</SIGNATURE>
+							£    (concatenation of name and subname)
+							£-->
+              <SIGNATURE>NODE_J11_InstanceCreationCLASS_CREAT_1</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_InstanceDeclaration</SIGNATURE>
+              </OR>
+              <TREE>
+                <OR>
+                  <SIGNATURE> NODE_J11_ArrayCreation</SIGNATURE>
+                </OR>               
+                  <TREE>
+                  <OR>
+                    <SIGNATURE>NODE_J11_ClassOrInterfaceType</SIGNATURE>
+                  </OR>
+                  <SUB_TREE_OR>
+                    <TOKEN NAME="IDENTIFIER" EQUAL="String" />
+                  </SUB_TREE_OR>
+                </TREE>
+              </TREE>  
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NEW_WITH_STRING_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Match instatiation of objects made using operator 'new' and using a string as argument -->
+		<CATEGORY NAME="MATCH_NEW_ARG_STRING">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<PROPERTY NAME="NEW_ARG_STRING_PATT" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+					</OR>
+					<TREE>
+						<OR>
+							<!-- to detect nodes having a subsignature at an intermediary level 
+							£    we use the syntax <SIGNATURE>NodeNameSubname</SIGNATURE>
+							£    (concatenation of name and subname)
+							£-->
+							<SIGNATURE>NODE_J11_InstanceCreationCLASS_CREAT_1</SIGNATURE>
+						</OR>
+						<TREE>
+							<OR>
+								<SIGNATURE>NODE_J11_ActualTypeArgument</SIGNATURE>
+							</OR>
+							<TREE>
+								<OR>
+									<SIGNATURE>NODE_J11_ClassOrInterfaceType</SIGNATURE>
+								</OR>
+								<SUB_TREE_OR>
+									<TOKEN NAME="IDENTIFIER" EQUAL="String" />
+								</SUB_TREE_OR>
+							</TREE>
+						</TREE>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>NEW_ARG_STRING_PATT</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+		</CATEGORY>
+
+		<!-- Compute the difference and store it -->
+		<CATEGORY NAME="MATCH_NEW_STRING">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<ADD_ACTION NAME="CALCULATE">
+				<ADD_VALUE>MATCH_NEW_WITH_STRING.VALUE</ADD_VALUE>
+				<LESS_VALUE>MATCH_NEW_ARG_STRING.VALUE</LESS_VALUE>
+        <LESS_VALUE>MATCH_NEW_WITH_STRING_ARRAY.VALUE</LESS_VALUE>        
+        <RESULT>VALUE</RESULT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Avoid String initialization with String object</NAME>
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+	<!-- End categories -->
+
+
+</METRIC>

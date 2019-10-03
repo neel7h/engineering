@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+  <!-- the core of C/C++ analyzer -->
+  <actions>
+    <action name = "CAnalyzerStartFromCmdLineAction"   />
+    <action name = "CAnalyzerExecuteAnalyzerAction"    />
+    <action name = "CAnalyzerExecutePostAnalyzerAction"/>
+    <action name = "CNonLinkableObjectSavingAction"    />
+    <action name = "CTemplateParamSavingAction"        />
+    <action name = "CLinkableObjectAggregation"        />
+    <action name = "CLinkableDefinitionSavingAction"   />
+    <action name = "CSavingResolvedLinkSuspension"     />
+    <action name = "CSavingUnresolvedLinkSuspension"   />
+    <action name = "CSavingMetricViolation"            />
+  </actions>
+
+  <analyzer name = "C++ Analyzer" maxMem = "1400"  maxInstancesForFlat64bits = "2000000"/>
+
+</configuration>

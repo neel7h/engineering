@@ -1,0 +1,72 @@
+{
+    "id": 1007106,
+    "name": "Avoid undocumented Sections (PHP)",
+    "href": "AIP/quality-rules/1007106",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Associated Value",
+    "description": "This rule searches for all the undocumented Sections.",
+    "output": "This report lists all undocumented Sections.\n\nThis QR provides the following information:\nSection full name.",
+    "rationale": "Code maintainability is improved if code is accompanied with comments. This rule ensures that sections are documented.",
+    "remediation": "Modify the source code to reduce the number of undocumented Sections.",
+    "remediationSample": "<?php\n/**\n* created to perform operations on items\n* contains a sample function addItem\n*/\nclass CastTest {\n    // Item\n    var $items;\n\n    //addition of items\n   function addItem($artnr, $num) {\n        $this->items[$artnr] += $num;\n    }\n}\n$obj = new CastTest();\n$obj-> addItem();\n?>",
+    "total": "Number of Sections",
+    "alternativeName": "Avoid undocumented Sections (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Minimum % Comment / Code Ratio",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

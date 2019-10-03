@@ -1,0 +1,72 @@
+{
+    "id": 2284,
+    "name": "Avoid large JSP Pages - too many Scriptlets",
+    "href": "AIP/quality-rules/2284",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of scriptlets",
+    "description": "Avoid Pages with more than X Scriptlets. Scriptlets begin with <%, <%! or <%=. The threshold is a parameter that can be changed at will.",
+    "output": "This report lists all Pages with more than X scriptlets (<%= is considered as scriptlet) in a page. \nIt provides the following information: \n - Page full name\n - Number of scriptlets",
+    "rationale": "From JSP 1.2 Specification, it is highly recommended that the JSP Standard Tag Library (JSTL) be used in your web application to help reduce the need for JSP scriptlets in your pages. Pages that use JSTL are, in general, easier to read and maintain.",
+    "reference": "http://java.sun.com/developer/technicalArticles/javaserverpages/code_convention\nhttp://stackoverflow.com/questions/2128024/does-scriptlet-hit-the-performance-in-jsp",
+    "remediation": "Review the design of the Page to reduce the number of Scriptlets",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure to have readeble JSP Pages without too many Scriptlets",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of scriptlets",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

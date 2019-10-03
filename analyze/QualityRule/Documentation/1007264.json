@@ -1,0 +1,95 @@
+{
+    "id": 1007264,
+    "name": "Avoid unrestricted file upload (PHP)",
+    "href": "AIP/quality-rules/1007264",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A file upload is an often misused feature that allows users to upload malicious files to the web server.",
+    "output": "This report lists all artifacts that allow unrestricted file upload. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "a remote code execution can be achieved by uploading a PHP file into the document root. Often, the file extension plays an important role and depending on the web server's configuration, different file extensions such as .php, .php4, or .php.zzz are passed to the PHP interpreter. Furthermore, uploading a .htaccess file can lead to remote code execution and uploading .htm, .html, .swf, or .svg files can lead to persistent cross-site scripting.",
+    "reference": "https://cwe.mitre.org/data/definitions/434.html",
+    "remediation": "certain built-in functions used to ensure the presence of an image, such as getimagesize(), can be bypassed. Although it is stronly recommended, that uploaded files are not stored in the document root and the file's name is not in control of the user..",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid unrestricted file upload (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-434",
+            "name": "File Upload Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-434",
+            "name": "Unrestricted Upload of File with Dangerous Type",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "id": 1020072,
+    "name": "Avoid direct access to Database Tables in Javascript",
+    "href": "AIP/quality-rules/1020072",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Applications should not access directly database Tables",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Direct access to database Table prevents the control at the database level of accesses. E.g.: use of non-optimized query against the database.",
+    "reference": "CISQ rule: ASCPEM-PRF-9.",
+    "remediation": "Create one or several dedicated modules to access database. Encapsulate in these modules the object storing pool of connections",
+    "sample": "tx.executeSql(str, [], function(tx, rs) { callback(result); });",
+    "total": "Number of Javascript Functions",
+    "alternativeName": "Avoid direct access to Database Tables in Javascript",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-12",
+            "name": "Named Callable and Method Control Element with Layer-skipping Call",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-9",
+            "name": "Non-Stored SQL Callable Control Element with Excessive Number of Data Resource Access",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

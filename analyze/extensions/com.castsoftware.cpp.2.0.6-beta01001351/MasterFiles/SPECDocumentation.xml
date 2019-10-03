@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="description">
+    <english>This rule searches for C++ classes using the "new" operator to allocate instances but that do not define a copy constructor.</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="name">
+    <english>Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="output">
+    <english>Associated to each C++ class with violations, the Quality Rule provides:
+- Bookmarks for violation occurrences found in the source code:
+- object instantiation</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="rationale">
+    <english>If an object manages the allocation and deallocation of an object on the heap (the managing object has a pointer to the object to be created by the class' constructor), and the default copy constructor is used, only the value of the pointer will be copied. This can lead to two invocations of the destructor for the same object (on the heap), probably resulting in a run-time error.</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="remediation">
+    <english>Define a copy constructor for the class, or make the class non-copyable.</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="remediationSample">
+    <english>#include &lt;string.h&gt;
+
+   class String
+   {
+      public:
+         String( const char* cp = "");   // Constructor
+         String( const String&amp; sp );     // Copy constructor
+         ~String();                      // Destructor
+         // ...
+      private:
+         char* sp;
+         // ...
+   };
+
+   String::String( const char* cp )    // Constructor
+   {
+      sp = new char[strlen(cp)];
+      strcpy(sp,cp);
+   }
+
+   String::String( const String&amp; stringA ) : sp( new char[strlen(stringA.sp)] )
+   {
+      strcpy(sp,stringA.sp);
+   }
+   String::~String()     // Destructor
+   {
+      delete sp;
+   }
+
+   // "Safe" String class
+   void
+   main()
+   {
+      String w1;
+      String w2 = w1;   // SAFE COPY: String::String( const String&amp; ) CALLED.
+   }</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="sample">
+    <english>#include &lt;string.h&gt;
+
+   class String
+   {
+      public:
+         String( const char* cp = "");    // Constructor
+         ~String();                       // Destructor
+         // ...
+      private:
+         char* sp;
+         // ...
+   };
+
+   String::String(const char* cp)      // Constructor
+   {
+      sp = new char[strlen(cp)];
+      strcpy(sp,cp);
+   }
+   String::~String()    // Destructor
+   {
+      delete sp;
+   }
+
+   // "Dangerous" String class
+   void
+   main()
+   {
+      String w1;
+      String w2 = w1;
+      // WARNING: IN A BITWISE COPY OF w1::sp,
+      // THE DESTRUCTOR FOR W1::SP WILL BE CALLED TWICE:
+      // FIRST, WHEN w1 IS DESTROYED; AGAIN, WHEN w2 IS DESTROYED.
+   }</english>
+  </metric>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" section="total">
+    <english>Number of C++ classes</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="description">
+    <english>"continue" is an unstructured control flow statement. It makes code less testable, less readable and less maintainable. Structured control flow statements such as if should be used instead. This rule is compliant with MISRA-C:2004.</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="name">
+    <english>Avoid using "continue" statement</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="output">
+    <english>Associated to each C++ constructor, destructor, method, C and C++ functions with violations, the Quality Rule provides:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code:
+  - use of continue</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="rationale">
+    <english>Avoid using "continue" statement.</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="remediation">
+    <english>Do not used the continue statement, insted used conditionals.</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="remediationSample">
+    <english>int i;
+for (i = 0; i &lt; 10; i++) {
+  if (i != 5) {
+    printf("i = %d\n", i);
+  }
+}</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="sample">
+    <english>int i;
+for (i = 0; i &lt; 10; i++) {
+  if (i == 5) {
+    continue;  /* Noncompliant */
+  }
+  printf("i = %d\n", i);
+}</english>
+  </metric>
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" section="total">
+    <english>Number of C++ constructors, destructors, methods, C and C++ functions</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="description">
+    <english>This rule raises a violation when "enum" members initialization rule is infringed.. This rule is compliant with MISRA-C:2004 and MISRA-C++:2008.</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="name">
+    <english>"enum" members other than the first one should not be explicitly initialized unless all members are explicitly initialized.</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="rationale">
+    <english>"enum" members other than the first one should not be explicitly initialized unless all members are explicitly initialized.</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="remediation">
+    <english>Always initialized all, none or the first members of an enum.</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="remediationSample">
+    <english>enum color { red = 3, blue = 4, green = 5, yellow = 6 };</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="sample">
+    <english>enum color { red = 3, blue, green, yellow = 5 };</english>
+  </metric>
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." section="total">
+    <english>Number of C++ constructors, destructors, methods, C and C++ functions</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="description">
+    <english>This rule raises a violation when the memory dynamically allocated in a local pointer of a function or method is not released.
+This rule can raise false positives which are generally caused by bad programmation practices.</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="name">
+    <english>Ensure that dynamically allocated memory on local pointer in functions/methods is freed.</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="rationale">
+    <english>The memory dynamically allocated in a local pointer of a function or method should be released by using "delete" or "free()" before the end of the of the lifetime of the pointer variable, i.e. before the end of said function/method or before a "return" or "throw" statement.</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="remediation">
+    <english>Release the memory allocated dynamically before any "return" or "throw" statement or before the end of the function or method.</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="remediationSample">
+    <english>int func(int num)
+{
+    int* val = new int(0);
+    std::exception exc;
+    if(num &amp;lt; 0)
+    {
+        delete val;
+        throw exc;
+    }
+    delete val;
+    return 1;
+}</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="sample">
+    <english>int func(int num)
+{
+    int* val = new int(0);
+    std::exception exc;
+    if(num &lt; 0)
+        throw exc;
+    delete val;
+    return 1;
+}</english>
+  </metric>
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." section="total">
+    <english>Number of C++ constructors, destructors, methods, C and C++ functions</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="description">
+    <english>This rule raises a violation when a container is modified in a loop iterating over said container without modifying the iterator.</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="name">
+    <english>Avoid iterator invalidation.</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="rationale">
+    <english>While iterating over a container almost all modifications of said contained will invalidate the iterator and bring undefined behaviour. Moreover the encapsulation in a class can mask that we are modifying the container by the use of class method and consequently invalidate the iterator.</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="remediation">
+    <english>Do not modify the container while iterating over, unless you modify the iterator itself.</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="remediationSample">
+    <english>class A{
+    std::vector&lt;int&gt;&amp; getVector();
+    void removeElement(int index);
+private:
+    std::vector&lt;int&gt; m_integerVector;
+};
+
+void func(){
+    A a;
+    ...
+    for(int val : a.getVector()){
+        ...
+    } 
+    ...
+    a.removeElement(index);
+}</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="sample">
+    <english>class A{
+    std::vector&lt;int&gt;&amp; getVector();
+    void removeElement(int index);
+private:
+    std::vector&lt;int&gt; m_integerVector;
+};
+
+void func(){
+    A a;
+    ...
+    for(int val : a.getVector()){
+        ...
+        a.removeElement(index);
+        ...
+    } 
+}</english>
+  </metric>
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." section="total">
+    <english>Number of C / C++ method and function</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="description">
+    <english>This rule raises a violation when an unvalidated input is used to compute an index or as index to access an array or to allocate memory.</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="name">
+    <english>Avoid use of unvalidated input in array indexing and memory allocation</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="rationale">
+    <english>Using an unvalidated input as an array index or to compute an array index is a security hazard which can lead to reading or writing out of bounds of the array.
+Using an unvalidated input as a size of a memory allocation is a security hazard which can lead to allocate a null size or a too great size of memory.</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="reference">
+    <english>CWE-129</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="remediation">
+    <english>Validate the input, from outside the function, which are used as array index or allocation size.</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="remediationSample">
+    <english>#define MAX_ARRAY_SIZE 1000000
+int *array = NULL; 
+void allocateArray()
+{
+      int len, itr;
+      scanf("%i", &amp;len);
+     if (len &gt; 0 &amp;&amp; len &lt; MAX_ARRAY_SIZE)
+     {
+           array = malloc(len);
+           for(itr=0;itr&lt;len;itr++)
+               array[itr] = 0;
+     }
+ }
+
+int getValue(int index)
+{
+    if(index &gt;= 0 &amp;&amp; index &lt; MAX_ARRAY_SIZE)
+          return array[index];
+    else
+          return array[MAX_ARRAY_SIZE-1];
+}</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="sample">
+    <english>int *array = NULL; 
+void allocateArray()
+{
+      int len, itr;
+      scanf("%i", &amp;len);
+      array = malloc(len);
+      for(itr=0;itr&lt;len;itr++)
+          array[itr] = 0;
+ }
+
+int getValue(int index)
+{
+    return array[index];
+}</english>
+  </metric>
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" section="total">
+    <english>Number of  C/C++ method and function</english>
+  </metric>
+</metrics>

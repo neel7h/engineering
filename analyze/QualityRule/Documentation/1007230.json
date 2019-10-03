@@ -1,0 +1,68 @@
+{
+    "id": 1007230,
+    "name": "Avoid artifacts without proper switch case declarations (PSR2) (PHP)",
+    "href": "AIP/quality-rules/1007230",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule reports all artifacts having control structures without proper switch case declarations.\nThis quality rules checks for following in switch case declaration:\n\n-Statements must be defined using a colon\n-Terminating statement must be on a line by itself\n-Terminating statement must be indented to the same level as the CASE body\n-There must be a comment when fall-through is intentional in a non-empty case body\n-Body must start on the line following the statement\n-There must not be space between case number and colon\n-There must be no space before the colon in a statement",
+    "output": "This rule reports all artifacts having control structures without proper switch case declarations.\nIt provides the following information:\nArtifact full name.",
+    "rationale": "Using the proper declaration in switch statements helps to read, understand, modify, maintain and enhance the code easily.",
+    "reference": "Source Reference:https://pear.php.net/reference/PHP_CodeSniffer-latest/PHP_CodeSniffer/PSR2_Sniffs_ControlStructures_SwitchDeclarationSniff.html",
+    "remediation": "Try to reduce the number of artifacts having control structures without proper switch case declarations.",
+    "remediationSample": "<?php\nswitch ($expr)\n{ \n    case 0:\n        echo 'Statements must be defined with colon'; //Statement must be defined with a colon ,VIOLATION REMOVED\n        break;\n    case 1:\n        echo 'Terminating statement must be indented to the same level as the CASE body';    \n        break;                                                     //Terminating statement must be indented to the same level as the CASE body\n    case 2:\n        echo 'Terminating statement must be on a line by itself';  //Terminating statement must be on a line by itself\n        break;    \n    case 3:\n        echo 'Body must start on the line following the statement';   //Body must start on the line following the statement\n        break;\n    case 4:\n        echo 'case without no break statement';  \n        break;                                      // no break    VIOLATION REMOVED\n    case 5: \n        echo 'case without body not allowed';  \n        break;                                           //empty case body  VIOLATION REMOVED\n    case 6:\n        echo 'case is followed single space , correct coding standard';        \n        break;                                      // case is followed single space , correct coding standard VIOLATION REMOVED\n    case 7: \n        echo 'case keyword in lowercase';        // CASE keyword is in lowercase , //VIOLATION REMOVED\n        break;\n    case 8:\n        echo 'there must not be any space before colon';        //There must be no space before the colon in a statement  , //VIOLATION REMOVED\n        break;\n    default: \n        echo 'Default case';          // DEFAULT keyword in lowercase, correct coding standard VIOLATION REMOVED\n}\n?>",
+    "sample": "<?php\nswitch ($expr)\n{ \ncase 0:\n    echo 'Statements must be defined with colon'     //Statement must be defined with a colon VIOLATION\n    break;\ncase 1:\n    echo 'Terminating statement must be indented to the same level as the CASE body';    \nbreak;                                                     //Terminating statement must be indented to the same level as the CASE body VIOLATION\ncase 2:\n    echo 'Terminating statement must be on a line by itself'; break;     //Terminating statement must be on a line by itselfbreak; VIOLATION   \ncase 3: echo 'Body must start on the line following the statement';   //Body must start on the line following the statement  VIOLATION\n   break;\ncase 4:\n    echo 'case without no break statement';           // no break VIOLATION\ncase 5:                                          //empty case body   VIOLATION\ncase   6: // case is followed single space , correct coding standard    VIOLATION\nCASE 7: \n    echo 'keyword in lowercase';        // CASE keyword is in lowercase , correct coding standard   VIOLATION\n    break;\ncase 8  :\n    echo 'any space before colon';        //space before the colon in a statement  , //VIOLATION \n    break;\nDEFAULT: \n    echo 'Default case';    // DEFAULT keyword in lowercase, correct coding standard echo  VIOLATION \n}\n?<",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts without proper switch case declarations (PSR2) (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "PSR2.ControlStructures.SwitchDeclaration"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

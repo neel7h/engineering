@@ -1,0 +1,64 @@
+{
+    "id": 1020504,
+    "name": "Avoid using the call of web service with AngularJS $http inside a loop",
+    "href": "AIP/quality-rules/1020504",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When designing web service to get/post/put data, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official AngularJS syntax $http to do call to web service.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When designing web service to get/put/post data, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.",
+    "remediation": "N/A",
+    "sample": "factory('UserPicture',function($http, $q){\n  return {\n    updatePicture : function(url, requestData) {\n      for (i = 0; i < options.length; i += 1) {\n        $http.post(\n          url,\n          requestData,\n          { headers: { 'Content-Type': undefined},\n            transformRequest: angular.identity\n          }\n        ).success(\n          function(responseData) {\n            //Passing data to deferred's resolve function on successful completion\n            deferred.resolve(responseData);\n          }\n        ).error(\n          function() {\n            deferred.reject(\"An error occured while fetching items\");\n          }\n        );\n      }\n      return deferred.promise;\n    }\n  }});",
+    "total": "Number of angular services/factories using $http",
+    "alternativeName": "Avoid using the call of web service with AngularJS $http inside a loop",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

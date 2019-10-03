@@ -1,0 +1,6 @@
+Build date: 29/05/2019 15:23:32,21 
+Build number: 1000116 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master e501d3f1527ba315bb3b12ca7127c3f80c0811e0
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.jaxws.git origin/master 6325e500d57b28c5679d29609d9c31b6a1a78ff4
+Publish date: 29/05/2019 15:26:34,78 
+Original version: 1.0.7-alpha01000116 

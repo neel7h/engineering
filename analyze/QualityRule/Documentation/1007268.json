@@ -1,0 +1,103 @@
+{
+    "id": 1007268,
+    "name": "Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command without quotes (PHP)",
+    "href": "AIP/quality-rules/1007268",
+    "critical": true,
+    "associatedValueName": "Reasoning",
+    "description": "A sql injection vulnerability occurs when user input is embedded unsanitized into a SQL query.",
+    "output": "This report lists all artifacts that raw user input that could lead to SQL injection without quotes.\nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "An attacker can modify the SQL syntax and alter the query's target or result. This can lead to the retrieval of sensitive information from the database or to an attack against the underlying web server by using SQL file operations. An attacker can also elevate privileges if the SQL query is used for authentication. It is recommended to use prepared statements and to run the database user with the least privileges necessary.",
+    "reference": "https://cwe.mitre.org/data/definitions/89.html",
+    "remediation": "No quotes are used around the detected injection point in the SQL query. Thus, all applied operations to escape the data are insufficient because no quotes have to be broken in order to inject SQL syntax. In case a numerical value is expected, a typecast operation should be performed on the user input.",
+    "remediationSample": "<?php\n\n$getid  = \"SELECT first_name, last_name FROM users WHERE user_id = {$id} LIMIT 1;\";\n\n?>",
+    "sample": "<?php\n\n$getid  = \"SELECT first_name, last_name FROM users WHERE user_id = '\".addslashes($id).\"' LIMIT 1;\";\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command without quotes (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70267",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

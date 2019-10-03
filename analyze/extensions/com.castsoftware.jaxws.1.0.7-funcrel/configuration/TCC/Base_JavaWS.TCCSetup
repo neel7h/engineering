@@ -1,0 +1,59 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_JavaWS" version="1.0.1.0" encoding="UTF-8" date="Thu, Nov 16, 2017  2:01:22 PM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - Java - JAXWS" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+     <value>SOAP_JV_OPERATION</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - Java - JAXWS - Called Operation (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "Standard Entry Point - Java - JAXWS (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "Standard Entry Point - Java - JAXWS - Called Operation (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>SOAP_JV_OPERATION</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="Standard Entry Point - Java - JAXWS (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+
+<association>
+ <set name = "Standard End Point - Java - JAXWS" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>SOAP_JV_CLIENT_ENDPOINT</value>
+   </property>
+  </selection-criteria>
+ </set>
+ 
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

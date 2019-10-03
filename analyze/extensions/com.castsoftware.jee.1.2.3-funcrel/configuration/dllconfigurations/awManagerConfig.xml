@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+	<includes>
+		<path>Common</path>
+		<path>DBCwmm</path>
+		<path>WizardsAndAnalysisInfo</path>
+		<path>AwManager</path>
+		<path>Analyzers</path>
+	</includes>
+</configuration>

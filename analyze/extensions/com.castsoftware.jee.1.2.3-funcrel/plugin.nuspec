@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.jee</id>
+    <version>1.2.3-funcrel</version>
+    <title>JEE Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/JEE+Analyzer+-+1.2</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.jee.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for JEE. This analyzer enables you to compute Automated Function Points and provides Quality checks for your JEE projects.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/JEE+Analyzer+-+1.2+-+Release+Notes</releaseNotes>
+    <tags>Java Language FPQuality techno:JEE J2EE CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.3.0" />
+      <dependency id="com.castsoftware.wbslinker" version="1.5.0" />
+    </dependencies>
+  </metadata>
+</package>

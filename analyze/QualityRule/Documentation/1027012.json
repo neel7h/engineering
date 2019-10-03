@@ -1,0 +1,76 @@
+{
+    "id": 1027012,
+    "name": "Avoid storing Non-Serializable Object as HttpSessionState attributes.",
+    "href": "AIP/quality-rules/1027012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid storing Non-Serializable Object as HttpSessionState attributes",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When non-serializable object is stored as an HttpSessionState attribute, it can damage application reliablity.\nASP.NET servers by default store the HttpSessionState object, its attributes and any objects they reference in memory which limits active session state to what can be accommodated by the system memory.\nServers are configured to persistent session state to expand capacity. The server must serialize the HttpSessionState object to persist its session state.",
+    "reference": "https://cwe.mitre.org/data/definitions/502.html",
+    "remediation": "All the objects which are stored as session attributes in the application must declare [Serializable] attribute to serialize the session correctly.",
+    "remediationSample": "[Serializable]\npublic class EqueryRaised\n{\n#region Private Fields\nprivate string _queryID;\nprivate string _reOpenID;\n}\n________________________________________________________\n\n[Serializable]\npublic class DataGlob {\n   String GlobName;\n   String GlobValue;\n\n   public void AddToSession(HttpSessionState session) {\n     session[\"glob\"] = this;\n   }\n}",
+    "sample": "HttpContext.Current.Session[CURRENT_USER_KEY] = value; \n \nthis.Session.Add(\"lbSection\", (string)((LinkButton)sender).ID.ToString());\n\n_________________________________________________________\n\npublic class DataGlob {\n   String GlobName;\n   String GlobValue;\n\n   public void AddToSession(HttpSessionState session) {\n     session[\"glob\"] = this;\n   }\n}",
+    "total": "Number of Methods setting HttpSessionState Attributes",
+    "alternativeName": "Avoid storing Non-Serializable Object as HttpSessionState attributes.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-579",
+            "name": "J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

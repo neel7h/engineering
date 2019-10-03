@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<EJBApplicationServerEnvironmentProfile-2770>
+			<Item>
+				<Name>Oracle 8iAS and 9iAS</Name>
+				<Uid>CAST_EJB_DEFAULT_ORACLE_89</Uid>
+			</Item>
+		</EJBApplicationServerEnvironmentProfile-2770>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>Oracle 8iAS and 9iAS</Name>
+		<Uid>CAST_EJB_DEFAULT_ORACLE_89</Uid>
+		<Type>EJB Application Server Environment Profile-1770</Type>
+		<ApplicationServer-1523>Oracle AS</ApplicationServer-1523>
+		<PersistanceDeploymentDescriptor-1823>META-INF\oracle-ejb*.xml</PersistanceDeploymentDescriptor-1823>
+		<TransformationFile-1593>$(CastDir)\EnvProf\J2EE\EJB\oracle-pers.xslt</TransformationFile-1593>
+	</Entity>
+</Root>

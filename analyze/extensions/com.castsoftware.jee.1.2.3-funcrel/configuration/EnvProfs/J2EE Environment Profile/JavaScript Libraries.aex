@@ -1,0 +1,294 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<J2EEEnvironmentProfile-2601>
+			<Item>
+				<Name>JavaScript Libraries</Name>
+				<Uid>CAST_JAVA_JAVASCRIPT_LIBRARIES</Uid>
+			</Item>
+		</J2EEEnvironmentProfile-2601>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>JavaScript Libraries</Name>
+		<Uid>CAST_JAVA_JAVASCRIPT_LIBRARIES</Uid>
+		<Type>J2EE Environment Profile-1601</Type>
+		<JavaScriptFrameworks-2371>
+			<Item>
+				<Uid>4D6UTJJ90VJ0GQV7NQZFX675HNUBEEPF6P5OHRHUEMM0GH6GB2IG6QXLA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VJ0GRV5AQ21N8E7HNZFEEPF6P5OHRHUEMN0GH6GB2Z50AQY1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VJ0GKVBNQLFXA7EGNU8EEPF6P5OHRHUEMG0GH6GB2AZI53WA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VJ0JRVBEQZKX476INY9EEPF6P5OHRHUEMI0GH6GB2QNUGS71</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VJ0JZV79QORX87EINU9EEPF6P5OHRHUEMJ0GH6GB2BRQCNYA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VJ0LRV7DQQMX672FNWBEEPF6P5OHRHUEMS0GH6GB2XM4E9O1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VI0LLV7CQMKX770ANWEEEPF6P5OHRHUEMT0GH6GB2JU82OQA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VL0GQVAFQMPXB71GNTAEEPF6P5OHRHUENK0GH6GB2UJGBN71</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VL0IPVAAQQPXB77FNYCEEPF6P5OHRHUENL0GH6GB2F56ZU8A</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VL0INVAQRQNX47EJNV8EEPF6P5OHRHUENM0GH6GB20TMR681</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VL0LZV6DQZNXA72HNTEEEPF6P5OHRHUENH0GH6GB2EDT48JA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VL0KZV4FQ21YKE4BNTCEEPF6P5OHRHUENI0GH6GB25LXM1VA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VK0JPV7QRYLX871BNVBEEPF6P5OHRHUENJ0GH6GB2YBTICAA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0GRVB9QLMXA76FNT8EEPF6P5OHRHUEML0GH6GB26GHXRV1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0IPVB9QPEX570ENW9EEPF6P5OHRHUEML0GH6GB2JMHP1N1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0IMV4CQRPXA70ANSAEEPF6P5OHRHUEMM0GH6GB28IQORKA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0LRV4NQNLX474INX8EEPF6P5OHRHUEMN0GH6GB21PWD9T1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0LMV4FQ21ZCE1ENXJEEPF6P5OHRHUEMG0GH6GB24D979L1</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0KRV4QRMKX974INX8EEPF6P5OHRHUEMH0GH6GB2G9ICW71</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJ90VM0KLVBNQLFX570HNV9EEPF6P5OHRHUEMI0GH6GB2HYJH6PA</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJE0VL0GMVAQRQQXH75FNQCEEPF6P5OHRHUEMI0GH6GB2SC8RE71</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJJE0VL0GKV4FQ21YAE2ANTBEEPF6P5OHRHUEMJ0GH6GB2TPOQO21</Uid>
+			</Item>
+			<Item>
+				<Uid>4D6UTJGF0VH0IOVBDQRKX572ENU8EEPF6P5OHRHUEMM0GH6GB2SFWLHO1</Uid>
+			</Item>
+		</JavaScriptFrameworks-2371>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0GQV7NQZFX675HNUBEEPF6P5OHRHUEMM0GH6GB2IG6QXLA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Part of AccDC</Value-1143>
+		<UserComment-1597>AccDC library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0GRV5AQ21N8E7HNZFEEPF6P5OHRHUEMN0GH6GB2Z50AQY1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>AccDC Object</Value-1143>
+		<UserComment-1597>AccDC library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0GKVBNQLFXA7EGNU8EEPF6P5OHRHUEMG0GH6GB2AZI53WA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Ample SDK - JavaScript GUI Framework</Value-1143>
+		<UserComment-1597>Ample library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0JRVBEQZKX476INY9EEPF6P5OHRHUEMI0GH6GB2QNUGS71</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>cupQ.*MIT License</Value-1143>
+		<UserComment-1597>cupQ library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0JZV79QORX87EINU9EEPF6P5OHRHUEMJ0GH6GB2BRQCNYA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Copyright DHTMLX LTD</Value-1143>
+		<UserComment-1597>DHTMLX libraries</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VJ0LRV7DQQMX672FNWBEEPF6P5OHRHUEMS0GH6GB2XM4E9O1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Copyright.*The Dojo Foundation</Value-1143>
+		<UserComment-1597>Dojo library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VI0LLV7CQMKX770ANWEEEPF6P5OHRHUEMT0GH6GB2JU82OQA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Ext JS.*- JavaScript Library</Value-1143>
+		<UserComment-1597>Ext JS library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VL0GQVAFQMPXB71GNTAEEPF6P5OHRHUENK0GH6GB2UJGBN71</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>Midori JS Framework.*Copyright</Value-1143>
+		<UserComment-1597>Midori library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VL0IPVAAQQPXB77FNYCEEPF6P5OHRHUENL0GH6GB2F56ZU8A</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://mochikit.com</Value-1143>
+		<UserComment-1597>MocjiKit library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VL0INVAQRQNX47EJNV8EEPF6P5OHRHUENM0GH6GB20TMR681</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://mootools.net</Value-1143>
+		<UserComment-1597>MooTools library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VL0LZV6DQZNXA72HNTEEEPF6P5OHRHUENH0GH6GB2EDT48JA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://script.aculo.us</Value-1143>
+		<UserComment-1597>script.aculo.us library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VL0KZV4FQ21YKE4BNTCEEPF6P5OHRHUENI0GH6GB25LXM1VA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>qooxdoo.org/license</Value-1143>
+		<UserComment-1597>qooxdoo library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VK0JPV7QRYLX871BNVBEEPF6P5OHRHUENJ0GH6GB2YBTICAA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://openrico.org</Value-1143>
+		<UserComment-1597>Rico library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0GRVB9QLMXA76FNT8EEPF6P5OHRHUEML0GH6GB26GHXRV1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\jquery\**</Value-1143>
+		<UserComment-1597>jquery library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0IPVB9QPEX570ENW9EEPF6P5OHRHUEML0GH6GB2JMHP1N1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://www.prototypejs.org</Value-1143>
+		<UserComment-1597>Prototype library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0IMV4CQRPXA70ANSAEEPF6P5OHRHUEMM0GH6GB28IQORKA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://www.menujs.net</Value-1143>
+		<UserComment-1597>Menu library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0LRV4NQNLX474INX8EEPF6P5OHRHUEMN0GH6GB21PWD9T1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\tiny_mce\**</Value-1143>
+		<UserComment-1597>Tiny MCE library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0LMV4FQ21ZCE1ENXJEEPF6P5OHRHUEMG0GH6GB24D979L1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://angularjs.org</Value-1143>
+		<UserComment-1597>AngularJS library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0KRV4QRMKX974INX8EEPF6P5OHRHUEMH0GH6GB2G9ICW71</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Method-2373>
+			<Name>File content</Name>
+			<Uid>2577</Uid>
+		</Method-2373>
+		<Value-1143>http://code.google.com/p/swfobject</Value-1143>
+		<UserComment-1597>swfobject library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJ90VM0KLVBNQLFX570HNV9EEPF6P5OHRHUEMI0GH6GB2HYJH6PA</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\webfontloader\**</Value-1143>
+		<UserComment-1597>Webfont Loader library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJE0VL0GMVAQRQQXH75FNQCEEPF6P5OHRHUEMI0GH6GB2SC8RE71</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\dojo\**</Value-1143>
+		<UserComment-1597>Dojo library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJJE0VL0GKV4FQ21YAE2ANTBEEPF6P5OHRHUEMJ0GH6GB2TPOQO21</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\ext-*\**</Value-1143>
+		<UserComment-1597>Ext JS library</UserComment-1597>
+	</Entity>
+	<Entity>
+		<Uid>4D6UTJGF0VH0IOVBDQRKX572ENU8EEPF6P5OHRHUEMM0GH6GB2SFWLHO1</Uid>
+		<Type>External JavaScript Rule-2372</Type>
+		<Value-1143>**\jquery*.js</Value-1143>
+		<UserComment-1597>jQuery library</UserComment-1597>
+	</Entity>
+</Root>

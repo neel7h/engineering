@@ -1,0 +1,77 @@
+{
+    "id": 1007038,
+    "name": "Avoid classes having excessive number of dependencies (PHP)",
+    "href": "AIP/quality-rules/1007038",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Classes with excessive number of dependencies. A class is considered as having excessive number of dependencies if number of dependencies are more than 13.",
+    "output": "This report lists all Classes with excessive number of dependencies.\n                \nThis QR provides the following information:\nClass full name.",
+    "rationale": "A class with excessive number of dependencies has negative impact on several quality aspects of a class, including stability, maintainability and understandability.",
+    "reference": "PHPMD -  https://phpmd.org/rules/design.html#CouplingBetweenObjects",
+    "remediation": "Review the architecture of the application.",
+    "sample": "<?php\n\nclass DependencySingleFunction\n{\n    public function getDepend()\n    {\n        $this->depend1 = new Test1();\n        $this->depend2 = new Test2();\n        ... \n        $this->depend14 = new Test14();       \n    } \n}\nclass DependencyMultipleFunctions\n{\n    public function getDepend1()\n    {\n        $this->depend1 = new Test1();        \n    } \n    public function getDepend2()\n    {\n        $this->depend2 = new Test2();        \n    } \n    ...\n    public function getDepend14()\n    {\n        $this->depend14 = new Test14();        \n    } \n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes having excessive number of dependencies (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of acceptable dependencies.",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        13.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

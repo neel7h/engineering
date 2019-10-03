@@ -1,0 +1,56 @@
+{
+    "id": 1008042,
+    "name": "Avoid undocumented RPG400 Programs  (RPG400)",
+    "href": "AIP/quality-rules/1008042",
+    "critical": true,
+    "description": "This rule searches all the undocumented RPG 400 programs.",
+    "output": "This report lists undocumented RPG400 Programs.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code.",
+    "remediation": "Add documentation for the RPG400 programs.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid undocumented RPG400 Programs  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

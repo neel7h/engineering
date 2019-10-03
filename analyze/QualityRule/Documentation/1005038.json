@@ -1,0 +1,66 @@
+{
+    "id": 1005038,
+    "name": "Avoid programs with lines having more than 80 characters (EGL)",
+    "href": "AIP/quality-rules/1005038",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "The default parameter value is W.",
+    "output": "This report provides the following information: Program full name, Number of lines having more that 80 characters",
+    "rationale": "Programs containing queries on a large number of tables can cause performance problems.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to limit the programs to 80 characteres.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid programs with lines having more than 80 characters (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max char",
+            "description": "Max char in a line",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        80.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

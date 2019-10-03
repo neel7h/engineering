@@ -1,0 +1,106 @@
+{
+    "id": 8104,
+    "name": "Close database resources ASAP",
+    "href": "AIP/quality-rules/8104",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The following methods are taken into account:\n- JDBC:\n   . open: java.sql.DriverManager.getConnection(String)\n   . close: java.sql.Connection.close()\n- JDBC:\n   . open: java.sql.Connection.createStatement()\n   . close: java.sql.Statement.close()\n- JDBC:\n   . open: java.sql.Connection.prepareStatement(...)\n   . close: java.sql.PreparedStatement.close()\n- JDBC:\n   . open: java.sql.Connection.prepareCall(...)\n   . close: java.sql.CallableStatement.close()\n- JDBC:\n   . open: java.sql.PreparedStatement.executeQuery()\n   . close: java.sql.ResultSet.close()\n- JPA:\n    . open: javax.persistence.Persistence.createEntityManagerFactory(String)\n    . close: javax.persistence.EntityManagerFactory.close()\n- JPA:\n   . open:  javax.persistence.EntityManagerFactory.createEntityManager()\n   . close:  javax.persistence.EntityManager.close()\n- Hibernate:\n   . open: org.hibernate.SessionFactory.openSession()\n   . close: org.hibernate.Session.close()\n- Hibernate:\n  . open: org.hibernate.cfg.Configuration.buildSessionFactory()\n  . close: org.hibernate.SessionFactory.close()\n- Spring:\n  . open: org.springframework.orm.hibernate3.SessionFactoryUtils.getSession(...)\n  . close: org.springframework.orm.hibernate3.SessionFactoryUtils.closeSession(...)",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "A frequent issue when dealing with database resource is resource leak. This mainly comes from an incorrect code that miss to close the connection in any cases. Incorrect resource management is a common source of failures in production applications, with the usual pitfalls being database connections and file descriptors remaining opened after an exception has occurred somewhere else in the code. This leads to application servers being frequently restarted when resource exhaustion occurs, because operating systems and server applications generally have an upper-bound limit for resources.",
+    "reference": "http://www.java7developer.com/blog/?p=24\nhttp://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html\nhttp://projectlombok.org/features/Cleanup.html",
+    "remediation": "You can:\n- close the resource in a finally block (only explicit closing is considered valid)\n- or annotate this resource with @Cleanup annotation (lombok.Cleanup)\n- or use the try with resource to declare the resource that must be closed (available in java 7)\n- or use Spring JDBC Template that open and close the connection for you (http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html)\n- or use CDI with @Dispose annotation",
+    "remediationSample": "with finally\n~~~~~~~~~~~~\nString connectionURL = 'jdbc:mysql://localhost:3306/myDB';\nConnection connection = null;\nStatement st = null;\nResultSet rs = null;\ntry {\n    Class.forName('com.mysql.jdbc.Driver').newInstance();\n    connection = DriverManager.getConnection(connectionURL, 'root', 'admin');\n    st = connection.createStatement();\n    rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');\n    while (rs.next()) {\n        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');\n        System.out.println(rs.getString(1) + '/' + rs.getString(2));\n    }\n} catch (Exception ex) {\n    ex.printStackTrace();\n} finally { // FIX\n    try {\n        if (rs != null && !rs.isClosed()) {\n            rs.close();\n        }\n        if (st != null && !st.isClosed()) {\n            st.close();\n        }\n        if (connection != null && !connection.isClosed()) {\n            connection.close();\n        }\n    } catch (SQLException ex) {\n        ex.printStackTrace();\n    }\n}\n\nwith Java 7\n~~~~~~~~~~~~~~\nString connectionURL = 'jdbc:mysql://localhost:3306/myDB';\ntry ( // FIX\n    Connection connection =\n        DriverManager.getConnection(connectionURL, 'root', 'admin');\n    Statement st = connection.createStatement();\n    ResultSet rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');\n) {\n    Class.forName('com.mysql.jdbc.Driver').newInstance();\n    while (rs.next())\n    {\n        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');\n        System.out.println(rs.getString(1) + '/' + rs.getString(2));\n    }\n}\n\nwith annotation @Cleanup\n~~~~~~~~~~~~~~~~~~~~~~~~\nString connectionURL = 'jdbc:mysql://localhost:3306/myDB';\n@Cleanup Connection connection = null; // FIX\n@Cleanup Statement st = null; // FIX\n@Cleanup ResultSet rs = null; // FIX\n\nClass.forName('com.mysql.jdbc.Driver').newInstance();\nconnection = DriverManager.getConnection(connectionURL, 'root', 'admin');\nst = connection.createStatement();\nrs = st.executeQuery('Select * from EMPLOYEE_SALARIES');\nwhile (rs.next()) {\n    System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');\n    System.out.println(rs.getString(1) + '/' + rs.getString(2));\n}\n\nwith CDI annotation\n~~~~~~~~~~~~~~~~~~~~\n@Produces @RequestScoped\nConnection connect(User) {\n   return createConnection(user.getId(), user.getPassword())\n}\n\nvoid close (@Disposes Connection connection) {\n   connection.close();\n}",
+    "sample": "String connectionURL = 'jdbc:mysql://localhost:3306/myDB';\nConnection connection = null;\nStatement st = null;\nResultSet rs = null;\ntry {\n    Class.forName('com.mysql.jdbc.Driver').newInstance();\n    connection = DriverManager.getConnection(connectionURL, 'root', 'admin');\n    st = connection.createStatement();\n    rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');\n    while (rs.next()) {\n        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');\n        System.out.println(rs.getString(1) + '/' + rs.getString(2));\n    } \n    rs.close(); \n    st.close();\n    connection.close();\n} catch (Exception ex) {\n    ex.printStackTrace();\n}  // VIOLATION, rs, st and connection must be closed in a finally",
+    "total": "Number of methods that open a database resource in the body",
+    "alternativeName": "Ensure that Database resources are closed after use",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-15",
+            "name": "Storable and Member Data Element Reference Missing De-Referencing Control Element",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-404",
+            "name": "Improper Resource Shutdown or Release",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 1101028,
+    "name": "Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries",
+    "href": "AIP/quality-rules/1101028",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Using the MINUS or EXCEPT operator instead of NOT IN and NOT Exists will result in a faster execution plan.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using the MINUS or EXCEPT operator instead of NOT IN and NOT Exists will result in a faster execution plan.",
+    "remediation": "Check the statement and if so, replace NOT EXISTS and NOT IN suqueries with MINUS or EXCEPT operator.",
+    "remediationSample": "Replace NOT EXISTS suquerie with MINUS operator:\nCREATE PROCEDURE INSERT_BOOK_TITLE\nBEGIN\n  INSERT INTO BOOK_TITLE_COPY \n  SELECT BOOK_TITLE \n  FROM BOOKS\n  MINUS\n  SELECT BOOK_TITLE \n  FROM SALES;\nEND;",
+    "sample": "The following procedure should be reviewed:\nCREATE PROCEDURE INSERT_BOOK_TITLE\nBEGIN\n  INSERT INTO BOOK_TITLE_COPY \n  SELECT BOOK_TITLE \n  FROM BOOKS\n  WHERE\n  NOT EXISTS \n  (SELECT BOOK_TITLE \n     FROM SALES\n     WHERE SALES.BOOK_TITLE = BOOKS.BOOK_TITLE);\nEND;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

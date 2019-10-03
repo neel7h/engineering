@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+  <!-- the C/C++ analyzer launched by command line -->
+
+  <import file="AmtJobConfig_C_Raw.xml"/>
+
+  <analyzer name = "C++ Analyzer" maxMem = "1400" />
+
+</configuration>

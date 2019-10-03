@@ -1,0 +1,66 @@
+{
+    "id": 1020714,
+    "name": "Avoid having multiple routes for the same path with Node.js Express App",
+    "href": "AIP/quality-rules/1020714",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When designing the routing system of the server, you have to make sure you have only one routing handler per path. This rule will check if a routing call is called within a loop and/or there are multiple routing call on the same path.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When designing the routing system of the server, you have to make sure you have only one routing handler per path. Duplicating handler will affect the global performance of the server creating latency issues.",
+    "reference": "CISQ Recommendation: ASCPEM-PRF-08 \nhttp://techblog.netflix.com/2014/11/nodejs-in-flames.html",
+    "remediation": "Ensure you only have one routing handler per path.",
+    "remediationSample": "// multiple handler for the same path /foo \nvar express = require('express'); \nvar app = express(); \napp.get('/foo', function (req, res) { \n   res.send('hi'); \n}); \n// add a second foo route handler \napp.get('/foo2', function (req, res) { \n   res.send('hi2'); \n}); \n\n// call in a loop for different paths \n\nfor (i = 0; i < paths.length; i++) { \n\n   app.get('/foo'+paths[i], function (req, res) { \n      res.send('hi ' + paths[i]); \n   }); \n} \n\nconsole.log('stack', app._router.stack); \napp.listen(3000);",
+    "sample": "// multiple handler for the same path /foo \nvar express = require('express'); \nvar app = express(); \napp.get('/foo', function (req, res) { \n   res.send('hi'); \n}); \n// add a second foo route handler \napp.get('/foo', function (req, res) { \n   res.send('hi2'); \n}); \n\n// call in a loop for the same path /foo \n\nfor (i = 0; i < paths.length; i++) { \n\n   app.get('/foo', function (req, res) { \n      res.send('hi ' + paths[i]); \n   }); \n} \n\nconsole.log('stack', app._router.stack); \napp.listen(3000);",
+    "total": "Number of javascript source codes using express",
+    "alternativeName": "Avoid having multiple routes for the same path with Node.js Express App",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

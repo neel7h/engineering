@@ -1,0 +1,6 @@
+Build date: 12/06/2019 11:00:04,75 
+Build number: 1000061 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master c1234bf5337dec7e24402fff476a09ca3d11cd8d
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.springmvc.git origin/master f661773da46a4f702cc7e8350e12c9ff764cfbbe
+Publish date: 12/06/2019 11:38:58,10 
+Original version: 1.6.0-funcrel 

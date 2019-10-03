@@ -1,0 +1,56 @@
+{
+    "id": 1009042,
+    "name": "Avoid undocumented RPG300 Programs  (RPG300)",
+    "href": "AIP/quality-rules/1009042",
+    "critical": true,
+    "description": "This rule searches for all the undocumented RPG300 programs.",
+    "output": "This report lists undocumented RPG300 Programs.\nIt provides the following information:\nRPG300 Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code.",
+    "remediation": "Add documentation for the RPG300 programs.",
+    "total": "Total number of RPG300 Programs",
+    "alternativeName": "Avoid undocumented RPG300 Programs  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

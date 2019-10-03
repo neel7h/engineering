@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	
+	<constantFamily>
+
+		<name>ServiceId</name>
+		
+		<!-- Text regular expression replacment (TODO move this class from this DLL) -->
+		<constant>
+			<name>TextReplacement</name>
+			<value>A16CE55D-46D4-467f-B965-BEEDEE317B29</value>
+		</constant>
+
+
+	</constantFamily>
+
+</constants>
+

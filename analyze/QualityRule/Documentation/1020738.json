@@ -1,0 +1,75 @@
+{
+    "id": 1020738,
+    "name": "Avoid disabling SSL verification in node-curl",
+    "href": "AIP/quality-rules/1020738",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In Node.js, do not disable SSL verification.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.",
+    "reference": "https://cwe.mitre.org/data/definitions/295.html \nhttps://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration \nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration",
+    "remediation": "Do not disable SSL_VERIFYPEER attribute",
+    "remediationSample": "var http = require('http'); \nvar curl = require('node-curl'); \n\nhttp.createServer(function(request,response){ \n\n    var url = 'https://url'; \n    url += request.url; \n\n    curl(url, \n        function(err){ \n            response.end(this.body); \n        }) \n\n}).listen(8000);",
+    "sample": "var http = require('http'); \nvar curl = require('node-curl'); \n\nhttp.createServer(function(request,response){ \n\n    var url = 'https://url'; \n    url += request.url; \n\n    curl(url, \n        { \n            SSL_VERIFYPEER : 0 \n        }, \n        function(err){ \n            response.end(this.body); \n        }) \n\n}).listen(8000);",
+    "total": "Number of NodeJS source code using node-curl",
+    "alternativeName": "Avoid disabling SSL verification in node-curl",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

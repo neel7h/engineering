@@ -1,0 +1,70 @@
+{
+    "id": 1011026,
+    "name": "Avoid unreferenced Display Files  (DDS400)",
+    "href": "AIP/quality-rules/1011026",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The rules searches for the unreferenced  Display Files",
+    "output": "This report lists DDS400 unreferenced Display File.\nIt provides the following information:\nDDS400 Display File full name",
+    "rationale": "The higher the number of unreferenced Display Files is, the more difficult the maintenance and evolution as all updates in referenced Display Files  will be.  In order the keep the same quality and performance of the application the the tests invesments must be increased.",
+    "remediation": "Check if these files are really necessary. If not, then remove them.",
+    "remediationSample": "Sample Display File:\n\nMCGANN/FILEX\n\nRCDFMT ONE\nField 1\nRCDFMT TWO\nField 2\n\nCL Program which refers below,\nPGM \nDCLF MCGANN/FILEX",
+    "sample": "Display files should be referred in the Programs.Unreferred display files will make the search for the display files more time consuming",
+    "total": "Total number of DDS400 Display File",
+    "alternativeName": "Avoid unreferenced Display Files  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

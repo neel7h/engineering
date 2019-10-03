@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)"                  thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+    <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL tables (SQL)"    thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+    <metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries"                    				thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/>
+    <metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries"       						thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+    <metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries"                                      thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/>
+    <metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries"                                      thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/>
+    <metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/>
+    <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/> 
+    <metric id="1101016" type="quality-rule" originalName="Avoid artifacts with too many parameters (SQL)"                  thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/> 
+    <metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause"                                 thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/> 
+    <metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers"                                  thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/> 
+    <metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)"                          thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts"                        thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values"                thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>   
+    <metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views (SQL)"    thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0"/>     
+    <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)"                 thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements"            thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"                thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>   
+    <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+    <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)"                                  thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99"/>     
+	<metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" 			thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+	<metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" 			thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+	<metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" 				thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+	<metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" 		thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+	<metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  
+</root>

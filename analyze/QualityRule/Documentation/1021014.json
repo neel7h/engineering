@@ -1,0 +1,54 @@
+{
+    "id": 1021014,
+    "name": "Avoid using yield and return with value inside a function",
+    "href": "AIP/quality-rules/1021014",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Functions that are using yield and return with value (different from None) are very sensitive to the Python version. To avoid any technical complexity, we strongly suggest you to do not use these annotations together within functions in your code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Mixing return with value and yield in the same function could lead to technical complexity. Based on the version used to run the Python script (2.x, 3.3, 3.4 for example), the results will not be the same.",
+    "remediation": "Try to avoid return with value statements within functions containing yield.",
+    "sample": ">>> def generator1(n):\n>>>     for i in range(n):\n>>>         yield i\n>>>     return 0",
+    "total": "Number of Python artifacts using yield",
+    "alternativeName": "Avoid using yield and return with value inside a function",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61026,
+            "name": "Complexity - Technical Complexity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

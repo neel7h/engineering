@@ -1,0 +1,59 @@
+{
+    "id": 1007074,
+    "name": "Avoid having Methods and Functions without naming convention (PHP)",
+    "href": "AIP/quality-rules/1007074",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Functions and Methods that do not respect naming convention.\nFollowing naming conventions are considered for evaluation of this QR:\nIf method name is not in camel case, violation will be reported.\nIf global function is neither in camel nor in snake case, violation will be reported.",
+    "output": "This report lists all Functions and Methods that do not respect naming convention.\n\nThis QR provides the following information:\nFunction or Method full name.",
+    "rationale": "Use of naming convention makes the source code easier to read and therefore to maintain.",
+    "remediation": "Modify the source code to reduce the number of Functions and Methods that do not respect naming convention.",
+    "remediationSample": "<?php\n  class foo {\n   public function aMethod() { // violation removed\n   }\n}\nfunction aFunction() {  // violation removed\n}\nfunction another_function() {  // violation removed\n}\n?>",
+    "sample": "<?php\n  class foo {\n   public function AMethod() { // violation\n    \n   }\n}\nfunction AFunction() {  // violation\n}\nfunction AnotherFunction() {  // violation\n}\n?>",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid having Methods and Functions without naming convention (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

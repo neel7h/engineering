@@ -1,0 +1,102 @@
+{
+    "id": 1020808,
+    "name": "Avoid using eval() (Typescript)",
+    "href": "AIP/quality-rules/1020808",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule lists all the artifacts having code dynamically executed. Dynamic evaluation of code is slow and a potential security risk. It also prevents most tools like IDE's that use static analysis from considering the code.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Executing code at run-time using eval or new Function() is considered to be very dangerous because it allows execution of an arbitrary code. It is recommended not to use these options unless no other approach is left.",
+    "remediation": "Refactor the source code to avoid executing arbitrary source code.",
+    "remediationSample": "var obj_val = { a: 2, b: 3 };\nvar propName = getPropName();\nvar result = obj_val[ propName ];",
+    "sample": "var obj_val = { a: 2, b: 3 };\nvar propName = getPropName();\neval( 'var result = obj_val.' + propName );",
+    "total": "Number of Typescript artifacts",
+    "alternativeName": "Eval() should not be used because it runs text as code.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-78",
+            "name": "OS Command Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

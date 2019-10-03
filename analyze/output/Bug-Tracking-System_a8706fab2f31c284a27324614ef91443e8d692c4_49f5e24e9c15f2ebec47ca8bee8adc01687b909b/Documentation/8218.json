@@ -1,0 +1,101 @@
+{
+    "id": 8218,
+    "name": "Content type should be checked when receiving a HTTP Post",
+    "href": "AIP/quality-rules/8218",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A violation is reported only if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods:\n   ",
+    "output": "A violation is reported only if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods. \n  ",
+    "rationale": "The aim is to check that the content type of a message received in a HTTP POST request. Arbitrary code execution is possible if an uploaded file is interpreted and executed as code by the recipient\n-The software allows the attacker to transfer files of dangerous types that can be automatically processed within the product's environment.  \n",
+    "reference": "https://cwe.mitre.org/data/definitions/434.html",
+    "remediation": "check that the content type of a message received in a HTTP POST and GET request.",
+    "remediationSample": " \n-Sample 1\nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\nString strContentType = request.getContentType();\n  if (!strContentType.equals(\"text/xml\"))\n  {\n    //throw error as invalid MIME type and do not continue further\n  }\n}\n---------------------------------------------------------------------------------\nsample 2\nIf the browser doesn't pass content-type correctly,\nif(request.getContentType() == null)\n{\n}\n",
+    "sample": "protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\n    String firstName = request.getParameter(\"fname\");\n    response.getWriter().append(\"Served at: \").append(request.getContextPath());\n    //VIOLATION as the request getcontent type is not used to check for the valid type\n  }\n",
+    "total": " Reports if getContentType is not called inside the body of a HttpServlet.doPost or HttpServlet.doGet methods.",
+    "alternativeName": "Ensure checking the content type when receiving a HTTP post",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-434",
+            "name": "File Upload Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-434",
+            "name": "Unrestricted Upload of File with Dangerous Type",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

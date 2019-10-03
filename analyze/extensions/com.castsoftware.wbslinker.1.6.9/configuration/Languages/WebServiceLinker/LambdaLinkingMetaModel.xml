@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="core" file_no="0">
+
+    <category name="CAST_CallTo_AWS_Lambda" id="142390">
+        <description>Call to a AWS Lambda</description>
+    </category>
+
+    <category name="CAST_AWS_Lambda" id="142389">
+        <description>An AWS Lambda</description>
+    </category>
+
+
+</metaModel>

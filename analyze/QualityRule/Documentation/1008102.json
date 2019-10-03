@@ -1,0 +1,75 @@
+{
+    "id": 1008102,
+    "name": "Avoid using I-spec (RPG-IV only)  (RPG400)",
+    "href": "AIP/quality-rules/1008102",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the artifacts using I-spec.",
+    "output": "This report lists RPG400 programs using I-spec.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "I-specs being deprecated it allows less re-usability",
+    "remediation": "Try to replace this statements by a another one.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using I-spec (RPG-IV only)  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

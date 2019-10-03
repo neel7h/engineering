@@ -1,0 +1,82 @@
+{
+    "id": 1003034,
+    "name": "Avoid unused private method (Flex)",
+    "href": "AIP/quality-rules/1003034",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports private methods (flex function) that are unused.",
+    "output": "This QR reports private methods that are unused. It provides following information:\n\n- Flex function full name",
+    "rationale": "Unused methods reduces maintainability of the code.",
+    "remediation": "Remove unused private methods.",
+    "total": "Number of methods",
+    "alternativeName": "Avoid unused private method (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.unused.UnusedPrivateMethod"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,7 @@
+Build date: 30/08/2019 13:08:46,57 
+Build number: 1002444 
+Git head commit: git@jnk-centos-git:CAIP/CAIP_Cpp.git origin/com.castsoftware.dotnet d112c8ba2c7bd2b773d0919ae8c94f2890d74152
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 4d96a1b3e6e39bac0cea999c5c90a2f3ff189640
+Git head commit: git@jnk-centos-git:CAIP/CAIP_Distrib.git origin/DotNetComponent 3d37fe2bba25a365bff82af9aa5f67696f81361a
+Publish date: 30/08/2019 13:30:36,35 
+Original version: 1.2.0-beta31002444 

@@ -1,0 +1,103 @@
+{
+    "id": 1024012,
+    "name": "Avoid setting android:grantUriPermissions as True",
+    "href": "AIP/quality-rules/1024012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In order to use the URI permission system, a Content Provider must be configured to allow this in the Android manifest. \nBecause this system is used to extend permissions beyond what is normally configured, the mechanism is turned off by default. \n\nSetting \"android:grantUriPermissions\" to \"true\" allows the Content Provider to grant permissions to any accessible URI within it.\nwhich is very risky and not recommanded, \n\n\nTo specify a directory whose files can be accessed through URI permissions, use the path attribute in the <grant-uri-permission> element like this \n<grant-uri-permission android:path=\"/attachments/\">\n<grant-uri-permission android:pathPattern=\".*public.*\"> \n  \nSo a violation is reported when android:grantUriPermissions is set to true",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Content Providers are accessed using URIs of this form: content://authority_name/path/id\n\nThe authority_name is specified when one declares a Content Provider in AndroidManifest.xml, and points to the Content Provider itself that will handle the reference (this is usually the full, all lowercase name of the implementing class). The path can be any number of segments, from zero on up, and is used by the Content Provider to find the data in question. In a basic implementation, the path would simply be the name of the table that the data is in. The id refers to a particular item, such as an email message stored by the Content Provider. Thus, a URI into a Content Provider used by an email client app to store messages may look like: \ncontent://com.example.testapps.test1.mailprovider/messages/inbox/155",
+    "reference": "https://developer.android.com/topic/security/best-practices \nhttps://cwe.mitre.org/data/definitions/926.html",
+    "remediation": "To specify a directory whose files can be accessed through URI permissions, use the path attribute in the <grant-uri-permission> element. For example, to allow URI permissions to be granted on the /attachments/ path, the relevant configuration would look like this:\n\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n package=\"com.example.testapps.test1\">\n ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\"\n                  android.authorities=\"com.example.testapps.test1.mailprovider\"\n                  android.readPermission=\"com.example.testapps.test1.permission.DB_READ\"\n                  android.writePermission=\"com.example.testapps.test1.permission.DB_WRITE\">\n                  <grant-uri-permission android:path=\"/attachments/\" />\n        </provider>\n  ...\n</manifest>",
+    "remediationSample": "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n package=\"com.example.testapps.test1\">\n ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\"\n                  android.authorities=\"com.example.testapps.test1.mailprovider\"\n                  android.readPermission=\"com.example.testapps.test1.permission.DB_READ\"\n                  android.writePermission=\"com.example.testapps.test1.permission.DB_WRITE\"\n                  android:grantUriPermissions=\"false\"/>\n        </provider>\n  ...\n</manifest>",
+    "sample": "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n package=\"com.example.testapps.test1\">\n ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\"\n                  android.authorities=\"com.example.testapps.test1.mailprovider\"\n                  android.readPermission=\"com.example.testapps.test1.permission.DB_READ\"\n                  android.writePermission=\"com.example.testapps.test1.permission.DB_WRITE\"\n                  android:grantUriPermissions=\"true\"/>\n        </provider>\n  ...\n</manifest>",
+    "total": "Number of Android manifests",
+    "alternativeName": "Avoid setting android:grantUriPermissions as True",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-732",
+            "name": "Incorrect Permission Assignment for Critical Resource",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-862",
+            "name": "Missing Authorization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-926",
+            "name": "Improper Export of Android Application Components",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

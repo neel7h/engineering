@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; light_parser 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="light_parser 0.1 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">light_parser 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref py py-mod docutils literal"><span class="pre">light_parser</span></tt> module provides simple functions to build a language parser.
+This section shows some simple usage examples of these functions.</p>
+<p>Let&#8217;s get started with splitting a string containing one or more SQL
+statements into a basic AST containing create statements and begin...end blocks:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygments.lexers.sql</span> <span class="kn">import</span> <span class="n">SqlLexer</span>
+<span class="kn">from</span> <span class="nn">light_parser</span> <span class="kn">import</span> <span class="n">Parser</span><span class="p">,</span> <span class="n">BlockStatement</span><span class="p">,</span> <span class="n">Statement</span>
+
+<span class="k">class</span> <span class="nc">Create</span><span class="p">(</span><span class="n">Statement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;CREATE&#39;</span>
+    <span class="n">end</span>   <span class="o">=</span> <span class="s">&#39;;&#39;</span>
+
+<span class="k">class</span> <span class="nc">Block</span><span class="p">(</span><span class="n">BlockStatement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;BEGIN&#39;</span>
+    <span class="n">end</span>   <span class="o">=</span> <span class="s">&#39;END&#39;</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">Parser</span><span class="p">(</span><span class="n">SqlLexer</span><span class="p">,</span> <span class="p">[</span><span class="n">Create</span><span class="p">,</span> <span class="n">Block</span><span class="p">])</span>
+
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">begin</span>
+<span class="s">  create table foo;</span>
+<span class="s">end;</span>
+<span class="s">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">print_tree</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This prints :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Block</span>
+  <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Keyword</span><span class="p">,</span><span class="s">&#39;begin&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+  <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Text</span><span class="p">,</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">  &#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">Create</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Keyword</span><span class="p">,</span><span class="s">&#39;create&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Text</span><span class="p">,</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Keyword</span><span class="p">,</span><span class="s">&#39;table&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Text</span><span class="p">,</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span><span class="s">&#39;foo&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">)</span>
+  <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Punctuation</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">19</span><span class="p">)</span>
+  <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Text</span><span class="p">,</span><span class="s">&#39;  </span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">Token</span><span class="p">(</span><span class="n">Token</span><span class="o">.</span><span class="n">Keyword</span><span class="p">,</span><span class="s">&#39;end&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-class docutils literal"><span class="pre">light_parser.BlockStatement</span></tt> represent block statement found in programming languages.
+They have a recursive structure. The beginning and end of a block are is given by a pattern.
+<tt class="xref py py-class docutils literal"><span class="pre">light_parser.Statement</span></tt> represent basic non recursive statements.</p>
+<p><tt class="xref py py-class docutils literal"><span class="pre">light_parser.Parser</span></tt> will parse the text and try to recognize any statement present using the &#8216;begin&#8217; and &#8216;end&#8217;.
+It will then :
+* create an object of this statement class
+* &#8216;move&#8217; the recognized tokens as children as children of this statement
+* and continue recursively
+Unrecognized tokens are left as is in the token stream.</p>
+<p>Each created node will have the recognized tokens as children. Blocks will also have blocks and statements as child.</p>
+</div>
+<div class="section" id="one-step-further">
+<h2>One step further<a class="headerlink" href="#one-step-further" title="Permalink to this headline">¶</a></h2>
+<p>Now we have a</p>
+<p>The key idea is to progressively transform a stream of tokens into an AST.</p>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#one-step-further">One step further</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">light_parser 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, MRO.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

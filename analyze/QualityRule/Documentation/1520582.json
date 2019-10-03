@@ -1,0 +1,60 @@
+{
+    "id": 1520582,
+    "name": "Siebel eScript: Avoid Functions destroying variables outside of the finally clause",
+    "href": "AIP/quality-rules/1520582",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reason for violation(No variable destruction in a finally block|Missing variable destructions in a finally block)",
+    "output": "This rule reports Functions destroying variables outside the Finally clause",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid Functions destroying variables outside of the finally clause",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

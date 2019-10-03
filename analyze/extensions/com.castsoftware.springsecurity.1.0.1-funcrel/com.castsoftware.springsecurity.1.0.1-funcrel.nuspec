@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.springsecurity</id>
+    <version>1.0.1-funcrel</version>
+    <title>Spring Security</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/Spring+Security+1.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.springsecurity.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This new extension provides a Set of Rule to check Spring Security Aspects as Authentication, CSRF protection and others.
+These rules are Compliant with CWE and OWASP T0P 10 Standards for security</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/Spring+Security+1.0</releaseNotes>
+    <tags>Spring Security CAIP8.0 CAIP8.1 CAIP8.2 CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.internal.platform" version="0.1.1-alpha" />
+    </dependencies>
+  </metadata>
+</package>

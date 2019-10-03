@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC_LIST>
+	<!-- For rule 7344	Avoid "SELECT *" queries -->
+	<METRIC Name="Use of select All" TYPE="256">
+		<LANGUAGE NAME="SQLScript-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>
+				<![CDATA[\bselect\b[ \r\n\t\b\w\,]+\.\*]]>
+			</REGEXP>
+			<REGEXP>
+				<![CDATA[\bselect\b[ \r\n\t\b]+\ball\b]]>
+			</REGEXP>
+		</LANGUAGE>
+	</METRIC>
+	<METRIC Name="Cyclomatic Complexity" TYPE="1">
+		<LANGUAGE NAME="SQLScript-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>1</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>ElseIf\b</REGEXP>
+			<REGEXP>ElsIf\b</REGEXP>
+			<REGEXP>EndIf\b</REGEXP>
+			<REGEXP>EndLoop\b</REGEXP>
+			<REGEXP>EndWhile\b</REGEXP>
+			<REGEXP>EndRepeat\b</REGEXP>
+			<REGEXP>EndFor</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+If\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Loop\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+While\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Repeat\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+For\b</REGEXP>
+			<REGEXP>When\b</REGEXP>
+			<REGEXP>Catch\b</REGEXP>
+			<REGEXP>Try\b</REGEXP>
+			<REGEXP>Exception\b</REGEXP>
+			<REGEXP>Continue\b</REGEXP>
+			<REGEXP>Iterate\b</REGEXP>
+			<REGEXP>Return\b</REGEXP>
+			<REGEXP>Case\b</REGEXP>
+		</LANGUAGE>
+	</METRIC>
+	<METRIC Name="Essential Complexity" TYPE="1502">
+		<LANGUAGE NAME="SQLScript-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>1</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>ElseIf\b</REGEXP>
+			<REGEXP>ElsIf\b</REGEXP>
+			<REGEXP>EndIf\b</REGEXP>
+			<REGEXP>EndLoop\b</REGEXP>
+			<REGEXP>EndWhile\b</REGEXP>
+			<REGEXP>EndRepeat\b</REGEXP>
+			<REGEXP>EndFor</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+If\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Loop\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+While\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Repeat\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+For\b</REGEXP>
+			<REGEXP>When\b</REGEXP>
+			<REGEXP>Catch\b</REGEXP>
+			<REGEXP>Try\b</REGEXP>
+			<REGEXP>Exception\b</REGEXP>
+			<REGEXP>Continue\b</REGEXP>
+			<REGEXP>Iterate\b</REGEXP>
+			<REGEXP>Return\b</REGEXP>
+			<REGEXP>Leave\b</REGEXP>
+			<REGEXP>GoTo\b</REGEXP>
+			<REGEXP>Break\b</REGEXP>
+			<REGEXP>Continue\b</REGEXP>
+			<REGEXP>Case\b</REGEXP>
+			<REGEXP>Throw\b</REGEXP>
+			<REGEXP>Raiserror\b</REGEXP>
+			<REGEXP>Raise\b</REGEXP>
+			<REGEXP>Signal\b</REGEXP>
+			<REGEXP>Resignal\b</REGEXP>
+		</LANGUAGE>
+	</METRIC>
+	<METRIC Name="Integration Complexity" TYPE="1503">
+		<LANGUAGE NAME="SQLScript-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>1</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<REGEXP>ElseIf\b</REGEXP>
+			<REGEXP>ElsIf\b</REGEXP>
+			<REGEXP>EndIf\b</REGEXP>
+			<REGEXP>EndLoop\b</REGEXP>
+			<REGEXP>EndWhile\b</REGEXP>
+			<REGEXP>EndRepeat\b</REGEXP>
+			<REGEXP>EndFor\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+If\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Loop\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+While\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+Repeat\b</REGEXP>
+			<REGEXP>End\b[ \r\n\t]+For\b</REGEXP>
+			<REGEXP>When\b</REGEXP>
+			<REGEXP>Catch\b</REGEXP>
+			<REGEXP>Try\b</REGEXP>
+			<REGEXP>Exception\b</REGEXP>
+			<REGEXP>Continue\b</REGEXP>
+			<REGEXP>Iterate\b</REGEXP>
+			<REGEXP>Return\b</REGEXP>
+			<REGEXP>Leave\b</REGEXP>
+			<REGEXP>GoTo\b</REGEXP>
+			<REGEXP>Break\b</REGEXP>
+			<REGEXP>Continue\b</REGEXP>
+			<REGEXP>Case\b</REGEXP>
+			<REGEXP>Throw\b</REGEXP>
+			<REGEXP>Raiserror\b</REGEXP>
+			<REGEXP>Raise\b</REGEXP>
+			<REGEXP>Signal\b</REGEXP>
+			<REGEXP>Resignal\b</REGEXP>
+		</LANGUAGE>
+	</METRIC>
+	<METRIC Name="Avoid using SQL queries inside loops" TYPE="1523">
+		<LANGUAGE NAME="SQLScript-LANGUAGE">
+			<ACTIVE>yes</ACTIVE>
+			<INIT>0</INIT>
+			<SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+			<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+			<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+			<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+			<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+			<EMBEDDED>
+				<BEGIN>
+					<REGEXP>
+						<![CDATA[\bwhile\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bloop\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[[ \r\n\t]+(?!(\bopen\b))[ \r\n\t]+\bfor\b[ \r\n\t]+(?!((\w)+[ \r\n\t]+\in\b[ \r\n\t]*\([ \r\n\t]*select\b|\beach\b[ \r\n\t]+\bstatement\b|\beach\b[ \r\n\t]+\brow\b))]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\brepeat\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[<<[\w]+>>]]>
+					</REGEXP>
+				</BEGIN>
+				<VALUE>
+					<REGEXP>
+						<![CDATA[\bselect\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bupdate\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\binsert\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bdelete\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bmerge\b]]>
+					</REGEXP>
+				</VALUE>
+				<END>
+					<REGEXP>
+						<![CDATA[\bend\b[ \r\n\t]+\bloop\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bend\b[ \r\n\t]+\bwhile\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bendwhile\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bend\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bend\b[ \r\n\t]+\bfor\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bendfor\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bend\b[ \r\n\t]*\brepeat\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bendrepeat\b]]>
+					</REGEXP>
+					<REGEXP>
+						<![CDATA[\bgoto\b]]>
+					</REGEXP>
+				</END>
+			</EMBEDDED>
+		</LANGUAGE>
+	</METRIC>
+</METRIC_LIST>
+

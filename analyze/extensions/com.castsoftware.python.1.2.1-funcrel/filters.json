@@ -1,0 +1,16 @@
+[
+	{ "type" : "FilePath", "value" : "**/pympler/**" },
+	{ "type" : "FilePath", "value" : "**/test_*.py" },
+	{ "type" : "FilePath", "value" : "**/*_test.py"},
+	{ "type" : "FilePath", "value" : "**/*_test_*.py"},
+	{ "type" : "FilePath", "value" : "**/test/*.py"},
+	{ "type" : "FilePath", "value" : "**/tests/*.py"},
+    
+    { "type" : "FileContent", "value" : "import unittest",        "maxLines" : "12"},
+    { "type" : "FileContent", "value" : "from unittest import",   "maxLines" : "12"},
+    { "type" : "FileContent", "value" : "from nose.tools import", "maxLines" : "12"},
+    
+    { "type" : "FileContent", "value" : "self.assert",            "minCount" : "2"}
+]
+
+

@@ -1,0 +1,61 @@
+{
+    "id": 1101058,
+    "name": "Do not mix ANSI and non-ANSI JOIN syntax in the same query",
+    "href": "AIP/quality-rules/1101058",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all statements that include join clause(s) defined with both ANSI and non-ANSi JOIN notation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "ANSI syntax allow a clear separation between joins clause and the where clause restrictions. The ANSI notation makes the relations between the tables explicit, and saves you from coding equality tests for join conditions in the WHERE clause.\n\nThus the mix of both join notations makes the readability & maintainability of the code more complex. Moreover ANSI joins allows having optimization hints.",
+    "reference": "Oracle SQL Student Guide Volume 1",
+    "remediation": "Transform the queries including the two different notations with only the use of the ANSI syntax.\n\nAs a consequence reconsider the statement. For that check the business rule(s) to fully understand the objective of the statement in term of result set. Use ANSI JOIN syntax notation to rewrite the part of the code.",
+    "remediationSample": "Select T1.c5\nFrom T1 JOIN T2 \n  ON T1.c1=T2.c1\nWhere \n  T1.c2 IN\n   (Select T3.c1 From T4 LEFT OUTER JOIN T3 on T3.c4=T4.c4)",
+    "sample": "Select T1.c5\nFrom T1, T2\nWhere \n T1.c1 = T2.c1 \n AND T1.c2 IN\n   (Select T3.c1 From T4 LEFT OUTER JOIN T3 on T3.c4=T4.c4)",
+    "total": "Number of Artifacts with SQL code having JOINs.",
+    "alternativeName": "Do not mix ANSI and non-ANSI JOIN syntax in the same query",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

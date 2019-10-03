@@ -1,0 +1,58 @@
+{
+    "id": 1005058,
+    "name": "Avoid functions having UNION instead of UNION ALL (EGL)",
+    "href": "AIP/quality-rules/1005058",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "This rule searches for all objects using UNION instead UNION ALL.",
+    "output": "This report provides the following information: Function full name, Count of Union ONLY",
+    "rationale": "In SQL the UNION operator combines the results of two SQL queries into a single table of all matching rows. The two queries must have matching fields and data types in order to join them.   Any duplicate records are automatically removed unless UNION ALL is used.   The problem is that MOST of the time it is unecessary to remove duplicate as there are none and doing the search for duplicate rows can be very costly",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the use of UNION. Use instead UNION ALL.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid functions having UNION instead of UNION ALL (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================================================== -->
+<!-- ==================================       cast-hib-annotations-config.xml   ============================= -->
+<!-- ==================================  Applies to XML file generated from Hibernate 3.6-4.3 annotations  == -->
+<!-- ==================================  found while parsing java source code.   ============================ -->
+<!-- ================================== since version 7.0 of CAST products    =============================== -->
+<!-- ======================================================================================================== -->
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:noNamespaceSchemaLocation="./cast-config.xsd">
+	<config-file-node xpath ="/"  content-type = "jpa-annotated-declarations" location=".">
+
+		<!-- =====================================  FILE PROPERTIES  ================================== -->
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+
+		<!-- =====================================  PERSISTENT UNITS	================================== -->
+
+		<!-- Entities And Mapped Super Classes -->
+		<object-node xpath ="/decls/decl[@metatype='JV_CLASS']/anno[name='javax.persistence.Entity'] | /decls/decl[@metatype='JV_CLASS']/anno[name='javax.persistence.MappedSuperclass']"
+					 name = "./mem[name='name']/val" alias = "../name" default-name="../name" type = "jpa-entity" id = "JPAEntityConfig">
+
+			<!-- ====================  ATTRIBUTES  ======================== -->
+			<!-- Note begin  -->
+			<!-- The following location attributes are added to objects and links by default -->
+			<!-- Feel free to override these attributes if they don't point to the right information -->
+			<!-- <object-attribute name = "file" 	select="./loc/@file | ancestor::decl/loc/@file" />		-->
+			<!-- <object-attribute name = "sLine" 	select="./loc/@sLine"/> 	-->
+			<!-- <object-attribute name = "eLine" 	select="./loc/@eLine"/> 	-->
+			<!-- <object-attribute name = "sCol" 	select="./loc/@sCol" />		-->
+			<!-- <object-attribute name = "eCol" 	select="./loc/@eCol" />		-->
+			<!-- Note end -->
+
+			<object-attribute name = "class"						select = "../name"	/>
+			<object-attribute name = "id-class"						select = "../anno[name='javax.persistence.IdClass']/mem[name='value']/val" />
+			<object-attribute name = "inheritance"					select = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy']/val" 	value = "javax.persistence.InheritanceType.SINGLE_TABLE" />
+
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy']" 	value = "table-per-class-hierarchy" />
+			<!-- Default value -->
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.SINGLE_TABLE'		]" 	value = "table-per-class-hierarchy" />
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.TABLE_PER_CLASS'	]" 	value = "table-per-concrete-class" 	/>
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.JOINED'			]" 	value = "table-per-sub-class" 		/>
+
+			<!-- Property For Mapped Super Class -->
+			<object-attribute name = "abstract"	xpath = "self::node()[name='javax.persistence.MappedSuperclass']" value = "true" />
+
+			<!-- Hibernate Extensions for @Entity  annotation -->
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='mutable'			]" name = "mutable"						select = "./val"	value="true"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='polymorphism'		]" name = "polymorphism"				select = "./val"	value="implicit"	/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='dynamicUpdate'		]" name = "dynamic-update"				select = "./val"	value="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='dynamicInsert'		]" name = "dynamic-insert"				select = "./val"	value="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='selectBeforeUpdate'	]" name = "select-before-update"		select = "./val"	value="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='optimisticLock'		]" name = "optimistic-lock"				select = "./val"	value="version"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Proxy' ]/mem[name='proxyClass'			]" name = "proxy"						select = "./val"						/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Check' ]								 " name = "check"											value = "true"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.BatchSize']/mem[name='size'			]" name = "batch-size"					select = "./val"	value="1"			/>
+			<object-attribute xpath="self::node()" name = "table name"					select = "../name"	trim='"' after-last="." />
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Entity']/mem[name='name']" name = "table name"					select = "./val"	trim='"' after-last="." />
+			<object-attribute xpath="../anno[name='javax.persistence.Entity']/mem[name='name']" name = "table name"					select = "./val"	trim='"' after-last="." />
+			<object-attribute xpath="../anno[name='javax.persistence.Table']/mem[name='name']" name = "table name"					select = "./val"	trim='"' after-last="." />
+			
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Immutable']"                            	name = "mutable"				        value="false"     default="true" />
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.Polymorphism']/mem[name='type']"        	name = "polymorphism"	          select = "./val"  default="implicit"	/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.DynamicUpdate']/mem[name='value']"      	name = "dynamic-update"	       	select = "./val"	default="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.DynamicInsert']/mem[name='value']"      	name = "dynamic-insert"				  select = "./val"	default="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.SelectBeforeUpdate']/mem[name='value']" 	name = "select-before-update"		select = "./val"	default="false"		/>
+			<object-attribute xpath="../anno[name='org.hibernate.annotations.OptimisticLock']/mem[name='excluded']" 	name = "optimistic-lock"			  select = "./val"	default="false"		/>
+			
+			<!-- ====================  LINKS  ============================= -->
+			<link-node xpath = "."	called-object = "../name"		resolve-as = "java-type" 				link-type = "relyon" inverse = "false" />
+			<link-node xpath = "../descendant::anno[name='javax.persistence.SecondaryTable' or name='org.hibernate.annotations.Table']/mem[name='name'] |
+								../anno[name='javax.persistence.Table']/mem[name='name'] | ./mem[name='name']"
+					   called-object = "./val" resolve-as="server-object" link-type = "use">
+				<object-attribute name = "Strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy']" 	value = "table-per-class-hierarchy" />
+				<!-- Default value -->
+				<object-attribute name = "Strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.SINGLE_TABLE'		]" 	value = "table-per-class-hierarchy" />
+				<object-attribute name = "Strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.TABLE_PER_CLASS'	]" 	value = "table-per-concrete-class" 	/>
+				<object-attribute name = "Strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.JOINED'			]" 	value = "table-per-sub-class" 		/>
+			</link-node>
+			<link-node xpath = "." called-object = "self::node()[count(anno[name='javax.persistence.Table']) = 0]/ancestor::decl/name" resolve-as="server-object" link-type = "use" trim='"' after-last=".">
+				<object-attribute name = "Strategy"				xpath = "./anno[name='javax.persistence.Inheritance']/mem[name='strategy']" 	value = "table-per-class-hierarchy" />
+				<!-- Default value -->
+				<object-attribute name = "Strategy"				xpath = "./anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.SINGLE_TABLE'		]" 	value = "table-per-class-hierarchy" />
+				<object-attribute name = "Strategy"				xpath = "./anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.TABLE_PER_CLASS'	]" 	value = "table-per-concrete-class" 	/>
+				<object-attribute name = "Strategy"				xpath = "./anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.JOINED'			]" 	value = "table-per-sub-class" 		/>
+			</link-node>
+			
+			<link-node xpath = "../decl[@metatype = 'JV_FIELD' or (@metatype = 'JV_METHOD' and (starts-with(name,'set') or starts-with(name,'get')))]/anno[name='javax.persistence.CollectionTable']/mem[name='name']" 
+						called-object = "./val" resolve-as="server-object" link-type = "use">
+				<object-attribute name = "Cardinality"   			value = "one-to-many"   />
+			</link-node>
+			
+			<link-node xpath = "../decl[@metatype = 'JV_FIELD' or (@metatype = 'JV_METHOD' and (starts-with(name,'set') or starts-with(name,'get')))]/anno[name='javax.persistence.JoinTable']/mem[name='name']" 
+						called-object = "./val" resolve-as="server-object" link-type = "call">
+				<object-attribute name = "Cardinality"   			value = "one-to-many"   />
+			</link-node>
+
+			<!--================ Inherited links through single table strategy ================ -->
+			<link-node xpath="//isimplementedby[normalize-space(node())=%context%]/ancestor::decl[@metatype='JV_CLASS']/anno[name='javax.persistence.Inheritance']/mem[val = 'javax.persistence.InheritanceType.SINGLE_TABLE']/ancestor::decl/anno[name='javax.persistence.Table']"
+			  context="../name"  called-object="./mem[name='name']/val" resolve-as="server-object" link-type ="use" id="JPAInheritance">
+				<object-attribute name = "Strategy"   			value = "javax.persistence.InheritanceType.SINGLE_TABLE"   />
+			</link-node>
+			<link-node xpath="//isimplementedby[normalize-space(node())=%context%]/ancestor::decl[@metatype='JV_CLASS']/anno[name='javax.persistence.Inheritance']/mem[val = 'javax.persistence.InheritanceType.SINGLE_TABLE']/ancestor::decl[count(anno[name='javax.persistence.Table']) = 0]"
+			  context="../name"  called-object="./name" resolve-as="server-object" link-type ="use" id="JPAInheritance" trim='"' after-last=".">
+				<object-attribute name = "Strategy"   			value = "javax.persistence.InheritanceType.SINGLE_TABLE"   />
+			</link-node>
+			<!--================================================================================ -->
+
+			<link-node xpath = "../anno[name='javax.persistence.IdClass']/mem[name='value']"	called-object = "./val"	resolve-as="java-type" link-type = "use"/>
+
+			<!--Associations between Entities -->
+			<link-node xpath = "../decl/anno[name='javax.persistence.OneToOne']" called-object = "./mem[name='targetEntity']/val | ../type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "one-to-one"   />
+			</link-node>
+			<link-node xpath = "../decl/anno[name='javax.persistence.ManyToOne']" called-object = "./mem[name='targetEntity']/val | ../type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "many-to-one"   />
+			</link-node>
+			<link-node xpath = "../decl/anno[name='javax.persistence.OneToMany']" called-object = "./mem[name='targetEntity']/val | ../type | ../type//typeparam/type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "one-to-many"   />
+			</link-node>
+			<link-node xpath = "../decl/anno[name='javax.persistence.ManyToMany']" called-object = "./mem[name='targetEntity']/val | ../type | ../type//typeparam/type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "many-to-many"   />
+			</link-node>
+
+			<link-node xpath = "../decl/anno[name='javax.persistence.Embedded']"	  called-object = "../type"		resolve-as="jpa-embeddable" link-type = "use"/>
+			<link-node xpath = "../decl/anno[name='javax.persistence.CollectionTable']"	  called-object = "../type//typeparam/type"		resolve-as="jpa-embeddable" link-type = "use"/>
+			
+			<link-node xpath = "../decl/anno[name='javax.persistence.ElementCollection']" called-object = "../type/typeparam[@pos='2' or @pos='1']/type" resolve-as="jpa-embeddable" link-type = "use" verbose="true">
+			    <object-attribute name = "Cardinality"   			value = "one-to-many"/>
+			</link-node>
+			<link-node xpath = "../decl/anno[name='javax.persistence.CollectionTable']" called-object = "./mem[name='name']/val" resolve-as="server-object" link-type="use" verbose="true"/>
+			
+			<link-node xpath = "../decl/anno[name='org.hibernate.annotations.CollectionOfElements']" called-object = "../type/typeparam[@pos='2' or @pos='1']/type" resolve-as="jpa-embeddable" link-type = "use" verbose="true">
+			    <object-attribute name = "Cardinality"   			value = "one-to-many"/>
+			</link-node>
+			
+			<link-node xpath = "../decl/anno[name='org.hibernate.annotations.Subselect']" called-object = "./mem[name='value']/val" resolve-as="server-object" link-type = "use" verbose="true"/>
+			
+			<!-- ==================== ENTITY PROPERTIES  ======================== -->
+			<!-- All properties (java fields or xX from methods setXX()) not annotated as transient are considered persistent -->
+			<!-- And a Persistent Entity Property object is to be created for each  -->
+
+			<object-node xpath ="../decl[@metatype = 'JV_FIELD' or (@metatype = 'JV_METHOD' and (starts-with(name,'set') or starts-with(name,'get')))]"
+								name = "./name" type = "jpa-entity-property" >
+
+				<object-attribute xpath ="./anno[name='javax.persistence.Transient']" 			name = "transient"		value = "true"/>
+
+				<object-attribute xpath ="./anno[name='javax.persistence.GeneratedValue']		    |
+										  ./anno[name='org.hibernate.annotations.GenericGenerator'	]" 	name = "id-strategy"	select = "./mem[name = 'strategy']/val"  value = "javax.persistence.GenerationType.AUTO"/>
+
+				<object-attribute xpath ="./anno[name='javax.persistence.GeneratedValue']			|
+										  ./anno[name='org.hibernate.annotations.GenericGenerator'	]" 	name = "id-generator"	select = "./mem[name = 'generator' or name = 'name']/val"  />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.Id']" 				name = "id"				value = "true" />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.EmbeddedId' or 
+												 name='javax.persistence.Embedded'     ]" 		name = "component"		value = "true" />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.Version']" 			name = "version"		value = "true" />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.Basic']" 				name = "fetch-type"		select = "./mem[name='fetch'   ]/val"  	value = "javax.persistence.FetchType.EAGER" />
+				<object-attribute xpath ="./anno[name='javax.persistence.Basic']" 				name = "optional"		select = "./mem[name='optional']/val"  	value = "true" />
+
+				<object-attribute xpath ="self::node()[anno[name='org.hibernate.annotations.Sort' and (mem[name='type']/val != 'org.hibernate.annotations.SortType.UNSORTED')]]" 	name = "collection-type"		value = "sortedset" />
+				
+				<object-attribute xpath ="./anno[name='javax.persistence.OneToMany'   or 
+												 name='javax.persistence.ManyToMany'  or
+												 name ='javax.persistence.ElementCollection' or
+												 name='org.hibernate.annotations.CollectionOfElements'	]" 		name = "collection"		value = "true" />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.OneToMany'   or 
+												 name='javax.persistence.ManyToMany'  or
+												 name ='javax.persistence.ElementCollection' or
+												 name='org.hibernate.annotations.CollectionOfElements'	]/mem[name = 'fetch' and val = 'javax.persistence.FetchType.EAGER']" name = "lazy" value = "false" default="false" />
+				<object-attribute xpath="./anno[name='org.hibernate.annotations.BatchSize']/mem[name='size']" name = "batch-size"	 select = "./val"	value="1"			/>
+
+				<object-attribute xpath ="./anno[name='javax.persistence.OneToMany'   or 
+											name='javax.persistence.ManyToMany'][count(anno[name='javax.persistence.OrderBy' or
+											                                     name='javax.persistence.MapKey']) = 0 ]" name = "collection-type" value = "none" />
+                
+                <object-attribute xpath ="self::node()[anno[name='javax.persistence.OrderBy']]" 	name = "collection-type"		value = "orderby" />
+                
+                <object-attribute xpath ="self::node()[anno[name='javax.persistence.MapKey']]" 	name = "collection-type"		value = "mapkey" />
+                
+                <object-attribute xpath ="self::node()[anno[name='org.hibernate.annotations.Sort' and (mem[name='type']/val != 'org.hibernate.annotations.SortType.UNSORTED')]][type='java.util.SortedSet']" 	name = "collection-type"		value = "sortedset" />
+				<object-attribute xpath ="self::node()[anno[name='org.hibernate.annotations.Sort' and (mem[name='type']/val != 'org.hibernate.annotations.SortType.UNSORTED')]][type='java.util.SortedMap']" 	name = "collection-type"		value = "sortedmap" />
+                
+                <object-attribute xpath ="self::node()[anno[name='org.hibernate.annotations.LazyToOne' 	 and (mem[name='value']/val != 'org.hibernate.annotations.LazyToOneOption.FALSE'	  )]]" 	name = "lazy"		value = "true" />
+				<object-attribute xpath ="self::node()[anno[name='org.hibernate.annotations.LazyCollection' and (mem[name='value']/val != 'org.hibernate.annotations.LazyCollectionOption.FALSE')]]" 	name = "lazy"		value = "true" />
+
+				<object-attribute xpath ="self::node()[@metatype = 'JV_FIELD']" name = "column name"	select = "./name"	/>
+				<object-attribute xpath ="self::node()[@metatype = 'JV_FIELD']/anno[name='javax.persistence.Column']" name = "column name"	select = "./mem[name = 'name']/val"	value = ""/>
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "self::node()[@metatype = 'JV_FIELD' ]"	called-object = "./name"	resolve-as="java-field" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/name" link-type = "relyon" inverse = "false" />
+				<link-node xpath = "self::node()[@metatype = 'JV_METHOD']"	called-object = "./name"	resolve-as="java-method" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/name" link-type = "relyon" inverse = "false" />
+
+        <link-node xpath = "./anno[name='javax.persistence.SequenceGenerator']/mem[name='sequenceName'] | ./anno[name='org.hibernate.annotations.SequenceGenerator']/mem[name='sequenceName']" called-object = "./val" resolve-as="server-object" link-type = "use" />
+			</object-node>
+		</object-node>
+
+		<!-- Embeddables -->
+		<object-node xpath ="/decls/decl[@metatype='JV_CLASS']/anno[name='javax.persistence.Embeddable']" 	name = "../mem[name='name']/val" default-name = "../name" type = "jpa-embeddable">
+			<object-attribute name = "class"	select = "../name"	/>
+			<link-node xpath = "." called-object = "../name" resolve-as = "java-type" link-type = "relyon" inverse = "true" />
+
+			<!-- Properties -->
+			<object-node xpath ="../decl[@metatype = 'JV_FIELD' or @metatype = 'JV_METHOD']/anno[name='javax.persistence.Basic']" 	name = "../name" type = "jpa-embeddable-property" >
+				<object-attribute name = "fetch-type"	select = "./mem[name='fetch'   ]/val"  	value = "javax.persistence.FetchType.EAGER" />
+				<object-attribute name = "optional"		select = "./mem[name='optional']/val"  	value = "true" />
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "parent::node()[@metatype = 'JV_FIELD' ]"	called-object = "./name"	resolve-as="java-field" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/name" link-type = "relyon" inverse = "false" />
+				<link-node xpath = "parent::node()[@metatype = 'JV_METHOD']"	called-object = "./name"	resolve-as="java-method" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/name" link-type = "relyon" inverse = "false" />
+			</object-node>
+		</object-node>
+
+		<!-- Named Query -->
+		<object-node xpath = "/decls/descendant::anno[name='javax.persistence.NamedQuery']" name = "./mem[name='name']/val" type = "jpa-named-query">
+			<object-attribute name = "value" select = "./mem[name='query']/val" />
+
+			<!--Links-->
+			<link-node xpath = "./mem[name='query']"	called-object = "./val"	resolve-as="jpa-jpql-query" link-type = "use" />
+		</object-node>
+
+		<!-- Named Native Query -->
+		<object-node xpath = "/decls/descendant::anno[name='javax.persistence.NamedNativeQuery']"  name = "./mem[name='name']/val" type = "jpa-named-native-query">
+			<object-attribute name = "value" select = "./mem[name='query']/val"	/>
+
+			<!--Links-->
+			<link-node xpath = "./mem[name='query']"				called-object = "./val"		resolve-as="server-object" link-type = "use" />
+			<link-node xpath = "./mem[name='result-class']"		called-object = "./val"		resolve-as = "java-type" link-type = "use" default = "ancestor::decl[@metatype = 'JV_CLASS']/name" />
+			<link-node xpath = "./mem[name='result-set-mapping']"	called-object = "./val"		resolve-as = "jpa-sql-result-set" link-type = "use" />
+		</object-node>
+		<!-- SQL ResultsSet-->
+		<object-node xpath = "/decls/descendant::anno[name='javax.persistence.SqlResultSetMapping']"  name = "./mem[name='name']/val" type = "jpa-sql-result-set">
+			<!--Link with entities referenced in the result set -->
+			<link-node xpath = "./descendant::anno[name='javax.persistence.EntityResult']/mem[name='entityClass']"	called-object = "./val"	resolve-as = "jpa-entity" link-type = "use" />
+		</object-node>
+	</config-file-node>
+</xml-config>

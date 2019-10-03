@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="ControlFlow.AndOr">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH IN TREE ELEMENT" >
+					<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>					
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>		
+		<CATEGORY NAME="MATCH_AND_OR">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="JAVA_AND_OR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<SIGNATURE NAME="NODE_J11_Expression" SUB_NAME="CONDOREXP" />						
+						<SIGNATURE NAME="NODE_J11_Expression" SUB_NAME="CONDANDEXP" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="JAVA_SCRIPT_AND_OR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_JS15_Script</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<TOKEN NAME="COND_OR"  />						
+						<TOKEN NAME="COND_AND" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="PB_AND_OR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<TOKEN NAME="_OR_"/>						
+						<TOKEN NAME="_AND_"/>						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="ABAP_AND_OR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>						
+					</OR>
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_AB4_IfExpression</SIGNATURE>						
+							<SIGNATURE>NODE_AB4_CaseExpression</SIGNATURE>						
+							<SIGNATURE>NODE_AB4_LoopExpression</SIGNATURE>						
+							<SIGNATURE>NODE_AB4_DoExpression</SIGNATURE>
+							<SIGNATURE>NODE_AB4_WhileExpression</SIGNATURE>	
+							<SIGNATURE>NODE_AB4_ElseIfExpression</SIGNATURE>
+							<SIGNATURE>NODE_AB4_WhenStatement_Expression</SIGNATURE>													
+						</OR>								
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_AB4_And" />
+							<SIGNATURE NAME="NODE_AB4_Or" />
+						</SUB_TREE_OR>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="C_CSharp_AND_OR" type="pattern">
+				<TREE>
+					<OR>						
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE> 
+						<SIGNATURE>NODE_C_BODY</SIGNATURE> 						
+					</OR>
+					<SUB_TREE_OR>
+						<TOKEN NAME="COND_AND" /> 
+						<TOKEN NAME="COND_OR" /> 						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="PLSQL_AND_OR" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+              <SIGNATURE>CLASS_PL_function_body</SIGNATURE> --
+							<SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+              <SIGNATURE>CLASS_PL_procedure_body</SIGNATURE> --
+              <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+              <SIGNATURE>NODE_PL_PACKAGE_BODY_1</SIGNATURE> --
+              <SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+              <SIGNATURE>NODE_PL_PACKAGE_BODY_2</SIGNATURE> --
+              <SIGNATURE>NODE_P23_TRIGGER</SIGNATURE>
+              <SIGNATURE>NODE_PL_TRIGGER</SIGNATURE> --
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_P23_EXPR_LR_OR" />
+              <SIGNATURE NAME="NODE_PL_EXPR_LR_OR" /> --
+              <SIGNATURE NAME="NODE_P23_EXPR_LR_AND" />
+              <SIGNATURE NAME="NODE_PL_EXPR_LR_AND" /> --
+            </SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_AND_OR" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VB6_STATEMENT_DECLARE_LIST</SIGNATURE>																				
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VB6_EXPR_LOGIQ_RELAT_OR" />	
+							<SIGNATURE NAME="NODE_VB6_EXPR_LOGIQ_RELAT_AND" />
+							<SIGNATURE NAME="NODE_VB6_EXPR_LOGIQ_RELAT_IMP" />
+							<SIGNATURE NAME="NODE_VB6_EXPR_LOGIQ_RELAT_EQV" />
+							<SIGNATURE NAME="NODE_VB6_EXPR_LOGIQ_RELAT_XOR" />
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+
+			<PROPERTY NAME="VB_SCRIPT_AND_OR" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VBS5_Script</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VBS5_Expression" SUB_NAME="EXP_BIN_LOG" />	
+							</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_NET_AND_OR" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+							<SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<TOKEN NAME="_OR_" />	
+							<TOKEN NAME="_AND_" />
+							<TOKEN NAME="_XOR_" />
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+			
+			
+
+			<PROPERTY NAME="DB2_AND_OR" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>LIST_UDB_SQL_STATEMENT_LIST</SIGNATURE>						
+						<SIGNATURE>LIST_DSN_SQL_STATEMENT_LIST</SIGNATURE>	
+						<SIGNATURE>NODE_UDB_CREATE_TRIGGER_BEFORE</SIGNATURE>
+						<SIGNATURE>NODE_UDB_CREATE_TRIGGER_AFTER</SIGNATURE>
+						<SIGNATURE>NODE_DSN_CREATE_TRIGGER_BEFORE</SIGNATURE>
+						<SIGNATURE>NODE_DSN_CREATE_TRIGGER_AFTER</SIGNATURE>
+											
+					</OR>
+														
+					<SUB_TREE_OR>						
+						<SIGNATURE NAME="NODE_UDB_PREDICATE_AND" />
+						<SIGNATURE NAME="NODE_UDB_PREDICATE_OR" />
+						<SIGNATURE NAME="NODE_DSN_PREDICATE_AND" />
+						<SIGNATURE NAME="NODE_DSN_PREDICATE_OR" />
+					</SUB_TREE_OR>
+				</TREE>			
+			</PROPERTY>
+			<PROPERTY NAME="DELPHI_AND_OR" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+							<SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+							<SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+							<SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+						</OR>															
+						<SUB_TREE_OR>
+							<TOKEN NAME="_OR_" /> 
+							<TOKEN NAME="_AND_" /> 						
+							<TOKEN NAME="_XOR_" /> 						
+						</SUB_TREE_OR>							
+					</TREE>
+			</PROPERTY>
+
+
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>DB2_AND_OR</MATCH>
+				<MATCH>VB_SCRIPT_AND_OR</MATCH>
+				<MATCH>JAVA_SCRIPT_AND_OR</MATCH>
+				<MATCH>DELPHI_AND_OR</MATCH>
+				<MATCH>VB_NET_AND_OR</MATCH>
+				<MATCH>VB_AND_OR</MATCH>
+				<MATCH>PLSQL_AND_OR</MATCH>
+				<MATCH>C_CSharp_AND_OR</MATCH> 	
+				<MATCH>ABAP_AND_OR</MATCH> 								
+				<MATCH>JAVA_AND_OR</MATCH> 								
+				<MATCH>PB_AND_OR</MATCH> 								
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_CLUMP>VALUE</RESULT_CLUMP> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+</METRIC>

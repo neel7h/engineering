@@ -1,0 +1,1093 @@
+09/18/19 22:22:55 - processing files...
+09/18/19 22:25:13 - processing object(1,612): [13120] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.pde.core\.cache\clean-cache.properties]
+09/18/19 22:25:13 - processing object(2,612): [13121] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\catalina.properties]
+09/18/19 22:25:13 - processing object(3,612): [13122] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\catalina.properties]
+09/18/19 22:25:13 - processing object(4,612): [13123] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\META-INF\maven\joda-time\joda-time\pom.properties]
+09/18/19 22:25:13 - processing object(5,612): [13124] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages.properties]
+09/18/19 22:25:13 - processing object(6,612): [13125] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_de.properties]
+09/18/19 22:25:13 - processing object(7,612): [13126] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_es.properties]
+09/18/19 22:25:13 - processing object(8,612): [13127] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_fr.properties]
+09/18/19 22:25:13 - processing object(9,612): [13128] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_nl.properties]
+09/18/19 22:25:13 - processing object(10,612): [13129] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_pt.properties]
+09/18/19 22:25:13 - processing object(11,612): [13130] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\META-INF\maven\joda-time\joda-time\pom.properties]
+09/18/19 22:25:13 - processing object(12,612): [13131] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages.properties]
+09/18/19 22:25:13 - processing object(13,612): [13132] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_de.properties]
+09/18/19 22:25:13 - processing object(14,612): [13133] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_es.properties]
+09/18/19 22:25:13 - processing object(15,612): [13134] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_fr.properties]
+09/18/19 22:25:13 - processing object(16,612): [13135] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_nl.properties]
+09/18/19 22:25:13 - processing object(17,612): [13136] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_pt.properties]
+09/18/19 22:25:13 - processing object(18,612): [13137] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\Charsets.properties]
+09/18/19 22:25:13 - processing object(19,612): [13138] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/18/19 22:25:13 - processing object(20,612): [13139] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/18/19 22:25:13 - processing object(21,612): [13140] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/18/19 22:25:13 - processing object(22,612): [13141] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\clusterBase.properties]
+09/18/19 22:25:13 - processing object(23,612): [13142] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\coldFusion.properties]
+09/18/19 22:25:13 - processing object(24,612): [13143] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\fullDebug.properties]
+09/18/19 22:25:13 - processing object(25,612): [13144] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\maxPerformance.properties]
+09/18/19 22:25:13 - processing object(26,612): [13145] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/18/19 22:25:13 - processing object(27,612): [13146] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\Charsets.properties]
+09/18/19 22:25:13 - processing object(28,612): [13147] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/18/19 22:25:13 - processing object(29,612): [13148] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/18/19 22:25:13 - processing object(30,612): [13149] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/18/19 22:25:13 - processing object(31,612): [13150] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\clusterBase.properties]
+09/18/19 22:25:13 - processing object(32,612): [13151] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\coldFusion.properties]
+09/18/19 22:25:13 - processing object(33,612): [13152] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\fullDebug.properties]
+09/18/19 22:25:13 - processing object(34,612): [13153] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\maxPerformance.properties]
+09/18/19 22:25:13 - processing object(35,612): [13154] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/18/19 22:25:13 - processing object(36,612): [13155] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\Login.jsp]
+09/18/19 22:25:13 - processing object(37,612): [13160] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\css\home.jsp]
+09/18/19 22:25:13 - processing object(38,612): [13166] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\home.jsp]
+09/18/19 22:25:13 - processing object(39,612): [13170] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\js\ManagerProject.jsp]
+09/18/19 22:25:13 - processing object(40,612): [13176] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBug.jsp]
+09/18/19 22:25:13 - processing object(41,612): [13182] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBugAjax.jsp]
+09/18/19 22:25:13 - processing object(42,612): [13186] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddProject.jsp]
+09/18/19 22:25:13 - processing object(43,612): [13190] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTask.jsp]
+09/18/19 22:25:13 - processing object(44,612): [13194] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTaskAjax.jsp]
+09/18/19 22:25:13 - processing object(45,612): [13198] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminAccount.jsp]
+09/18/19 22:25:13 - processing object(46,612): [13202] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminHome.jsp]
+09/18/19 22:25:13 - processing object(47,612): [13206] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminManageProject.jsp]
+09/18/19 22:25:13 - processing object(48,612): [13210] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDev.jsp]
+09/18/19 22:25:13 - processing object(49,612): [13214] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevAjax.jsp]
+09/18/19 22:25:13 - processing object(50,612): [13218] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevDetailsAjax.jsp]
+09/18/19 22:25:13 - processing object(51,612): [13222] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTester.jsp]
+09/18/19 22:25:13 - processing object(52,612): [13226] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterAjax.jsp]
+09/18/19 22:25:13 - processing object(53,612): [13230] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/18/19 22:25:13 - processing object(54,612): [13234] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ChangePassword.jsp]
+09/18/19 22:25:13 - processing object(55,612): [13238] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\DeveloperHome.jsp]
+09/18/19 22:25:13 - processing object(56,612): [13242] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListOfDevelopers.jsp]
+09/18/19 22:25:13 - processing object(57,612): [13246] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListProjects.jsp]
+09/18/19 22:25:13 - processing object(58,612): [13250] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\Logout.jsp]
+09/18/19 22:25:13 - processing object(59,612): [13254] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManageAdminAccount.jsp]
+09/18/19 22:25:13 - processing object(60,612): [13258] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerHome.jsp]
+09/18/19 22:25:13 - processing object(61,612): [13262] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerProject.jsp]
+09/18/19 22:25:13 - processing object(62,612): [13266] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccount.jsp]
+09/18/19 22:25:13 - processing object(63,612): [13270] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccountAjax.jsp]
+09/18/19 22:25:13 - processing object(64,612): [13274] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDev.jsp]
+09/18/19 22:25:13 - processing object(65,612): [13278] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDevAjax.jsp]
+09/18/19 22:25:13 - processing object(66,612): [13282] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTester.jsp]
+09/18/19 22:25:13 - processing object(67,612): [13286] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTesterAjax.jsp]
+09/18/19 22:25:13 - processing object(68,612): [13290] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterHome.jsp]
+09/18/19 22:25:13 - processing object(69,612): [13294] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterProject.jsp]
+09/18/19 22:25:13 - processing object(70,612): [13298] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\footer.jsp]
+09/18/19 22:25:13 - processing object(71,612): [13302] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\header.jsp]
+09/18/19 22:25:13 - processing object(72,612): [13306] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\menu.jsp]
+09/18/19 22:25:13 - processing object(73,612): [13310] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\Login.jsp]
+09/18/19 22:25:13 - processing object(74,612): [13315] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\css\home.jsp]
+09/18/19 22:25:13 - processing object(75,612): [13321] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\home.jsp]
+09/18/19 22:25:13 - processing object(76,612): [13325] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\js\ManagerProject.jsp]
+09/18/19 22:25:13 - processing object(77,612): [13331] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBug.jsp]
+09/18/19 22:25:13 - processing object(78,612): [13337] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBugAjax.jsp]
+09/18/19 22:25:13 - processing object(79,612): [13341] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddProject.jsp]
+09/18/19 22:25:13 - processing object(80,612): [13345] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTask.jsp]
+09/18/19 22:25:13 - processing object(81,612): [13349] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTaskAjax.jsp]
+09/18/19 22:25:13 - processing object(82,612): [13353] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminAccount.jsp]
+09/18/19 22:25:13 - processing object(83,612): [13357] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminHome.jsp]
+09/18/19 22:25:13 - processing object(84,612): [13361] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminManageProject.jsp]
+09/18/19 22:25:13 - processing object(85,612): [13365] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDev.jsp]
+09/18/19 22:25:13 - processing object(86,612): [13369] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevAjax.jsp]
+09/18/19 22:25:13 - processing object(87,612): [13373] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevDetailsAjax.jsp]
+09/18/19 22:25:13 - processing object(88,612): [13377] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTester.jsp]
+09/18/19 22:25:13 - processing object(89,612): [13381] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterAjax.jsp]
+09/18/19 22:25:13 - processing object(90,612): [13385] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/18/19 22:25:13 - processing object(91,612): [13389] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ChangePassword.jsp]
+09/18/19 22:25:13 - processing object(92,612): [13393] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\DeveloperHome.jsp]
+09/18/19 22:25:13 - processing object(93,612): [13397] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListOfDevelopers.jsp]
+09/18/19 22:25:13 - processing object(94,612): [13401] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListProjects.jsp]
+09/18/19 22:25:13 - processing object(95,612): [13405] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\Logout.jsp]
+09/18/19 22:25:13 - processing object(96,612): [13409] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManageAdminAccount.jsp]
+09/18/19 22:25:13 - processing object(97,612): [13413] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerHome.jsp]
+09/18/19 22:25:13 - processing object(98,612): [13417] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerProject.jsp]
+09/18/19 22:25:13 - processing object(99,612): [13421] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccount.jsp]
+09/18/19 22:25:13 - processing object(100,612): [13425] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccountAjax.jsp]
+09/18/19 22:25:13 - processing object(101,612): [13429] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDev.jsp]
+09/18/19 22:25:13 - processing object(102,612): [13433] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDevAjax.jsp]
+09/18/19 22:25:13 - processing object(103,612): [13437] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTester.jsp]
+09/18/19 22:25:13 - processing object(104,612): [13441] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTesterAjax.jsp]
+09/18/19 22:25:13 - processing object(105,612): [13445] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterHome.jsp]
+09/18/19 22:25:13 - processing object(106,612): [13449] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterProject.jsp]
+09/18/19 22:25:13 - processing object(107,612): [13453] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\footer.jsp]
+09/18/19 22:25:13 - processing object(108,612): [13457] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\header.jsp]
+09/18/19 22:25:13 - processing object(109,612): [13461] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\menu.jsp]
+09/18/19 22:25:13 - processing object(110,612): [16910] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\web.xml]
+09/18/19 22:25:13 - processing object(111,612): [16911] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\web.xml]
+09/18/19 22:25:13 - processing object(112,612): [16914] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\web.xml]
+09/18/19 22:25:13 - processing object(113,612): [16917] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT\WEB-INF\web.xml]
+09/18/19 22:25:13 - processing object(119,612): [19033] org.apache.jsp.Login_jsp._jspxFactory
+09/18/19 22:25:13 - processing object(120,612): [19035] org.apache.jsp.Login_jsp._jspx_dependants
+09/18/19 22:25:13 - processing object(121,612): [19036] org.apache.jsp.Login_jsp.{(18:3)}
+09/18/19 22:25:13 - processing object(122,612): [19038] org.apache.jsp.Login_jsp._el_expressionfactory
+09/18/19 22:25:13 - processing object(123,612): [19040] org.apache.jsp.Login_jsp._jsp_instancemanager
+09/18/19 22:25:13 - processing object(124,612): [19041] org.apache.jsp.Login_jsp.getDependants
+09/18/19 22:25:13 - processing object(125,612): [19042] org.apache.jsp.Login_jsp._jspInit
+09/18/19 22:25:13 - processing object(126,612): [19043] org.apache.jsp.Login_jsp._jspDestroy
+09/18/19 22:25:13 - processing object(127,612): [19044] org.apache.jsp.Login_jsp._jspService
+09/18/19 22:25:13 - processing object(128,612): [19047] org.apache.jsp.Login_jsp.Login_jsp
+09/18/19 22:25:13 - processing object(129,612): [19058] com.probuger.bean.AddProject.projectId
+09/18/19 22:25:13 - processing object(130,612): [19060] com.probuger.bean.AddProject.projectName
+09/18/19 22:25:13 - processing object(131,612): [19062] com.probuger.bean.AddProject.startDate
+09/18/19 22:25:13 - processing object(132,612): [19064] com.probuger.bean.AddProject.endDate
+09/18/19 22:25:13 - processing object(133,612): [19066] com.probuger.bean.AddProject.managerId
+09/18/19 22:25:13 - processing object(134,612): [19068] com.probuger.bean.AddProject.NoOfDevloper
+09/18/19 22:25:13 - processing object(135,612): [19070] com.probuger.bean.AddProject.NoOfTester
+09/18/19 22:25:13 - processing object(136,612): [19071] com.probuger.bean.AddProject.getProjectId
+09/18/19 22:25:13 - processing object(137,612): [19072] com.probuger.bean.AddProject.setProjectId
+09/18/19 22:25:13 - processing object(138,612): [19074] com.probuger.bean.AddProject.getProjectName
+09/18/19 22:25:13 - processing object(139,612): [19075] com.probuger.bean.AddProject.setProjectName
+09/18/19 22:25:13 - processing object(140,612): [19077] com.probuger.bean.AddProject.getStartDate
+09/18/19 22:25:13 - processing object(141,612): [19078] com.probuger.bean.AddProject.setStartDate
+09/18/19 22:25:13 - processing object(142,612): [19080] com.probuger.bean.AddProject.getEndDate
+09/18/19 22:25:13 - processing object(143,612): [19081] com.probuger.bean.AddProject.setEndDate
+09/18/19 22:25:13 - processing object(144,612): [19083] com.probuger.bean.AddProject.getManagerId
+09/18/19 22:25:13 - processing object(145,612): [19084] com.probuger.bean.AddProject.setManagerId
+09/18/19 22:25:13 - processing object(146,612): [19086] com.probuger.bean.AddProject.getNoOfDevloper
+09/18/19 22:25:13 - processing object(147,612): [19087] com.probuger.bean.AddProject.setNoOfDevloper
+09/18/19 22:25:13 - processing object(148,612): [19089] com.probuger.bean.AddProject.getNoOfTester
+09/18/19 22:25:13 - processing object(149,612): [19090] com.probuger.bean.AddProject.setNoOfTester
+09/18/19 22:25:13 - processing object(150,612): [19092] com.probuger.bean.AddProject.AddProject
+09/18/19 22:25:13 - processing object(151,612): [19099] com.probuger.bean.BugDetails.bugId
+09/18/19 22:25:13 - processing object(152,612): [19101] com.probuger.bean.BugDetails.bugDetails
+09/18/19 22:25:13 - processing object(153,612): [19103] com.probuger.bean.BugDetails.taskId
+09/18/19 22:25:13 - processing object(154,612): [19105] com.probuger.bean.BugDetails.projectId
+09/18/19 22:25:13 - processing object(155,612): [19107] com.probuger.bean.BugDetails.testerId
+09/18/19 22:25:13 - processing object(156,612): [19109] com.probuger.bean.BugDetails.statusIs
+09/18/19 22:25:13 - processing object(157,612): [19111] com.probuger.bean.BugDetails.devId
+09/18/19 22:25:13 - processing object(158,612): [19113] com.probuger.bean.BugDetails.remark
+09/18/19 22:25:13 - processing object(159,612): [19115] com.probuger.bean.BugDetails.fixApplied
+09/18/19 22:25:13 - processing object(160,612): [19117] com.probuger.bean.BugDetails.codeSnippet
+09/18/19 22:25:13 - processing object(161,612): [19119] com.probuger.bean.BugDetails.temp
+09/18/19 22:25:13 - processing object(162,612): [19120] com.probuger.bean.BugDetails.getBugId
+09/18/19 22:25:13 - processing object(163,612): [19121] com.probuger.bean.BugDetails.setBugId
+09/18/19 22:25:13 - processing object(164,612): [19123] com.probuger.bean.BugDetails.getBugDetails
+09/18/19 22:25:13 - processing object(165,612): [19124] com.probuger.bean.BugDetails.setBugDetails
+09/18/19 22:25:13 - processing object(166,612): [19126] com.probuger.bean.BugDetails.getTaskId
+09/18/19 22:25:13 - processing object(167,612): [19127] com.probuger.bean.BugDetails.setTaskId
+09/18/19 22:25:13 - processing object(168,612): [19129] com.probuger.bean.BugDetails.getProjectId
+09/18/19 22:25:13 - processing object(169,612): [19130] com.probuger.bean.BugDetails.setProjectId
+09/18/19 22:25:13 - processing object(170,612): [19132] com.probuger.bean.BugDetails.getTesterId
+09/18/19 22:25:13 - processing object(171,612): [19133] com.probuger.bean.BugDetails.setTesterId
+09/18/19 22:25:13 - processing object(172,612): [19135] com.probuger.bean.BugDetails.getStatusIs
+09/18/19 22:25:13 - processing object(173,612): [19136] com.probuger.bean.BugDetails.setStatusIs
+09/18/19 22:25:13 - processing object(174,612): [19138] com.probuger.bean.BugDetails.getDevId
+09/18/19 22:25:13 - processing object(175,612): [19139] com.probuger.bean.BugDetails.setDevId
+09/18/19 22:25:13 - processing object(176,612): [19141] com.probuger.bean.BugDetails.getRemark
+09/18/19 22:25:13 - processing object(177,612): [19142] com.probuger.bean.BugDetails.setRemark
+09/18/19 22:25:13 - processing object(178,612): [19144] com.probuger.bean.BugDetails.getFixApplied
+09/18/19 22:25:13 - processing object(179,612): [19145] com.probuger.bean.BugDetails.setFixApplied
+09/18/19 22:25:13 - processing object(180,612): [19147] com.probuger.bean.BugDetails.getCodeSnippet
+09/18/19 22:25:13 - processing object(181,612): [19148] com.probuger.bean.BugDetails.setCodeSnippet
+09/18/19 22:25:13 - processing object(182,612): [19150] com.probuger.bean.BugDetails.getTemp
+09/18/19 22:25:13 - processing object(183,612): [19151] com.probuger.bean.BugDetails.setTemp
+09/18/19 22:25:13 - processing object(184,612): [19153] com.probuger.bean.BugDetails.BugDetails
+09/18/19 22:25:13 - processing object(185,612): [19160] com.probuger.bean.NewAccount.id
+09/18/19 22:25:13 - processing object(186,612): [19162] com.probuger.bean.NewAccount.userName
+09/18/19 22:25:13 - processing object(187,612): [19164] com.probuger.bean.NewAccount.loginId
+09/18/19 22:25:13 - processing object(188,612): [19166] com.probuger.bean.NewAccount.password
+09/18/19 22:25:13 - processing object(189,612): [19168] com.probuger.bean.NewAccount.email
+09/18/19 22:25:13 - processing object(190,612): [19170] com.probuger.bean.NewAccount.role
+09/18/19 22:25:13 - processing object(191,612): [19172] com.probuger.bean.NewAccount.managerId
+09/18/19 22:25:13 - processing object(192,612): [19173] com.probuger.bean.NewAccount.getId
+09/18/19 22:25:13 - processing object(193,612): [19174] com.probuger.bean.NewAccount.setId
+09/18/19 22:25:13 - processing object(194,612): [19176] com.probuger.bean.NewAccount.getUserName
+09/18/19 22:25:13 - processing object(195,612): [19177] com.probuger.bean.NewAccount.setUserName
+09/18/19 22:25:13 - processing object(196,612): [19179] com.probuger.bean.NewAccount.getLoginId
+09/18/19 22:25:13 - processing object(197,612): [19180] com.probuger.bean.NewAccount.setLoginId
+09/18/19 22:25:13 - processing object(198,612): [19182] com.probuger.bean.NewAccount.getPassword
+09/18/19 22:25:13 - processing object(199,612): [19183] com.probuger.bean.NewAccount.setPassword
+09/18/19 22:25:13 - processing object(200,612): [19185] com.probuger.bean.NewAccount.getEmail
+09/18/19 22:25:13 - processing object(201,612): [19186] com.probuger.bean.NewAccount.setEmail
+09/18/19 22:25:13 - processing object(202,612): [19188] com.probuger.bean.NewAccount.getRole
+09/18/19 22:25:13 - processing object(203,612): [19189] com.probuger.bean.NewAccount.setRole
+09/18/19 22:25:13 - processing object(204,612): [19191] com.probuger.bean.NewAccount.getManagerId
+09/18/19 22:25:13 - processing object(205,612): [19192] com.probuger.bean.NewAccount.setManagerId
+09/18/19 22:25:13 - processing object(206,612): [19194] com.probuger.bean.NewAccount.NewAccount
+09/18/19 22:25:13 - processing object(207,612): [19201] com.probuger.bean.ProjectTask.taskId
+09/18/19 22:25:13 - processing object(208,612): [19203] com.probuger.bean.ProjectTask.projectId
+09/18/19 22:25:13 - processing object(209,612): [19205] com.probuger.bean.ProjectTask.taskDetails
+09/18/19 22:25:13 - processing object(210,612): [19207] com.probuger.bean.ProjectTask.taskStartDate
+09/18/19 22:25:13 - processing object(211,612): [19209] com.probuger.bean.ProjectTask.taskEndDate
+09/18/19 22:25:13 - processing object(212,612): [19211] com.probuger.bean.ProjectTask.devId
+09/18/19 22:25:13 - processing object(213,612): [19213] com.probuger.bean.ProjectTask.testerId
+09/18/19 22:25:13 - processing object(214,612): [19215] com.probuger.bean.ProjectTask.statusCurrent
+09/18/19 22:25:13 - processing object(215,612): [19217] com.probuger.bean.ProjectTask.temp
+09/18/19 22:25:13 - processing object(216,612): [19218] com.probuger.bean.ProjectTask.getTaskId
+09/18/19 22:25:13 - processing object(217,612): [19219] com.probuger.bean.ProjectTask.setTaskId
+09/18/19 22:25:13 - processing object(218,612): [19221] com.probuger.bean.ProjectTask.getProjectId
+09/18/19 22:25:13 - processing object(219,612): [19222] com.probuger.bean.ProjectTask.setProjectId
+09/18/19 22:25:13 - processing object(220,612): [19224] com.probuger.bean.ProjectTask.getTaskDetails
+09/18/19 22:25:13 - processing object(221,612): [19225] com.probuger.bean.ProjectTask.setTaskDetails
+09/18/19 22:25:13 - processing object(222,612): [19227] com.probuger.bean.ProjectTask.getTaskStartDate
+09/18/19 22:25:13 - processing object(223,612): [19228] com.probuger.bean.ProjectTask.setTaskStartDate
+09/18/19 22:25:13 - processing object(224,612): [19230] com.probuger.bean.ProjectTask.getTaskEndDate
+09/18/19 22:25:13 - processing object(225,612): [19231] com.probuger.bean.ProjectTask.setTaskEndDate
+09/18/19 22:25:13 - processing object(226,612): [19233] com.probuger.bean.ProjectTask.getDevId
+09/18/19 22:25:13 - processing object(227,612): [19234] com.probuger.bean.ProjectTask.setDevId
+09/18/19 22:25:13 - processing object(228,612): [19236] com.probuger.bean.ProjectTask.getTesterId
+09/18/19 22:25:13 - processing object(229,612): [19237] com.probuger.bean.ProjectTask.setTesterId
+09/18/19 22:25:13 - processing object(230,612): [19239] com.probuger.bean.ProjectTask.getStatusCurrent
+09/18/19 22:25:13 - processing object(231,612): [19240] com.probuger.bean.ProjectTask.setStatusCurrent
+09/18/19 22:25:13 - processing object(232,612): [19242] com.probuger.bean.ProjectTask.getTemp
+09/18/19 22:25:13 - processing object(233,612): [19243] com.probuger.bean.ProjectTask.setTemp
+09/18/19 22:25:13 - processing object(234,612): [19245] com.probuger.bean.ProjectTask.ProjectTask
+09/18/19 22:25:13 - processing object(235,612): [19252] com.probuger.bean.Register.id
+09/18/19 22:25:13 - processing object(236,612): [19254] com.probuger.bean.Register.userName
+09/18/19 22:25:13 - processing object(237,612): [19256] com.probuger.bean.Register.loginId
+09/18/19 22:25:13 - processing object(238,612): [19258] com.probuger.bean.Register.password
+09/18/19 22:25:13 - processing object(239,612): [19260] com.probuger.bean.Register.email
+09/18/19 22:25:13 - processing object(240,612): [19262] com.probuger.bean.Register.role
+09/18/19 22:25:13 - processing object(241,612): [19264] com.probuger.bean.Register.managerId
+09/18/19 22:25:13 - processing object(242,612): [19265] com.probuger.bean.Register.getId
+09/18/19 22:25:13 - processing object(243,612): [19266] com.probuger.bean.Register.setId
+09/18/19 22:25:13 - processing object(244,612): [19268] com.probuger.bean.Register.getUserName
+09/18/19 22:25:13 - processing object(245,612): [19269] com.probuger.bean.Register.setUserName
+09/18/19 22:25:13 - processing object(246,612): [19271] com.probuger.bean.Register.getLoginId
+09/18/19 22:25:13 - processing object(247,612): [19272] com.probuger.bean.Register.setLoginId
+09/18/19 22:25:13 - processing object(248,612): [19274] com.probuger.bean.Register.getPassword
+09/18/19 22:25:13 - processing object(249,612): [19275] com.probuger.bean.Register.setPassword
+09/18/19 22:25:13 - processing object(250,612): [19277] com.probuger.bean.Register.getEmail
+09/18/19 22:25:13 - processing object(251,612): [19278] com.probuger.bean.Register.setEmail
+09/18/19 22:25:13 - processing object(252,612): [19280] com.probuger.bean.Register.getRole
+09/18/19 22:25:13 - processing object(253,612): [19281] com.probuger.bean.Register.setRole
+09/18/19 22:25:13 - processing object(254,612): [19283] com.probuger.bean.Register.getManagerId
+09/18/19 22:25:13 - processing object(255,612): [19284] com.probuger.bean.Register.setManagerId
+09/18/19 22:25:13 - processing object(256,612): [19286] com.probuger.bean.Register.Register
+09/18/19 22:25:13 - processing object(257,612): [19293] com.probuger.bean.Role.id
+09/18/19 22:25:13 - processing object(258,612): [19295] com.probuger.bean.Role.roleName
+09/18/19 22:25:13 - processing object(259,612): [19297] com.probuger.bean.Role.roleDesc
+09/18/19 22:25:13 - processing object(260,612): [19298] com.probuger.bean.Role.getId
+09/18/19 22:25:13 - processing object(261,612): [19299] com.probuger.bean.Role.setId
+09/18/19 22:25:13 - processing object(262,612): [19301] com.probuger.bean.Role.getRoleName
+09/18/19 22:25:13 - processing object(263,612): [19302] com.probuger.bean.Role.setRoleName
+09/18/19 22:25:13 - processing object(264,612): [19304] com.probuger.bean.Role.getRoleDesc
+09/18/19 22:25:13 - processing object(265,612): [19305] com.probuger.bean.Role.setRoleDesc
+09/18/19 22:25:13 - processing object(266,612): [19307] com.probuger.bean.Role.Role
+09/18/19 22:25:13 - processing object(267,612): [19314] com.probuger.bean.Status.id
+09/18/19 22:25:13 - processing object(268,612): [19316] com.probuger.bean.Status.status
+09/18/19 22:25:13 - processing object(269,612): [19317] com.probuger.bean.Status.getId
+09/18/19 22:25:14 - processing object(270,612): [19318] com.probuger.bean.Status.setId
+09/18/19 22:25:14 - processing object(271,612): [19320] com.probuger.bean.Status.getStatus
+09/18/19 22:25:14 - processing object(272,612): [19321] com.probuger.bean.Status.setStatus
+09/18/19 22:25:14 - processing object(273,612): [19323] com.probuger.bean.Status.Status
+09/18/19 22:25:14 - processing object(274,612): [19337] com.probuger.dao.BugDetailsDao.getDevBugList
+09/18/19 22:25:14 - processing object(275,612): [19340] com.probuger.dao.BugDetailsDao.getTesterBugList
+09/18/19 22:25:14 - processing object(276,612): [19343] com.probuger.dao.BugDetailsDao.getDevBugTaskDetails
+09/18/19 22:25:14 - processing object(277,612): [19345] com.probuger.dao.BugDetailsDao.getBugOldDetails
+09/18/19 22:25:14 - processing object(278,612): [19347] com.probuger.dao.BugDetailsDao.getOverdueBugList
+09/18/19 22:25:14 - processing object(279,612): [19350] com.probuger.dao.BugDetailsDao.BugDetailsDao
+09/18/19 22:25:14 - processing object(280,612): [19361] com.probuger.dao.NewAccountDao.getRoleList
+09/18/19 22:25:14 - processing object(281,612): [19362] com.probuger.dao.NewAccountDao.getManagerList
+09/18/19 22:25:14 - processing object(282,612): [19363] com.probuger.dao.NewAccountDao.getDeveloperList
+09/18/19 22:25:14 - processing object(283,612): [19364] com.probuger.dao.NewAccountDao.getTesterList
+09/18/19 22:25:14 - processing object(284,612): [19365] com.probuger.dao.NewAccountDao.getMyDetails
+09/18/19 22:25:14 - processing object(285,612): [19367] com.probuger.dao.NewAccountDao.getRoleName
+09/18/19 22:25:14 - processing object(286,612): [19369] com.probuger.dao.NewAccountDao.getManagerName
+09/18/19 22:25:14 - processing object(287,612): [19371] com.probuger.dao.NewAccountDao.NewAccountDao
+09/18/19 22:25:14 - processing object(288,612): [19381] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/18/19 22:25:14 - processing object(289,612): [19383] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/18/19 22:25:14 - processing object(290,612): [19384] com.probuger.dao.ProjectDetailsDao.getDeveloperList
+09/18/19 22:25:14 - processing object(291,612): [19386] com.probuger.dao.ProjectDetailsDao.getTesterList
+09/18/19 22:25:14 - processing object(292,612): [19388] com.probuger.dao.ProjectDetailsDao.getProjectOfUser
+09/18/19 22:25:14 - processing object(293,612): [19390] com.probuger.dao.ProjectDetailsDao.ProjectDetailsDao
+09/18/19 22:25:14 - processing object(294,612): [19401] com.probuger.dao.StatusDao.getStatusList
+09/18/19 22:25:14 - processing object(295,612): [19403] com.probuger.dao.StatusDao.StatusDao
+09/18/19 22:25:14 - processing object(296,612): [19415] com.probuger.dao.TaskDetailsDao.getTaskList
+09/18/19 22:25:14 - processing object(297,612): [19418] com.probuger.dao.TaskDetailsDao.getTaskTesterList
+09/18/19 22:25:14 - processing object(298,612): [19421] com.probuger.dao.TaskDetailsDao.getTaskListTestingInProgress
+09/18/19 22:25:14 - processing object(299,612): [19424] com.probuger.dao.TaskDetailsDao.getOverdueTaskList
+09/18/19 22:25:14 - processing object(300,612): [19427] com.probuger.dao.TaskDetailsDao.getTaskDetails
+09/18/19 22:25:14 - processing object(301,612): [19429] com.probuger.dao.TaskDetailsDao.TaskDetailsDao
+09/18/19 22:25:14 - processing object(302,612): [19442] com.probuger.login.AddBug.serialVersionUID
+09/18/19 22:25:14 - processing object(303,612): [19443] com.probuger.login.AddBug.AddBug
+09/18/19 22:25:14 - processing object(304,612): [19445] com.probuger.login.AddBug.doGet
+09/18/19 22:25:14 - processing object(305,612): [19448] com.probuger.login.AddBug.doPost
+09/18/19 22:25:14 - processing object(306,612): [19465] com.probuger.login.ChangePassword.serialVersionUID
+09/18/19 22:25:14 - processing object(307,612): [19466] com.probuger.login.ChangePassword.ChangePassword
+09/18/19 22:25:14 - processing object(308,612): [19468] com.probuger.login.ChangePassword.doGet
+09/18/19 22:25:14 - processing object(309,612): [19471] com.probuger.login.ChangePassword.doPost
+09/18/19 22:25:14 - processing object(310,612): [19485] com.probuger.login.DBConnector.con
+09/18/19 22:25:14 - processing object(311,612): [19487] com.probuger.login.DBConnector.st
+09/18/19 22:25:14 - processing object(312,612): [19489] com.probuger.login.DBConnector.rs
+09/18/19 22:25:14 - processing object(313,612): [19491] com.probuger.login.DBConnector.url
+09/18/19 22:25:14 - processing object(314,612): [19493] com.probuger.login.DBConnector.JDBC_DRIVER
+09/18/19 22:25:14 - processing object(315,612): [19495] com.probuger.login.DBConnector.user
+09/18/19 22:25:14 - processing object(316,612): [19497] com.probuger.login.DBConnector.password
+09/18/19 22:25:14 - processing object(317,612): [19499] com.probuger.login.DBConnector.query
+09/18/19 22:25:14 - processing object(318,612): [19501] com.probuger.login.DBConnector.count
+09/18/19 22:25:14 - processing object(319,612): [19502] com.probuger.login.DBConnector.getConnection
+09/18/19 22:25:14 - processing object(320,612): [19503] com.probuger.login.DBConnector.insert
+09/18/19 22:25:14 - processing object(321,612): [19507] com.probuger.login.DBConnector.insertReturnKey
+09/18/19 22:25:14 - processing object(322,612): [19511] com.probuger.login.DBConnector.select
+09/18/19 22:25:14 - processing object(323,612): [19515] com.probuger.login.DBConnector.delete
+09/18/19 22:25:14 - processing object(324,612): [19518] com.probuger.login.DBConnector.update
+09/18/19 22:25:14 - processing object(325,612): [19522] com.probuger.login.DBConnector.DBConnector
+09/18/19 22:25:14 - processing object(326,612): [19538] com.probuger.login.EditAccount.serialVersionUID
+09/18/19 22:25:14 - processing object(327,612): [19539] com.probuger.login.EditAccount.EditAccount
+09/18/19 22:25:14 - processing object(328,612): [19541] com.probuger.login.EditAccount.doGet
+09/18/19 22:25:14 - processing object(329,612): [19544] com.probuger.login.EditAccount.doPost
+09/18/19 22:25:14 - processing object(330,612): [19563] com.probuger.login.LoginController.serialVersionUID
+09/18/19 22:25:14 - processing object(331,612): [19565] com.probuger.login.LoginController.userName
+09/18/19 22:25:14 - processing object(332,612): [19567] com.probuger.login.LoginController.password
+09/18/19 22:25:14 - processing object(333,612): [19568] com.probuger.login.LoginController.LoginController
+09/18/19 22:25:14 - processing object(334,612): [19570] com.probuger.login.LoginController.doGet
+09/18/19 22:25:14 - processing object(335,612): [19573] com.probuger.login.LoginController.doPost
+09/18/19 22:25:14 - processing object(336,612): [19587] com.probuger.login.LogoutController.serialVersionUID
+09/18/19 22:25:14 - processing object(337,612): [19588] com.probuger.login.LogoutController.LogoutController
+09/18/19 22:25:14 - processing object(338,612): [19590] com.probuger.login.LogoutController.doGet
+09/18/19 22:25:14 - processing object(339,612): [19593] com.probuger.login.LogoutController.doPost
+09/18/19 22:25:14 - processing object(340,612): [19611] com.probuger.login.NewAccountAdd.serialVersionUID
+09/18/19 22:25:14 - processing object(341,612): [19612] com.probuger.login.NewAccountAdd.NewAccountAdd
+09/18/19 22:25:14 - processing object(342,612): [19614] com.probuger.login.NewAccountAdd.doGet
+09/18/19 22:25:14 - processing object(343,612): [19617] com.probuger.login.NewAccountAdd.doPost
+09/18/19 22:25:14 - processing object(344,612): [19638] com.probuger.login.NewProjectAdd.serialVersionUID
+09/18/19 22:25:14 - processing object(345,612): [19639] com.probuger.login.NewProjectAdd.NewProjectAdd
+09/18/19 22:25:14 - processing object(346,612): [19641] com.probuger.login.NewProjectAdd.doGet
+09/18/19 22:25:14 - processing object(347,612): [19644] com.probuger.login.NewProjectAdd.doPost
+09/18/19 22:25:14 - processing object(348,612): [19656] com.probuger.login.NewTaskAdd.serialVersionUID
+09/18/19 22:25:14 - processing object(349,612): [19657] com.probuger.login.NewTaskAdd.NewTaskAdd
+09/18/19 22:25:14 - processing object(350,612): [19659] com.probuger.login.NewTaskAdd.doGet
+09/18/19 22:25:14 - processing object(351,612): [19662] com.probuger.login.NewTaskAdd.doPost
+09/18/19 22:25:14 - processing object(352,612): [19676] com.probuger.login.TaskStatus.serialVersionUID
+09/18/19 22:25:14 - processing object(353,612): [19677] com.probuger.login.TaskStatus.TaskStatus
+09/18/19 22:25:14 - processing object(354,612): [19679] com.probuger.login.TaskStatus.doGet
+09/18/19 22:25:14 - processing object(355,612): [19682] com.probuger.login.TaskStatus.doPost
+09/18/19 22:25:14 - processing object(356,612): [19695] com.probuger.login.UpdateBugDev.serialVersionUID
+09/18/19 22:25:14 - processing object(357,612): [19696] com.probuger.login.UpdateBugDev.UpdateBugDev
+09/18/19 22:25:14 - processing object(358,612): [19698] com.probuger.login.UpdateBugDev.doGet
+09/18/19 22:25:14 - processing object(359,612): [19701] com.probuger.login.UpdateBugDev.doPost
+09/18/19 22:25:14 - processing object(360,612): [19714] com.probuger.login.UpdateBugTester.serialVersionUID
+09/18/19 22:25:14 - processing object(361,612): [19715] com.probuger.login.UpdateBugTester.UpdateBugTester
+09/18/19 22:25:14 - processing object(362,612): [19717] com.probuger.login.UpdateBugTester.doGet
+09/18/19 22:25:14 - processing object(363,612): [19720] com.probuger.login.UpdateBugTester.doPost
+09/18/19 22:25:14 - processing object(364,612): [19735] com.probuger.servlets.ProjectDetails.serialVersionUID
+09/18/19 22:25:14 - processing object(365,612): [19736] com.probuger.servlets.ProjectDetails.ProjectDetails
+09/18/19 22:25:14 - processing object(366,612): [19738] com.probuger.servlets.ProjectDetails.doGet
+09/18/19 22:25:14 - processing object(367,612): [19741] com.probuger.servlets.ProjectDetails.doPost
+09/18/19 22:25:14 - Exiting Metrics Generator...
+09/18/19 23:06:54 - processing files...
+09/18/19 23:48:35 - processing files...
+09/18/19 23:50:49 - processing object(1,612): [13120] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.pde.core\.cache\clean-cache.properties]
+09/18/19 23:50:49 - processing object(2,612): [13121] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\catalina.properties]
+09/18/19 23:50:49 - processing object(3,612): [13122] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\catalina.properties]
+09/18/19 23:50:49 - processing object(4,612): [13123] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\META-INF\maven\joda-time\joda-time\pom.properties]
+09/18/19 23:50:49 - processing object(5,612): [13124] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages.properties]
+09/18/19 23:50:49 - processing object(6,612): [13125] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_de.properties]
+09/18/19 23:50:49 - processing object(7,612): [13126] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_es.properties]
+09/18/19 23:50:49 - processing object(8,612): [13127] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_fr.properties]
+09/18/19 23:50:49 - processing object(9,612): [13128] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_nl.properties]
+09/18/19 23:50:49 - processing object(10,612): [13129] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_pt.properties]
+09/18/19 23:50:49 - processing object(11,612): [13130] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\META-INF\maven\joda-time\joda-time\pom.properties]
+09/18/19 23:50:49 - processing object(12,612): [13131] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages.properties]
+09/18/19 23:50:49 - processing object(13,612): [13132] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_de.properties]
+09/18/19 23:50:49 - processing object(14,612): [13133] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_es.properties]
+09/18/19 23:50:49 - processing object(15,612): [13134] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_fr.properties]
+09/18/19 23:50:49 - processing object(16,612): [13135] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_nl.properties]
+09/18/19 23:50:49 - processing object(17,612): [13136] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_pt.properties]
+09/18/19 23:50:49 - processing object(18,612): [13137] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\Charsets.properties]
+09/18/19 23:50:49 - processing object(19,612): [13138] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/18/19 23:50:49 - processing object(20,612): [13139] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/18/19 23:50:49 - processing object(21,612): [13140] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/18/19 23:50:49 - processing object(22,612): [13141] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\clusterBase.properties]
+09/18/19 23:50:49 - processing object(23,612): [13142] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\coldFusion.properties]
+09/18/19 23:50:49 - processing object(24,612): [13143] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\fullDebug.properties]
+09/18/19 23:50:49 - processing object(25,612): [13144] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\maxPerformance.properties]
+09/18/19 23:50:49 - processing object(26,612): [13145] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/18/19 23:50:49 - processing object(27,612): [13146] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\Charsets.properties]
+09/18/19 23:50:49 - processing object(28,612): [13147] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/18/19 23:50:49 - processing object(29,612): [13148] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/18/19 23:50:49 - processing object(30,612): [13149] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/18/19 23:50:49 - processing object(31,612): [13150] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\clusterBase.properties]
+09/18/19 23:50:49 - processing object(32,612): [13151] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\coldFusion.properties]
+09/18/19 23:50:49 - processing object(33,612): [13152] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\fullDebug.properties]
+09/18/19 23:50:49 - processing object(34,612): [13153] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\maxPerformance.properties]
+09/18/19 23:50:49 - processing object(35,612): [13154] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/18/19 23:50:49 - processing object(36,612): [13155] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\Login.jsp]
+09/18/19 23:50:49 - processing object(37,612): [13160] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\css\home.jsp]
+09/18/19 23:50:49 - processing object(38,612): [13166] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\home.jsp]
+09/18/19 23:50:49 - processing object(39,612): [13170] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\js\ManagerProject.jsp]
+09/18/19 23:50:49 - processing object(40,612): [13176] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBug.jsp]
+09/18/19 23:50:49 - processing object(41,612): [13182] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBugAjax.jsp]
+09/18/19 23:50:49 - processing object(42,612): [13186] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddProject.jsp]
+09/18/19 23:50:49 - processing object(43,612): [13190] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTask.jsp]
+09/18/19 23:50:49 - processing object(44,612): [13194] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTaskAjax.jsp]
+09/18/19 23:50:49 - processing object(45,612): [13198] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminAccount.jsp]
+09/18/19 23:50:49 - processing object(46,612): [13202] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminHome.jsp]
+09/18/19 23:50:49 - processing object(47,612): [13206] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminManageProject.jsp]
+09/18/19 23:50:49 - processing object(48,612): [13210] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDev.jsp]
+09/18/19 23:50:49 - processing object(49,612): [13214] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevAjax.jsp]
+09/18/19 23:50:49 - processing object(50,612): [13218] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevDetailsAjax.jsp]
+09/18/19 23:50:49 - processing object(51,612): [13222] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTester.jsp]
+09/18/19 23:50:49 - processing object(52,612): [13226] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterAjax.jsp]
+09/18/19 23:50:49 - processing object(53,612): [13230] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/18/19 23:50:49 - processing object(54,612): [13234] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ChangePassword.jsp]
+09/18/19 23:50:49 - processing object(55,612): [13238] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\DeveloperHome.jsp]
+09/18/19 23:50:49 - processing object(56,612): [13242] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListOfDevelopers.jsp]
+09/18/19 23:50:49 - processing object(57,612): [13246] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListProjects.jsp]
+09/18/19 23:50:49 - processing object(58,612): [13250] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\Logout.jsp]
+09/18/19 23:50:49 - processing object(59,612): [13254] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManageAdminAccount.jsp]
+09/18/19 23:50:49 - processing object(60,612): [13258] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerHome.jsp]
+09/18/19 23:50:49 - processing object(61,612): [13262] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerProject.jsp]
+09/18/19 23:50:49 - processing object(62,612): [13266] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccount.jsp]
+09/18/19 23:50:49 - processing object(63,612): [13270] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccountAjax.jsp]
+09/18/19 23:50:49 - processing object(64,612): [13274] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDev.jsp]
+09/18/19 23:50:49 - processing object(65,612): [13278] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDevAjax.jsp]
+09/18/19 23:50:49 - processing object(66,612): [13282] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTester.jsp]
+09/18/19 23:50:49 - processing object(67,612): [13286] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTesterAjax.jsp]
+09/18/19 23:50:49 - processing object(68,612): [13290] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterHome.jsp]
+09/18/19 23:50:49 - processing object(69,612): [13294] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterProject.jsp]
+09/18/19 23:50:49 - processing object(70,612): [13298] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\footer.jsp]
+09/18/19 23:50:49 - processing object(71,612): [13302] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\header.jsp]
+09/18/19 23:50:49 - processing object(72,612): [13306] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\menu.jsp]
+09/18/19 23:50:49 - processing object(73,612): [13310] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\Login.jsp]
+09/18/19 23:50:49 - processing object(74,612): [13315] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\css\home.jsp]
+09/18/19 23:50:49 - processing object(75,612): [13321] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\home.jsp]
+09/18/19 23:50:49 - processing object(76,612): [13325] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\js\ManagerProject.jsp]
+09/18/19 23:50:49 - processing object(77,612): [13331] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBug.jsp]
+09/18/19 23:50:49 - processing object(78,612): [13337] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBugAjax.jsp]
+09/18/19 23:50:49 - processing object(79,612): [13341] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddProject.jsp]
+09/18/19 23:50:49 - processing object(80,612): [13345] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTask.jsp]
+09/18/19 23:50:49 - processing object(81,612): [13349] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTaskAjax.jsp]
+09/18/19 23:50:49 - processing object(82,612): [13353] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminAccount.jsp]
+09/18/19 23:50:49 - processing object(83,612): [13357] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminHome.jsp]
+09/18/19 23:50:49 - processing object(84,612): [13361] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminManageProject.jsp]
+09/18/19 23:50:49 - processing object(85,612): [13365] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDev.jsp]
+09/18/19 23:50:49 - processing object(86,612): [13369] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevAjax.jsp]
+09/18/19 23:50:49 - processing object(87,612): [13373] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevDetailsAjax.jsp]
+09/18/19 23:50:49 - processing object(88,612): [13377] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTester.jsp]
+09/18/19 23:50:49 - processing object(89,612): [13381] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterAjax.jsp]
+09/18/19 23:50:49 - processing object(90,612): [13385] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/18/19 23:50:49 - processing object(91,612): [13389] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ChangePassword.jsp]
+09/18/19 23:50:49 - processing object(92,612): [13393] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\DeveloperHome.jsp]
+09/18/19 23:50:49 - processing object(93,612): [13397] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListOfDevelopers.jsp]
+09/18/19 23:50:49 - processing object(94,612): [13401] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListProjects.jsp]
+09/18/19 23:50:49 - processing object(95,612): [13405] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\Logout.jsp]
+09/18/19 23:50:49 - processing object(96,612): [13409] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManageAdminAccount.jsp]
+09/18/19 23:50:49 - processing object(97,612): [13413] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerHome.jsp]
+09/18/19 23:50:49 - processing object(98,612): [13417] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerProject.jsp]
+09/18/19 23:50:49 - processing object(99,612): [13421] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccount.jsp]
+09/18/19 23:50:49 - processing object(100,612): [13425] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccountAjax.jsp]
+09/18/19 23:50:49 - processing object(101,612): [13429] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDev.jsp]
+09/18/19 23:50:49 - processing object(102,612): [13433] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDevAjax.jsp]
+09/18/19 23:50:49 - processing object(103,612): [13437] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTester.jsp]
+09/18/19 23:50:49 - processing object(104,612): [13441] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTesterAjax.jsp]
+09/18/19 23:50:49 - processing object(105,612): [13445] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterHome.jsp]
+09/18/19 23:50:49 - processing object(106,612): [13449] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterProject.jsp]
+09/18/19 23:50:49 - processing object(107,612): [13453] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\footer.jsp]
+09/18/19 23:50:49 - processing object(108,612): [13457] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\header.jsp]
+09/18/19 23:50:49 - processing object(109,612): [13461] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\menu.jsp]
+09/18/19 23:50:49 - processing object(110,612): [16910] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\web.xml]
+09/18/19 23:50:49 - processing object(111,612): [16911] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\web.xml]
+09/18/19 23:50:49 - processing object(112,612): [16914] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\web.xml]
+09/18/19 23:50:49 - processing object(113,612): [16917] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT\WEB-INF\web.xml]
+09/18/19 23:50:49 - processing object(119,612): [19033] org.apache.jsp.Login_jsp._jspxFactory
+09/18/19 23:50:49 - processing object(120,612): [19035] org.apache.jsp.Login_jsp._jspx_dependants
+09/18/19 23:50:49 - processing object(121,612): [19036] org.apache.jsp.Login_jsp.{(18:3)}
+09/18/19 23:50:49 - processing object(122,612): [19038] org.apache.jsp.Login_jsp._el_expressionfactory
+09/18/19 23:50:49 - processing object(123,612): [19040] org.apache.jsp.Login_jsp._jsp_instancemanager
+09/18/19 23:50:49 - processing object(124,612): [19041] org.apache.jsp.Login_jsp.getDependants
+09/18/19 23:50:49 - processing object(125,612): [19042] org.apache.jsp.Login_jsp._jspInit
+09/18/19 23:50:49 - processing object(126,612): [19043] org.apache.jsp.Login_jsp._jspDestroy
+09/18/19 23:50:49 - processing object(127,612): [19044] org.apache.jsp.Login_jsp._jspService
+09/18/19 23:50:49 - processing object(128,612): [19047] org.apache.jsp.Login_jsp.Login_jsp
+09/18/19 23:50:49 - processing object(129,612): [19058] com.probuger.bean.AddProject.projectId
+09/18/19 23:50:49 - processing object(130,612): [19060] com.probuger.bean.AddProject.projectName
+09/18/19 23:50:49 - processing object(131,612): [19062] com.probuger.bean.AddProject.startDate
+09/18/19 23:50:49 - processing object(132,612): [19064] com.probuger.bean.AddProject.endDate
+09/18/19 23:50:49 - processing object(133,612): [19066] com.probuger.bean.AddProject.managerId
+09/18/19 23:50:49 - processing object(134,612): [19068] com.probuger.bean.AddProject.NoOfDevloper
+09/18/19 23:50:49 - processing object(135,612): [19070] com.probuger.bean.AddProject.NoOfTester
+09/18/19 23:50:49 - processing object(136,612): [19071] com.probuger.bean.AddProject.getProjectId
+09/18/19 23:50:49 - processing object(137,612): [19072] com.probuger.bean.AddProject.setProjectId
+09/18/19 23:50:49 - processing object(138,612): [19074] com.probuger.bean.AddProject.getProjectName
+09/18/19 23:50:49 - processing object(139,612): [19075] com.probuger.bean.AddProject.setProjectName
+09/18/19 23:50:49 - processing object(140,612): [19077] com.probuger.bean.AddProject.getStartDate
+09/18/19 23:50:49 - processing object(141,612): [19078] com.probuger.bean.AddProject.setStartDate
+09/18/19 23:50:49 - processing object(142,612): [19080] com.probuger.bean.AddProject.getEndDate
+09/18/19 23:50:49 - processing object(143,612): [19081] com.probuger.bean.AddProject.setEndDate
+09/18/19 23:50:49 - processing object(144,612): [19083] com.probuger.bean.AddProject.getManagerId
+09/18/19 23:50:49 - processing object(145,612): [19084] com.probuger.bean.AddProject.setManagerId
+09/18/19 23:50:49 - processing object(146,612): [19086] com.probuger.bean.AddProject.getNoOfDevloper
+09/18/19 23:50:49 - processing object(147,612): [19087] com.probuger.bean.AddProject.setNoOfDevloper
+09/18/19 23:50:49 - processing object(148,612): [19089] com.probuger.bean.AddProject.getNoOfTester
+09/18/19 23:50:49 - processing object(149,612): [19090] com.probuger.bean.AddProject.setNoOfTester
+09/18/19 23:50:49 - processing object(150,612): [19092] com.probuger.bean.AddProject.AddProject
+09/18/19 23:50:49 - processing object(151,612): [19099] com.probuger.bean.BugDetails.bugId
+09/18/19 23:50:49 - processing object(152,612): [19101] com.probuger.bean.BugDetails.bugDetails
+09/18/19 23:50:49 - processing object(153,612): [19103] com.probuger.bean.BugDetails.taskId
+09/18/19 23:50:49 - processing object(154,612): [19105] com.probuger.bean.BugDetails.projectId
+09/18/19 23:50:49 - processing object(155,612): [19107] com.probuger.bean.BugDetails.testerId
+09/18/19 23:50:49 - processing object(156,612): [19109] com.probuger.bean.BugDetails.statusIs
+09/18/19 23:50:49 - processing object(157,612): [19111] com.probuger.bean.BugDetails.devId
+09/18/19 23:50:49 - processing object(158,612): [19113] com.probuger.bean.BugDetails.remark
+09/18/19 23:50:49 - processing object(159,612): [19115] com.probuger.bean.BugDetails.fixApplied
+09/18/19 23:50:49 - processing object(160,612): [19117] com.probuger.bean.BugDetails.codeSnippet
+09/18/19 23:50:49 - processing object(161,612): [19119] com.probuger.bean.BugDetails.temp
+09/18/19 23:50:49 - processing object(162,612): [19120] com.probuger.bean.BugDetails.getBugId
+09/18/19 23:50:49 - processing object(163,612): [19121] com.probuger.bean.BugDetails.setBugId
+09/18/19 23:50:49 - processing object(164,612): [19123] com.probuger.bean.BugDetails.getBugDetails
+09/18/19 23:50:49 - processing object(165,612): [19124] com.probuger.bean.BugDetails.setBugDetails
+09/18/19 23:50:49 - processing object(166,612): [19126] com.probuger.bean.BugDetails.getTaskId
+09/18/19 23:50:49 - processing object(167,612): [19127] com.probuger.bean.BugDetails.setTaskId
+09/18/19 23:50:49 - processing object(168,612): [19129] com.probuger.bean.BugDetails.getProjectId
+09/18/19 23:50:49 - processing object(169,612): [19130] com.probuger.bean.BugDetails.setProjectId
+09/18/19 23:50:49 - processing object(170,612): [19132] com.probuger.bean.BugDetails.getTesterId
+09/18/19 23:50:49 - processing object(171,612): [19133] com.probuger.bean.BugDetails.setTesterId
+09/18/19 23:50:49 - processing object(172,612): [19135] com.probuger.bean.BugDetails.getStatusIs
+09/18/19 23:50:49 - processing object(173,612): [19136] com.probuger.bean.BugDetails.setStatusIs
+09/18/19 23:50:49 - processing object(174,612): [19138] com.probuger.bean.BugDetails.getDevId
+09/18/19 23:50:49 - processing object(175,612): [19139] com.probuger.bean.BugDetails.setDevId
+09/18/19 23:50:49 - processing object(176,612): [19141] com.probuger.bean.BugDetails.getRemark
+09/18/19 23:50:49 - processing object(177,612): [19142] com.probuger.bean.BugDetails.setRemark
+09/18/19 23:50:49 - processing object(178,612): [19144] com.probuger.bean.BugDetails.getFixApplied
+09/18/19 23:50:49 - processing object(179,612): [19145] com.probuger.bean.BugDetails.setFixApplied
+09/18/19 23:50:49 - processing object(180,612): [19147] com.probuger.bean.BugDetails.getCodeSnippet
+09/18/19 23:50:49 - processing object(181,612): [19148] com.probuger.bean.BugDetails.setCodeSnippet
+09/18/19 23:50:49 - processing object(182,612): [19150] com.probuger.bean.BugDetails.getTemp
+09/18/19 23:50:49 - processing object(183,612): [19151] com.probuger.bean.BugDetails.setTemp
+09/18/19 23:50:49 - processing object(184,612): [19153] com.probuger.bean.BugDetails.BugDetails
+09/18/19 23:50:49 - processing object(185,612): [19160] com.probuger.bean.NewAccount.id
+09/18/19 23:50:49 - processing object(186,612): [19162] com.probuger.bean.NewAccount.userName
+09/18/19 23:50:49 - processing object(187,612): [19164] com.probuger.bean.NewAccount.loginId
+09/18/19 23:50:49 - processing object(188,612): [19166] com.probuger.bean.NewAccount.password
+09/18/19 23:50:49 - processing object(189,612): [19168] com.probuger.bean.NewAccount.email
+09/18/19 23:50:49 - processing object(190,612): [19170] com.probuger.bean.NewAccount.role
+09/18/19 23:50:49 - processing object(191,612): [19172] com.probuger.bean.NewAccount.managerId
+09/18/19 23:50:49 - processing object(192,612): [19173] com.probuger.bean.NewAccount.getId
+09/18/19 23:50:49 - processing object(193,612): [19174] com.probuger.bean.NewAccount.setId
+09/18/19 23:50:49 - processing object(194,612): [19176] com.probuger.bean.NewAccount.getUserName
+09/18/19 23:50:49 - processing object(195,612): [19177] com.probuger.bean.NewAccount.setUserName
+09/18/19 23:50:49 - processing object(196,612): [19179] com.probuger.bean.NewAccount.getLoginId
+09/18/19 23:50:49 - processing object(197,612): [19180] com.probuger.bean.NewAccount.setLoginId
+09/18/19 23:50:49 - processing object(198,612): [19182] com.probuger.bean.NewAccount.getPassword
+09/18/19 23:50:49 - processing object(199,612): [19183] com.probuger.bean.NewAccount.setPassword
+09/18/19 23:50:49 - processing object(200,612): [19185] com.probuger.bean.NewAccount.getEmail
+09/18/19 23:50:49 - processing object(201,612): [19186] com.probuger.bean.NewAccount.setEmail
+09/18/19 23:50:49 - processing object(202,612): [19188] com.probuger.bean.NewAccount.getRole
+09/18/19 23:50:49 - processing object(203,612): [19189] com.probuger.bean.NewAccount.setRole
+09/18/19 23:50:49 - processing object(204,612): [19191] com.probuger.bean.NewAccount.getManagerId
+09/18/19 23:50:49 - processing object(205,612): [19192] com.probuger.bean.NewAccount.setManagerId
+09/18/19 23:50:49 - processing object(206,612): [19194] com.probuger.bean.NewAccount.NewAccount
+09/18/19 23:50:49 - processing object(207,612): [19201] com.probuger.bean.ProjectTask.taskId
+09/18/19 23:50:49 - processing object(208,612): [19203] com.probuger.bean.ProjectTask.projectId
+09/18/19 23:50:49 - processing object(209,612): [19205] com.probuger.bean.ProjectTask.taskDetails
+09/18/19 23:50:49 - processing object(210,612): [19207] com.probuger.bean.ProjectTask.taskStartDate
+09/18/19 23:50:49 - processing object(211,612): [19209] com.probuger.bean.ProjectTask.taskEndDate
+09/18/19 23:50:49 - processing object(212,612): [19211] com.probuger.bean.ProjectTask.devId
+09/18/19 23:50:49 - processing object(213,612): [19213] com.probuger.bean.ProjectTask.testerId
+09/18/19 23:50:49 - processing object(214,612): [19215] com.probuger.bean.ProjectTask.statusCurrent
+09/18/19 23:50:49 - processing object(215,612): [19217] com.probuger.bean.ProjectTask.temp
+09/18/19 23:50:49 - processing object(216,612): [19218] com.probuger.bean.ProjectTask.getTaskId
+09/18/19 23:50:49 - processing object(217,612): [19219] com.probuger.bean.ProjectTask.setTaskId
+09/18/19 23:50:49 - processing object(218,612): [19221] com.probuger.bean.ProjectTask.getProjectId
+09/18/19 23:50:49 - processing object(219,612): [19222] com.probuger.bean.ProjectTask.setProjectId
+09/18/19 23:50:49 - processing object(220,612): [19224] com.probuger.bean.ProjectTask.getTaskDetails
+09/18/19 23:50:49 - processing object(221,612): [19225] com.probuger.bean.ProjectTask.setTaskDetails
+09/18/19 23:50:49 - processing object(222,612): [19227] com.probuger.bean.ProjectTask.getTaskStartDate
+09/18/19 23:50:49 - processing object(223,612): [19228] com.probuger.bean.ProjectTask.setTaskStartDate
+09/18/19 23:50:49 - processing object(224,612): [19230] com.probuger.bean.ProjectTask.getTaskEndDate
+09/18/19 23:50:49 - processing object(225,612): [19231] com.probuger.bean.ProjectTask.setTaskEndDate
+09/18/19 23:50:49 - processing object(226,612): [19233] com.probuger.bean.ProjectTask.getDevId
+09/18/19 23:50:49 - processing object(227,612): [19234] com.probuger.bean.ProjectTask.setDevId
+09/18/19 23:50:49 - processing object(228,612): [19236] com.probuger.bean.ProjectTask.getTesterId
+09/18/19 23:50:49 - processing object(229,612): [19237] com.probuger.bean.ProjectTask.setTesterId
+09/18/19 23:50:49 - processing object(230,612): [19239] com.probuger.bean.ProjectTask.getStatusCurrent
+09/18/19 23:50:49 - processing object(231,612): [19240] com.probuger.bean.ProjectTask.setStatusCurrent
+09/18/19 23:50:50 - processing object(232,612): [19242] com.probuger.bean.ProjectTask.getTemp
+09/18/19 23:50:50 - processing object(233,612): [19243] com.probuger.bean.ProjectTask.setTemp
+09/18/19 23:50:50 - processing object(234,612): [19245] com.probuger.bean.ProjectTask.ProjectTask
+09/18/19 23:50:50 - processing object(235,612): [19252] com.probuger.bean.Register.id
+09/18/19 23:50:50 - processing object(236,612): [19254] com.probuger.bean.Register.userName
+09/18/19 23:50:50 - processing object(237,612): [19256] com.probuger.bean.Register.loginId
+09/18/19 23:50:50 - processing object(238,612): [19258] com.probuger.bean.Register.password
+09/18/19 23:50:50 - processing object(239,612): [19260] com.probuger.bean.Register.email
+09/18/19 23:50:50 - processing object(240,612): [19262] com.probuger.bean.Register.role
+09/18/19 23:50:50 - processing object(241,612): [19264] com.probuger.bean.Register.managerId
+09/18/19 23:50:50 - processing object(242,612): [19265] com.probuger.bean.Register.getId
+09/18/19 23:50:50 - processing object(243,612): [19266] com.probuger.bean.Register.setId
+09/18/19 23:50:50 - processing object(244,612): [19268] com.probuger.bean.Register.getUserName
+09/18/19 23:50:50 - processing object(245,612): [19269] com.probuger.bean.Register.setUserName
+09/18/19 23:50:50 - processing object(246,612): [19271] com.probuger.bean.Register.getLoginId
+09/18/19 23:50:50 - processing object(247,612): [19272] com.probuger.bean.Register.setLoginId
+09/18/19 23:50:50 - processing object(248,612): [19274] com.probuger.bean.Register.getPassword
+09/18/19 23:50:50 - processing object(249,612): [19275] com.probuger.bean.Register.setPassword
+09/18/19 23:50:50 - processing object(250,612): [19277] com.probuger.bean.Register.getEmail
+09/18/19 23:50:50 - processing object(251,612): [19278] com.probuger.bean.Register.setEmail
+09/18/19 23:50:50 - processing object(252,612): [19280] com.probuger.bean.Register.getRole
+09/18/19 23:50:50 - processing object(253,612): [19281] com.probuger.bean.Register.setRole
+09/18/19 23:50:50 - processing object(254,612): [19283] com.probuger.bean.Register.getManagerId
+09/18/19 23:50:50 - processing object(255,612): [19284] com.probuger.bean.Register.setManagerId
+09/18/19 23:50:50 - processing object(256,612): [19286] com.probuger.bean.Register.Register
+09/18/19 23:50:50 - processing object(257,612): [19293] com.probuger.bean.Role.id
+09/18/19 23:50:50 - processing object(258,612): [19295] com.probuger.bean.Role.roleName
+09/18/19 23:50:50 - processing object(259,612): [19297] com.probuger.bean.Role.roleDesc
+09/18/19 23:50:50 - processing object(260,612): [19298] com.probuger.bean.Role.getId
+09/18/19 23:50:50 - processing object(261,612): [19299] com.probuger.bean.Role.setId
+09/18/19 23:50:50 - processing object(262,612): [19301] com.probuger.bean.Role.getRoleName
+09/18/19 23:50:50 - processing object(263,612): [19302] com.probuger.bean.Role.setRoleName
+09/18/19 23:50:50 - processing object(264,612): [19304] com.probuger.bean.Role.getRoleDesc
+09/18/19 23:50:50 - processing object(265,612): [19305] com.probuger.bean.Role.setRoleDesc
+09/18/19 23:50:50 - processing object(266,612): [19307] com.probuger.bean.Role.Role
+09/18/19 23:50:50 - processing object(267,612): [19314] com.probuger.bean.Status.id
+09/18/19 23:50:50 - processing object(268,612): [19316] com.probuger.bean.Status.status
+09/18/19 23:50:50 - processing object(269,612): [19317] com.probuger.bean.Status.getId
+09/18/19 23:50:50 - processing object(270,612): [19318] com.probuger.bean.Status.setId
+09/18/19 23:50:50 - processing object(271,612): [19320] com.probuger.bean.Status.getStatus
+09/18/19 23:50:50 - processing object(272,612): [19321] com.probuger.bean.Status.setStatus
+09/18/19 23:50:50 - processing object(273,612): [19323] com.probuger.bean.Status.Status
+09/18/19 23:50:50 - processing object(274,612): [19337] com.probuger.dao.BugDetailsDao.getDevBugList
+09/18/19 23:50:50 - processing object(275,612): [19340] com.probuger.dao.BugDetailsDao.getTesterBugList
+09/18/19 23:50:50 - processing object(276,612): [19343] com.probuger.dao.BugDetailsDao.getDevBugTaskDetails
+09/18/19 23:50:50 - processing object(277,612): [19345] com.probuger.dao.BugDetailsDao.getBugOldDetails
+09/18/19 23:50:50 - processing object(278,612): [19347] com.probuger.dao.BugDetailsDao.getOverdueBugList
+09/18/19 23:50:50 - processing object(279,612): [19350] com.probuger.dao.BugDetailsDao.BugDetailsDao
+09/18/19 23:50:50 - processing object(280,612): [19361] com.probuger.dao.NewAccountDao.getRoleList
+09/18/19 23:50:50 - processing object(281,612): [19362] com.probuger.dao.NewAccountDao.getManagerList
+09/18/19 23:50:50 - processing object(282,612): [19363] com.probuger.dao.NewAccountDao.getDeveloperList
+09/18/19 23:50:50 - processing object(283,612): [19364] com.probuger.dao.NewAccountDao.getTesterList
+09/18/19 23:50:50 - processing object(284,612): [19365] com.probuger.dao.NewAccountDao.getMyDetails
+09/18/19 23:50:50 - processing object(285,612): [19367] com.probuger.dao.NewAccountDao.getRoleName
+09/18/19 23:50:50 - processing object(286,612): [19369] com.probuger.dao.NewAccountDao.getManagerName
+09/18/19 23:50:50 - processing object(287,612): [19371] com.probuger.dao.NewAccountDao.NewAccountDao
+09/18/19 23:50:50 - processing object(288,612): [19381] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/18/19 23:50:50 - processing object(289,612): [19383] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/18/19 23:50:50 - processing object(290,612): [19384] com.probuger.dao.ProjectDetailsDao.getDeveloperList
+09/18/19 23:50:50 - processing object(291,612): [19386] com.probuger.dao.ProjectDetailsDao.getTesterList
+09/18/19 23:50:50 - processing object(292,612): [19388] com.probuger.dao.ProjectDetailsDao.getProjectOfUser
+09/18/19 23:50:50 - processing object(293,612): [19390] com.probuger.dao.ProjectDetailsDao.ProjectDetailsDao
+09/18/19 23:50:50 - processing object(294,612): [19401] com.probuger.dao.StatusDao.getStatusList
+09/18/19 23:50:50 - processing object(295,612): [19403] com.probuger.dao.StatusDao.StatusDao
+09/18/19 23:50:50 - processing object(296,612): [19415] com.probuger.dao.TaskDetailsDao.getTaskList
+09/18/19 23:50:50 - processing object(297,612): [19418] com.probuger.dao.TaskDetailsDao.getTaskTesterList
+09/18/19 23:50:50 - processing object(298,612): [19421] com.probuger.dao.TaskDetailsDao.getTaskListTestingInProgress
+09/18/19 23:50:50 - processing object(299,612): [19424] com.probuger.dao.TaskDetailsDao.getOverdueTaskList
+09/18/19 23:50:50 - processing object(300,612): [19427] com.probuger.dao.TaskDetailsDao.getTaskDetails
+09/18/19 23:50:50 - processing object(301,612): [19429] com.probuger.dao.TaskDetailsDao.TaskDetailsDao
+09/18/19 23:50:50 - processing object(302,612): [19442] com.probuger.login.AddBug.serialVersionUID
+09/18/19 23:50:50 - processing object(303,612): [19443] com.probuger.login.AddBug.AddBug
+09/18/19 23:50:50 - processing object(304,612): [19445] com.probuger.login.AddBug.doGet
+09/18/19 23:50:50 - processing object(305,612): [19448] com.probuger.login.AddBug.doPost
+09/18/19 23:50:50 - processing object(306,612): [19465] com.probuger.login.ChangePassword.serialVersionUID
+09/18/19 23:50:50 - processing object(307,612): [19466] com.probuger.login.ChangePassword.ChangePassword
+09/18/19 23:50:50 - processing object(308,612): [19468] com.probuger.login.ChangePassword.doGet
+09/18/19 23:50:50 - processing object(309,612): [19471] com.probuger.login.ChangePassword.doPost
+09/18/19 23:50:50 - processing object(310,612): [19485] com.probuger.login.DBConnector.con
+09/18/19 23:50:50 - processing object(311,612): [19487] com.probuger.login.DBConnector.st
+09/18/19 23:50:50 - processing object(312,612): [19489] com.probuger.login.DBConnector.rs
+09/18/19 23:50:50 - processing object(313,612): [19491] com.probuger.login.DBConnector.url
+09/18/19 23:50:50 - processing object(314,612): [19493] com.probuger.login.DBConnector.JDBC_DRIVER
+09/18/19 23:50:50 - processing object(315,612): [19495] com.probuger.login.DBConnector.user
+09/18/19 23:50:50 - processing object(316,612): [19497] com.probuger.login.DBConnector.password
+09/18/19 23:50:50 - processing object(317,612): [19499] com.probuger.login.DBConnector.query
+09/18/19 23:50:50 - processing object(318,612): [19501] com.probuger.login.DBConnector.count
+09/18/19 23:50:50 - processing object(319,612): [19502] com.probuger.login.DBConnector.getConnection
+09/18/19 23:50:50 - processing object(320,612): [19503] com.probuger.login.DBConnector.insert
+09/18/19 23:50:50 - processing object(321,612): [19507] com.probuger.login.DBConnector.insertReturnKey
+09/18/19 23:50:50 - processing object(322,612): [19511] com.probuger.login.DBConnector.select
+09/18/19 23:50:50 - processing object(323,612): [19515] com.probuger.login.DBConnector.delete
+09/18/19 23:50:50 - processing object(324,612): [19518] com.probuger.login.DBConnector.update
+09/18/19 23:50:50 - processing object(325,612): [19522] com.probuger.login.DBConnector.DBConnector
+09/18/19 23:50:50 - processing object(326,612): [19538] com.probuger.login.EditAccount.serialVersionUID
+09/18/19 23:50:50 - processing object(327,612): [19539] com.probuger.login.EditAccount.EditAccount
+09/18/19 23:50:50 - processing object(328,612): [19541] com.probuger.login.EditAccount.doGet
+09/18/19 23:50:50 - processing object(329,612): [19544] com.probuger.login.EditAccount.doPost
+09/18/19 23:50:50 - processing object(330,612): [19563] com.probuger.login.LoginController.serialVersionUID
+09/18/19 23:50:50 - processing object(331,612): [19565] com.probuger.login.LoginController.userName
+09/18/19 23:50:50 - processing object(332,612): [19567] com.probuger.login.LoginController.password
+09/18/19 23:50:50 - processing object(333,612): [19568] com.probuger.login.LoginController.LoginController
+09/18/19 23:50:50 - processing object(334,612): [19570] com.probuger.login.LoginController.doGet
+09/18/19 23:50:50 - processing object(335,612): [19573] com.probuger.login.LoginController.doPost
+09/18/19 23:50:50 - processing object(336,612): [19587] com.probuger.login.LogoutController.serialVersionUID
+09/18/19 23:50:50 - processing object(337,612): [19588] com.probuger.login.LogoutController.LogoutController
+09/18/19 23:50:50 - processing object(338,612): [19590] com.probuger.login.LogoutController.doGet
+09/18/19 23:50:50 - processing object(339,612): [19593] com.probuger.login.LogoutController.doPost
+09/18/19 23:50:50 - processing object(340,612): [19611] com.probuger.login.NewAccountAdd.serialVersionUID
+09/18/19 23:50:50 - processing object(341,612): [19612] com.probuger.login.NewAccountAdd.NewAccountAdd
+09/18/19 23:50:50 - processing object(342,612): [19614] com.probuger.login.NewAccountAdd.doGet
+09/18/19 23:50:50 - processing object(343,612): [19617] com.probuger.login.NewAccountAdd.doPost
+09/18/19 23:50:50 - processing object(344,612): [19638] com.probuger.login.NewProjectAdd.serialVersionUID
+09/18/19 23:50:50 - processing object(345,612): [19639] com.probuger.login.NewProjectAdd.NewProjectAdd
+09/18/19 23:50:50 - processing object(346,612): [19641] com.probuger.login.NewProjectAdd.doGet
+09/18/19 23:50:50 - processing object(347,612): [19644] com.probuger.login.NewProjectAdd.doPost
+09/18/19 23:50:50 - processing object(348,612): [19656] com.probuger.login.NewTaskAdd.serialVersionUID
+09/18/19 23:50:50 - processing object(349,612): [19657] com.probuger.login.NewTaskAdd.NewTaskAdd
+09/18/19 23:50:50 - processing object(350,612): [19659] com.probuger.login.NewTaskAdd.doGet
+09/18/19 23:50:50 - processing object(351,612): [19662] com.probuger.login.NewTaskAdd.doPost
+09/18/19 23:50:50 - processing object(352,612): [19676] com.probuger.login.TaskStatus.serialVersionUID
+09/18/19 23:50:50 - processing object(353,612): [19677] com.probuger.login.TaskStatus.TaskStatus
+09/18/19 23:50:50 - processing object(354,612): [19679] com.probuger.login.TaskStatus.doGet
+09/18/19 23:50:50 - processing object(355,612): [19682] com.probuger.login.TaskStatus.doPost
+09/18/19 23:50:50 - processing object(356,612): [19695] com.probuger.login.UpdateBugDev.serialVersionUID
+09/18/19 23:50:50 - processing object(357,612): [19696] com.probuger.login.UpdateBugDev.UpdateBugDev
+09/18/19 23:50:50 - processing object(358,612): [19698] com.probuger.login.UpdateBugDev.doGet
+09/18/19 23:50:50 - processing object(359,612): [19701] com.probuger.login.UpdateBugDev.doPost
+09/18/19 23:50:50 - processing object(360,612): [19714] com.probuger.login.UpdateBugTester.serialVersionUID
+09/18/19 23:50:50 - processing object(361,612): [19715] com.probuger.login.UpdateBugTester.UpdateBugTester
+09/18/19 23:50:50 - processing object(362,612): [19717] com.probuger.login.UpdateBugTester.doGet
+09/18/19 23:50:50 - processing object(363,612): [19720] com.probuger.login.UpdateBugTester.doPost
+09/18/19 23:50:50 - processing object(364,612): [19735] com.probuger.servlets.ProjectDetails.serialVersionUID
+09/18/19 23:50:50 - processing object(365,612): [19736] com.probuger.servlets.ProjectDetails.ProjectDetails
+09/18/19 23:50:50 - processing object(366,612): [19738] com.probuger.servlets.ProjectDetails.doGet
+09/18/19 23:50:50 - processing object(367,612): [19741] com.probuger.servlets.ProjectDetails.doPost
+09/18/19 23:50:50 - Exiting Metrics Generator...
+09/19/19 10:30:23 - processing files...
+09/19/19 10:32:59 - processing object(1,612): [13120] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.pde.core\.cache\clean-cache.properties]
+09/19/19 10:32:59 - processing object(2,612): [13121] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\catalina.properties]
+09/19/19 10:32:59 - processing object(3,612): [13122] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\catalina.properties]
+09/19/19 10:32:59 - processing object(4,612): [13123] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\META-INF\maven\joda-time\joda-time\pom.properties]
+09/19/19 10:32:59 - processing object(5,612): [13124] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages.properties]
+09/19/19 10:32:59 - processing object(6,612): [13125] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_de.properties]
+09/19/19 10:32:59 - processing object(7,612): [13126] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_es.properties]
+09/19/19 10:32:59 - processing object(8,612): [13127] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_fr.properties]
+09/19/19 10:32:59 - processing object(9,612): [13128] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_nl.properties]
+09/19/19 10:32:59 - processing object(10,612): [13129] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_pt.properties]
+09/19/19 10:32:59 - processing object(11,612): [13130] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\META-INF\maven\joda-time\joda-time\pom.properties]
+09/19/19 10:32:59 - processing object(12,612): [13131] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages.properties]
+09/19/19 10:32:59 - processing object(13,612): [13132] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_de.properties]
+09/19/19 10:32:59 - processing object(14,612): [13133] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_es.properties]
+09/19/19 10:32:59 - processing object(15,612): [13134] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_fr.properties]
+09/19/19 10:32:59 - processing object(16,612): [13135] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_nl.properties]
+09/19/19 10:32:59 - processing object(17,612): [13136] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_pt.properties]
+09/19/19 10:32:59 - processing object(18,612): [13137] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\Charsets.properties]
+09/19/19 10:32:59 - processing object(19,612): [13138] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/19/19 10:32:59 - processing object(20,612): [13139] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/19/19 10:32:59 - processing object(21,612): [13140] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/19/19 10:32:59 - processing object(22,612): [13141] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\clusterBase.properties]
+09/19/19 10:32:59 - processing object(23,612): [13142] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\coldFusion.properties]
+09/19/19 10:32:59 - processing object(24,612): [13143] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\fullDebug.properties]
+09/19/19 10:32:59 - processing object(25,612): [13144] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\maxPerformance.properties]
+09/19/19 10:32:59 - processing object(26,612): [13145] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/19/19 10:32:59 - processing object(27,612): [13146] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\Charsets.properties]
+09/19/19 10:32:59 - processing object(28,612): [13147] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\LocalizedErrorMessages.properties]
+09/19/19 10:32:59 - processing object(29,612): [13148] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\3-0-Compat.properties]
+09/19/19 10:32:59 - processing object(30,612): [13149] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\5-0-Compat.properties]
+09/19/19 10:32:59 - processing object(31,612): [13150] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\clusterBase.properties]
+09/19/19 10:32:59 - processing object(32,612): [13151] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\coldFusion.properties]
+09/19/19 10:32:59 - processing object(33,612): [13152] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\fullDebug.properties]
+09/19/19 10:32:59 - processing object(34,612): [13153] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\maxPerformance.properties]
+09/19/19 10:32:59 - processing object(35,612): [13154] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\solarisMaxPerformance.properties]
+09/19/19 10:32:59 - processing object(36,612): [13155] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\Login.jsp]
+09/19/19 10:32:59 - processing object(37,612): [13160] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\css\home.jsp]
+09/19/19 10:32:59 - processing object(38,612): [13166] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\home.jsp]
+09/19/19 10:32:59 - processing object(39,612): [13170] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\js\ManagerProject.jsp]
+09/19/19 10:32:59 - processing object(40,612): [13176] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBug.jsp]
+09/19/19 10:32:59 - processing object(41,612): [13182] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBugAjax.jsp]
+09/19/19 10:32:59 - processing object(42,612): [13186] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddProject.jsp]
+09/19/19 10:32:59 - processing object(43,612): [13190] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTask.jsp]
+09/19/19 10:32:59 - processing object(44,612): [13194] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTaskAjax.jsp]
+09/19/19 10:32:59 - processing object(45,612): [13198] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminAccount.jsp]
+09/19/19 10:32:59 - processing object(46,612): [13202] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminHome.jsp]
+09/19/19 10:32:59 - processing object(47,612): [13206] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminManageProject.jsp]
+09/19/19 10:32:59 - processing object(48,612): [13210] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDev.jsp]
+09/19/19 10:32:59 - processing object(49,612): [13214] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevAjax.jsp]
+09/19/19 10:32:59 - processing object(50,612): [13218] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevDetailsAjax.jsp]
+09/19/19 10:32:59 - processing object(51,612): [13222] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTester.jsp]
+09/19/19 10:32:59 - processing object(52,612): [13226] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterAjax.jsp]
+09/19/19 10:32:59 - processing object(53,612): [13230] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/19/19 10:32:59 - processing object(54,612): [13234] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ChangePassword.jsp]
+09/19/19 10:32:59 - processing object(55,612): [13238] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\DeveloperHome.jsp]
+09/19/19 10:32:59 - processing object(56,612): [13242] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListOfDevelopers.jsp]
+09/19/19 10:32:59 - processing object(57,612): [13246] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListProjects.jsp]
+09/19/19 10:32:59 - processing object(58,612): [13250] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\Logout.jsp]
+09/19/19 10:32:59 - processing object(59,612): [13254] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManageAdminAccount.jsp]
+09/19/19 10:32:59 - processing object(60,612): [13258] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerHome.jsp]
+09/19/19 10:32:59 - processing object(61,612): [13262] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerProject.jsp]
+09/19/19 10:32:59 - processing object(62,612): [13266] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccount.jsp]
+09/19/19 10:32:59 - processing object(63,612): [13270] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccountAjax.jsp]
+09/19/19 10:32:59 - processing object(64,612): [13274] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDev.jsp]
+09/19/19 10:32:59 - processing object(65,612): [13278] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDevAjax.jsp]
+09/19/19 10:32:59 - processing object(66,612): [13282] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTester.jsp]
+09/19/19 10:32:59 - processing object(67,612): [13286] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTesterAjax.jsp]
+09/19/19 10:32:59 - processing object(68,612): [13290] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterHome.jsp]
+09/19/19 10:32:59 - processing object(69,612): [13294] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterProject.jsp]
+09/19/19 10:32:59 - processing object(70,612): [13298] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\footer.jsp]
+09/19/19 10:32:59 - processing object(71,612): [13302] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\header.jsp]
+09/19/19 10:32:59 - processing object(72,612): [13306] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\menu.jsp]
+09/19/19 10:32:59 - processing object(73,612): [13310] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\Login.jsp]
+09/19/19 10:32:59 - processing object(74,612): [13315] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\css\home.jsp]
+09/19/19 10:32:59 - processing object(75,612): [13321] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\home.jsp]
+09/19/19 10:32:59 - processing object(76,612): [13325] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\js\ManagerProject.jsp]
+09/19/19 10:32:59 - processing object(77,612): [13331] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBug.jsp]
+09/19/19 10:32:59 - processing object(78,612): [13337] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBugAjax.jsp]
+09/19/19 10:32:59 - processing object(79,612): [13341] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddProject.jsp]
+09/19/19 10:32:59 - processing object(80,612): [13345] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTask.jsp]
+09/19/19 10:32:59 - processing object(81,612): [13349] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTaskAjax.jsp]
+09/19/19 10:32:59 - processing object(82,612): [13353] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminAccount.jsp]
+09/19/19 10:32:59 - processing object(83,612): [13357] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminHome.jsp]
+09/19/19 10:32:59 - processing object(84,612): [13361] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminManageProject.jsp]
+09/19/19 10:32:59 - processing object(85,612): [13365] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDev.jsp]
+09/19/19 10:32:59 - processing object(86,612): [13369] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevAjax.jsp]
+09/19/19 10:32:59 - processing object(87,612): [13373] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevDetailsAjax.jsp]
+09/19/19 10:32:59 - processing object(88,612): [13377] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTester.jsp]
+09/19/19 10:32:59 - processing object(89,612): [13381] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterAjax.jsp]
+09/19/19 10:32:59 - processing object(90,612): [13385] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterDetailsAjax.jsp]
+09/19/19 10:32:59 - processing object(91,612): [13389] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ChangePassword.jsp]
+09/19/19 10:32:59 - processing object(92,612): [13393] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\DeveloperHome.jsp]
+09/19/19 10:32:59 - processing object(93,612): [13397] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListOfDevelopers.jsp]
+09/19/19 10:32:59 - processing object(94,612): [13401] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListProjects.jsp]
+09/19/19 10:32:59 - processing object(95,612): [13405] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\Logout.jsp]
+09/19/19 10:32:59 - processing object(96,612): [13409] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManageAdminAccount.jsp]
+09/19/19 10:32:59 - processing object(97,612): [13413] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerHome.jsp]
+09/19/19 10:32:59 - processing object(98,612): [13417] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerProject.jsp]
+09/19/19 10:32:59 - processing object(99,612): [13421] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccount.jsp]
+09/19/19 10:32:59 - processing object(100,612): [13425] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccountAjax.jsp]
+09/19/19 10:32:59 - processing object(101,612): [13429] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDev.jsp]
+09/19/19 10:32:59 - processing object(102,612): [13433] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDevAjax.jsp]
+09/19/19 10:32:59 - processing object(103,612): [13437] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTester.jsp]
+09/19/19 10:32:59 - processing object(104,612): [13441] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTesterAjax.jsp]
+09/19/19 10:32:59 - processing object(105,612): [13445] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterHome.jsp]
+09/19/19 10:32:59 - processing object(106,612): [13449] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterProject.jsp]
+09/19/19 10:32:59 - processing object(107,612): [13453] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\footer.jsp]
+09/19/19 10:32:59 - processing object(108,612): [13457] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\header.jsp]
+09/19/19 10:32:59 - processing object(109,612): [13461] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\menu.jsp]
+09/19/19 10:32:59 - processing object(110,612): [16910] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\web.xml]
+09/19/19 10:32:59 - processing object(111,612): [16911] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\web.xml]
+09/19/19 10:32:59 - processing object(112,612): [16914] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\web.xml]
+09/19/19 10:32:59 - processing object(113,612): [16917] [D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT\WEB-INF\web.xml]
+09/19/19 10:32:59 - processing object(119,612): [19033] org.apache.jsp.Login_jsp._jspxFactory
+09/19/19 10:32:59 - processing object(120,612): [19035] org.apache.jsp.Login_jsp._jspx_dependants
+09/19/19 10:32:59 - processing object(121,612): [19036] org.apache.jsp.Login_jsp.{(18:3)}
+09/19/19 10:32:59 - processing object(122,612): [19038] org.apache.jsp.Login_jsp._el_expressionfactory
+09/19/19 10:32:59 - processing object(123,612): [19040] org.apache.jsp.Login_jsp._jsp_instancemanager
+09/19/19 10:32:59 - processing object(124,612): [19041] org.apache.jsp.Login_jsp.getDependants
+09/19/19 10:32:59 - processing object(125,612): [19042] org.apache.jsp.Login_jsp._jspInit
+09/19/19 10:32:59 - processing object(126,612): [19043] org.apache.jsp.Login_jsp._jspDestroy
+09/19/19 10:32:59 - processing object(127,612): [19044] org.apache.jsp.Login_jsp._jspService
+09/19/19 10:32:59 - processing object(128,612): [19047] org.apache.jsp.Login_jsp.Login_jsp
+09/19/19 10:32:59 - processing object(129,612): [19058] com.probuger.bean.AddProject.projectId
+09/19/19 10:32:59 - processing object(130,612): [19060] com.probuger.bean.AddProject.projectName
+09/19/19 10:32:59 - processing object(131,612): [19062] com.probuger.bean.AddProject.startDate
+09/19/19 10:32:59 - processing object(132,612): [19064] com.probuger.bean.AddProject.endDate
+09/19/19 10:32:59 - processing object(133,612): [19066] com.probuger.bean.AddProject.managerId
+09/19/19 10:32:59 - processing object(134,612): [19068] com.probuger.bean.AddProject.NoOfDevloper
+09/19/19 10:32:59 - processing object(135,612): [19070] com.probuger.bean.AddProject.NoOfTester
+09/19/19 10:32:59 - processing object(136,612): [19071] com.probuger.bean.AddProject.getProjectId
+09/19/19 10:32:59 - processing object(137,612): [19072] com.probuger.bean.AddProject.setProjectId
+09/19/19 10:32:59 - processing object(138,612): [19074] com.probuger.bean.AddProject.getProjectName
+09/19/19 10:32:59 - processing object(139,612): [19075] com.probuger.bean.AddProject.setProjectName
+09/19/19 10:32:59 - processing object(140,612): [19077] com.probuger.bean.AddProject.getStartDate
+09/19/19 10:32:59 - processing object(141,612): [19078] com.probuger.bean.AddProject.setStartDate
+09/19/19 10:32:59 - processing object(142,612): [19080] com.probuger.bean.AddProject.getEndDate
+09/19/19 10:32:59 - processing object(143,612): [19081] com.probuger.bean.AddProject.setEndDate
+09/19/19 10:32:59 - processing object(144,612): [19083] com.probuger.bean.AddProject.getManagerId
+09/19/19 10:32:59 - processing object(145,612): [19084] com.probuger.bean.AddProject.setManagerId
+09/19/19 10:32:59 - processing object(146,612): [19086] com.probuger.bean.AddProject.getNoOfDevloper
+09/19/19 10:32:59 - processing object(147,612): [19087] com.probuger.bean.AddProject.setNoOfDevloper
+09/19/19 10:32:59 - processing object(148,612): [19089] com.probuger.bean.AddProject.getNoOfTester
+09/19/19 10:32:59 - processing object(149,612): [19090] com.probuger.bean.AddProject.setNoOfTester
+09/19/19 10:32:59 - processing object(150,612): [19092] com.probuger.bean.AddProject.AddProject
+09/19/19 10:32:59 - processing object(151,612): [19099] com.probuger.bean.BugDetails.bugId
+09/19/19 10:32:59 - processing object(152,612): [19101] com.probuger.bean.BugDetails.bugDetails
+09/19/19 10:32:59 - processing object(153,612): [19103] com.probuger.bean.BugDetails.taskId
+09/19/19 10:32:59 - processing object(154,612): [19105] com.probuger.bean.BugDetails.projectId
+09/19/19 10:32:59 - processing object(155,612): [19107] com.probuger.bean.BugDetails.testerId
+09/19/19 10:32:59 - processing object(156,612): [19109] com.probuger.bean.BugDetails.statusIs
+09/19/19 10:32:59 - processing object(157,612): [19111] com.probuger.bean.BugDetails.devId
+09/19/19 10:32:59 - processing object(158,612): [19113] com.probuger.bean.BugDetails.remark
+09/19/19 10:32:59 - processing object(159,612): [19115] com.probuger.bean.BugDetails.fixApplied
+09/19/19 10:32:59 - processing object(160,612): [19117] com.probuger.bean.BugDetails.codeSnippet
+09/19/19 10:32:59 - processing object(161,612): [19119] com.probuger.bean.BugDetails.temp
+09/19/19 10:32:59 - processing object(162,612): [19120] com.probuger.bean.BugDetails.getBugId
+09/19/19 10:32:59 - processing object(163,612): [19121] com.probuger.bean.BugDetails.setBugId
+09/19/19 10:32:59 - processing object(164,612): [19123] com.probuger.bean.BugDetails.getBugDetails
+09/19/19 10:32:59 - processing object(165,612): [19124] com.probuger.bean.BugDetails.setBugDetails
+09/19/19 10:32:59 - processing object(166,612): [19126] com.probuger.bean.BugDetails.getTaskId
+09/19/19 10:32:59 - processing object(167,612): [19127] com.probuger.bean.BugDetails.setTaskId
+09/19/19 10:32:59 - processing object(168,612): [19129] com.probuger.bean.BugDetails.getProjectId
+09/19/19 10:32:59 - processing object(169,612): [19130] com.probuger.bean.BugDetails.setProjectId
+09/19/19 10:32:59 - processing object(170,612): [19132] com.probuger.bean.BugDetails.getTesterId
+09/19/19 10:32:59 - processing object(171,612): [19133] com.probuger.bean.BugDetails.setTesterId
+09/19/19 10:32:59 - processing object(172,612): [19135] com.probuger.bean.BugDetails.getStatusIs
+09/19/19 10:32:59 - processing object(173,612): [19136] com.probuger.bean.BugDetails.setStatusIs
+09/19/19 10:32:59 - processing object(174,612): [19138] com.probuger.bean.BugDetails.getDevId
+09/19/19 10:32:59 - processing object(175,612): [19139] com.probuger.bean.BugDetails.setDevId
+09/19/19 10:32:59 - processing object(176,612): [19141] com.probuger.bean.BugDetails.getRemark
+09/19/19 10:32:59 - processing object(177,612): [19142] com.probuger.bean.BugDetails.setRemark
+09/19/19 10:32:59 - processing object(178,612): [19144] com.probuger.bean.BugDetails.getFixApplied
+09/19/19 10:32:59 - processing object(179,612): [19145] com.probuger.bean.BugDetails.setFixApplied
+09/19/19 10:32:59 - processing object(180,612): [19147] com.probuger.bean.BugDetails.getCodeSnippet
+09/19/19 10:32:59 - processing object(181,612): [19148] com.probuger.bean.BugDetails.setCodeSnippet
+09/19/19 10:32:59 - processing object(182,612): [19150] com.probuger.bean.BugDetails.getTemp
+09/19/19 10:32:59 - processing object(183,612): [19151] com.probuger.bean.BugDetails.setTemp
+09/19/19 10:32:59 - processing object(184,612): [19153] com.probuger.bean.BugDetails.BugDetails
+09/19/19 10:32:59 - processing object(185,612): [19160] com.probuger.bean.NewAccount.id
+09/19/19 10:32:59 - processing object(186,612): [19162] com.probuger.bean.NewAccount.userName
+09/19/19 10:32:59 - processing object(187,612): [19164] com.probuger.bean.NewAccount.loginId
+09/19/19 10:32:59 - processing object(188,612): [19166] com.probuger.bean.NewAccount.password
+09/19/19 10:32:59 - processing object(189,612): [19168] com.probuger.bean.NewAccount.email
+09/19/19 10:32:59 - processing object(190,612): [19170] com.probuger.bean.NewAccount.role
+09/19/19 10:32:59 - processing object(191,612): [19172] com.probuger.bean.NewAccount.managerId
+09/19/19 10:32:59 - processing object(192,612): [19173] com.probuger.bean.NewAccount.getId
+09/19/19 10:32:59 - processing object(193,612): [19174] com.probuger.bean.NewAccount.setId
+09/19/19 10:32:59 - processing object(194,612): [19176] com.probuger.bean.NewAccount.getUserName
+09/19/19 10:32:59 - processing object(195,612): [19177] com.probuger.bean.NewAccount.setUserName
+09/19/19 10:32:59 - processing object(196,612): [19179] com.probuger.bean.NewAccount.getLoginId
+09/19/19 10:32:59 - processing object(197,612): [19180] com.probuger.bean.NewAccount.setLoginId
+09/19/19 10:32:59 - processing object(198,612): [19182] com.probuger.bean.NewAccount.getPassword
+09/19/19 10:32:59 - processing object(199,612): [19183] com.probuger.bean.NewAccount.setPassword
+09/19/19 10:32:59 - processing object(200,612): [19185] com.probuger.bean.NewAccount.getEmail
+09/19/19 10:32:59 - processing object(201,612): [19186] com.probuger.bean.NewAccount.setEmail
+09/19/19 10:32:59 - processing object(202,612): [19188] com.probuger.bean.NewAccount.getRole
+09/19/19 10:32:59 - processing object(203,612): [19189] com.probuger.bean.NewAccount.setRole
+09/19/19 10:32:59 - processing object(204,612): [19191] com.probuger.bean.NewAccount.getManagerId
+09/19/19 10:32:59 - processing object(205,612): [19192] com.probuger.bean.NewAccount.setManagerId
+09/19/19 10:32:59 - processing object(206,612): [19194] com.probuger.bean.NewAccount.NewAccount
+09/19/19 10:32:59 - processing object(207,612): [19201] com.probuger.bean.ProjectTask.taskId
+09/19/19 10:32:59 - processing object(208,612): [19203] com.probuger.bean.ProjectTask.projectId
+09/19/19 10:32:59 - processing object(209,612): [19205] com.probuger.bean.ProjectTask.taskDetails
+09/19/19 10:32:59 - processing object(210,612): [19207] com.probuger.bean.ProjectTask.taskStartDate
+09/19/19 10:32:59 - processing object(211,612): [19209] com.probuger.bean.ProjectTask.taskEndDate
+09/19/19 10:32:59 - processing object(212,612): [19211] com.probuger.bean.ProjectTask.devId
+09/19/19 10:32:59 - processing object(213,612): [19213] com.probuger.bean.ProjectTask.testerId
+09/19/19 10:32:59 - processing object(214,612): [19215] com.probuger.bean.ProjectTask.statusCurrent
+09/19/19 10:32:59 - processing object(215,612): [19217] com.probuger.bean.ProjectTask.temp
+09/19/19 10:32:59 - processing object(216,612): [19218] com.probuger.bean.ProjectTask.getTaskId
+09/19/19 10:32:59 - processing object(217,612): [19219] com.probuger.bean.ProjectTask.setTaskId
+09/19/19 10:32:59 - processing object(218,612): [19221] com.probuger.bean.ProjectTask.getProjectId
+09/19/19 10:32:59 - processing object(219,612): [19222] com.probuger.bean.ProjectTask.setProjectId
+09/19/19 10:32:59 - processing object(220,612): [19224] com.probuger.bean.ProjectTask.getTaskDetails
+09/19/19 10:32:59 - processing object(221,612): [19225] com.probuger.bean.ProjectTask.setTaskDetails
+09/19/19 10:32:59 - processing object(222,612): [19227] com.probuger.bean.ProjectTask.getTaskStartDate
+09/19/19 10:32:59 - processing object(223,612): [19228] com.probuger.bean.ProjectTask.setTaskStartDate
+09/19/19 10:32:59 - processing object(224,612): [19230] com.probuger.bean.ProjectTask.getTaskEndDate
+09/19/19 10:32:59 - processing object(225,612): [19231] com.probuger.bean.ProjectTask.setTaskEndDate
+09/19/19 10:32:59 - processing object(226,612): [19233] com.probuger.bean.ProjectTask.getDevId
+09/19/19 10:32:59 - processing object(227,612): [19234] com.probuger.bean.ProjectTask.setDevId
+09/19/19 10:32:59 - processing object(228,612): [19236] com.probuger.bean.ProjectTask.getTesterId
+09/19/19 10:32:59 - processing object(229,612): [19237] com.probuger.bean.ProjectTask.setTesterId
+09/19/19 10:32:59 - processing object(230,612): [19239] com.probuger.bean.ProjectTask.getStatusCurrent
+09/19/19 10:33:00 - processing object(231,612): [19240] com.probuger.bean.ProjectTask.setStatusCurrent
+09/19/19 10:33:00 - processing object(232,612): [19242] com.probuger.bean.ProjectTask.getTemp
+09/19/19 10:33:00 - processing object(233,612): [19243] com.probuger.bean.ProjectTask.setTemp
+09/19/19 10:33:00 - processing object(234,612): [19245] com.probuger.bean.ProjectTask.ProjectTask
+09/19/19 10:33:00 - processing object(235,612): [19252] com.probuger.bean.Register.id
+09/19/19 10:33:00 - processing object(236,612): [19254] com.probuger.bean.Register.userName
+09/19/19 10:33:00 - processing object(237,612): [19256] com.probuger.bean.Register.loginId
+09/19/19 10:33:00 - processing object(238,612): [19258] com.probuger.bean.Register.password
+09/19/19 10:33:00 - processing object(239,612): [19260] com.probuger.bean.Register.email
+09/19/19 10:33:00 - processing object(240,612): [19262] com.probuger.bean.Register.role
+09/19/19 10:33:00 - processing object(241,612): [19264] com.probuger.bean.Register.managerId
+09/19/19 10:33:00 - processing object(242,612): [19265] com.probuger.bean.Register.getId
+09/19/19 10:33:00 - processing object(243,612): [19266] com.probuger.bean.Register.setId
+09/19/19 10:33:00 - processing object(244,612): [19268] com.probuger.bean.Register.getUserName
+09/19/19 10:33:00 - processing object(245,612): [19269] com.probuger.bean.Register.setUserName
+09/19/19 10:33:00 - processing object(246,612): [19271] com.probuger.bean.Register.getLoginId
+09/19/19 10:33:00 - processing object(247,612): [19272] com.probuger.bean.Register.setLoginId
+09/19/19 10:33:00 - processing object(248,612): [19274] com.probuger.bean.Register.getPassword
+09/19/19 10:33:00 - processing object(249,612): [19275] com.probuger.bean.Register.setPassword
+09/19/19 10:33:00 - processing object(250,612): [19277] com.probuger.bean.Register.getEmail
+09/19/19 10:33:00 - processing object(251,612): [19278] com.probuger.bean.Register.setEmail
+09/19/19 10:33:00 - processing object(252,612): [19280] com.probuger.bean.Register.getRole
+09/19/19 10:33:00 - processing object(253,612): [19281] com.probuger.bean.Register.setRole
+09/19/19 10:33:00 - processing object(254,612): [19283] com.probuger.bean.Register.getManagerId
+09/19/19 10:33:00 - processing object(255,612): [19284] com.probuger.bean.Register.setManagerId
+09/19/19 10:33:00 - processing object(256,612): [19286] com.probuger.bean.Register.Register
+09/19/19 10:33:00 - processing object(257,612): [19293] com.probuger.bean.Role.id
+09/19/19 10:33:00 - processing object(258,612): [19295] com.probuger.bean.Role.roleName
+09/19/19 10:33:00 - processing object(259,612): [19297] com.probuger.bean.Role.roleDesc
+09/19/19 10:33:00 - processing object(260,612): [19298] com.probuger.bean.Role.getId
+09/19/19 10:33:00 - processing object(261,612): [19299] com.probuger.bean.Role.setId
+09/19/19 10:33:00 - processing object(262,612): [19301] com.probuger.bean.Role.getRoleName
+09/19/19 10:33:00 - processing object(263,612): [19302] com.probuger.bean.Role.setRoleName
+09/19/19 10:33:00 - processing object(264,612): [19304] com.probuger.bean.Role.getRoleDesc
+09/19/19 10:33:00 - processing object(265,612): [19305] com.probuger.bean.Role.setRoleDesc
+09/19/19 10:33:00 - processing object(266,612): [19307] com.probuger.bean.Role.Role
+09/19/19 10:33:00 - processing object(267,612): [19314] com.probuger.bean.Status.id
+09/19/19 10:33:00 - processing object(268,612): [19316] com.probuger.bean.Status.status
+09/19/19 10:33:00 - processing object(269,612): [19317] com.probuger.bean.Status.getId
+09/19/19 10:33:00 - processing object(270,612): [19318] com.probuger.bean.Status.setId
+09/19/19 10:33:00 - processing object(271,612): [19320] com.probuger.bean.Status.getStatus
+09/19/19 10:33:00 - processing object(272,612): [19321] com.probuger.bean.Status.setStatus
+09/19/19 10:33:00 - processing object(273,612): [19323] com.probuger.bean.Status.Status
+09/19/19 10:33:00 - processing object(274,612): [19337] com.probuger.dao.BugDetailsDao.getDevBugList
+09/19/19 10:33:00 - processing object(275,612): [19340] com.probuger.dao.BugDetailsDao.getTesterBugList
+09/19/19 10:33:00 - processing object(276,612): [19343] com.probuger.dao.BugDetailsDao.getDevBugTaskDetails
+09/19/19 10:33:00 - processing object(277,612): [19345] com.probuger.dao.BugDetailsDao.getBugOldDetails
+09/19/19 10:33:00 - processing object(278,612): [19347] com.probuger.dao.BugDetailsDao.getOverdueBugList
+09/19/19 10:33:00 - processing object(279,612): [19350] com.probuger.dao.BugDetailsDao.BugDetailsDao
+09/19/19 10:33:00 - processing object(280,612): [19361] com.probuger.dao.NewAccountDao.getRoleList
+09/19/19 10:33:00 - processing object(281,612): [19362] com.probuger.dao.NewAccountDao.getManagerList
+09/19/19 10:33:00 - processing object(282,612): [19363] com.probuger.dao.NewAccountDao.getDeveloperList
+09/19/19 10:33:00 - processing object(283,612): [19364] com.probuger.dao.NewAccountDao.getTesterList
+09/19/19 10:33:00 - processing object(284,612): [19365] com.probuger.dao.NewAccountDao.getMyDetails
+09/19/19 10:33:00 - processing object(285,612): [19367] com.probuger.dao.NewAccountDao.getRoleName
+09/19/19 10:33:00 - processing object(286,612): [19369] com.probuger.dao.NewAccountDao.getManagerName
+09/19/19 10:33:00 - processing object(287,612): [19371] com.probuger.dao.NewAccountDao.NewAccountDao
+09/19/19 10:33:00 - processing object(288,612): [19381] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/19/19 10:33:00 - processing object(289,612): [19383] com.probuger.dao.ProjectDetailsDao.getProjectList
+09/19/19 10:33:00 - processing object(290,612): [19384] com.probuger.dao.ProjectDetailsDao.getDeveloperList
+09/19/19 10:33:00 - processing object(291,612): [19386] com.probuger.dao.ProjectDetailsDao.getTesterList
+09/19/19 10:33:00 - processing object(292,612): [19388] com.probuger.dao.ProjectDetailsDao.getProjectOfUser
+09/19/19 10:33:00 - processing object(293,612): [19390] com.probuger.dao.ProjectDetailsDao.ProjectDetailsDao
+09/19/19 10:33:00 - processing object(294,612): [19401] com.probuger.dao.StatusDao.getStatusList
+09/19/19 10:33:00 - processing object(295,612): [19403] com.probuger.dao.StatusDao.StatusDao
+09/19/19 10:33:00 - processing object(296,612): [19415] com.probuger.dao.TaskDetailsDao.getTaskList
+09/19/19 10:33:00 - processing object(297,612): [19418] com.probuger.dao.TaskDetailsDao.getTaskTesterList
+09/19/19 10:33:00 - processing object(298,612): [19421] com.probuger.dao.TaskDetailsDao.getTaskListTestingInProgress
+09/19/19 10:33:00 - processing object(299,612): [19424] com.probuger.dao.TaskDetailsDao.getOverdueTaskList
+09/19/19 10:33:00 - processing object(300,612): [19427] com.probuger.dao.TaskDetailsDao.getTaskDetails
+09/19/19 10:33:00 - processing object(301,612): [19429] com.probuger.dao.TaskDetailsDao.TaskDetailsDao
+09/19/19 10:33:00 - processing object(302,612): [19442] com.probuger.login.AddBug.serialVersionUID
+09/19/19 10:33:00 - processing object(303,612): [19443] com.probuger.login.AddBug.AddBug
+09/19/19 10:33:00 - processing object(304,612): [19445] com.probuger.login.AddBug.doGet
+09/19/19 10:33:00 - processing object(305,612): [19448] com.probuger.login.AddBug.doPost
+09/19/19 10:33:00 - processing object(306,612): [19465] com.probuger.login.ChangePassword.serialVersionUID
+09/19/19 10:33:00 - processing object(307,612): [19466] com.probuger.login.ChangePassword.ChangePassword
+09/19/19 10:33:00 - processing object(308,612): [19468] com.probuger.login.ChangePassword.doGet
+09/19/19 10:33:00 - processing object(309,612): [19471] com.probuger.login.ChangePassword.doPost
+09/19/19 10:33:00 - processing object(310,612): [19485] com.probuger.login.DBConnector.con
+09/19/19 10:33:00 - processing object(311,612): [19487] com.probuger.login.DBConnector.st
+09/19/19 10:33:00 - processing object(312,612): [19489] com.probuger.login.DBConnector.rs
+09/19/19 10:33:00 - processing object(313,612): [19491] com.probuger.login.DBConnector.url
+09/19/19 10:33:00 - processing object(314,612): [19493] com.probuger.login.DBConnector.JDBC_DRIVER
+09/19/19 10:33:00 - processing object(315,612): [19495] com.probuger.login.DBConnector.user
+09/19/19 10:33:00 - processing object(316,612): [19497] com.probuger.login.DBConnector.password
+09/19/19 10:33:00 - processing object(317,612): [19499] com.probuger.login.DBConnector.query
+09/19/19 10:33:00 - processing object(318,612): [19501] com.probuger.login.DBConnector.count
+09/19/19 10:33:00 - processing object(319,612): [19502] com.probuger.login.DBConnector.getConnection
+09/19/19 10:33:00 - processing object(320,612): [19503] com.probuger.login.DBConnector.insert
+09/19/19 10:33:00 - processing object(321,612): [19507] com.probuger.login.DBConnector.insertReturnKey
+09/19/19 10:33:00 - processing object(322,612): [19511] com.probuger.login.DBConnector.select
+09/19/19 10:33:00 - processing object(323,612): [19515] com.probuger.login.DBConnector.delete
+09/19/19 10:33:00 - processing object(324,612): [19518] com.probuger.login.DBConnector.update
+09/19/19 10:33:00 - processing object(325,612): [19522] com.probuger.login.DBConnector.DBConnector
+09/19/19 10:33:00 - processing object(326,612): [19538] com.probuger.login.EditAccount.serialVersionUID
+09/19/19 10:33:00 - processing object(327,612): [19539] com.probuger.login.EditAccount.EditAccount
+09/19/19 10:33:00 - processing object(328,612): [19541] com.probuger.login.EditAccount.doGet
+09/19/19 10:33:00 - processing object(329,612): [19544] com.probuger.login.EditAccount.doPost
+09/19/19 10:33:00 - processing object(330,612): [19563] com.probuger.login.LoginController.serialVersionUID
+09/19/19 10:33:00 - processing object(331,612): [19565] com.probuger.login.LoginController.userName
+09/19/19 10:33:00 - processing object(332,612): [19567] com.probuger.login.LoginController.password
+09/19/19 10:33:00 - processing object(333,612): [19568] com.probuger.login.LoginController.LoginController
+09/19/19 10:33:00 - processing object(334,612): [19570] com.probuger.login.LoginController.doGet
+09/19/19 10:33:00 - processing object(335,612): [19573] com.probuger.login.LoginController.doPost
+09/19/19 10:33:00 - processing object(336,612): [19587] com.probuger.login.LogoutController.serialVersionUID
+09/19/19 10:33:00 - processing object(337,612): [19588] com.probuger.login.LogoutController.LogoutController
+09/19/19 10:33:00 - processing object(338,612): [19590] com.probuger.login.LogoutController.doGet
+09/19/19 10:33:00 - processing object(339,612): [19593] com.probuger.login.LogoutController.doPost
+09/19/19 10:33:00 - processing object(340,612): [19611] com.probuger.login.NewAccountAdd.serialVersionUID
+09/19/19 10:33:00 - processing object(341,612): [19612] com.probuger.login.NewAccountAdd.NewAccountAdd
+09/19/19 10:33:00 - processing object(342,612): [19614] com.probuger.login.NewAccountAdd.doGet
+09/19/19 10:33:00 - processing object(343,612): [19617] com.probuger.login.NewAccountAdd.doPost
+09/19/19 10:33:00 - processing object(344,612): [19638] com.probuger.login.NewProjectAdd.serialVersionUID
+09/19/19 10:33:00 - processing object(345,612): [19639] com.probuger.login.NewProjectAdd.NewProjectAdd
+09/19/19 10:33:00 - processing object(346,612): [19641] com.probuger.login.NewProjectAdd.doGet
+09/19/19 10:33:00 - processing object(347,612): [19644] com.probuger.login.NewProjectAdd.doPost
+09/19/19 10:33:00 - processing object(348,612): [19656] com.probuger.login.NewTaskAdd.serialVersionUID
+09/19/19 10:33:00 - processing object(349,612): [19657] com.probuger.login.NewTaskAdd.NewTaskAdd
+09/19/19 10:33:00 - processing object(350,612): [19659] com.probuger.login.NewTaskAdd.doGet
+09/19/19 10:33:00 - processing object(351,612): [19662] com.probuger.login.NewTaskAdd.doPost
+09/19/19 10:33:00 - processing object(352,612): [19676] com.probuger.login.TaskStatus.serialVersionUID
+09/19/19 10:33:00 - processing object(353,612): [19677] com.probuger.login.TaskStatus.TaskStatus
+09/19/19 10:33:00 - processing object(354,612): [19679] com.probuger.login.TaskStatus.doGet
+09/19/19 10:33:00 - processing object(355,612): [19682] com.probuger.login.TaskStatus.doPost
+09/19/19 10:33:00 - processing object(356,612): [19695] com.probuger.login.UpdateBugDev.serialVersionUID
+09/19/19 10:33:00 - processing object(357,612): [19696] com.probuger.login.UpdateBugDev.UpdateBugDev
+09/19/19 10:33:00 - processing object(358,612): [19698] com.probuger.login.UpdateBugDev.doGet
+09/19/19 10:33:00 - processing object(359,612): [19701] com.probuger.login.UpdateBugDev.doPost
+09/19/19 10:33:00 - processing object(360,612): [19714] com.probuger.login.UpdateBugTester.serialVersionUID
+09/19/19 10:33:00 - processing object(361,612): [19715] com.probuger.login.UpdateBugTester.UpdateBugTester
+09/19/19 10:33:00 - processing object(362,612): [19717] com.probuger.login.UpdateBugTester.doGet
+09/19/19 10:33:00 - processing object(363,612): [19720] com.probuger.login.UpdateBugTester.doPost
+09/19/19 10:33:00 - processing object(364,612): [19735] com.probuger.servlets.ProjectDetails.serialVersionUID
+09/19/19 10:33:00 - processing object(365,612): [19736] com.probuger.servlets.ProjectDetails.ProjectDetails
+09/19/19 10:33:00 - processing object(366,612): [19738] com.probuger.servlets.ProjectDetails.doGet
+09/19/19 10:33:00 - processing object(367,612): [19741] com.probuger.servlets.ProjectDetails.doPost
+09/19/19 10:33:00 - Exiting Metrics Generator...

@@ -1,0 +1,82 @@
+{
+    "id": 1024040,
+    "name": "Always activate unlockedDeviceRequired to avoid data decryption when device is unlocked",
+    "href": "AIP/quality-rules/1024040",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When the unlockedDeviceRequired flag is enabled, encryption and signature verification can still happen at any time. The flag prevents only decryption of data when the device is unlocked.\n",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Android 9 introduces the unlockedDeviceRequired flag. This option determines whether the Keystore requires the screen to be unlocked before allowing decryption of any in-flight or stored data using the specified key. These types of keys are well suited for encrypting sensitive data to store on disk, such as health or enterprise data. The flag provides users a higher assurance that the data cannot be decrypted while the device is locked should their phone be lost or stolen.",
+    "reference": "https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUnlockedDeviceRequired(boolean) \n\nhttps://developer.android.com/about/versions/pie/android-9.0#security \n",
+    "remediation": "Enable the flag 'unlockedDeviceRequired' by passing true to the setUnlockedDeviceRequired() method.",
+    "remediationSample": "API >= 28:\n.setUnlockedDeviceRequired(true)",
+    "sample": "API >= 28:\n.setUnlockedDeviceRequired(false) or not set",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure to enable the flag 'unlockedDeviceRequired' by passing 'true' to the setUnlockedDeviceRequired() method",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70245",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

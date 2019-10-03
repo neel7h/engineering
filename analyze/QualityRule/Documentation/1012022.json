@@ -1,0 +1,63 @@
+{
+    "id": 1012022,
+    "name": "Avoid use of *NOMAX  (CL400)",
+    "href": "AIP/quality-rules/1012022",
+    "critical": true,
+    "description": "This rule searaches for CL400 programs using the *NOMAX clause.",
+    "output": "This report lists all CL400 programs using NOMAX.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "This attibute must be avoided. It can lead to situations in which programs put information into files without space constraints. As a consequence, all the available space can be used and the system can be destabilized.",
+    "remediation": "Specify the value or threshold explicitely.",
+    "remediationSample": "\n   Remediation for Sample source :\n   PGM \n   chgprtf qpsrodsp maxrcds(100000)\n   ENDPGM.",
+    "sample": "PGM \n   chgprtf qpsrodsp maxrcds(*nomax) //Quality Rule Violation\n   ENDPGM.",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid use of *NOMAX  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

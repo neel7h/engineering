@@ -1,0 +1,57 @@
+{
+    "id": 1001070,
+    "name": "Avoid using Main Procedures not having the same name as the file name (PL1)",
+    "href": "AIP/quality-rules/1001070",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for all the PL1 Main Procedures that have a different name than the file name.",
+    "output": "The report lists all the PL1 Main Procedures not having the same name as the file name.\n\nIt provides following information: \n- PL1 Main Procedures full name",
+    "rationale": "For readability aspects, naming conventions must be respected.",
+    "remediation": "The main procedure must have the same name as the file.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid using Main Procedures not having the same name as the file name (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

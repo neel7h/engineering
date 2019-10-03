@@ -1,0 +1,72 @@
+{
+    "id": 1003154,
+    "name": "Avoid listening to events using hard coded strings (Flex)",
+    "href": "AIP/quality-rules/1003154",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that listen to events using hardcoded strings.",
+    "output": "This QR reports artifacts that listen to events using hardcoded strings. It provides following information:\n\n- Artifact full name",
+    "rationale": "For maintainability, listening to events should not be done using hardcoded strings.",
+    "remediation": "Use constants instead of hardcoded strings to listen to events.",
+    "sample": "public class Foo \n{\n   public function bar() : void\n   {\n      addEventListener( \"myHardCodedEvent\", handleMyHardCodedEvent ); // VIOLATION\n   }\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid listening to events using hard coded strings (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.event.ListenForHardCodedEventName"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,6 @@
+Build date: 06/06/2019 10:13:30,08 
+Build number: 1000263 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master c1234bf5337dec7e24402fff476a09ca3d11cd8d
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.html5.git origin/master 7cb3894cfda5f86522a6b3163836b5cfb6f0b62a
+Publish date: 06/06/2019 10:14:59,80 
+Original version: 2.0.8-funcrel 

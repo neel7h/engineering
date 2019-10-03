@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.html5</id>
+    <version>2.0.8-funcrel</version>
+    <title>HTML5/Javascript Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/HTML5+and+JavaScript+-+2.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.html5.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for HTML5/JavaScript. This analyzer enables you to compute Automated Function Points for your HTML5/JavaScript projects.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/HTML5+and+JavaScript+-+2.0</releaseNotes>
+    <tags>JavaScript HTML5/JavaScript CAIP8.0 CAIP8.1 CAIP8.2 CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.wbslinker" version="1.6.1-funcrel" />
+      <dependency id="com.castsoftware.internal.platform" version="0.7.0-funcrel" />
+    </dependencies>
+  </metadata>
+</package>

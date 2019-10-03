@@ -1,0 +1,127 @@
+{
+    "id": 7742,
+    "name": "Avoid SQL injection vulnerabilities",
+    "href": "AIP/quality-rules/7742",
+    "critical": true,
+    "associatedValueName": "Call stack from user input source down to the target SQL execution method",
+    "description": "This metric uses CAST data-flow engine to detect a call path where input data from the user is sent to SQL database without prior validation and sanitization.",
+    "output": "List all methods that miss calling the required input validation calls\n\nIt provides the following information:\n - Method full name\n - Call stack from user input source down to the target SQL execution method.",
+    "rationale": "The software constructs all or part of an SQL command via user-controllable inputs. These inputs are not neutralized or are incorrectly neutralized. As a consequence, the SQL command may be completely altered.",
+    "reference": "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')\nhttps://cwe.mitre.org/data/definitions/89.html\n\nOpen Web Application Security Project (OWASP) \nhttps://www.owasp.org/index.php/Top_10_2007\n\nCISQ rule: ASCSM-CWE-89.",
+    "remediation": "Use authorized sanitization methods.",
+    "remediationSample": "...\nstring userName = ctx.getAuthenticatedUserName();\n// validate the user input \nstring query = \"SELECT * FROM items WHERE owner = '\" + userName + \"' AND itemname = '\" + ItemName.Text + \"'\";\nsda = new SqlDataAdapter(query, conn);\nDataTable dt = new DataTable();\nsda.Fill(dt);\n...",
+    "sample": "The following code dynamically constructs and executes a SQL query that searches for items matching a specified name. The query restricts the items displayed to those where owner matches the user name of the currently-authenticated user.\n\n...\nstring userName = ctx.getAuthenticatedUserName();\nstring query = \"SELECT * FROM items WHERE owner = '\" + userName + \"' AND itemname = '\" + ItemName.Text + \"'\";\nsda = new SqlDataAdapter(query, conn);\nDataTable dt = new DataTable();\nsda.Fill(dt);\n...",
+    "total": "Number of methods calling user input methods",
+    "alternativeName": "Avoid SQL injection vulnerabilities",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-564",
+            "name": "SQL Injection: Hibernate",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AU-7",
+            "name": "Audit Reduction and Report Generation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70267",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

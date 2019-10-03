@@ -1,0 +1,54 @@
+{
+    "id": 1520390,
+    "name": "Siebel: BC Field name should not end with a question mark",
+    "href": "AIP/quality-rules/1520390",
+    "critical": false,
+    "maxWeight": 1,
+    "output": "This rule reports Fields in Business Components with an invalid name",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "Siebel: BC Field name should not end with a question mark",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

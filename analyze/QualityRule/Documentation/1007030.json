@@ -1,0 +1,72 @@
+{
+    "id": 1007030,
+    "name": "Avoid using empty statement (PHP)",
+    "href": "AIP/quality-rules/1007030",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing empty statements. Artifacts considered for this QR are PHP section, method, function and constructors.",
+    "output": "This report lists all artifacts containing empty statements.\n\nThis QR provides the following information:\nartifact full name.",
+    "rationale": "For maintainability reasons, empty statements should be avoided. Empty statements make the source code harder to read and to maintain.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_CodeAnalysis_EmptyStatementSniff.html",
+    "remediation": "Avoid having empty statement.",
+    "sample": "<?php\n\n$test =0 ;\nif($test == 0)\n{\n   //Violation\n}\nfunction f1()\n{\n   //Violation\n}\nclass test\n{\n   public method m1()\n   {\n      //Violation\n   }\n}\n\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid using empty statement (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.CodeAnalysis.EmptyStatement.Detected"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

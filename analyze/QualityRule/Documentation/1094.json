@@ -1,0 +1,76 @@
+{
+    "id": 1094,
+    "name": "Avoid Implementation files with a very low comment/code ratio",
+    "href": "AIP/quality-rules/1094",
+    "critical": false,
+    "maxWeight": 3,
+    "associatedValueName": "Comment/code ratio",
+    "description": "Implementation files should have at least a ratio comment/code > X %\nThe threshold is a parameter and can be changed at will.\n\nNote: Implementation files are files ending with .c, .cpp or .cc",
+    "output": "Associated to each C/C++ implementation file with violations, the Quality Rule provides:\n- The comment/code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the artifact.",
+    "remediation": "Enrich artifact code with comments to describe the functional expectations and the technical characteristic of the code.",
+    "total": "Number of C/C++ files",
+    "alternativeName": "Avoid Implementation files with a very low comment/code ratio",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum % Comment / Code Ratio",
+            "description": "Min % ratio comment/code for C files",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

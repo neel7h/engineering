@@ -1,0 +1,106 @@
+{
+    "id": 1101918,
+    "name": "Avoid having MongoDB databases access without authentication activated",
+    "href": "AIP/quality-rules/1101918",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This report lists all artifacts without authentication activated. Accessing a database without proper authentication is not permitted.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Avoid having MongoDB databases access without authentication activated.Accessing a database without a proper authentication will harm security of data. One should set user authentication over a database.",
+    "remediation": "Set authentication for database before accessing.",
+    "remediationSample": "MongoClientURI connstr = new MongoClientURI(\"mongodb://admin:password@localhost:27017\");\nDB database = connstr.getDB(\"IndexingCheck\");\n\t\t\n// or using springData\n\t\t \nApplicationContext ctx = new ClassPathXmlApplicationContext(\"web_configg.xml\");\n\t\t\nSpringMongoConfig1 mongoOperation1 = (SpringMongoConfig1) ctx.getBean(\"mongoURI\");\n\t\t\nMongoClient mongoClient = new MongoClient(mongoOperation1.uri);",
+    "sample": "MongoClient mongo = new MongoClient(\"localhost\", 27017);",
+    "total": "Number of MongoDB connection",
+    "alternativeName": "Ensure to always have authentication activated for access  to mongoDb",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-306",
+            "name": "Missing Authentication for Critical Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        99.0,
+        95.0,
+        90.0,
+        50.0
+    ]
+}

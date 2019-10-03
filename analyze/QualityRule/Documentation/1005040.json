@@ -1,0 +1,71 @@
+{
+    "id": 1005040,
+    "name": "Avoid Programs with a very low comment/code ratio (EGL)",
+    "href": "AIP/quality-rules/1005040",
+    "critical": false,
+    "maxWeight": 8,
+    "description": "This rule searches for the programs having a low comment/code ratio. The threshold is a parameter and can be changed at will.",
+    "output": "This report provides the following information: PROGRAM full name, Comment Code ratio",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the artifact",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to always have programs with line of 80 characteres.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid Programs with a very low comment/code ratio (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Min percent",
+            "description": "Min percent",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "id": 1101024,
+    "name": "Avoid using dynamic SQL in SQL Artifacts",
+    "href": "AIP/quality-rules/1101024",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Dynamic SQL could lead to some performance problems. The execution plan cannot be stored in memory and thus needs to be calculated each time.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Each repetition of the same dynamic SQL statement incurs a soft parse, which is a small overhead compared to a static statement, but still an overhead. The overhead of dynamic SQL is small, it can be in the thousandths of a second - however, it can add up if this is inside a loop / on a method called once per object.",
+    "remediation": "Check the statement and if so, replace dynamic with static statement.",
+    "sample": "The following procedure should be reviewed:\nCREATE PROCEDURE SEARCH (IN V_DYNAMICSQL VARCHAR(2000))\nBEGIN\n  EXECUTE IMMEDIATE V_DYNAMICSQL;\nEND;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid using dynamic SQL in SQL Artifacts",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

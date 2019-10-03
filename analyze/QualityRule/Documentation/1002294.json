@@ -1,0 +1,60 @@
+{
+    "id": 1002294,
+    "name": "Avoid using complex Allocates in Fortran 90 Function  (FORTRAN)",
+    "href": "AIP/quality-rules/1002294",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The number of complex Allocate Statements are reported, which is defined as using a single Allocate statement to allocate multiple variables to memory. Example of such a complex allocate statement: \n\nallocate(test_cast(n),test_cast2(n),stat=cast_stat)",
+    "rationale": "Using such a statement reduces the readability and understandability. It becomes difficult to track what variables have been allocated and deallocated.",
+    "remediation": "Use a single allocate for a single variable.",
+    "alternativeName": "Avoid using complex Allocates in Fortran 90 Function  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

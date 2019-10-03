@@ -1,0 +1,60 @@
+{
+    "id": 1002096,
+    "name": "Avoid using global SAVE in Fortran-90 Subroutines  (FORTRAN)",
+    "href": "AIP/quality-rules/1002096",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The keyword  SAVE will be searched for, indicating this global save. Any artifact having this statement is considered being in violation.",
+    "rationale": "Instruction SAVE maintains local variables in memory until the program exit. The data area is normally used for variables that are in common, saved variables, and initialized variables.  The size of the data area is system dependent .",
+    "remediation": "Limit the use of the global SAVE.",
+    "alternativeName": "Avoid using global SAVE in Fortran-90 Subroutines  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

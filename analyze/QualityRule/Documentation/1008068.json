@@ -1,0 +1,58 @@
+{
+    "id": 1008068,
+    "name": "Avoid using NOT EXISTS  (RPG400)",
+    "href": "AIP/quality-rules/1008068",
+    "critical": true,
+    "description": "This rule searches all the artifacts using NOT EXISTS.",
+    "output": "This report lists RPG400 programs using NOT EXISTS.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Use of 'NOT EXISTS' keyword slows down the query",
+    "remediation": "Queries should not use 'NOT EXISTS' keywords in WHERE clause",
+    "remediationSample": "Use join with null check:\n\nSELECT o.id\nFROM purchase AS o LEFT OUTER\nJOIN tcggamesummary AS g\nON g.id = o.id\nWHERE o.date < TODAY - 365\nAND g.id IS NULL;",
+    "sample": "SELECT o.id\nFROM purchase AS o\nWHERE o.date < TODAY - 365\nAND NOT EXISTS\n(\nSELECT g.id\nFROM tcggamesummary AS g\nWHERE g.id = o.id\n);",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using NOT EXISTS  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

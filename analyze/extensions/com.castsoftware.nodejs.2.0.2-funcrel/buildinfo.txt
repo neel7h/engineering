@@ -1,0 +1,6 @@
+Build date: 28/03/2019  9:51:20,34 
+Build number: 1000110 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.nodejs.git origin/master 41610e87baa1174aceb104995bf580d8c15627c9
+Publish date: 28/03/2019 10:02:03,36 
+Original version: 2.0.2-funcrel 

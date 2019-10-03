@@ -1,0 +1,72 @@
+{
+    "id": 1020848,
+    "name": "Always favour pipable operators in RxJS",
+    "href": "AIP/quality-rules/1020848",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule checks that no \"patch\" operator is used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "\"pipeable\" operators are better than the \"patch\" operators for pulling in just the operators needed. \n\nProblems with the patched operators for dot-chaining are:\n    Any library that imports a patch operator will augment the Observable.prototype for all consumers of that library, creating blind dependencies. If the library removes their usage, they unknowingly break everyone else. With pipeables, you have to import the operators you need into each file you use them in.\n    Operators patched directly onto the prototype are not \"tree-shakeable\" by tools like rollup or webpack. Pipeable operators will be as they are just functions pulled in from modules directly.\n    Unused operators that are being imported in apps cannot be detected reliably by any sort of build tooling or lint rule. That means that you might import scan, but stop using it, and it's still being added to your output bundle. With pipeable operators, if you're not using it, a lint rule can pick it up for you.\n    Functional composition is awesome. Building your own custom operators becomes much, much easier, and now they work and look just like all other operators from rxjs. You don't need to extend Observable or override lift anymore.",
+    "reference": "https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md",
+    "remediation": "Use \"pipeable\" operators which can be imported from \"rxjs/operators\".",
+    "remediationSample": "import { map, tap } from 'rxjs/operators';\n\nmyObservable$\n   .pipe(\n   tap(company=> console.log(`Before: ${company}`)),\n   map(company=> `${company.name}, ${company.country}`),\n   tap(company=> console.log(`After: ${company}`))\n   )",
+    "sample": "import 'rxjs/add/operator/map';\nimport 'rxjs/add/operator/tap';\n\nmyObservable$\n   .tap(company=> console.log(`Before: ${company}`))\n   .map(company=> `${company.name}, ${company.country}`)\n   .tap(company=> console.log(`After: ${company}`))",
+    "total": "Number of modules using rxjs",
+    "alternativeName": "Always favour pipable operators in RxJS",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-14",
+            "name": "Parent Class Element with References to Child Class Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

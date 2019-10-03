@@ -1,0 +1,89 @@
+{
+    "id": 1024036,
+    "name": "Always check all the BiometricPrompt acquired options in the onAuthenticationSucceeded method ",
+    "href": "AIP/quality-rules/1024036",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Always check all the BiometricPrompt acquired options to ensure when implementing onAuthenticationSucceeded.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Running an application which does not fail of/correctly use the platform capability is a mandatory step from development team. The defining characteristic of risks in this category of rules is that the platform (iOS, Android, Windows Phone, etc.) provides a feature or a capability that is documented and well understood.",
+    "reference": "https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt#constants",
+    "remediation": "Ensure all the following status have been checked:\nBIOMETRIC_ACQUIRED_GOOD (The image acquired was good.)\nBIOMETRIC_ACQUIRED_IMAGER_DIRTY (The biometric image was too noisy due to suspected or detected dirt on the sensor.)\nBIOMETRIC_ACQUIRED_INSUFFICIENT (The biometric image was too noisy to process due to a detected condition or a possibly dirty sensor)\nBIOMETRIC_ACQUIRED_PARTIAL (Only a partial biometric image was detected.)\nBIOMETRIC_ACQUIRED_TOO_FAST (The biometric image was incomplete due to quick motion.)\nBIOMETRIC_ACQUIRED_TOO_SLOW (The biometric image was unreadable due to lack of motion.)",
+    "remediationSample": "private BiometricPrompt.AuthenticationCallback getAuthenticationCallback() {\n        // Callback for biometric authentication result\n        return new BiometricPrompt.AuthenticationCallback() {\n\n            @Override\n            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {\n                Log.i(TAG, \"onAuthenticationSucceeded\");\n                super.onAuthenticationSucceeded(result);\n\n                switch(result) {\n                    case BIOMETRIC_ACQUIRED_GOOD:\n                       Log.i(\"The image acquired was good\");\n                       // call the success method\n                       break;\n                    case BIOMETRIC_ACQUIRED_IMAGER_DIRTY:\n                    case BIOMETRIC_ACQUIRED_INSUFFICIENT:\n\n                       Log.i(\"The image acquired was not good, please try again\");\n                       // call again the authentication method\n                       break;\n                    case BIOMETRIC_ACQUIRED_PARTIAL:\n                    case BIOMETRIC_ACQUIRED_TOO_FAST:\n                    case BIOMETRIC_ACQUIRED_TOO_SLOW:\n                       Log.i(\"Technical issue happened, please try again\");\n                       // call again the authentication method\n                       break;\n\n\n                }\n            }\n        };\n    }",
+    "sample": "private BiometricPrompt.AuthenticationCallback getAuthenticationCallback() {\n        // Callback for biometric authentication result\n        return new BiometricPrompt.AuthenticationCallback() {\n\n            @Override\n            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {\n                Log.i(TAG, \"onAuthenticationSucceeded\");\n                super.onAuthenticationSucceeded(result);\n\n                // do not check success status\n            }\n        };\n    }",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure to check all BiometricPrompt acquired options in the onAuthenticationSucceeded method",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

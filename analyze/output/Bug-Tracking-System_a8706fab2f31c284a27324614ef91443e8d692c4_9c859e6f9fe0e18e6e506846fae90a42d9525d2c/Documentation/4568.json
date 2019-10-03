@@ -1,0 +1,51 @@
+{
+    "id": 4568,
+    "name": "Avoid declaring Public Instance Variables",
+    "href": "AIP/quality-rules/4568",
+    "critical": true,
+    "description": "Public Instance Variables should not be used. Instance Variables are Non Static Fields.",
+    "output": "This report lists all Public and Non Static Fields. It provides the following information: Field full name",
+    "rationale": "A Public Instance Variable can be accessed by any other Class, therefore its value can be modified at any time, without control by the Class itself. This is contrary to OO Encapsulation concepts.",
+    "remediation": "Change the Field's visibility or make it Static Final.",
+    "total": "Number of Java attributes",
+    "alternativeName": "Ensure that field are not public or make it Static Final.",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

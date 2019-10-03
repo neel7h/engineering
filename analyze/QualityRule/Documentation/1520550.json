@@ -1,0 +1,56 @@
+{
+    "id": 1520550,
+    "name": "SiebelReview: Check No Match Property Set to TRUE for MVLs",
+    "href": "AIP/quality-rules/1520550",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "\"For MVLs, configuring a Primary Join will result in the following behavior when Check No Match has been set to FALSE:\nWhen the application encounters a master record where the primary foreign key is NULL or invalid, it performs a secondary query to determine if there are detail records in the multi-value group.  If it finds there are no detail records, it sets the primary field to the special value \"No Match Row Id\".  When the application encounters a master record again where the primary foreign key has the value \"No Match Row Id\", this indicates to the system that there are no detail records in the multi-value group and the secondary query should not be performed.\nWhen the Check No Match property is set to TRUE and the application encounters a master record where the primary foreign key is NULL, \"No Match Row Id\", or is invalid, the object manager performs a secondary query to determine if there are detail records in the multi-value group.  In other words, the application does not accept the accuracy of the special value \"No Match Row Id\" when determining if a child record may exist, and performs the additional query anyway.\nSetting the Check No Match property to TRUE can cause poor performance in an environment with a high number of parent records without primary child records, especially in list applets, as the application is forced to check the existence of child records by executing secondary queries.\"",
+    "output": "This rule reports Multi-Value Links with No Match property set to FALSE",
+    "rationale": "The Check No Match property on the MVL object has been set to TRUE for several new MVLs.  This property controls the behavior of the application when an MVL uses a primary join and the primary ID field has the value special value \"No Match Row Id\".",
+    "total": "Number of added or modified Multi-Value Links",
+    "alternativeName": "SiebelReview: Check No Match Property Set to TRUE for MVLs",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

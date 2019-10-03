@@ -1,0 +1,95 @@
+{
+    "id": 4696,
+    "name": "Avoid using 'System.err' and 'System.out' within a try catch block",
+    "href": "AIP/quality-rules/4696",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "Catch blocks should not use 'System.err' and 'System.out' to handle the errors.",
+    "output": "This report lists all Methods using 'System.err' in catch blocks. It provides the following information: Method full name",
+    "rationale": "Using 'System.err' in a catch block usually means that it is used to handle errors. 'System.err' should be used by the JVM only to notify the user when errors occur.",
+    "total": "Number of non-abstract Java artifacts",
+    "alternativeName": "Avoid using 'System.err' and 'System.out' within a try catch block",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

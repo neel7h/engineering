@@ -1,0 +1,63 @@
+{
+    "id": 1005078,
+    "name": "Avoid program calls outside a try end block (EGL)",
+    "href": "AIP/quality-rules/1005078",
+    "critical": true,
+    "description": "This rules searches for all the functions calling programs outside a try end block",
+    "output": "This report lists the following information: Program full name",
+    "rationale": "Program call can raise exception. If they are not properly catched, the troubleshooting get harder and thus cost is higher.",
+    "remediation": "Add a try end block outside the program call",
+    "remediationSample": "try   // FIXED\n   call \"abcd\";\n  onException\n   writestdout(\"Error on call to abcd failed\");\n   writestdout(\"sysvar.errorcode = \" + sysvar.errorCode);\n end\n  writestdout(\"programming continuing after call to abcd\");",
+    "sample": "call \"abcd\";  // VIOLATION\n  onException\n   writestdout(\"Error on call to abcd failed\");\n   writestdout(\"sysvar.errorcode = \" + sysvar.errorCode);\n \n  writestdout(\"programming continuing after call to abcd\");",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid program calls outside a try end block (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

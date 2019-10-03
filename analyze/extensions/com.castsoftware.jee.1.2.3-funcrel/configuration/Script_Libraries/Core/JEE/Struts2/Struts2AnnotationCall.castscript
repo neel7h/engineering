@@ -1,0 +1,8 @@
+module Custom.Struts2AnnotationCall;
+
+/* use declaration */
+
+use Custom.Struts2Annotation;
+
+createAllActions();
+/* manageValidators(); */

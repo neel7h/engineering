@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<WSDLEnvironmentProfile-2147>
+			<Item>
+				<Name>WSTOOL WSDD (Java)</Name>
+				<Uid>CAST_WSDL_DEFAULT_WSTOOL_WSDD_JAVA</Uid>
+			</Item>
+		</WSDLEnvironmentProfile-2147>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>WSTOOL WSDD (Java)</Name>
+		<Uid>CAST_WSDL_DEFAULT_WSTOOL_WSDD_JAVA</Uid>
+		<Type>WSDL Environment Profile-1147</Type>
+		<ImplementationLanguage-1746>Java</ImplementationLanguage-1746>
+		<MappingInformationFile-1242>*.wsdd</MappingInformationFile-1242>
+		<TransformationFile-1593>$(CastDir)\EnvProf\WSDL\wstool-wsdd.xslt</TransformationFile-1593>
+	</Entity>
+</Root>

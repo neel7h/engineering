@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+
+  <!-- Configuration to launch analyzer from within the extension -->
+
+  <actions>
+
+	<action name = "AMTPersistingAction" />
+	<action name = "AMTAllInstancesDumpAction" />
+
+<!--
+    <action name = "DotNetAnalyzerAction" />
+    <action name = "ManageProjectAction" />
+    <action name = "ManageWebSiteAction" />
+    <action name = "RoslynAction" />
+-->
+
+    <action name = "ManageDmtProjectAction" />
+  </actions>
+
+</configuration>

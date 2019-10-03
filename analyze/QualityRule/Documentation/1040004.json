@@ -1,0 +1,89 @@
+{
+    "id": 1040004,
+    "name": "Avoid having application request without being authenticated at least with HTTP basic",
+    "href": "AIP/quality-rules/1040004",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "For each request to the application, This rule will check if it's authenticated with HTTP basic authentication. If not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "HTTP Basic Authentication is simplest way to deal with authentication. As you probably know, Basic Authentication is just a standard HTTP header with the username:password encoded in base64. In case of HTTP basic authentication, instead of using a form, user login credentials are passed on HTTP request header, precisely \"Authorization\" request header. This header allows you to send username and password into request headers instead of the request body, as is the case of form login authentication. This is ideal for authenticating REST clients.When HTTP basic authentication is enabled, the client that is sending the request, for example, a browser or a REST client concatenates the username and the password with a colon between them and then use Base64 encoding to encode the resulting string. This string is then sent into \"Authorization\" header of the request. When this request reaches to the server then server extract value of the Authorization header and uses the base64 algorithm to decode the password and authenticate a user. If a request doesn't have Authentication header than server rejects the request with 401 response and also appends header \"WWW-Authenticate: Basic realm\" to instruct client that it needs to send username and password in request header for authentication.",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html\nhttps://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication\nhttps://javarevisited.blogspot.com/2018/01/how-to-enable-http-basic-authentication-spring-security-java-xml-configuration.html#axzz54bw3m88x\nhttps://www.javacodegeeks.com/2018/01/http-basic-authentication-works-spring-security.html",
+    "remediation": "Authenticate with HTTP basic with 'http-basic' or 'httpBasic()' element.\n// To enable HTTP Security in Spring, we need to extend the WebSecurityConfigurerAdapter to provide a default configuration in the configure(HttpSecurity http) method.",
+    "remediationSample": "// JAVA source\n\nprotected void configure(HttpSecurity http) throws Exception {\n      http.authorizeRequests()\n        .anyRequest().authenticated() // Autentication Request\n        .and().httpBasic() // HTTP Basic Authentication\n}\n\n// XML configuration\n\n<http>\n    <intercept-url pattern=\"/**\" access=\"authenticated\"/>\n    <http-basic/>\n</http>",
+    "sample": "// JAVA source\n\nprotected void configure(HttpSecurity http) throws Exception {\n      http.authorizeRequests() // VIOLATION Authorization is made without any authentication request\n\n}\n\n// XML Configuration\n\n<http>\n    <intercept-url pattern=\"/**\" access=\"authenticated\"/>\n</http>",
+    "total": "Number of Java Methods and Xml tags",
+    "alternativeName": "Ensure that any application request is authenticated with HTTP basic",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-287",
+            "name": "Improper Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

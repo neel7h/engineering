@@ -1,0 +1,106 @@
+{
+    "id": 4702,
+    "name": "Avoid using 'Throwable.printStackTrace()' with no argument",
+    "href": "AIP/quality-rules/4702",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Throwable.printStackTrace(...) prints a Throwable and its stack trace to some stream. If no argument is used, the default stream System.Err will be used, which could inadvertently expose sensitive information.\n\n\nThis rule will report a violation when printStackTrace is used without arguments : when the stack trace is printed to the default stream.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using 'Throwable.printStackTrace()' usually means that it is used to log the stack of errors, which has the risk of filling up the stdout or the log file.",
+    "reference": "http://cwe.mitre.org/data/definitions/489.html\nOWASP Top 10 2017 Category A3 - Sensitive Data Exposure",
+    "remediation": "Loggers should be used instead to print Throwables, as they have many advantages:\n\nUsers are able to easily retrieve the logs.\nThe format of log messages is uniform and allow users to browse the logs easily.",
+    "sample": "public static void main(String[] args){\n    try {\n        test();\n    } catch (UnsupportedOperationException e) {\n        System.out.println(e);\n        e.printStackTrace();\n    }\n}",
+    "total": "Number of non-abstract Java artifacts.",
+    "alternativeName": "Ensure to not use default stream(System.Err) for printStackTrace to print throwable and its stack trace in order to protect sensitive information.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

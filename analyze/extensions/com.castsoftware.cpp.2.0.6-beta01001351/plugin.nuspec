@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.cpp</id>
+    <version>2.0.6-beta01001351</version>
+    <title>C/C++ Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/C+and+Cpp+Analyzer+2.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.cfamily.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for C/C++.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/C+and+Cpp+Analyzer+2.0</releaseNotes>
+    <tags>C CPP C++</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.3.3" />
+    </dependencies>
+  </metadata>
+</package>

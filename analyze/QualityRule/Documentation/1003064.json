@@ -1,0 +1,67 @@
+{
+    "id": 1003064,
+    "name": "Avoid imports from the same package (Flex)",
+    "href": "AIP/quality-rules/1003064",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports packages that have imports from same package.",
+    "output": "This QR reports packages that have imports from same package. It provides following information:\n\n- Package full name",
+    "rationale": "Imports from the same package are not necessary.",
+    "remediation": "Remove imports from same packages.",
+    "sample": "package adobe.ac\n{\n   import adobe.ac.MyModel; // VIOLATION HERE\n   public class BigModel   \n   {\n      public var model : MyModel = null;\n   }\n}",
+    "total": "Number of packages",
+    "alternativeName": "Avoid imports from the same package (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.style.ImportFromSamePackage"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

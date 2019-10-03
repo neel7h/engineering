@@ -1,0 +1,59 @@
+{
+    "id": 1007254,
+    "name": "Avoid files that declare both symbols and execute logic with side effects (PHP)",
+    "href": "AIP/quality-rules/1007254",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule detects files that both declare symbols and executes logic with side effects.",
+    "output": "This report lists all files that declares symbols and executes logic with side effects. \nThis QR provides the following information:\nFile Full Name",
+    "rationale": "A file should either declare symbol and cause no side effect or execute logic with side effects but not both.",
+    "reference": "https://pear.php.net/package/PHP_CodeSniffer/docs/2.5.0/PHP_CodeSniffer/PSR1_Sniffs_Files_SideEffectsSniff.html",
+    "remediation": "Separate symbols and execution of logic that will cause side effect.",
+    "sample": "<?php\n\nif (!defined(FOO)) {\n   die(1);\n}\nclass Foo {\n   public function __construct() {\n   }\n}\n\n\n?>",
+    "total": "Number of Files",
+    "alternativeName": "Avoid files that declare both symbols and execute logic with side effects (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

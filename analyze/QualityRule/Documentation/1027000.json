@@ -1,0 +1,107 @@
+{
+    "id": 1027000,
+    "name": "Avoid Managed type declaration for Win32 API using Overlapped IO",
+    "href": "AIP/quality-rules/1027000",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid Managed type declaration for Win32 API using Overlapped IO\n\nP/Invoke declaration for an API using Overlapped IO, should use pointer to an overlapped structure instead of a reference.\n\nThis rule only checks for well known and most used Win32 APIs and will not cover native third-party or user assemblies.\n\nList of API functions checked for incorrect P/Invoke declarations - ConnectNamedPipe, LockFileEx, ReadFile, ReadFileEx, ReadFileScatter, UnlockFileEx, WriteFile, WriteFileEx, WriteFileGather, GetQueuedCompletionStatus, PostQueuedCompletionStatus, DeviceIoControl, GetOverlappedResult, CancelIoEx, GetOverlappedResultEx, TransactNamedPipe, WaitCommEvent, ReadDirectoryChangesW, ReadDirectoryChangesExW",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Overlapped IO is used for asynchronous Win32 API.\n\nThe caller of such API initializes and passes a Overlapped structure and completion or failure of the API call is conveyed through the structure.\n\nThis means that the memory allocated for Overlapped structure should stay allocated until said IO operation is completed.\n\nWith P/Invoke, if Overlapped IO structure is allocated memory using GC, there is a good chance that this memory will be collected by GC before the IO operation is completed.\n\nTo avoid such error states, it is important that P/Invoke declarations for API using overlapped IO be made using unsafe pointer to a Overlapped structure.\nThis declaration conveys to the user of P/Invoke that allocations for this function should be made in an unsafe context.",
+    "reference": "https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1415-declare-p-invokes-correctly?view=vs-2015",
+    "remediation": "Convert any references like \"NativeOverlapped overlapped\" or \"IntPtr overlapped\" to \"NativeOverlapped* overlapped\" and mark the P/Invoke declaration unsafe",
+    "remediationSample": "[ComVisible(true)]\ninternal class UnsafeNativeMethods\n{\n    private UnsafeNativeMethods() { }\n    [DllImport(\"kernel32.dll\", SetLastError = true)]\n    unsafe internal extern static uint ReadFile(\n    IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,\n    IntPtr lpNumberOfBytesRead, NativeOverlapped* overlapped);\n\n    [DllImport(\"kernel32.dll\", SetLastError = true)]\n    [return: MarshalAs(UnmanagedType.Bool)]\n    unsafe internal extern static bool ReadFileEx(\n    IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,\n    NativeOverlapped* overlapped, IntPtr lpCompletionRoutine);\n}",
+    "sample": "List of API functions checked for incorrect P/Invoke declarations - ConnectNamedPipe, LockFileEx, ReadFile, ReadFileEx, ReadFileScatter, UnlockFileEx, WriteFile, WriteFileEx, WriteFileGather, GetQueuedCompletionStatus, PostQueuedCompletionStatus, DeviceIoControl, GetOverlappedResult, CancelIoEx, GetOverlappedResultEx, TransactNamedPipe, WaitCommEvent, ReadDirectoryChangesW, ReadDirectoryChangesExW\n\n[ComVisible(true)]\ninternal class NativeMethods\n{\n    private NativeMethods() { }\n\n    [DllImport(\"kernel32.dll\", SetLastError = true)]\n    internal extern static uint ReadFile(\n       IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,\n       IntPtr lpNumberOfBytesRead, IntPtr overlapped);\n\n    [DllImport(\"kernel32.dll\", SetLastError = true)]\n    [return: MarshalAs(UnmanagedType.Bool)]\n    internal extern static bool ReadFileEx(\n       IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,\n       NativeOverlapped overlapped, IntPtr lpCompletionRoutine);\n}",
+    "total": "Number of Methods using Overlapped IO",
+    "alternativeName": "Avoid Managed type declaration for Win32 API using Overlapped IO",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-120",
+            "name": "Buffer Copy without Checking Size of Input",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-120",
+            "name": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.2",
+            "name": "Buffer overflows",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70277",
+            "name": "The application must not be vulnerable to overflow attacks.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

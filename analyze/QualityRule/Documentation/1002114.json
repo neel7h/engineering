@@ -1,0 +1,72 @@
+{
+    "id": 1002114,
+    "name": "Avoid Functions with High Average size of Statements (AVGS)  (FORTRAN)",
+    "href": "AIP/quality-rules/1002114",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This calculation is using the results of the calculated Halstead metrics n1, n2, N1 and N2. This diagnostic is a result of this calculation",
+    "rationale": "AVGS: This metric (Average Size of statements) corresponds to the average number of operands and operators used by each of the component's executable statements.\nIt is calculated as follows:\n        AVGS = (N1+N2) / STMT;\n where:\n        N1 is the number of operator occurrences,\n        N2 is the number of operand occurrences,\n        STMT is the number of executable statements in the component",
+    "alternativeName": "Avoid Functions with High Average size of Statements (AVGS)  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

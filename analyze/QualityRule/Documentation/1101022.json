@@ -1,0 +1,59 @@
+{
+    "id": 1101022,
+    "name": "Avoid Tables without Primary Key (SQL)",
+    "href": "AIP/quality-rules/1101022",
+    "critical": true,
+    "associatedValueName": "List of tables without Primary key constraints",
+    "description": "This metric displays the list of tables without Primary key constraints",
+    "output": "This report lists all tables without a primary key defined. It provides the full name of each table without a primary key.",
+    "rationale": "In relational database design, a candidate key is just a unique identifier. Next, a primary key is a candidate key that's been singled out  to uniquely identify each row in a table. \nA unique key or primary key comprises a single column or set of columns. No two distinct rows in a table can have the same value (or combination of values) in those columns. \n\nDepending on its design, a table may have arbitrarily have many unique keys but at most one primary key.",
+    "remediation": "Check the statement and if so, add primary key.",
+    "remediationSample": "Add a primary key:\nalter table SQLAMDA001_7_TBL1 add constraint SQLAMDA001_7_TBL1_PK primary key (category_name)\nusing index\n/",
+    "sample": "The following statement should be reviewed:\ncreate table SQLAMDA001_7_TBL1\n(category_name varchar2(10) not null ,\n  title        varchar2(50) null ,\n  title_id     varchar2(10) null ,\n  author_name  varchar2(30) null\n)\n/",
+    "total": "Number of Tables.",
+    "alternativeName": "Avoid Tables without Primary Key (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

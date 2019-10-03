@@ -1,0 +1,83 @@
+{
+    "id": 1007232,
+    "name": "Avoid artifacts with variables passed by reference when calling a function (PHP)",
+    "href": "AIP/quality-rules/1007232",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "Passing a variable by reference to a function will cause the original value to be changed if that variable is modified inside the called function and may produce unexpected results. Therefore, forcing variables passed by reference should be avoided.\nNote: Allowing to pass the variables by reference even though function signature does not allow variables passed by reference is no longer possible in PHP 5.x. This QR is kept only for compatibility with PHP 4.x code.",
+    "output": "This report lists all artifacts with variables passed by reference when calling a function. It provides:\nFunction, method and constructor full name",
+    "rationale": "If the variable is passed by reference when calling a function even though function signature does not accept parameter by reference, it may give unexpected result if value is changed and it is not expected behaviour.",
+    "reference": "Code Sniffer - https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Generic/Sniffs/Functions/CallTimePassByReferenceSniff.php",
+    "remediation": "If the value change is expected, change the function signature to denote that variables will be passed by reference or return changed value and assign it to variable.",
+    "remediationSample": "---IN PHP 4.x---\n\n<?php\nfunction myFunc($var) {\n   return $var + 10;\n}\n \n$input = 0;\n \n$param = myFunc($input);   //VIOLATION REMOVED\n?>\n\n---OR---\n\n<?php\nfunction myfunc(&$var) {\n    $var = 10;\n}\n$input = 1;\n\nmyfunc($input);      //VIOLATION REMOVED\necho $input;\n?>",
+    "sample": "<?php\nfunction myfunc($var) {\n   $var = 10;\n}\n$input = 1;\n\nmyfunc(&$input);  //VIOLATION \necho $input;\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts with variables passed by reference when calling a function (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61029,
+            "name": "Complexity - Dynamic Instantiation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.Functions.CallTimePassByReference"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

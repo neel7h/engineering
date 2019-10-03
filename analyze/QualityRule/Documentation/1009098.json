@@ -1,0 +1,62 @@
+{
+    "id": 1009098,
+    "name": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG300)",
+    "href": "AIP/quality-rules/1009098",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the artifacts using plain END statements.",
+    "output": "This report lists RPG300 programs using plain END statement, use the explained END statement like ENDIF, ENDDO, etc.\nIt provides the following information:\nRPG300 Program full name",
+    "rationale": "This increases the level of readability of the code and hence the maintainability",
+    "remediation": "Try to replace the plain END with the explained one like END IF, END DO etc",
+    "total": "Total number of RPG300 Programs",
+    "alternativeName": "Avoid using plain END statement, use the explained END statement like ENDIF, ENDDO, etc  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

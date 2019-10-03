@@ -1,0 +1,77 @@
+{
+    "id": 1003128,
+    "name": "Avoid use of with statement (Flex)",
+    "href": "AIP/quality-rules/1003128",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that \"with\" keyword.",
+    "output": "This QR reports artifacts that use \"with\" keyword. It provides following information:\n\n- Artifact full name",
+    "rationale": "For readability reason, \"with\" keyword should not be used.",
+    "remediation": "Use qualified names.",
+    "sample": "package \n{\n   public class AvoidUseOfWithKeyword \n    {\n        function polar(r:Number):void { \n           var a:Number, x:Number, y:Number; \n           with (Math) { \n              a = PI * pow(r, 2); \n              x = r * cos(PI); \n              y = r * sin(PI / 2); \n           } \n           trace(\"area = \" + a); \n           trace(\"x = \" + x); \n           trace(\"y = \" + y); \n        }        \n        \n    }\n\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid use of with statement (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.AvoidUsingWithKeyWord"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

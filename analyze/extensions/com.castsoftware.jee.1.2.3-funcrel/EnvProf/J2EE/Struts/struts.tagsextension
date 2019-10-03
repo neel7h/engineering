@@ -1,0 +1,948 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation=".\schemas\cast-tag-extensions.xsd">
+	<!-- Note: Make sure the value of the taglibs/taglib/@uri attribute matches the value of the taglib/uri element 
+		in your tld files.
+	-->
+	
+	<!-- bean -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-bean"
+		uri1="http://jakarta.apache.org/struts/tags-bean-1.0"
+		uri2="http://struts.apache.org/tags-bean">
+		<tag name="define">
+			<create nameSrc="id" kind="bean" scopeSrc="toScope">
+				<useTypeOf instanceSrc="value" type="java.lang.String" />
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+				<useTypeOf instanceSrc="name" memberSrc="property">
+					<search kind="bean" nameSrc="name"
+						scopeSrc="scope">
+						<create kind="bean.property" nameSrc="property" />
+					</search>
+				</useTypeOf>
+			</create>
+
+			<declare name-from-attribute="id" scope="AT_END" typeSrc="type">
+				<useTypeOf instanceSrc="id">
+					<search kind="bean" nameSrc="id" scopeSrc="toScope" />
+				</useTypeOf>
+			</declare>
+
+			<call instanceSrc="name" propertySrc="property">
+				<search kind="bean" nameSrc="name" scopeSrc="scope" />
+			</call>
+			<attribute name="type" resolveValueAs="java-type" />
+		</tag>
+
+		<tag name="write">
+			<call instanceSrc="name" propertySrc="property">
+				<search kind="bean" nameSrc="name" scopeSrc="scope">
+					<create kind="bean.property" nameSrc="property" />
+				</search>
+			</call>
+
+			<attribute name="bundle"	resolveValueAs="bean" resolutionScope="application" />
+			<attribute name="formatKey" resolveValueAs="property-mapping" />
+			<attribute name="locale"	resolveValueAs="bean" resolutionScope="session" />
+
+		</tag>
+		<!-- 
+			bean: cookie 
+			Declares scripting variable and defines page scope bean having a type scpecified as follows:
+			If @multiple is specified, then type is javax.servlet.http.Cookie[]
+			Else, type is javax.servlet.http.Cookie (note that @name is required so assumed to be specified)
+			Since we do not make difference between a type and it's array type when tracing links, we just assumed javax.servlet.http.Cookie in both cases.
+		-->
+		<tag name="cookie">
+			<declare name-from-attribute="id" variable-class="javax.servlet.http.Cookie" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="javax.servlet.http.Cookie" />
+		</tag>
+
+		<tag name="header">
+			<declare name-from-attribute="id" variable-class="java.lang.String" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="java.lang.String" />
+		</tag>
+
+		<tag name="parameter">
+			<declare name-from-attribute="id" scope = "AT_END">
+				<useTypeOf instanceSrc="multiple" type="java.lang.String[]" />
+				<useTypeOf instanceSrc="id" type="java.lang.String" />
+			</declare>
+			<create nameSrc="id" kind="bean" type="java.lang.String" value="value" />
+		</tag>
+
+		<tag name="include">
+			<declare name-from-attribute="id" variable-class="java.lang.String" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="java.lang.String" />
+
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="href" resolveValueAs="url" />
+			<attribute name="name" resolveValueAs="url" />
+			<attribute name="page" resolveValueAs="url" />
+		</tag>
+
+		<tag name="message">
+			<search kind="bean" nameSrc="name" scopeSrc="scope" resolveValueAs="property-mapping" />
+
+			<attribute name="bundle" resolveValueAs="bean" resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean" resolutionScope="session" />
+			<attribute name="key" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="page">
+			<declare name-from-attribute="id" variable-class="java.lang.String" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="java.lang.String" />
+		</tag>
+
+		<tag name="size">
+			<declare name-from-attribute="id" variable-class="java.lang.Integer" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="java.lang.Integer" />
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="struts">
+			<declare name-from-attribute="id" scope = "AT_END">
+				<useTypeOf instanceSrc="formBean" type="org.apache.struts.action.ActionFormBean"/>
+				<useTypeOf instanceSrc="forward"  type="org.apache.struts.action.ActionForward" />
+				<useTypeOf instanceSrc="mapping"  type="org.apache.struts.action.ActionMapping" />
+			</declare>
+
+			<create nameSrc="id" kind="bean">
+				<useTypeOf instanceSrc="formBean" type="org.apache.struts.action.ActionFormBean" />
+				<useTypeOf instanceSrc="forward"  type="org.apache.struts.action.ActionForward" />
+				<useTypeOf instanceSrc="mapping"
+					type="org.apache.struts.action.ActionMapping" />
+			</create>
+
+			<attribute name="formBean" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="mapping" resolveValueAs="action-mapping" />
+
+		</tag>
+		<!-- 
+			bean: resource 
+			Declares scripting variable and defines page scope bean having a type scpecified as follows:
+			If @input is specified, then type is java.io.InputStream
+			Else, type is java.lang.String (note that @name is required so assumed to be specified)
+		-->
+		<tag name="resource">
+			<declare name-from-attribute="id" scope = "AT_END">
+				<useTypeOf instanceSrc="input"
+					type="java.io.InputStream" />
+				<useTypeOf instanceSrc="id" type="java.lang.String" />
+			</declare>
+
+			<create nameSrc="id" kind="bean">
+				<useTypeOf instanceSrc="input"
+					type="java.io.InputStream" />
+				<useTypeOf instanceSrc="id" type="java.lang.String" />
+			</create>
+
+			<attribute name="name" resolveValueAs="url" />
+		</tag>
+
+	</taglib>
+
+
+	<!-- html -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-html"
+		uri1="http://jakarta.apache.org/struts/tags-html-1.0"
+		uri2="http://struts.apache.org/tags-html">
+		<tag name="button">
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="cancel">
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="checkbox">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="errors">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+		</tag>
+
+		<tag name="file">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="form">
+			<create nameSrc="name" kind="bean">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</create>
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope" />
+
+			<attribute name="action"
+				resolveValueAs="action-mapping;url" />
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="type" resolveValueAs="java-type" />
+		</tag>
+
+		<tag name="frame">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+			<attribute name="action" resolveValueAs="action-mapping" />
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="href" resolveValueAs="url" />
+			<attribute name="page" resolveValueAs="url" />
+		</tag>
+
+		<tag name="hidden">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="image">
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="page" resolveValueAs="url" />
+			<attribute name="pageKey" resolveValueAs="property-mapping" />
+			<attribute name="src" resolveValueAs="url" />
+			<attribute name="srcKey" resolveValueAs="property-mapping" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="img">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="page" resolveValueAs="url" />
+			<attribute name="pageKey" resolveValueAs="property-mapping" />
+			<attribute name="src" resolveValueAs="url" />
+			<attribute name="srcKey" resolveValueAs="property-mapping" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="javascript">
+			<attribute name="formName" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="src" resolveValueAs="url" />
+		</tag>
+
+		<tag name="link">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="action" resolveValueAs="url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="href" resolveValueAs="url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="page" resolveValueAs="path;url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+
+		</tag>
+
+		<tag name="messages">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<attribute name="id" resolveValueAs="bean"
+				resolutionScope="page" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+
+			<attribute name="header" resolveValueAs="property-mapping" />
+			<attribute name="footer" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="multibox">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="option">
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="key" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="options">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="labelName">
+				<create kind="bean.property" nameSrc="labelProperty" />
+			</search>
+
+			<attribute name="collection" resolveValueAs="bean" />
+		</tag>
+
+		<tag name="optionsCollection">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="password">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="radio">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<search kind="bean" nameSrc="idName">
+				<create kind="bean.property" nameSrc="value" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="reset">
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="rewrite">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="action" resolveValueAs="action-mapping" />
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="href" resolveValueAs="url" />
+			<attribute name="page" resolveValueAs="url" />
+		</tag>
+
+		<tag name="select">
+			<attribute name="name" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="submit">
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="text">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="textarea">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+	</taglib>
+
+
+	<!-- logic -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-logic"
+			uri1="http://jakarta.apache.org/struts/tags-logic-1.0"
+			uri2="http://struts.apache.org/tags-logic">
+		<tag name="empty">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="equal">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="forward">
+			<attribute name="name" resolveValueAs="forward" />
+			<!-- global forward -->
+		</tag>
+
+		<tag name="greaterEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="greaterThan">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="iterate">
+			<declare name-from-attribute="id" scope="NESTED">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</declare>
+
+			<create nameSrc="id" kind="bean" scope="page">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</create>
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<declare name-from-attribute="indexId" variable-class="java.lang.Integer" scope="NESTED"/>
+			<create nameSrc="indexId" kind="bean" scope="page" type="java.lang.Integer"/>
+
+			<attribute name="type" resolveValueAs="java-type" />
+
+
+		</tag>
+
+		<tag name="lessEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="lessThan">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="match">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="messagesNotPresent">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="messagesPresent">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notEmpty">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notMatch">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notPresent">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="present">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="redirect">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="action" resolveValueAs="action-mapping" />
+			<attribute name="forward" resolveValueAs="forward" />
+			<!-- global forward -->
+			<attribute name="href" resolveValueAs="url" />
+			<attribute name="page" resolveValueAs="url" />
+		</tag>
+
+	</taglib>
+
+	<!-- template -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-template"
+			uri1="http://jakarta.apache.org/struts/tags-template-1.0"
+			uri2="http://struts.apache.org/tags-template">
+		<tag name="put">
+			<create nameSrc="name" kind="bean" valueSrc="content"
+				scope="request" />
+		</tag>
+		<tag name="get">
+			<search kind="bean" nameSrc="name" scope="request"
+				resolveValueAs="path;bean">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+		<tag name="insert">
+			<attribute name="template" resolveValueAs="url;path" />
+		</tag>
+	</taglib>
+
+	<!-- nested -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-nested"
+		uri1="http://jakarta.apache.org/struts/tags-nested-1.0"
+		uri2="http://struts.apache.org/tags-nested">
+		<tag name="define">
+			<create nameSrc="id" kind="bean" scopeSrc="toScope">
+				<useTypeOf instanceSrc="value" type="java.lang.String" />
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+				<useTypeOf instanceSrc="name" memberSrc="property">
+					<search kind="bean" nameSrc="name"
+						scopeSrc="scope">
+						<create kind="bean.property" nameSrc="property" />
+					</search>
+				</useTypeOf>
+			</create>
+
+			<declare name-from-attribute="id" scope="AT_END" typeSrc="type">
+				<useTypeOf instanceSrc="id">
+					<search kind="bean" nameSrc="id" scopeSrc="toScope" />
+				</useTypeOf>
+			</declare>
+
+			<call instanceSrc="name" propertySrc="property">
+				<search kind="bean" nameSrc="name" scopeSrc="scope" />
+			</call>
+			<attribute name="type" resolveValueAs="java-type" />
+		</tag>
+		
+		<tag name="message">
+			<search kind="bean" nameSrc="name" scopeSrc="scope" resolveValueAs="property-mapping" />
+
+			<attribute name="bundle" resolveValueAs="bean" resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean" resolutionScope="session" />
+			<attribute name="key" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="size">
+			<declare name-from-attribute="id" variable-class="java.lang.Integer" scope = "AT_END"/>
+			<create nameSrc="id" kind="bean" type="java.lang.Integer" />
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="write">
+			<call instanceSrc="name" propertySrc="property">
+				<search kind="bean" nameSrc="name" scopeSrc="scope">
+					<create kind="bean.property" nameSrc="property" />
+				</search>
+			</call>
+
+			<attribute name="bundle"	resolveValueAs="bean" resolutionScope="application" />
+			<attribute name="formatKey" resolveValueAs="property-mapping" />
+			<attribute name="locale"	resolveValueAs="bean" resolutionScope="session" />
+
+		</tag>
+
+		<tag name="checkbox">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="errors">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+		</tag>
+
+		<tag name="file">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="form">
+			<create nameSrc="name" kind="bean">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</create>
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope" />
+
+			<attribute name="action"
+				resolveValueAs="action-mapping;url" />
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="type" resolveValueAs="java-type" />
+		</tag>
+
+		<tag name="hidden">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+							
+		<tag name="image">
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="page" resolveValueAs="url" />
+			<attribute name="pageKey" resolveValueAs="property-mapping" />
+			<attribute name="src" resolveValueAs="url" />
+			<attribute name="srcKey" resolveValueAs="property-mapping" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="img">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="bundle" resolveValueAs="bean"
+				resolutionScope="application" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="page" resolveValueAs="url" />
+			<attribute name="pageKey" resolveValueAs="property-mapping" />
+			<attribute name="src" resolveValueAs="url" />
+			<attribute name="srcKey" resolveValueAs="property-mapping" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="link">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="paramName"
+				scopeSrc="paramScope">
+				<create kind="bean.property" nameSrc="paramProperty" />
+			</search>
+
+			<attribute name="action" resolveValueAs="url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="forward" resolveValueAs="forward" /><!-- global forward -->
+			<attribute name="href" resolveValueAs="url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="page" resolveValueAs="url;action-mapping"
+				prefixSrc="module" match-whole-word="false" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+
+		</tag>
+		
+		<tag name="messages">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<attribute name="id" resolveValueAs="bean"
+				resolutionScope="page" />
+			<attribute name="locale" resolveValueAs="bean"
+				resolutionScope="session" />
+
+			<attribute name="header" resolveValueAs="property-mapping" />
+			<attribute name="footer" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="multibox">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="options">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<search kind="bean" nameSrc="labelName">
+				<create kind="bean.property" nameSrc="labelProperty" />
+			</search>
+
+			<attribute name="collection" resolveValueAs="bean" />
+		</tag>
+
+		<tag name="optionsCollection">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="password">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="radio">
+			<search kind="bean" nameSrc="name">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+			<search kind="bean" nameSrc="idName">
+				<create kind="bean.property" nameSrc="value" />
+			</search>
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="select">
+			<attribute name="name" resolveValueAs="bean"
+				resolutionScope="session" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="submit">
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="text">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="textarea">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"
+				resolveValueAs="property-mapping" />
+		</tag>
+	
+		<tag name="empty">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="equal">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="greaterEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="greaterThan">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="iterate">
+			<declare name-from-attribute="id" scope="NESTED">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</declare>
+
+			<create nameSrc="id" kind="bean" scope="page">
+				<useTypeOf instanceSrc="type" typeSrc="type" />
+			</create>
+
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+			<declare name-from-attribute="indexId" variable-class="java.lang.Integer" scope="NESTED"/>
+			<create nameSrc="indexId" kind="bean" scope="page" type="java.lang.Integer"/>
+
+			<attribute name="type" resolveValueAs="java-type" />
+
+
+		</tag>
+
+		<tag name="lessEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="lessThan">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="match">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="messagesNotPresent">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="messagesPresent">
+			<search kind="bean" nameSrc="name" scope="request">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notEmpty">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notEqual">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notMatch">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="notPresent">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+
+		<tag name="present">
+			<search kind="bean" nameSrc="name" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+	</taglib>
+	
+	<!-- Tiles -->
+	<taglib uri="http://jakarta.apache.org/struts/tags-tiles-1.1"
+		uri1="http://jakarta.apache.org/struts/tags-tiles"
+		uri2 = "http://struts.apache.org/tags-tiles">
+		<!-- Handled Internaly. Do not remove this configuration -->
+	</taglib>
+</taglibs>

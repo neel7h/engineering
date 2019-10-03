@@ -1,0 +1,101 @@
+{
+    "id": 1007156,
+    "name": "Avoid using eval expressions (PHP)",
+    "href": "AIP/quality-rules/1007156",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts using eval expression. Artifacts considered for this QR are PHP Section, method, function and constructors.",
+    "output": "This report lists all artifacts using eval expression.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Source code containing eval-expressions is difficult to test and represents a security risk.",
+    "reference": "https://cwe.mitre.org/data/definitions/624.html",
+    "remediation": "Modify the source code to reduce the use of eval expression.",
+    "sample": "<?php\nclass CastTest {\n public function test( $param ) {\n  if (10 === $param) {\n   eval('$param = 10;');   //violation\n  }\n }\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using eval expressions (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-95",
+            "name": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "EvalExpression"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

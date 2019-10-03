@@ -1,0 +1,64 @@
+{
+    "id": 1007180,
+    "name": "Use file inclusion based on API suitability (PHP)",
+    "href": "AIP/quality-rules/1007180",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for use of file inclusion API that does not match it's functionality.",
+    "output": "This report lists all the artifacts which do not use file inclusion API as per their suitability.\nThis QR provides the following information:\n- Artifact Full Name",
+    "rationale": "Different PHP file inclusion API are intended for different scenarios. APIs \"require\" and \"require_once\" should be used when they are used at global level without checking whether file is included because those APIs have internal check. APIs \"include\" and \"include_once\" do not check whether the file is already included. Therefore, \"require\" and \"require_once\" should be used where file is included unconditionally and \"include\" and \"include_once\" should be used where file is included inside condition.",
+    "remediation": "Use file inclusion based on API suitability.",
+    "remediationSample": "<?php\nrequire \"a.php\"; // violation removed\nrequire_once \"B.php\"; // violation removed\n\nfunction loadFiles() {\n   include \"c.php\"; // violation removed\n   include_once \"d.php\"; // violation removed\n}\n?>",
+    "sample": "<?php\ninclude \"a.php\"; // violation\ninclude_once \"B.php\"; // violation\n\nfunction loadFiles() {\n   require \"c.php\";  //violation\n   require_once \"d.php\"; //violation\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Use file inclusion based on API suitability (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

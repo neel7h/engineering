@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="ControlFlow.Switch">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH IN TREE ELEMENT" >
+					<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>					
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>
+		
+		<CATEGORY NAME="MATCH_SWITCH">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="JAVA_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_J11_SwitchStatement" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="PB_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_PB6_STAT_CHOOSE_CASE" />	
+						<SIGNATURE NAME="NODE_P23_STATEMENT_CASE" />
+            <SIGNATURE NAME="NODE_PL_STATEMENT_CASE" /> --
+          </SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="ABAP_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_AB4_CaseStatement" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_C_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_C_SWITCH" />						
+						<SIGNATURE NAME="NODE_P23_STATEMENT_CASE" />
+            <SIGNATURE NAME="NODE_PL_STATEMENT_CASE" /> 
+            <SIGNATURE NAME="CLASS_PLSQL_expression_case" />
+          </SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_SHARP_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_CSharp_SWITCH" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+      
+			<PROPERTY NAME="PLSQL_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+            <SIGNATURE>CLASS_PLS_function_body</SIGNATURE> --
+            <SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_procedure_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_1</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_2</SIGNATURE> --
+          </OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_P23_STATEMENT_CASE" />
+            <SIGNATURE NAME="NODE_PL_STATEMENT_CASE" /> --
+          </SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="DB2_SWITCH" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>LIST_UDB_SQL_STATEMENT_LIST</SIGNATURE>													
+							<SIGNATURE>LIST_DSN_SQL_STATEMENT_LIST</SIGNATURE>
+							<SIGNATURE>NODE_UDB_CREATE_TRIGGER_BEFORE</SIGNATURE>
+							<SIGNATURE>NODE_UDB_CREATE_TRIGGER_AFTER</SIGNATURE>
+							<SIGNATURE>NODE_DSN_CREATE_TRIGGER_BEFORE</SIGNATURE>
+							<SIGNATURE>NODE_DSN_CREATE_TRIGGER_AFTER</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_UDB_CTRL_CASE" />	
+							<SIGNATURE NAME="NODE_DSN_CTRL_CASE" />
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_SWITCH" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VB6_STATEMENT_DECLARE_LIST</SIGNATURE>																				
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VB6_SELECT_CASE" />																			
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_NET_SWITCH" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+							<SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VbNet_SELECT" />								
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="DELPHI_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+						<SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+					</OR>																						
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_DP6_CASE_STATEMENT"/> 							
+					</SUB_TREE_OR>							
+					
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="JAVA_SCRIPT_SWITCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_JS15_Script</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<SIGNATURE NAME="NODE_JS15_SwitchStatement"  />																		
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_SCRIPT_SWITCH" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VBS5_Script</SIGNATURE>
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VBS5_SelectCaseStatement"  />								
+						</SUB_TREE_OR>
+
+					</TREE>
+			</PROPERTY>
+
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>VB_SCRIPT_SWITCH</MATCH>	
+				<MATCH>JAVA_SCRIPT_SWITCH</MATCH>	
+				<MATCH>VB_NET_SWITCH</MATCH> 
+				<MATCH>DELPHI_SWITCH</MATCH> 
+				<MATCH>VB_SWITCH</MATCH> 
+				<MATCH>DB2_SWITCH</MATCH> 
+				<MATCH>PLSQL_SWITCH</MATCH> 
+				<MATCH>C_SWITCH</MATCH> 
+				<MATCH>C_SHARP_SWITCH</MATCH> 
+				<MATCH>ABAP_SWITCH</MATCH> 								
+				<MATCH>PB_SWITCH</MATCH> 								
+				<MATCH>JAVA_SWITCH</MATCH> 								
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_CLUMP>VALUE</RESULT_CLUMP> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+</METRIC>

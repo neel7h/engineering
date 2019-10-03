@@ -1,0 +1,85 @@
+{
+    "id": 1007286,
+    "name": "Avoid PHP Dangerous Feature (PHP)",
+    "href": "AIP/quality-rules/1007286",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "The usage of a dangerous PHP feature has been detected. The feature is known to introduce security risks and should be avoided whenever possible.",
+    "output": "This report lists all artifacts that use PHP dangerous feature. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The usage of a dangerous PHP feature has been detected. The feature is known to introduce security risks and should be avoided whenever possible.",
+    "reference": "https://cwe.mitre.org/data/definitions/242.html",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid PHP Dangerous Feature (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-242",
+            "name": "Use of Inherently Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

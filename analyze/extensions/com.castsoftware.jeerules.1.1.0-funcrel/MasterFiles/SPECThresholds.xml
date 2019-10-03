@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" thresholdToGet1="99.0" thresholdToGet2="95.0" thresholdToGet3="90.0" thresholdToGet4="50.0" />
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+</root>

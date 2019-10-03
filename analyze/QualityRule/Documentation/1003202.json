@@ -1,0 +1,67 @@
+{
+    "id": 1003202,
+    "name": "Avoid public variables inside a custom event (Flex)",
+    "href": "AIP/quality-rules/1003202",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports Custom Event class that has public variable.",
+    "output": "This QR provides fields that are public in custom event class. It provide following information:\n- Flex Field Full Name",
+    "rationale": "In order to improve encapsulation in your custom event, it is better not to have public variable in your event.",
+    "remediation": "Prefer having non-public, read-only attributes, set by the event constructor.",
+    "remediationSample": "package {\n   import flash.events.Event;\n   public class CustomEvent extends Event\n   {\n      private var _field : String;\n      \n      public function CustomEvent()\n      {         \n      }\n      \n      public function get field() : String {\n         return _field;\n      }\n   }\n}",
+    "sample": "package {\n   import flash.events.Event;\n   public class CustomEvent extends Event\n   {\n      public var _field : String; // VIOLATION\n      \n      public function CustomEvent()\n      {         \n      }\n   }\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid public variables inside a custom event (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.event.PublicVariableInCustomEvent"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

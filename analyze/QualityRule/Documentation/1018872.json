@@ -1,0 +1,64 @@
+{
+    "id": 1018872,
+    "name": "Avoid Activities using ROWNUM (TIBCO BW)",
+    "href": "AIP/quality-rules/1018872",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Associated Value",
+    "description": "Avoid ROWNUM if it is possible, use ROW_NUMBER built-in SQL function.",
+    "output": "This report lists all Tibco Activity using COUNT(*) in queries.\nIt provides the following information:\n- Tibco Activity full name",
+    "rationale": "Using ROWNUM in a query can affect view optimization.\nThe ROW_NUMBER built-in SQL function provides superior support for ordering the results of a query. \nThe row_limiting_clause of the SELECT statement provides superior support for limiting the number of rows returned by a query.\nIn Oracle < 10.2.0.4 ROWNUM=1 lead to performance issue, ROWNUM<2 is to be used instead (Bug 4513695 Poor performance for SELECT with ROWNUM=1 with literal replacement, fixed in 10.2.0.4.)",
+    "reference": "http://docs.oracle.com/database/121/SQLRF/pseudocolumns009.htm#SQLRF00255\nBug 4513695: https://support.oracle.com/rs?type=bug&id=4513695",
+    "remediation": "Change the query using ROW_NUMBER built-in SQL function or using row_limiting_clause of the SELECT statement",
+    "total": "Number of Activities using esql",
+    "alternativeName": "Avoid Activities using ROWNUM (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

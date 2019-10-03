@@ -1,0 +1,75 @@
+{
+    "id": 1020336,
+    "name": "Avoid using Dialog Widget with jQuery UI version older than 1.10.0",
+    "href": "AIP/quality-rules/1020336",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will search for the usage of \"dialog\" function in jQuery code using jQuery UI version older than 1.10.0",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list. Cross-site scripting (XSS) vulnerability in jquery.ui.dialog.js in the Dialog widget in jQuery UI before 1.10.0 allows remote attackers to inject arbitrary web script or HTML via the title option.\nThis rule has been listed as CVE-2010-5312 in the CVE registry.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5312",
+    "remediation": "Do not use .dialog() or update the version of jQuery",
+    "remediationSample": "// version of library is NOT vulnerable\n<script src=\"https://code.jquery.com/ui/1.10.0/jquery-ui.js\"></script> \n...\n$('<div>Hi</div>').dialog({title:'<script type=\"text/javascript\">alert(\"XSS\");</script>\"});\n..",
+    "sample": "// version of library vulnerable\n<script src=\"https://code.jquery.com/ui/1.9.1/jquery-ui.js\"></script> \n...\n$('<div>Hi</div>').dialog({title:'<script type=\"text/javascript\">alert(\"XSS\");</script>\"});\n..",
+    "total": "Number of jQuery methods",
+    "alternativeName": "Avoid using Dialog Widget with jQuery UI version older than 1.10.0",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

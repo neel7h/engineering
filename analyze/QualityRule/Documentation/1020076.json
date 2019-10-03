@@ -1,0 +1,82 @@
+{
+    "id": 1020076,
+    "name": "Avoid Artifacts with too many parameters (Javascript)",
+    "href": "AIP/quality-rules/1020076",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid artifacts with more than X parameters. The threshold X is a parameter and it can be changed at will.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "For maintainability and readability reasons, artifacts should not have too many parameters.",
+    "remediation": "Aggregate some parameters into an object",
+    "total": "Number of Javascript functions and methods",
+    "alternativeName": "Avoid Artifacts with too many parameters (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-13",
+            "name": "Callable and Method Control Element Excessive Number of Parameters",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum parameters",
+            "description": "Maximum parameters",
+            "technologies": [
+                {
+                    "id": 1020000,
+                    "name": "HTML5",
+                    "href": "AIP/technologies/1020000",
+                    "values": [
+                        9
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

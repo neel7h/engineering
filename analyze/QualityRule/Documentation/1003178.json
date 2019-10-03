@@ -1,0 +1,72 @@
+{
+    "id": 1003178,
+    "name": "Avoid incorrect message interceptor signature (Flex)",
+    "href": "AIP/quality-rules/1003178",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports message interceptor functions with incorrect signature.",
+    "output": "This QR reports message interceptor functions with incorrect signature. It provides following information:\n- Function full name",
+    "rationale": "Incorrect message interceptor signature will result in unexpected behaviour.",
+    "remediation": "Use correct message interceptor signature.",
+    "remediationSample": "package {\n\n   public class AvoidIncorrectMessageInterceptorSignature {\n\n      [MessageInterceptor(type=\"a.b.MyMessage\")]\n      public function messageInterceptor( processor : MessageProcessor ) : void\n      {\n         processor.proceed();\n      }\n }\n\n}",
+    "sample": "package {\n\n   public class AvoidIncorrectMessageInterceptorSignature {\n\n      [MessageInterceptor(type=\"a.b.MyMessage\")]\n      public function messageInterceptor() : void // VIOLATION\n      {\n      }\n\n      [MessageInterceptor(type=\"a.b.MyMessage\")]\n      public function messageInterceptor( type : MyMessage ) : void // VIOLATION\n      {\n         type.something();\n      }\n\n      [MessageInterceptor(type=\"a.b.MyMessage\")]\n      public function messageInterceptor( processor : MessageProcessor, type : MyMessage ) : void // VIOLATION\n      {\n      }\n\n   }\n\n}",
+    "total": "Number of functions",
+    "alternativeName": "Avoid incorrect message interceptor signature (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.parsley.MessageInterceptorSignature"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

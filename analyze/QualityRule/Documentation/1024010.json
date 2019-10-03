@@ -1,0 +1,95 @@
+{
+    "id": 1024010,
+    "name": "Apply signature-based permissions",
+    "href": "AIP/quality-rules/1024010",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "android:protectionLevel characterizes the potential risk implied in the permission and indicates the procedure the system should follow when determining whether or not to grant the permission to an application requesting it.\n\nEach protection level consists of a base permission type and zero or more flags. For example, the \"dangerous\" protection level has no flags. In contrast, the protection level \"signatureOrSystem\" is a combination of the \"signature\" base permission type and the \"privileged\" flag.\n\n\nA violation reported when android:protectionLevel flag is not used or android:protectionLevel=\"normal\" ",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When sharing data between two apps that you control or own, use signature-based permissions. These permissions don't require user confirmation and instead check that the apps accessing the data are signed using the same signing key. Therefore, these permissions offer a more streamlined, secure user experience.",
+    "reference": "https://developer.android.com/topic/security/best-practices\nhttps://developer.android.com/guide/topics/manifest/permission-element",
+    "remediationSample": "\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n    package=\"com.example.myapp\"> \n    <permission android:name=\"my_custom_permission_name\" \n                android:protectionLevel=\"signature\" />",
+    "sample": "\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n    package=\"com.example.myapp\"> \n    <permission android:name=\"my_custom_permission_name\" \n                android:protectionLevel=\"normal\" />\n",
+    "total": "Number of Android manifests",
+    "alternativeName": "Apply signature-based permissions",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-307",
+            "name": "Improper Restriction of Excessive Authentication Attempts",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

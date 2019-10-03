@@ -1,0 +1,72 @@
+{
+    "id": 1003166,
+    "name": "Avoid dynamic (Object) type variables (Flex)",
+    "href": "AIP/quality-rules/1003166",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports functions\\getters\\setters that have declaration for dynamic (Object) type variables.",
+    "output": "This QR reports functions\\getters\\setters that have declaration for dynamic (Object) type variables. It provides following information:\n- function\\getter\\setter full name",
+    "rationale": "It is a bad practice to use the dynamic class Object.",
+    "remediation": "Prefer using strongly typed object, or marker interface in order to avoid silent compilation errors while refactoring.",
+    "remediationSample": "public class Foo\n{\n   public function afunc() : void {\n      var bar : int; // violation removed\n      //...\n   }\n}",
+    "sample": "public class Foo\n{\n   public function afunc() : void {\n      var bar : Object; // VIOLATION      \n      //...\n   }\n}",
+    "total": "Number of functions\\getters\\setters",
+    "alternativeName": "Avoid dynamic (Object) type variables (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.forbiddentypes.UseObjectType"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

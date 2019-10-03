@@ -1,0 +1,58 @@
+{
+    "id": 1005092,
+    "name": "Avoid having overrided record declaration with a duplicate declaration in the same application (EGL)",
+    "href": "AIP/quality-rules/1005092",
+    "critical": true,
+    "description": "This rule searches for all records beeing overridden by a duplicate declaration",
+    "output": "This report lists the following information: Record Full Name, Overriding Record Name",
+    "rationale": "More than one declaration mustn't be declared for the same record in the same application. Otherwise, declaration that has the value will be null.\nThis  is not checked by the EGL compiler unfortunatelly\u0085",
+    "remediation": "Try to reduce the number of overrride record declarations with a duplicate declaration.",
+    "remediationSample": "program testCorrection (REC1 REC1, REC2 REC2)\nREC3 REC3;\n\nRECnew RECn // remediation : RECn does not erase with any input parameter\u0085\n\nalso in functions inside the program:  \n\nfunction test1 ()\n{\nRECnew RECn; // remediation : RECn does not erase with any input parameter\u0085\n}\n\nalso in \"external\" functions called by the program.\n\nfunction test1_test ()\n{\nRECnew RECn; // remediation : RECn does not clash with any input parameter\u0085\n}",
+    "sample": "program testViolation (REC1 REC1, REC2 REC2)\nREC3 REC3;\n\nREC1 RECn; // violation : REC1 declaration erase input parameter\u0085\n\nalso in functions inside the program:  \n\nfunction test1 ()\n{\nREC1 RECn; // violation : REC1 declaration erase input parameter\u0085\n}\n\nalso in \"external\" functions called by the program.\n\nfunction test1_test ()\n{\nREC1 RECn; // violation : REC1 declaration erase input parameter\u0085\n}",
+    "total": "Number of Records",
+    "alternativeName": "Avoid having overrided record declaration with a duplicate declaration in the same application (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

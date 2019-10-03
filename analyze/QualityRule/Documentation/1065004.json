@@ -1,0 +1,76 @@
+{
+    "id": 1065004,
+    "name": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+    "href": "AIP/quality-rules/1065004",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule raises a violation when the memory dynamically allocated in a local pointer of a function or method is not released.\nThis rule can raise false positives which are generally caused by bad programmation practices.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The memory dynamically allocated in a local pointer of a function or method should be released by using \"delete\" or \"free()\" before the end of the of the lifetime of the pointer variable, i.e. before the end of said function/method or before a \"return\" or \"throw\" statement.",
+    "remediation": "Release the memory allocated dynamically before any \"return\" or \"throw\" statement or before the end of the function or method.",
+    "remediationSample": "int func(int num)\n{\n    int* val = new int(0);\n    std::exception exc;\n    if(num &lt; 0)\n    {\n        delete val;\n        throw exc;\n    }\n    delete val;\n    return 1;\n}",
+    "sample": "int func(int num)\n{\n    int* val = new int(0);\n    std::exception exc;\n    if(num < 0)\n        throw exc;\n    delete val;\n    return 1;\n}",
+    "total": "Number of C++ constructors, destructors, methods, C and C++ functions",
+    "alternativeName": "Ensure that dynamically allocated memory on local pointer in functions/methods is freed.",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

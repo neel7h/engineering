@@ -1,0 +1,56 @@
+{
+    "id": 1021052,
+    "name": "Avoid too long lines",
+    "href": "AIP/quality-rules/1021052",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A violation is raised within a Python module when code lines longer than 99 characters are found in the source code, or when comment lines exceed 72 characters. Inline comments are considered part of a code line. Docstrings are not evaluated by this rule but they are analyzed by a separated quality rule.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "It is common among software projects to agree on a maximum length for code lines. The main reason behind this restriction is to improve readability, especially when comparing line by line different versions of the same file. Widespread presence of long lines can also indicate the need of code refactoring. Python offers different solutions to wrap long statements that help enhancing the visual structure of the code.",
+    "reference": "PEP-8",
+    "remediation": "The first step is to wrap long statements trying to visually enhance at the same time its inner structure. As recommended in PEP-8: \"The preferred way of wrapping long lines is by using Python\u2019s implied line continuation inside parentheses, brackets and braces. Long lines can be broken over multiple lines by wrapping expressions in parentheses. These should be used in preference to using a backslash for line continuation.\" Nowadays IDEs can be configurated to automatically signal too long code lines and visualize length margins. When systematically finding the need to have long lines in a module, it should be considered code refactoring, in particular when highly nested code blocks, too large number of function parameters, or too long object names are found.",
+    "remediationSample": "castle = MakeBigCastle(rocks = rocks,\n                                           wood = wood,\n                                           water = water)",
+    "sample": "castle = MakeBigCastle(rocks = rocks_from_the_mountain, wood = wood_from_the_forest, water = water_from_the_well)",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Avoid too long lines",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

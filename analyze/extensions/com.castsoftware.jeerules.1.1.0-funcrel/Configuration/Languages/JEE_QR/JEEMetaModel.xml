@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<metamodel file_level="builtin" file_no="39">
+
+     <partialCategory name="APM Java Artifacts">
+        <inheritedCategory name="APM Client Language Artifacts" />
+    </partialCategory>
+
+	<partialCategory name="APM Java All Classes">
+		<inheritedCategory name="APM Client Language Artifacts" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingCodeTagInComments" />
+    </partialCategory>
+
+    <partialCategory name="CAST_Java_MethodsMetrics">
+        <inheritedCategory name="APM Client Language Artifacts" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingDeprecatedSSLprotocols" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidgetRequestedSessionId" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingpredictableSecureRandomSeeds" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingrefererheaderfieldinHTTPrequest" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidthrownExceptionsinservletmethods" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUnvalidatedRedirect"/>
+        <inheritedCategory name="CAST_Java_Metric_Avoidusingriskycryptographichash" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingCipherWithNoHMAC"/>
+        <inheritedCategory name="CAST_Java_Metric_Avoidusingcryptographyhashwithhardcodedsalt"/>
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingjavaxcryptoNullCipher" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingInsecurePBEIterationCount" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusingInSecuredCookie" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidCreatingCookieWithoutSettingHttpOnlyOption" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidWeakEncryptionProvidingnotSufficientKeySize" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingDefaultHttpClientConstructor" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidDocumentBuilderwithoutrestrictionofXMLXXE" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidSAXParserFactorywithoutrestrictionofXXE" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidXMLReaderwithoutrestrictionofXMLXXE" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidXMLXPathFactorywithoutrestrictionofXMLXXE" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidXMLStreamReaderwithoutrestrictionofXMLXXE" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidInvokingOptionalGetWithoutInvokingOptionalIsPresent" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidusageofBannedAPIwhenusingESAPIlibrary" />
+        <inheritedCategory name="CAST_Java_Metric_AvoidUsingCodeTagInComments" />
+        <inheritedCategory name="CAST_Java_Metric_AlwaysPreferSetArrayDesignators" />
+        <inheritedCategory name="CAST_Java_Metric_AddOverrideonMethodsImplementSuperType" />
+
+    </partialCategory>
+
+    <category name="CAST_Java_Metric_AvoidusingDeprecatedSSLprotocols" id="1039001">
+        <description>Avoid using Deprecated SSL protocols to secure connection
+        </description>
+        <property name="SSLprotocols" type="integer" merge="sum" id="1039001">
+            <description>Avoid using Deprecated SSlprotocols</description>
+            <attribute name="INF_TYPE" intValue="1039001" />
+            <attribute name="INF_SUB_TYPE" intValue="0" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_AvoidgetRequestedSessionId" id="1039003">
+        <description>Avoid using HttpServletRequest.getRequestedSessionId() </description>
+        <property name="getRequestedSessionId" type="integer" merge="sum"   id="1039003">
+            <description>Avoid using HttpServletRequest.getRequestedSessionId()
+            </description>
+            <attribute name="INF_TYPE" intValue="1039003" />
+            <attribute name="INF_SUB_TYPE" intValue="1" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_AvoidusingpredictableSecureRandomSeeds" id="1039005">
+        <description>Avoid using predictable Secure Random Seeds</description>
+        <property name="SecureRandom" type="integer" merge="sum" id="1039005">
+            <description>Avoid using predictable Secure Random Seeds</description>
+            <attribute name="INF_TYPE" intValue="1039005" />
+            <attribute name="INF_SUB_TYPE" intValue="2" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_AvoidthrownExceptionsinservletmethods" id="1039007">
+        <description>Avoid using thrown Exceptions in servlet methods </description>
+        <property name="throwexception" type="integer" merge="sum" id="1039007">
+            <description>Avoid thrown Exceptions in servlet methods </description>
+            <attribute name="INF_TYPE" intValue="1039007" />
+            <attribute name="INF_SUB_TYPE" intValue="3" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_Avoidusingriskycryptographichash" id="1039009">
+        <description>Avoid using risky cryptographic hash </description>
+        <property name="riskycryptographichash" type="integer" merge="sum" id="1039009">
+            <description>Avoid using risky cryptographic hash </description>
+            <attribute name="INF_TYPE" intValue="1039009" />
+            <attribute name="INF_SUB_TYPE" intValue="4" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_AvoidusingrefererheaderfieldinHTTPrequest" id="1039011">
+        <description>Avoid using referer header field in HTTP request </description>
+        <property name="refererheader" type="integer" merge="sum" id="1039011">
+            <description>Avoid using referer header field in HTTP</description>
+            <attribute name="INF_TYPE" intValue="1039011" />
+            <attribute name="INF_SUB_TYPE" intValue="5" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidUsingCipherWithNoHMAC" id="1039013">
+        <description>Avoid using Cipher with no HMAC to ensure data integrity</description>
+        <property name="noHMACCipher" type="integer" merge="sum" id="1039013">
+            <description>Avoid using Cipher with no HMAC to ensure data integrity</description>
+            <attribute name="INF_TYPE" intValue="1039013"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidUnvalidatedRedirect" id="1039015">
+        <description>Avoid Unvalidated Redirect</description>
+        <property name="UnvalidatedRedirect" type="integer" merge="sum" id="1039015">
+            <description>Avoid Unvalidated Redirect</description>
+            <attribute name="INF_TYPE" intValue="1039015"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_Avoidusingcryptographyhashwithhardcodedsalt" id="1039017">
+        <description>Avoid using cryptography hash with hardcoded salt</description>
+        <property name="hardcodedsalt" type="integer" merge="sum" id="1039017">
+            <description>Avoid using cryptography hash with hardcoded salt</description>
+            <attribute name="INF_TYPE" intValue="1039017"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidusingjavaxcryptoNullCipher" id="1039019">
+        <description>Avoid using "javax.crypto.NullCipher"</description>
+        <property name="nullcipher" type="integer" merge="sum" id="1039019">
+            <description>Avoid using "javax.crypto.NullCipher"</description>
+            <attribute name="INF_TYPE" intValue="1039019" />
+            <attribute name="INF_SUB_TYPE" intValue="9" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidusingInsecurePBEIterationCount" id="1039021">
+        <description>Avoid using Insecure PBE Iteration Count</description>
+        <property name="IterationCount" type="integer" merge="sum" id="1039021">
+            <description>Avoid using Insecure PBE Iteration Count"</description>
+            <attribute name="INF_TYPE" intValue="1039021" />
+            <attribute name="INF_SUB_TYPE" intValue="10" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidusingInSecuredCookie" id="1039023">
+        <description>CWE-614 : Avoid using unsecured cookie</description>
+        <property name="InsecureSeed" type="integer" merge="sum" id="1039023">
+            <description>CWE-614 : Avoid using unsecured cookie"</description>
+            <attribute name="INF_TYPE" intValue="1039023" />
+            <attribute name="INF_SUB_TYPE" intValue="11" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidCreatingCookieWithoutSettingHttpOnlyOption" id="1039025">
+        <description>Avoid creating cookie without setting httpOnly option</description>
+        <property name="HttpOnlyOption" type="integer" merge="sum" id="1039025">
+            <description>Avoid creating cookie without setting httpOnly option"</description>
+            <attribute name="INF_TYPE" intValue="1039025" />
+            <attribute name="INF_SUB_TYPE" intValue="12" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidWeakEncryptionProvidingnotSufficientKeySize" id="1039027">
+        <description>Avoid weak encryption providing not sufficient key size</description>
+        <property name="weekkeysize" type="integer" merge="sum" id="1039027">
+            <description>Avoid weak encryption providing not sufficient key size"</description>
+            <attribute name="INF_TYPE" intValue="1039027" />
+            <attribute name="INF_SUB_TYPE" intValue="13" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+     <category name="CAST_Java_Metric_AvoidUsingDefaultHttpClientConstructor" id="1039029">
+        <description>Avoid weak encryption providing not sufficient key size</description>
+        <property name="defaultHttpConstructor" type="integer" merge="sum" id="1039029">
+            <description>Avoid using DefaultHttpClient constructor</description>
+            <attribute name="INF_TYPE" intValue="1039029" />
+            <attribute name="INF_SUB_TYPE" intValue="14" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+     <category name="CAST_Java_Metric_AvoidDocumentBuilderwithoutrestrictionofXMLXXE" id="1039031">
+        <description>Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)</description>
+        <property name="DocBuildXMLXXE" type="integer" merge="sum" id="1039031">
+            <description>Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)</description>
+            <attribute name="INF_TYPE" intValue="1039031" />
+            <attribute name="INF_SUB_TYPE" intValue="15" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+     <category name="CAST_Java_Metric_AvoidSAXParserFactorywithoutrestrictionofXXE" id="1039033">
+        <description>Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)</description>
+        <property name="SAXParserFactoryXMLXXE" type="integer" merge="sum" id="1039033">
+            <description>Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)</description>
+            <attribute name="INF_TYPE" intValue="1039033" />
+            <attribute name="INF_SUB_TYPE" intValue="16" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidXMLReaderwithoutrestrictionofXMLXXE" id="1039035">
+        <description>Avoid using XMLReader without restriction of XML External Entity Reference (XXE)</description>
+        <property name="XMLReaderFactory" type="integer" merge="sum" id="1039035">
+            <description>Avoid using XMLReader without restriction of XML External Entity Reference (XXE)</description>
+            <attribute name="INF_TYPE" intValue="1039035" />
+            <attribute name="INF_SUB_TYPE" intValue="17" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidXMLXPathFactorywithoutrestrictionofXMLXXE" id="1039037">
+        <description>Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)</description>
+        <property name="XMLXpathFactory" type="integer" merge="sum" id="1039037">
+            <description>Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)</description>
+            <attribute name="INF_TYPE" intValue="1039037" />
+            <attribute name="INF_SUB_TYPE" intValue="18" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidXMLStreamReaderwithoutrestrictionofXMLXXE" id="1039039">
+        <description>Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)</description>
+        <property name="XMLStreamReader" type="integer" merge="sum" id="1039039">
+            <description>Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)</description>
+            <attribute name="INF_TYPE" intValue="1039039" />
+            <attribute name="INF_SUB_TYPE" intValue="19" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidInvokingOptionalGetWithoutInvokingOptionalIsPresent" id="1039041">
+        <description>Optional.isPresent" should be used before invoking "Optional.get" to access value</description>
+        <property name="UseOptionalIsPresent" type="integer" merge="sum" id="1039041">
+            <description>Optional.isPresent" should be used before invoking "Optional.get" to access value</description>
+            <attribute name="INF_TYPE" intValue="1039041" />
+            <attribute name="INF_SUB_TYPE" intValue="19" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AvoidusageofBannedAPIwhenusingESAPIlibrary" id="1039043">
+        <description>Avoid usage of BannedAPI when using ESAPI library</description>
+        <property name="bannedAPI" type="integer" merge="sum" id="1039043">
+            <description>Avoid usage of BannedAPI when using ESAPI library</description>
+            <attribute name="INF_TYPE" intValue="1039043" />
+            <attribute name="INF_SUB_TYPE" intValue="20" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+	
+	<category name="CAST_Java_Metric_AvoidUsingCodeTagInComments" id="1039047">
+        <description>Always use {@code} to wrap code statements or values such as null</description>
+        <property name="codeAnnotation" type="integer" merge="sum" id="1039047">
+            <description>Always use {@code} to wrap code statements or values such as null</description>
+            <attribute name="INF_TYPE" intValue="1039047" />
+            <attribute name="INF_SUB_TYPE" intValue="15" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AlwaysPreferSetArrayDesignators" id="1039049">
+        <description>Always prefer set Array designators "[]" on the type and not at variable</description>
+        <property name="ArrayDesignator" type="integer" merge="sum" id="1039049">
+            <description>Always prefer set Array designators "[]" on the type and not at variable</description>
+            <attribute name="INF_TYPE" intValue="1039049" />
+            <attribute name="INF_SUB_TYPE" intValue="16" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+    <category name="CAST_Java_Metric_AddOverrideonMethodsImplementSuperType" id="1039051">
+        <description>Add @Override on methods overriding or implementing a method declared in a super type</description>
+        <property name="AddOverride" type="integer" merge="sum" id="1039051">
+            <description>Add @Override on methods overriding or implementing a method declared in a super type</description>
+            <attribute name="INF_TYPE" intValue="1039051" />
+            <attribute name="INF_SUB_TYPE" intValue="16" />
+            <attribute name="ACCESS_APPVIEW" intValue="1" />
+            <attribute name="ACCESS_HTML" intValue="1" />
+            <attribute name="ACCESS_CVS" intValue="1" />
+        </property>
+    </category>
+    
+</metamodel>

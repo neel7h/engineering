@@ -1,0 +1,82 @@
+{
+    "id": 1050012,
+    "name": "Objective-C interface overrides the isEqual: method but not the hash method",
+    "href": "AIP/quality-rules/1050012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Class that overwrites -isEqual: also must override -hash.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If -isEqual: determines that two objects are equal, they must have the same hash value. This is why, if you override the isEqual method, you also need to override the hash method.",
+    "reference": "https://developer.apple.com/library/ios/documentation/General/Conceptual/DevPedia-CocoaCore/ObjectComparison.html",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure to override hash and isEqual at the same time",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-4",
+            "name": "Persistant Storable Data Element without Proper Comparison Control Element",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-581",
+            "name": "Object Model Violation: Just One of Equals and Hashcode Defined",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

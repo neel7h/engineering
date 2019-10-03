@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<languagePattern id="HTML5" UsedByUA="false">
+
+	<comment>
+		<begin><![CDATA[[\/][\/]]]></begin>
+		<end><![CDATA[[\r\n]]]></end>
+		<multiline>false</multiline>
+	</comment>	
+	<comment>
+		<begin><![CDATA[[\#]]]></begin>
+		<end><![CDATA[\r\n]]></end>
+		<multiline>false</multiline>
+	</comment>	
+	<comment>
+		<begin><![CDATA[\/\*]]></begin>
+		<end><![CDATA[\*\/]]></end>
+		<nested>false</nested>
+		<multiline>true</multiline>
+	</comment>	
+	<comment>
+		<begin><![CDATA[<!--]]></begin>
+		<end><![CDATA[-->]]></end>
+		<nested>false</nested>
+		<multiline>true</multiline>
+	</comment>	
+	
+	<!-- Keywords are used for natural metrics
+	Beware: If we enable them, we must enable strings because if not, 
+	useLinks to some html files inside strings will disappear if html file names contain a keyword
+	<keyword>abstract</keyword>
+	<keyword>arguments</keyword>
+	<keyword>boolean</keyword>
+	<keyword>break</keyword>
+	<keyword>byte</keyword>
+	<keyword>case</keyword>
+	<keyword>catch</keyword>
+	<keyword>char</keyword>
+	<keyword>class</keyword>
+	<keyword>const</keyword>
+	<keyword>continue</keyword>
+	<keyword>debugger</keyword>
+	<keyword>default</keyword>
+	<keyword>delete</keyword>
+	<keyword>do</keyword>
+	<keyword>double</keyword>
+	<keyword>else</keyword>
+	<keyword>enum</keyword>
+	<keyword>eval</keyword>
+	<keyword>export</keyword>
+	<keyword>extends</keyword>
+	<keyword>false</keyword>
+	<keyword>final</keyword>
+	<keyword>finally</keyword>
+	<keyword>float</keyword>
+	<keyword>for</keyword>
+	<keyword>function</keyword>
+	<keyword>goto</keyword>
+	<keyword>if</keyword>
+	<keyword>implements</keyword>
+	<keyword>import</keyword>
+	<keyword>in</keyword>
+	<keyword>instanceof</keyword>
+	<keyword>int</keyword>
+	<keyword>interface</keyword>
+	<keyword>let</keyword>
+	<keyword>long</keyword>
+	<keyword>native</keyword>
+	<keyword>new</keyword>
+	<keyword>null</keyword>
+	<keyword>package</keyword>
+	<keyword>private</keyword>
+	<keyword>protected</keyword>
+	<keyword>public</keyword>
+	<keyword>return</keyword>
+	<keyword>short</keyword>
+	<keyword>static</keyword>
+	<keyword>super</keyword>
+	<keyword>switch</keyword>
+	<keyword>synchronized</keyword>
+	<keyword>this</keyword>
+	<keyword>throw</keyword>
+	<keyword>throws</keyword>
+	<keyword>transient</keyword>
+	<keyword>true</keyword>
+	<keyword>try</keyword>
+	<keyword>typeof</keyword>
+	<keyword>var</keyword>
+	<keyword>void</keyword>
+	<keyword>volatile</keyword>
+	<keyword>while</keyword>
+	<keyword>with</keyword>
+	<keyword>yield</keyword>
+	-->
+	
+</languagePattern>

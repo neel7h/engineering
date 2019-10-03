@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+  <!-- Remove AMT saving and external links... -->
+  <excludeStandardActions/>
+
+  <actions>
+		<action name = "JEEJobActionNew" />
+		<excludeStandardActions />
+	</actions>
+
+	<analyzer name = "New JEE Analyzer" showProgress="false" maxMem = "4096" maxInstancesForFlat64bits = "200000" unlockTreeWalk="true" />
+
+</configuration>

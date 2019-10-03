@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1020700</SetId>
+	<SetName>SET_NodeJS_Artifact</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_1020700</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020701</SetId>
+	<SetName>SET_NodeJS_Express_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_EXPRESS_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020702</SetId>
+	<SetName>SET_NodeJS_Http_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_HTTP_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020703</SetId>
+	<SetName>SET_NodeJS_HTTPServer_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_HTTPSERVER_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020704</SetId>
+	<SetName>SET_NodeJS_Marked_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_MARKED_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020705</SetId>
+	<SetName>SET_NodeJS_Express_Session</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_EXPRESS_SESSION</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020706</SetId>
+	<SetName>SET_NodeJS_Fs_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_FS_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020707</SetId>
+	<SetName>SET_NodeJS_CreateHash_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_CREATE_HASH_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020708</SetId>
+	<SetName>SET_NodeJS_SourceCode</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_SOURCE_CODE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020709</SetId>
+	<SetName>SET_NodeJS_SourceCode_NodeCurl</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_NODE_CURL_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020710</SetId>
+	<SetName>SET_NodeJS_SourceCode_tls</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_TLS_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020711</SetId>
+	<SetName>SET_NodeJS_SourceCode_http2</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_HTTP2_SOURCE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020712</SetId>
+	<SetName>SET_NodeJS_Loop_DataService</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_LOOP_DATASERVICE</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020713</SetId>
+	<SetName>SET_NodeJS_SourceCode_path</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_NODEJS_PATH_SOURCE</SetProcedure>
+</SET_Definitions>
+</DATA>

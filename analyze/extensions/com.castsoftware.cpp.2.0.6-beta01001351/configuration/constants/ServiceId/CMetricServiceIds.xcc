@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<!-- Metrics -->
+		<constant>
+			<name>ICMetric</name>
+			<value>7DFC4947-1FB1-4242-9F90-78A04F6C1F8B</value>
+		</constant>
+
+	</constantFamily>
+</constants>

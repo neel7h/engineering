@@ -1,0 +1,70 @@
+{
+    "id": 1020508,
+    "name": "Use Angular wrapper service $document",
+    "href": "AIP/quality-rules/1020508",
+    "critical": false,
+    "maxWeight": 3,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Instead of the default document object, you should prefer the AngularJS wrapper service $document.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using two APIs for the same function is considered a problem in terms of maintainability and robustness. It is highly recommended to use only one API, especially when you are using a high-level library/framework or wrapping functionalities that provide additional checks on variables.",
+    "remediation": "N/A",
+    "sample": "N/A",
+    "total": "Number of angular artifacts",
+    "alternativeName": "Use Angular wrapper service $document",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-10",
+            "name": "Named Callable and Method Control Element Multi-Layer Span",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

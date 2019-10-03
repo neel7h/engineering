@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<metrics>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." thresholdToGet1="98" thresholdToGet2="99" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+</metrics>

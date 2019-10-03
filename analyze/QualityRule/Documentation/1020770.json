@@ -1,0 +1,76 @@
+{
+    "id": 1020770,
+    "name": "Avoid using Node.js query-mysql third-party before 0.0.3",
+    "href": "AIP/quality-rules/1020770",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of query-mysql and the version used by the application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Node.js third-party module query-mysql versions 0.0.0, 0.0.1, and 0.0.2 are vulnerable to an SQL injection vulnerability due to lack of user input sanitization. This may allow an attacker to run arbitrary SQL queries when fetching data from database. This rule has been listed as CVE-2018-3754 in the CVE registry.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3754",
+    "remediation": "Update the query-mysql library to have a fix",
+    "remediationSample": "require(\"query-mysql\")\n\n\nfetchById: function (table, id, name_id, callback) {\n    connect(function (connected) {\n        if (connected) {\n\n            var sql = \"SELECT * FROM ?? WHERE ?? = ?\";\n            inserts = [table, id, name_id];\n            sql = mysql.format(sql, inserts);\n\n\n            connection.query(sql, function (err, rows, fields) {\n                connection.end();\n                console.log(\"fetchById\");\n                //if (err) throw err;\n                if (err) {\n                    callback(\"error\", null);\n                }else{                      \n                    callback(\"success\", rows);\n                };\n            })\n\n        }else{\n            callback(\"error_connection\", null);\n        };\n    })\n},",
+    "sample": "const query = require('query-mysql')\n\nquery.configure({\n  'host': '127.0.0.1',\n  'user': 'root',\n  'password': 'root',\n  'database': 'test'\n})\n\nquery.base.fetchById('users', 'noob', 'username', (msg, res) => {\n  console.log(msg, res)\n})",
+    "total": "Number of NodeJS source code using query-mysql library",
+    "alternativeName": "Avoid using Node.js query-mysql third-party before 0.0.3",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "id": 1001054,
+    "name": "Avoid unreferenced PLI Procedures & Functions (PL1)",
+    "href": "AIP/quality-rules/1001054",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for all PLI  Procedures and Functions that are not referenced i.e. not called.",
+    "output": "The report lists all the unreferenced PLI Procedures and Functions.\n\nIt provides following information: \n-  PL1 Procedure and Function full name",
+    "rationale": "Unreferenced artifacts like any other examples of dead code make maintenance more difficult and more expensive (modification of unused code).",
+    "remediation": "Remove the unreferenced artifacts.",
+    "total": "Number of the PLI Procedures and Functions",
+    "alternativeName": "Avoid unreferenced PLI Procedures & Functions (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "id": 1005044,
+    "name": "Avoid Opening Cursor in a loop (EGL)",
+    "href": "AIP/quality-rules/1005044",
+    "critical": true,
+    "description": "This rule searches for all the artifacts using at least one SQL query inside a loop statement.",
+    "output": "This report provides the following information: Function full name. Number of Cursors being opened in a Loop",
+    "rationale": "Having an SQL query inside a loop is usually the source of performance and scalability problems especially if the number of iterations become very high (for example if it is dependent on the data returned from the database).\nThis iterative pattern has proved to be very dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the number of opening cursors in the loops.",
+    "sample": "[BEGIN of a LOOP (see what all type of loop are possible in Language Reference )]\nopen CAST_TEST\n               with #sql{\n  select A,B, C, D\n   from CAST1_JOINT T1\n    WHERE\n       M = :N AND\n                  ORDER BY\n                    1 ASC\n             WITH UR\n     }\n                into A, B, C, D\n                for CAST2_JOINT;\n[END of a LOOP (see what all type of loop are possible in Language Reference )]",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid Opening Cursor in a loop (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

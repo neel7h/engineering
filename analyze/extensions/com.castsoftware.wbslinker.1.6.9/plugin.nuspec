@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.wbslinker</id>
+    <version>1.6.9</version>
+    <title>Web Services Linker</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>http://doc.castsoftware.com/display/TECHNOS/Web+Services+Linker</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.wbslinker.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension creates links between client code and server web services.</description>
+    <releaseNotes>http://doc.castsoftware.com/display/TECHNOS/Web+Services+Linker</releaseNotes>
+    <tags>Linker</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.internal.platform" version="0.6.0" />
+    </dependencies>
+  </metadata>
+</package>

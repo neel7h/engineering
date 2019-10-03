@@ -1,0 +1,59 @@
+{
+    "id": 1065006,
+    "name": "Avoid iterator invalidation.",
+    "href": "AIP/quality-rules/1065006",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule raises a violation when a container is modified in a loop iterating over said container without modifying the iterator.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While iterating over a container almost all modifications of said contained will invalidate the iterator and bring undefined behaviour. Moreover the encapsulation in a class can mask that we are modifying the container by the use of class method and consequently invalidate the iterator.",
+    "remediation": "Do not modify the container while iterating over, unless you modify the iterator itself.",
+    "remediationSample": "class A{\n    std::vector<int>& getVector();\n    void removeElement(int index);\nprivate:\n    std::vector<int> m_integerVector;\n};\n\nvoid func(){\n    A a;\n    ...\n    for(int val : a.getVector()){\n        ...\n    } \n    ...\n    a.removeElement(index);\n}",
+    "sample": "class A{\n    std::vector<int>& getVector();\n    void removeElement(int index);\nprivate:\n    std::vector<int> m_integerVector;\n};\n\nvoid func(){\n    A a;\n    ...\n    for(int val : a.getVector()){\n        ...\n        a.removeElement(index);\n        ...\n    } \n}",
+    "total": "Number of C / C++ method and function",
+    "alternativeName": "Avoid iterator invalidation.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

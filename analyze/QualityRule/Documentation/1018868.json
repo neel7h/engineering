@@ -1,0 +1,62 @@
+{
+    "id": 1018868,
+    "name": "Avoid Activities using \"UNION\" instead of \"Union all\" (TIBCO BW)",
+    "href": "AIP/quality-rules/1018868",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This metric retrieves the artifacts containing queries using \"Union\" instead of \"Union all\" statement",
+    "output": "This metric retrieves the artifacts containing queries using \"Union\" instead of \"Union all\" statement",
+    "rationale": "In SQL the UNION operator combines the results of two SQL queries into a single table of all matching rows. The two queries must have matching fields and data types in order to join them. Any duplicate records are automatically removed unless UNION ALL is used. The problem is that MOST of the time it is unnecessary to remove duplicate as there are none and doing the search for duplicate rows can be very costly.",
+    "remediation": "Add the ALL after the union keyword (ensure that this does not change the returned data)",
+    "total": "Number Process Activities",
+    "alternativeName": "Avoid Activities using \"UNION\" instead of \"Union all\" (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

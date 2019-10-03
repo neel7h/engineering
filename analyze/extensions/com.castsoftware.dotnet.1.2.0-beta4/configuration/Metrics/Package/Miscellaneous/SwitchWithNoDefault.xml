@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="SwitchWithNoDefault">
+  <ACTIVE>YES</ACTIVE>
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <CATEGORY_LIST>
+
+    <CATEGORY NAME="NB_SWITCH_TOTAL">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="NB_SWITCH_PTY" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_J11_SwitchStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NB_SWITCH_PTY</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+    
+    <CATEGORY NAME="NB_SWITCH_WITH_DEFAULT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="NB_SWITCH_WITH_DEFAULT_PTY" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_SwitchStatement</SIGNATURE>
+            </OR>
+          </TREE>
+          <SUB_TREE_OR>
+            <TOKEN NAME="_DEFAULT_" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NB_SWITCH_WITH_DEFAULT_PTY</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="NB_SWITCH_WITH_NO_DEFAULT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>NB_SWITCH_TOTAL.VALUE</ADD_VALUE>
+        <LESS_VALUE>NB_SWITCH_WITH_DEFAULT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number Of Switch Statements with no default entry</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+</METRIC>

@@ -1,0 +1,61 @@
+{
+    "id": 1101088,
+    "name": "LONG and LONG RAW datatypes should no longer be used",
+    "href": "AIP/quality-rules/1101088",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Do not create tables with LONG or LONG RAW columns.\nLONG and LONG RAW datatypes are deprecated and should be migrate to the LOB datatypes (CLOB, NCLOB or BLOB).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The LONG data type stores character strings longer than 4000 bytes. You can store up to 2 gigabytes (2^31-1 bytes) in a LONG column. Columns of this type are used only for storage and retrieval of long strings. They cannot be used in functions, expressions, or WHERE clauses. LONG column values are generally converted to and from character strings.\n\nDo not create tables with LONG columns. Use LOB columns (CLOB, NCLOB, or BLOB) instead. LONG columns are supported only for backward compatibility.\n\nOracle also recommends that you convert existing LONG columns to LOB columns. LOB columns are subject to far fewer restrictions than LONG columns. Furthermore, LOB functionality is enhanced in every release, but LONG functionality has been static for several releases.\n\nLONG RAW columns should be converted to BLOB type columns.",
+    "reference": "https://docs.oracle.com/cd/E11882_01/appdev.112/e10646/oci03typ.htm#LNOCI16290\nhttps://docs.oracle.com/cd/B28359_01/appdev.111/b28393/adlob_long_lob.htm#i1006094",
+    "remediation": "Convert LONG and LONG RAW to LOB.",
+    "remediationSample": "ALTER TABLE Long_tab MODIFY ( long_col CLOB );",
+    "sample": "CREATE TABLE Long_tab (id NUMBER, long_col LONG);",
+    "total": "Number of Tables.",
+    "alternativeName": "LONG and LONG RAW datatypes should no longer be used",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

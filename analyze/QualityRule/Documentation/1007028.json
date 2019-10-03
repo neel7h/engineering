@@ -1,0 +1,78 @@
+{
+    "id": 1007028,
+    "name": "Use increment/decrement operators where possible (PHP)",
+    "href": "AIP/quality-rules/1007028",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts which do not use increment\\decrement operator for increment\\decrement. Artifacts considered for this QR are PHP Section, constructor, method and functions.",
+    "output": "This report lists all artifacts not using increment/decrement operators where possible.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Increment\\decrement without increment\\decrement operator makes code confusing and increases chances of mistake.",
+    "reference": "Code Sniffer - http://pear.php.net/reference/PHP_CodeSniffer-1.5.2/PHP_CodeSniffer/Squiz_Sniffs_Operators_IncrementDecrementUsageSniff.html",
+    "remediation": "Modify source code to use increment\\decrement operator for increment\\decrement.",
+    "remediationSample": "<?php\n   $a=0;\n   $a++; //Violation removed\n   $a--; //Violation removed\n   $a++; //Violation removed\n   $a--; //Violation removed\n?>",
+    "sample": "<?php\n   $a=0;\n   $a+=1; //Violation\n   $a-=1; //Violation\n   $a=$a+1; //Violation\n   $a=$a-1; //Violation\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Use increment/decrement operators where possible (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Squiz.Operators.IncrementDecrementUsage"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

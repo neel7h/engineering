@@ -1,0 +1,75 @@
+{
+    "id": 1040008,
+    "name": "Ensure declaring formLogin after requesting authorization and authentication",
+    "href": "AIP/quality-rules/1040008",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Since Spring Security\u2019s default configuration does not explicitly set a URL for the login page, Spring Security generates one automatically, based on the features that are enabled and using standard values for the URL which processes the submitted login, the default target URL the user will be sent to after logging in and so on.\n\nWhile the automatically generated log in page is convenient to get up and running quickly, most applications will want to provide their own log in page. But this should be done after requesting authorization and authentication.\n\nThis rule will check if loginform is set with requesting authorization and authentication. If not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When an actor claims to have a given identity, the software does not prove or insufficiently proves that the claim is correct. Based on \"authorizeRequests()\", we are allowing anonymous access on /login so that users can authenticate. We are also securing everything else.",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html\nhttps://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication",
+    "remediation": "Declare login form after requesting authorization and authentication, using 'formLogin()'",
+    "remediationSample": "protected void configure(HttpSecurity http) throws Exception {\n    http\n         .authorizeRequests()\n                  .anyRequest().authenticated()\n                   .and()\n         .formLogin()    //Login form is declared after authentication and authorization\n                  .loginPage(\"/login\")\n                  .permitAll();\n}",
+    "sample": "protected void configure(HttpSecurity http) throws Exception {\n    http\n        .formLogin()   //Login form is declared without authentication and authorization\n             .loginPage(\"/login\")\n             .permitAll();\n}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Ensure declaring formLogin after requesting authorization and authentication",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-287",
+            "name": "Improper Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

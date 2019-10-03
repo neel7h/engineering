@@ -1,0 +1,102 @@
+{
+    "id": 1021042,
+    "name": "Avoid hardcoded passwords (Python)",
+    "href": "AIP/quality-rules/1021042",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule identifies variable assignments and function calls and interfaces that include a hardcoded password. This identification is based on password-related semantics.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Hardcoded passwords in source code should be avoided because they can potentially be retrieved through code inspection and inverse engineering by attackers. Such an attack is difficult to be discovered, and eventually the problem can only be solved at software level thus compromising the usability of the application in the meantime.",
+    "reference": "https://cwe.mitre.org/data/definitions/259.html",
+    "remediation": "A non-secure starting patch would be to apply obfuscation techniques to the hardcoded password to prevent reverse-engineering of the generated Python (byte)code. This could be done by hashing the password or constructing the password string in many different places by non-trivial methods. Sensitive data such as passwords should be in principle encrypted and saved in separate files or in a database with restricted user access.\nFinally one should consider removing backdoors and delegate the password ownership to the end-user.",
+    "sample": ">>> set_password(user = \"John\", password = \"WinterIsComing\")",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Avoid hardcoded passwords (Python)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-798",
+            "name": "Hard-Coded Credentials Usage for Remote Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-259",
+            "name": "Use of Hard-coded Password",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70157",
+            "name": "The application must not display passwords/PINs as clear text.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70363",
+            "name": "The application must not contain embedded authentication data.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

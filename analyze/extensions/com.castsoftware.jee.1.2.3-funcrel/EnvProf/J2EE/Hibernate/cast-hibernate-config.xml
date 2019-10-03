@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- ======================================================================================================== -->
+	<!-- ==================================       cast-hibernate-congfig.xml      =============================== -->
+	<!-- ==================================     	based on hibernate 2.x        =============================== -->
+	<!-- ================================== 	Applies to Hibernate mapping file =============================== -->
+	<!-- ================================== 	or to Hibernate config file		  =============================== -->
+	<!-- ================================== since version 6.0 of CAST products    =============================== -->
+	<!-- ======================================================================================================== -->
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+
+	<!-- =====================================  HIBERNATE CONFIGURATION FILE  ================================== -->
+
+	<config-file-node xpath="/hibernate-configuration" id="HibCfgConfig" content-type="hibernate-configuration" location=".">
+
+			<!-- Relevant properties -->
+			<object-attribute xpath = "./session-factory/property"		name-src = "./@name" select = "." />
+
+			<!-- ... -->
+
+			<!-- Mapping Files Configuration -->
+			<config-file-node xpath="/hibernate-configuration/session-factory/mapping" apply-config="HibMappingConfig" location="@resource | @file | @jar" />
+
+	</config-file-node>
+
+
+	<config-file-node xpath="/hibernate-mapping" id="HibMappingConfig" content-type="hibernate-mapping">
+
+		<!-- =====================================  HIBERNATE MAPPING FILE   ================================== -->
+		<object-attribute name = "default-cascade"		select = "./@default-cascade"	/>
+		<object-attribute name = "java-package"			select = "./@package"			/>
+		<object-attribute name = "auto-import"			select = "./@auto-import"		value="true" />
+
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+
+
+		<!-- Hibernate Entities -->
+		<object-node xpath="/hibernate-mapping/class" id = "HibEntityConfig" name="./@name" default-name="./@entity-name" type="hibernate-entity">
+
+									<!-- ====================  ATTRIBUTES  ======================== -->
+
+			<!-- The following attributes are stored in the knowledge base as properties of the bean.  -->
+			<!-- Note: @value attribute is used to set default values  -->
+			<object-attribute name = "class"					select = "./@name"									/>
+			<object-attribute name = "proxy"					select = "./@proxy"									/>
+			<object-attribute name = "discriminator-value"		select = "./@discriminator-value"					/>
+			<object-attribute name = "mutable"					select = "./@mutable"				value="true"	/>
+			<object-attribute name = "polymorphism"				select = "./@polymorphism"			value="implicit"/>
+			<object-attribute name = "dynamic-update"			select = "./@dynamic-update"		value="false"	/>
+			<object-attribute name = "dynamic-insert"			select = "./@dynamic-insert"		value="false"	/>
+			<object-attribute name = "batch-size"				select = "./@batch-size"			value="1"		/>
+			<object-attribute name = "select-before-update"		select = "./@select-before-update"	value="false"	/>
+			<object-attribute name = "optimistic-lock"			select = "./@optimistic-lock"		value="version"	/>
+			<object-attribute name = "check"					select = "./@check"									/>
+
+
+			<!-- Mapping Strategies -->
+			<object-attribute name = "mapping-strategy"			xpath="self::node()[not(subclass)][not(joined-subclass)]" 	value = "table-per-concrete-class"	/>
+			<object-attribute name = "mapping-strategy"			xpath="self::node()[subclass]" 								value = "table-per-class-hierarchy"	/>
+			<object-attribute name = "mapping-strategy"			xpath="self::node()[joined-subclass]" 						value = "table-per-sub-class"		/>
+
+									<!-- ====================  LINKS  ======================== -->
+
+			<!-- Entity java type -->
+			<link-node xpath = "."	called-object = "./@name"	resolve-as="java-type" resolution-scope-src="/hibernate-mapping/@package" link-type="relyon" inverse="true" />
+
+			<!-- Entity DB Table -->
+			<link-node xpath = "self::node()[@table]"	called-object = "./@table"	default = "./@name" resolve-as="server-object" link-type="use">
+				<object-attribute	xpath = "	./property		| ./id				|
+												./composite-id	| ./version			|
+												./timestamp		| ./discriminator	|
+												./key			| ./discriminator	|
+												./component		| ./dynamic-component"
+
+									name  = "Column"   select = "./@column | ./column/@name"   multi-value="true"/>
+
+				<object-attribute xpath = "./many-to-many | /many-to-any" name = "columns"   select = "./@column | ./column/@name"   multi-value="true"/>
+			</link-node>
+
+
+			<!--   === Entities Associations === -->
+
+			<link-node xpath = "./one-to-one"	called-object = "./@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" inverse-src = "../@inverse">
+				<object-attribute name = "Cardinality"   value = "one-to-one"   />
+			</link-node>
+
+			<link-node xpath = "./many-to-one"	called-object = "./@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" inverse-src = "../@inverse">
+				<object-attribute name = "Cardinality"   value = "many-to-one" />
+			</link-node>
+
+
+			<!-- Collections -->
+			<link-node xpath = "./*[name()='set' or name()='map' or name()='list' or name()='bag' or name()='idbag' or name()='array']/one-to-many"	called-object = "./@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" inverse-src = "../@inverse" >
+				<object-attribute name = "Cardinality"   value = "one-to-many" />
+			</link-node>
+			<link-node xpath = "./*[name()='set' or name()='map' or name()='list' or name()='bag' or name()='array']/many-to-many"	called-object = "./@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" inverse-src = "../@inverse" >
+				<object-attribute name = "Cardinality"   value = "many-to-many" />
+			</link-node>
+			<link-node xpath = "./*[name()='set' or name()='map' or name()='list' or name()='bag' or name()='array']/many-to-any"	called-object = "./@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" inverse-src = "../@inverse" >
+				<object-attribute name = "Cardinality"   value = "many-to-any" />
+			</link-node>
+
+			<!-- Polymorphic Association --> 
+			<link-node xpath = "./any"	called-object = "./meta-value/@class" resolve-as="hibernate-entity" resolution-scope-src="/hibernate-mapping/@package" link-type="use" />
+
+
+			<!-- Hibernate Entity Properties -->
+			<object-node	xpath			= " ./property		| ./discriminator	| 
+												./composite-id	| ./id				| 
+												./timestamp		| ./version			| 
+												./one-to-one 	| ./many-to-one		| 
+												./set 			| ./list			| 
+												./bag 			| ./idbag			| 
+												./array 		| ./primitive-array	| 
+												./any 			| ./map				| 
+												./component		| ./dynamic-component"
+								
+							id				= "HibPropConfig" 
+							name			= "./@name" 
+							default-name	= "./@column | ./column/@name" 
+							type			= "hibernate-entity-property" >
+
+										<!-- ====================  ATTRIBUTES  ======================== -->
+				<object-attribute xpath = "self::node()[name()='set'  ]" name = "collection-type"	value = "set"	/>
+				<object-attribute xpath = "self::node()[name()='map'  ]" name = "collection-type"	value = "map"	/>
+				<object-attribute xpath = "self::node()[name()='list' ]" name = "collection-type"	value = "list"	/>
+				<object-attribute xpath = "self::node()[name()='bag'  ]" name = "collection-type"	value = "bag"	/>
+				<object-attribute xpath = "self::node()[name()='idbag']" name = "collection-type"	value = "idbag"	/>
+				<object-attribute xpath = "self::node()[name()='array']" name = "collection-type"	value = "array"	/>
+
+				<!-- Components and collection of components --> 
+				<object-attribute xpath = "self::node()[name()='component' or name()='dynamic-component' or name()='composite-id']" name = "component"	value = "true"	/>
+
+				<object-attribute xpath = "self::node()[name()='set'   or name()='map'  or
+														name()='list'  or name()='bag'  or
+														name()='idbag' or name()='array'   ][composite-element or composite-index]" name = "component"	value = "true"	/>
+
+				<object-attribute name = "access"       		select = "./@access | /hibernate-mapping/@default-access"/>
+				<object-attribute name = "length"       		select = "./@length"       					/>
+
+				<object-attribute xpath = "self::node()[name()='id' or name()='timestamp']"	name = "unsaved-value"		select = "./@unsaved-value"	value = "null"		/>
+				<object-attribute xpath = "self::node()[name()='composite-id'			 ]"	name = "unsaved-value"		select = "./@unsaved-value"	value = "none"		/>
+				<object-attribute xpath = "self::node()[name()='version'			     ]"	name = "unsaved-value"		select = "./@unsaved-value"	value = "undefined"	/>
+
+				<object-attribute name = "formula"				select = "./@formula"	/>
+
+				<object-attribute xpath = "self::node()[name()='version'			  ]"	name = "version"		value = "true"	/>
+				<object-attribute xpath = "self::node()[name()='timestamp'			  ]"	name = "timestamp"		value = "true"	/>
+				<object-attribute xpath = "self::node()[name()='id'					  ]"	name = "id"				value = "true"	/>
+				<object-attribute xpath = "self::node()[name()='composite-id'		  ]"	name = "composite-id"	value = "true"	/>
+				<object-attribute xpath = "self::node()[name()='discriminator'		  ]"	name = "discriminator"	value = "true"	/>
+				<object-attribute xpath = "self::node()[name()='id'][count(@name) = 0 ]"	name = "default-name"	value = "true"	/>
+
+				<object-attribute xpath = "self::node()[name()='set' or name()='map' or name()='array' or name()='list'	or name()='bag' or name()='idbag']" name = "lazy" select = "./@lazy | ../@lazy" value="false"/>
+
+										<!-- ====================  LINKS  ======================== -->
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "."	called-object = "./@name"	resolve-as="java-field;java-property" resolution-scope-src="../@name | ../@class" link-type="relyon" inverse="true" />
+
+				<!-- composite-id class if any -->
+				<link-node xpath = "self::node()[name() = 'composite-id']"	called-object = "./@class"	resolve-as="java-type" resolution-scope-src="/hibernate-mapping/@package" link-type="relyon" />
+
+				<!-- component class if any -->
+				<link-node xpath = "self::node()[name()='component' or name()='dynamic-component']"	called-object = "./@class"	resolve-as="java-type" resolution-scope-src="/hibernate-mapping/@package" link-type="relyon" inverse="true" />
+				<link-node xpath = "self::node()[name()='set'   or name()='map'   or
+												 name()='list'  or name()='bag'   or
+												 name()='idbag' or name()='array'   ][composite-element or composite-index]" called-object = "./composite-element/@class | composite-index/@class"	resolve-as="java-type" resolution-scope-src="/hibernate-mapping/@package" link-type="relyon" inverse="true" />
+
+				<!-- many-to-many table from set element-->
+				<link-node xpath = "self::node()[name() = 'set']"	called-object = "./@table" default = "./@name" id ="HibCollectionCfg" resolve-as="server-object" link-type="use">
+					<object-attribute xpath = "./key" name = "Column"   select = "./@column | ./column/@name"   multi-value="true"/>
+					<object-attribute xpath = "./many-to-many | /many-to-any" name = "Column"   select = "./@column | ./column/@name"   multi-value="true"/>
+				</link-node>
+
+				<link-node xpath = "self::node()[name() = 'list'  ]"	apply-config = "HibCollectionCfg" />
+				<link-node xpath = "self::node()[name() = 'bag'	  ]"	apply-config = "HibCollectionCfg" />
+				<link-node xpath = "self::node()[name() = 'idbag' ]"	apply-config = "HibCollectionCfg" />
+				<link-node xpath = "self::node()[name() = 'array' ]"	apply-config = "HibCollectionCfg" />
+				
+				<!-- For derrived properties -->
+				<link-node xpath = "self::node()[@formula]"	called-object = "./@formula" resolve-as="server-object" link-type="use" />
+
+				<!-- Hibernate components properties -->
+				<object-node	xpath = " self::node()[name()='component']/property" apply-config	= "HibPropConfig" />
+				
+			</object-node>
+
+		</object-node> 
+
+		<!-- Polymorphic persistence --> 
+		<object-node xpath="/hibernate-mapping/descendant::joined-subclass | /hibernate-mapping/descendant::subclass"	apply-config = "HibEntityConfig" />
+
+		<!-- Hibernate Named Queries -->
+		<object-node xpath="/hibernate-mapping/query" name="./@name" type = "hibernate-named-hql-query" >
+			<object-attribute name = "value"	select = "." />
+			<link-node xpath = "."	called-object = "."	resolve-as="hibernate-hql-query" link-type="use"/>
+		</object-node>
+
+		<object-node xpath="/hibernate-mapping/sql-query" name="./@name" type = "hibernate-named-sql-query" >
+			<object-attribute name = "value"	select = "." />
+			<link-node xpath = "."	called-object = "."	resolve-as="hibernate-sql-query"/>
+		</object-node>
+	</config-file-node>
+			
+</xml-config>

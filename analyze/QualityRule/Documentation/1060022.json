@@ -1,0 +1,76 @@
+{
+    "id": 1060022,
+    "name": "Avoid too many SQL calls for methods with high fan-in",
+    "href": "AIP/quality-rules/1060022",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule identifies client-side control elements that embed a number of data resource access actions that exceed a threshold value.\n\nThe threshold for the number of data queries is a parameter and can be changed at will. The default value is 2.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Software that does not leverage database capabilities to efficiently run data processing (such as stored procedures and functions) requires excessive computational resources.\nWhen the artifacts have a high fan-in the risk is highly increased.",
+    "reference": "http://it-cisq.org/\nASCPEM 1.0, Automated Source Code Performance Efficiency Measure, Object Management Group.\nCISQ: ASCPEM-PRF-10",
+    "remediation": "Use dedicated stored procedures when multiple data accesses are needed.",
+    "remediationSample": "/**\n   * @param resultat\n   * @throws SQLException\n   */\n  public void meth_1() throws SQLException\n  {\n      String sql = \"{call myproc}\";\n      CallableStatement statement = connection.prepareCall(sql);\n      statement.execute();\n...\n  }",
+    "sample": "/**\n   * @param resultat\n   * @throws SQLException\n   */\n  public void meth_1() throws SQLException\n  {\n      Statement statement = connection.createStatement();\n      String sql1 = \"INSERT INTO STUDENTS VALUES\" +\n                    \"(100,'TOTO','TITI', {d '2001-12-16'})\";\n      String sql2 = \"INSERT INTO STUDENTS VALUES\" +\n                    \"(100,'MR','T', {d '2002-10-1'})\";\n      String sql3 = \"INSERT INTO STUDENTS VALUES\" +\n                    \"(10,'MR','T', {d '2002-10-1'})\";\n \n      statement.executeUpdate(sql1);\n      statement.executeUpdate(sql2);\n      statement.executeUpdate(sql3);\n  }\n \n/**\n   * @param resultat\n   * @throws SQLException\n   */\n  public void meth_2() throws SQLException\n  {\n      Statement statement = connection.createStatement();\n      String sql1 = \"INSERT INTO STUDENTS VALUES\" +\n                    \"(100,'TOTO','TITI', {d '2001-12-16'})\";\n      String sql2 = \"INSERT INTO STUDENTS VALUES\" +\n                    \"(100,'MR','T', {d '2002-10-1'})\";\n \n      statement.executeUpdate(sql1);\n      statement.executeUpdate(sql2);\n      boolean rs = statement.execute(\"SELECT * FROM STUDENTS\");\n      if (rs)\n      {\n          // print result\n      }         \n  }",
+    "total": "Number of artifacts with SQL access and high fan-in",
+    "alternativeName": "Avoid too many SQL calls for methods with high fan-in",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-10",
+            "name": "Non-SQL Named Callable and Method Control Element with Excessive Number of Data Resource Access",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

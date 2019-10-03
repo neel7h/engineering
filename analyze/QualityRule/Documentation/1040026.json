@@ -1,0 +1,96 @@
+{
+    "id": 1040026,
+    "name": "A Single HTTP method should be explicitly specified in @RequestMapping methods",
+    "href": "AIP/quality-rules/1040026",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "By default, @RequestMapping method handles all matching requests: A method you intended only to be POST-ed to could also be called by a GET, thereby allowing hackers to call the method inappropriately. \n\nFor example a \"transferFunds\" method might be invoked like so: <img src=\"http://bank.com/actions/transferFunds?reciepientRouting=000000&receipientAccount=11111111&amount=200.00\" width=\"1\" height=\"1\"/>\n\nThis rule will check is a single HTTP method, with which you expect @RequestMapping Java method to be called, is explicitly listed. If not, a violation is reported ( The method is completely missing or the method parameter is configured by mixing GET and POST verbs)",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The web application does not, or can not, sufficiently verify whether a well-formed, valid, consistent request was intentionally provided by the user who submitted the request.",
+    "reference": "https://cwe.mitre.org/data/definitions/352.html",
+    "remediation": "Specify HTTP method with which you expect your @RequestMapping Java method to be called. \nExample: @RequestMapping(\"/greet\", method = GET)",
+    "remediationSample": "@RequestMapping(\"/greet\", method = GET)\n  public String greet(String greetee) {...",
+    "sample": "@RequestMapping(\"/greet\", )\n  public String greet(String greetee) { ....",
+    "total": "Number of Java methods having @RequestMapping",
+    "alternativeName": "Ensure explicitly specifying single HTTP method in @RequestMapping methods to avoid information leakage",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70259",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

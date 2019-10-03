@@ -1,0 +1,87 @@
+{
+    "id": 1021026,
+    "name": "Avoid leaving open file resources (Python)",
+    "href": "AIP/quality-rules/1021026",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all Python artifacts that don't guarantee unequivocal file closing. This requires correct handling of potential exceptions arising from file manipulation.\nThe preferred way (from Python 2.5) is opening files using the with statement. Otherwise file manipulation has to be performed inside try-except blocks and file closing has to be assured in the finally block.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a file is opened by Python, resources are allocated until the file is closed. Thus it is important to ensure the file is closed as soon as the file manipulation is done by handling correctly potential exceptions. Delegating file closing to the underlying interpreter/compiler can have a negative impact on code portability and can result in unexpected behavior.",
+    "reference": "This rule is compliant with OMG CISQ ASCPEM-PRF-15, ASCRM-CWE-772 recommendations.",
+    "remediation": "Use the with statement to open a file, otherwise explicitly close opened files while correctly handling exceptions arising from file manipulation.",
+    "remediationSample": ">>> f = open(\"hello.txt\", 'w')\n>>> try:\n>>>     f.write(\"world\")\n>>> finally:\n>>>     f.close()\n\n# or even better\n>>> with open(\"hello.txt\", 'w') as f:\n>>>     f.write(\"world\")",
+    "sample": ">>> f = open(\"hello.txt\",'w')\n>>> f.write(\"world\")\n>>> f.close()",
+    "total": "Number of Python artifacts opening file resources",
+    "alternativeName": "Avoid leaving open file resources (Python)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-15",
+            "name": "Storable and Member Data Element Reference Missing De-Referencing Control Element",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-772",
+            "name": "Missing Release of Resource after Effective Lifetime",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

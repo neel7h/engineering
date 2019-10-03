@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<J2EEEnvironmentProfile-2601>
+			<Item>
+				<Name>Migrated Parameterization</Name>
+				<Uid>JAVA_MIGRATION_PARAMETERIZATION</Uid>
+			</Item>
+		</J2EEEnvironmentProfile-2601>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>Migrated Parameterization</Name>
+		<Uid>JAVA_MIGRATION_PARAMETERIZATION</Uid>
+		<Type>J2EE Environment Profile-1601</Type>
+	</Entity>
+</Root>

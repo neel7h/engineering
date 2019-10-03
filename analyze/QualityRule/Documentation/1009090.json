@@ -1,0 +1,75 @@
+{
+    "id": 1009090,
+    "name": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG300)",
+    "href": "AIP/quality-rules/1009090",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the programs having obsolete \"Arithmetic Operations\" statements.",
+    "output": "This report lists RPG300 programs using obsolete \"Bit Operations\" statements.\nIt provides the following information:\nRPG300 Program full name",
+    "rationale": "During the upgrade of the different RPG versions (V2 / V3 / ILE V4) some statements are no longer supported. Where ever in the code these statements the artifact is reported as a violation.",
+    "remediation": "Try to replace this statements by the supported ones.",
+    "total": "Total number of RPG300 Programs",
+    "alternativeName": "Avoid using obsolete \"Bit Operations\" statements in RPG Programs  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-477",
+            "name": "Use of Obsolete Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "id": 1001128,
+    "name": "Avoid Main Procedures having queries with joins on more than 4 Tables (PL1)",
+    "href": "AIP/quality-rules/1001128",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all PL1 Main Procedures having queries with joins on more than 4 tables.",
+    "output": "The report lists all the PL1 Main Procedures having joins on more than 4 tables.\n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "Having complex queries in artifacts can cause performance problems. Queries with more than 4 tables is considered complex.",
+    "remediation": "Review the SQL queries in order to reduce the number of tables in joins.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid Main Procedures having queries with joins on more than 4 Tables (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

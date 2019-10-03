@@ -1,0 +1,72 @@
+{
+    "id": 1020826,
+    "name": "Avoid hardcoded network resource names (Typescript)",
+    "href": "AIP/quality-rules/1020826",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule reports all artifacts that contain hardcoded \n- IP addresses (IPv4 and IPv6)\n- URLs",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Built-in remote addresses cause problems when the target is moved. Avoid hardcoded network resources (e.g., IP addresses, URLs, etc.)",
+    "reference": "ASCRM 1.0, Automated Source Code Reliability Measure, Object Management Group.",
+    "remediation": "Utilize indirect access to network resources using underlaying operating system calls and relative paths. In case hardcoding is necessary, isolating hardcoded data to installation scripts or configuration files can limit its potential negative impact.",
+    "remediationSample": "//the url is loaded from somewhere else\nvar url = loadServerAddress()",
+    "sample": "var a = '127.0.0.1' ;\n//Or \nlet a = 'fe80:0000:0000:0000:0204:61ff:fe9d:f156/0';",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "Ensure not having hardcoded network resources names in the source files (Typescript)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-18",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

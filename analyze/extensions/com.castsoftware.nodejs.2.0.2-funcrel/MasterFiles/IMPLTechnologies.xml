@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <metric id='1020700' type='quality-rule' originalName='Avoid the lack of error handling in the Node.js callbacks' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020702' type='quality-rule' originalName='Avoid using process.exit() without defining exitCode' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020704' type='quality-rule' originalName='Avoid using string concatenation when using __dirname and __filename' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020706' type='quality-rule' originalName='Ensure the Content-Security-Policy is activated' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020708' type='quality-rule' originalName='Ensure the X-Powered-By header is disabled' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020710' type='quality-rule' originalName='Ensure the X-XSS-Protection header is enabled' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020712' type='quality-rule' originalName='Ensure the X-Frame-Options header is setup' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020714' type='quality-rule' originalName='Avoid having multiple routes for the same path with Node.js Express App' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020716' type='quality-rule' originalName='Avoid using the call of web service with Node.js http.get or http.request inside a loop' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020718' type='quality-rule' originalName='Ensure that browser cannot cache or store a page' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020720' type='quality-rule' originalName='Allow only HTTPS communication' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020722' type='quality-rule' originalName='Ensure to use secure HTTPS protocol' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020724' type='quality-rule' originalName='Ensure that marked is sanitized' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020726' type='quality-rule' originalName='Ensure that CSRF Protection is enabled' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020728' type='quality-rule' originalName='Avoid creating cookie without setting httpOnly option' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020730' type='quality-rule' originalName='Ensure Node.js filesystem are closed' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020732' type='quality-rule' originalName='Avoid using risky cryptographic hash (Node.js)' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020734' type='quality-rule' originalName='Avoid using unsecured cookie (Node.js)' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020736' type='quality-rule' originalName='Avoid bypassing self-signed ssl certificate (Node.js)' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020738' type='quality-rule' originalName='Avoid disabling SSL verification in node-curl' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020740' type='quality-rule' originalName='Avoid creating cookie with overly broad path (Node.js)' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020742' type='quality-rule' originalName='Avoid creating cookie with overly broad domain (Node.js)' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020744' type='quality-rule' originalName='Avoid using TLS library before Node.js 9.11.2 and 10.4.1' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020746' type='quality-rule' originalName='Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020748' type='quality-rule' originalName='Avoid using the call of data service with Node.js inside a loop' filter='1020000' filterLabel='HTML5' />
+  <metric id='1020750' type='quality-rule' originalName='Avoid using the file path validation with Node.js 8.5.0' filter='1020000' filterLabel='HTML5' />
+</root>

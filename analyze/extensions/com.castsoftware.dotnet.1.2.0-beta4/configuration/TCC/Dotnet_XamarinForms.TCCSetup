@@ -1,0 +1,122 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_Dotnet_Xamarin" version="1.0.0.0" encoding="UTF-8" date="Mon Oct 02 14:56:00 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - .Net - Xamarin.Forms" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_DotNet_ClassExternal</value>
+    <value>CAST_DotNet_ClassVB</value>
+    <value>CAST_DotNet_MethodVB</value>
+    <value>CAST_DotNet_MethodExternal</value>
+    <value>CAST_DotNet_ClassCSharp</value>
+    <value>CAST_DotNet_MethodCSharp</value>
+   </property>
+   <caller-of level = "20">
+    <link-type>Inherit</link-type>
+    <member-of set ="Standard Entry Point - .Net - Xamarin.Forms (GS)"/>
+   </caller-of>
+  </selection-criteria>
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_DotNet_MethodVB</value>
+    <value>CAST_DotNet_MethodExternal</value>
+    <value>CAST_DotNet_MethodCSharp</value>
+   </property>
+   <caller-of>
+    <link-type>Access</link-type>
+    <member-of set ="Standard Entry Point - .Net - Xamarin.Forms (GS)"/>
+   </caller-of>
+  </selection-criteria>
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_DotNet_InterfaceVB</value>
+    <value>CAST_DotNet_InterfaceExternal</value>
+    <value>CAST_DotNet_InterfaceCSharp</value>
+	<value>CAST_DotNet_ClassExternal</value>
+    <value>CAST_DotNet_ClassVB</value>
+    <value>CAST_DotNet_MethodVB</value>
+    <value>CAST_DotNet_MethodExternal</value>
+    <value>CAST_DotNet_ClassCSharp</value>
+    <value>CAST_DotNet_MethodCSharp</value>
+   </property>
+   <caller-of>
+    <link-type>RelyOn</link-type>
+    <member-of set ="Standard Entry Point - .Net - Xamarin.Forms (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - .Net - Xamarin.Forms (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_DotNet_ClassExternal</value>
+    <value>CAST_DotNet_ClassVB</value>
+    <value>CAST_DotNet_InterfaceVB</value>
+    <value>CAST_DotNet_MethodVB</value>
+    <value>CAST_DotNet_MethodExternal</value>
+    <value>CAST_DotNet_InterfaceExternal</value>
+    <value>CAST_DotNet_ClassCSharp</value>
+    <value>CAST_DotNet_InterfaceCSharp</value>
+    <value>CAST_DotNet_MethodCSharp</value>
+   </property>
+   <property name = "fullname" operator = "like" >
+    <value>System.EventArgs</value>
+	<value>Xamarin.Forms.%EventArgs</value>	
+    <value>Xamarin.Forms.Application.On%</value>
+    <value>Windows.ApplicationModel.Activation.%EventArgs</value>
+    <value>Windows.UI.Xaml.OnWindowCreated</value>
+    <value>Windows.UI.Xaml.Start</value>
+    <value>Windows.UI.Xaml.LoadComponent</value>
+    <value>Xamarin.Forms.Page.On%</value>
+    <value>Xamarin.Forms.Platform.Android.FormsAppCompatActivity.On%</value>
+    <value>Xamarin.Forms.Platform.iOS.FormsApplicationDelegate.%</value>
+    <value>Xamarin.Forms.TriggerAction.Invoke</value>
+    <value>System.Windows.Input.Execute</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - .Net - SQLite (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_DotNet_ClassExternal</value>
+    <value>CAST_DotNet_ClassVB</value>
+    <value>CAST_DotNet_InterfaceVB</value>
+    <value>CAST_DotNet_MethodVB</value>
+    <value>CAST_DotNet_MethodExternal</value>
+    <value>CAST_DotNet_InterfaceExternal</value>
+    <value>CAST_DotNet_ClassCSharp</value>
+    <value>CAST_DotNet_InterfaceCSharp</value>
+    <value>CAST_DotNet_MethodCSharp</value>
+   </property>
+   <property name = "fullname" operator = "like" >
+    <value>SQLite.SQLiteAsyncConnection.%</value>
+	<value>SQLite.Net.SQLiteConnection.%</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - .Net - SQLite" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <caller-of>
+    <link-type>Access</link-type>
+    <member-of set ="Standard End Point - .Net - SQLite (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>0</value>
+ </attribute>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

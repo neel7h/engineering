@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+	<service>
+		<id>ServiceId_DBMetaModelEventsFactory</id>
+		<dll>MetaModel.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_DBMetaModelReaderFactory</id>
+		<dll>MetaModel.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_ValidationMetaModelEventsFactoryService</id>
+		<dll>MetaModel.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_XMLMetaModelEventsFactory</id>
+		<dll>MetaModel.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_XMLMetaModelReaderFactory</id>
+		<dll>MetaModel.dll</dll>
+	</service>
+</configuration>

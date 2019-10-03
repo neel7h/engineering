@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.jeerules</id>
+    <version>1.1.0-funcrel</version>
+    <title>JEE technology Rules</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/JEE+Rules+-+1.1</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.jeeqr.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides Quality rules for JEE technology and related Frameworks supported by CAST AIP. These rules are complaint with CWE and OWASP TOP 10 Standards.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/JEE+Rules+-1.1+-+Release+Notes</releaseNotes>
+    <tags>JEE Quality Rules</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.internal.platform" version="0.1.1-alpha" />
+    </dependencies>
+  </metadata>
+</package>

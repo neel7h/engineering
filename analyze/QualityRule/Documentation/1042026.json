@@ -1,0 +1,130 @@
+{
+    "id": 1042026,
+    "name": "Avoid Action Mapping based on wildcards with Struts 2.3.14.2 and older",
+    "href": "AIP/quality-rules/1042026",
+    "critical": true,
+    "associatedValueName": "The number of violation occurrences",
+    "description": "Struts2 allows the definition of action mapping base on wildcards as provided in Sample.\n\n\nIf a request doesn't match any other defined action, it will be matched by * and requested action name will be used to load JSP file base on the name of action. \nAnd as value of {1} is threaten as an OGNL expression, thus allow to execute arbitrary Java code on server side. This vulnerability is combination of two problems:\n\n-Requested action name isn't escaped or checked agains whitelist\n- Double evaluation of an OGNL expression in TextParseUtil.translateVariables when combination of $ and % open chars is used.\n\n\nThis rule with check if wildcard is used for Action mapping name when used version is Struts 2.3.14.2 or older. If yes, it gives a violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software constructs all or part of an expression language (EL) statement in a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.",
+    "reference": "https://cwe.mitre.org/data/definitions/917\nhttps://cwiki.apache.org/confluence/display/WW/S2-015\nhttp://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2135\nhttp://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2134",
+    "remediation": "With the new version actions' names whitelisting was introduced, so it's strongly recommanded to upgrade to Struts 2.3.14.3",
+    "sample": "<action name=\"*\" class=\"example.ExampleSupport\">\n    <result>/example/{1}.jsp</result>\n</action>",
+    "total": "Number of field in struts2 config XML file",
+    "alternativeName": "Ensure note using wildcards for action mapping name to avoid executing arbitrary Java code on server side",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-917",
+            "name": "Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": 1520500,
+    "name": "SiebelReview: Force Active BusComp Field Property Set to TRUE",
+    "href": "AIP/quality-rules/1520500",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "In general, customers should avoid the use of the Force Active property for BusComp fields and BusComps themselves.\nUse of this property at the field level specifies that any time the BusComp is instantiated, the field in question should be active and part of the SELECT statement.\nIn the case where the BusComp level Force Active property is set, every field in the BusComp is included in the SELECT statement.\nWhen overused, both behaviors degrade performance.\nNote that this behavior applies whether the BusComp is referenced on an applet, in script, through workflow, EAI, or any other object manager function.",
+    "output": "This rule reports Fields in Business Components having a Force Active BusComp Field property set to TRUE",
+    "rationale": "Many fields have the property Force Active unnecessarily set to TRUE.",
+    "remediation": "The purpose of the Force Active property is to ensure a field is always available in script.\nIn general, rather than use Force Active, customers should activate fields with the ActivateField method in conjunction with an ExecuteQuery method.  This will activate the field only when truly needed, and not with every instantiation of the BusComp.\nThe only case where Force Active is necessary is that in which script must interact with a UI instance of a BusComp that does not already provide access to a field due to its presence on an applet, and it is not practical to requery the BusComp with script.\nVerify that all of the fields with this property set to TRUE are necessary and if not, set the property to FALSE to limit the number of fields queried.  Where the property must be set to TRUE, document on the field the specific scripts which require it; as scripts change over time, it may be possible to reduce the number of Force Active fields.\nWhere the standard application has used this property, do not change it.  This typically means that the application requires the object\u0092s activation for a business service (script executed outside of the BusComp) or for specialized class reasons.  Removing this property could cause the business service or class to fail.\nIn future releases of the application, this property may not be available, as Engineering has considered removing it from Siebel Tools due to the significant performance degradation that occurs when overused.",
+    "total": "Number of added or modified Fields or Multi-Value Fields in Business Components",
+    "alternativeName": "SiebelReview: Force Active BusComp Field Property Set to TRUE",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

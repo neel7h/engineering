@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="ControlFlow.Catch">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH IN TREE ELEMENT" >
+					<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>					
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>
+		
+		<CATEGORY NAME="MATCH_CATCH">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="JAVA_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_J11_CatchClause" /> 
+						<SIGNATURE NAME="NODE_J11_FinallyClause" />
+            <SIGNATURE NAME="NODE_J11_CatchClause" SUB_NAME="EMPTY_CATCH_BLOCK" />
+            <SIGNATURE NAME="NODE_J11_FinallyClause" SUB_NAME="EMPTY_FINALLY_BLOCK" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<PROPERTY NAME="PB_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE> 						
+					</OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_PB6_CATCH" /> 
+						<SIGNATURE NAME="NODE_PB6_FINALLY" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="PLSQL_CATCH" type="pattern">
+				<TREE>
+					<OR>
+            <SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_function_body</SIGNATURE> --
+            <SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_procedure_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_1</SIGNATURE> --						
+						<SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_2</SIGNATURE> --
+            <SIGNATURE>NODE_P23_TRIGGER</SIGNATURE>
+            <SIGNATURE>NODE_PL_TRIGGER</SIGNATURE> --
+					</OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_P23_EXCEPTION_HANDLER" />
+            <SIGNATURE NAME="NODE_PL_EXCEPTION_HANDLER" /> --
+            <SIGNATURE NAME="NODE_PL_EXCEPTION_OTHERS" /> --
+          </SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_C_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_C_CATCH" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_SHARP_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_CSharp_CATCH" />
+            <SIGNATURE NAME="NODE_CSharp_FINALLY" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="DELPHI_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+						<SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+					</OR>																						
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_DP6_EXCEPTION_ELSE_BRANCH"/> 
+						<SIGNATURE NAME="NODE_DP6_EXCEPTION_HANDLER"/> 
+					</SUB_TREE_OR>							
+					
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_NET_CATCH" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+							<SIGNATURE>NODE_VbNet_SUB</SIGNATURE>																								
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VbNet_CATCH" />
+							<SIGNATURE NAME="NODE_VbNet_FINALLY" />
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="JAVA_SCRIPT_CATCH" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_JS15_Script</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<SIGNATURE NAME="NODE_JS15_CatchClause"  />												
+						<SIGNATURE NAME="NODE_JS15_FinallyClause"  />												
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">            
+				<MATCH>PLSQL_CATCH</MATCH> 
+				<MATCH>JAVA_SCRIPT_CATCH</MATCH> 
+				<MATCH>VB_NET_CATCH</MATCH> 
+				<MATCH>DELPHI_CATCH</MATCH> 
+				<MATCH>C_CATCH</MATCH> 
+				<MATCH>C_SHARP_CATCH</MATCH> 
+				<MATCH>JAVA_CATCH</MATCH> 
+				<MATCH>PB_CATCH</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_CLUMP>VALUE</RESULT_CLUMP> 
+			</ADD_ACTION>
+		</CATEGORY>
+
+	</CATEGORY_LIST>
+</METRIC>

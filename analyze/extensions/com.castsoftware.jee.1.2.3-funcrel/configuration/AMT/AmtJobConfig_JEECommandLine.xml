@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+  <!-- configuration for command line and integration tests -->
+
+  <actions>
+    <action name = "AMTExternalLinkAction" />
+    <action name = "AlternateCreateJEEJob" />
+    <action name = "EnvProfPostingAction" />
+    <action name = "JEEAnalyzerActionNew" />
+    <action name = "SaveCASTScriptObject" />
+  </actions>
+
+  <analyzer name = "New JEE Analyzer" showProgress="false" maxMem = "4096" maxInstancesForFlat64bits = "200000" unlockTreeWalk="true" />
+
+</configuration>

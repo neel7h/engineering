@@ -1,0 +1,72 @@
+{
+    "id": 1007128,
+    "name": "Avoid artifacts with excessive number of parameters (PHP)",
+    "href": "AIP/quality-rules/1007128",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the artifacts with excessive number of parameters. Artifacts being checked including methods, functions and constructor. An artifact is considered as having excessive number of parameters if number of parameters are 10 or more.",
+    "output": "This report lists all the Artifacts with excessive number of parameters.\n\nThis QR provides the following information:\n- Artifact full name.",
+    "rationale": "Long parameter list can indicate that a new object should be created to wrap the numerous parameters. In other words, always try to group the parameters together.",
+    "reference": "PHPMD http://phpmd.org/rules/codesize.html#excessiveparameterlist",
+    "remediation": "Review the source code design to reduce the number of parameters.",
+    "sample": "<?php\nfunction testData_ten($param1, $param2, $param3, $param4, $param5, $param6, $param7, $param8, $param9, $param10)\n {\n }      \nclass CastTest\n{\n public function __construct($param1, $param2, $param3, $param4, $param5, $param6, $param7, $param8, $param9, $param10)\n {\n }\n public function addData_ten($param1, $param2, $param3, $param4, $param5, $param6, $param7, $param8, $param9, $param10)\n {\n }\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts with excessive number of parameters (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Parameters",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

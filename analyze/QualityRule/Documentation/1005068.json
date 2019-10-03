@@ -1,0 +1,64 @@
+{
+    "id": 1005068,
+    "name": "Avoid SQL query outside try-on block (EGL)",
+    "href": "AIP/quality-rules/1005068",
+    "critical": true,
+    "description": "This rule searches for all the functions accessing SQL Records or SQL Tables outside a try-on block. The following SQL operations are supported\nSELECT\nINSERT \nUPDATE\nDELETE\nADD\nSET\nREPLACE\nOPEN CURSOR\nGET NEXT",
+    "output": "This report lists  the following information: Function full name, Number of SQL Query Outside Try Block",
+    "rationale": "SQL queries can raise exception. If they are not properly catched, the troubleshooting get harder and thus cost is higher.\nThis rule works at the local level. Which means that if the function is called by another function ,and the call is inside a try-on block, it is still a violation because Try-Catch must be implemented at the lowest level of processing to allow fine-grained specialization in exception handling.",
+    "reference": "EGL Best Practices: Coding For Performance. November 10, 2009. Edition 2",
+    "remediation": "Add try-on block outside the SQL query",
+    "remediationSample": "function TEST1()\nTESTTEST1.T1 = \"MMMM\";\ntry                                 //FIXED\n  with #sql{\n  INSERT INTO TEST2\n  ( select * from abcd\n  }\n\n onException\n  ...........\n  end\n\n$end",
+    "sample": "function TEST1()\nTESTTEST1.T1 = \"MMMM\";\n  with #sql{                                           //VIOLATION\n  INSERT INTO TEST2\n  ( select * from abcd\n  }\n$end",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid SQL query outside try-on block (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

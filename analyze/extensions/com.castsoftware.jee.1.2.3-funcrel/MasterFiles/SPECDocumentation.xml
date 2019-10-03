@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="associatedValueName">
+    <english>Associated Value</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="description">
+    <english>DES and 3DES are vulnerable to attack mainly because of time complexity and used techniques. 
+   This rule is reporting violation when weak encryption algorithm like DES or Triple DES is used in the code source.
+   
+   This rule is compliant with 
+CWE-326 - Inadequate Encryption Strength 
+CWE-327 - Use of a Broken or Risky Cryptographic Algorithm 
+OWASP Top 10 2013 : A6 Sensitive Data Exposure 
+OWASP Top 10 2017 : A3 Sensitive Data Exposure
+   </english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="name">
+    <english>Avoid using weak encryption algorithm as DES and triple DES</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="output">
+    <english>This rule reports the full name of the java method using weak encryption like DES or Triple DES algorithm.  
+  </english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="rationale">
+    <english>The Data Encryption Standard is a symmetric-key algorithm for the encryption of electronic data.
+DES is now considered to be insecure for many applications. This is mainly due to the 56-bit key size being too small. In January 1999, distributed.net and the Electronic Frontier Foundation collaborated to publicly break a DES key in 22 hours and 15 minutes (see chronology).
+Some analytical results demonstrate theoretical weaknesses in the cipher, Attack have been also demonstrated in practice. Even in the form of Triple DES, the believed to be insecure 
+DES has been withdrawn as a standard by the National Institute of Standards and Technology. (NIST) 
+</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="reference">
+    <english> https://cwe.mitre.org/data/definitions/780.html
+https://cwe.mitre.org/data/definitions/327.html
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="remediation">
+    <english>Federal agencies are encouraged to use the Advanced Encryption Standard, a faster and stronger algorithm approved as FIPS 197 in 2001. </english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="remediationSample">
+    <english> 
+Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
+        byte[] encrypted = cipher.doFinal(clean); 
+</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="sample">
+    <english>// Create a DES key object specification from the raw data
+DESKeySpec dks = new DESKeySpec(Hex.fromString(keyString));
+// Create a key factory and use it to turn the DESKeySpec into
+// a SecretKey object
+SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+SecretKey key = keyFactory.generateSecret( dks );
+Cipher cipher = Cipher.getInstance("DES/ECB/NoPadding");
+// Initialize the cipher with the key
+cipher.init( Cipher.ENCRYPT_MODE, key, sr );
+byte[] data = Hex.fromString(plainData); 
+</english>
+  </metric>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" section="total">
+    <english>Number of Java methods</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="description">
+    <english>The aim of this rule is to report violation when RSA encryption algorithm is used without Padding. This can be identified when literal value starting with RSA/NONE is found in source code
+
+This rule is compliant with :
+
+CWE-780 - Use of RSA Algorithm without OAEP
+CWE-327: Use of a Broken or Risky Cryptographic Algorithm
+OWASP: A3:2017-Sensitive Data Exposure
+
+   </english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="name">
+    <english>Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding)</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="rationale">
+    <english>Optimal Asymmetric Encryption Padding schemes are often used with cryptographic algorithms to make the plaintext less predictable and complicate attack efforts. The OAEP scheme is often used with RSA to nullify the impact of predictable common text  
+</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="reference">
+    <english>https://cwe.mitre.org/data/definitions/780.html
+https://cwe.mitre.org/data/definitions/327.html
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+https://rdist.root.org/2009/10/06/why-rsa-encryption-padding-is-critical/</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="remediation">
+    <english>Federal agencies are encouraged to use the Advanced Encryption Standard, a faster and stronger algorithm approved as FIPS 197 in 2001. </english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="remediationSample">
+    <english> 
+ Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding", "BC"); 
+</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="sample">
+    <english>public class TestRSA {
+
+    public static void main(String[] args) throws Exception {
+
+ byte[] input = new byte[100];
+
+ Cipher cipher = Cipher.getInstance("RSA/None/NoPadding", "BC");
+ KeyFactory keyFactory = KeyFactory.getInstance("RSA", "BC"); 
+</english>
+  </metric>
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " section="total">
+    <english>Number of Java methods</english>
+  </metric>
+  
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="description">
+    <english>For JSE 4.x and previous version, all methods that are not synchronized and that check a value of one of its field before using synchronized and then check this field again and then assign a value to this field will be reported.</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="name">
+    <english>Avoid double checked locking</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="rationale">
+    <english>Double checked locking is a software design pattern used to reduce locking overhead when implementing lazy initialization in a multi-thread environment. This avoid to initializing a value until the first time it is accessed.
+This pattern is unsafe because there is no guarantee it will work on single or multi-processor machines.
+Note also that even if this issue as been fixed in JSE 5.0 it doesn't provide performance optimization.</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/609.html
+http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
+http://www.artima.com/designtechniques/threadsafety.html
+http://www-128.ibm.com/developerworks/java/library/j-dcl.html
+http://www-128.ibm.com/developerworks/java/library/j-jtp03304/</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="remediation">
+    <english>To remediate, there are two solutions depending on performance choice:
+1/ synchronize the method: each call to this method will cost but the initialization will be made when needed
+2/ make the field static  (Initialize-On-Demand Holder Class idiom): the field will be initialized during the initialization of the class even if not required, but each call to the method that return this field will not cost.</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="remediationSample">
+    <english>1/ synchronized the method getHelper()
+ class Foo { 
+   private Helper helper = null;
+   public synchronized Helper getHelper() {
+     if (helper == null) 
+         helper = new Helper();
+     return helper;
+   }
+2/ declare the field as static
+ class Foo { 
+   private static Helper helper = new Helper();
+   public Helper getHelper() {
+     return helper;
+   }</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="sample">
+    <english>class Foo { 
+  private Helper helper = null;
+  public Helper getHelper() {
+    if (helper == null) {
+      synchronized(this) {
+        if (helper == null) {
+          helper = new Helper();
+        }    
+      }    
+    }    
+    return helper;
+  }
+}</english>
+  </metric>
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" section="total">
+    <english>Number of methods that are synchronized or use the synchronized keyword</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="associatedValueName">
+    <english>Number of occurrences of this</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="description">
+    <english>This metric will detect all cases where this is - directly or not - referenced in a constructor.
+Indirect reference to this means the definition of an inner class in the constructor. It includes also the case where the constructor call the method start of a thread within a constructor (i.e. a method that inherits from java.lang.Thread.start())</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="name">
+    <english>Avoid to use this within Constructor in multi-thread environment</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="rationale">
+    <english>When making a reference to 'this' within a constructor - either directly or indirectly through inner classes - visible to another thread, the result can be unpredictable.
+Moreover, testing and debugging multi-threaded programs is very difficult, because of concurrency hazard that makes difficult to reproduce the issue.</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="reference">
+    <english>https://www.ibm.com/developerworks/java/library/j-jtp0618/index.html
+http://java.sun.com/docs/books/tutorial/essential/concurrency/syncmeth.html</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="remediation">
+    <english>In the cases where the reference to 'this' is visible to other thread a redesign of the class must be made to avoid it.</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="remediationSample">
+    <english>public class Safe { 
+
+  private Object me;
+  private Set set = new HashSet();
+  private Thread thread;
+
+  public Safe() { 
+    // Safe because "me" is not visible from any other thread
+    me = this;
+
+    // Safe because "set" is not visible from any other thread
+    set.add(this);
+
+    // Safe because MyThread won't start until construction is complete
+    // and the constructor doesn't publish the reference
+    thread = new MyThread(this);
+  }
+
+  public void start() {
+    thread.start();
+  }
+
+  private class MyThread(Object o) {
+    private Object theObject;
+
+    public MyThread(Object o) { 
+      this.theObject = o;
+    }
+
+    ...
+  }
+}</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="output">
+    <english>This report lists all constructors that involve this directly or indirectly.
+It provides the following information:
+  - Method full name
+  - the number of occurrences of this detected in the constructor</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="sample">
+    <english>public class Unsafe {
+  public static Unsafe anInstance;
+  public static Set set = new HashSet();
+  private Set mySet = new HashSet();
+  private Thread thread;
+
+  public Unsafe() {
+    // Unsafe because anInstance is globally visible
+    anInstance = this;
+
+    // Unsafe because SomeOtherClass.anInstance is globally visible
+    SomeOtherClass.anInstance = this;
+
+    // Unsafe because SomeOtherClass might save the "this" reference
+    // where another thread could see it
+    SomeOtherClass.registerObject(this);
+
+    // Unsafe because set is globally visible 
+    set.add(this);
+
+    // Unsafe because we are publishing a reference to mySet
+    mySet.add(this);
+    SomeOtherClass.someMethod(mySet);
+
+    // Unsafe because the "this" object will be visible from the new
+    // thread before the constructor completes
+    // in any case, start() must not be called within the constructor
+    thread = new MyThread(this);
+    thread.start();
+  }
+
+  public Unsafe(Collection c) {
+    // Unsafe because "c" may be visible from other threads
+    c.add(this);
+  }
+}</english>
+  </metric>
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" section="total">
+    <english>Number of constructors</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="description">
+    <english>Reports all artifacts with loops (for, while, do while)  that contain object instantiations (object creation)..
+Java artifacts include all methods and constructors with the following exclusions:
+- the cases where the instantiation appear at the end of a return or throw statement are excluded. 
+- the case where the instantiated object is one of the arguments of a call to one of the following methods :
+   . java.util.Collection.add
+   . java.util.Map.put
+   . java.lang.StringBuilder.append
+   . java.lang.StringBuilder.insert
+   . java.lang.StringBuilder.replace
+   . java.lang.StringBuffer.append
+   . java.lang.StringBuffer.insert
+   . java.lang.StringBuffer.replace
+   . java.util.stream.Stream.map
+   . and any method with the same name in their respective derived classes (e.g. java.util.ArrayList. add(int index, E element)), as ArrayList implements java.util.Collection and has the same name as the authorized method add).</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="name">
+    <english>Avoid instantiations inside loops</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="output">
+    <english>This report lists all methods that create objects in a loop.
+It provides the following information:
+ Method full name</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="rationale">
+    <english>One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="remediation">
+    <english>Redesign the loop.</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="remediationSample">
+    <english>public class MyLoop {
+     public void printCount() {
+         StringBuffer sb = new StringBuffer(); // FIXED
+         for (int i = 0; i &lt; 100; i++) {
+             sb.setLength(0);
+             sb.append("count = ");
+             sb.append(i);
+             System.out.println(sb);
+         }
+     }
+ }</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="sample">
+    <english>public class MyLoop {
+     public void printCount() {
+         for (int i = 0; i &lt; 100; i++) {
+             StringBuffer sb = new StringBuffer(); // VIOLATION
+             sb.append("count = ");
+             sb.append(i);
+             System.out.println(sb);
+         }
+     }
+ }</english>
+  </metric>
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" section="total">
+    <english>Number of non abstract Java Artifacts</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" section="associatedValueName">
+    <english>Field full name</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" section="description">
+    <english>To respect OO encapsulation concepts, Fields should not be accessed from outside the Class without going through their accessors.
+Protected fields are also considered by this rule comptation.Using protected fields is allowed by the Java language but not a good practive as it introduce a hard coupling between implementation and interfaces (abstract class here).
+As per the book "Effective Java" by Joshua Bloch : "The need for protected members should be relatively rare.". Fields of an INNER class are considered as internal fields of the outer class and Fields of a Child class (By inheritance) are considered as internal fields of the outer</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" section="name">
+    <english>Avoid using Fields (non static final) from other Classes</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" section="output">
+    <english>This report lists all Methods directly using Fields from other Classes.
+It provides the following information:
+ - Method full name
+ - Field full name</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" section="rationale">
+    <english>On of the fundamental concept of this rule is encapsulation:
+Hiding the internals of the object protects its integrity by preventing users from setting the internal data of the component into an invalid or inconsistent state. A benefit of encapsulation is that it can reduce system complexity, and thus increases robustness, by allowing the developer to limit the interdependencies between software components.</english>
+  </metric>
+  <metric id="4602" type="quality-rule" originalName="Avoid using Fields (non static final) from other Classes" section="total">
+    <english>Number of non abstract Java artifacts</english>
+  </metric>  
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="description">
+    <english>The Bean Provider can choose between using programmatic transaction demarcation in the enterprise bean code (this style is called bean-managed transaction demarcation)  or  declarative transaction demarcation performed automatically by the EJB container (this style is called container-managed transaction demarcation).
+
+Without theses features, transactions must be controlled using explicit transaction demarcation which is less recommanded as it requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects
+
+
+This rule reports violation when an explicit transaction demarcation is done in project using EJB BEANS and / or Message Driven Beans
+
+This Quality Rule reports all methods that directly (or indirectly through inheritance) reference an object of the following type:
+* java.sql.Connection
+* javax.transaction.UserTransaction
+* javax.persistence.EntityTransaction
+* org.hibernate.Transaction
+* org.springframework.transaction.PlatformTransactionManager
+* org.springframework.transaction.support.TransactionTemplate</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="name">
+    <english>Use declarative transaction</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="output">
+    <english>This Quality Rule reports all methods that reference programmatic transactions. It provides the following information: Method or Constructor Full Name</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="rationale">
+    <english>One of the primary advantages of an Application Server is the support of declarative transactions. Without this feature, transactions must be controlled using explicit transaction demarcation. Explicit demarcation is difficult for developers to use at best, particularly if you are new to transactional systems. In addition, explicit transaction demarcation requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects. Once transaction demarcation is "hardcoded" into the business object, changes in transaction behaviour require changes to the business logic itself.
+
+Declarative transactions make it easier for you to create robust transactional applications. The risk to not use them is data corruption.</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="reference">
+    <english>http://docstore.mik.ua/orelly/java-ent/ebeans/ch08_02.htm</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="remediation">
+    <english>Using transaction attributes simplifies the construction of transactional applications by reducing the risks associated with improper use of transactional protocols like JTA. It is more efficient and easier to use transaction attributes than to control transactions explicitly. This can be done through EJB or Spring.</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="remediationSample">
+    <english>use container-managed transaction demarcation (@Transactional Annotation or Configure Transactions with XML)
+@Stateless
+public class UserServiceImpl {
+   UserDAO UserDAO;
+   @Resource SessionContext context;
+
+   @TransactionAttribute(TransactionAttributeType.REQUIRED)
+   public void update(User user) throws Exception {
+      try {
+     userDAO.update(user);
+      } catch (Exception up) {
+         context.setRollbackOnly();
+         throw up;
+      }
+   }
+}</english>
+  </metric>
+ <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="sample">
+    <english>programmatic transaction demarcation:
+sample 1:
+@Stateless
+@TransactionManagement(TransactionManagementType.BEAN)
+public class UserServiceImpl {
+   UserDAO userDAO;
+
+   public void update(User user) throws Exception {
+      InitialContext context = new InitialContext();
+      //reference of javax.transaction.UserTransaction
+       UserTransaction transaction = (UserTransaction)context.lookup("UserTransaction");
+      try {
+         //explicit transaction demarcation
+         transaction.begin();// starting the transaction : violation
+     .......
+         transaction.commit(); // committing: violation
+      } catch (Exception up) {
+         transaction.rollback();
+         throw up;
+      }
+   }
+}</english>
+  </metric>  
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="total">
+    <english>Number of Java Methods and Constructors if ejb-jar.xml, Spring XML or JPA XML files exists</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="associatedValueName">
+    <english>Full Name of createStatement method called</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="description">
+    <english>All references to the method java.sql.Connection.createStatement() must be avoided.</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="name">
+    <english>Favor PreparedStatement or CallableStatement over Statement</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="rationale">
+    <english>There are two benefits to use PreparedStatement or CallableStatement over Statement:
+- Performance: PreparedStatement gives better performance when compared to Statement because it is pre-parsed. CallableStatement is even more efficient but as it uses a stored procedure in the database, it is less portable,
+- Security: to prevent SQL Injection Attacks.</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="reference">
+    <english>http://www.theserverside.com/tt/articles/article.tss?l=JavaOne2006Day4
+http://www.precisejava.com/javaperf/j2ee/JDBC.htm</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="remediation">
+    <english>use java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall() instead.</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="remediationSample">
+    <english>PreparedStatement stmt = connection.prepareStatement("SELECT * FROM users WHERE userid=? AND password=?");
+stmt.setString(1, userid);
+stmt.setString(2, password);
+ResultSet rs = stmt.executeQuery();</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="output">
+    <english>This report lists all methods that reference java.sql.Connection.Statement interface instances (or its sub-interface or sub-class).
+It provides the following information: 
+ - Method Full Name
+ - The Full Name of createStatement method that has been called</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="sample">
+    <english>String query = "SELECT * FROM users WHERE userid ='"+ userid + "'" + " AND password='" + password + "'";
+Statement stmt = connection.createStatement();
+ResultSet rs = stmt.executeQuery(query);</english>
+  </metric>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" section="total">
+    <english>Number of methods that call java.sql.Connection.createStatement() or java.sql.Connection.prepareStatement() or java.sql.Connection.prepareCall()</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="associatedValueName">
+    <english>Java object name</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="description">
+    <english>In the contex of Struts implementation, the JSP pages must reference ONLY Java objects that belong to the bean scope or Java objects of a class belonging itself to the same scope
+
+The scope is an attribute of the bean indicating the context of objects usage.
+In struts-config, the scope refers to where to create/find ActionForm objects.
+
+
+All JSP pages that refers to Java methods, field of a class or the class itself that is not associated to a scoped attribute will be reported as violation.</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="name">
+    <english>JSP pages should only reference Java Objects associated to J2EE Scoped Bean</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="rationale">
+    <english>In a Struts implementation, JSP pages are responsible for the presentation and must not call specific Java objects other than those associated to scoped attributes.
+
+The consequences of combining HTML and Java code in the same JSP file are:
+- no separation of technology: Java skilled people and Web designers/HTML coders must work on the same file.
+- less reusable: the Java component can't be reused elsewhere in the application
+- maintenance difficulties because of the lack of modularization</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="reference">
+    <english>http://www.javaworld.com/javaworld/jw-11-2001/jw-1130-jsp.html
+
+https://javapapers.com/jsp/explain-the-scope-of-jsp-objects/</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="remediation">
+    <english>Use taglib or change the architecture of the application so that the JSP page only rely on classes associated to scoped attributes.</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="output">
+    <english>This report lists all JSP pages referencing Java objects that are not associated to J2EE Scoped Bean.
+It provides the following information:
+ - Page name
+ - Java object name</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="total">
+    <english>The total is the number of JSP pages. The metric must display 0 when no object of type "Struts Configuration File" is present</english>
+  </metric>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" section="total">
+    <english>Number of JSP pages when any object of type "Struts Configuration File" is present</english>
+  </metric>  
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="associatedValueName">
+    <english>Database object used</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="description">
+    <english>For all action class (and parent classes) that are referenced in the struts-config.xml through the tag 'action-mapping' (in struts 1.x) or in struts.xml and its included files through the tag 'action' (in struts 2.x), list artifacts that reference database access</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="name">
+    <english>Struts Action Artifacts should not directly use database objects</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="rationale">
+    <english>Action artifacts should not directly use database objects. All the database access code should be encapsulated behind the business API classes, so Struts doesn't know what persistent layer you are using. This lets you use the same business API classes in other environments, and also to run unit tests against your business API outside of Struts or a HTTP environment.</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="reference">
+    <english>http://javaboutique.internet.com/tutorials/strictly_struts/index.html</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="remediation">
+    <english>Use a Business Delegate to perform any business specific operations.</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="output">
+    <english>This report lists all Action artifacts having accesses to the database.
+It provides the following information:
+ - Action artifact full name
+ - database object used</english>
+  </metric>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" section="total">
+    <english>The total number of artifacts of classes and parent classes that are referenced as an action in the XML configuration file.</english>
+  </metric>
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" section="description">
+    <english>Catch blocks should not use 'Throwable.printStackTrace()' to log the stack of errors.</english>
+  </metric>
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" section="name">
+    <english>DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block</english>
+  </metric>
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" section="rationale">
+    <english>Using 'Throwable.printStackTrace()' in a catch block usually means that it is used to log the stack of errors, which has the risk of filling up the stdout or the log file.</english>
+  </metric>
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" section="output">
+    <english>This report lists all Methods using 'Throwable.printStackTrace()' in catch blocks.It provides the following information: Method full name</english>
+  </metric>
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" section="total">
+    <english>Number of non-abstract Java artifacts</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="description">
+    <english>Throwable.printStackTrace(...) prints a Throwable and its stack trace to some stream. If no argument is used, the default stream System.Err will be used, which could inadvertently expose sensitive information.
+
+
+This rule will report a violation when printStackTrace is used without arguments : when the stack trace is printed to the default stream.</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="name">
+    <english>Avoid using 'Throwable.printStackTrace()' with no argument</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="rationale">
+    <english>Using 'Throwable.printStackTrace()' usually means that it is used to log the stack of errors, which has the risk of filling up the stdout or the log file.</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/489.html
+OWASP Top 10 2017 Category A3 - Sensitive Data Exposure</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="remediation">
+    <english>Loggers should be used instead to print Throwables, as they have many advantages:
+
+Users are able to easily retrieve the logs.
+The format of log messages is uniform and allow users to browse the logs easily.</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="sample">
+    <english>public static void main(String[] args){
+    try {
+        test();
+    } catch (UnsupportedOperationException e) {
+        System.out.println(e);
+        e.printStackTrace();
+    }
+}</english>
+  </metric>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" section="total">
+    <english>Number of non-abstract Java artifacts.</english>
+  </metric>
+ <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="description">
+    <english>Reports all incorrect numeric type conversions which may produce unexpected results:
+- int i = (int) 33457.8f; 
+- int i1 = 1 + 2+ (int)3.5
+- if(integerValue == (int)floatValue)
+A violation is raised if converting from one data type to another, such as long to integer in the data which can be translated in a way that produces unexpected values.</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="name">
+    <english>Avoid numerical data corruption during incompatible mutation</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="rationale">
+    <english>The program could wind up using the wrong number and generate incorrect results. If the number is used to allocate resources or make a security decision, then this could introduce a vulnerability.
+ - A widening conversion of an int or a long value to float, or of a long value to double, may result in loss of precision - that is, the result may lose some of the least significant bits of the value. In this case, the resulting floating-point value will be a correctly rounded version of the integer value, using IEEE 754 round-to-nearest mode</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/681.html
+http://www.informit.com/articles/article.aspx?p=174371</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="remediation">
+    <english>You can use Widening Primitive Conversion to avoid loss of precision.</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="remediationSample">
+    <english>A widening primitive conversion does not lose information about the overall magnitude of a numeric value.
+  byte to short, int, long, float, or double
+    short to int, long, float, or double
+    char to int, long, float, or double
+    int to long, float, or double
+    long to float or double
+    float to double
+-Despite the fact that loss of precision may occur, a widening primitive conversion never results in a run-time exception</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="sample">
+    <english>int i = (int) 33457.8f;
+short i1 = (short)ic.readdata(); // VIOLATION if readdata returns long
+int i1 = 1 + 2+ (int)3.5 // VIOLATION</english>
+  </metric>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" section="total">
+    <english>Number of Java artifacts that can reference an incompatible mutation which includes methods, lambdas and constructors</english>
+  </metric>
+<metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="description">
+    <english>The Bean Provider can choose between using programmatic transaction demarcation in the enterprise bean code (this style is called bean-managed transaction demarcation)  or  declarative transaction demarcation performed automatically by the EJB container (this style is called container-managed transaction demarcation).
+
+Without theses features, transactions must be controlled using explicit transaction demarcation which is less recommanded as it requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects
+
+
+This rule reports violation when an explicit transaction demarcation is done in project using EJB BEANS and / or Message Driven Beans
+
+This Quality Rule reports all methods that directly (or indirectly through inheritance) reference an object of the following type:
+* java.sql.Connection
+* javax.transaction.UserTransaction
+* javax.persistence.EntityTransaction
+* org.hibernate.Transaction
+* org.springframework.transaction.PlatformTransactionManager
+* org.springframework.transaction.support.TransactionTemplate</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="name">
+    <english>Use declarative transaction</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="rationale">
+    <english>One of the primary advantages of an Application Server is the support of declarative transactions. Without this feature, transactions must be controlled using explicit transaction demarcation. Explicit demarcation is difficult for developers to use at best, particularly if you are new to transactional systems. In addition, explicit transaction demarcation requires that the transactional code be written within the business logic, which reduces the clarity of the code and more importantly creates inflexible distributed objects. Once transaction demarcation is "hardcoded" into the business object, changes in transaction behaviour require changes to the business logic itself.
+
+Declarative transactions make it easier for you to create robust transactional applications. The risk to not use them is data corruption.</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="reference">
+    <english>http://docstore.mik.ua/orelly/java-ent/ebeans/ch08_02.htm</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="remediation">
+    <english>Using transaction attributes simplifies the construction of transactional applications by reducing the risks associated with improper use of transactional protocols like JTA. It is more efficient and easier to use transaction attributes than to control transactions explicitly. This can be done through EJB or Spring.</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="remediationSample">
+    <english>use container-managed transaction demarcation (@Transactional Annotation or Configure Transactions with XML)
+@Stateless
+public class UserServiceImpl {
+   UserDAO UserDAO;
+   @Resource SessionContext context;
+
+   @TransactionAttribute(TransactionAttributeType.REQUIRED)
+   public void update(User user) throws Exception {
+      try {
+     userDAO.update(user);
+      } catch (Exception up) {
+         context.setRollbackOnly();
+         throw up;
+      }
+   }
+}</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="output">
+    <english>This Quality Rule reports all methods that reference programmatic transactions. It provides the following information: Method or Constructor Full Name</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="sample">
+    <english>programmatic transaction demarcation:
+sample 1:
+@Stateless
+@TransactionManagement(TransactionManagementType.BEAN)
+public class UserServiceImpl {
+   UserDAO userDAO;
+
+   public void update(User user) throws Exception {
+      InitialContext context = new InitialContext();
+      //reference of javax.transaction.UserTransaction
+       UserTransaction transaction = (UserTransaction)context.lookup("UserTransaction");
+      try {
+         //explicit transaction demarcation
+         transaction.begin();// starting the transaction : violation
+     .......
+         transaction.commit(); // committing: violation
+      } catch (Exception up) {
+         transaction.rollback();
+         throw up;
+      }
+   }
+}</english>
+  </metric>
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" section="total">
+    <english>Number of Java Methods and Constructors (including generic methods and generic constructors) if ejb-jar.xml, Spring XML or JPA XML files exists</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="description">
+    <english>The following methods are taken into account:
+- JDBC:
+   . open: java.sql.DriverManager.getConnection(String)
+   . close: java.sql.Connection.close()
+- JDBC:
+   . open: java.sql.Connection.createStatement()
+   . close: java.sql.Statement.close()
+- JDBC:
+   . open: java.sql.Connection.prepareStatement(...)
+   . close: java.sql.PreparedStatement.close()
+- JDBC:
+   . open: java.sql.Connection.prepareCall(...)
+   . close: java.sql.CallableStatement.close()
+- JDBC:
+   . open: java.sql.PreparedStatement.executeQuery()
+   . close: java.sql.ResultSet.close()
+- JPA:
+    . open: javax.persistence.Persistence.createEntityManagerFactory(String)
+    . close: javax.persistence.EntityManagerFactory.close()
+- JPA:
+   . open:  javax.persistence.EntityManagerFactory.createEntityManager()
+   . close:  javax.persistence.EntityManager.close()
+- Hibernate:
+   . open: org.hibernate.SessionFactory.openSession()
+   . close: org.hibernate.Session.close()
+- Hibernate:
+  . open: org.hibernate.cfg.Configuration.buildSessionFactory()
+  . close: org.hibernate.SessionFactory.close()
+- Spring:
+  . open: org.springframework.orm.hibernate3.SessionFactoryUtils.getSession(...)
+  . close: org.springframework.orm.hibernate3.SessionFactoryUtils.closeSession(...)</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="name">
+    <english>Close database resources ASAP</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="rationale">
+    <english>A frequent issue when dealing with database resource is resource leak. This mainly comes from an incorrect code that miss to close the connection in any cases. Incorrect resource management is a common source of failures in production applications, with the usual pitfalls being database connections and file descriptors remaining opened after an exception has occurred somewhere else in the code. This leads to application servers being frequently restarted when resource exhaustion occurs, because operating systems and server applications generally have an upper-bound limit for resources.</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="reference">
+    <english>http://www.java7developer.com/blog/?p=24
+http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html
+http://projectlombok.org/features/Cleanup.html</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="remediation">
+    <english>You can:
+- close the resource in a finally block (only explicit closing is considered valid)
+- or annotate this resource with @Cleanup annotation (lombok.Cleanup)
+- or use the try with resource to declare the resource that must be closed (available in java 7)
+- or use Spring JDBC Template that open and close the connection for you (http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/jdbc.html)
+- or use CDI with @Dispose annotation</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="remediationSample">
+    <english>with finally
+~~~~~~~~~~~~
+String connectionURL = 'jdbc:mysql://localhost:3306/myDB';
+Connection connection = null;
+Statement st = null;
+ResultSet rs = null;
+try {
+    Class.forName('com.mysql.jdbc.Driver').newInstance();
+    connection = DriverManager.getConnection(connectionURL, 'root', 'admin');
+    st = connection.createStatement();
+    rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');
+    while (rs.next()) {
+        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');
+        System.out.println(rs.getString(1) + '/' + rs.getString(2));
+    }
+} catch (Exception ex) {
+    ex.printStackTrace();
+} finally { // FIX
+    try {
+        if (rs != null &amp;&amp; !rs.isClosed()) {
+            rs.close();
+        }
+        if (st != null &amp;&amp; !st.isClosed()) {
+            st.close();
+        }
+        if (connection != null &amp;&amp; !connection.isClosed()) {
+            connection.close();
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
+with Java 7
+~~~~~~~~~~~~~~
+String connectionURL = 'jdbc:mysql://localhost:3306/myDB';
+try ( // FIX
+    Connection connection =
+        DriverManager.getConnection(connectionURL, 'root', 'admin');
+    Statement st = connection.createStatement();
+    ResultSet rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');
+) {
+    Class.forName('com.mysql.jdbc.Driver').newInstance();
+    while (rs.next())
+    {
+        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');
+        System.out.println(rs.getString(1) + '/' + rs.getString(2));
+    }
+}
+
+with annotation @Cleanup
+~~~~~~~~~~~~~~~~~~~~~~~~
+String connectionURL = 'jdbc:mysql://localhost:3306/myDB';
+@Cleanup Connection connection = null; // FIX
+@Cleanup Statement st = null; // FIX
+@Cleanup ResultSet rs = null; // FIX
+
+Class.forName('com.mysql.jdbc.Driver').newInstance();
+connection = DriverManager.getConnection(connectionURL, 'root', 'admin');
+st = connection.createStatement();
+rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');
+while (rs.next()) {
+    System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');
+    System.out.println(rs.getString(1) + '/' + rs.getString(2));
+}
+
+with CDI annotation
+~~~~~~~~~~~~~~~~~~~~
+@Produces @RequestScoped
+Connection connect(User) {
+   return createConnection(user.getId(), user.getPassword())
+}
+
+void close (@Disposes Connection connection) {
+   connection.close();
+}</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="sample">
+    <english>String connectionURL = 'jdbc:mysql://localhost:3306/myDB';
+Connection connection = null;
+Statement st = null;
+ResultSet rs = null;
+try {
+    Class.forName('com.mysql.jdbc.Driver').newInstance();
+    connection = DriverManager.getConnection(connectionURL, 'root', 'admin');
+    st = connection.createStatement();
+    rs = st.executeQuery('Select * from EMPLOYEE_SALARIES');
+    while (rs.next()) {
+        System.out.println('EMPLOYEE_NAME/EMPLOYEE_SALARY');
+        System.out.println(rs.getString(1) + '/' + rs.getString(2));
+    } 
+    rs.close(); 
+    st.close();
+    connection.close();
+} catch (Exception ex) {
+    ex.printStackTrace();
+}  // VIOLATION, rs, st and connection must be closed in a finally</english>
+  </metric>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" section="total">
+    <english>Number of methods that open a database resource in the body</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="description">
+    <english>If a released resource is subsequently reused or reallocated, then an attempt to use the original resource might allow access to sensitive data that is associated with a different user or entity.
+  This rule reports all methods accessing the closed SQL connections or data streams which are not valid. The following methods are taken into account:
+  
+- JDBC:
+   . close: java.sql.Connection.close()
+   . close: java.sql.Statement.close()
+   . close: java.sql.PreparedStatement.close()
+   . close: java.sql.CallableStatement.close()
+   . close: java.sql.ResultSet.close()
+- JPA:
+   . close: javax.persistence.EntityManagerFactory.close()
+   . close:  javax.persistence.EntityManager.close()
+- Hibernate:
+    . close: org.hibernate.Session.close()
+  . close: org.hibernate.SessionFactory.close()
+- Spring:
+    . close: org.springframework.orm.hibernate3.SessionFactoryUtils.closeSession(...)
+    . close: org.springframework.orm.hibernate4.SessionFactoryUtils.closeSession(...)
+    . close: org.springframework.orm.hibernate5.SessionFactoryUtils.closeSession(...)
+  
+-The following objects are taken into account:
+- output streams
+- input streams
+- readers
+- writers
+- channel</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="name">
+    <english>Expired or Released Resource should not be used</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="rationale">
+    <english>When a resource is released it might not be in an expected state, later attempts to access the resource may lead to resultant errors that may lead to a crash.</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/672.html
+ASCSM-CWE-672: Expired or Released Resource Usage</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="remediation">
+    <english>You can use:
+- isClosed() methods before accessing the Connection object .
+- close() method should be called before closing the application.</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="remediationSample">
+    <english>with finally
+~~~~~~~~~~~~
+if(!connection.isClosed())
+  connection.prepareStatement("select * from ....");
+or
+finally{
+      System.out.println("Closing a connection");
+      connection.close();
+}</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="sample">
+    <english>String connectionUrl="jdbc:mysql://localhost:3306/MyDb";
+    String userName="root";
+    String userPass="root";
+    DBConnectionInvalid connectionExample=new DBConnectionInvalid();
+    try{
+      connection=connectionExample.getConnection(connectionUrl, userName, userPass);
+    }catch(Exception e){
+      System.out.println(e.toString());
+    }finally{
+      System.out.println("Closing a connection");
+      connection.close();
+
+      connection.prepareStatement("select * from ....");
+    }</english>
+  </metric>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" section="total">
+    <english>All the methods that have invalid access to the database resource in the body</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="description">
+    <english>Hiding Static Methods is not allowed. 
+This Quality Rule retrieves all static methods that are redefined in subclasses i.e. "implicitly hidden". 
+A Static Method MyMethod of Class MySuperClass is "implicitly hidden" in Subclass MySubClass if MySubClass contains a similar declaration of MyMethod (i.e. same signature).
+
+Except "createUI" for class derives from  “javax.swing.plaf.ComponentUI;”</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="name">
+    <english>Avoid hiding static Methods</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="rationale">
+    <english>Hiding is all about polymorphism. This means that the OO designer expects to override methods and use polymorphism so that code calling methods through a base class will end up executing different methods depending on the instance being used. This is not the case with static methods. When static methods are called, there is no polymorphism in play. It is always the static method of the type used to reference the object used that is called. Hiding static methods is a misuse of OO practices that results in misunderstanding of what is going to be executed at runtime and thus leads to unexpected behavior, jeopardizing the stability of the application.
+
+Except for class derives from “javax.swing.plaf.ComponentUI”
+See documentation:
+https://docs.oracle.com/javase/7/docs/api/javax/swing/plaf/ComponentUI.html#createUI(javax.swing.JComponent)
+
+public static ComponentUI (https://docs.oracle.com/javase/7/docs/api/javax/swing/plaf/ComponentUI.html) createUI(JComponent (https://docs.oracle.com/javase/7/docs/api/javax/swing/JComponent.html) c)
+
+Returns an instance of the UI delegate for the specified component. Each subclass must provide its own static createUI method that returns an instance of that UI delegate subclass. If the UI delegate subclass is stateless, it may return an instance that is shared by multiple components. If the UI delegate is stateful, then it should return a new instance per component. The default implementation of this method throws an error, as it should never be invoked.</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="reference">
+    <english>https://coderanch.com/wiki/659959/Overriding-Hiding
+https://coderanch.com/t/380069/java/overriding-static-method</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="remediation">
+    <english>Review the design of the Method.
+Simply not override the static (class) methods.</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="remediationSample">
+    <english>class Foo {
+    public static void classMethod() {
+        System.out.println("classMethod() in Foo");
+    }
+ 
+    public void instanceMethod() {
+        System.out.println("instanceMethod() in Foo");
+    }
+}
+ 
+class Bar extends Foo {
+    //Simply not override the static (class) methods: classMethod.
+ 
+    public void instanceMethod() {
+        System.out.println("instanceMethod() in Bar");
+    }
+}
+  
+class Test {
+    public static void main(String[] args) {
+        Foo f = new Bar();
+        f.instanceMethod();
+        
+        //Rather than writing:
+        //f.classMethod();
+        
+        //It would be better coding style to write either:
+        Foo.classMethod();
+    }
+}</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="sample">
+    <english>class Foo {
+    public static void classMethod() {
+        System.out.println("classMethod() in Foo");
+    }
+ 
+    public void instanceMethod() {
+        System.out.println("instanceMethod() in Foo");
+    }
+}
+ 
+class Bar extends Foo {
+    public static void classMethod() {
+        System.out.println("classMethod() in Bar");
+    }
+ 
+    public void instanceMethod() {
+        System.out.println("instanceMethod() in Bar");
+    }
+}
+  
+class Test {
+    public static void main(String[] args) {
+        Foo f = new Bar();
+        f.instanceMethod();
+        f.classMethod();
+    }
+}
+
+// If you run this, the output is
+// instanceMethod() in Bar
+// classMethod() in Foo</english>
+  </metric>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" section="total">
+    <english>Number of methods.</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="description">
+    <english>Java artifacts should not use 'java.io.File' for application deployed on a Web Server or an Application Server (when web.xml or ejb-jar.xml file are present)</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="name">
+    <english>Avoid using 'java.io.File'</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="output">
+    <english>This report lists all java artifacts using 'java.io.File'.
+It provides the following information:
+ Artifact full name</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="rationale">
+    <english>For portability reasons, in Web applications or Application Server, 'java.io.File' should not be used since it means giving an absolute path and therefore being dependent on the environment where the application is deployed.</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="remediation">
+    <english>Prefer using RessourceBundle.</english>
+  </metric>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" section="total">
+    <english>Number of Java objects</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="description">
+    <english>Reports all Spring Bean that use autowire attribute.</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="name">
+    <english>Do not use auto-wiring</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="rationale">
+    <english>Auto-wiring can save you time in small applications, but in many cases, it leads to bad practices and is inflexible in large applications. Using byName seems like a good idea, but it may lead you to give your classes artificial property names so that you can take advantage of the auto-wiring functionality. The whole idea behind Spring is that you can create your classes how you like and have Spring work for you, not the other way around. You may be tempted to use byType until you realize
+that you can only have one bean for each type in your BeanFactory -- a restriction that is problematic when you need to maintain beans with different configurations of the same type.
+
+Also it will affect the performance of your application since auto-wiring is slow.</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="reference">
+    <english>https://blog.marcnuri.com/field-injection-is-not-recommended/
+https://howtodoinjava.com/best-practices/13-best-practices-for-writing-spring-configuration-files/
+https://www.vojtechruzicka.com/field-dependency-injection-considered-harmful/
+http://code.google.com/p/google-guice/wiki/SpringComparison
+https://www.baeldung.com/spring-annotations-resource-inject-autowire
+https://stackoverflow.com/questions/7142622/what-is-the-difference-between-inject-and-autowired-in-spring-framework-which</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="remediation">
+    <english>Define your wiring explicitly, and you benefit from explicit semantics and full flexibility on property naming and on how many instances of
+the same type you manage.</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="remediationSample">
+    <english>&lt;beans&gt;
+   &lt;bean id="myBean" class="com.cast.MyBean"/&gt; // FIXED
+...
+&lt;/beans&gt;
+
+@Service
+public class ModuleManagementService {
+
+    
+  private ModuleManagementManager moduleManagementManager;
+ 
+  //  Prefer setter injection over constructor injection
+  @Inject  // OR @Autowired
+  public void setInjectedBean() {
+      moduleManagementManager = new ModuleManagementManager();   // NO VIOLATION
+  }
+}</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="sample">
+    <english>&lt;beans&gt;
+   &lt;bean id="myBean" autowire="byName" class="com.cast.MyBean"/&gt; // VIOLATION
+...
+&lt;/beans&gt;
+
+
+
+import org.springframework.stereotype.Component;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component
+public class ModuleManagementManager {
+  private static final Logger LOGGER = LoggerFactory.getLogger(ModuleManagementManager.class);
+}
+
+import org.springframework.stereotype.Service;
+
+import javax.enterprise.inject.Instance;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Provider;
+import javax.inject.Qualifier;
+import javax.inject.Scope;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Service
+public class ModuleManagementService {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(ModuleManagementService.class);
+  
+  // JSR-330 injection
+  @Inject
+  ModuleManagementManager moduleManagementManager = new ModuleManagementManager(); // VIOLATION
+}</english>
+  </metric>
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" section="total">
+    <english>Number of Java classes</english>
+  </metric>
+<metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="description">
+    <english>Reports all entities or column defined through annotation or XML that define a table or column name length greater than 30. 
+The table and column name length are parameters that can be changed at will.</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="name">
+    <english>Avoid table and column names that are too long (portability)</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="rationale">
+    <english>If you specify table name too long you won't be able to create it on some database. This will prevent you to use these table name unless you use a Naming Strategy to reduce the length of the table name.
+
+To ease portability, choose table name with a length accepted by the majority of database you want to support.</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="remediation">
+    <english>Change the table name size or use a Naming Strategy to reduce the table name length.
+
+Some facts from http://www.mssqlcity.com/Articles/Compare
+
+                                table name length     column name length
+SQL Server 2000   128                            128
+ASE 12.5                  30                              30
+MYSQL 4.1               64                              64
+DB2 8.1                  128                            128
+Oracle 9i                  30                              30</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="remediationSample">
+    <english>&lt;class name="cast.core.InputFieldValueResource" table="input_field_value_resource"&gt;
+   ...
+&lt;/class&gt;</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="output">
+    <english>This report lists all entities or property defined through annotation or XML that define a table or column name length greater than 30.
+It provides the following information:
+Persistent Entity name or Persistent Property name</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="sample">
+    <english>&lt;class name="cast.core.InputFieldValueResource" table="cast_core_input_field_value_resource"&gt;
+   ...
+&lt;/class&gt;</english>
+  </metric>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" section="total">
+    <english>Number of persistent entities and properties</english>
+  </metric>
+</metrics>

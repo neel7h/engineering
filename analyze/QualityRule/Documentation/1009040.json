@@ -1,0 +1,68 @@
+{
+    "id": 1009040,
+    "name": "Avoid unreferenced Subroutines  (RPG300)",
+    "href": "AIP/quality-rules/1009040",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches the all the unreferenced subroutines.",
+    "output": "This report lists RPG300 unreferenced Subroutines .\nIt provides the following information:\nRPG300 Subroutines full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. \nWarning: \nUnreferenced code can also be the symptoms of missing code.",
+    "remediation": "Verify that the unreferenced subroutines are not dead code. If it is the case remove it. If  it is not the case correct the code in order to reference the subroutines.",
+    "total": "Total number of RPG300 Subroutines",
+    "alternativeName": "Avoid unreferenced Subroutines  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

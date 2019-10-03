@@ -1,0 +1,71 @@
+{
+    "id": 1002224,
+    "name": "Avoid high depth of code in Programs (FORTRAN)",
+    "href": "AIP/quality-rules/1002224",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "Avoid high depth of code in Programs",
+    "alternativeName": "Avoid high depth of code in Programs (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max number Loops",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        6.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

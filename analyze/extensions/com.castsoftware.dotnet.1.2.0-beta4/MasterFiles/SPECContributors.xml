@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<metrics> 
+    	<metric id="61017" type="technical-criterion" originalName="Documentation - Naming Convention Conformity" contributorId="3570" contributorType="quality-rule" contributorOriginalName="Avoid using Keywords as names" critical="false" weight="2"/>
+	<metric id="66065" type="technical-criterion" originalName="Secure Coding - Time and State" contributorId="1027000" contributorType="quality-rule" contributorOriginalName="Avoid Managed type declaration for Win32 API using Overlapped IO" critical="false" weight="5"/>
+	<metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" contributorId="1027002" contributorType="quality-rule" contributorOriginalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" critical="false" weight="5"/>
+	<metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" contributorId="1027004" contributorType="quality-rule" contributorOriginalName="Avoid using deprecated XmlTextReader .NET API" critical="false" weight="5"/>
+	<metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" contributorId="1027008" contributorType="quality-rule" contributorOriginalName="Always Revert After Impersonation" critical="false" weight="7"/>
+	<metric id="66063" type="technical-criterion" originalName="Secure Coding - API Abuse" contributorId="1027010" contributorType="quality-rule" contributorOriginalName="Avoid weak encryption providing insufficient key size (.NET)" critical="false" weight="6"/>
+	<metric id="66065" type="technical-criterion" originalName="Secure Coding - Time and State" contributorId="1027012" contributorType="quality-rule" contributorOriginalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." critical="true" weight="7"/>
+	<metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" contributorId="7272" contributorType="quality-rule" contributorOriginalName="Provide a private default Constructor for utility Classes (.NET)" critical="false" weight="4"/>
+</metrics>

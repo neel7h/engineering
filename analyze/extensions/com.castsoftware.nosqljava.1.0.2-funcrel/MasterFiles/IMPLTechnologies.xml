@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" filter="140029" filterLabel="JEE" />
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" filter="140029" filterLabel="JEE" />
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" filter="140029" filterLabel="JEE" />
+</root>

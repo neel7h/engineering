@@ -1,0 +1,63 @@
+{
+    "id": 1005050,
+    "name": "Avoid using Programs having textLiteralDefaultIsString property set to YES (EGL)",
+    "href": "AIP/quality-rules/1005050",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the programs with textLiteralDefaultIsString set to YES.",
+    "output": "This report provides the following information: Program full name",
+    "rationale": "\"textLiteralDefaultIsString property must be set to NO\nThe textLiteralDefaultIsString property tells EGL how to deal with text literals.\nBy default, EGL treats a literal that has no explicit type declaration as a STRING. This can create conflict with VisualAge\u00ae Generator programs, where developers generally use fixed text variable types. In these programs it is inefficient to implement literals as variable length, Unicode strings which require time consuming conversions.\n\nIn addition, when passing a literal as an argument in a call , transfer , or show statement, the argument must match the type of the receiving parameter (generally a CHAR type in VisualAge Generator).\n\nIf you set textLiteralDefaultIsString to NO, EGL gives the literal an appropriate type for assignment to a VisualAge Generator parameter.\"",
+    "remediation": "Try to always use textLiteralDefaultIsString set to NO",
+    "sample": "program TEST type basicProgram //VAGen Info - called batch program\n\n(TEST1, // record\n\n        TEST2 TEST2L, // record\n\n        TEST3 TEST3 // record\n\n){includeReferencedFunctions = no, allowUnqualifiedItemReferences = no, throwNrfEofExceptions = no, handleHardIOErrors = yes, V60ExceptionCompatibility = no, I4GLItemsNullable = yes, textLiteralDefaultIsString = no, localSQLScope = no}",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid using Programs having textLiteralDefaultIsString property set to YES (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

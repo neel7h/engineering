@@ -1,0 +1,71 @@
+{
+    "id": 1101056,
+    "name": "Avoid large Tables - too many columns (SQL)",
+    "href": "AIP/quality-rules/1101056",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of columns",
+    "description": "List of tables that have more (>) than <%PARAM%> columns.\n\nNote threshold is a parameter and can be changed at will. Default value is 40 columns.",
+    "output": "This report lists all Tables with more than <%PARAM%> Columns\nIt provides the following information: \n\n- Table name\n- Table full name\n- Number of Columns",
+    "rationale": "All tables should not have more than <%PARAM%> Columns.\n\nData redundancy is good for backups but not for table data. Each table should contain a unique data set that doesn\u2019t repeat data in other table locations.",
+    "remediation": "Consider normalizing the table design.\n\nNormalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data.\nIt divides larger tables to smaller tables and links them using relationships.",
+    "total": "Number of Tables.",
+    "alternativeName": "Avoid large Tables - too many columns (SQL)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of columns per table",
+            "description": "Maximum number of columns per table",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        40
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

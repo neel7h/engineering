@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1020950</SetId>
+	<SetName>SET_WbsLinker_Resources</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_RESOURCES</SetProcedure>
+</SET_Definitions>
+</DATA>

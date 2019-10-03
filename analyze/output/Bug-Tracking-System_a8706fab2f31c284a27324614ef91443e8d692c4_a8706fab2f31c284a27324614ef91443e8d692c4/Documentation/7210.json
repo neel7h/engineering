@@ -1,0 +1,65 @@
+{
+    "id": 7210,
+    "name": "Avoid instantiations inside loops",
+    "href": "AIP/quality-rules/7210",
+    "critical": true,
+    "associatedValueName": "Associated Value",
+    "description": "Reports all artifacts with loops (for, while, do while)  that contain object instantiations (object creation)..\nJava artifacts include all methods and constructors with the following exclusions:\n- the cases where the instantiation appear at the end of a return or throw statement are excluded. \n- the case where the instantiated object is one of the arguments of a call to one of the following methods :\n   . java.util.Collection.add\n   . java.util.Map.put\n   . java.lang.StringBuilder.append\n   . java.lang.StringBuilder.insert\n   . java.lang.StringBuilder.replace\n   . java.lang.StringBuffer.append\n   . java.lang.StringBuffer.insert\n   . java.lang.StringBuffer.replace\n   . java.util.stream.Stream.map\n   . and any method with the same name in their respective derived classes (e.g. java.util.ArrayList. add(int index, E element)), as ArrayList implements java.util.Collection and has the same name as the authorized method add).",
+    "output": "This report lists all methods that create objects in a loop.\nIt provides the following information:\n Method full name",
+    "rationale": "One of the fundamental OO performance management principles is this: Avoid excessive object creation. This doesn't mean that you should give up the benefits of object-oriented programming by not creating any objects, but you should be wary of object creation inside of tight loops when executing performance-critical code. Object creation is expensive enough that you should avoid unnecessarily creating temporary or intermediate objects in situations where performance is an issue.",
+    "remediation": "Redesign the loop.",
+    "remediationSample": "public class MyLoop {\n     public void printCount() {\n         StringBuffer sb = new StringBuffer(); // FIXED\n         for (int i = 0; i < 100; i++) {\n             sb.setLength(0);\n             sb.append(\"count = \");\n             sb.append(i);\n             System.out.println(sb);\n         }\n     }\n }",
+    "sample": "public class MyLoop {\n     public void printCount() {\n         for (int i = 0; i < 100; i++) {\n             StringBuffer sb = new StringBuffer(); // VIOLATION\n             sb.append(\"count = \");\n             sb.append(i);\n             System.out.println(sb);\n         }\n     }\n }",
+    "total": "Number of non abstract Java Artifacts",
+    "alternativeName": "Ensure to not do object initialization inside a loop since it reduces performance",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

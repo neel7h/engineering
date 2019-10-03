@@ -1,0 +1,75 @@
+{
+    "id": 1007252,
+    "name": "Avoid filesystem function calls without sanitizing user input (PHP)",
+    "href": "AIP/quality-rules/1007252",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule detects the use of raw user input as parameter to file system functions that could potentially be dangerous.",
+    "output": "This report lists all artifacts that use raw user input as input to file system functions. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Using raw user input as parameter to file system functiosn could potentially be dangerous.",
+    "reference": "https://cwe.mitre.org/data/slices/661.html",
+    "remediation": "Use PHP user input cleaning functions. PHP offers htmlspecialchars and htmlentities to sanitize user input.",
+    "remediationSample": "<?php\n\nif (file_exists(htmlspecialchars($_FILES['about']['tmp_name']))) {\n   echo \"File exists!\", PHP_EOL;\n} else {\n   echo \"File does not exist!\", PHP_EOL;\n}\n\n?>",
+    "sample": "<?php\n\nif (file_exists($_FILES['about']['tmp_name'])) {\n   echo \"File exists!\", PHP_EOL;\n} else {\n   echo \"File does not exist!\", PHP_EOL;\n}\n\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid filesystem function calls without sanitizing user input (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-20",
+            "name": "Improper Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70271",
+            "name": "The application must not be subject to input handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

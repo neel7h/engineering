@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.nosqljava</id>
+    <version>1.0.2-funcrel</version>
+    <title>NoSQL for Java</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/NoSQL+for+Java+-+1.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.nosqljava.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This version support NoSQL for Java with bug fix</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/NoSQL+for+Java+-+1.0+-+Release+Notes</releaseNotes>
+    <tags>NoSQL MongoDB MarkLogic Couchbase JAVA</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.internal.platform" version="0.8.1-alpha" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,59 @@
+{
+    "id": 1101032,
+    "name": "Avoid exists and not exists independent clauses (SQL)",
+    "href": "AIP/quality-rules/1101032",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all Artifacts which contain a query having independent \"exists\" and \"not exists\" clauses, which are not referring to the parent object",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Identify \"exists\" and \"not exists\" independent clauses:\n- solve a potential performance and disk space issue \n- applicable for all sql, including embedded sql",
+    "remediation": "Check the statement and if so, add a join clause between exists and parent object.",
+    "remediationSample": "Add a join between children table from exists clause and person table from parent query:\n    select name \n      from person \n     where exists \n          (select 1 \n             from children \n            where children.fatherid = person.id)",
+    "sample": "The following query should be reviewed:\n      select name \n        from person \n       where exists (select 1 \n                       from children)",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid exists and not exists independent clauses (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

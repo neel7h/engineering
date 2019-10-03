@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- 
+ File : $/a3sql/CwMetrics/Metrics/Package/miscellaneous/HardcodedResource.xml
+ What it is : Metric "HardcodedResource" for Java and Java-Script
+ Author : IBO, ACA, YLE, CNU @ CAST
+ Creation date : 2014 May 23
+-->
+
+<METRIC PACKAGE_NAME="HardcodedResource" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="CALCULATE" >
+      <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+  <!-- End of actions used -->
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+
+    <!-- Use of hard-coded resource -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_STD_CAT2">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_STD_PATT" type="regexp_pattern">
+        <LANGUAGE>JAVA-LANGUAGE</LANGUAGE>
+        <LANGUAGE>JAVA-SCRIPT-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+
+        <!--
+				- Windows path:
+				- ([a-z]+:?|\.\.?)\\([-a-z_0-9.^{}@()$#%'~ [\]]|\\)*
+				- URL or Unix path:
+				- ([a-z]+:/|[-a-z_0-9.^{}@()$#%'~ [\]]+)?/[-a-z_0-9.^{}@()$#%'~ [\]][-a-z_0-9.^{}@()$#%'~ /[\]]*
+				- JDBC url:
+				- jdbc:oracle:thin:@//myhost:1521/orcl
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] of
+					 'HARD_CODED_PATH_REGEX_STD_CAT' in configuration\Metrics\Package\abap\abap_metrics.xml
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] of
+					 'HARD_CODED_PATH_REGEX_STD_CAT2' in configuration\Metrics\Package\Miscellaneous\HardcodedResource.xml
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] at the tail of the one of
+					 'HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_CAT' in configuration\Metrics\Package\abap\abap_metrics.xml
+				-->
+        <REGEXP><![CDATA[^(?:(?:[[:L*:]]+:?|\.\.?)\\(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]]|\\)*|(?:[[:L*:]]+:/?|(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])+|(?:[[:L*:][:N*:]@]+:)+[[:L*:][:N*:]@]+/)?/(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~:/[\]])*)$]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_STD_PATT</MATCH>
+        <CLASS>JAVA_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="HARD_CODED_IPADDR_REGEX_STD_CAT2">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_IPADDR_REGEX_STD_PATT" type="regexp_pattern">
+        <LANGUAGE>JAVA-LANGUAGE</LANGUAGE>
+        <LANGUAGE>JAVA-SCRIPT-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+        <!-- IP Address: 0.0.0.0 to 255.255.255.255 -->
+        <REGEXP><![CDATA[^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_IPADDR_REGEX_STD_PATT</MATCH>
+        <CLASS>JAVA_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_CAT2">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_PATT" type="regexp_pattern">
+        <LANGUAGE>JAVA-LANGUAGE</LANGUAGE>
+        <LANGUAGE>JAVA-SCRIPT-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+
+        <REGEXP><![CDATA[^((_+/)+|/_+)$]]></REGEXP>
+        <REGEXP><![CDATA[^[/\\][[:Zs:]\t]+$]]></REGEXP>
+        <REGEXP><![CDATA[^[[:L*:]]+:\\(n|r)]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_PATT</MATCH>
+        <CLASS>JAVA_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_RELATIVE_PATH_CAT2">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_RELATIVE_PATH_PATT" type="regexp_pattern">
+        <LANGUAGE>JAVA-LANGUAGE</LANGUAGE>
+        <LANGUAGE>JAVA-SCRIPT-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+
+        <REGEXP><![CDATA[^(/)[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]].*]]></REGEXP>
+        <REGEXP><![CDATA[^[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]]+[/].*]]></REGEXP>
+        <REGEXP><![CDATA[(^(\\)[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]].*)|(^[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]]+[\\].*)]]></REGEXP>
+        <REGEXP><![CDATA[(^(\\\\)[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]].*)|(^[^:\\]+[\\].*)]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_RELATIVE_PATH_PATT</MATCH>
+        <CLASS>JAVA_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Compute the Hardcoded resource's value -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_CAT2">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>HARD_CODED_PATH_REGEX_STD_CAT2.VALUE</ADD_VALUE>
+        <ADD_VALUE>HARD_CODED_IPADDR_REGEX_STD_CAT2.VALUE</ADD_VALUE>
+        <!-- Remove exceptions  -->
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_CAT2.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_RELATIVE_PATH_CAT2.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of hard-coded resource</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+
+</METRIC>

@@ -1,0 +1,193 @@
+module Core.JEE.Annotations;
+
+use Core.JEE.JEE;
+use Core.ConstantsMetamodel;
+use Core.Log;
+
+
+
+/**
+*	Return a list of symbol that are annotated with an annotation by indicating an annotation type.
+*
+*	@param annotationFullName: An annotation type.
+*	@param metatypeOrCategories: Metatype or category of symbols that can be returned by this method.
+*	@return  List of symbol annotated with the indicated annotation type and that are of the corresponding metatype or category.
+*/
+native list(symbol) getSymbolsAnnotatedWith( symbol annotationType, string metatypeOrCategory );
+
+
+/**
+*	Return a list of symbol that are annotated with an annotation by indicating an annotation type.
+*
+*	@param annotationFullName: An annotation type.
+*	@param metatypeOrCategories: List of metatype or categories of symbol that can be returned by this method.
+*	@return  List of symbol annotated with the indicated annotation type and that are of the corresponding metatypes or categories.
+*/
+native list(symbol) getSymbolsAnnotatedWith( symbol annotationType, list(string) metatypeOrCategories );
+
+
+
+/**
+*	Return a list of symbol that are annotated with an annotation by indicating the annotation name.
+*
+*	@param annotationFullName: The annotation fullName.
+*	@param metatypeOrCategories: Metatype or category of symbols that can be returned by this method.
+*	@return  List of symbol annotated with the indicated annotation fullName and that are of the corresponding metatype or category.
+*/
+list(symbol) getSymbolsAnnotatedWith( string annotationFullName, string metatypeOrCategory )
+{
+	list(symbol) l = {};
+	symbol annotationType = findUniqueSymbol( annotationFullName, CAST_Java_AnnotationType );
+	if ( annotationType == null )
+	{
+		return l;
+	}
+	
+	return getSymbolsAnnotatedWith( annotationType, metatypeOrCategory );
+}
+
+
+
+/**
+*	Return a list of symbol that are annotated with an annotation by indicating the annotation name.
+*
+*	@param annotationFullName: The annotation fullName.
+*	@param metatypeOrCategories: List of metatype or categories of symbol that can be returned by this method.
+*	@return  List of symbol annotated with the indicated annotation fullName and that are of the corresponding metatypes or categories.
+*/
+list(symbol) getSymbolsAnnotatedWith( string annotationFullName, list(string) metatypeOrCategories  )
+{
+	list(symbol) l = {};
+	symbol annotationType = findUniqueSymbol( annotationFullName, CAST_Java_AnnotationType );
+	if ( annotationType == null )
+	{
+		return l;
+	}
+	
+	return getSymbolsAnnotatedWith( annotationType, metatypeOrCategories );
+}
+
+
+
+/**
+*	Return a parameter of the annotation. Return null of none is found.
+*
+*	@param annotation: The annotation
+*	@param name: The searched annotation parameter name.
+*	@return The annotation parameter symbol, null if no symbol were found.
+*/
+symbol getAnnotationParameter( symbol annotation, string name )
+{
+	return findUniqueSymbol(name,CAST_Java_AnnotationParameter,annotation);
+}
+
+list(string) getParameterStringListFromAnnotation(symbol object,string annotationName,string parameterName)
+{
+    if( !hasAnnotation(object, annotationName))
+    {
+        log(DEBUG,"class has not the annotation " + annotationName);
+        return null;
+    }
+    
+    list(symbol) annotations = getAnnotations(object);
+	int oneResult = 0;
+    
+    foreach(symbol annotation in annotations)
+    {
+        string name = getStringProperty(annotation,identification_fullName);
+        if( name == annotationName)
+        {
+			symbol param = getAnnotationParameter(annotation,parameterName);
+			if (param != null)
+			{
+				return getStringListProperty(param,CAST_Java_AnnotationParameterStringValues);
+			}
+        }    
+    }
+    
+    return null;    
+}
+
+
+/**
+* Verify if object or his parent has the specified annotation 
+* 
+* @param object: annotated object
+* @param annotation   
+*/
+native boolean hasAnnotation( symbol object,string annotation );
+
+
+/**
+* Return if a method or the class is annoted with one of the annotations specified in the list. Method of a java class or of the classes extending
+* (look in the inheritance tree)
+* 
+* @param aimedMethod : java method
+* @param aimedSuperType: class
+*/
+boolean hasAnnotation(symbol aimedMethod, string aimedMethodName, symbol class, list(string) GROUP_annotations)
+{
+	list(symbol) aimedParents = getSuperTypes(class);
+    foreach(string GROUP_annotation in GROUP_annotations)
+	{
+	    if(hasAnnotation(aimedMethod, GROUP_annotation) || hasAnnotation(class, GROUP_annotation))
+            {
+                return true;
+            }		
+        foreach(symbol aimedParent in aimedParents)
+        {
+		    symbol aimedMethodinParent = findUniqueSymbol(aimedMethodName, getMetaType(aimedMethod), aimedParent);			
+		    if(aimedMethodinParent != null)
+			{
+			    if(hasAnnotation(aimedMethodinParent,GROUP_annotation) || hasAnnotation(aimedParent,GROUP_annotation))
+			    {
+				    return true; 
+			    }
+			}	
+		}		
+	}	
+return false; 
+}
+
+
+/**
+* Return the annotations list applied on the specified object or his parents
+*
+* @param object: annotated object  
+*/
+native list(symbol) getAnnotations( symbol object );
+
+/**
+*	Return if the parameter is default
+*
+*	@param annotationFullName: An annotation type.
+*	@param metatypeOrCategories: Metatype or category of symbols that can be returned by this method.
+*	@return  List of symbol annotated with the indicated annotation type and that are of the corresponding metatype or category.
+*/
+native boolean isDefaultParameter( symbol annotationParameter );
+
+string getParameterStringFromAnnotation(symbol object,string annotationName,string parameterName)
+{
+    if( !hasAnnotation(object, annotationName))
+    {
+        log(DEBUG,"class has not the annotation "+annotationName);
+        return null;
+    }
+    
+    list(symbol) annotations = getAnnotations(object);
+    
+    foreach(symbol annotation in annotations)
+    {
+        string name = getStringProperty(annotation,identification_fullName);
+        if( name == annotationName)
+        {
+            symbol parameter = getAnnotationParameter(annotation, parameterName);
+            if( parameter != null)
+            {
+                return getStringProperty(parameter,CAST_Java_AnnotationParameterStringValue);
+            }
+        }    
+    }
+    
+    return null;    
+}

@@ -1,0 +1,64 @@
+{
+    "id": 1012020,
+    "name": "Avoid use of RCLRSC  (CL400)",
+    "href": "AIP/quality-rules/1012020",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for CL400 programs using the RCLRSC command.",
+    "output": "This report lists all CL400 programs using RCLRSC.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "This command can have effect on files which have been opened incorrectly. In this situation, it is better to open and close files correctly. \nMoreover, RCLRSC should only be used against files opened in the default activation group. If a file is opened out of one library from the library list which is used and if the library list is changed, then going back to files to be processed while references may need to be resolved to a library that is no longer available can lead to errors.",
+    "remediation": "Check if files are opened and closed correctly.",
+    "remediationSample": "Please refer the below link for proper usage about the RCLRSC command\nhttps://publib.boulder.ibm.com/iseries/v5r2/ic2924/index.htm?info/cl/rclrsc.htm",
+    "sample": "Please refer the below link for proper usage about the RCLRSC command\nhttps://publib.boulder.ibm.com/iseries/v5r2/ic2924/index.htm?info/cl/rclrsc.htm",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid use of RCLRSC  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,93 @@
+/* module declaration */
+module Custom.Servlet;
+
+/* use declaration */
+use Core.ConstantsMetamodel;
+use Core.JEE.JEE;
+use Core.Error;
+use Core.Log;
+use Core.String;
+
+/* TODO: note that the web.xml file is not processed by the Env Profile */
+const string JSP_FILTER = "JSP_SERVLET";
+const string JSP_FILTER_MAPPING = "JSP_SERVLET_MAPPING";
+const string JSP_SERVLET_MAPPING = "JSP_SERVLET_MAPPING";
+const string JSP_APPLICATION_DESCRIPTOR = "JSP_APPDESCRIPTOR";
+
+
+void createServlet(string name, string class) {
+  log(DEBUG, "createServlet(" + name + "," + class +")");  
+  
+  symbol s_servlet = findOrCreateSymbol(name, JSP_SERVLET);  
+  symbol s_class = findUniqueSymbol(class, GROUP_JAVA_USERTYPES);
+  createLink(s_servlet, s_class, relyonLink);
+  
+  if (isImplementingOrInheriting(s_class, "org.apache.struts.action.ActionServlet")) {
+    log (DEBUG, "createServlet: " + name + " is a Struts 1.x implementation");
+  }
+}
+
+void addServletMapping(string name, string type, string mapping) {
+  log(DEBUG, "addServletMapping(" + name + "," + type + "," + mapping +")");
+  
+  symbol s_servlet = findUniqueSymbol(name, JSP_SERVLET);
+  symbol s_servlet_mapping = findOrCreateSymbol(mapping, JSP_SERVLET_MAPPING, s_servlet);  
+}
+
+void createFilter(string name, string class) {
+  log(DEBUG, "createFilter(" + name + "," + class +")");  
+  
+  symbol s_servlet = findOrCreateSymbol(name, JSP_FILTER);  
+  symbol s_class = findUniqueSymbol(class, GROUP_JAVA_USERTYPES);
+  createLink(s_servlet, s_class, relyonLink);
+  
+  if (isImplementingOrInheriting(s_class, "org.apache.struts2.dispatcher.FilterDispatcher")) {
+    log (DEBUG, "createFilter: " + name + " is a Struts 2.x implementation");
+  }  
+}
+
+void addFilterParam(string name, string param, string value) {
+  log(DEBUG, "addFilterParam(" + name + "," + param + "," + value +")");
+}
+
+void addFilterMapping(string name, string type, string mapping) {
+  log(DEBUG, "addFilterMapping(" + name + "," + type + "," + mapping +")");
+  
+  symbol s_filter = findUniqueSymbol(name, JSP_FILTER);
+  
+  switch (type) {
+     case "url-pattern": {
+        symbol s_filter_mapping = findOrCreateSymbol(mapping, JSP_FILTER_MAPPING, s_filter);
+		break;
+	 }
+	 
+     case "servlet-name": {
+        symbol s_servlet = findOrCreateSymbol(mapping, JSP_SERVLET);	
+        createLink(s_filter, s_servlet, callLink);
+		break;
+	 }
+  }
+} 
+
+void manageErrorException(string exception, string errorcode, string jspFile) {
+  log(DEBUG, "manageErrorException(" + exception + "," + errorcode + "," + jspFile +")");
+  
+  symbol s_web_xml = findUniqueSymbol("web.xml", JSP_APPLICATION_DESCRIPTOR);
+  symbol s_exception = findUniqueSymbol(exception, GROUP_JAVA_USERTYPES);
+  symbol s_jsp_file =  findUniqueSymbol(jspFile, CAST_Web_File);
+
+  /* 
+      * Note that the property errorcode would be very useful to set on the link for 
+      * Struts Action that rely on these errorcode
+      * It is also interesting to know if an exception will be redirected to an error page instead of displaying 
+      * the exception stack trace in the page itself
+      */
+  if (s_exception != null) {
+    createLink(s_web_xml, s_exception, catchLink);
+   	createLink(s_web_xml, s_jsp_file, throwLink);
+    setProperty(s_web_xml, s_jsp_file, throwLink, "errorcode", exception);
+  } else {
+    createLink(s_web_xml, s_jsp_file, throwLink);
+    setProperty(s_web_xml, s_jsp_file, throwLink, "errorcode", errorcode);
+  }
+}

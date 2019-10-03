@@ -1,0 +1,73 @@
+{
+    "id": 1002050,
+    "name": "Avoid using too many CYCLE or/and EXIT statements in Fortran-90 Subroutines  (FORTRAN)",
+    "href": "AIP/quality-rules/1002050",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "Maximum allowed CYCLE and EXIT statements is a threshold and can be changed at will..",
+    "rationale": "Avoid too many CYCLE or EXIT statements in Fortran-90.  Too many CYCLE and EXIT statements make the code difficult to read and change.",
+    "remediation": "Reduce the number of CYCLE and EXIT statements by seeking alternative implementations.",
+    "alternativeName": "Avoid using too many CYCLE or/and EXIT statements in Fortran-90 Subroutines  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max. number of CYCLE or EXIT statements",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

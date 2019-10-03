@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="101">
+
+    <!-- Be careful, file_no = 101 is shared with noSQL for Java extension, the rid = 899 is the last reserved for SQL Analyzer -->
+    
+    <category name="APM SQLScript Module" rid="0">
+        <description>SQL</description>
+        <inheritedCategory name="APM Server Modules" />
+    </category>
+
+    <category name="APM SQLScript Artifacts" rid="1">
+        <description>SQL Analyzer Artifacts</description>
+        <inheritedCategory name="APM All Artifacts" />
+        <inheritedCategory name="APM All Language Artifacts" />
+        <inheritedCategory name="APM Client-Server Artifacts" />
+        <inheritedCategory name="APM SQL Artifacts" />
+    </category>
+
+    <type name="SQLScript_SUBSET" rid="2">
+        <description>SQL Analyzer Subset</description>
+        <inheritedCategory name="PROJECT_SUBSET" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="APM SQLScript Module" />
+    </type>
+
+    <!-- SQLScript group -->
+    <type name="EnlightenSQLScript" rid="3">
+        <description>SQL Analyzer</description>
+        <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+    </type>
+
+    <category name="SQLScript" rid="4">
+        <description>SQL</description>
+        <attribute name="extensions" stringValue="*.sql;*.sqltablesize;*.uaxdirectory;*.src;*.gdpr" />
+        <inheritedCategory name="UniversalLanguage" />
+        <inheritedCategory name="CsvLanguage" />
+    </category>
+
+    <!-- SQLScript project -->
+    <type name="SQLScriptProject" rid="5">
+        <description>SQL Analyzer Project</description>
+        <inheritedCategory name="UAProject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="APM SQLScript Module" />
+    </type>
+
+    <!-- SQLScript Types -->
+    <category name="SQlScriptMetricable" rid="17">
+        <description></description>
+        <inheritedCategory name="SQLScript_Metric_UseOfCartesianProduct"/>
+        <inheritedCategory name="SQLScript_Metric_UseOfCartesianProductXXL"/>
+        <inheritedCategory name="SQLScript_Metric_NoIndexCanSupport"/>
+        <inheritedCategory name="SQLScript_Metric_NoIndexCanSupportXXL"/>
+        <inheritedCategory name="SQLScript_Metric_UseMinusExcept"/>
+        <inheritedCategory name="SQLScript_Metric_MissingWhereClause"/>
+        <inheritedCategory name="SQLScript_Metric_MissingParenthesisInsertClause"/>
+        <inheritedCategory name="SQLScript_Metric_UnionAllInsteadOfUnion"/>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_preferUnionAllToUnion"/>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_useOfUnionOrUnionAll"/>
+        <inheritedCategory name="SQLScript_Metric_DynamicSQL"/>
+        <inheritedCategory name="SQLScript_Metric_HasGroupByClause"/>
+        <inheritedCategory name="SQLScript_Metric_CountQuotedIdentifiers"/>
+        <inheritedCategory name="SQLScript_Metric_CountParameters"/>
+        <inheritedCategory name="SQLScript_Metric_HasNonAnsiJoin"/>
+        <inheritedCategory name="SQLScript_Metric_HasNumbersInOrderBy"/>
+        <inheritedCategory name="SQLScript_Metric_NaturalJoin"/>
+        <inheritedCategory name="SQLScript_Metric_NonSARGable"/> 
+        <inheritedCategory name="CAST_SQL_Metric_MaxNestedSubqueriesDepth"/> 
+        <inheritedCategory name="CAST_MetricAssistant_Metric_maxSQLSubqueriesNestedLevels"/>     
+        <inheritedCategory name="CAST_MetricAssistant_Metric_numberOfSubqueries"/>    
+        <inheritedCategory name="CAST_MetricAssistant_Metric_avoidUsingSQLQueriesInsideLoops"/>   
+        <inheritedCategory name="CAST_MetricAssistant_Metric_useOfGoto"/>
+        <inheritedCategory name="SQLScript_Metric_CountTables"/>
+		<inheritedCategory name="CAST_MetricAssistant_Metric_numberOfCommentedCodeLines"/> 
+		<inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine"/> 
+		<inheritedCategory name="SQLScript_Metric_lengthOfTheLongestLine"/>
+		<inheritedCategory name="SQLScript_Metric_StatementsNestedLevels"/> 
+		<inheritedCategory name="CAST_MetricAssistant_Metric_maxControlStatementsNestedLevels"/> 
+		<inheritedCategory name="SQLScript_Metric_ExistsIndependentClauses"/> 	
+		<inheritedCategory name="SQLScript_Metric_DistinctModifiers"/>  
+		<inheritedCategory name="SQLScript_Metric_OrClausesTestingEquality"/>
+ 		<inheritedCategory name="SQLScript_Metric_EmptyCatchBlock"/>
+    </category>      
+
+    
+    <!-- Avoid Artifacts with High Depth of Code-->
+    <category name="SQLScript_Metric_StatementsNestedLevels" rid="52">
+        <description>Max Control Statements Nested Levels</description>
+        <property name="maxControlStatementsNestedLevels" type="integer" merge="sum" rid="28">
+            <description>Max Control Statements Nested Levels</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="28"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_lengthOfTheLongestLine" rid="51">
+        <description>Length of the longest line</description>
+        <property name="lengthOfTheLongestLine" type="integer" merge="sum" rid="27">
+            <description>Length of the longest line</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="27"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    
+    <!-- Avoid Artifacts with queries on more than X Tables -->
+    <category name="SQLScript_Metric_CountTables" rid="47">
+        <description>Number of tables</description>
+        <property name="number_of_tables" type="integer" merge="sum" rid="25">
+            <description>count number of tables</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="25"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+        
+    <!-- Aliased by -->
+    <category name="SQLScript_AliasedBy" rid="41">
+        <description>Objects that could be aliased</description>
+        <property name="list_of_alias_objects" type="string" rid="23">
+            <description>List of alias, synonym or nickname object names</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="23"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <!-- Client Server Objects -->
+    <category name="SQLScript_Metric_ClientServer" rid="39">
+        <description>Group all Client Server details</description>
+        <property name="scanned" type="integer" rid="21">
+            <description>Scanned by SQL Analyzer</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="21"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+                
+        <inheritedCategory name="SQLScript_Metric_UseOfCartesianProduct"/>
+        <inheritedCategory name="SQLScript_Metric_UseOfCartesianProductXXL"/>
+        <inheritedCategory name="SQLScript_Metric_MissingParenthesisInsertClause"/>
+        <inheritedCategory name="SQLScript_Metric_HasNonAnsiJoin"/>
+        <inheritedCategory name="SQLScript_Metric_HasNumbersInOrderBy"/>
+        <inheritedCategory name="SQLScript_Metric_NaturalJoin"/>
+        <inheritedCategory name="SQLScript_Metric_NonSARGable"/> 
+        <inheritedCategory name="SQLScript_Metric_NoIndexCanSupport"/>
+        <inheritedCategory name="SQLScript_Metric_NoIndexCanSupportXXL"/>
+        <inheritedCategory name="SQLScript_Metric_UseMinusExcept"/>
+        <inheritedCategory name="SQLScript_Metric_UnionAllInsteadOfUnion"/>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_preferUnionAllToUnion"/>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_useOfUnionOrUnionAll"/> 
+		<inheritedCategory name="SQLScript_Metric_ExistsIndependentClauses"/> 
+ 		<inheritedCategory name="SQLScript_Metric_DistinctModifiers"/> 
+ 		<inheritedCategory name="SQLScript_Metric_NonAnsiOperators"/>  		
+ 		<inheritedCategory name="SQLScript_Metric_OrClausesTestingEquality"/>   			
+
+    </category>
+   
+    <partialCategory name="APM Client Language Artifacts">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory>      
+
+    <partialCategory name="CAST_CICS_SavedObject">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory>  
+
+    <partialCategory name="CAST_COBOL_SavedObject">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialCategory name="CAST_IMS_SavedObject">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialCategory name="APM DynamicSQL Object">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialCategory name="CAST_DotNet_KBObject">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialCategory name="CAST_SQL_MetricableQuery">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialCategory name="CAST_Web">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory> 
+
+    <partialType name="JSP_PROPERTY_MAPPING">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialType> 
+    
+    <!--partialCategory name="Java">
+        <inheritedCategory name="SQLScript_Metric_ClientServer"/>       
+    </partialCategory--> 
+
+    <!-- Details on Refer Links -->
+    <category name="SQLScript_ReferLinks_Details" rid="60">
+        <description>Referential Action</description>
+        <property name="details" type="string" rid="60">
+            <description>Referential Action</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="60"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+           
+    <partialType name="referDeleteLink">
+        <inheritedCategory name="SQLScript_ReferLinks_Details"/>       
+    </partialType> 
+    
+    <partialType name="referUpdateLink">
+        <inheritedCategory name="SQLScript_ReferLinks_Details"/>       
+    </partialType> 
+                                  
+    <!-- QRs -->           
+    <category name="SQLScript_Metric_UseOfCartesianProductXXL" rid="18">
+        <description></description>
+        <property name="number" type="integer" merge="sum" rid="0">
+            <description>Number of Cartesian Product on XXL</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="SQLScript_Metric_UseOfCartesianProduct" rid="19">
+        <description></description>
+        <property name="number" type="integer" merge="sum" rid="1">
+            <description>Number of Cartesian Product</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="RuleID" intValue="1101000"/>
+        </property>
+    </category>
+
+    <category name="SQLScript_Metric_NoIndexCanSupport" rid="22">
+        <description></description>
+        <property name="number" type="integer" merge="sum" rid="3">
+            <description>Number of select not using index</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="RuleID" intValue="1101004"/>
+        </property>
+    </category>
+
+
+    <category name="SQLScript_Metric_NoIndexCanSupportXXL" rid="23">
+        <description></description>
+        <property name="number" type="integer" merge="sum" rid="4">
+            <description>Number of select not using index on XXL</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="RuleID" intValue="1101006"/>
+        </property>
+    </category>
+
+    <!-- 1101040 : Avoid empty catch blocks -->
+    <category name="SQLScript_Metric_EmptyCatchBlock" rid="57">
+        <description>Detect empty catch blocks</description>
+        <property name="has_empty_catch" type="integer" merge="sum" rid="33">
+            <description>Empty CATCH</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="33"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101040"/>
+        </property>
+    </category>
+    
+    <!-- SQL "OR" clauses testing equality on the same identifier should be replaced by an "IN" clause -->
+    <category name="SQLScript_Metric_OrClausesTestingEquality" rid="56">
+        <description>Detect OR clauses testing equality on the same identifier</description>
+        <property name="has_or_on_the_same_identifier" type="integer" merge="sum" rid="32">
+            <description>Has OR clauses testing equality on the same identifier</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="32"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101038"/>
+        </property>
+    </category>
+    
+    <!-- Use ANSI standard operators in SQL WHERE clauses -->
+    <category name="SQLScript_Metric_NonAnsiOperators" rid="55">
+        <description>Detect non-ANSI operators</description>
+        <property name="has_non_ansi_operator" type="integer" merge="sum" rid="31">
+            <description>Has non-ANSI operators</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="31"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101036"/>
+        </property>
+    </category>
+    
+    <!-- DISTINCT should not be used in SQL SELECT statements -->
+    <category name="SQLScript_Metric_DistinctModifiers" rid="54">
+        <description>Detect DISTINCT, DISTINCTROW and UNIQUE modifiers</description>
+        <property name="has_distinct" type="integer" merge="sum" rid="30">
+            <description>Has DISTINCT, DISTINCTROW or UNIQUE</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="30"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    
+    <!-- Avoid exists and not exists independent clauses -->
+    <category name="SQLScript_Metric_ExistsIndependentClauses" rid="53">
+        <description>Exists and not exists independent clauses</description>
+        <property name="has_independent_exists" type="integer" merge="sum" rid="29">
+            <description>Exists and not exists independent clauses</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="29"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    <!--  We do not use CAST_Database_WithNumberOfRows as it triggers some rules we do not want -->
+    <category name="SQLScript_WithNumberOfRows" rid="21">
+        <description>XXL and XXS thresholds</description>
+        <property name="numberOfRows" type="integer" rid="2">
+            <description>Number of rows of the table</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <property name="numberOfRowsXXS" type="integer" rid="22">
+            <description>XXS threshold</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="22"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="SQLScript_Metric_UseMinusExcept" rid="38">
+        <description>Use MINUS or EXCEPT operators instead of NOT IN and NOT EXISTS</description>
+        <property name="has_NotInNotExists" type="integer" merge="sum" rid="20">
+            <description>Detect NOT IN and NOT EXISTS</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="20"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101028"/>
+        </property>
+    </category>
+ 
+    <category name="SQLScript_Metric_MissingParenthesisInsertClause" rid="37">
+        <description>Missing Columns in INSERT statement</description>
+        <property name="missingParenthesis" type="integer" merge="sum" rid="19">
+            <description>Missing Columns in INSERT statement</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="19"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101026"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_MissingWhereClause" rid="36">
+        <description>Missing Where clause</description>
+        <property name="missingWhereClause" type="integer" merge="sum" rid="18">
+            <description>Missing Where clause</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_UnionAllInsteadOfUnion" rid="35">
+        <description>Number of Union</description>
+        <property name="numberOfUnion" type="integer" merge="sum" rid="16">
+            <description>Number of Union</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+        <property name="numberOfUnionAndUnionAll" type="integer" merge="sum" rid="17">
+            <description>Number of Union and UnionAll</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_DynamicSQL" rid="34">
+        <description>Number of dynamic SQL statements</description>
+        <property name="count_dynamicSQL" type="integer" merge="sum" rid="15">
+            <description>Number of dynamic SQL statements</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101024"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_HasPrimaryKey" rid="33">
+        <description>Primary Key</description>
+        <property name="hasPrimaryKey" type="integer" rid="14">
+            <description>Primary Key</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101022"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_CountQuotedIdentifiers" rid="32">
+        <description>Number of quoted identifiers</description>
+        <property name="numberOfQuotedIdentifiers" type="integer" merge="sum" rid="13">
+            <description>Number of quoted identifiers</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101020"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_HasGroupByClause" rid="31">
+        <description>Has GROUP BY clause</description>
+        <property name="hasGroupByClause" type="integer" merge="sum" rid="12">
+            <description>Has GROUP BY clause</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101018"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_CountParameters" rid="30">
+        <description>Number of parameters</description>
+        <property name="countParameters" type="integer" merge="sum" rid="11">
+            <description>Number of parameters</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101016"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_HasNonAnsiJoin" rid="29">
+        <description>has NON ANSI JOIN</description>
+        <property name="hasNonAnsiJoin" type="integer" merge="sum" rid="10">
+            <description>hasNonAnsiJoin</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101014"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_HasNumbersInOrderBy" rid="28">
+        <description>has COLUMN NUMBERS in ORDER BY clause</description>
+        <property name="hasNumbers" type="integer" merge="sum" rid="9">
+            <description>has COLUMN NUMBERS in ORDER BY clause</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101012"/>
+        </property>
+    </category>
+    
+    <category name="SQLScript_Metric_NaturalJoin" rid="27">
+        <description>has NATURAL JOIN</description>
+        <property name="isNaturalJoin" type="integer" merge="sum" rid="8">
+            <description>isNaturalJoin</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101010"/>
+        </property>
+    </category>
+        
+    <category name="SQLScript_Metric_NonSARGable" rid="26">
+        <description>nonSARGable queries</description>
+        <property name="isNonSARGable" type="integer" merge="sum" rid="7">
+            <description>nonSARGable</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="RuleID" intValue="1101008"/>
+        </property>
+    </category>
+
+    <category name="SQLScript_IndexProperties" rid="25">
+        <description></description>
+        <property name="columns" type="string" rid="5">
+            <description>Columns of index</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <!-- For rule 7348 Avoid too many Indexes on one Table -->
+        <inheritedCategory name="CAST_ANSISQL_Index"/>
+        <!-- For rule 7346 Avoid redundant indexes -->
+        <inheritedCategory name="CAST_AST_ANSISQL_Indexable"/>
+    </category>
+    
+    <!--  We override metric CodeLinesCount  -->
+    <partialType name="sourceFile">
+        <property name="SQL_CodeLinesCount" type="integer" rid="6">
+            <description>LOC for a file</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        
+        <property name="SQL_Vendor" type="string" rid="38">
+            <description>Vendor</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="38"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        
+    </partialType>   
+            
+    <type name="SQLScriptSchema" rid="11">
+        <description>Schema</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SERVER_DATABASE" />
+        <!-- Stores treshold used fo xxl tables -->
+        <inheritedCategory name="SQLScript_WithNumberOfRows"/>
+        
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+    
+    <type name="SQLScriptTable" rid="6">
+        <description>Table</description>     
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <!-- Stores count used for xxl tables -->
+        <inheritedCategory name="SQLScript_WithNumberOfRows"/>
+        <inheritedCategory name="Database Table" />
+        <inheritedCategory name="SQLScript_HasPrimaryKey"/>
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptTableColumn" rid="7">
+        <description>Table Column</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="CAST_ANSISQL_Column"/>
+        <inheritedCategory name="SQLScript" />
+        <!-- CAST_Database_Column should be kept because DET of tables are based on /-->
+        <inheritedCategory name="CAST_Database_Column" />
+        <!-- inheritedCategory name="CAST_ANSISQL_ColumnOrder" /-->
+        <inheritedCategory name="CAST_AST_ANSISQL_GenericDatatypeAttributes" />
+        
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+
+        <property name="GDPR_indicator" type="string" rid="34">
+            <description>GDPR indicator</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="34"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </type>
+
+    <type name="SQLScriptIndex" rid="8">
+        <description>Index</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQLScript_IndexProperties"/>
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptProcedure" rid="9">
+        <description>Procedure</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="CAST_ANSISQL_Routine"/>
+        <inheritedCategory name="Database Procedure"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+		<inheritedCategory name="SQLScriptExternalProgram" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />        
+    </type>
+
+    <category name="SQLScriptExternalProgram" rid="59">
+        <description>External program details</description>
+
+        <property name="external_name" type="string" rid="35">
+            <description>External name</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="35"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+
+        <property name="language" type="string" rid="36">
+            <description>Language</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="36"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+                
+        <property name="external_position" type="string" rid="37">
+            <description>External position</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="37"/>
+        </property>
+    </category>   
+    
+    <type name="SQLScriptDML" rid="10">
+        <description>SQL Script</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptFunction" rid="12">
+        <description>Function</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="CAST_ANSISQL_Routine"/>
+        <inheritedCategory name="Database Function"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+		<inheritedCategory name="SQLScriptExternalProgram" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptView" rid="13">
+        <description>View</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="APM SQLScript Artifacts" />
+        <!-- Stores count used fo xxl tables -->
+        <inheritedCategory name="SQLScript_WithNumberOfRows"/>
+        <inheritedCategory name="Database View" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptTrigger" rid="14">
+        <description>Trigger</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+        <inheritedCategory name="Database Trigger" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptPackage" rid="15">
+        <description>Package</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptType" rid="49">
+        <description>Type</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="APM Classes" />
+ 
+        <inheritedCategory name="SQLScript" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+    
+    <type name="SQLScriptForeignKey" rid="16">
+        <description>Foreign Key</description>
+        <inheritedCategory name="UAObject" />
+		<!-- For rule 7814 Avoid tables not involved in a Foreign Key -->
+        <inheritedCategory name="CAST_ANSISQL_ForeignKeyConstraint"/>
+        <inheritedCategory name="SQLScript" />
+        
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <!--  primary key or unique constraint -->
+    <type name="SQLScriptUniqueConstraint" rid="20">
+        <description>Unique Constraint</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQLScript_IndexProperties"/>
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptEvent" rid="24">
+        <description>Event</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptSynonym" rid="40">
+        <description>Synonym</description>
+        <property name="kind_of_synonym" type="string" rid="24">
+            <description>public or private</description>
+            <attribute name="INF_TYPE" intValue="1101000"/>
+            <attribute name="INF_SUB_TYPE" intValue="24"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+
+    <type name="SQLScriptTableSynonym" rid="42">
+        <description>Synonym on a table</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="Database Table" />
+    </type>
+
+    <type name="SQLScriptViewSynonym" rid="43">
+        <description>Synonym on a view</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="Database View" />
+        <inheritedCategory name="APM SQLScript Artifacts" />
+    </type>
+    
+    <type name="SQLScriptFunctionSynonym" rid="44">
+        <description>Synonym on a function</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="CAST_ANSISQL_Routine"/>
+        <inheritedCategory name="Database Function"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+    </type>
+
+    <type name="SQLScriptProcedureSynonym" rid="45">
+        <description>Synonym on a procedure</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        <inheritedCategory name="CAST_ANSISQL_Routine"/>
+        <inheritedCategory name="Database Procedure"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+    </type>  
+
+    <type name="SQLScriptPackageSynonym" rid="46">
+        <description>Synonym on a package</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="APM SQLScript Artifacts" />
+    </type> 
+    
+    <type name="SQLScriptTypeSynonym" rid="50">
+        <description>Synonym on a type</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="APM SQLScript Artifacts" />
+    </type>    
+
+
+    <type name="SQLScriptMethod" rid="58">
+        <description>Method</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="SQLScript" />
+        <inheritedCategory name="SQlScriptMetricable"/>
+        
+        <inheritedCategory name="APM Methods"/>
+        <inheritedCategory name="CAST_ANSISQL_Routine"/>
+        <inheritedCategory name="APM SQLScript Artifacts" />
+		<inheritedCategory name="SQLScript_AliasedBy" /> 
+		
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="EnlightenSQLScript" category="EnlightenTree" />
+    </type>
+               
+</metaModel>

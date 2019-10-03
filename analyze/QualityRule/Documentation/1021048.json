@@ -1,0 +1,81 @@
+{
+    "id": 1021048,
+    "name": "Protect sensitive data in config files from disclosure",
+    "href": "AIP/quality-rules/1021048",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule raises a violation when loading sensitive data using the OpenStack framework without the protection flag.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Frameworks offer many flags in their APIs to properly handle sensitive data. Using them is particularly important to avoid accidental exposition of loaded passwords through accidental debug logging.",
+    "remediation": "Add the \u2018secret=True\u2019 flag to the \u2018cfg.StrOpt()\u2019 function when registering the oslo configuration.",
+    "remediationSample": "cfg.StrOpt('myPassword123',\n                 help='pss',\n                 secret=True) # sanitize and protection",
+    "sample": "cfg.StrOpt('myPassword123',\n                 help='pss')",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Protect sensitive data in config files from disclosure",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-522",
+            "name": "Insufficiently Protected Credentials",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69329",
+            "name": "The application must enforce approved authorizations for logical access to information and system resources in accordance with applicable access control policies.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

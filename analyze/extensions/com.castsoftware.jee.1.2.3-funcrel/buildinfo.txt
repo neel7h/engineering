@@ -1,0 +1,7 @@
+Build date: 30/05/2019 14:50:00,98 
+Build number: 1002472 
+Git head commit: git@jnk-centos-git:CAIP/CAIP_Cpp.git origin/com.castsoftware.jee 8fb9a91c800066de5b7ab74780ed5b8b400122c7
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master e501d3f1527ba315bb3b12ca7127c3f80c0811e0
+Git head commit: git@jnk-centos-git:CAIP/CAIP_Distrib.git origin/master 08955916bc1149832cb967e4262d8235a68b3b5d
+Publish date: 03/06/2019  8:05:11,33 
+Original version: 1.2.3-alpha11002472 

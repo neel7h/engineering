@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.1">
+  <lot symbol="cast81assessmentmodel" label="cast81assessmentmodel" requires="amtmetamodel:2.0;analysisunit:5.0;architecturechecker:2.4;aspanalysis:1.3;assessmentmodel:3.0;assessmentmodellink:1.0;boanalysis:2.0;cppanalysis:3.0;dashboard:1.0;dbtwoserver:4.0;dotnetanalysis:4.0;forms:3.0;j2eeanalysis:6.0;mainframeanalysis:4.0;migration:1.6;oracleserveranalysis:4.0;pbanalysis:1.0;platformpreferences:2.0;pmcdeliveryunit:4.3;pmcextanalyzers:2.0;pmcgeneral:3.1;pmcinfrastructure:4.0;pmcportfolio:5.0;pmctranslate:1.0;sapanalysis:4.0;sqlserveranalysis:4.0;squirrelanalysis:3.1;system:1.0;techno:1.3;tools:1.5;universalanalysis:2.0;vbanalysis:1.3"/>
+  <assessmentmodel.AssessmentModel name="CAST 8.3.16 Assessment Model" customizable="true"/>
+</document>

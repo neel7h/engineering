@@ -1,0 +1,56 @@
+{
+    "id": 1005086,
+    "name": "Avoid functions having creator to prefix table names in SQL statements and in SQL records (EGL)",
+    "href": "AIP/quality-rules/1005086",
+    "critical": true,
+    "description": "This rule searches for all the functions having creator to prefix tables in SQL statements and in SQL records.",
+    "output": "This report lists the following information: Function Full Name",
+    "rationale": "Creator prefix will prevent the default creator to be used in the different environments : DEV, TEST, PREPROD, PROD.",
+    "remediation": "Try to reduce the use of creator to prefix tables names in SQL statements and SQL records in functions.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid functions having creator to prefix table names in SQL statements and in SQL records (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

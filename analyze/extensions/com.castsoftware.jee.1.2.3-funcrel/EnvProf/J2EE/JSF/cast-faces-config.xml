@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- ======================================================================================================== -->
+
+	<!-- ==================================       cast-faces-config.xml			  =============================== -->
+	<!-- ==================================     	based on JSF 1.2			  =============================== -->
+	<!-- ================================== 	Applies to faces-config.xml file  =============================== -->
+	<!-- ================================== Since version 6.0 of CAST products    =============================== -->
+	<!-- ======================================================================================================== -->
+
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+
+	<!-- =====================================  FACES CONFIG FILE  ================================== -->
+ 
+	<config-file-node xpath="/faces-config" id="FacesConfig" content-type="faces-config">
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+
+
+		<!-- Managed Beans -->
+		<object-node xpath="./managed-bean" id = "BeanConfig" name="./managed-bean-name" type="jsf-managed-bean" scope-src="./managed-bean-scope">
+
+									<!-- ====================  ATTRIBUTES  ======================== -->
+
+			<object-attribute name = "Source Code Comments"		select = "./@description"			/>
+			<object-attribute name = "class"					select = "./managed-bean-class"		/>
+
+									<!-- ====================  LINKS  ======================== -->
+
+			<link-node xpath = "."	called-object = "./managed-bean-class"	resolve-as="java-type" link-type="relyon" />
+
+			<!-- Managed Bean Properties -->
+			<object-node xpath="./managed-property" name="./property-name" type="bean-property">
+				<link-node xpath = "."	called-object = "./property-class"	resolve-as="java-type" link-type="relyon" />
+			</object-node> 
+
+		</object-node> 
+
+		<!-- Validators -->
+		<object-node xpath="./validator" id = "ValidatorConfig" name="./validator-id" type="jsf-validator">
+
+									<!-- ====================  ATTRIBUTES  ======================== -->
+
+			<!--  -->
+			<object-attribute name = "Source Code Comments"		select = "./description"			/>
+			<object-attribute name = "class"					select = "./validator-class"		/>
+
+									<!-- ====================  LINKS  ======================== -->
+
+			<link-node xpath = "."	called-object = "./validator-class"	resolve-as="java-type" link-type="relyon" />
+
+		</object-node> 
+
+		<!-- Converters -->
+		<object-node xpath="./converter" id = "ConverterConfig" name="./converter-id" type="jsf-converter">
+
+									<!-- ====================  ATTRIBUTES  ======================== -->
+
+			<object-attribute name = "Source Code Comments"		select = "./description"	/>
+			<object-attribute name = "class"					select = "./converter-class"/>
+
+									<!-- ====================  LINKS  ======================== -->
+
+			<link-node xpath = "."	called-object = "./converter-class"	resolve-as="java-type" link-type="relyon" />
+
+		</object-node> 
+
+		<!-- View Id Pattern -->
+		<object-node xpath="./navigation-rule" id = "ViewPatternConfig" name="./from-view-id" given-name="*" type="jsf-view-id-pattern">
+			<!-- Outcomes -->
+			<object-node xpath="./navigation-case" id = "OutcomeConfig" name="./from-outcome" suffix-src="./from-action" separator=":" type="jsf-outcome">
+
+										<!-- ====================  ATTRIBUTES  ======================== -->
+
+				<!--   -->
+				<object-attribute name = "from-action"				select = "./from-action"			/>
+				<object-attribute name = "from-view-id"				select = "./from-view-id"			/>
+
+										<!-- ====================  LINKS  ======================== -->
+
+				<link-node xpath = "."	called-object = "./to-view-id"	resolve-as="path" />
+
+			</object-node> 
+
+		</object-node> 
+
+	</config-file-node>
+			
+</xml-config>

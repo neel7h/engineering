@@ -1,0 +1,68 @@
+{
+    "id": 1040036,
+    "name": "Avoid using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16",
+    "href": "AIP/quality-rules/1040036",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if STOMB over WebSocket endpoints has been used (via addEndpoint function) and the Spring versions are pre 5.0.5 and pre 4.3.16",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.\n\nSTOMP (Simple Text Oriented Messaging Protocol) over WebSocket support is available in the spring-messaging and spring-websocket modules. But Spring Framework, versions 5.0.x prior to 5.0.5 and versions 4.3.x prior to 4.3.16, and older unsupported versions allow applications to expose STOMP over WebSocket endpoints with a simple, in-memory STOMP broker through the spring-messaging module. A malicious user (or attacker) can craft a message to the broker that can lead to a remote code execution attack.",
+    "reference": "https://pivotal.io/security/cve-2018-1270\nhttps://nvd.nist.gov/vuln/detail/CVE-2018-1257\nhttps://cwe.mitre.org/data/definitions/358.html",
+    "remediation": "Users of affected versions should apply the following mitigation\n\n5.0.x users should upgrade to 5.0.5\n4.3.x users should upgrade to 4.3.16\nOlder versions should upgrade to not affected versions",
+    "remediationSample": "Users of affected versions should apply the following mitigation:\n\n5.0.x users should upgrade to 5.0.5\n4.3.x users should upgrade to 4.3.16\nOlder versions should upgrade to a supported branch",
+    "sample": "// XML Configuration\n\n<beans xmlns=\"http://www.springframework.org/schema/beans\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:websocket=\"http://www.springframework.org/schema/websocket\"\n    xsi:schemaLocation=\"\n        http://www.springframework.org/schema/beans\n        http://www.springframework.org/schema/beans/spring-beans.xsd\n        http://www.springframework.org/schema/websocket\n        http://www.springframework.org/schema/websocket/spring-websocket.xsd\">\n\n    <websocket:message-broker application-destination-prefix=\"/app\">\n        <websocket:stomp-endpoint path=\"/portfolio\">\n            <websocket:sockjs/>\n        </websocket:stomp-endpoint>\n        <websocket:simple-broker prefix=\"/topic, /queue\"/>\n    </websocket:message-broker>\n\n</beans>\n\n// Java Source\n\nimport org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;\nimport org.springframework.web.socket.config.annotation.StompEndpointRegistry;\n\n@Configuration\n@EnableWebSocketMessageBroker\npublic class WebSocketConfig implements WebSocketMessageBrokerConfigurer {\n\n    @Override\n    public void registerStompEndpoints(StompEndpointRegistry registry) {\n        registry.addEndpoint(\"/portfolio\").withSockJS();  // VIOLATION HERE\n    }\n\n    @Override\n    public void configureMessageBroker(MessageBrokerRegistry config) {\n        config.setApplicationDestinationPrefixes(\"/app\"); \n        config.enableSimpleBroker(\"/topic\", \"/queue\"); \n    }\n}",
+    "total": "Number of XML Files",
+    "alternativeName": "Using STOMP Spring messaging module before Spring 5.0.5 and 4.3.16 is vulnerable to remote code execution attack",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

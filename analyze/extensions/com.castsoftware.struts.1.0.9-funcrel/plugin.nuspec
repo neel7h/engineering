@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.struts</id>
+    <version>1.0.9-funcrel</version>
+    <title>Apache Struts Framework</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/Apache+Struts+-+1.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.struts.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This support is in addition to the basic support provided for Apache Struts in the JEE Analyzer. The extension's main role is to improve the detection of links and transaction computations where Apache Struts is implicated.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/Apache+Struts+-+1.0+-+Release+Notes</releaseNotes>
+    <tags>JEE struts FPQuality Framework</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.html5" version="1.9.0-funcrel" />
+      <dependency id="com.castsoftware.wbslinker" version="1.6.1-funcrel" />
+      <dependency id="com.castsoftware.internal.platform" version="0.8.0-funcrel" />
+    </dependencies>
+  </metadata>
+</package>

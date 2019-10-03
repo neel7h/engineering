@@ -1,0 +1,57 @@
+{
+    "id": 1001134,
+    "name": "Avoid Main Procedures using GROUP BY statement (PL1)",
+    "href": "AIP/quality-rules/1001134",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all PL1 Main Procedures (Programs) that are using the GROUP BY statement.",
+    "output": "The report lists all the PL1 Main Procedures  having GROUP BY statement. \n\nIt provides following information: \n-  PL1 Main Procedures (Programs) full name",
+    "rationale": "Having complex queries in SQL Artifacts can cause performance problems. Queries using group by are considered complex and not efficient.",
+    "remediation": "Review the SQL queries in order to reduce the number of the GROUP BY statements.",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Main Procedures using GROUP BY statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

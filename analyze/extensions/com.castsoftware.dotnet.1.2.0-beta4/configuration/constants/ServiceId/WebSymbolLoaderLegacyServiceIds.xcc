@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	
+	<constantFamily>
+
+		<name>ServiceId</name>
+
+		<!-- Web symbol loader -->
+		<constant>
+			<name>WebSymbolLoaderServiceLegacy</name>
+			<value>FBF4D570-6DFD-43ca-A039-E060A87518A0</value>
+		</constant>
+
+		<!-- Text regular expression replacment (TODO move this class from this DLL) -->
+		<constant>
+			<name>TextReplacementLegacy</name>
+			<value>58172793-013F-4326-852F-4475A16DE5F0</value>
+		</constant>
+
+
+	</constantFamily>
+
+</constants>
+

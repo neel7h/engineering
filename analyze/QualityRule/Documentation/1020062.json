@@ -1,0 +1,76 @@
+{
+    "id": 1020062,
+    "name": "Avoid using non thread-safe Javascript singleton pattern",
+    "href": "AIP/quality-rules/1020062",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Singleton objects should use a thread-safe pattern for creating their shared instance.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If singleton is invoked in a multi-threaded program, you could end up creating multiple instances of the class which will make the application unstable.",
+    "reference": "OMG CISQ",
+    "remediation": "Make sure that you have only one instance created in class constructor and it has been frozen to avoid any changes.",
+    "remediationSample": "class UserStore { \n  constructor(){ \n   if(! UserStore.instance){ \n     UserStore.instance = this; \n   } \n\n   return UserStore.instance; \n  } \n\n} \n\nconst instance = new UserStore(); \nObject.freeze(instance); \n\nexport default instance;",
+    "sample": "class UserStore { \n  constructor(){ \n   if(! UserStore.instance){ \n     UserStore.instance = this; \n   } \n\n   return UserStore.instance; \n  } \n\n// VIOLATION, THIS IS NOT ENOUGH \n}",
+    "total": "Number of Javascript Classes",
+    "alternativeName": "Avoid using non thread-safe Javascript singleton pattern",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-12",
+            "name": "Singleton Class Instance Creation without Proper Lock Element Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-543",
+            "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

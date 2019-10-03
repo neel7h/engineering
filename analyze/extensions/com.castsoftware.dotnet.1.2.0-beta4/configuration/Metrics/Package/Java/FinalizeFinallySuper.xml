@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : YLE@CAST 
+£ Date     : 25/10/2006
+£ Filename : FinalizeFinallySuper.xml
+£ Role     : Used to detect calls to super.finalize in finally blocks
+£            within finalize methods
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+<METRIC PACKAGE_NAME="Java.FinalizeFinallySuper" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="LOGICAL_AND" >
+      <INTERNAL_UID>A6B2C308-8843-4a49-B11E-BD439FF24010</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+
+    <!-- Match finalize function -->
+    <CATEGORY NAME="MATCH_FINALIZE_FUNCTION">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="FINALIZE_FUNC" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodDeclaration</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_MethodIdentifier</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <TOKEN NAME="IDENTIFIER" EQUAL="finalize" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>FINALIZE_FUNC</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Match call to super.finalize in the finally block -->
+    <CATEGORY NAME="MATCH_SUPER_FINALIZE">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="SUPER_FINALIZE_CALL" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_FinallyClause</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_SuperInvocation</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="IDENTIFIER" EQUAL="finalize" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SUPER_FINALIZE_CALL</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+
+    <CATEGORY NAME="FINALIZE_LOG_AND">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <ADD_ACTION NAME="LOGICAL_AND">
+        <AND_VALUE>MATCH_FINALIZE_FUNCTION.VALUE</AND_VALUE>
+        <AND_VALUE>MATCH_SUPER_FINALIZE.VALUE</AND_VALUE>
+        <RESULT>VALUE</RESULT>
+
+
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Call super.finalize() in the finally block of finalize() methods</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+  <!-- End categories -->
+
+
+</METRIC>

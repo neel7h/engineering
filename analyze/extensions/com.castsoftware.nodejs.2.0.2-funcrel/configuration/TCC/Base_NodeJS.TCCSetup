@@ -1,0 +1,121 @@
+<setup version="1.0.0.1" encoding="UTF-8">
+<associations package="Base_NodeJS" version="1.0.0.1" encoding="UTF-8" date="Mon Oct 02 14:54:45 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "All Objects - NodeJS (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - NodeJS" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_NodeJS_DeleteHttpRequestService</value>
+    <value>CAST_NodeJS_GetHttpRequestService</value>
+    <value>CAST_NodeJS_PostHttpRequestService</value>
+    <value>CAST_NodeJS_PutHttpRequestService</value>
+    <value>CAST_NodeJS_Unknown_Database_Table</value>
+    <value>CAST_NodeJS_MongoDB_Collection</value>
+    <value>CAST_NodeJS_Marklogic_Collection</value>
+    <value>CAST_NodeJS_Collection</value>
+    <value>CAST_NodeJS_CouchDB_Database</value>
+   </property>
+   <excluded-from set ="Standard End Point - NodeJS (GS)"/>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - NodeJS - external" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_JavaScript_Method</value>
+    <value>CAST_HTML5_JavaScript_Function</value>
+   </property>
+   <property name = "fullname" operator = "eq" >
+    <value>NodeJS Standard library.fs.read</value>
+    <value>NodeJS Standard library.fs.readFile</value>
+    <value>NodeJS Standard library.fs.readFileSync</value>
+    <value>NodeJS Standard library.fs.readSync</value>
+    <value>NodeJS Standard library.fs.write</value>
+    <value>NodeJS Standard library.fs.writeFile</value>
+    <value>NodeJS Standard library.fs.writeFileSync</value>
+    <value>NodeJS Standard library.fs.writeSync</value>
+    <value>NodeJS Standard library.fs.ReadStream.read</value>
+    <value>NodeJS Standard library.fs.WriteStream.write</value>
+   </property>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - NodeJS (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_NodeJS_DeleteHttpRequestService</value>
+    <value>CAST_NodeJS_GetHttpRequestService</value>
+    <value>CAST_NodeJS_PostHttpRequestService</value>
+    <value>CAST_NodeJS_PutHttpRequestService</value>
+    <value>CAST_NodeJS_Unknown_Database_Table</value>
+    <value>CAST_NodeJS_MongoDB_Collection</value>
+    <value>CAST_NodeJS_Marklogic_Collection</value>
+    <value>CAST_NodeJS_Collection</value>
+    <value>CAST_NodeJS_CouchDB_Database</value>
+   </property>
+   <caller-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - NodeJS (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - NodeJS" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_NodeJS_DeleteOperation</value>
+    <value>CAST_NodeJS_GetOperation</value>
+    <value>CAST_NodeJS_PostOperation</value>
+    <value>CAST_NodeJS_PutOperation</value>
+    <value>CAST_NodeJS_UseOperation</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - NodeJS (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - NodeJS (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_NodeJS_DeleteOperation</value>
+    <value>CAST_NodeJS_GetOperation</value>
+    <value>CAST_NodeJS_PostOperation</value>
+    <value>CAST_NodeJS_PutOperation</value>
+    <value>CAST_NodeJS_UseOperation</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - NodeJS (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

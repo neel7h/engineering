@@ -1,0 +1,72 @@
+{
+    "id": 1007136,
+    "name": "Avoid classes having with excessive number of public methods and fields (PHP)",
+    "href": "AIP/quality-rules/1007136",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with excessive number of public methods and fields. All public methods, instance or static along with access modifiers final and abstract are considered for this QR. All member variables, instance or static except const members are considered for this QR. Base class members unless overriden do not contribute to the evalution of this QR.",
+    "output": "This report lists all the classes with excessive number of public methods and fields.\n\nThis QR provides the following information:\nClass full name.",
+    "rationale": "A large number of public methods and attributes in a class can be an indication that the class has too many responsibilities and can be refactored into multiple classes.",
+    "reference": "PHPMD - http://phpmd.org/rules/codesize.html#excessivepubliccount",
+    "remediation": "Modify the source code of the class to reduce the number of public methods and attributes.",
+    "sample": "<?php\nclass ExcessivePublicMethodsAttributes {\n\n   public $publicMember1;\n   //.. lot of other public members\n  public $publicMember16;\n\n  public static $publicStaticMember1;\n  //.. Lot of other public static members\n   static $publicStaticMember10;\n\n   public function publicMethod1() {}\n   \n   public final function publicMethod2() {}\n\n   public abstract function publicMethod3();\n   //lot of other public member methods...\n   function publicMethod10() {}\n\n   public static function publicStaticMethod1() {}\n   //lot of other public static member methods...\n   static function publicStaticMethod10() {}\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes having with excessive number of public methods and fields (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "The public item reporting threshold",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        45.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

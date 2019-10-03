@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<analysis>
+  <pluggins>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.angularjs.2.0.5-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.cpp.2.0.6-beta01001351</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.dotnet.1.2.0-beta4</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.html5.2.0.8-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.internal.platform.0.8.3</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.jaxrs.1.4.0-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.jaxws.1.0.7-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.jee.1.2.3-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.jeerules.1.1.0-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.jquery.2.1.1-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.nodejs.2.0.2-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.nosqljava.1.0.2-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.python.1.2.1-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.springmvc.1.6.0-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.springsecurity.1.0.1-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.sqlanalyzer.2.6.9-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.struts.1.0.9-funcrel</pluggin>
+    <pluggin>D:\owl\echo\analyze\extensions\com.castsoftware.wbslinker.1.6.9</pluggin>
+  </pluggins>
+  <global>
+    <output>D:\owl\echo\analyze\output\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4_49f5e24e9c15f2ebec47ca8bee8adc01687b909b</output>
+    <logPath>D:\owl\echo\analyze\output\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4_49f5e24e9c15f2ebec47ca8bee8adc01687b909b\logs\logForJEE_.castlog</logPath>
+    <securityAnalyzer>true</securityAnalyzer>
+  </global>
+  <analyzer>
+    <technology>JEE</technology>
+    <AU name="AU0">
+      <job-name>AU0</job-name>
+      <inference-engine>2</inference-engine>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT\WEB-INF\web.xml</selection>
+      <profile>CAST_JAVA_STRUTS_25</profile>
+      <profile>CAST_JAVA_SPRING_4x</profile>
+      <profile>CAST_JAVA_HIBERNATE_5x</profile>
+      <profile>CAST_JSF_22</profile>
+      <profile>CAST_EJB_31_2</profile>
+      <profile>CAST_JAVA_MX4J_302</profile>
+      <profile>CAST_JAVA_LOG4J_1214</profile>
+      <profile>CAST_JAVA_JUNIT_382</profile>
+      <profile>CAST_JAVA_DOM4J_161</profile>
+      <profile>CAST_JAVA_COMMON_LOGGING_110</profile>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <root-path>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT</root-path>
+    </AU>
+    <AU name="AU1">
+      <job-name>AU1</job-name>
+      <inference-engine>2</inference-engine>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\Login.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\web.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\css\home.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\home.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\js\ManagerProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBug.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddBugAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTask.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AddTaskAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\AdminManageProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDev.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateDevDetailsAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTester.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\BugUpdateTesterDetailsAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ChangePassword.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\DeveloperHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListOfDevelopers.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ListProjects.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\Logout.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManageAdminAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\ManagerProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\NewAccountAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDev.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateDevAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTester.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TaskUpdateTesterAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\TesterProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\footer.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\header.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\jsp\menu.jsp</selection>
+      <profile>CAST_JAVA_STRUTS_25</profile>
+      <profile>CAST_JAVA_SPRING_4x</profile>
+      <profile>CAST_JAVA_HIBERNATE_5x</profile>
+      <profile>CAST_JSF_22</profile>
+      <profile>CAST_EJB_31_2</profile>
+      <profile>CAST_JAVA_MX4J_302</profile>
+      <profile>CAST_JAVA_LOG4J_1214</profile>
+      <profile>CAST_JAVA_JUNIT_382</profile>
+      <profile>CAST_JAVA_DOM4J_161</profile>
+      <profile>CAST_JAVA_COMMON_LOGGING_110</profile>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <root-path>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23</root-path>
+    </AU>
+    <AU name="AU2">
+      <job-name>AU2</job-name>
+      <inference-engine>2</inference-engine>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\Login.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\web.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\css\home.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\home.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\js\ManagerProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBug.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddBugAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTask.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AddTaskAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\AdminManageProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDev.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateDevDetailsAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTester.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\BugUpdateTesterDetailsAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ChangePassword.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\DeveloperHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListOfDevelopers.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ListProjects.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\Logout.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManageAdminAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\ManagerProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccount.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\NewAccountAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDev.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateDevAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTester.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TaskUpdateTesterAjax.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterHome.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\TesterProject.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\footer.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\header.jsp</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\jsp\menu.jsp</selection>
+      <profile>CAST_JAVA_STRUTS_25</profile>
+      <profile>CAST_JAVA_SPRING_4x</profile>
+      <profile>CAST_JAVA_HIBERNATE_5x</profile>
+      <profile>CAST_JSF_22</profile>
+      <profile>CAST_EJB_31_2</profile>
+      <profile>CAST_JAVA_MX4J_302</profile>
+      <profile>CAST_JAVA_LOG4J_1214</profile>
+      <profile>CAST_JAVA_JUNIT_382</profile>
+      <profile>CAST_JAVA_DOM4J_161</profile>
+      <profile>CAST_JAVA_COMMON_LOGGING_110</profile>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <root-path>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent</root-path>
+    </AU>
+    <AU name="AU3">
+      <job-name>AU3</job-name>
+      <inference-engine>2</inference-engine>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\april23\org\apache\jsp\Login_jsp.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\AddProject.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\BugDetails.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\NewAccount.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\ProjectTask.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\Register.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\Role.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\bean\Status.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\dao\BugDetailsDao.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\dao\NewAccountDao.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\dao\ProjectDetailsDao.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\dao\StatusDao.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\dao\TaskDetailsDao.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\AddBug.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\ChangePassword.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\DBConnector.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\EditAccount.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\LoginController.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\LogoutController.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\NewAccountAdd.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\NewProjectAdd.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\NewTaskAdd.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\TaskStatus.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\UpdateBugDev.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\login\UpdateBugTester.java</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\src\com\probuger\servlets\ProjectDetails.java</selection>
+      <profile>CAST_JAVA_STRUTS_25</profile>
+      <profile>CAST_JAVA_SPRING_4x</profile>
+      <profile>CAST_JAVA_HIBERNATE_5x</profile>
+      <profile>CAST_JSF_22</profile>
+      <profile>CAST_EJB_31_2</profile>
+      <profile>CAST_JAVA_MX4J_302</profile>
+      <profile>CAST_JAVA_LOG4J_1214</profile>
+      <profile>CAST_JAVA_JUNIT_382</profile>
+      <profile>CAST_JAVA_DOM4J_161</profile>
+      <profile>CAST_JAVA_COMMON_LOGGING_110</profile>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+    </AU>
+    <AU name="AU4">
+      <job-name>AU4</job-name>
+      <inference-engine>2</inference-engine>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.debug.ui\launchConfigurationHistory.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jdt.launching\.install.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jdt.launching\libraryInfos.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jdt.ui\OpenTypeHistory.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jdt.ui\QualifiedTypeNameHistory.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jdt.ui\dialog_settings.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.jst.j2ee.ui\dialog_settings.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.ui.workbench\dialog_settings.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.internet.cache\cache.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.jsdt.ui\OpenTypeHistory.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.jsdt.ui\QualifiedTypeNameHistory.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\monitors.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\publish.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\servers.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp-data.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\context.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\server.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\tomcat-users.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\web.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.sse.ui\dialog_settings.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.xml.core\default_catalog.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.xml.core\system_catalog.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\context.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\server.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\tomcat-users.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\web.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\.settings\org.eclipse.wst.common.project.facet.core.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\.settings\org.eclipse.wst.common.project.facet.core.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\.settings\org.eclipse.wst.common.project.facet.core.xml</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.pde.core\.cache\clean-cache.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\conf\catalina.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\Servers\Tomcat v7.0 Server at localhost-config\catalina.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\META-INF\maven\joda-time\joda-time\pom.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_de.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_es.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_fr.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_nl.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\build\classes\org\joda\time\format\messages_pt.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\META-INF\maven\joda-time\joda-time\pom.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_de.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_es.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_fr.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_nl.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\joda-time-2.0\src\org\joda\time\format\messages_pt.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\Charsets.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\LocalizedErrorMessages.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\3-0-Compat.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\5-0-Compat.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\clusterBase.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\coldFusion.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\fullDebug.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\maxPerformance.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\build\classes\com\mysql\jdbc\configs\solarisMaxPerformance.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\Charsets.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\LocalizedErrorMessages.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\3-0-Compat.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\5-0-Compat.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\clusterBase.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\coldFusion.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\fullDebug.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\maxPerformance.properties</selection>
+      <selection>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\mysql-connector-java-5.1.16\src\com\mysql\jdbc\configs\solarisMaxPerformance.properties</selection>
+      <profile>CAST_JAVA_STRUTS_25</profile>
+      <profile>CAST_JAVA_SPRING_4x</profile>
+      <profile>CAST_JAVA_HIBERNATE_5x</profile>
+      <profile>CAST_JSF_22</profile>
+      <profile>CAST_EJB_31_2</profile>
+      <profile>CAST_JAVA_MX4J_302</profile>
+      <profile>CAST_JAVA_LOG4J_1214</profile>
+      <profile>CAST_JAVA_JUNIT_382</profile>
+      <profile>CAST_JAVA_DOM4J_161</profile>
+      <profile>CAST_JAVA_COMMON_LOGGING_110</profile>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\april23\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\joda-time-2.0.jar</classpath>
+      <classpath>D:\AIP_lite\castcoregitintegration\sourceCode\Bug-Tracking-System_a8706fab2f31c284a27324614ef91443e8d692c4\Bug tracking\april23\WebContent\WEB-INF\lib\mysql-connector-java-5.1.16.jar</classpath>
+    </AU>
+  </analyzer>
+</analysis>

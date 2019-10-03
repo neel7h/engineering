@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metaModel file_level="builtin" file_no="27">
+  <category name="CAST_DotNet_Metric_AvoidManagedDeclarationForOverlappedIO" id="142319">
+    <description>Avoid Managed type declaration for Win32 API using Overlapped IO.</description>
+    <property name="number" type="integer"  id="140898">
+      <description>Number of violations for the rule: Avoid Managed type declaration for Win32 API using Overlapped IO.</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="0"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>
+  
+  <category name="CAST_DotNet_Metric_AvoidExposingPInvokeMethods" id="142324">
+    <description>Avoid exposing methods that use Platform Invocation Services to access unmanaged code.</description>
+    <property name="number" type="integer"  id="140903">
+      <description>Number of violations for the rule: Avoid exposing methods that use Platform Invocation Services to access unmanaged code.</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="1"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>
+  
+  <category name="CAST_DotNet_PlatformInvokeMethod" id="142330">
+	<description>DotNet methods can use Platform Invoke Services</description>
+	<property name="isPInvoke" type="integer"  id="140913">
+	  <description>Is Method using Platform Invoke</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="2"  />
+	</property>
+  </category>
+  
+  <category name="CAST_DotNet_OverlappedIO_API_Method" id="142331">
+	<description>DotNet methods can use Win32 Overlapped IO</description>
+	<property name="isOverlappedIO" type="integer"  id="140914">
+	  <description>Is Method using Overlapped IO</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="3"  />
+	</property>
+  </category>
+  
+  <partialCategory name="CAST_DotNet_Method">
+    <inheritedCategory name="CAST_DotNet_PlatformInvokeMethod"/>
+	<inheritedCategory name="CAST_DotNet_OverlappedIO_API_Method"/>
+	<inheritedCategory name="CAST_DotNet_Impersonation_Method"/>
+	<inheritedCategory name="CAST_DotNet_Encryption_Method"/>
+	<inheritedCategory name="CAST_DotNet_Method_Uses_HttpSessionState"/>
+  </partialCategory>
+
+  <partialCategory name="CAST_DotNet_Metricable">
+    <inheritedCategory name="CAST_DotNet_Metric_AvoidManagedDeclarationForOverlappedIO"/>
+	<inheritedCategory name="CAST_DotNet_Metric_AvoidExposingPInvokeMethods"/>
+	<inheritedCategory name="CAST_DotNet_Metric_AvoidUsing_XmlTextReader"/>
+	<inheritedCategory name="CAST_DotNet_Method_Uses_SystemXml"/>
+	<inheritedCategory name="CAST_DotNet_Metric_AlwaysRevertImpersonation"/>
+	<inheritedCategory name="CAST_DotNet_Metric_AvoidWeakEncryptionKeySize"/>
+	<inheritedCategory name="CAST_DotNet_Avoid_NonSerializable_In_HttpSessionState"/>
+  </partialCategory>
+
+  <partialType name="CAST_DotNet_SOAP_Proxy">
+	<inheritedCategory name="CastSystemViews"/>
+	<inheritedCategory name="CAST_DotNet_Unknown"/>
+	<inheritedCategory name="CAST_DevelopmentVisible"/>
+  </partialType>
+
+  <partialType name="CAST_DotNet_SOAP_Server">
+	<inheritedCategory name="CastSystemViews"/>
+	<inheritedCategory name="CAST_DotNet_Unknown"/>
+	<inheritedCategory name="CAST_DevelopmentVisible"/>
+  </partialType>
+  
+   <category name="CAST_DotNet_Metric_AvoidUsing_XmlTextReader" id="142340">
+    <description>Avoid using deprecated XmlTextReader .NET API.</description>
+    <property name="number" type="integer"  id="140921">
+      <description>Number of violations for the rule: Avoid using deprecated XmlTextReader .NET API.</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="4"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>
+  
+   <category name="CAST_DotNet_Method_Uses_SystemXml" id="142341">
+	<description>DotNet methods and classes can use System.Xml Namespace</description>
+	<property name="isUsingSystemXml" type="integer"  id="140922">
+	  <description>Is Method using System.Xml Namespace</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="5"  />
+	</property>
+  </category>
+
+  <category name="CAST_DotNet_Metric_AlwaysRevertImpersonation" id="142344">
+    <description>Always Revert After Impersonation</description>
+    <property name="number" type="integer"  id="140926">
+      <description>Number of violations for the rule: Always Revert After Impersonation</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="6"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>    
+  
+  <category name="CAST_DotNet_Impersonation_Method" id="142346">
+	<description>DotNet methods can use Impersonation</description>
+	<property name="isImpersonateMethod" type="integer"  id="140928">
+	  <description>Is Method using Impersonate</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="7"  />
+	</property>
+  </category>
+  
+  <category name="CAST_DotNet_Metric_AvoidWeakEncryptionKeySize" id="142350">
+    <description>Avoid weak encryption providing sufficient key size</description>
+    <property name="number" type="integer"  id="140931">
+      <description>Number of violations for the rule: Avoid weak encryption providing sufficient key size</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="8"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>    
+  
+  <category name="CAST_DotNet_Encryption_Method" id="142351">
+	<description>DotNet methods can use CryptoEncryption</description>
+	<property name="isEncryptionMethod" type="integer"  id="140932">
+	  <description>Is Method using CryptoEncryption</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="9"  />
+	</property>
+  </category>
+  
+  <category name="CAST_DotNet_Avoid_NonSerializable_In_HttpSessionState" id="142381">
+	<description>Avoid storing Non-Serializable Object as HttpSessionState attributes.</description>
+	<property name="number" type="integer"  id="140961">
+      <description>Number of violations for the rule: Avoid storing Non-Serializable Object as HttpSessionState attributes.</description>
+      <attribute name="INF_TYPE"       intValue="1027000"/>
+      <attribute name="INF_SUB_TYPE"   intValue="10"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>
+
+  <category name="CAST_DotNet_Method_Uses_HttpSessionState" id="142382">
+	<description>DotNet methods can set HttpSessionState Attributes</description>
+	<property name="usesHttpSessionState" type="integer"  id="140962">
+	  <description>Is Method using HttpSessionState</description>
+	  <attribute name="INF_TYPE"       intValue="1027000"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="11"  />
+	</property>
+  </category>
+
+  <!-- INFTYPE 1027000 for categories related to new features -->
+  <!-- INFTYPE 1027001 for categories related to old feature improvements or rule porting -->
+  <category name="CAST_DotNet_Metric_ProvidePrivateDefaultConstructorForUtitlityClasses" id="142385">
+    <description>Provide a private default Constructor for utility Classes (.NET).</description>
+    <property name="number" type="integer"  id="140964">
+      <description>Number of violations for the rule: Provide a private default Constructor for utility Classes (.NET)</description>
+      <attribute name="INF_TYPE"       intValue="1027001"/>
+      <attribute name="INF_SUB_TYPE"   intValue="0"  />
+      <attribute name="ACCESS_APPVIEW" intValue="1"   />
+      <attribute name="ACCESS_HTML"    intValue="1"   />
+      <attribute name="ACCESS_CVS"     intValue="1"   />
+      <attribute name="RuleID"         intValue="0"  />
+    </property>
+  </category>
+  
+  <category name="CAST_DotNet_NonStaticClass_Can_Have_StaticMembers" id="142386">
+	<description>DotNet non-static classes can have static members</description>
+	<property name="hasOnlyStaticMembers" type="integer"  id="140965">
+	  <description>Non-Static Class has only static members</description>
+	  <attribute name="INF_TYPE"       intValue="1027001"/>
+	  <attribute name="INF_SUB_TYPE"   intValue="1"  />
+	</property>
+  </category>
+  
+  <partialCategory name="CAST_DotNet_Class">
+    <inheritedCategory name="CAST_DotNet_Metric_ProvidePrivateDefaultConstructorForUtitlityClasses"/>
+    <inheritedCategory name="CAST_DotNet_NonStaticClass_Can_Have_StaticMembers"/>
+  </partialCategory>
+</metaModel>

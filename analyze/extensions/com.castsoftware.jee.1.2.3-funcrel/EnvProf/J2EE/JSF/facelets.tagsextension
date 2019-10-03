@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+
+<!-- Rich Faces -->
+<taglib uri="http://java.sun.com/jsf/facelets">
+
+  <tag name="composition">
+    <attribute name="template"	 resolveValueAs="url"	linkType="include" />
+    <attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+  </tag>
+
+  <tag name="decorate">
+    <attribute name="template"	 resolveValueAs="url"	linkType="include" />
+    <attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+  </tag>
+
+  <tag name="include">
+    <attribute name="src"	 resolveValueAs="url"	linkType="include" />
+    <attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+  </tag>
+
+  <!-- Default processing -->
+	<tag name="*">
+		<attribute name="*"		resolveValueAs="jsf-el-method"	methodType="getter;method" />
+	</tag>
+
+</taglib>
+
+ </taglibs>

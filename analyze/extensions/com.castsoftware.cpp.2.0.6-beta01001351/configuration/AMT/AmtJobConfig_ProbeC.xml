@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+  <!-- Remove AMT saving and external links... -->
+  <excludeStandardActions/>
+
+  <!-- the C/C++ analyzer launched by CAST-MS -->
+
+  <actions>
+    <action name = "CAnalyzerStartFromCmdLineAction"  />
+    <action name = "CAnalyzerStartAction"             />
+    <action name = "DispatchCompilationUnits"         />
+    <action name = "ProbeOneCFile"                    />
+  </actions>
+
+  <analyzer name = "C++ Analyzer" maxMem = "1400" maxInstancesForFlat64bits = "200000" />
+
+</configuration>

@@ -1,0 +1,69 @@
+{
+    "id": 1060012,
+    "name": "Avoid SQL queries on XXL tables that no index can support for artifacts with high fan-in",
+    "href": "AIP/quality-rules/1060012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves the artifacts with high fan-in containing at least one SQL query on an XXL table not using the XXL table's indexes.\nAn SQL Query is using table's indexes if all the  following conditions are true:\n\n- At least one index is defined for each table participating in the from list\n\n- Queries must reference left-most columns of the index key\n\n- Data matching where clause criteria are highly selective\n\nwhere  selectivity = 1/density\n\nlow number = high selectivity = low density\nhigh  number = low selectivity = high density\n \nselectivity specify percentage of rows that match where clause criteria. \n\nLow number is linked to a high selectivity.\nIf selectivity is 100%, all values of the index key are different and index is useful (best case)\nhigh number is linked to low selectivity:\nif density is 100%, all values are identical and index is inefficient.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "SQL Queries that do not use table indexes are extremely dangerous for the application's performance.\nIndeed, each execution of the query will result in a full table scan which is extremely time consuming especially if the table contains an extremely large amount of data (XXL table).\nWhen the artifacts have a high fan-in the risk is highly increased.",
+    "remediation": "Try to use indexed columns in WHERE clauses. If it is not possible, then create a secondary index for these columns.",
+    "total": "Number of artifacts with SQL code from schemas having XXL tables or views and having a high fan-in.",
+    "alternativeName": "Avoid SQL queries on XXL tables that no index can support for artifacts with high fan-in",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 9,
+            "critical": true
+        },
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-5",
+            "name": "Data Resource Read Access Unsupported by Index Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "id": 1007228,
+    "name": "Avoid control structures without proper spacing before and after open\\close braces - PSR2 (PHP)",
+    "href": "AIP/quality-rules/1007228",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts having control structures without proper spacing before and after open\\close brace.",
+    "output": "This rule reports all artifacts having control structures with improper spacing before and after open\\close brace.\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Using the proper indentation in control structures helps to read, understand, modify, maintain and enhance the code easily.",
+    "reference": "https://pear.php.net/reference/PHP_CodeSniffer-latest/PHP_CodeSniffer/PSR2_Sniffs_ControlStructures_ControlStructureSpacingSniff.html",
+    "remediation": "Try to reduce the number of artifacts having control structures without proper spacing before and after open\\close brace.",
+    "remediationSample": "<?php\n$anarray = array(1, 2, 3);\n \nforeach($anarray as $element) { //violation removed\n   echo $element, PHP_EOL;\n}\n \n$numberOfElements = count($anarray);\n \nfor ($i = 0; $i < $numberOfElements; $i++) { //violation removed\n   echo $i, PHP_EOL;\n}\n \n$counter = 0;\n \ndo {\n   echo $counter, PHP_EOL;\n   $counter++;\n \n} while($counter < $numberOfElements); //violation removed\n?>",
+    "sample": "<?php\n$anarray = array(1, 2, 3);\n \nforeach( $anarray as $element) { //violation\n   echo $element, PHP_EOL;\n}\n \n$numberOfElements = count($anarray);\n \nfor ($i = 0 ; $i < $numberOfElements ; $i++) { //violation\n   echo $i, PHP_EOL;\n}\n \n$counter = 0;\n \ndo {\n   echo $counter, PHP_EOL;\n   $counter++;\n \n} while($counter < $numberOfElements ); //violation\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid control structures without proper spacing before and after open\\close braces - PSR2 (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "PSR2.ControlStructures.ControlStructureSpacing"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

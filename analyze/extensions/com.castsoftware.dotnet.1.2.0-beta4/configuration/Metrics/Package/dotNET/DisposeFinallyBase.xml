@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ Author   : YLE@CAST 
+ Date     : 25/10/2006
+ Filename : FinalizeFinallySuper.xml
+ Role     : Used to detect calls to base.finalize in finally blocks
+            within Dispose(bool) methods
+-->
+
+<!--
+ DISCLAIMER
+ Actually, since the we don't have a grammar for C# language, i can not
+ detect the Dispose(bool) methods so what i've done below is just the
+ detection of call to base.Dispose within finally blocks.
+-->
+
+<METRIC PACKAGE_NAME="dotNET.DisposeFinallyBase" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+
+    <!-- C#: Match call to base.dispose in the finally block -->
+    <CATEGORY NAME="MATCH_BASE_DISPOSE_CS">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="BASE_DISPOSE_CALL_CS" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_CSharp_BODY</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_CSharp_FINALLY</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_BASE_" />
+              <TOKEN NAME="IDENTIFIER" EQUAL="Dispose"/>
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>BASE_DISPOSE_CALL_CS</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Call base.Dispose() in the finally block of Dispose(bool) methods</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- VB.NET: Match call to base.dispose in the finally block -->
+    <CATEGORY NAME="MATCH_BASE_DISPOSE_VBNET">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="BASE_DISPOSE_CALL_VBNET" type="pattern">
+        <BOOKMARK>YES</BOOKMARK>
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+            <SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_VbNet_FINALLY</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_MYBASE_" />
+              <TOKEN NAME="IDENTIFIER" EQUAL="Dispose"/>
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>BASE_DISPOSE_CALL_VBNET</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Call base.Dispose() in the finally block of Dispose(bool) methods</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+  </CATEGORY_LIST>
+  <!-- End categories -->
+
+
+</METRIC>

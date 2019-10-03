@@ -1,0 +1,253 @@
+module Custom.Struts2Annotation;
+
+/* use declaration */
+use Core.ConstantsMetamodel;
+use Core.JEE.JEE;
+use Core.Error;
+use Core.Log;
+use Core.String;
+use Core.JEE.Annotations;
+use Custom.Struts2;
+
+
+/*
+ * We have different cases to manage: 
+ *   - when configuration is made with Codebehind Plugin
+ *   - when configuration is made with Convention Plugin
+ */
+ 
+/*
+ * See: http://struts.apache.org/2.1.8.1/docs/codebehind-plugin.html
+ * See: http://struts.apache.org/2.1.8.1/docs/converting-application-from-codebehind-to-convention-plugin.html
+ */
+void createAllCodebehindActions() {
+  
+}
+
+/*
+ * See http://struts.apache.org/2.1.8.1/docs/convention-plugin.html#ConventionPlugin-ConvertingaCodebehindbasedapplicationtoConvention
+ */
+void createAllConventionActions() {
+  
+}
+ 
+void createAllActions () {
+  /* Note that 2.0.9 still use codebehind plugin that is deprecated
+     * See: http://struts.apache.org/2.1.8.1/docs/converting-application-from-codebehind-to-convention-plugin.html
+     * actually we must find all classes that are stored in:
+     *   - a specific package 
+     *  - or have the @Action, @Result or @Results annotation
+     *  - or have a specific name (end with Action)
+     *  - or inherit from com.opensymphony.xwork2.ActionSupport
+     */
+	 
+  /* TODO we must manage the case @Results too */
+  symbol s = findUniqueSymbol("org.apache.struts2.config.Result", CAST_Java_AnnotationType);
+  if (s == null) {
+    s = findUniqueSymbol("org.apache.struts2.convention.annotation.Result", CAST_Java_AnnotationType);
+  }
+  foreach (symbol sa in getSymbolsAnnotatedWith(s, JV_CLASS)) {
+     createActions(sa);
+  }
+}
+
+void createActions(symbol sa) {
+   string classFullName = getStringProperty(sa, identification_fullName);
+   log(DEBUG, "createActions("+ classFullName+")");
+   
+   /* TODO: to get the real action name with the namespace, we should get the parameter value of actionPackages defined in the filter object 
+          see: http://confluence/display/PdtInt/Actions%2C+Results+and+Forward+%28Mandatory%29#Actions%2CResultsandForward%28Mandatory%29-Declarativemode */
+
+   string actionName = getStringProperty(sa, identification_name);
+   
+   if (substringMatch(actionName, ".*Action$") != "") {
+	 actionName = substring(actionName, 0, getLength(actionName)-getLength("Action"));
+   }
+   actionName = toLower(actionName,1);
+
+   symbol sAction = createActionFromParent(actionName, classFullName, "",sa);
+   /* TODO: create Action results under the Struts Action. Right now it generates issues during linking */
+   /* createResultFromAnnotation(sa, sAction); */
+   
+   /* TODO: Note that "@Result" and "@Results" annotations defined at the class level will apply on the inheritance tree. 
+           so we must get the childs */
+}	 
+
+/* @Result
+ *  http://struts.apache.org/2.2.1/struts2-plugins/struts2-convention-plugin/apidocs/org/apache/struts2/convention/annotation/Result.html
+ * or
+ * http://struts.apache.org/2.0.9/struts2-core/apidocs/org/apache/struts2/config/Result.html
+ * Note that 2.0.9 still use codebehind plugin that is deprecated
+ * See: http://struts.apache.org/2.1.8.1/docs/converting-application-from-codebehind-to-convention-plugin.html
+ */
+void createResultFromAnnotation(symbol sym, symbol action) {
+    string location = "value";
+    symbol anno = findUniqueSymbol("org.apache.struts2.config.Result", CAST_Java_Annotation, sym);
+	if (anno == null) {
+	  anno = findUniqueSymbol("org.apache.struts2.convention.annotation.Result", CAST_Java_Annotation, sym);
+	  location = "location";
+	}
+	     
+	if (anno != null) {
+	  string name = getStringProperty(getAnnotationParameter(anno, "name"), CAST_Java_AnnotationParameterStringValue);
+	  string type =  getStringProperty(getAnnotationParameter(anno, "type"), CAST_Java_AnnotationParameterStringValue);     	  
+	  string path =  getStringProperty(getAnnotationParameter(anno, location), CAST_Java_AnnotationParameterStringValue);
+	  
+	  log (DEBUG, "createResultFromAnnotation( " + toString(action)+ ", "+ name +", "+ type +", " +path+")");
+	  createResultActionSym(action, name, type, path,"");
+	}
+}
+
+/* Validators:
+ * http://struts.apache.org/2.x/docs/validation-annotation.html
+*/
+void manageValidators() {	 
+  /* from http://struts.apache.org/2.1.2/struts2-core/apidocs/com/opensymphony/xwork2/validator/annotations/package-tree.html */
+  list(string) validatorFieldAnnoList = {
+     "com.opensymphony.xwork2.validator.annotations.ConditionalVisitorFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.ConversionErrorFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.CustomValidator",
+	 "com.opensymphony.xwork2.validator.annotations.DateRangeFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.DoubleRangeFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.EmailValidator",
+	 "com.opensymphony.xwork2.validator.annotations.ExpressionValidator", 
+	 "com.opensymphony.xwork2.validator.annotations.FieldExpressionValidator",
+	 "com.opensymphony.xwork2.validator.annotations.IntRangeFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.RegexFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.RequiredStringValidator",
+	 "com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator",
+	 "com.opensymphony.xwork2.validator.annotations.UrlValidator",
+	 "com.opensymphony.xwork2.validator.annotations.VisitorFieldValidator"};
+
+  /* Note that:
+      * "com.opensymphony.xwork2.validator.annotations.Validation" is not anymore required
+      * "com.opensymphony.xwork2.validator.annotations.Validations" contains several annotation to apply on fields 
+      */
+	 
+  /* from http://struts.apache.org/2.x/docs/validation.html#Validation-RegisteringValidators */ 
+  list(string) validatorFieldinDTDList = {
+     "conditionalvisitor",
+     "conversion",
+	 "",
+	 "date",
+	 "double",
+	 "email",
+	 "expression",
+	 "fieldexpression",
+	 "int",
+	 "regex",
+	 "required",
+	 "requiredstring",
+	 "stringlength",
+	 "url",
+	 "visitor"};
+
+  int index = -1; /* used to find the related validator string in the validatorFieldinDTDList list */
+  foreach (string validator in validatorFieldAnnoList) {  
+	symbol s_anno_type = findUniqueSymbol(validator, CAST_Java_AnnotationType);
+	index = index+1;
+    foreach (symbol s_method in getSymbolsAnnotatedWith(s_anno_type, GROUP_JAVA_METHOD)) {	 
+        symbol s_anno = findUniqueSymbol(validator, CAST_Java_Annotation, s_method);		
+		symbol s_file = getParentOfType(s_method, JV_CLASS);
+        if (validator == "com.opensymphony.xwork2.validator.annotations.ExpressionValidator") {
+		
+		  string expression = getStringProperty(getAnnotationParameter(s_anno, "expression"), CAST_Java_AnnotationParameterStringValue);
+		  log(DEBUG, "manageValidators: calling createValidatorExpressionFromParent(" 
+				   + expression + "," + getStringProperty(s_method, identification_name) + "," + 
+				   getStringProperty(s_file,identification_name)+")");
+				   
+		  /* TODO: manage the case where the annotation is defined on an interface and is implicitely applied on the classes */
+		  createValidatorExpressionFromParent(expression, s_method, s_file);
+        } else {		
+		  string type = getStringProperty(getAnnotationParameter(s_anno, "type"), CAST_Java_AnnotationParameterStringValue);
+		  symbol s_field = null;
+	      if (type == "com.opensymphony.xwork2.validator.annotations.ValidatorType.SIMPLE") {
+		    /* in this case the fieldname is given by the annotation parameter "fieldName" */
+			string  fieldName = getStringProperty(getAnnotationParameter(s_anno, "fieldName"), CAST_Java_AnnotationParameterStringValue);
+			symbol s_class = getSymbolUniqueParent(s_method);
+			s_field = findUniqueSymbol(fieldName, JV_FIELD, s_class);
+		  } else {
+		    /* in this case the field is obtained by the name of the method that follows the bean specs */
+			s_field = beanMethodToFieldSym(s_method);
+		  }
+				
+		  /* 
+		      * get the type as it is in the DTD so that both annotation & XML has the same property, 
+		      * except for CustomValidator where it will be the type specified by the parameter "type" of the annotation
+		      */
+		
+		  if (indexOfList(index, validatorFieldinDTDList) != "") {
+		    type = indexOfList(index, validatorFieldinDTDList);
+		  }
+		
+		  symbol s_action = getParentOfType(s_method, JV_CLASS);
+          log(DEBUG, "manageValidators: calling createValidatorForFieldFromParent(" +
+			getStringProperty(s_field, identification_name) + ", " +
+			type + ", symbol(" + getStringProperty(s_action, identification_name) + ") , symbol(" + getStringProperty(s_file, identification_name) + "))");
+		  /* TODO: manage the case where the annotation is defined on an interface and is implicitely applied on the classes */
+		  createValidatorForFieldFromParent(getStringProperty(s_field, identification_name), type, s_action, s_file);
+	   }	 
+	}
+  }
+}
+
+
+/***************************************
+ * To add in J2EE module
+ */
+
+ 
+/* 
+ * Return the field symbol from the method symbol when it respects the bean specification 
+ * returns null when it fails
+ */
+symbol beanMethodToFieldSym(symbol s_method) {
+   symbol s_field = null;  
+   string fieldName = beanMethodToFieldName(getStringProperty(s_method, identification_name));
+   
+   if (fieldName != "") {
+     symbol s_class = getSymbolUniqueParent(s_method);
+     s_field = findUniqueSymbol(fieldName, JV_FIELD, s_class);
+   }
+   
+   log(DEBUG, "beanMethodToFieldSym( "+getStringProperty(s_method, identification_name) +" ) => "+ getStringProperty(s_field, identification_name));
+       
+   return s_field;
+}
+
+/* 
+ * Return the field name from the method name when it respects the bean specification 
+ * returns "" otherwise
+ */
+string beanMethodToFieldName(string methodName) {
+   list(string) prefix = {"get","set","is"};
+   foreach (string p in prefix) {
+      /* does the method match the prefix ? */
+      if (substringMatch(methodName, concat(p,".*")) != "") {
+	    /* remove the prefix and lower the first method letter */
+	    string fieldName = toLower(substring(methodName,getLength(p)),1);
+		/* look for the first '(' to remove the signature */
+		int index = getFirstIndex(fieldName, "(");
+		if (index > -1) {
+		  fieldName = substring(fieldName, 0, index);
+		}
+	    return fieldName;
+	  }
+   }
+   return "";
+}
+
+/***************************************
+ * To add in ??? module
+ */
+string indexOfList(int index, list(string) lString) {
+   int i = 0;
+   foreach (string s in lString) {
+     if (i>=index) {
+	   return s;
+	 }
+	 i = i + 1;
+   }
+   return "";
+}

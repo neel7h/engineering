@@ -1,0 +1,68 @@
+{
+    "id": 1039062,
+    "name": "Always implement readObject() to prevent untrusted deserialization when loading from ObjectInputStream",
+    "href": "AIP/quality-rules/1039062",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the deserialization class has implemented the readObject() function with final key word or not. if not it gives the violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code\n- Secondary Bookmarks for violation occurrences found in the source code",
+    "rationale": "It is often convenient to serialize objects for communication or to save them for later use. However, deserialized data or code can often be modified without using the provided accessor functions if it does not use cryptography to protect itself. Furthermore, any cryptography would still be client-side security -- which is a dangerous security assumption.\n\nData that is untrusted can not be trusted to be well-formed.\n\nDeserialized data or code can often be modified if the functions readObject() of ObjectInputStream is not defined in class which  include readObject() function  of ObjectInputStream with deserialize signature.",
+    "reference": "https://cwe.mitre.org/data/definitions/502.html\nhttps://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html",
+    "remediation": "It is often convenient to serialize objects for communication or to save them for later use. However, deserialized data or code can often be modified without using the provided accessor functions if it does not use cryptography to protect itself. Furthermore, any cryptography would still be client-side security -- which is a dangerous security assumption.\n\nData that is untrusted can not be trusted to be well-formed.\n\nWhen developers place no restrictions on \"gadget chains,\" or series of instances and method invocations that can self-execute during the deserialization process (i.e., before the object is returned to the caller), it is sometimes possible for attackers to leverage them to perform unauthorized actions, like generating a shell.",
+    "remediationSample": "public static class Person \n{\n   private String fname = null;\n   private String lname = null;\n\n   private final void readObject(ObjectInputStream aInputSteam) throws ClassNotFoundException, IOException\n   {\n      aInputSteam.defaultReadObject();\n   }\n}\n\n\n\ntry {\n\n   ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(\"test.txt\"));\n\n   Person personRead = (Person) objectInputStream.readObject(); // no violation because Person does implement readObject as private and final method that cannot be overwritten\n\n   objectInputStream.close();\n}",
+    "sample": "public static class Person \n{\n   private String fname = null;\n   private String lname = null;\n}\n\n\n\ntry {\n\n   ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(\"test.txt\"));\n\n   Person personRead = (Person) objectInputStream.readObject(); // violation because Person does not implement readObject\n\n   objectInputStream.close();\n}",
+    "total": "Number of Java Artifacts",
+    "alternativeName": "Ensure the readObject() has been implemented for class instantiated by ObjectInputStream to prevent untrusted deserialization",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

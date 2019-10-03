@@ -1,0 +1,64 @@
+{
+    "id": 1039050,
+    "name": "Add @Override on methods overriding or implementing a method declared in a super type",
+    "href": "AIP/quality-rules/1039050",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Since Java 1.5, the @Override annotation type has been provided to allow developers to specify that a method declaration is intended to override or implement a method in a supertype (super class or super interface). When a method is marked with the @Override annotation, the compiler will perform a check to ensure that the method does indeed override or implement a method in super class or super interface. This helps in preventing unintentional errors such as misspelled method name, wrongly-typed parameters or anything that does not obey overriding rules.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using the @Override annotation every time you override a method for two benefits. Do it so that you can take advantage of the compiler checking to make sure you actually are overriding a method when you think you are. \nThis way, if you make a common mistake of misspelling a method name or not correctly matching the parameters, you will be warned that you method does not actually override as you think it does. \n\nSecondly, it makes The code easier to understand because it is more obvious when methods are overwritten.",
+    "remediationSample": "package com.journaldev.annotations;\n\npublic class BaseClass {\n    \n    public void doSomething(String str){\n        System.out.println(\"Base impl:\"+str);\n    }\n    \n}",
+    "sample": "package com.journaldev.annotations;\n\npublic class BaseClass {\n    \n    public void doSomething(String str){\n        System.out.println(\"Base impl:\"+str);\n    }\n    \n}\n\n--------------\npackage com.journaldev.annotations;\n\npublic class ChildClass extends BaseClass{\n\n   //@Override\n   public void doSomething(String str){\n       System.out.println(\"Child impl:\"+str);\n   }\n\n}\n\n---------\npackage com.journaldev.annotations;\n\npublic class OverrideTest {\n\n    public static void main(String[] args) {\n        BaseClass bc = new ChildClass();\n        bc.doSomething(\"override\");\n    }\n\n}\nOutput of the above program is: Child impl:override\nHere \u201cbc\u201d is of type BaseClass but at runtime it\u2019s object of ChildClass. So when we invoke its doSomething(String str) method, it looks for the method in ChildClass and hence the output.\n\nNow let\u2019s change the BaseClass doSomething method like below.\n\n\n//Change argument from String to Object\npublic void doSomething(Object str){\n    System.out.println(\"Base impl:\"+str);\n}\nYou will notice that compiler won\u2019t throw any warnings/errors and now if you run the test program output will be: ase impl:override\nThe reason is that BaseClass doSomething(Object str) method is not anymore overridden by ChildClass. Hence it\u2019s invoking BaseClass implementation. ChildClass is overloading the doSomething() method in this case.\n\nIf you will uncomment the @Override annotation in ChildClass, you will get following compile time error message",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Prefer using @Override annotation to mark methods overriding or implementing a method declared in a super type to avoid unintentional errors",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

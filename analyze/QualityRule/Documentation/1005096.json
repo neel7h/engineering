@@ -1,0 +1,72 @@
+{
+    "id": 1005096,
+    "name": "Avoid large Programs - too many Lines of Code (EGL)",
+    "href": "AIP/quality-rules/1005096",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all programs with more than X Lines of Code.  The threshold is a parameter and can be changed at will.",
+    "output": "This report lists the following information: Program Full Name, Number of LOC",
+    "rationale": "Large programs are difficult to maintain",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the number of large programs.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid large Programs - too many Lines of Code (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max LoC",
+            "description": "Max LoC",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        500.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

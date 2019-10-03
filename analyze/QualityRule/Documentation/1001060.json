@@ -1,0 +1,62 @@
+{
+    "id": 1001060,
+    "name": "Avoid duplicate Programs in different files (PL1)",
+    "href": "AIP/quality-rules/1001060",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the PL1 Main Procedures that have the same name and are located in different files.",
+    "output": "The report lists all the duplicated PL1 Main Procedures.\n\nIt provides following information: \n- PL1 Main Procedures  full name",
+    "rationale": "Duplicate main procedure names leads to confusion.",
+    "remediation": "Remove one of the duplicate main procedures and review the source code.",
+    "total": "Number of the PL1 Main Procedures",
+    "alternativeName": "Avoid duplicate Programs in different files (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "id": 1003074,
+    "name": "Cairngorm: Avoid modelLocator that is Bindable at a class level (Flex)",
+    "href": "AIP/quality-rules/1003074",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports package with model locator that is bindable at class level.",
+    "output": "This QR reports package with model locator that is bindable at class level. It provides following information:\n\n- package full name",
+    "rationale": "A bindable ModelLocator could leads to performance issues due to bindings",
+    "sample": "[Bindable]\npublic class BindableModelLocator // VIOLATION \n{      \n}",
+    "total": "Number of packages",
+    "alternativeName": "Cairngorm: Avoid modelLocator that is Bindable at a class level (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.cairngorm.BindableModelLocator"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

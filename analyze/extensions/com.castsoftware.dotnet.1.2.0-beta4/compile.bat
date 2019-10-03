@@ -1,0 +1,1 @@
+call I:\NightlyBuilds\AssessmentModel\MetricsCompiler.bat -encode -inputdir .\MasterFiles\ -fragment coe -outputdir . -pck com.castsoftware.dotnet

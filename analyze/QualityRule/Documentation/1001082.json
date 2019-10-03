@@ -1,0 +1,52 @@
+{
+    "id": 1001082,
+    "name": "Avoid Programs mixing usage of do-while or (and) do-until (PL1)",
+    "href": "AIP/quality-rules/1001082",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all the PL1 Main Procedures having to many \"do-while\" and \"do-until\".",
+    "output": "The report lists all the PL1 Main Procedures (with a non limited usage) of do-while or do-until.\n\nIt provides following information: \n-  PL1 Main Procedure full name",
+    "rationale": "Good programming practice is to stick to one of the 2 (two)constructs to maintain consistency.",
+    "remediation": "Limit the usage of do-while and do-until.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid Programs mixing usage of do-while or (and) do-until (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

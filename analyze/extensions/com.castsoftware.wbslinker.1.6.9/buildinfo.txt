@@ -1,0 +1,6 @@
+Build date: 09/09/2019 11:39:14,40 
+Build number: 1000103 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 4d96a1b3e6e39bac0cea999c5c90a2f3ff189640
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.wbslinker.git origin/master 2ebd430d53959cf078173a8ae9fbdccc25655a43
+Publish date: Mon 09/09/2019 11:45:31.09 
+Original version: 1.6.9-alpha01000103 

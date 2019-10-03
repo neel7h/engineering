@@ -1,0 +1,58 @@
+{
+    "id": 1520762,
+    "name": "SiebelReview: Controls or List Columns Based on Non-Existent Fields",
+    "href": "AIP/quality-rules/1520762",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Name of the Field",
+    "description": "When a Control or List Column is based on a non-existent Field, it will not be rendered in the UI.\n\nIf the Control or List Column should be mapped to another (existing) Field and that Field is required or has other validation, the user may not be able to save the record and may receive a runtime error.",
+    "output": "This rule reports Controls and List Columns based on non-existing Fields",
+    "rationale": "There are Controls and List Columns based on non-existent or inactive Fields.",
+    "remediation": "Ensure that each Control (or List Column) on an applet is mapped to a BusComp Field.",
+    "total": "Number of added or modified Controls or List Columns",
+    "alternativeName": "SiebelReview: Controls or List Columns Based on Non-Existent Fields",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

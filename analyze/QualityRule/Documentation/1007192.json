@@ -1,0 +1,64 @@
+{
+    "id": 1007192,
+    "name": "Avoid using PHP short tags (PHP)",
+    "href": "AIP/quality-rules/1007192",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all PHP file which uses PHP short tags.",
+    "output": "This report lists all artifacts containing PHP short tags.\nThis QR provides the following information:\nPHP file full name.",
+    "rationale": "Usage of PHP Short tags is discouraged because, short tags may or may not be enabled on the server where application is deployed or will be deployed in future.",
+    "remediation": "Try and limit the use of PHP short tags.",
+    "remediationSample": "<?php\nfunction afunc() {\n   echo \"afunc\", PHP_EOL;\n}\n?>\n \n<?php afunc();?>",
+    "sample": "<?php\nfunction afunc() {\n   echo \"afunc\", PHP_EOL;\n}\n?>\n<? afunc();?>",
+    "total": "Number of PHP files",
+    "alternativeName": "Avoid using PHP short tags (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

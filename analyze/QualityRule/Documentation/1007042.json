@@ -1,0 +1,76 @@
+{
+    "id": 1007042,
+    "name": "Avoid Classes implementing excessive number of Interfaces (PHP)",
+    "href": "AIP/quality-rules/1007042",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the Classes implementing excessive number of interfaces. A class implementing more than 3 interfaces is considered as violation for this rule. The parameter denoting number of interfaces can be changed to suit scenario.",
+    "output": "This report lists all the Classes implementing excessive number of interfaces.\n      \nThis QR provides the following information:\nClass full name.",
+    "rationale": "A Class that implements excessive number of interfaces increases complexity of source code and makes it difficult to maintain and test.",
+    "remediation": "Review class design to reduce the number of interface implementations by the class.",
+    "sample": "<?php\ninterface A\n{\n    public function A();\n}\ninterface B\n{\n    public function B();\n}\ninterface C\n{\n    public function C();\n}\ninterface D\n{\n    public function D();\n}\nclass ClassTest implements A,B,C,D\n{\n    public function A()\n    {\n    }\n    public function B()\n    {\n    }\n    public function C()\n    {\n    }\n    public function D()\n    {\n    }\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid Classes implementing excessive number of Interfaces (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Count",
+            "description": "Maximum Count",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        3.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

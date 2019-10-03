@@ -1,0 +1,118 @@
+{
+    "id": 1020552,
+    "name": "Avoid enabling dangerous protocols in whitelist APIs",
+    "href": "AIP/quality-rules/1020552",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When using white list API (aHrefSanitizationWhitelist, imgSrcSanitizationWhitelist), any url about to be assigned to a[href]/img[src] or via data-binding is first normalized and turned into an absolute url. Afterwards, the url is matched against the white list regular expression. If a match is found, the original url is written into the dom. Otherwise, the absolute url is prefixed with 'unsafe:' string and only then is it written into the DOM. If the url allows dangerous protocols executing external javascript, it may lead to cross-site scripting vulnerabilities.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure that users cannot add unchecked HTML string. It helps detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.",
+    "reference": "https://docs.angularjs.org/api/ng/provider/$compileProvider#imgSrcSanitizationWhitelist\nhttps://docs.angularjs.org/api/ng/provider/$compileProvider#aHrefSanitizationWhitelist",
+    "remediation": "Ensure you do not specify dangerous protocols like http(s) nor javascript in whitelist APIs",
+    "remediationSample": "// http or javascript URI are possible\n\nmyModule.config(function($compileProvider){\n    $compileProvider.imgSrcSanitizationWhitelist(/*);\n});",
+    "sample": "// http or javascript URI are possible\n\nmyModule.config(function($compileProvider){\n    $compileProvider.imgSrcSanitizationWhitelist(/^(http(s)?|javascript):.*/);\n});",
+    "total": "Number of angular applications (may be represented by an html file, most often index.html, or no html if such html file does not exist)",
+    "alternativeName": "Avoid enabling dangerous protocols in whitelist APIs",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69517",
+            "name": "The application must employ a deny-all, permit-by-exception (whitelist) policy to allow the execution of authorized software programs.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

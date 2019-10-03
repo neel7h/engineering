@@ -1,0 +1,64 @@
+{
+    "id": 1020748,
+    "name": "Avoid using the call of data service with Node.js inside a loop",
+    "href": "AIP/quality-rules/1020748",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When designing data service like SQL/NoSQL/Data API, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official Node.js syntaxes to do call to data service:\n\nSQL: oracledb, pg, node-sqlserver, mssql, my_connection, hapi, sails\nNoSQL : marklogic, couchdb, node-couchdb, couchdb-nano, mongoose, mode-mongodb-native, mongo-client, hapi, sails",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When designing data service like SQL/NoSQL/Data API, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.",
+    "reference": "CISQ Recommendation: ASCPEM-PRF-08",
+    "remediation": "Try to create a process queue that will manage all the requests with a limited number of concurrent requests. When a request callback has been managed a new request could be fired.",
+    "total": "Number of javascript artifacts calling data frameworks functions",
+    "alternativeName": "Avoid using the call of data service with Node.js inside a loop",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

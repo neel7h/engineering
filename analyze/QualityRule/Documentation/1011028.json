@@ -1,0 +1,69 @@
+{
+    "id": 1011028,
+    "name": "Avoid unreferenced Printer Files  (DDS400)",
+    "href": "AIP/quality-rules/1011028",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The rules searches for all the unreferenced  Printer Files",
+    "output": "This report lists DDS400 unreferenced Printer File.\nIt provides the following information:\nDDS400 Printer File full name",
+    "rationale": "The higher the number of unreferenced Printer Files is, the more difficult the maintenance and evolution as all updates in referenced  Printer Files  will be.  In order the keep the same quality and performance of the application the the tests invesments must be increased.",
+    "remediation": "Check if these files are really necessary. If not, then remove them.",
+    "remediationSample": "A printer file should be referenced by a program. The syntax is\nFACCESSF1O   E                    PRINTER      KINFSR *PSSR      UC        ",
+    "total": "Total number of DDS400 Printer File",
+    "alternativeName": "Avoid unreferenced Printer Files  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

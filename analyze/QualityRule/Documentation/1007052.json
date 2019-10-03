@@ -1,0 +1,68 @@
+{
+    "id": 1007052,
+    "name": "Avoid unreferenced PHP Files (PHP)",
+    "href": "AIP/quality-rules/1007052",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all unreferenced files supported by PHP extension.",
+    "output": "This report lists all unreferenced PHP Files.\n\nThis QR provides the following information:\nFile full name.",
+    "rationale": "Unreferenced code may be a symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of software maintenance.\n\nWarning:\nUnreferenced code can also be an indication of missing code (code referring to the file not included in the source code analysis).",
+    "remediation": "Review the source code to reduce the number of unreferenced files.",
+    "total": "Number of unreferenced files",
+    "alternativeName": "Avoid unreferenced PHP Files (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

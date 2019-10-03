@@ -1,0 +1,63 @@
+{
+    "id": 1520126,
+    "name": "SiebelReview: Duplicate Column Mappings",
+    "href": "AIP/quality-rules/1520126",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of mappings",
+    "description": "When two or more BusComp fields are mapped to the same table column, it can lead to the following problems:\n* If both fields are active in the same BusComp context, it can lead to duplicate column insert errors during an insert or copy operation.  This behavior occurs most frequently during a copy.\n* It adds to repository overhead and introduces maintenance difficulties.",
+    "output": "This rule reports all Fields within a Business Component which are mapped to the same column",
+    "rationale": "Multiple fields within a BusComp are mapped to the same column.",
+    "remediation": "Custom fields should not be mapped to a column that is already being used by a standard field or another custom field.\nIn the case where the fields in question are intended to represent two different attributes, use two different columns, creating a custom extension column on the base table for one of the attributes if necessary.\nIn the case where the new field was created in order to change the name displayed in the user interface, use the standard field and re-label the applet controls as necessary.",
+    "total": "Number of added or modified Business Components",
+    "alternativeName": "SiebelReview: Duplicate Column Mappings",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

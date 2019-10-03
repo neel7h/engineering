@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<J2EEEnvironmentProfile-2601>
+			<Item>
+				<Name>Generic Default EnvProfiles</Name>
+				<Uid>4M6UYJI80VG0LZV7CQNEXA76INUBEEPF6P5OHRHUEMK0FH8PA2HIN8BBA</Uid>
+			</Item>
+		</J2EEEnvironmentProfile-2601>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>Generic Default EnvProfiles</Name>
+		<Uid>4M6UYJI80VG0LZV7CQNEXA76INUBEEPF6P5OHRHUEMK0FH8PA2HIN8BBA</Uid>
+		<Type>J2EE Environment Profile-1601</Type>
+		<JavaAnnotations-2212>
+			<Item>
+				<Uid>4M6UYJI80VG0LZVAEQNKXA7EENSDEEPF6P5OHRHUEML0FH8PA2EEV37C1</Uid>
+			</Item>
+		</JavaAnnotations-2212>
+	</Entity>
+	<Entity>
+		<Uid>4M6UYJI80VG0LZVAEQNKXA7EENSDEEPF6P5OHRHUEML0FH8PA2EEV37C1</Uid>
+		<Type>Annotation Group-1212</Type>
+		<AnnotationGroupName-1859>reflect</AnnotationGroupName-1859>
+		<Annotations-2215>
+			<Item>
+				<Uid>4M6UYJI80VG0LZVANQOOXA70HNXEEEPF6P5OHRHUEMM0FH8PA2YAEA1F1</Uid>
+			</Item>
+		</Annotations-2215>
+	</Entity>
+	<Entity>
+		<Uid>4M6UYJI80VG0LZVANQOOXA70HNXEEEPF6P5OHRHUEMM0FH8PA2YAEA1F1</Uid>
+		<Type>Annotation-1765</Type>
+		<Ignore-1934>True</Ignore-1934>
+		<Value-1143>sun.reflect.CallerSensitive</Value-1143>
+	</Entity>
+</Root>

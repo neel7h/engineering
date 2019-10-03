@@ -1,0 +1,60 @@
+{
+    "id": 1020816,
+    "name": "Avoid using output of the function that does not return anything",
+    "href": "AIP/quality-rules/1020816",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule lists all the artifacts that are using output of the functions that do not return anything.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using output of the function that does not return anything can cause big issues because the variable can be used further in the source code.",
+    "remediation": "Write a source code where output of the function that does not return anything is not used / not assigned to some other variable.",
+    "remediationSample": "function functionDoesNotReturn () { }\nfunctionDoesNotReturn();",
+    "sample": "function functionDoesNotReturn () {}\nreturnValue = functionDoesNotReturn();",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "Avoid using output of the function that does not return anything",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

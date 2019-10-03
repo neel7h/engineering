@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- ======================================================================================================== -->
+	<!-- =======================================  cast-spring-congfig.xml ======================================= -->
+	<!-- =======================================  based on spring 1.2.8 ========================================= -->
+	<!-- =================================  since version 5.7 of CAST products   ================================ -->
+	<!-- ======================================================================================================== -->
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+	<!-- ======================================================================================================== -->
+	<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+	<!-- ======================================================================================================== -->
+
+	<!-- Imported resources -->
+	<link-node xpath = "/import"	called-object = "./@resource"	resolve-as="path" link-type="include"/>
+
+	<!-- Aliases -->
+	<alias-node xpath="/alias" object="./@name" object-type="spring-bean" alias="./@alias"/>
+
+	<!-- Beans -->
+	<object-node xpath="/beans/bean" name="./@id | ./@name" type="spring-bean" default-name="./@class">
+
+								<!-- ====================  ATTRIBUTES  ======================== -->
+
+		<!-- The following attributes (and only those attributes) are stored in the knowledge base as properties of the bean  -->
+		<object-attribute name = "class"			select = "./@class"		/>
+		<object-attribute name = "abstract"			select = "./@abstract"	/>
+		<object-attribute name = "singleton"		select = "./@singleton"	/>
+		<object-attribute name = "autowire"			select = "./@autowire		  | /beans/@default-autowire"		  />
+		<object-attribute name = "dependency-check"	select = "./@dependency-check | /beans/@default-dependency-check" />
+		<object-attribute name = "lazy-init"		select = "./@lazy-init		  | /beans/@default-lazy-init"		  />
+
+
+		<!-- The following attributes are used for processing purpose and are not stored in the knowledge base
+			 and  are used for spring beans -->
+		<object-attribute name	 = "urlMap"			
+						  key	 = "./property[@name='mappings']/props/prop/@key" 
+						  select = "./property[@name='mappings']/props/prop"	 />
+
+		<object-attribute name	 = "urlMap"			
+						  key	 = "./property[@name='urlMap']/map/entry/@key"			
+						  select = "./property[@name='urlMap']/map/entry/@key-ref		| 
+									./property[@name='urlMap']/map/entry/ref/@bean		| 
+									./property[@name='urlMap']/map/entry/ref/@local		| 
+									./property[@name='urlMap']/map/entry/idref/@bean	| 
+									./property[@name='urlMap']/map/entry/idref/@local"	/>
+
+		<object-attribute name	 = "alwaysUseFullPath"			
+						  select = "./property[@name='alwaysUseFullPath']/value  | 
+									./property[@name='alwaysUseFullPath']/@value" />
+
+		<object-attribute name = "factoryMethod"	select = "./@factory-method"  />
+		<object-attribute name = "factoryBean"		select = "./@factory-bean"	  />
+		<object-attribute name = "parentBean"		select = "./@parent"		  />
+
+
+								<!-- ====================  LINKS  ======================== -->
+
+		<!-- Bean java type -->
+			<link-node xpath = "self::node()[count(@factory-method) = 0]"	called-object = "./@class"	resolve-as="java-type" link-type="relyon"/>
+
+		<!-- Bean Links -->
+			<link-node xpath = "."	called-object = "./@parent"									resolve-as="spring-bean" link-type="inherit"/>
+
+			<link-node xpath = "."	called-object = "./@factory-bean"							resolve-as="spring-bean" link-type="call"/>
+
+			<link-node xpath = "."	called-object = "descendant-or-self::bean/@depends-on"		resolve-as="spring-bean" link-type="fire"/>
+
+		<!-- Method Invoker Factory Bean Links -->
+			<link-node xpath = "self::node()[@class = 'org.springframework.beans.factory.config.MethodInvokingFactoryBean']"	
+									called-object = "./property[@name = 'staticMethod']/value | ./property[@name = 'staticMethod']/@value"		
+									resolve-as	  = "java-method" 
+									link-type	  = "call"   />
+
+			<link-node xpath = "self::node()[@class ='org.springframework.beans.factory.config.MethodInvokingFactoryBean']"	
+									called-object		 = "./property[@name = 'targetMethod']/value | ./property[@name = 'targetMethod']/@value"		
+									resolution-scope-src = "./property[@name = 'targetClass' ]/value | ./property[@name = 'targetClass' ]/@value"		
+									resolve-as			 = "java-method" 
+									link-type			 = "call"   />
+
+			<link-node xpath = "self::node()[@class = 'org.springframework.beans.factory.config.MethodInvokingFactoryBean'][property/@name = 'targetObject']"	
+									called-object		 = "./property[@name = 'targetMethod']/value | ./property[@name = 'targetMethod']/@value"		
+									resolution-scope-src = "/beans/bean[@id = '{0}']/property[@name = 'targetClass' ]/value | /beans/bean[@id = '{0}']/property[@name = 'targetClass']/@value"		
+									resolve-as			 = "java-method" 
+									link-type			 = "call"   >
+				<variable name="{0}" select = "./property[@name = 'targetObject']/@ref | ./property[@name = 'targetObject']/ref/@local | ./property[@name = 'targetObject']/ref/@bean" />
+			</link-node>
+
+		<!-- Bean dependences -->
+		<!-- Bean Properties -->
+			<!-- Bean Property java type -->
+			<link-node xpath = "."			called-object = ".//property/bean/@class"	resolve-as="java-type"	link-type="use"	/>
+<!--
+			<link-node xpath = ".//props"	called-object = "java.util.Properties"		resolve-as="java-type"	link-type="use"	/>
+			<link-node xpath = ".//list"	called-object = "java.util.List"			resolve-as="java-type"	link-type="use"	/>
+			<link-node xpath = ".//map"		called-object = "java.util.Map"				resolve-as="java-type"	link-type="use"	/>
+-->
+			<!-- When prop value is a java property -->
+			<link-node xpath = ".//property		  [contains(@value, '${') and contains(@value, '}')]"	called-object = "./@value" start-tag="${" end-tag="}" resolve-as="property-mapping" link-type="use"	/>
+			<link-node xpath = ".//constructor-arg[contains(@value, '${') and contains(@value, '}')]"	called-object = "./@value" start-tag="${" end-tag="}" resolve-as="property-mapping" link-type="use"	/>
+			<link-node xpath = ".//value		  [contains(.	  , '${') and contains(.	 , '}')]"	called-object = "."		   start-tag="${" end-tag="}" resolve-as="property-mapping" link-type="use"	/>
+
+
+			<!-- The "spring-bean" attribute can reference any name from any bean in the context, to be checked at runtime. -->
+			<!-- Local references, using the "local" attribute, have to use bean ids -->
+
+		<!-- Bean constructor args -->
+			<link-node xpath = "."	called-object = ".//ref/@bean	| .//ref/@local		| .//@ref"	resolve-as="spring-bean"	link-type="use"/>
+			<link-node xpath = "."	called-object = ".//idref/@bean	| .//idref/@local"				resolve-as="spring-bean"	link-type="use"/>
+
+		<!-- Autowiring -->
+				<!-- By Property Name -->
+			<link-node xpath = "descendant-or-self::bean[@autowire = 'byName' or ((@autowire = 'default') and (/beans/@default-autowire = 'byName') )]"		
+								resolve-as		= "spring-bean"
+								autowire		= "byName"
+								excluded-props	= "./property/@name"
+								link-type		= "use"/>
+
+				<!-- By Property Type -->
+			<link-node xpath = "descendant-or-self::bean[@autowire = 'byType' or ((@autowire = 'default') and (/beans/@default-autowire = 'byType') )]"		
+								resolve-as		= "spring-bean"
+								autowire		= "byType"
+								excluded-props	= "./property/@name"
+								link-type		= "use"/>
+
+				<!-- By Constructor Arguments -->
+			<link-node xpath = "descendant-or-self::bean[@autowire = 'constructor' or ((@autowire ='default') and (/beans/@default-autowire = 'constructor'))]"	
+								resolve-as		= "spring-bean"
+								autowire		= "constructor"
+								excluded-args	= "./constructor-arg/@type | ./constructor-arg/@index"
+								link-type		= "use"/>
+
+				<!-- Autodetect -->
+			<link-node xpath = "descendant-or-self::bean[@autowire = 'autodetect' or ((@autowire ='default') and (/beans/@default-autowire = 'autodetect'))]"	
+								resolve-as		= "spring-bean"
+								autowire		= "autodetect"
+								excluded-props	= "./property/@name"
+								excluded-args	= "./constructor-arg/@type | ./constructor-arg/@index"
+								link-type		= "use"/>
+
+
+		<!-- Links with files (JSP pages for JSTL Views) -->
+			<link-node xpath = "self::node()[@class = 'org.springframework.web.servlet.view.JstlView']"	
+									called-object = "./property[@name = 'url']/value | ./property[@name = 'url']/@value"		
+									resolve-as	  = "path" 
+									link-type	  = "call"   />
+
+		<!-- Links with files (xml files for Xml View Resolver) -->
+			<link-node xpath = "self::node()[@class = 'org.springframework.web.servlet.view.XmlViewResolver']"	
+									called-object = "./property[@name = 'location']/value | ./property[@name = 'location']/@value"		
+									resolve-as	  = "path" 
+									link-type	  = "call"   />
+	</object-node>
+</xml-config>

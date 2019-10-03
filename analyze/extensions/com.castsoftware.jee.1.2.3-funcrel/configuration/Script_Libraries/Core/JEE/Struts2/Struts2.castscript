@@ -1,0 +1,1197 @@
+/* module declaration */
+module Core.JEE.Struts2.Struts2;
+
+/* use declaration */
+use Core.ConstantsMetamodel;
+use Core.JEE.JEE;
+use Core.Error;
+use Core.Log;
+use Core.String;
+use Core.Bookmark;
+
+int getLastPathSeparator(string path)
+{
+  int i1 = getLastIndex( path, "/" );
+  int i2 = getLastIndex( path, "\\" );
+  if (i1 < i2)
+  {
+    return i2;
+  }
+  return i1;
+}
+
+private const string DefaultActionClass = "com.opensymphony.xwork2.ActionSupport";
+
+/**
+* Create package (regrouping Struts actions) and add namespace as package property); inspect inheritance tree and create links 
+* 
+* @param name: package name
+* @param namespace
+* @param extends: indicate the name of the extended package
+* @param path: path of the file containing the package identified by @param name
+*/
+void createPackage(string name, string namespace, string extends, string path) {
+  log(DEBUG, "createPackage(" + name + "," + namespace + "," + extends +")");
+
+  symbol parent = getCurrentFile(path);
+  symbol s_package = findOrCreateSymbol(name, CAST_JEE_StrutsPackage, parent);
+  
+  /* add the properties namespace */
+  setProperty(s_package,CAST_JEE_StrutsPackage_namespace,namespace) ;
+  if (name != "struts-default")
+  {
+    setProperty(s_package,CAST_Mangled_mangling,namespace) ;
+  }
+  else
+  {
+    setProperty(s_package,CAST_Mangled_mangling,name) ;
+  }
+  
+  // todo : iterate over parent packages...
+  list(string) inheritance_list = getInheritanceList(extends) ;
+  
+  foreach(string inherited in inheritance_list)
+  {
+      // in case of abstract package we have no extends
+      if (inherited != "")
+      {
+        symbol s_otherpackage = null;
+        symbol strutsFile = getCurrentConfigurationFile(STRUTS_CONFIG_FILE);
+        if (inherited == "struts-default") { /* when it's struts-default, we don't specify the parent */
+           s_otherpackage = findUniqueSymbol(inherited, CAST_JEE_StrutsPackage,strutsFile);
+        } else {
+           s_otherpackage = findUniqueSymbol(inherited, CAST_JEE_StrutsPackage, parent);
+        }
+          
+        if (s_otherpackage == null) {
+           s_otherpackage = findPackageUnderIncludedFiles(inherited);
+	    }
+
+        if (s_otherpackage == null) 
+        {
+           s_otherpackage = findUniqueSymbol(inherited, CAST_JEE_StrutsPackage) ;
+	    }
+          
+        if (s_otherpackage != null)
+        {
+          log (DEBUG,"Executing addProperty(s_package...") ;
+          addProperty(s_package,CAST_AST_WithInheritanceList_baseTypes,s_otherpackage);
+          createLink(s_package, s_otherpackage, inheritExtendLink);
+        } 
+        else
+        {
+          log(WARNING,"Package " + inherited + " inherited by package " + name + " does not exist");
+        }
+      }
+  }
+}
+
+
+
+symbol findPackageUnderIncludedFiles(string name)
+{
+    log(DEBUG,"findPackageUnderIncludedFiles(" + name + ")") ;
+	symbol current_struts_file = getCurrentConfigurationFile(STRUTS_CONFIG_FILE);
+	list(symbol) includes = getSymbolsProperty(current_struts_file,CAST_JEE_ConfigurationFile_includedFiles);
+
+	foreach(symbol include in includes)
+	{
+		symbol child = findUniqueSymbol(name,CAST_JEE_StrutsPackage,include);
+		if(child != null)
+		{
+			return child;
+		}
+	}
+	return null; 
+}
+
+
+void setDefaultClassRef(string packageName,string defaultClassName,string path)
+{
+  symbol current_file = getCurrentFile(path);
+  symbol package = findUniqueSymbol(packageName, CAST_JEE_StrutsPackage, current_file);
+  
+  setProperty(package,CAST_JEE_XMLObjectCommonProperties_implementationClass,defaultClassName);
+}
+
+/**
+* Find Interceptor or Interceptor Stack specified in parameter 
+* 
+* @param symbolName: name of Interceptor to be found
+* @param package:  name of Interceptor Stack to be found
+* @param return found object
+*/
+symbol findInterceptorOrInterceptorStack( string symbolName, symbol package )
+{
+    symbol searchedSymbol = findUniqueSymbol(symbolName, {CAST_JEE_StrutsInterceptor, CAST_JEE_StrutsInterceptorStack}, package);
+    if (searchedSymbol == null)
+    {
+        list(symbol) inheritedPackages = getInheritedPackages(package);
+        foreach(symbol inheritedPackage in inheritedPackages)
+        {
+          searchedSymbol = findInterceptorOrInterceptorStack( symbolName, inheritedPackage );
+          if (searchedSymbol != null)
+          {
+            return searchedSymbol;
+          }
+        }
+    }
+    return searchedSymbol;
+}
+
+/**
+* Create Interceptor specified in parameter 
+* 
+* @param symbolName: name of Interceptor to be found
+* @param package:  name of Interceptor Stack to be found
+* @param return found object
+*/
+void manageInterceptor(string package, string name, string className, string path) {
+  log(DEBUG, "manageInterceptor(" + package + "," + name + "," + className + ")");
+  
+  symbol s_current_file = getCurrentFile(path);
+  symbol s_package = findUniqueSymbol(package, CAST_JEE_StrutsPackage, s_current_file);
+  if (s_package == null) {
+    log(DEBUG, "manageInterceptor : can not create Interceptor named '" + name + "'. It's parent package named '" + package + "' can't be found in file " + path);
+    return;
+  }
+  symbol s_interceptor = findOrCreateSymbol(name, CAST_JEE_StrutsInterceptor, s_package);
+
+  setBookmark(s_interceptor,getBookmark(s_package));
+  
+  symbol s_class = findUniqueSymbol(className, GROUP_JAVA_USERTYPES);
+  createLink(s_interceptor, s_class, relyonLink);
+}
+
+/**
+* Create Interceptor Stack specified in parameter
+* 
+*/
+void manageInterceptorStack(string package, string name, string path) {
+  log(DEBUG, "manageInterceptorStack(" + package + "," + name  + ")");
+  
+  symbol current_file = getCurrentFile(path);
+  symbol packageSymbol = findUniqueSymbol(package, CAST_JEE_StrutsPackage, current_file);
+  if (packageSymbol == null) {
+      log(DEBUG, "manageInterceptorStack : can not create Interceptor Stack named '" + name + "'. It's parent package named '" + package + "' can't be found in file " + path);
+      return;
+  }
+  symbol interceptorStack = findOrCreateSymbol(name, CAST_JEE_StrutsInterceptorStack, packageSymbol);
+
+  setBookmark(interceptorStack,getBookmark(packageSymbol));
+}
+
+/**
+* Manage interceptor-ref tag; create a relyOn link between the package and the referenced interceptor or interceptor stack
+* 
+*/
+void manageInterceptorRef(string package, string stack, string interceptorRefName, string path) {
+  log(DEBUG, "manageInterceptorRef(" + package + "," + stack + "," + interceptorRefName + ")");
+  
+  symbol s_current_file = getCurrentFile(path);
+  string currentFilePath = toString(s_current_file);
+  symbol s_package = findUniqueSymbol(package, CAST_JEE_StrutsPackage, s_current_file);
+  if (s_package == null) {
+    log(DEBUG, "manageInterceptorRef : can not find package '" + package + "' in file " + currentFilePath);
+    return;
+  }
+  
+  symbol s_interceptor_stack = findUniqueSymbol(stack, CAST_JEE_StrutsInterceptorStack, s_package);
+  if (s_interceptor_stack == null) {
+      log(DEBUG, "manageInterceptorRef : can not find link caller Interceptor stack named '" + stack + "' in package '" + package + "' in file " + currentFilePath);
+      return;
+  }
+  
+  // look interceptor in current package and inherited package.
+  symbol s_interceptor_ref = findInterceptorOrInterceptorStack(interceptorRefName, s_package);
+  if (s_interceptor_ref == null) {
+    log(DEBUG, "manageInterceptorRef : can not find the referenced Interceptor or Interceptor Stack named '" + interceptorRefName + "' from package '" + package + "' in file " + currentFilePath);
+    return;
+  }
+  log(DEBUG, "manageInterceptorRef-> package = "+toString(s_package)+
+                   ", stack = "+toString(s_interceptor_stack)+
+				   ", interceptRef = "+toString(s_interceptor_ref));
+				   
+  createLink(s_interceptor_stack, s_interceptor_ref, relyonLink);
+}
+
+/**
+* Manage default-interceptor-ref tag 
+* 
+*/
+void manageDefaultInterceptorRef(string package, string interceptorRefName, string path) {
+  log(DEBUG, "manageDefaultInterceptorRef(" + package + "," + interceptorRefName + ")");
+  
+  symbol s_current_file = getCurrentFile(path);
+  string currentFilePath = toString(s_current_file);
+  symbol s_package = findUniqueSymbol(package, CAST_JEE_StrutsPackage, s_current_file);
+  if (s_package == null) {
+    log(DEBUG, "manageDefaultInterceptorRef : can not find package '" + package + "' in file " + currentFilePath);
+    return;
+  }
+  
+  // look interceptor in current package and inherited package.
+  symbol s_interceptor_ref = findInterceptorOrInterceptorStack(interceptorRefName, s_package);
+  if (s_interceptor_ref == null) {
+    log(DEBUG, "manageDefaultInterceptorRef : can not find the referenced Interceptor or Interceptor Stack named '" + interceptorRefName + "' from package '" + package + "' in file " + currentFilePath);
+    return;
+  }
+  log(DEBUG, "manageDefaultInterceptorRef-> package = "+toString(s_package)+
+				   ", interceptRef = "+toString(s_interceptor_ref));
+				   
+  createLink(s_package, s_interceptor_ref, relyonLink);
+}
+
+/**
+* * Manage default-interceptor-ref tag used within an action 
+* 
+*/
+void manageInterceptorRefInAction(string packageName, string actionName, string interceptorRefName, string path) {
+  log(DEBUG, "manageInterceptorRefInAction(" + packageName + "," + actionName + "," + interceptorRefName + ")");
+  
+  symbol current_file = getCurrentFile(path);
+  symbol package = findUniqueSymbol(packageName, CAST_JEE_StrutsPackage, current_file);
+  if (package == null) {
+    package = findOrCreateSymbol(packageName, CAST_JEE_StrutsPackage, current_file);
+  }
+  
+  symbol action = findUniqueSymbol(actionName, CAST_JEE_StrutsAction, package);
+  if (action == null) {
+      log(DEBUG, "manageInterceptorRefInAction : can not find action named'" + actionName + "' in package '" + packageName + "'.");
+      return;
+  }
+
+  symbol interceptor_ref = findInterceptorOrInterceptorStack(interceptorRefName,package);
+  if (interceptor_ref == null) {
+    log(DEBUG, "manageInterceptorRefInAction : can not find the referenced Interceptor or Interceptor Stack named '" + interceptorRefName + "' from package '" + packageName + "' in file " + path);
+    return;
+  }
+  log(DEBUG, "manageInterceptorRefInAction-> package = "+toString(package)+
+                   ", action = "+toString(action)+
+				   ", interceptRef = "+toString(interceptor_ref));
+				   
+  createLink(action,interceptor_ref,relyonLink);
+}
+
+public symbol createActionFromXML(string package, string name, string class, string method, string path) {
+  symbol s_current_file = getCurrentFile(path);
+  symbol s_package = findOrCreateSymbol(package, CAST_JEE_StrutsPackage,s_current_file);
+  createActionFromParent(name,  class,  method,  s_package);
+}
+
+/*
+ * The goal of this function is to create a Struts Action with the following tasks:
+ *   . creation under the parent specified in the parent parameter with the name = "name"
+ *   . create a relyon link from this Action to the class which define manage the action to do
+ *   . create a call link from this action to the method of the class (if exist)
+ * NOTE:
+ *    . when the class is not specified, it is by default "com.opensymphony.xwork2.ActionSupport"
+ *    . when the method is not specified, it is by default "execute"
+ *    . when the class is not specified instead of creating a link to the execute method of 
+ *      "com.opensymphony.xwork2.ActionSupport", we must create a call link directly to the Result "success"
+ */
+symbol createActionFromParent(string name, string className, string methodName, symbol parent) {
+  log (DEBUG, "createActionFromParent(" + name + "," + className + "," + methodName + toString(parent)+")");
+  
+	if(parent == null)
+    {
+        log (DEBUG, "createActionFromParent : No parent");
+		return null; 
+    }
+
+  symbol action = findOrCreateSymbol(name, CAST_JEE_StrutsAction, parent);
+
+  if (className == "")
+  {
+    string overridenDefaultClass = getStringProperty(parent,CAST_JEE_XMLObjectCommonProperties_implementationClass) ;
+    
+    if (overridenDefaultClass != "")
+    {
+        className = overridenDefaultClass ;
+    }
+    else
+    {
+        className = DefaultActionClass ;
+    }
+  }
+
+  setProperty(action,CAST_JEE_XMLObjectCommonProperties_implementationClass,className);
+
+  if (methodName == "") {
+    methodName = "execute";
+  }
+
+  setProperty(action,CAST_JEE_Struts2Properties_method,methodName);
+
+  string mangling = getStringProperty(parent,CAST_Mangled_mangling) + "/" + name ;
+  setProperty(action,CAST_Mangled_mangling,mangling) ;
+
+  setBookmark(action,getBookmark(parent));
+  
+  // if wildcard then do nothing
+  if (isWildcard(name))
+  {
+    log (DEBUG, "in method createActionFromParent found a wildcard action skipping links creation") ;
+    setProperty(action,CAST_JEE_Struts2Properties_isWildcard,1) ;
+    return ;
+  }
+
+  symbol class = findUniqueSymbol(className, GROUP_JAVA_USERTYPES);  
+  symbol method = null;
+
+  if (class != null) 
+  {
+      addProperty(action,CAST_JEE_XMLObjectCommonProperties_javaReference,class);
+	  /* 
+          * We create a link to the method only if the action class is different from
+          * "com.opensymphony.xwork2.ActionSupport"
+          */
+      if (getStringProperty(class, identification_fullName) != DefaultActionClass) {
+        /*
+              * If no method has been specified, then it's the execute method that is used by struts.
+	     * Note that in the case where the class is ActionSupport, we will create a shortcut:
+	     * we will directly create a call link from the Action  to the Result object
+	     */
+
+        method = findMethodOfAction( action, methodName, class );
+	    if (method == null) {
+          log (DEBUG, "createActionFromParent : Cannot resolve method '"+ className + "." + methodName +"', used as method of the struts action '" + mangling + "'. The link from this action and toward it's accessible results won't be traced.");
+	    } else {
+	      createLink(action, method, callLink);
+          createLinkFromReturnedString( method, CAST_JEE_StrutsResult, action, callLink );
+	    }
+      }
+      createLink(action, class, relyonLink);
+  }
+  else
+  {
+    log(WARNING,"cannot resolve java class '" + className + "'") ;
+  }
+
+  return action;
+}
+
+
+private symbol getUniqueSymFromStrutsConf (string name, string type, string package, string path) {
+   log (DEBUG, "getUniqueSymFromStrutsConf(" + name + "," + type + "," + package + " )");
+   symbol s_current_file = getCurrentFile(path);
+   if (s_current_file == null)
+   {
+     log (DEBUG, "getUniqueSymFromStrutsConf : s_current_file is null ");
+	 return null; 
+   }
+   else
+   {
+     log (DEBUG, "getUniqueSymFromStrutsConf : s_current_file is not null ");
+   }  
+   
+   symbol s_package = findUniqueSymbol(package, CAST_JEE_StrutsPackage, s_current_file);
+   
+   if (s_package == null)
+   {
+     log (DEBUG, "getUniqueSymFromStrutsConf : s_package is null ");
+	 return null; 
+   }
+   else
+   {
+     log (DEBUG, "getUniqueSymFromStrutsConf : s_package is not null ");
+   }  
+
+   symbol sym = findUniqueSymbol(name, type, s_package);
+   if (sym == null) {
+     return s_package;
+   }
+   else {
+     return sym;
+   }
+}
+
+/**
+* Create Results defined in xml
+* 
+* @param 
+*/
+public void createResultActionFromXML(string package, string actionName, string resultName, string type, string path, string namespace, string method, string xmlpath) {
+  log (DEBUG, "createResultActionFromXML(" + package + "," + actionName + "," + resultName + "," + type + "," + path + "," + namespace + "," + method + " )");
+  
+  symbol s_action = getUniqueSymFromStrutsConf(actionName, CAST_JEE_StrutsAction, package, xmlpath);
+  log (DEBUG,"action name " + getStringProperty(s_action,identification_name) + " searched action name =" + actionName) ;
+
+  createResultActionSym(s_action, resultName, type, path, namespace, method);
+}
+
+/**
+* Compute path with the namepace of the current namespace
+* 
+* @param 
+*/
+string completePathWithNameSpace(symbol action, string path)
+{
+	if(substring(path,0,1) == "/")
+	{
+		return path;
+	}
+	
+	symbol current_parent = getSymbolUniqueParent(action);
+	string type = getMetaType(current_parent);
+	string result = path;
+	
+	while((type != CAST_JEE_StrutsPackage) && (type != "JSP_APP"))
+	{
+		if(current_parent == null)
+		{
+		    return path;
+		}
+		
+		current_parent = getSymbolUniqueParent(current_parent);
+		
+		type = getMetaType(current_parent);
+	}
+	
+	if(type == "JSP_APP")
+	{
+	    return path;
+	}
+	
+	if(current_parent != null)
+	{
+		result = getStringProperty(current_parent,CAST_JEE_StrutsPackage_namespace);
+		result = result + "/" + path;
+		log(DEBUG,">>est " + result);
+	}
+	
+	return result;
+}
+
+/*
+ * The goal of this function is to create a Struts Result with the following tasks:
+ *   . creation under the parent specified in the s_action parameter with the name = "name"
+ *     or "success" if the name is blank.
+ *   . if the parent is not specified, then it's a global result and the parent is the file
+ *   . if the type:
+ *        - is not a "redirectAction", then we must create a call link to the JSP file path
+ *        - is a "redirectAction", then we must:
+ *             * create a call link to the Struts Action using the Resolving table to find 
+ *               which action it is (it could be in another namespace)
+ *               NOTE that since the resolving table is under construction, this resolution must be postponed
+ *
+ *             * if a method is specified, we must also create a call link from this 
+ *               Action to the method of the class associated to this Action
+ *               unless it is "com.opensymphony.xwork2.ActionSupport"
+ *               (in this case, a call link should already have been created from this action to the "success" Result
+ *   . update the Resolving Table with this result.
+ *  
+ *  See   http://struts.apache.org/2.2.1/docs/result-types.html for more information
+ */
+void createResultActionSym(symbol s_action, string name, string type, string path, string namespace, string method) {
+  symbol result = null;
+  symbol s_path = null;
+  symbol servlet= null;
+  
+  string pathWithNamespace = completePathWithNameSpace(s_action,path);
+
+  log (DEBUG,"action name = " + getStringProperty(s_action,identification_name)) ;
+
+  string resultName = "success";
+  if (name != "") {
+    resultName = name;
+  }
+  
+  if (s_action != null) {
+    log (DEBUG, "createResultActionSym : s_action ("+toString(s_action)+")!= null");
+    result = findOrCreateSymbol(resultName, CAST_JEE_StrutsResult, s_action);
+	if (result == null) {
+	  log (ERROR, "createResultActionSym : result("+toString(s_action)+"/" + resultName +") = null");
+	  return;
+	}
+
+	setBookmark(result,getBookmark(s_action));
+
+  } else {
+    log (DEBUG, "createResultActionSym : s_action= null"); 
+    result = findOrCreateSymbol(resultName, CAST_JEE_StrutsResult);
+	if (result == null) {
+      log (ERROR, "createResultActionSym : result("+ resultName +") = null");
+	  return;
+	}
+  }
+  
+  if (type != "redirectAction" && type != "redirect-action" && type != "chain") 
+  {
+    setProperty(result,CAST_JEE_Struts2Properties_webFile,pathWithNamespace);
+  }
+  else
+  {
+	setProperty( result, CAST_JEE_ResultRedirectAction_namespace , namespace );
+	setProperty( result, CAST_JEE_ResultRedirectAction_actionName, path );
+  }
+  
+  if (isWildcard(getStringProperty(s_action,identification_name)))
+  {
+    return ;
+  }
+  
+   // we can be called with a package as s_action in the case of a global result
+   if (getMetaType(s_action) == CAST_JEE_StrutsAction)
+   {
+      string class_action = getStringProperty(s_action, CAST_JEE_XMLObjectCommonProperties_implementationClass );
+      log (DEBUG, "createResultActionSym : class of the Action = " + class_action);
+      if (resultName == "success" && class_action == DefaultActionClass) {
+        createLink(s_action, result, callLink);
+        log (DEBUG, "createResultActionSym : create direct link from the action " + 
+                   toString(s_action) + "  to  the result " + resultName);			   
+      }
+  }
+  
+  // if uses wildcard result
+  if (substringMatch(pathWithNamespace,"[{]") != "")
+  {
+    return ;
+  }
+
+  boolean isURLwithAction = false;
+  if(getFirstIndex(pathWithNamespace,".action") != -1)
+  {
+	isURLwithAction = true;
+  } 
+
+  if (!isResultTypeHandled(type))
+  {
+    if (type != "customJSON")
+    {
+      log (INFO, "The result type '" + type + "' is not supported.") ;
+    }
+  }
+  
+  if (isResultTypeHandledAsPath(type)) {
+	if(!isURLwithAction)
+	{
+		servlet = findUniqueSymbol(pathWithNamespace, JSP_SERVLET);
+		if(servlet == null)
+		{
+			log (DEBUG, "Resolving Web File '" + pathWithNamespace +"'") ;
+			s_path = findUniqueSymbol(pathWithNamespace, CAST_Web_File);
+		}
+	}
+	if (s_path == null && servlet == null) 
+	{
+		if(type != "redirect")
+		{
+			log (WARNING, "Cannot resolve Web File '" + pathWithNamespace +"'") ;
+		}
+		else
+		{
+			if(!isURLwithAction)
+			{
+				log(DEBUG, "createResultActionSym: Is creating Link from Result '" + resultName + "' to URL '" + pathWithNamespace + "'");
+				if(!createLink(result, pathWithNamespace, URL  , callLink))
+				{
+					log (ERROR, "createResultActionSym : Can't create link toward URL => createLink("+ resultName + "," + namespace + "/" + pathWithNamespace + ") = null");
+				}
+			}
+			else
+			{
+				createLink(result, path, CAST_JEE_StrutsAction  , callLink)
+			}
+		}
+	} 
+	else 
+	{
+		if(servlet == null)
+		{
+		   if (createLink(result, s_path, callLink) == false) 
+		   {
+			 log (ERROR, "createResultActionSym : createLink("+ resultName + "," + pathWithNamespace +") = null");
+		   }
+		   
+		   // we can be called with a package as s_action in the case of a global result
+		   if (getMetaType(s_action) == CAST_JEE_StrutsAction)
+		   {
+			  enrichResolutionContext(s_path,s_action);
+		   }
+		}
+		else
+		{
+		   log (DEBUG, "Resolving servlet '" + pathWithNamespace +"' and tracing link") ;
+			if (createLink(result, servlet, callLink) == false) 
+		   {
+			 log (ERROR, "createResultActionSym : createLink("+ resultName + "," + pathWithNamespace +") = null");
+		   }
+		}
+	}	
+  } 
+  if (isResultTypeHandledAsAction(type)) {
+	log(DEBUG, "createResultActionSym: Is creating Link from Result '" + resultName + "' to Action '" + path + "'");
+    string actionPath = path;
+    if ( type == "chain" && method != "" )
+    {
+        log(DEBUG, "createResultActionSym: indicate method for chain action '" + method + "'");
+        actionPath = actionPath + "!" + method;
+    }
+	if (createLink(result, actionPath, CAST_JEE_StrutsAction, callLink) == false) 
+	{
+	 log (ERROR, "createResultActionSym : Can't create link toward action => createLink("+ resultName + "," + namespace + "/" + path + ") = null");
+	}
+  }
+}
+
+private boolean isResultTypeHandledAsAction(string type)
+{
+  if (type == "redirectAction" || type == "redirect-action" || type == "chain") 
+  {
+    return true ;
+  }
+  else
+  {
+    return false ;
+  }
+}
+
+private boolean isResultTypeHandledAsPath(string type)
+{
+  if (type == "" || type == "httpheader" || type == "stream" || type == "dispatcher" 
+      || type == "redirect" || type == "freemarker" || type == "velocity" || type == "xslt" || type == "plaintext" || type == "tiles")
+  {
+    return true ;
+  }
+  else
+  {
+    return false ;
+  }
+}
+
+private boolean isResultTypeHandled(string type)
+{
+    return isResultTypeHandledAsAction(type) || isResultTypeHandledAsPath(type) ;
+}
+
+/*
+ * The goal of this function is to manage exceptions with the following tasks:
+ *   . find the exception raised
+ *   . create a link from this exception to the result associated to this exception
+ */
+public void manageException(string package, string action, string exceptionClass, string result, string path) {
+  log(DEBUG, "manageException(" + package + "," + action + "," + exceptionClass + "," + result +" )");
+  
+  symbol s_action = getUniqueSymFromStrutsConf(action, CAST_JEE_StrutsAction, package, path);
+  symbol s_result = findUniqueSymbol(result, CAST_JEE_StrutsResult, s_action);
+  symbol s_class = findUniqueSymbol(exceptionClass, GROUP_JAVA_USERTYPES);
+  log(DEBUG, "manageException => createLink("+toString(s_class)+","+toString(s_result)+")");
+  createLink(s_class, s_result, callLink);
+}
+
+/**
+ * Create a validator from xquery
+ */
+public void createValidatorForFieldfromXML(string fieldname, string type) {
+    log(DEBUG, "createValidatorForFieldfromXML("+ fieldname + "," + type +" )");
+
+	symbol currentfile = getCurrentConfigurationFile(CAST_Web_File);
+	symbol actionClass = actionClassFromFilePath();
+	createValidatorForFieldFromParent(fieldname, type, actionClass, currentfile);
+}
+
+/*
+ * This function will:
+ *   . create a validation form for the parent whose name is the short name of the parent
+ *   . create a RelyOn link from this validation form to the parent (which is a class)
+ *   . create a validation form field whose name is "fieldname" under the previous validation form
+ *   . create a RelyOn link from this validation form field to the class field whose name is fieldname
+ *   . if the type is an existing validator object, then we create a RelyOn link from the validator field
+ *     to the form field
+ */
+void createValidatorForFieldFromParent (string fieldname, string type, symbol javaClass, symbol parent) {
+    log(DEBUG, "createValidatorForFieldFromParent(" + fieldname +","+ type +
+	         ",  symbol("+ toShortString(javaClass) +
+			 "), symbol("+ toShortString(parent) + "))");
+	symbol validationForm = getValidationFormFromFile(parent, javaClass);
+	  
+	if (javaClass != null) {
+	  string javaClassName = getStringProperty(javaClass, identification_name);
+	  symbol validationField = findOrCreateSymbol(fieldname, CAST_JEE_VALIDATION_FORM_FIELD, validationForm);	  	  
+
+      createLink(validationField, type, CAST_JEE_StrutsValidator, relyonLink);
+	  
+	  list(string) fieldNames = getFieldList(fieldname) ;
+        
+      foreach(string fieldName in fieldNames)
+	  {
+        symbol field = findFieldInClassInheritanceTree(fieldName, javaClass);
+        if (field == null)
+        {
+            return ;
+        }      
+	    createLink(validationField, field, relyonLink);
+	    javaClass = getType(field) ;
+        if (javaClass == null)
+        {
+            return ;
+        }      
+	  }
+	  log(DEBUG, "end of createValidatorForFieldFromParent");
+	}
+}
+
+
+/**
+ * Create a validator expression from xquery
+ */
+public void createValidatorExpressionfromXML (string expression) {
+    log(DEBUG, "createValidatorExpressionfromXML(" + expression +" )");
+	symbol currentfile = getCurrentConfigurationFile(CAST_Web_File);   
+	symbol actionClass = actionClassFromFilePath();
+	createValidatorExpressionFromParent(expression, actionClass, currentfile);
+}
+
+/*
+ * This function will:
+ *   . create a validation form for the parent whose name is the short name of the action
+ *   . create a RelyOn link from this validation form to the action class
+ *   . create a validation form field whose name is "expression" under the previous validation form
+ *   . find all fields in the action class whose name are referenced in the expression and
+ *       create the RelyOn links from this validation form field to these fields
+ */
+void createValidatorExpressionFromParent (string expression, symbol javaClass, symbol parent) {
+    log(DEBUG, "createValidatorExpressionFromParent(" + expression +
+	         ",  symbol("+ toShortString(javaClass) +
+			 "), symbol("+toShortString(parent) + "))");
+	symbol validationForm = getValidationFormFromFile(parent, javaClass);
+	  
+	if (javaClass != null) {
+	  string javaClassName = getStringProperty(javaClass, identification_name);
+	  symbol validationField = findOrCreateSymbol(expression, CAST_JEE_VALIDATION_FORM_FIELD, validationForm);
+	  
+	  foreach (symbol field in findSymbols({JV_FIELD}, javaClass)) {
+	    string fieldname = getStringProperty(field, identification_name);
+        if (substringMatch(expression, "\\<(?:"+fieldname+")\\>") != "") {
+	       log(DEBUG, "createValidatorExpression( field = " + fieldname +" )");
+		   createLink(validationField, field, relyonLink);
+		}
+	  }
+	}
+}
+
+/* This function will create a JSP Validator 
+ * and add a RelyOn link from this validator to the class
+ */
+void createValidator (string name, string class) {
+   log(DEBUG, "createValidator(" + name + "," + class +" )");
+   symbol validator = findOrCreateSymbol(name, CAST_JEE_StrutsValidator);
+   setProperty(validator,CAST_Mangled_mangling,name) ;
+   symbol classSymbol = findUniqueSymbol(class, GROUP_JAVA_USERTYPES);
+   if (classSymbol == null) {
+	 log (ERROR, "createValidator("+ class + ") = null");
+   }
+   if (createLink(validator, classSymbol, relyonLink) == false) {
+     log (ERROR, "createValidator: createLink("+name+","+class+","+relyonLink+") failed");
+   }
+}
+
+private symbol getValidationFormFromFile( symbol file, symbol associatedJavaClass )
+{
+    string validationFormName = computeValidatorFormName();
+    log(DEBUG,"file path is : " + getStringProperty(file,"shell.fullPath"));
+	symbol validationForm = findUniqueSymbol( validationFormName, CAST_JEE_VALIDATION_FORM, file );
+    if ( validationForm == null )
+    {
+        validationForm = findOrCreateSymbol(validationFormName, CAST_JEE_VALIDATION_FORM, file);
+		if(associatedJavaClass != null)
+		{
+			createLink(validationForm, associatedJavaClass, relyonLink);
+		}
+    }
+	return validationForm;
+}
+
+private string computeValidatorFormName()
+{
+   symbol s_currentfile = getCurrentConfigurationFile(CAST_Web_File);
+   string filepath = getStringProperty(s_currentfile, shell_fullPath);
+   int lastSlash = getLastPathSeparator( filepath );
+   int lastMinus = getLastIndex( filepath, "-" );
+   return substring(filepath, lastSlash + 1, lastMinus - (lastSlash + 1));
+}
+	  
+/* The aim of this function is to deduce the class from the filename of the validator file
+ * 
+ * See: http://struts.apache.org/2.x/docs/validation.html#Validation-HowValidatorsofanActionareFound 
+ */
+symbol actionClassFromFilePath () {
+   symbol s_currentfile = getCurrentConfigurationFile(CAST_Web_File);   
+   string filepath = getStringProperty(s_currentfile, shell_fullPath);
+
+   symbol actionClass = pathToClass(filepath,"(/|\\\\)([^/\\\\]*)-validation\\.xml", "-validation.xml");
+   
+   log (DEBUG, "actionClassFromFilePath("+filepath+") = "+toString(actionClass));
+   return actionClass;
+}
+
+/**
+ * Finish action handling
+ * Handle global results that induce more contexts on jsp pages.
+*/
+public void endAction(string package_name,string action_name, string path)
+{
+  symbol current_file = getCurrentFile(path);;
+  symbol s_package = findUniqueSymbol(package_name, CAST_JEE_StrutsPackage, current_file);
+  symbol s_action = findUniqueSymbol(action_name, CAST_JEE_StrutsAction, s_package);
+
+  if (s_action == null)
+  {
+    log(DEBUG,"endAction action is null") ;
+    return ;
+  }
+  manageGlobalResults(s_action,s_package) ;
+}
+
+/// Set default action ref handling
+/*
+Handle default-action-ref tag.
+*/
+void manageDefaultActionRef(string package_name,string action_name, string path)
+{
+  symbol current_file = getCurrentFile(path);;
+  symbol s_package = findUniqueSymbol(package_name, CAST_JEE_StrutsPackage, current_file);
+  symbol s_action = findUniqueSymbol(action_name, CAST_JEE_StrutsAction, s_package);
+
+  if (s_action == null)
+  {
+    log(WARNING,"Referenced default action "+ action_name + " does not exist.") ;
+    return ;
+  }
+
+  log(DEBUG,"Setting default action "+ action_name + " on package " + package_name) ;
+    
+	addProperty(s_package,CAST_JEE_Struts2Properties_defaultActionRef,s_action) ;
+}
+
+boolean isWildcard(string actionName) 
+{
+  if (substringMatch(actionName,"[*]") != "")
+  {
+    return true ;
+  }
+  else
+  {
+    return false ;
+  }
+}
+
+private void manageGlobalResults(symbol action,symbol package)
+{
+  // global results of package
+  list(symbol) global_results = findSymbols({CAST_JEE_StrutsResult},package) ;
+  
+  foreach(symbol global_result in global_results)
+  {
+    log(DEBUG,"endAction found one result of type " + getMetaType(global_result)) ;
+    addGlobalResult(global_result,action) ;
+  }
+  
+  // recurse on inherited package
+  list(symbol) inheritedPackages = getInheritedPackages(package) ;
+  foreach(symbol inheritedPackage in inheritedPackages)
+  {
+    manageGlobalResults(action,inheritedPackage) ;
+  }
+  
+}
+
+/// Access to the inherited packages
+private list(symbol) getInheritedPackages(symbol s_package)
+{
+  log(DEBUG,"getInheritedPackage for " + getStringProperty(s_package,identification_name)) ;
+  
+  return getSymbolsProperty(s_package,CAST_AST_WithInheritanceList_baseTypes) ;
+}
+
+/// Make @c action consider @c result as a global result.
+private void addGlobalResult(symbol result,symbol action)
+{
+  // check that result is a redirect to jsp (and which one)
+  string web_file_path = getStringProperty(result,CAST_JEE_Struts2Properties_webFile) ;
+  if (web_file_path == "")
+  {
+    return ;
+  }
+
+  // check that result is not already present under action
+  if (isOverridden(result,action))
+  {
+    // result overriden by action : skipp enrichment
+    return ;
+  }
+  
+  addProperty(action,CAST_JEE_Struts2Properties_globalResults,result) ;
+  
+  boolean isURLwithAction = false;
+  if(getFirstIndex(web_file_path,".action") != -1)
+  {
+	isURLwithAction = true;
+  } 
+  
+  if(!isURLwithAction)
+  {
+	  symbol web_file = findUniqueSymbol(web_file_path,CAST_Web_File) ;
+	  
+	  if (web_file == null)
+	  {
+		log(DEBUG,"addGlobalResult : web file is null") ;
+		return ;
+	  }
+	  
+	  // apply
+	  enrichResolutionContext(web_file,action) ;
+  }
+  else
+  {
+      createLink(result, web_file_path, CAST_JEE_StrutsAction  , callLink);
+  }
+}
+
+/// True if @c result is overridden for @c action_or_package
+private boolean isOverridden(symbol result,symbol action_or_package)
+{
+  log(DEBUG,"isOverridden(" + getStringProperty(result,identification_name) + "," + getStringProperty(action_or_package,identification_name) + ")") ;
+  symbol result_parent = getSymbolUniqueParent(result) ;
+  if (result_parent == action_or_package)
+  {
+    return false ;
+  }
+  
+  string result_name = getStringProperty(result,identification_name) ;
+  symbol local_result = findUniqueSymbol(result_name,{CAST_JEE_StrutsResult},action_or_package) ;
+  
+  if (local_result != null)
+  {
+    // result overriden by action or package
+    return true ;
+  }
+  
+  symbol resolution_parent = null ;
+  if (getMetaType(action_or_package) == CAST_JEE_StrutsAction)
+  {
+    resolution_parent = getSymbolUniqueParent(action_or_package) ;
+    if (resolution_parent != null)
+    {
+      return isOverridden(result,resolution_parent) ;
+    }
+  }
+  else
+  {
+    list(symbol) inherited_packages = getInheritedPackages(action_or_package) ;
+    foreach(symbol inherited_package in inherited_packages)
+    {
+      if (isOverridden(result,inherited_package))
+      {
+        return true ;
+      }
+    }
+  }
+  
+  return false ;
+}
+
+/// Add @c action as resolution context to @c web_file
+private void enrichResolutionContext(symbol web_file,symbol action)
+{
+  if(getMetaType(web_file) != JSP_APPDESCRIPTOR)
+  {
+	  log (DEBUG,"enrichResolutionContext on " + getMetaType(web_file)) ;
+	  if (web_file == null)
+	  {
+		 log(DEBUG,"enrichResolutionContext : web_file == null") ;
+	  }
+      addProperty(web_file,"CAST_JEE_Struts2Context.callContext",action) ;
+  }
+}
+
+
+/***************************************
+ * To add in J2EE module
+ */
+
+/* This function deduces the class symbol from a "filepath" with
+ * a specific extension "extension". 
+ * If no class has been resolved, it returns null
+ *
+ * For example:
+ *    pathToClass("/WEB-INF/src/manning/chapterTen/Register.java", ".java")
+ *    will return the class symbol whose fullname is "manning.chapterTen.Register"
+ *
+ * Note the function start to try Register, then chapterTen.Register until 
+ * all "/" are replaced by a "."
+ */
+symbol pathToClass(string filepath, string regexp,string extension) {
+  symbol s_class = null;
+
+	if (substringMatch(filepath, regexp) != "") {
+	
+	string classFile = substring(filepath, 0, getLength(filepath)-getLength(extension));
+   int lastSlash = getLastPathSeparator( classFile );
+   int lastMinus = getLastIndex( classFile, "-" );
+   if ( lastSlash < lastMinus )
+   {
+       classFile = substring(classFile, 0, lastMinus);
+   }
+	
+	log (DEBUG, "class file is : " + classFile +".java");
+	/* NOTE that:
+	 * classFile = concat(classFile, ".java");
+	 * symbol s_javaFile = findUniqueSymbol(classFile, {JV_FILE});
+	 *
+	 * This code doesn't work, I received the following message:
+	 * The execution of native function 'Core.JEE.JEE::findSymbols(string,list(string))' failed. 
+	 * ( Invalid argument. The metatype of the argument ('JV_FILE') is not managed with this native function. )
+	 *
+	 * actionClass = findFirstChildOfType(GROUP_JAVA_CLASS, s_javaFile);
+	 *
+	 * so we will try by replacing all / by . and try to find the java class 
+	 */
+	 
+	 string beg = classFile;
+	 string end = "";
+	 int index = getLastPathSeparator(beg);
+	 string temp = "";
+	 
+	 while (index > -1 && s_class == null) {
+	    temp = end;
+		end = concat(substring(beg, index+1), temp);
+	    s_class = findUniqueSymbol(end, GROUP_JAVA_USERTYPES);
+		if (s_class == null) {
+		  temp = beg;
+		  beg = concat(substring(temp, 0, index),".");
+		  index = getLastPathSeparator(beg);
+		}
+	 }
+	 log (DEBUG, "pathToClass("+filepath+","+extension+") =>"+toString(s_class));
+  }
+
+  return s_class;
+}
+
+
+
+
+ 
+ /* 
+   * Return the method of a given list of classs, even if the method is implemented in a super class
+   */
+private symbol findMethodOfAction( symbol action, string methodName, symbol s_class) {
+   symbol s_method = null;
+   list(symbol) s_list = {s_class};
+   
+   while (s_method == null) {
+      if (isEmpty(s_list)) {
+        logCantFindActionMethod( action, methodName, s_class );
+        return null;
+      }
+	  
+      /* Does the method belongs to the list of classes ? */
+      foreach (symbol sc in s_list) {   
+         s_method = findUniqueSymbol(methodName + "()", GROUP_JAVA_METHOD, sc);
+	     if (s_method != null) {
+           log(DEBUG, "findMethodOfAction("+methodName+","+toString(s_class)+") = "+toString(s_method));
+           return s_method;
+	     }
+      }
+	  
+      list(symbol) s_parent_list = {};
+	  
+	  /* Reinitialize the list with the super classes */
+	  foreach (symbol s in s_list) {
+	    list(symbol) temp = getSuperTypes(s, {JV_CLASS, JV_GENERIC_CLASS});
+        s_parent_list = s_parent_list + temp;		
+	  }
+	  
+	  s_list = s_parent_list;
+   }
+}
+ 
+ /* 
+   * Return the method of a given list of classs, even if the method is implemented in a super class
+   */
+symbol findFieldInClassInheritanceTree( string fieldName, symbol s_class) {
+   symbol field = null;
+   list(symbol) classList = {s_class};
+   
+   while (field == null) {
+      if (isEmpty(classList)) {
+        log(DEBUG, "findFieldInClassInheritanceTree("+fieldName+","+toString(s_class)+") = "+toString(field));
+        return null;
+      }
+	  
+      /* Does the method belongs to the list of classes ? */
+      foreach (symbol sc in classList) {   
+         field = findUniqueSymbol(fieldName, JV_FIELD, sc);
+	     if (field != null) {
+           log(DEBUG, "findFieldInClassInheritanceTree("+fieldName+","+toString(s_class)+") = "+toString(field));
+           return field;
+	     }
+      }
+      list(symbol) s_parent_list = {};
+	  
+	  /* Reinitialize the list with the super classes */
+	  foreach (symbol s in classList) {
+	    list(symbol) temp = getSuperTypes(s, {JV_CLASS, JV_GENERIC_CLASS});
+        s_parent_list = s_parent_list + temp;
+	  }
+	  
+	  classList = s_parent_list;
+   }
+}
+
+
+void logCantFindActionMethod( symbol action, string methodName, symbol class ) {
+    string classFullName = getStringProperty( class, identification_fullName );
+    string actionFullName = getStringProperty( action, identification_fullName );
+
+    log (DEBUG, "createActionFromParent : Cannot resolve method '"+ classFullName + "." + methodName +"()', used as method of the struts action '" + actionFullName + "'. The link from this action and toward it's accessible results won't be traced.");
+}
+
+/// Split the extends into a list of package name
+list(string) getInheritanceList(string extends)
+{
+  list(string) result = {} ;
+    
+  int index = getFirstIndex(extends,",") ;
+  
+  while (index != -1)
+  {
+    string begin = substring(extends,0,index) ;
+    begin = substringMatch(begin,"(\\S+)");
+
+    string end = substring(extends,index+1) ;
+    end = substringMatch(end,"(\\S+)");
+    
+    result = result + begin ;
+
+    extends = end ;
+    index = getFirstIndex(extends,",") ;
+  }
+    
+  result = result + extends ;
+  return result ;
+}
+
+/// In case of validator field : field1.field2... split those field names
+list(string) getFieldList(string fieldName)
+{
+  list(string) result = {} ;
+  int index = getFirstIndex(fieldName,".") ;
+  
+  while (index != -1)
+  {
+    string begin = substring(fieldName,0,index) ;
+    string end = substring(fieldName,index+1) ;
+    
+    result = result + begin ;
+
+    fieldName = end ;
+    index = getFirstIndex(fieldName,".") ;
+  }
+    
+  result = result + fieldName ;
+  return result ;
+}
+    

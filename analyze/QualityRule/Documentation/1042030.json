@@ -1,0 +1,76 @@
+{
+    "id": 1042030,
+    "name": "Avoid using Default exclude patterns (excludeParams) for Struts 2.3.20 ( and older)",
+    "href": "AIP/quality-rules/1042030",
+    "critical": false,
+    "maxWeight": 3,
+    "associatedValueName": "The number of violation occurrences",
+    "description": "Wrong default exclude patterns(excludeParams) were introduced in version 2.3.20 of Struts, if default settings are used, the attacker can compromise internal application's state.\n\nThis rule check if excludeParams is used for Struts 2.3.20 ( and older). If yes, it gives violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, almost always run with full privileges. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications using components with known vulnerabilities may undermine application defenses and enable a range of possible attacks and impacts.",
+    "reference": "https://cwiki.apache.org/confluence/display/WW/S2-024\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1831",
+    "remediation": "It's strongly advised to upgrade to 2.3.20.1 or higher version",
+    "remediationSample": "If you cannot migrate to the latest version, Please refer to this page : https://cwiki.apache.org/confluence/display/WW/S2-024",
+    "sample": "In struts config xml file: \n--------------------------------------\n\n<interceptors>\n    <interceptor-stack name=\"appDefault\">\n        <interceptor-ref name=\"defaultStack\">\n            <param name=\"exception.logEnabled\">true</param>\n            <param name=\"exception.logLevel\">ERROR</param>\n            <param name=\"params.excludeParams\">dojo..*,^struts..*,^session..*,^request..*,^application..*,^servlet(Request|Response)..*,parameters...*</param>\n        </interceptor-ref>\n    </interceptor-stack>\n</interceptors>\n                             \n<default-interceptor-ref name=\"appDefault\" />",
+    "total": "Number of field in struts2 config XML file",
+    "alternativeName": "Ensure not using excludeParams for Struts 2.3.20 ( and older) to avoid",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

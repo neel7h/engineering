@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <metric id='7776'    type='quality-rule' originalName="Avoid Artifacts with High Fan-In"                                            filter="1021000" filterLabel="Python" />
+    <metric id="7778"    type="quality-rule" originalName="Avoid Artifacts with High Fan-Out"                                           filter="1021000" filterLabel="Python" />
+    <metric id="7792"    type="quality-rule" originalName="Avoid Classes with a High Number Of Children"                                filter="1021000" filterLabel="Python" />
+    <metric id='1021000' type='quality-rule' originalName='Avoid Artifacts with High Cyclomatic Complexity (Python)'                    filter='1021000' filterLabel='Python' />
+    <metric id='1021002' type='quality-rule' originalName='Avoid using a web service with Python httplib HTTPConnection inside a loop'  filter='1021000' filterLabel='Python' />
+    <metric id='1021004' type='quality-rule' originalName='Avoid using a web service with Python requests inside a loop'                filter='1021000' filterLabel='Python' />
+    <metric id='1021006' type='quality-rule' originalName='Avoid using a web service with Python aiohttp ClientSession inside a loop'   filter='1021000' filterLabel='Python' />
+    <metric id='1021008' type='quality-rule' originalName='Avoid using a web service with Python urllib.request inside a loop'          filter='1021000' filterLabel='Python' />
+    <metric id='1021010' type='quality-rule' originalName='Avoid using a web service with Python urllib2 inside a loop'                 filter='1021000' filterLabel='Python' />
+    <metric id='1021012' type='quality-rule' originalName='Avoid using a web service with Python httplib2 Http inside a loop'           filter='1021000' filterLabel='Python' />
+    <metric id='1021014' type='quality-rule' originalName='Avoid using yield and return with value inside a function'                   filter='1021000' filterLabel='Python' />
+    <metric id='1021016' type='quality-rule' originalName='Avoid using MD5, SHA1 hashes to hash passwords or to encrypt data'           filter='1021000' filterLabel='Python' />
+    <metric id='1021018' type='quality-rule' originalName='Avoid catch-all except blocks with empty handlers'                           filter='1021000' filterLabel='Python' />
+    <metric id='1021020' type='quality-rule' originalName='Avoid using wildcard (*) imports'                                            filter='1021000' filterLabel='Python' />
+    <metric id='1021022' type='quality-rule' originalName='Initialize ancestors when overriding __init__'                               filter='1021000' filterLabel='Python' />
+    <metric id='1021024' type='quality-rule' originalName='Avoid return statement in finally block'                                     filter='1021000' filterLabel='Python' />
+    <metric id='1021026' type='quality-rule' originalName='Avoid leaving open file resources (Python)'                                  filter='1021000' filterLabel='Python' />
+    <metric id='1021028' type='quality-rule' originalName='Avoid empty finally block (Python)'                                          filter='1021000' filterLabel='Python' />
+    <metric id='1021030' type='quality-rule' originalName='Avoid hardcoded network resource names (Python)'                             filter='1021000' filterLabel='Python' />
+    <metric id='1021032' type='quality-rule' originalName='Avoid disabling certificate check when requesting secured urls'              filter='1021000' filterLabel='Python' />
+    <metric id='1021034' type='quality-rule' originalName='Avoid inconsistent initialization when deriving a new exception'             filter='1021000' filterLabel='Python' />
+    <metric id='1021036' type='quality-rule' originalName='Avoid using eval (Python)'                                                   filter='1021000' filterLabel='Python' />
+    <metric id='1021038' type='quality-rule' originalName='Avoid using exec (Python)'                                                   filter='1021000' filterLabel='Python' />
+    <metric id='1021040' type='quality-rule' originalName='Avoid attributes only differing by caps'                                     filter='1021000' filterLabel='Python' />
+    <metric id='1021042' type='quality-rule' originalName='Avoid hardcoded passwords (Python)'                                          filter='1021000' filterLabel='Python' />
+    <metric id='1021044' type='quality-rule' originalName='Avoid Python string interpolations to prevent SQL injections'                filter='1021000' filterLabel='Python' />
+    <metric id='1021046' type='quality-rule' originalName='Avoid Not Is'                                                                filter='1021000' filterLabel='Python' />
+    <metric id='1021048' type='quality-rule' originalName='Protect sensitive data in config files from disclosure'                      filter='1021000' filterLabel='Python' />
+    <metric id='1021050' type='quality-rule' originalName='Avoid using unsecured cookie (Python)'                                       filter='1021000' filterLabel='Python' />
+    <metric id='1021052' type='quality-rule' originalName='Avoid too long lines'                                                        filter='1021000' filterLabel='Python' />
+    <metric id='1021054' type='quality-rule' originalName='Avoid long docstring lines'                                                  filter='1021000' filterLabel='Python' />
+    <metric id='1021056' type='quality-rule' originalName='Missing whitespace after comma'                                              filter='1021000' filterLabel='Python' />
+    <metric id='1021058' type='quality-rule' originalName='Avoid superfluous parenthesis'                                               filter='1021000' filterLabel='Python' />
+    <metric id='1021060' type='quality-rule' originalName='Avoid trailing whitespace'                                                   filter='1021000' filterLabel='Python' />
+    <metric id='1021062' type='quality-rule' originalName='Respect variable naming conventions'                                         filter='1021000' filterLabel='Python' />
+    <metric id='1021064' type='quality-rule' originalName='Respect function naming conventions'                                         filter='1021000' filterLabel='Python' />
+    <metric id='1021066' type='quality-rule' originalName='Respect class naming conventions'                                            filter='1021000' filterLabel='Python' />
+    <metric id='1021068' type='quality-rule' originalName='Avoid using global statement'                                                filter='1021000' filterLabel='Python' />
+    <metric id='1021070' type='quality-rule' originalName='Avoid Superclass knowing Subclass (Python)'                                  filter='1021000' filterLabel='Python' />
+</root>

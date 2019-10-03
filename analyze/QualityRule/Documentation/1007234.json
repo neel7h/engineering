@@ -1,0 +1,78 @@
+{
+    "id": 1007234,
+    "name": "Avoid having inline control statements (PHP)",
+    "href": "AIP/quality-rules/1007234",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the artifacts having inline control statements. The Control statements being checked including \"if\", \"else\", \"elseif\", \"for\", \"while\", \"foreach\". \nEven if intention is to execute only one statement for the given condition, the statement should be put inside curly braces as a good practice.",
+    "output": "This report lists all the Artifacts having inline control statements\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Using curly braces with the control statements increases readability and decreases the likelihood of logical errors being introduced when new code lines are added.",
+    "reference": "http://pear.php.net/package/PHP_CodeSniffer/docs/2.5.1/PHP_CodeSniffer/Generic_Sniffs_ControlStructures_InlineControlStructureSniff.html",
+    "remediation": "Use curly braces with the control statements even in situations where they are technically optional.",
+    "remediationSample": "<?php\n\nif (1 === $variable2) {                 // violation removed\n   echo '1';\n} \nelse if (2 === $variable2) {           // violation removed\n   echo '2';\n}\nelseif (3 === $variable2) {           // violation removed\n   echo '3';\n}\nelse {                                // violation removed\n   echo '4';\n}\n\nforeach(range(1, 5) as $i) {         //violation removed\n   echo $i, PHP_EOL;\n}\n\nfor ($i =1 ; $i < 5 ; $i++) {      // violation removed\n   echo \"hello cast\" ;\n}\n\n$x = 1 ;\nwhile ($x <= 5) {                 //violation removed\n   echo \"the number is : $x\" ;\n   $x++ ;\n}\n?>",
+    "sample": "<?php\n\nif (1 === $variable2)                  //violation\n   echo '1'; \nelse if (2 === $variable2)            //violation\n   echo '2';\nelseif (3 === $variable2)             //violation\n   echo '3';\nelse                                 //violation\n   echo '4' ;  \n   \nforeach(range(1, 5) as $i)          //violation\n   echo $i, PHP_EOL;      \n    \nfor($i =1 ; $i < 5;$i++)         //violation\n   echo \"hello cast\" ; \n   \nwhile ($x <= 5)                   //violation\n   echo \"the number is : $x\" ; $x++ ;    \n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid having inline control statements (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.ControlStructures.InlineControlStructure"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

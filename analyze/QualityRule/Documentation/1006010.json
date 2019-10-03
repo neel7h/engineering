@@ -1,0 +1,62 @@
+{
+    "id": 1006010,
+    "name": "Avoid script without interpretor access path  (Shell)",
+    "href": "AIP/quality-rules/1006010",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the scripts without interpretor access path.",
+    "output": "The report lists all the  Shell Scripts without interpretor access path\n\nIt provides following information: \n- script full name",
+    "rationale": "This rule searches all the scripts without interpretor access path.",
+    "remediation": "Try the increase the number of scripts having interpretor access path.",
+    "total": "Number of  Shell Scipts",
+    "alternativeName": "Avoid script without interpretor access path  (Shell)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

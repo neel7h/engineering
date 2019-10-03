@@ -1,0 +1,71 @@
+{
+    "id": 1040032,
+    "name": "Avoid Using ControllerAdvice And HandlerExceptionResolver simultaneously",
+    "href": "AIP/quality-rules/1040032",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "To track all of the exceptions in Spring, we\u2019ll be making use of a global exception handler. This receives uncaught exceptions for your whole application, not just an individual controller. Spring offers two main approaches:\n\n- ControllerAdvice\n- HandlerExceptionResolver\n\nBut you cannot mix both approaches in the same application. Most applications use one approach, and using two may result in unexpected behavior.\n\n\nThis rule will check if ControllerAdvice and HandlerExceptionResolver are not used simultaneously. If not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The software does not use a standardized method for handling errors throughout the code, which might introduce inconsistent error handling and resultant weaknesses.",
+    "reference": "https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc",
+    "remediation": "we should not use \"ControllerAdvice\" and \"HandlerExceptionResolver\" in same application.",
+    "sample": "Usage of @ControllerAdvice Sample: \n\npackage com.concretepage.controller;\nimport java.io.IOException;\nimport org.springframework.web.bind.annotation.ControllerAdvice;\nimport org.springframework.web.bind.annotation.ExceptionHandler;\nimport org.springframework.web.servlet.ModelAndView;\nimport com.concretepage.exception.KeywordNotFoundException;\n@ControllerAdvice\npublic class GlobalExceptionHandler {\n\t  @ExceptionHandler(IOException.class)\n\t  public ModelAndView myError(Exception exception) {\n\t    System.out.println(\"----Caught IOException----\");\n\t    ModelAndView mav = new ModelAndView();\n\t    mav.addObject(\"exception\", exception);\n\t    mav.setViewName(\"globalerror\");\n\t    return mav;\n\t  }\n\t  @ExceptionHandler(KeywordNotFoundException.class)\n\t  public String notFound() {\n            System.out.println(\"----Caught KeywordNotFoundException----\");\n            return \"404\";\n\t  }\n} \n\n------------------\nUsage of HandlerExceptionResolver Sample:\n\npackage com.logicbig.example;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.web.servlet.HandlerExceptionResolver;\nimport org.springframework.web.servlet.ModelAndView;\nimport org.springframework.web.servlet.ViewResolver;\nimport org.springframework.web.servlet.config.annotation.EnableWebMvc;\nimport org.springframework.web.servlet.handler.HandlerInterceptorAdapter;\nimport org.springframework.web.servlet.view.InternalResourceViewResolver;\n\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpServletResponse;\n\n@EnableWebMvc\npublic class Config {\n\n    @Bean\n    HandlerExceptionResolver errorHandler () {\n        return new HandlerExceptionResolver() {\n            @Override\n            public ModelAndView resolveException (HttpServletRequest request,\n                                                  HttpServletResponse response,\n                                                  Object handler,\n                                                  Exception ex) {\n                ModelAndView model = new ModelAndView(\"error-page\");\n                model.addObject(\"exceptionType\", ex);\n                model.addObject(\"handlerMethod\", handler);\n                return model;\n            }\n        };\n    }\n\n    //registering an interceptor",
+    "total": "Number of JAVA Projects",
+    "alternativeName": "Ensure not using ControllerAdvice And HandlerExceptionResolver simultaneously to avoid unexpected behavior",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-544",
+            "name": "Missing Standardized Error Handling Mechanism",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

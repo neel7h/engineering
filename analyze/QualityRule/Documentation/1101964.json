@@ -1,0 +1,75 @@
+{
+    "id": 1101964,
+    "name": "When using compound indexes, avoid having different index ordering in collection access",
+    "href": "AIP/quality-rules/1101964",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation patterns",
+    "description": "This report lists all artifacts with compound indexes and having different index ordering in collection access.",
+    "output": "This report lists all artifacts with compound indexes and having different indexes.\nIt provides the following information:\n artifact full name",
+    "rationale": "When using compound indexes, avoid having different indexes. Indeed, Mongo DB give the compound index, when we have index on more than two column, it is always good to have the indexes put the same way,\nit is highly recommended to have the indexes, either both positives(ascending) or either both negatives(descending).",
+    "remediation": "Use instead indexes, either both positives(ascending) or either both negatives(descending)",
+    "remediationSample": "MongoCollection<Bsondoc> collection = db.GetCollection<Bsondoc>(\"document\");\n\n            collection.CreateIndex(new IndexKeysBuilder().Ascending(\"field_1\")\n                                                            .Ascending(\"field_2\"));\n\n            col = client.GetDatabase(\"Database\").GetCollection<Bsondoc>(\"document1\");\n            var keys = Builders<Bsondoc>.IndexKeys.Ascending(\"field_1\").Ascending(\"field_2\");\n            col.Indexes.CreateOne(keys);\n\n            collection.CreateIndex(new IndexKeysBuilder().Descending(\"field_1\").Descending(\"field_2\"), IndexOptions.SetBackground(true));\n\n            collection.EnsureIndex(new IndexKeysBuilder().Descending(\"field_1\")\n                                                        .Descending(\"field_2\"));\n                                                        \n            collection.CreateIndex(new IndexKeysBuilder().Ascending(\"field_1\")\n                                        .Ascending(\"field_2\")\n                                        .Ascending(\"field_3\")\n                                        .Ascending(\"id\"), IndexOptions.SetBackground(true));\n\n            var total = client.GetDatabase(\"Database\").GetCollection<Bsondoc>(\"document\").Indexes.CreateOne(Builders<Bsondoc>.IndexKeys.Ascending(x => x.field_1).Ascending(y => y.field_2));",
+    "sample": "MongoCollection<Bsondoc> collection = db.GetCollection<Bsondoc>(\"document\");\n\n            collection.CreateIndex(new IndexKeysBuilder().Ascending(\"field_1\")\n                                                            .Descending(\"field_2\"));\n\n            col = client.GetDatabase(\"database\").GetCollection<Bsondoc>(\"document_1\");\n            var keys = Builders<Bsondoc>.IndexKeys.Ascending(\"field_1\").Descending(\"field_2\");\n            col.Indexes.CreateOne(keys);\n\n            collection.CreateIndex(new IndexKeysBuilder().Ascending(\"field_1\").Descending(\"field_2\"), IndexOptions.SetBackground(true));\n\n            collection.EnsureIndex(new IndexKeysBuilder().Ascending(\"field_1\")\n                                                        .Descending(\"field_2\"));\n                                                        \n            collection.CreateIndex(new IndexKeysBuilder().Ascending(\"field_1\")\n                                        .Descending(\"field_2\")\n                                        .Ascending(\"field_3\")\n                                        .Descending(\"id\"), IndexOptions.SetBackground(true));\n\n            var total = client.GetDatabase(\"database\").GetCollection<Bsondoc>(\"document_1\").Indexes.CreateOne(Builders<Bsondoc>.IndexKeys.Ascending(x => x.field_1).Descending(y => y.field_2));",
+    "total": "The total procedure counts MongoDB Access.",
+    "alternativeName": "When using compound indexes, avoid having different index ordering in collection access",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

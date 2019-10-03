@@ -1,0 +1,59 @@
+{
+    "id": 1011030,
+    "name": "Avoid Physical files with fields defined locally  (DDS400)",
+    "href": "AIP/quality-rules/1011030",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for all the Physical files having fields that don't specify a REFFLD.",
+    "output": "This report lists DDS400 physical File having fields defined locally.\nIt provides the following information:\nDDS400 Physical File full name",
+    "rationale": "For reuse reasons, the field should be defined in a file reference. If not, you might define different types for the same field.",
+    "remediation": "Define the field in a reference file and use the REFFLD keyword to reference it.",
+    "remediationSample": "00010A                                       REF(FILE1)\n00020A          R RECORD1\n00030A            FIELD1    R\n00040A            FIELD2    R\n00050A            FIELD3    R                REFFLD(FLD3)\n00060A            FIELD4    R                REFFLD(FLD4 FILE2)\n00070A            FIELD5    R                REFFLD(FLD5 LIB1/FILE3)",
+    "sample": "00010A**  FLDREF  MLGREFP     MAILING LIST FIELD REFERENCE FILE\n00020A       R MLGREFR                  TEXT('Mailing List Field Reference')\n00030A            ACTNUM          5  0      COLHDG('Account' 'Number')\n00040A                                      EDTCDE(Z)\n00050A            ACTTYP          1  0      COLHDG('Acct' 'Type')\n00060A                                      TEXT('Acct Type 1=Bus 2=Gvt +\n00070A                                      3=Org 4=Sch 5=Pvt 9=Oth')\n00080A            NAME            18        COLHDG('Name')\n00090A                                      REFSHIFT(X)",
+    "total": "Total number of DDS400 Physical File",
+    "alternativeName": "Avoid Physical files with fields defined locally  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

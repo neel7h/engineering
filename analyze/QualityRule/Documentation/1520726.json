@@ -1,0 +1,73 @@
+{
+    "id": 1520726,
+    "name": "Siebel eScript: Avoid putting all code in the Applet_PreInvokeMethod event",
+    "href": "AIP/quality-rules/1520726",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of lines of code",
+    "output": "This rule reports Applets with a lot of code in Applet_PreInvokeMethod",
+    "total": "Number of added or modified Applet_PreInvokeMethod in Applets",
+    "alternativeName": "Siebel eScript: Avoid putting all code in the Applet_PreInvokeMethod event",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max LoC for Applet_PreInvokeMethod",
+            "description": "Max LoC for Applet_PreInvokeMethod function",
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

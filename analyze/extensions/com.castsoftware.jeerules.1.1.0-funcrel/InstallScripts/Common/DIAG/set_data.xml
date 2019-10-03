@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+    <SetId>1039000</SetId>
+    <SetName>SECQR_JavaMethod</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SECQR_JavaMethod_1039000</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1039001</SetId>
+    <SetName>SECQR_JavaClass</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SECQR_JavaClass_1039001</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1039002</SetId>
+    <SetName>SECQR_ClassMethod</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SECQR_ClassMethod_1039002</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1039003</SetId>
+    <SetName>SECQR_ServletMethod</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SECQR_ServletMethod_1039003</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+    <SetId>1039004</SetId>
+    <SetName>SECQR_ServletMethod_4</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SECQR_ServletMethod_1039004</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+    <SetId>1039005</SetId>
+    <SetName>JEE_SEC_AtCodeAnno_1039005</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>JEE_SEC_AtCodeAnno_1039005</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+    <SetId>1039006</SetId>
+    <SetName>JEE_SEC_AtCodeAnno_1039006</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>JEE_SEC_AtCodeAnno_1039006</SetProcedure>
+</SET_Definitions>
+
+</DATA>

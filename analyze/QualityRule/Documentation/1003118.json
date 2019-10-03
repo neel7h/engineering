@@ -1,0 +1,66 @@
+{
+    "id": 1003118,
+    "name": "Avoid Value Objects with too many fields (Flex)",
+    "href": "AIP/quality-rules/1003118",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports Flex class which is value object and has more than 15 fields.",
+    "output": "This QR reports Flex class which is value object and has more than 15 fields. It gives following information:\n\n- Artifact full name",
+    "rationale": "Having large number of fields makes object less maintainable.",
+    "remediation": "Have value object with fields 15 or less.",
+    "total": "Number of classes",
+    "alternativeName": "Avoid Value Objects with too many fields (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.sizing.TooManyFieldInVO"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

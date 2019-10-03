@@ -1,0 +1,78 @@
+{
+    "id": 1007236,
+    "name": "Avoid having Class Methods or Constructor without scope modifiers - Symfony STD (PHP)",
+    "href": "AIP/quality-rules/1007236",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rules verifies that Class Methods and Constructor have scope modifiers. Class Methods and constructors must be defined as public, private, or protected.",
+    "output": "This report will list all PHP class Methods and Constructor not having scope modifiers. It provides:\nClass Method or Constructor full name.",
+    "rationale": "Access modifiers are essential element of object oriented language. Use of access modifier helps achieve encapsulation and abstraction. They also make code understanding clearer.",
+    "reference": "Symfony2-coding-standard -https://pear.php.net/reference/PHP_CodeSniffer-latest/PHP_CodeSniffer/Squiz_Sniffs_Scope_MethodScopeSniff.html",
+    "remediation": "Try to reduce the number of Class Methods and constructor without scope modifiers.",
+    "remediationSample": "<?php\nclass Toys {\n    private $categories;\n    public function __construct() {\n        $this->categories = array(\"puzzles\", \"pull back\", \"remote\", \"soft\");\n   }\n    public function getToysCategories() {\n        return $this->categories;\n    }\n}\n$objToys = new Toys();\nprint_r($objToys->getToysCategories());\n\n?>",
+    "sample": "<?php\nclass Toys {\n    private $categories;\n    function __construct() {\n        $this->categories = array(\"puzzles\", \"pull back\", \"remote\", \"soft\");\n   }\n \n    function getToysCategories() {\n        return $this->categories;\n    }\n}\n$objToys = new Toys();\nprint_r($objToys->getToysCategories());\n?>",
+    "total": "Number of Methods and Constructors",
+    "alternativeName": "Avoid having Class Methods or Constructor without scope modifiers - Symfony STD (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Squiz.Scope.MethodScope"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

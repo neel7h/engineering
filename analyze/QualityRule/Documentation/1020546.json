@@ -1,0 +1,102 @@
+{
+    "id": 1020546,
+    "name": "Avoid using unsanitized AngularJS application",
+    "href": "AIP/quality-rules/1020546",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "AngularJS includes a $sanitize service that will parse an HTML string into tokens and only allow safe and white-listed markup. The markup will no longer contain scripting expression and dangerous attributes when the string is \"disinfected\".",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure that users cannot add unchecked HTML string. It helps detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks.",
+    "reference": "https://docs.angularjs.org/guide/security",
+    "remediationSample": "var app = angular.module(\"app\", [\"ngSanitize\"]);",
+    "sample": "var app = angular.module(\"app\");",
+    "total": "Number of angular applications (may be represented by an html file, most often index.html, or no html if such html file does not exist)",
+    "alternativeName": "Avoid using unsanitized AngularJS application",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

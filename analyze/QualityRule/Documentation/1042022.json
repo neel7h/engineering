@@ -1,0 +1,95 @@
+{
+    "id": 1042022,
+    "name": "Avoid using CookieInterceptor with Struts 2.3.16 (and Older)",
+    "href": "AIP/quality-rules/1042022",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Application using Apache Struts version 2 (pre-2.3.16) with CookieInterceptor feature are  vulnerable for Injection attack as it was configured to accept all cookies. The risk occurs when \"*\" is used to configure cookiesName param. This allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request\n\nThis rule will check if wildcard is used to configure cookiesName param for CookieInterceptor when struts version is 2.3.16 or Older. If yes, it gives a violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0113\nhttps://securityintelligence.com/struts-vulnerabilities-analysis-parameters-cookie-interceptors-impact-exploitation/",
+    "remediation": "If you cannot upgrade to version 2.3.16.2 immediately - which is strongly advised - you can apply below workarounds:\n\nDon't use wildcard mapping to accept cookie names or implement your own version of CookieInterceptor based on code provided in Struts 2.3.16.2.",
+    "sample": "This example will inject any cookies regardless of its value into Struts' action.\n\n <action ... >\n   <interceptor-ref name=\"cookie\">\n      <param name=\"cookiesName\">*</param>\n      <param name=\"cookiesValue\">*</param>\n   </interceptor-ref>\n    ...\n </action>",
+    "total": "Number of field in struts2 config XML file",
+    "alternativeName": "Ensure not using wildcard for cookiesName param configuration in CookieInterceptor with Struts 2.3.16 (and Older). This allow preventing Injection attack.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

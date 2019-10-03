@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jsp-syntax id="jsp">
+
+	<!--  =============================== JSP 1.1  ===============================  -->
+
+	<jsp-jsp id="1.1">
+
+    	<!--  =============================== directives  ===============================  -->
+
+		<!--  ===============================@page directive ===============================  -->
+		<jsp-item id="jsp:directive.page" display="page directive"> 
+			<jsp-property id="jsp:directive.page.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.page.extends" kind="javatypename" display="extends attribute" default="javax.servlet.http.HttpServlet"/> 
+			<jsp-property id="jsp:directive.page.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.page.session" kind="bool" default="true" display="session attribute"/> 
+			<jsp-property id="jsp:directive.page.buffer" kind="sizeKB" default="8kb" display="buffer attribute"/> 
+			<jsp-property id="jsp:directive.page.autoFlush" kind="bool" default="true" display="autoFlush attribute"/> 
+			<jsp-property id="jsp:directive.page.isThreadSafe" kind="bool" default="true" display="isThreadSafe attribute"/>
+			<jsp-property id="jsp:directive.page.function" kind="string" default="_jspService" static="_jspService"/>
+			<jsp-property id="jsp:directive.page.info" kind="string" display="info attribute"/> 
+			<jsp-property id="jsp:directive.page.errorPage" kind="relURL" rtexprvalue="true" display="errorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.contentType" kind="string" default="text/html;charset=ISO-8859-1" display="contentType attribute"/> 
+			<jsp-property id="jsp:directive.page.isErrorPage" kind="bool" default="false" display="isErrorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================@taglib directive ===============================  -->
+		<jsp-item id="jsp:directive.taglib" display="taglib directive"> 
+			<jsp-property id="jsp:directive.taglib.uri" kind="URI" occur="1" display="uri attribute"/> 
+			<jsp-property id="jsp:directive.taglib.prefix" kind="string" occur="1" reserved="jsp,jspx,java,javax,servlet,sun,sunw" display="prefix attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================@include directive ===============================  -->
+		<jsp-item id="jsp:directive.include" display="include directive"> 
+			<jsp-property id="jsp:directive.include.file" kind="path" occur="1" display="file attribute"/>
+		</jsp-item> 
+	
+    	<!--  =============================== standard actions  ===============================  -->
+
+		<!--  ===============================jsp:useBean standard action ===============================  -->
+		<jsp-item id="jsp:useBean" sequence="1;2;1,2;2,1;2,3;3,2" display="jsp:useBean action"> 
+			<jsp-property id="jsp:useBean.id" kind="string" occur="1" display="id attribute"/> 
+			<jsp-property id="jsp:useBean.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:useBean.class" kind="javatypename" seqno="1" display="class attribute"/> 
+			<jsp-property id="jsp:useBean.type"  kind="javatypename" seqno="2" display="type attribute"/> 
+			<jsp-property id="jsp:useBean.beanName" kind="javatypename" seqno="3" rtexprvalue="true" display="beanName attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:setProperty standard action ===============================  -->
+		<jsp-item id="jsp:setProperty" sequence="1;2" seqempty="true" display="jsp:setProperty action"> 
+			<jsp-property id="jsp:setProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:setProperty.property" kind="string" occur="1" display="property attribute"/> 
+			<jsp-property id="jsp:setProperty.param" kind="string" seqno="1" display="param attribute"/> 
+			<jsp-property id="jsp:setProperty.value" kind="string" seqno="2" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:getProperty standard action ===============================  -->
+		<jsp-item id="jsp:getProperty" display="jsp:getProperty action"> 
+			<jsp-property id="jsp:getProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:getProperty.property" kind="string" occur="1" display="property attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:include standard action ===============================  -->
+		<jsp-item id="jsp:include" display="jsp:include action"> 
+			<jsp-property id="jsp:include.page" kind="URI" rtexprvalue="true" occur="1" display="page attribute"/> 
+			<jsp-property id="jsp:include.flush" kind="bool" default="true" display="flush attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:forward standard action ===============================  -->
+		<jsp-item id="jsp:forward" display="jsp:forward action"> 
+			<jsp-property id="jsp:forward.page" kind="URI" occur="1" rtexprvalue="true" display="page attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:param standard action ===============================  -->
+		<jsp-item id="jsp:param" display="jsp:param action"> 
+			<jsp-property id="jsp:param.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:param.value" kind="string" occur="1" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:plugin standard action ===============================  -->
+		<jsp-item id="jsp:plugin" display="jsp:plugin action"> 
+			<jsp-property id="jsp:plugin.type" kind="string" occur="1" default="applet" static="bean,applet" display="type attribute"/> 
+			<jsp-property id="jsp:plugin.code" kind="string" occur="1" display="code attribute"/> 
+			<jsp-property id="jsp:plugin.codebase" kind="string" display="codebase attribute"/> 
+			<jsp-property id="jsp:plugin.align" kind="string" static="bottom,top,middle,right,left" default="bottom" display="align attribute"/> 
+			<jsp-property id="jsp:plugin.archive" kind="string" display="archive attribute"/> 
+			<jsp-property id="jsp:plugin.height" kind="string" display="height attribute"/> 
+			<jsp-property id="jsp:plugin.hspace" kind="string" display="hspace attribute"/> 
+			<jsp-property id="jsp:plugin.jreversion" kind="string" default="1.1" display="jreversion attribute"/> 
+			<jsp-property id="jsp:plugin.name" kind="string" display="name attribute"/> 
+			<jsp-property id="jsp:plugin.vspace" kind="string" display="vspace attribute"/> 
+			<jsp-property id="jsp:plugin.title" kind="string" display="title attribute"/> 
+			<jsp-property id="jsp:plugin.width" kind="string" display="width attribute"/> 
+			<jsp-property id="jsp:plugin.nspluginurl" kind="URI" display="nspluginurl attribute"/> 
+			<jsp-property id="jsp:plugin.iepluginurl" kind="URI" display="iepluginurl attribute"/> 
+		</jsp-item> 
+
+	</jsp-jsp>
+
+	<!--  =============================== JSP 1.2  ===============================  -->
+
+	<jsp-jsp id="1.2">
+
+    	<!--  =============================== directives  ===============================  -->
+
+		<!--  ===============================@page directive ===============================  -->
+		<jsp-item id="jsp:directive.page" display="page directive"> 
+			<jsp-property id="jsp:directive.page.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.page.extends" kind="javatypename" display="extends attribute" default="javax.servlet.http.HttpServlet"/> 
+			<jsp-property id="jsp:directive.page.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.page.session" kind="bool" default="true" display="session attribute"/> 
+			<jsp-property id="jsp:directive.page.buffer" kind="sizeKB" default="8kb" display="buffer attribute"/> 
+			<jsp-property id="jsp:directive.page.autoFlush" kind="bool" default="true" display="autoFlush attribute"/> 
+			<jsp-property id="jsp:directive.page.isThreadSafe" kind="bool" default="true" display="isThreadSafe attribute"/>
+			<jsp-property id="jsp:directive.page.function" kind="string" default="_jspService" static="_jspService"/>
+			<jsp-property id="jsp:directive.page.info" kind="string" display="info attribute"/> 
+			<jsp-property id="jsp:directive.page.errorPage" kind="relURL" rtexprvalue="true" display="errorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.contentType" kind="string" default="text/html;charset=ISO-8859-1" display="contentType attribute"/> 
+			<jsp-property id="jsp:directive.page.isErrorPage" kind="bool" default="false" display="isErrorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================@taglib directive ===============================  -->
+		<jsp-item id="jsp:directive.taglib" display="taglib directive"> 
+			<jsp-property id="jsp:directive.taglib.uri" kind="URI" occur="1" display="uri attribute"/> 
+			<jsp-property id="jsp:directive.taglib.prefix" kind="string" occur="1" reserved="jsp,jspx,java,javax,servlet,sun,sunw" display="prefix attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================@include directive ===============================  -->
+		<jsp-item id="jsp:directive.include" display="include directive"> 
+			<jsp-property id="jsp:directive.include.file" kind="path" occur="1" display="file attribute"/>
+		</jsp-item> 
+	
+    	<!--  =============================== standard actions  ===============================  -->
+
+		<!--  ===============================jsp:useBean standard action ===============================  -->
+		<jsp-item id="jsp:useBean" sequence="1;2;1,2;2,1;2,3;3,2" display="jsp:useBean action"> 
+			<jsp-property id="jsp:useBean.id" kind="string" occur="1" display="id attribute"/> 
+			<jsp-property id="jsp:useBean.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:useBean.class" kind="javatypename" seqno="1" display="class attribute"/> 
+			<jsp-property id="jsp:useBean.type"  kind="javatypename" seqno="2" display="type attribute"/> 
+			<jsp-property id="jsp:useBean.beanName" kind="javatypename" seqno="3" rtexprvalue="true" display="beanName attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:setProperty standard action ===============================  -->
+		<jsp-item id="jsp:setProperty" sequence="1;2" seqempty="true" display="jsp:setProperty action"> 
+			<jsp-property id="jsp:setProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:setProperty.property" kind="string" occur="1" display="property attribute"/> 
+			<jsp-property id="jsp:setProperty.param" kind="string" seqno="1" display="param attribute"/> 
+			<jsp-property id="jsp:setProperty.value" kind="string" seqno="2" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:getProperty standard action ===============================  -->
+		<jsp-item id="jsp:getProperty" display="jsp:getProperty action"> 
+			<jsp-property id="jsp:getProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:getProperty.property" kind="string" occur="1" display="property attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:include standard action ===============================  -->
+		<jsp-item id="jsp:include" display="jsp:include action"> 
+			<jsp-property id="jsp:include.page" kind="URI" rtexprvalue="true" occur="1" display="page attribute"/> 
+			<jsp-property id="jsp:include.flush" kind="bool" default="false" display="flush attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:forward standard action ===============================  -->
+		<jsp-item id="jsp:forward" display="jsp:forward action"> 
+			<jsp-property id="jsp:forward.page" kind="URI" occur="1" rtexprvalue="true" display="page attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:param standard action ===============================  -->
+		<jsp-item id="jsp:param" display="jsp:param action"> 
+			<jsp-property id="jsp:param.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:param.value" kind="string" occur="1" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:plugin standard action ===============================  -->
+		<jsp-item id="jsp:plugin" display="jsp:plugin action"> 
+			<jsp-property id="jsp:plugin.type" kind="string" occur="1" default="applet" static="bean,applet" display="type attribute"/> 
+			<jsp-property id="jsp:plugin.code" kind="string" occur="1" display="code attribute"/> 
+			<jsp-property id="jsp:plugin.codebase" kind="string" display="codebase attribute"/> 
+			<jsp-property id="jsp:plugin.align" kind="string" static="bottom,top,middle,right,left" default="bottom" display="align attribute"/> 
+			<jsp-property id="jsp:plugin.archive" kind="string" display="archive attribute"/> 
+			<jsp-property id="jsp:plugin.height" kind="string" display="height attribute"/> 
+			<jsp-property id="jsp:plugin.hspace" kind="string" display="hspace attribute"/> 
+			<jsp-property id="jsp:plugin.jreversion" kind="string" default="1.1" display="jreversion attribute"/> 
+			<jsp-property id="jsp:plugin.name" kind="string" display="name attribute"/> 
+			<jsp-property id="jsp:plugin.vspace" kind="string" display="vspace attribute"/> 
+			<jsp-property id="jsp:plugin.title" kind="string" display="title attribute"/> 
+			<jsp-property id="jsp:plugin.width" kind="string" display="width attribute"/> 
+			<jsp-property id="jsp:plugin.nspluginurl" kind="URI" display="nspluginurl attribute"/> 
+			<jsp-property id="jsp:plugin.iepluginurl" kind="URI" display="iepluginurl attribute"/> 
+		</jsp-item> 
+
+	</jsp-jsp>
+
+	<!--  ===============================  JSP 2.0  ===============================  -->
+
+	<jsp-jsp id="2.0">
+
+        <!--  ===============================  directives  ===============================  -->
+
+		<!--  ===============================@page directive ===============================  -->
+		<jsp-item id="jsp:directive.page" display="page directive"> 
+			<jsp-property id="jsp:directive.page.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.page.extends" kind="javatypename" display="extends attribute" default="javax.servlet.http.HttpServlet"/> 
+			<jsp-property id="jsp:directive.page.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.page.session" kind="bool" default="true" display="session attribute"/> 
+			<jsp-property id="jsp:directive.page.buffer" kind="sizeKB" default="8kb" display="buffer attribute"/> 
+			<jsp-property id="jsp:directive.page.autoFlush" kind="bool" default="true" display="autoFlush attribute"/> 
+			<jsp-property id="jsp:directive.page.isThreadSafe" kind="bool" default="true" display="isThreadSafe attribute"/>
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute"/>
+			<jsp-property id="jsp:directive.page.function" kind="string" default="_jspService" static="_jspService"/>
+			<jsp-property id="jsp:directive.page.info" kind="string" display="info attribute"/> 
+			<jsp-property id="jsp:directive.page.errorPage" kind="relURL" rtexprvalue="true" display="errorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.contentType" kind="string" default="text/html;charset=ISO-8859-1" display="contentType attribute"/> 
+			<jsp-property id="jsp:directive.page.isErrorPage" kind="bool" default="false" display="isErrorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+		</jsp-item>
+
+		<!--  ===============================@taglib directive ===============================  -->
+		<jsp-item id="jsp:directive.taglib" sequence="1;2" seqempty="false" display="taglib directive"> 
+			<jsp-property id="jsp:directive.taglib.prefix" kind="string" occur="1" reserved="jsp,jspx,java,javax,servlet,sun,sunw" display="prefix attribute"/> 
+			<jsp-property id="jsp:directive.taglib.uri" kind="URI" seqno="1" display="uri attribute"/> 
+			<jsp-property id="jsp:directive.taglib.tagdir" kind="path" seqno="2" prefix="/WEB_INF/tags" display="tagdir attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================@include directive ===============================  -->
+		<jsp-item id="jsp:directive.include" display="include directive"> 
+			<jsp-property id="jsp:directive.include.file" kind="path" occur="1" display="file attribute"/>
+		</jsp-item> 
+
+		<!--  ===============================@tag directive ===============================  -->
+		<jsp-item id="jsp:directive.tag" display="tag directive"> 
+			<jsp-property id="jsp:directive.tag.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.tag.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.tag.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+			<jsp-property id="jsp:directive.tag.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.tag.display-name" kind="string" display="display-name attribute"/> 
+			<jsp-property id="jsp:directive.tag.body-content" kind="string" default="scriptless" static="scriptless,tagdependent,empty" display="body-content attribute"/> 
+			<jsp-property id="jsp:directive.tag.dynamic-attributes" kind="string" display="dynamic-attributes attribute"/> 
+			<jsp-property id="jsp:directive.tag.small-icon" kind="url" display="small-icon attribute"/> 
+			<jsp-property id="jsp:directive.tag.large-icon" kind="url" display="large-icon attribute"/>
+			<jsp-property id="jsp:directive.tag.description" kind="string" display="description attribute"/>
+			<jsp-property id="jsp:directive.tag.example" kind="string" display="example attribute"/>
+			<jsp-property id="jsp:directive.tag.doTagFunction" kind="string" default="doTag" static="doTag"/>
+		</jsp-item>
+
+		<!--  ===============================@attribute directive ===============================  -->
+		<jsp-item id="jsp:directive.attribute" display="attribute directive"> 
+			<jsp-property id="jsp:directive.attribute.name" kind="string" occur="1" display="name attribute"/>
+			<jsp-property id="jsp:directive.attribute.required" kind="bool" default="false" display="required attribute"/> 
+			<jsp-property id="jsp:directive.attribute.fragment" kind="bool" default="false" display="fragment attribute"/> 
+			<jsp-property id="jsp:directive.attribute.rtexprvalue" kind="bool" default="true" display="rtexprvalue attribute"/> 
+			<jsp-property id="jsp:directive.attribute.type" kind="javatypename" display="type attribute"/>
+			<jsp-property id="jsp:directive.attribute.description" kind="string" display="description attribute"/>
+		</jsp-item>
+
+		<jsp-item id="jsp:directive.variable" sequence="1;2,3" seqempty="false" display="variable directive"> 
+			<jsp-property id="jsp:directive.variable.declare" kind="bool" default="true" display="declare attribute"/> 
+			<jsp-property id="jsp:directive.variable.name-given" seqno="1" kind="string" display="name-given attribute"/>
+			<jsp-property id="jsp:directive.variable.name-from-attribute" seqno="2" kind="string" display="name-from-attribute attribute"/>
+			<jsp-property id="jsp:directive.variable.alias" kind="string" seqno="3" display="alias attribute"/>
+			<jsp-property id="jsp:directive.variable.variable-class" kind="javatypename" display="variable-class attribute"/>
+			<jsp-property id="jsp:directive.variable.scope" kind="string" display="scope attribute"/>
+			<jsp-property id="jsp:directive.variable.description" kind="string" default="NESTED" static="AT_BEGIN,AT_END,NESTED" display="description attribute"/>
+		</jsp-item>
+
+
+        <!--  ===============================  standard actions  ===============================  -->
+
+		<!--  ===============================jsp:useBean standard action ===============================  -->
+		<jsp-item id="jsp:useBean" sequence="1;2;1,2;2,1;2,3;3,2" display="jsp:useBean action"> 
+			<jsp-property id="jsp:useBean.id" kind="string" occur="1" display="id attribute"/> 
+			<jsp-property id="jsp:useBean.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:useBean.class" kind="javatypename" seqno="1" display="class attribute"/> 
+			<jsp-property id="jsp:useBean.type"  kind="javatypename" seqno="2" display="type attribute"/> 
+			<jsp-property id="jsp:useBean.beanName" kind="javatypename" seqno="3" rtexprvalue="true" display="beanName attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:setProperty standard action ===============================  -->
+		<jsp-item id="jsp:setProperty" sequence="1;2" seqempty="true" display="jsp:setProperty action"> 
+			<jsp-property id="jsp:setProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:setProperty.property" kind="string" occur="1" display="property attribute"/> 
+			<jsp-property id="jsp:setProperty.param" kind="string" seqno="1" display="param attribute"/> 
+			<jsp-property id="jsp:setProperty.value" kind="string" seqno="2" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:getProperty standard action ===============================  -->
+		<jsp-item id="jsp:getProperty" display="jsp:getProperty action"> 
+			<jsp-property id="jsp:getProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:getProperty.property" kind="string" occur="1" display="property attribute"/> 
+		</jsp-item> 
+	
+		<!--  ===============================jsp:include standard action ===============================  -->
+		<jsp-item id="jsp:include" display="jsp:include action"> 
+			<jsp-property id="jsp:include.page" kind="URI" rtexprvalue="true" occur="1" display="page attribute"/> 
+			<jsp-property id="jsp:include.flush" kind="bool" default="false" display="flush attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:forward standard action ===============================  -->
+		<jsp-item id="jsp:forward" display="jsp:forward action"> 
+			<jsp-property id="jsp:forward.page" kind="URI" occur="1" rtexprvalue="true" display="page attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:param standard action ===============================  -->
+		<jsp-item id="jsp:param" display="jsp:param action"> 
+			<jsp-property id="jsp:param.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:param.value" kind="string" occur="1" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:plugin standard action ===============================  -->
+		<jsp-item id="jsp:plugin" display="jsp:plugin action"> 
+			<jsp-property id="jsp:plugin.type" kind="string" occur="1" default="applet" static="bean,applet" display="type attribute"/> 
+			<jsp-property id="jsp:plugin.code" kind="string" occur="1" display="code attribute"/> 
+			<jsp-property id="jsp:plugin.codebase" kind="string" display="codebase attribute"/> 
+			<jsp-property id="jsp:plugin.align" kind="string" static="bottom,top,middle,right,left" default="bottom" display="align attribute"/> 
+			<jsp-property id="jsp:plugin.archive" kind="string" display="archive attribute"/> 
+			<jsp-property id="jsp:plugin.height" kind="string" display="height attribute"/> 
+			<jsp-property id="jsp:plugin.hspace" kind="string" display="hspace attribute"/> 
+			<jsp-property id="jsp:plugin.jreversion" kind="string" default="1.1" display="jreversion attribute"/> 
+			<jsp-property id="jsp:plugin.name" kind="string" display="name attribute"/> 
+			<jsp-property id="jsp:plugin.vspace" kind="string" display="vspace attribute"/> 
+			<jsp-property id="jsp:plugin.title" kind="string" display="title attribute"/> 
+			<jsp-property id="jsp:plugin.width" kind="string" display="width attribute"/> 
+			<jsp-property id="jsp:plugin.nspluginurl" kind="URI" display="nspluginurl attribute"/> 
+			<jsp-property id="jsp:plugin.iepluginurl" kind="URI" display="iepluginurl attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:invoke standard action ===============================  -->
+		<jsp-item id="jsp:invoke" sequence="1;2" seqempty="false" display="jsp:invoke action"> 
+			<jsp-property id="jsp:invoke.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:invoke.fragment" kind="string" occur="1" display="fragment attribute"/> 
+			<jsp-property id="jsp:invoke.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:invoke.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:doBody standard action ===============================  -->
+		<jsp-item id="jsp:doBody" sequence="1;2" seqempty="false" display="jsp:doBody action"> 
+			<jsp-property id="jsp:doBody.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:doBody.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:doBody.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:attribute standard action ===============================  -->
+		<jsp-item id="jsp:attribute" display="jsp:attribute action"> 
+			<jsp-property id="jsp:attribute.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:attribute.trim" kind="bool" default="true" display="trim attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:element standard action ===============================  -->
+		<jsp-item id="jsp:element" display="jsp:element action"> 
+			<jsp-property id="jsp:element.name" kind="string" occur="1" display="name attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:body standard action ===============================  -->
+		<jsp-item id="jsp:body" display="jsp:body action" /> 
+
+	</jsp-jsp>
+
+		<!--  ===============================  JSP 2.1  ===============================  -->
+
+	<jsp-jsp id="2.1">
+
+        <!--  ===============================  directives  ===============================  -->
+
+		<!--  ===============================@page directive ===============================  -->
+		<jsp-item id="jsp:directive.page" display="page directive"> 
+			<jsp-property id="jsp:directive.page.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.page.extends" kind="javatypename" display="extends attribute" default="javax.servlet.http.HttpServlet"/> 
+			<jsp-property id="jsp:directive.page.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.page.session" kind="bool" default="true" display="session attribute"/> 
+			<jsp-property id="jsp:directive.page.buffer" kind="sizeKB" default="8kb" display="buffer attribute"/> 
+			<jsp-property id="jsp:directive.page.autoFlush" kind="bool" default="true" display="autoFlush attribute"/> 
+			<jsp-property id="jsp:directive.page.isThreadSafe" kind="bool" default="true" display="isThreadSafe attribute"/>
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute"/>
+			<jsp-property id="jsp:directive.page.function" kind="string" default="_jspService" static="_jspService"/>
+			<jsp-property id="jsp:directive.page.info" kind="string" display="info attribute"/> 
+			<jsp-property id="jsp:directive.page.errorPage" kind="relURL" rtexprvalue="true" display="errorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.contentType" kind="string" default="text/html;charset=ISO-8859-1" display="contentType attribute"/> 
+			<jsp-property id="jsp:directive.page.isErrorPage" kind="bool" default="false" display="isErrorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+		</jsp-item>
+
+		<!--  ===============================@taglib directive ===============================  -->
+		<jsp-item id="jsp:directive.taglib" sequence="1;2" seqempty="false" display="taglib directive"> 
+			<jsp-property id="jsp:directive.taglib.prefix" kind="string" occur="1" reserved="jsp,jspx,java,javax,servlet,sun,sunw" display="prefix attribute"/> 
+			<jsp-property id="jsp:directive.taglib.uri" kind="URI" seqno="1" display="uri attribute"/> 
+			<jsp-property id="jsp:directive.taglib.tagdir" kind="path" seqno="2" prefix="/WEB_INF/tags" display="tagdir attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================@include directive ===============================  -->
+		<jsp-item id="jsp:directive.include" display="include directive"> 
+			<jsp-property id="jsp:directive.include.file" kind="path" occur="1" display="file attribute"/>
+		</jsp-item> 
+
+		<!--  ===============================@tag directive ===============================  -->
+		<jsp-item id="jsp:directive.tag" display="tag directive"> 
+			<jsp-property id="jsp:directive.tag.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.tag.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.tag.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+			<jsp-property id="jsp:directive.tag.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.tag.display-name" kind="string" display="display-name attribute"/> 
+			<jsp-property id="jsp:directive.tag.body-content" kind="string" default="scriptless" static="scriptless,tagdependent,empty" display="body-content attribute"/> 
+			<jsp-property id="jsp:directive.tag.dynamic-attributes" kind="string" display="dynamic-attributes attribute"/> 
+			<jsp-property id="jsp:directive.tag.small-icon" kind="url" display="small-icon attribute"/> 
+			<jsp-property id="jsp:directive.tag.large-icon" kind="url" display="large-icon attribute"/>
+			<jsp-property id="jsp:directive.tag.description" kind="string" display="description attribute"/>
+			<jsp-property id="jsp:directive.tag.example" kind="string" display="example attribute"/>
+			<jsp-property id="jsp:directive.tag.doTagFunction" kind="string" default="doTag" static="doTag"/>
+		</jsp-item>
+
+		<!--  ===============================@attribute directive ===============================  -->
+		<jsp-item id="jsp:directive.attribute" display="attribute directive"> 
+			<jsp-property id="jsp:directive.attribute.name" kind="string" occur="1" display="name attribute"/>
+			<jsp-property id="jsp:directive.attribute.required" kind="bool" default="false" display="required attribute"/> 
+			<jsp-property id="jsp:directive.attribute.fragment" kind="bool" default="false" display="fragment attribute"/> 
+			<jsp-property id="jsp:directive.attribute.rtexprvalue" kind="bool" default="true" display="rtexprvalue attribute"/> 
+			<jsp-property id="jsp:directive.attribute.type" kind="javatypename" display="type attribute"/>
+			<jsp-property id="jsp:directive.attribute.description" kind="string" display="description attribute"/>
+		</jsp-item>
+
+		<jsp-item id="jsp:directive.variable" sequence="1;2,3" seqempty="false" display="variable directive"> 
+			<jsp-property id="jsp:directive.variable.declare" kind="bool" default="true" display="declare attribute"/> 
+			<jsp-property id="jsp:directive.variable.name-given" seqno="1" kind="string" display="name-given attribute"/>
+			<jsp-property id="jsp:directive.variable.name-from-attribute" seqno="2" kind="string" display="name-from-attribute attribute"/>
+			<jsp-property id="jsp:directive.variable.alias" kind="string" seqno="3" display="alias attribute"/>
+			<jsp-property id="jsp:directive.variable.variable-class" kind="javatypename" display="variable-class attribute"/>
+			<jsp-property id="jsp:directive.variable.scope" kind="string" display="scope attribute"/>
+			<jsp-property id="jsp:directive.variable.description" kind="string" default="NESTED" static="AT_BEGIN,AT_END,NESTED" display="description attribute"/>
+		</jsp-item>
+
+
+        <!--  ===============================  standard actions  ===============================  -->
+
+		<!--  ===============================jsp:useBean standard action ===============================  -->
+		<jsp-item id="jsp:useBean" sequence="1;2;1,2;2,1;2,3;3,2" display="jsp:useBean action"> 
+			<jsp-property id="jsp:useBean.id" kind="string" occur="1" display="id attribute"/> 
+			<jsp-property id="jsp:useBean.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:useBean.class" kind="javatypename" seqno="1" display="class attribute"/> 
+			<jsp-property id="jsp:useBean.type"  kind="javatypename" seqno="2" display="type attribute"/> 
+			<jsp-property id="jsp:useBean.beanName" kind="javatypename" seqno="3" rtexprvalue="true" display="beanName attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:setProperty standard action ===============================  -->
+		<jsp-item id="jsp:setProperty" sequence="1;2" seqempty="true" display="jsp:setProperty action"> 
+			<jsp-property id="jsp:setProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:setProperty.property" kind="string" occur="1" display="property attribute"/> 
+			<jsp-property id="jsp:setProperty.param" kind="string" seqno="1" display="param attribute"/> 
+			<jsp-property id="jsp:setProperty.value" kind="string" seqno="2" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:getProperty standard action ===============================  -->
+		<jsp-item id="jsp:getProperty" display="jsp:getProperty action"> 
+			<jsp-property id="jsp:getProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:getProperty.property" kind="string" occur="1" display="property attribute"/> 
+		</jsp-item> 
+	
+		<!--  ===============================jsp:include standard action ===============================  -->
+		<jsp-item id="jsp:include" display="jsp:include action"> 
+			<jsp-property id="jsp:include.page" kind="URI" rtexprvalue="true" occur="1" display="page attribute"/> 
+			<jsp-property id="jsp:include.flush" kind="bool" default="false" display="flush attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:forward standard action ===============================  -->
+		<jsp-item id="jsp:forward" display="jsp:forward action"> 
+			<jsp-property id="jsp:forward.page" kind="URI" occur="1" rtexprvalue="true" display="page attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:param standard action ===============================  -->
+		<jsp-item id="jsp:param" display="jsp:param action"> 
+			<jsp-property id="jsp:param.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:param.value" kind="string" occur="1" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:plugin standard action ===============================  -->
+		<jsp-item id="jsp:plugin" display="jsp:plugin action"> 
+			<jsp-property id="jsp:plugin.type" kind="string" occur="1" default="applet" static="bean,applet" display="type attribute"/> 
+			<jsp-property id="jsp:plugin.code" kind="string" occur="1" display="code attribute"/> 
+			<jsp-property id="jsp:plugin.codebase" kind="string" display="codebase attribute"/> 
+			<jsp-property id="jsp:plugin.align" kind="string" static="bottom,top,middle,right,left" default="bottom" display="align attribute"/> 
+			<jsp-property id="jsp:plugin.archive" kind="string" display="archive attribute"/> 
+			<jsp-property id="jsp:plugin.height" kind="string" display="height attribute"/> 
+			<jsp-property id="jsp:plugin.hspace" kind="string" display="hspace attribute"/> 
+			<jsp-property id="jsp:plugin.jreversion" kind="string" default="1.1" display="jreversion attribute"/> 
+			<jsp-property id="jsp:plugin.name" kind="string" display="name attribute"/> 
+			<jsp-property id="jsp:plugin.vspace" kind="string" display="vspace attribute"/> 
+			<jsp-property id="jsp:plugin.title" kind="string" display="title attribute"/> 
+			<jsp-property id="jsp:plugin.width" kind="string" display="width attribute"/> 
+			<jsp-property id="jsp:plugin.nspluginurl" kind="URI" display="nspluginurl attribute"/> 
+			<jsp-property id="jsp:plugin.iepluginurl" kind="URI" display="iepluginurl attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:invoke standard action ===============================  -->
+		<jsp-item id="jsp:invoke" sequence="1;2" seqempty="false" display="jsp:invoke action"> 
+			<jsp-property id="jsp:invoke.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:invoke.fragment" kind="string" occur="1" display="fragment attribute"/> 
+			<jsp-property id="jsp:invoke.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:invoke.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:doBody standard action ===============================  -->
+		<jsp-item id="jsp:doBody" sequence="1;2" seqempty="false" display="jsp:doBody action"> 
+			<jsp-property id="jsp:doBody.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:doBody.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:doBody.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:attribute standard action ===============================  -->
+		<jsp-item id="jsp:attribute" display="jsp:attribute action"> 
+			<jsp-property id="jsp:attribute.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:attribute.trim" kind="bool" default="true" display="trim attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:element standard action ===============================  -->
+		<jsp-item id="jsp:element" display="jsp:element action"> 
+			<jsp-property id="jsp:element.name" kind="string" occur="1" display="name attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:body standard action ===============================  -->
+		<jsp-item id="jsp:body" display="jsp:body action" /> 
+
+	</jsp-jsp>
+	
+		<!--  ===============================  JSP 2.2  ===============================  -->
+
+	<jsp-jsp id="2.2">
+
+        <!--  ===============================  directives  ===============================  -->
+
+		<!--  ===============================@page directive ===============================  -->
+		<jsp-item id="jsp:directive.page" display="page directive"> 
+			<jsp-property id="jsp:directive.page.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.page.extends" kind="javatypename" display="extends attribute" default="javax.servlet.http.HttpServlet"/> 
+			<jsp-property id="jsp:directive.page.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.page.session" kind="bool" default="true" display="session attribute"/> 
+			<jsp-property id="jsp:directive.page.buffer" kind="sizeKB" default="8kb" display="buffer attribute"/> 
+			<jsp-property id="jsp:directive.page.autoFlush" kind="bool" default="true" display="autoFlush attribute"/> 
+			<jsp-property id="jsp:directive.page.isThreadSafe" kind="bool" default="true" display="isThreadSafe attribute"/>
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute"/>
+			<jsp-property id="jsp:directive.page.function" kind="string" default="_jspService" static="_jspService"/>
+			<jsp-property id="jsp:directive.page.info" kind="string" display="info attribute"/> 
+			<jsp-property id="jsp:directive.page.errorPage" kind="relURL" rtexprvalue="true" display="errorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.contentType" kind="string" default="text/html;charset=ISO-8859-1" display="contentType attribute"/> 
+			<jsp-property id="jsp:directive.page.isErrorPage" kind="bool" default="false" display="isErrorPage attribute"/> 
+			<jsp-property id="jsp:directive.page.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.page.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+		</jsp-item>
+
+		<!--  ===============================@taglib directive ===============================  -->
+		<jsp-item id="jsp:directive.taglib" sequence="1;2" seqempty="false" display="taglib directive"> 
+			<jsp-property id="jsp:directive.taglib.prefix" kind="string" occur="1" reserved="jsp,jspx,java,javax,servlet,sun,sunw" display="prefix attribute"/> 
+			<jsp-property id="jsp:directive.taglib.uri" kind="URI" seqno="1" display="uri attribute"/> 
+			<jsp-property id="jsp:directive.taglib.tagdir" kind="path" seqno="2" prefix="/WEB_INF/tags" display="tagdir attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================@include directive ===============================  -->
+		<jsp-item id="jsp:directive.include" display="include directive"> 
+			<jsp-property id="jsp:directive.include.file" kind="path" occur="1" display="file attribute"/>
+		</jsp-item> 
+
+		<!--  ===============================@tag directive ===============================  -->
+		<jsp-item id="jsp:directive.tag" display="tag directive"> 
+			<jsp-property id="jsp:directive.tag.language" kind="string" static="java" default="java" display="language attribute"/> 
+			<jsp-property id="jsp:directive.tag.pageEncoding" kind="string" default="ISO-8859-1" display="pageEncoding attribute"/> 
+			<jsp-property id="jsp:directive.tag.isELIgnored" kind="bool" display="isELIgnored attribute" default="false"/> 
+			<jsp-property id="jsp:directive.tag.import" kind="string" occur="0..n" default="javax.servlet.*,javax.servlet.jsp.*,javax.servlet.http.*" system="javax.servlet.jsp.tagext.*" display="import attribute"/> 
+			<jsp-property id="jsp:directive.tag.display-name" kind="string" display="display-name attribute"/> 
+			<jsp-property id="jsp:directive.tag.body-content" kind="string" default="scriptless" static="scriptless,tagdependent,empty" display="body-content attribute"/> 
+			<jsp-property id="jsp:directive.tag.dynamic-attributes" kind="string" display="dynamic-attributes attribute"/> 
+			<jsp-property id="jsp:directive.tag.small-icon" kind="url" display="small-icon attribute"/> 
+			<jsp-property id="jsp:directive.tag.large-icon" kind="url" display="large-icon attribute"/>
+			<jsp-property id="jsp:directive.tag.description" kind="string" display="description attribute"/>
+			<jsp-property id="jsp:directive.tag.example" kind="string" display="example attribute"/>
+			<jsp-property id="jsp:directive.tag.doTagFunction" kind="string" default="doTag" static="doTag"/>
+		</jsp-item>
+
+		<!--  ===============================@attribute directive ===============================  -->
+		<jsp-item id="jsp:directive.attribute" display="attribute directive"> 
+			<jsp-property id="jsp:directive.attribute.name" kind="string" occur="1" display="name attribute"/>
+			<jsp-property id="jsp:directive.attribute.required" kind="bool" default="false" display="required attribute"/> 
+			<jsp-property id="jsp:directive.attribute.fragment" kind="bool" default="false" display="fragment attribute"/> 
+			<jsp-property id="jsp:directive.attribute.rtexprvalue" kind="bool" default="true" display="rtexprvalue attribute"/> 
+			<jsp-property id="jsp:directive.attribute.type" kind="javatypename" display="type attribute"/>
+			<jsp-property id="jsp:directive.attribute.description" kind="string" display="description attribute"/>
+		</jsp-item>
+
+		<jsp-item id="jsp:directive.variable" sequence="1;2,3" seqempty="false" display="variable directive"> 
+			<jsp-property id="jsp:directive.variable.declare" kind="bool" default="true" display="declare attribute"/> 
+			<jsp-property id="jsp:directive.variable.name-given" seqno="1" kind="string" display="name-given attribute"/>
+			<jsp-property id="jsp:directive.variable.name-from-attribute" seqno="2" kind="string" display="name-from-attribute attribute"/>
+			<jsp-property id="jsp:directive.variable.alias" kind="string" seqno="3" display="alias attribute"/>
+			<jsp-property id="jsp:directive.variable.variable-class" kind="javatypename" display="variable-class attribute"/>
+			<jsp-property id="jsp:directive.variable.scope" kind="string" display="scope attribute"/>
+			<jsp-property id="jsp:directive.variable.description" kind="string" default="NESTED" static="AT_BEGIN,AT_END,NESTED" display="description attribute"/>
+		</jsp-item>
+
+
+        <!--  ===============================  standard actions  ===============================  -->
+
+		<!--  ===============================jsp:useBean standard action ===============================  -->
+		<jsp-item id="jsp:useBean" sequence="1;2;1,2;2,1;2,3;3,2" display="jsp:useBean action"> 
+			<jsp-property id="jsp:useBean.id" kind="string" occur="1" display="id attribute"/> 
+			<jsp-property id="jsp:useBean.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:useBean.class" kind="javatypename" seqno="1" display="class attribute"/> 
+			<jsp-property id="jsp:useBean.type"  kind="javatypename" seqno="2" display="type attribute"/> 
+			<jsp-property id="jsp:useBean.beanName" kind="javatypename" seqno="3" rtexprvalue="true" display="beanName attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:setProperty standard action ===============================  -->
+		<jsp-item id="jsp:setProperty" sequence="1;2" seqempty="true" display="jsp:setProperty action"> 
+			<jsp-property id="jsp:setProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:setProperty.property" kind="string" occur="1" display="property attribute"/> 
+			<jsp-property id="jsp:setProperty.param" kind="string" seqno="1" display="param attribute"/> 
+			<jsp-property id="jsp:setProperty.value" kind="string" seqno="2" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:getProperty standard action ===============================  -->
+		<jsp-item id="jsp:getProperty" display="jsp:getProperty action"> 
+			<jsp-property id="jsp:getProperty.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:getProperty.property" kind="string" occur="1" display="property attribute"/> 
+		</jsp-item> 
+	
+		<!--  ===============================jsp:include standard action ===============================  -->
+		<jsp-item id="jsp:include" display="jsp:include action"> 
+			<jsp-property id="jsp:include.page" kind="URI" rtexprvalue="true" occur="1" display="page attribute"/> 
+			<jsp-property id="jsp:include.flush" kind="bool" default="false" display="flush attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:forward standard action ===============================  -->
+		<jsp-item id="jsp:forward" display="jsp:forward action"> 
+			<jsp-property id="jsp:forward.page" kind="URI" occur="1" rtexprvalue="true" display="page attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:param standard action ===============================  -->
+		<jsp-item id="jsp:param" display="jsp:param action"> 
+			<jsp-property id="jsp:param.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:param.value" kind="string" occur="1" rtexprvalue="true" display="value attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:plugin standard action ===============================  -->
+		<jsp-item id="jsp:plugin" display="jsp:plugin action"> 
+			<jsp-property id="jsp:plugin.type" kind="string" occur="1" default="applet" static="bean,applet" display="type attribute"/> 
+			<jsp-property id="jsp:plugin.code" kind="string" occur="1" display="code attribute"/> 
+			<jsp-property id="jsp:plugin.codebase" kind="string" display="codebase attribute"/> 
+			<jsp-property id="jsp:plugin.align" kind="string" static="bottom,top,middle,right,left" default="bottom" display="align attribute"/> 
+			<jsp-property id="jsp:plugin.archive" kind="string" display="archive attribute"/> 
+			<jsp-property id="jsp:plugin.height" kind="string" display="height attribute"/> 
+			<jsp-property id="jsp:plugin.hspace" kind="string" display="hspace attribute"/> 
+			<jsp-property id="jsp:plugin.jreversion" kind="string" default="1.1" display="jreversion attribute"/> 
+			<jsp-property id="jsp:plugin.name" kind="string" display="name attribute"/> 
+			<jsp-property id="jsp:plugin.vspace" kind="string" display="vspace attribute"/> 
+			<jsp-property id="jsp:plugin.title" kind="string" display="title attribute"/> 
+			<jsp-property id="jsp:plugin.width" kind="string" display="width attribute"/> 
+			<jsp-property id="jsp:plugin.nspluginurl" kind="URI" display="nspluginurl attribute"/> 
+			<jsp-property id="jsp:plugin.iepluginurl" kind="URI" display="iepluginurl attribute"/> 
+		</jsp-item> 
+
+		<!--  ===============================jsp:invoke standard action ===============================  -->
+		<jsp-item id="jsp:invoke" sequence="1;2" seqempty="false" display="jsp:invoke action"> 
+			<jsp-property id="jsp:invoke.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:invoke.fragment" kind="string" occur="1" display="fragment attribute"/> 
+			<jsp-property id="jsp:invoke.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:invoke.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:doBody standard action ===============================  -->
+		<jsp-item id="jsp:doBody" sequence="1;2" seqempty="false" display="jsp:doBody action"> 
+			<jsp-property id="jsp:doBody.scope" kind="string" default="page" static="page,request,session,application" display="scope attribute"/> 
+			<jsp-property id="jsp:doBody.var" kind="string" seqno="1" display="var attribute"/> 
+			<jsp-property id="jsp:doBody.varReader" kind="string" seqno="2" display="varReader attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:attribute standard action ===============================  -->
+		<jsp-item id="jsp:attribute" display="jsp:attribute action"> 
+			<jsp-property id="jsp:attribute.name" kind="string" occur="1" display="name attribute"/> 
+			<jsp-property id="jsp:attribute.trim" kind="bool" default="true" display="trim attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:element standard action ===============================  -->
+		<jsp-item id="jsp:element" display="jsp:element action"> 
+			<jsp-property id="jsp:element.name" kind="string" occur="1" display="name attribute"/> 
+		</jsp-item>
+
+		<!--  ===============================jsp:body standard action ===============================  -->
+		<jsp-item id="jsp:body" display="jsp:body action" /> 
+
+	</jsp-jsp>
+
+	<!--  =============================== web-jsptaglibrary_1_1.dtd ===============================  -->
+	<jsp-tld id="1.1">
+
+		<jsp-item id="tld:taglib" dtd="taglib" display="taglib element"> 
+			<jsp-property id="tld:taglib.tlibversion" dtd="tlibversion" kind="real" occur="1" default="0.0" display="tlibversion subelement"/> 
+			<jsp-property id="tld:taglib.jspversion" dtd="jspversion" kind="real" default="1.1" display="jspversion subelement"/> 
+			<jsp-property id="tld:taglib.shortname" dtd="shortname" kind="string" occur="1" display="shortname subelement"/> 
+			<jsp-property id="tld:taglib.uri" dtd="uri" kind="URI" display="uri subelement"/> 
+			<jsp-property id="tld:taglib.info" dtd="info" kind="string" display="info subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag" dtd="tag" display="tag subelement"> 
+			<jsp-property id="tld:tag.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:tag.tagclass" dtd="tagclass" kind="javatypename" occur="1" display="tagclass subelement"/> 
+			<jsp-property id="tld:tag.teiclass" dtd="teiclass" kind="javatypename" display="teiclass subelement"/> 
+			<jsp-property id="tld:tag.bodycontent" dtd="bodycontent" kind="string" static="tagdependent,JSP,empty" default="JSP" display="bodycontent subelement"/> 
+			<jsp-property id="tld:tag.info" dtd="info" kind="string" display="info subelement"/> 
+		</jsp-item> 
+
+		<jsp-item id="tld:taga" dtd="attribute" display="attribute subelement"> 
+			<jsp-property id="tld:taga.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:taga.required" dtd="required" kind="bool" default="false" display="required subelement"/> 
+			<jsp-property id="tld:taga.rtexprvalue" dtd="rtexprvalue" kind="bool" default="false" display="rtexprvalue subelement"/> 
+		</jsp-item>
+
+	</jsp-tld>      
+
+	<!--  =============================== web-jsptaglibrary_1_2.dtd ===============================  -->                        
+	<jsp-tld id="1.2">
+
+		<jsp-item id="tld:taglib" dtd="taglib" display="taglib element"> 
+			<jsp-property id="tld:taglib.tlibversion" dtd="tlib-version" kind="real" occur="1" default="0.0" display="tlib-version subelement"/> 
+			<jsp-property id="tld:taglib.jspversion" dtd="jspversion" kind="real" occur="1" default="1.1" display="jspversion subelement"/> 
+			<jsp-property id="tld:taglib.shortname" dtd="short-name" kind="string" occur="1" display="short-name subelement"/> 
+			<jsp-property id="tld:taglib.uri" dtd="uri" kind="URI" display="uri subelement"/> 
+			<jsp-property id="tld:taglib.info" dtd="description" kind="string" display="description subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag" dtd="tag" display="tag subelement"> 
+			<jsp-property id="tld:tag.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:tag.tagclass" dtd="tag-class" kind="javatypename" occur="1" display="tag-class subelement"/> 
+			<jsp-property id="tld:tag.teiclass" dtd="tei-class" kind="javatypename" display="tei-class subelement"/> 
+			<jsp-property id="tld:tag.bodycontent" dtd="body-content" kind="string" static="tagdependent,JSP,empty" default="JSP" display="body-content subelement"/> 
+			<jsp-property id="tld:tag.info" dtd="info" kind="string" display="info subelement"/> 
+		</jsp-item> 
+
+		<jsp-item id="tld:taga" dtd="attribute" display="attribute subelement"> 
+			<jsp-property id="tld:taga.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:taga.required" dtd="required" kind="bool" default="false" display="required subelement"/> 
+			<jsp-property id="tld:taga.rtexprvalue" dtd="rtexprvalue" kind="bool" default="false" display="rtexprvalue subelement"/> 
+			<jsp-property id="tld:taga.type" dtd="type" kind="javatypename" default="String" display="type subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tagvar" dtd="variable" display="variable subelement"> 
+			<jsp-property id="tld:tagvar.namegiven" dtd="name-given" kind="string" default="none" display="name-given subelement"/> 
+			<jsp-property id="tld:tagvar.namefromattribute" dtd="name-from-attribute" kind="string" default="none" display="name-from-attribute subelement"/> 
+			<jsp-property id="tld:tagvar.variableclass" dtd="variable-class" kind="javatypename" default="java.lang.String" display="variable-class subelement"/> 
+			<jsp-property id="tld:tagvar.declare" dtd="declare" kind="bool" default="true" display="declare subelement"/> 
+			<jsp-property id="tld:tagvar.scope" dtd="scope" kind="string" static="NESTED,AT_BEGIN,AT_END" default="NESTED" display="scope subelement"/> 
+		</jsp-item>
+
+	</jsp-tld>                      
+
+
+	<!--  =============================== web-jsptaglibrary_2_0.xsd ===============================  -->                        
+	<jsp-tld id="2.0">
+
+		<jsp-item id="tld:taglib" dtd="taglib" display="taglib element"> 
+			<jsp-property id="tld:taglib.tlibversion" dtd="tlib-version" kind="real" occur="1" default="0.0" display="tlib-version subelement"/> 
+			<jsp-property id="tld:taglib.jspversion" dtd="jspversion" kind="real" occur="1" default="1.1" display="jspversion subelement"/> 
+			<jsp-property id="tld:taglib.shortname" dtd="short-name" kind="string" occur="1" display="short-name subelement"/> 
+			<jsp-property id="tld:taglib.uri" dtd="uri" kind="URI" display="uri subelement"/> 
+			<jsp-property id="tld:taglib.info" dtd="description" kind="string" display="description subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag" dtd="tag" display="tag subelement"> 
+			<jsp-property id="tld:tag.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:tag.tagclass" dtd="tag-class" kind="javatypename" occur="1" display="tag-class subelement"/> 
+			<jsp-property id="tld:tag.teiclass" dtd="tei-class" kind="javatypename" display="tei-class subelement"/> 
+			<jsp-property id="tld:tag.bodycontent" dtd="body-content" kind="string" occur="1" static="tagdependent,JSP,empty,scriptless" default="JSP" display="body-content subelement"/> 
+			<jsp-property id="tld:tag.info" dtd="info" kind="string" display="info subelement"/> 
+			<jsp-property id="tld:tag.dynamicattributes" dtd="dynamic-attributes" kind="bool" display="dynamic-attributes subelement"/> 
+		</jsp-item> 
+
+		<jsp-item id="tld:taga" dtd="attribute" display="attribute subelement"> 
+			<jsp-property id="tld:taga.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:taga.required" dtd="required" kind="bool" default="false" display="required subelement"/> 
+			<jsp-property id="tld:taga.type" dtd="type" kind="javatypename" default="String" display="type subelement"/> 
+			<jsp-property id="tld:taga.rtexprvalue" dtd="rtexprvalue" kind="bool" default="false" display="rtexprvalue subelement"/> 
+			<jsp-property id="tld:taga.fragment" dtd="fragment" kind="bool" default="false" display="fragment subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tagvar" dtd="variable" display="variable subelement"> 
+			<jsp-property id="tld:tagvar.namegiven" dtd="name-given" kind="string" default="none" display="name-given subelement"/> 
+			<jsp-property id="tld:tagvar.namefromattribute" dtd="name-from-attribute" kind="string" default="none" display="name-from-attribute subelement"/> 
+			<jsp-property id="tld:tagvar.variableclass" dtd="variable-class" kind="javatypename" default="java.lang.String" display="variable-class subelement"/> 
+			<jsp-property id="tld:tagvar.declare" dtd="declare" kind="bool" default="true" display="declare subelement"/> 
+			<jsp-property id="tld:tagvar.scope" dtd="scope" kind="string" default="NESTED" display="scope subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag-file" dtd="tag-file" display="tag-file subelement"> 
+			<jsp-property id="tld:tag-file.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:tag-file.path" dtd="path" kind="path" prefix="/WEB_INF/tags/,/META_INF/" display="path subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:elfunction" dtd="function" display="function subelement"> 
+			<jsp-property id="tld:elfunction.name" dtd="name" kind="string" default="none" display="name subelement"/> 
+			<jsp-property id="tld:elfunction.class" dtd="function-class" kind="javatypename" default="none" display="function-class subelement"/> 
+			<jsp-property id="tld:elfunction.signature" dtd="function-signature" kind="string" default="none" display="function-signature subelement"/> 
+		</jsp-item>
+
+	</jsp-tld>  
+
+	<!--  =============================== web-jsptaglibrary_2_1.xsd ===============================  -->                        
+	<!--  =============================== TODO: review configuration ===============================  -->                        
+	<jsp-tld id="2.1">
+
+		<jsp-item id="tld:taglib" dtd="taglib" display="taglib element"> 
+			<jsp-property id="tld:taglib.tlibversion" dtd="tlib-version" kind="real" occur="1" default="0.0" display="tlib-version subelement"/> 
+			<jsp-property id="tld:taglib.jspversion" dtd="jspversion" kind="real" occur="1" default="1.1" display="jspversion subelement"/> 
+			<jsp-property id="tld:taglib.shortname" dtd="short-name" kind="string" occur="1" display="short-name subelement"/> 
+			<jsp-property id="tld:taglib.uri" dtd="uri" kind="URI" display="uri subelement"/> 
+			<jsp-property id="tld:taglib.info" dtd="description" kind="string" display="description subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag" dtd="tag" display="tag subelement"> 
+			<jsp-property id="tld:tag.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/>
+			<jsp-property id="tld:tag.tagclass" dtd="tag-class" kind="javatypename" occur="1" display="tag-class subelement"/> 
+			<jsp-property id="tld:tag.teiclass" dtd="tei-class" kind="javatypename" display="tei-class subelement"/> 
+			<jsp-property id="tld:tag.bodycontent" dtd="body-content" kind="string" occur="1" static="tagdependent,JSP,empty,scriptless" default="JSP" display="body-content subelement"/> 
+			<jsp-property id="tld:tag.info" dtd="info" kind="string" display="info subelement"/> 
+			<jsp-property id="tld:tag.dynamicattributes" dtd="dynamic-attributes" kind="bool" display="dynamic-attributes subelement"/> 
+		</jsp-item> 
+
+		<jsp-item id="tld:taga" dtd="attribute" display="attribute subelement"> 
+			<jsp-property id="tld:taga.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:taga.required" dtd="required" kind="bool" default="false" display="required subelement"/> 
+			<jsp-property id="tld:taga.type" dtd="type" kind="javatypename" default="String" display="type subelement"/> 
+			<jsp-property id="tld:taga.rtexprvalue" dtd="rtexprvalue" kind="bool" default="false" display="rtexprvalue subelement"/> 
+			<jsp-property id="tld:taga.fragment" dtd="fragment" kind="bool" default="false" display="fragment subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tagvar" dtd="variable" display="variable subelement"> 
+			<jsp-property id="tld:tagvar.namegiven" dtd="name-given" kind="string" default="none" display="name-given subelement"/> 
+			<jsp-property id="tld:tagvar.namefromattribute" dtd="name-from-attribute" kind="string" default="none" display="name-from-attribute subelement"/> 
+			<jsp-property id="tld:tagvar.variableclass" dtd="variable-class" kind="javatypename" default="java.lang.String" display="variable-class subelement"/> 
+			<jsp-property id="tld:tagvar.declare" dtd="declare" kind="bool" default="true" display="declare subelement"/> 
+			<jsp-property id="tld:tagvar.scope" dtd="scope" kind="string" default="NESTED" display="scope subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:tag-file" dtd="tag-file" display="tag-file subelement"> 
+			<jsp-property id="tld:tag-file.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/> 
+			<jsp-property id="tld:tag-file.path" dtd="path" kind="path" prefix="/WEB_INF/tags/,/META_INF/" display="path subelement"/> 
+		</jsp-item>
+
+		<jsp-item id="tld:elfunction" dtd="function" display="function subelement"> 
+			<jsp-property id="tld:elfunction.name" dtd="name" kind="string" default="none" display="name subelement"/> 
+			<jsp-property id="tld:elfunction.class" dtd="function-class" kind="javatypename" default="none" display="function-class subelement"/> 
+			<jsp-property id="tld:elfunction.signature" dtd="function-signature" kind="string" default="none" display="function-signature subelement"/> 
+		</jsp-item>
+
+	</jsp-tld>
+
+  <!--  =============================== JSF2.0: web-facelettaglibrary_2_0.xsd ===============================  -->
+  <jsp-tld id="jsf-2.0">
+
+    <jsp-item id="tld:taglib" dtd="facelet-taglib" display="taglib element">
+      <jsp-property id="tld:taglib.tlibversion" dtd="version"/>
+      <jsp-property id="tld:taglib.uri" dtd="namespace" kind="URI" display="namespace subelement"/>
+    </jsp-item>
+
+    <jsp-item id="tld:tag" dtd="tag" display="tag subelement">
+      <jsp-property id="tld:tag.name" dtd="tag-name" kind="string" occur="1" default="none" display="tag-name subelement"/>
+      <jsp-property id="tld:tag.tagclass" dtd="handler-class" kind="javatypename" display="handler-class subelement"/>
+      <jsp-property id="tld:tag.tagsource" dtd="source" kind="string" display="source subelement"/>
+    </jsp-item>
+
+    <jsp-item id="tld:taga" dtd="attribute" display="attribute subelement">
+      <jsp-property id="tld:taga.name" dtd="name" kind="string" occur="1" default="none" display="name subelement"/>
+      <jsp-property id="tld:taga.required" dtd="required" kind="bool" default="false" display="required subelement"/>
+      <jsp-property id="tld:taga.type" dtd="type" kind="javatypename" default="String" display="type subelement"/>
+      <jsp-property id="tld:taga.rtexprvalue" dtd=""/>
+      <jsp-property id="tld:taga.fragment" dtd=""/>
+    </jsp-item>
+    
+    <jsp-item id="tld:elfunction" dtd="function" display="function subelement">
+      <jsp-property id="tld:elfunction.name" dtd="function-name" kind="string" default="none" display="name subelement"/>
+      <jsp-property id="tld:elfunction.class" dtd="function-class" kind="javatypename" default="none" display="function-class subelement"/>
+      <jsp-property id="tld:elfunction.signature" dtd="function-signature" kind="string" default="none" display="function-signature subelement"/>
+    </jsp-item>
+
+  </jsp-tld>
+  
+</jsp-syntax>

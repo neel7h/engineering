@@ -1,0 +1,96 @@
+{
+    "id": 1022000,
+    "name": "Avoid using weak encryption algorithm as DES and triple DES",
+    "href": "AIP/quality-rules/1022000",
+    "critical": true,
+    "associatedValueName": "Associated Value",
+    "description": "DES and 3DES are vulnerable to attack mainly because of time complexity and used techniques. \n   This rule is reporting violation when weak encryption algorithm like DES or Triple DES is used in the code source.\n   \n   This rule is compliant with \nCWE-326 - Inadequate Encryption Strength \nCWE-327 - Use of a Broken or Risky Cryptographic Algorithm \nOWASP Top 10 2013 : A6 Sensitive Data Exposure \nOWASP Top 10 2017 : A3 Sensitive Data Exposure\n   ",
+    "output": "This rule reports the full name of the java method using weak encryption like DES or Triple DES algorithm.  \n  ",
+    "rationale": "The Data Encryption Standard is a symmetric-key algorithm for the encryption of electronic data.\nDES is now considered to be insecure for many applications. This is mainly due to the 56-bit key size being too small. In January 1999, distributed.net and the Electronic Frontier Foundation collaborated to publicly break a DES key in 22 hours and 15 minutes (see chronology).\nSome analytical results demonstrate theoretical weaknesses in the cipher, Attack have been also demonstrated in practice. Even in the form of Triple DES, the believed to be insecure \nDES has been withdrawn as a standard by the National Institute of Standards and Technology. (NIST) \n",
+    "reference": " https://cwe.mitre.org/data/definitions/780.html\nhttps://cwe.mitre.org/data/definitions/327.html\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\n",
+    "remediation": "Federal agencies are encouraged to use the Advanced Encryption Standard, a faster and stronger algorithm approved as FIPS 197 in 2001. ",
+    "remediationSample": " \nCipher cipher = Cipher.getInstance(\"AES/CBC/PKCS5Padding\");\n        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);\n        byte[] encrypted = cipher.doFinal(clean); \n",
+    "sample": "// Create a DES key object specification from the raw data\nDESKeySpec dks = new DESKeySpec(Hex.fromString(keyString));\n// Create a key factory and use it to turn the DESKeySpec into\n// a SecretKey object\nSecretKeyFactory keyFactory = SecretKeyFactory.getInstance(\"DES\");\nSecretKey key = keyFactory.generateSecret( dks );\nCipher cipher = Cipher.getInstance(\"DES/ECB/NoPadding\");\n// Initialize the cipher with the key\ncipher.init( Cipher.ENCRYPT_MODE, key, sr );\nbyte[] data = Hex.fromString(plainData); \n",
+    "total": "Number of Java methods",
+    "alternativeName": "Ensure to use an advanced encryption algorithm and prefer avoiding DES, 3DES",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-326",
+            "name": "Inadequate Encryption Strength",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-327",
+            "name": "Use of a Broken or Risky Cryptographic Algorithm",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69257",
+            "name": "The application must implement DoD-approved encryption to protect the confidentiality of remote access sessions.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69293",
+            "name": "The application must ensure messages are encrypted when the SessionIndex is tied to privacy data.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

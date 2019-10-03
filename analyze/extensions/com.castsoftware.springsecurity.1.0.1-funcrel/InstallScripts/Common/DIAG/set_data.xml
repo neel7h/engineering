@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+    <SetId>1040000</SetId>
+    <SetName>SET_SS_QR_SSLArtifact</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040000</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040001</SetId>
+    <SetName>SET_SpringSecurity_Class</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040001</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040002</SetId>
+    <SetName>SET_SpringSecurity_Projects</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040002</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040003</SetId>
+    <SetName>SET_SpringSecurity_XMLFile</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040003</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040004</SetId>
+    <SetName>SET_SpringSecurity_Method</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040004</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040005</SetId>
+    <SetName>SET_SpringSecurity_PropertiesFile</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040005</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1040006</SetId>
+    <SetName>SET_SpringSecurity_BasicScope</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040006</SetProcedure>
+</SET_Definitions>
+	
+<SET_Definitions>
+    <SetId>1040007</SetId>
+    <SetName>SET_SpringSecurity_BasicScope_class</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_SS_1040007</SetProcedure>
+</SET_Definitions>
+
+</DATA>

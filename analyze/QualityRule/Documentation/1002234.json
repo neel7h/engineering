@@ -1,0 +1,60 @@
+{
+    "id": 1002234,
+    "name": "Avoid using the loop DO.. label.. CONTINUE in F90 Functions (FORTRAN)",
+    "href": "AIP/quality-rules/1002234",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "All the DO statements and END DO statements are counted. Whenever the number of DO statements are larger than the number of ENDDO statements, the artifact is considered as being in violation. Other end tags for the DO Loop are used;",
+    "rationale": "The use of the old end tag for a DO loop should be eliminated over time. It will simply code structure, and therefore readability.",
+    "remediation": "Replace alternative end tags for a Loop construct consistently with a ENDDO statement.",
+    "alternativeName": "Avoid using the loop DO.. label.. CONTINUE in F90 Functions (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": 1520580,
+    "name": "Siebel eScript: Avoid Functions without Try, Catch and Finally block",
+    "href": "AIP/quality-rules/1520580",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Reason for violation(No Try|No Finally|More Try Than Finally)",
+    "description": "The column that the Field is mapped to is stored as a property in the Knowledge Base. Whenever the Business Component has the same Column mapped, the Business Component is reported as a violation.",
+    "output": "This rule reports Functions without Try statement or with a missing Finally block in a Try statement",
+    "rationale": "You should not map multiple fields to the same column in a table. This can lead to error messages when updating the data and can cause data integrity issues. The SQL query fails because it tries to access the same column twice in the same query. It can also lead to data loss for denormalized columns that reference the column.",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid Functions without Try, Catch and Finally block",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

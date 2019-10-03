@@ -1,0 +1,87 @@
+{
+    "id": 1043018,
+    "name": "Avoid storing passwords in the config files",
+    "href": "AIP/quality-rules/1043018",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Storing passwords, in a config files is something to be avoided at all costs.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "Failure frequently compromises all data that should have been protected. Typically, this information includes sensitive personal information (PII) data such as health records, credentials, personal data, and credit cards, which often require protection as defined by laws or regulations such as the EU GDPR or local privacy laws.",
+    "reference": "CWE-260: Password in Configuration File\nhttps://cwe.mitre.org/data/definitions/260.html\n\nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration\n\nA6-Security_Misconfiguration",
+    "remediation": "Username and password information should not be included in a configuration file or a properties file in plaintext as this will allow anyone who can read the file access to the resource. If possible, encrypt this information",
+    "remediationSample": "We should not store user information in the connection string. We should either use the trusted connection or use verious avilable encryption algo to encrypt the connection string \n\nmore details are available about different security @ https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax",
+    "sample": "<connectionStrings>\n<add name=\"ud_DEV\" connectionString=\"connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;\" providerName=\"System.Data.Odbc\" />\n</connectionStrings>\n...",
+    "total": "Number of config files",
+    "alternativeName": "Avoid storing passwords in the config files",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-260",
+            "name": "Password in Configuration File",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70363",
+            "name": "The application must not contain embedded authentication data.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

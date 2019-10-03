@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+$    The purpose is the detection of the use of the PL/SQL rule hint 
+$    the ORACLE(r) documentation states that :
+$    "+ is a plus sign that causes Oracle to interpret the comment as a list of hints. 
+$     The plus sign must follow immediately after the comment delimiter (no space is permitted)"
+$    the syntax is :
+$        /*+ hint_list */
+$    or
+$         -+ hint_list <EOL>   rem.: can't write two hyphens otherwise the XML parser will reject the file
+$    Since the PL/SQL parser doesn't support this syntax we use a regex to find it :
+$    We look for \+[ \t\r\n]+rule[ \t\r\n] inside comments and nowhere else.
+$    Rem.: we do not care about other possible hints.
+$    Using a regex to match this is not a good their is a lot of case where the use of rule
+$    will not be seen, what about rule mixed with other hints? as in :
+$        /*+ hint_one hint_two rule */
+$    this one will be missed for sure...
+$    We could simply match "rule" in a whole word only manner but this will induce a lot
+$    of false violations.
+$    Waiting for the PL/SQL parser to support this syntax...
+-->
+
+<METRIC PACKAGE_NAME="PLSQL.RuleHints">
+  <ACTIVE>YES</ACTIVE>
+  <ACTION_LIST>
+    <ACTION NAME="MATCH" >
+      <INTERNAL_UID>1E981836-A530-4185-BA82-56E92E784545</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+
+  <CATEGORY_LIST>
+
+    <CATEGORY NAME="MATCH_RULE_EXCLUSION_HINTS">
+
+    </CATEGORY>
+
+      <CATEGORY NAME="MATCH_RULE_HINTS">
+          <PROPERTY NAME="VALUE" type="integer" />
+          <PROPERTY NAME="RULE_HINTS" type="regexp_pattern">
+              <LANGUAGE>PLSQL-LANGUAGE</LANGUAGE>
+              <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+              <SEARCH_IN_COMMENT>Yes</SEARCH_IN_COMMENT>
+              <SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+              <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+              <!--<REGEXP>(select|update|insert|delete|merge)[ ]+/\*\+([^*]|[\r\n]|(\*+([^*/]|[\r\n])))* RULE([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/</REGEXP>-->
+              <REGEXP>(select|update|insert|delete|merge)[[:Zs:]]+/\*\+[^*]*rule[^*]*\*+/</REGEXP>
+              <REGEXP>(select|update|insert|delete|merge)[[:Zs:]]+--\+[^\r\n]*rule</REGEXP>
+          </PROPERTY>
+
+          <ADD_ACTION NAME="MATCH">
+              <MATCH>RULE_HINTS</MATCH>
+              <CLASS>PLSQL_CLASS.CLASS</CLASS>
+              <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+              <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+          </ADD_ACTION>
+
+          <ADD_ACTION NAME="PERSISTENCE">
+              <SAVE>VALUE</SAVE>
+              <NAME>Use of rule hints</NAME>
+          </ADD_ACTION>
+      </CATEGORY>
+      
+      <CATEGORY NAME="MATCH_RULE_HINTS_FORMS">
+          <PROPERTY NAME="VALUE" type="integer" />
+          <PROPERTY NAME="RULE_HINTS" type="regexp_pattern">
+              <LANGUAGE>FORMS-LANGUAGE</LANGUAGE>
+              <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+              <SEARCH_IN_COMMENT>Yes</SEARCH_IN_COMMENT>
+              <SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+              <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+              <!--<REGEXP>(select|update|insert|delete|merge)[ ]+/\*\+([^*]|[\r\n]|(\*+([^*/]|[\r\n])))* RULE([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/</REGEXP>-->
+              <REGEXP>(select|update|insert|delete|merge)[[:Zs:]]+/\*\+[^*]*rule[^*]*\*+/</REGEXP>
+              <REGEXP>(select|update|insert|delete|merge)[[:Zs:]]+--\+[^\r\n]*rule</REGEXP>
+          </PROPERTY>
+
+          <ADD_ACTION NAME="MATCH">
+              <MATCH>RULE_HINTS</MATCH>
+              <CLASS>FORMS_CLASS.CLASS</CLASS>
+              <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+              <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+          </ADD_ACTION>
+
+          <ADD_ACTION NAME="PERSISTENCE">
+              <SAVE>VALUE</SAVE>
+              <NAME>Use of rule hints</NAME>
+          </ADD_ACTION>
+
+      </CATEGORY>
+
+  </CATEGORY_LIST>
+</METRIC>
+

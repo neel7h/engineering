@@ -1,0 +1,108 @@
+{
+    "id": 1043026,
+    "name": "Avoid disabling EnableViewStateMac in Config file",
+    "href": "AIP/quality-rules/1043026",
+    "critical": false,
+    "maxWeight": 8,
+    "description": "This attribute should never be set to false in a production Web site, even if the application or page does not use view state. The view state MAC helps ensure the security of other ASP.NET functions in addition to view state.\nthe quality rule is critical as the the view state MAC helps ensure the security of other ASP.NET functions in addition to view state.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "XSS is the second most prevalent issue in the OWASP Top 10, and is found in around two thirds of all applications.\nAutomated tools can find some XSS problems automatically, particularly in mature technologies such as PHP, J2EE / JSP, and ASP.NET.",
+    "reference": "https://docs.microsoft.com/fr-fr/dotnet/api/system.web.ui.page.enableviewstatemac?view=netframework-4.7.2",
+    "remediation": "Review the source code and have the value of the property EnableViewStateMacse to false.",
+    "remediationSample": "<system.web>\n    <pages EnableViewStateMac =\"true\" />\n</system.web>\n\n//or\n\nDefault value is set for true...\nSo no tag found in the file is True.\n\n<system.web>\n    <!--<pages EnableViewStateMac =\"false\" />-->\n</system.web>",
+    "sample": "<system.web>\n    <pages EnableViewStateMac =\"false\" />\n</system.web>",
+    "total": "Number of config files",
+    "alternativeName": "Avoid disabling EnableViewStateMac in Config file",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

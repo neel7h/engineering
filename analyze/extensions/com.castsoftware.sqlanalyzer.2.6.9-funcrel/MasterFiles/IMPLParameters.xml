@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+	<metric id="10201" type="sizing-measure" originalName="Backfired Function Points" parameterName="BackFired FP ratio" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>60.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+  
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Average Size Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>100.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Large Size Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>500.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Very Large Size Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>1000.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Average Coupling Artifacts Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>4.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="High Coupling Artifacts Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>10.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Very High Coupling Artifacts Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Average Complexity Artifact Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>5.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="High Complexity Artifact Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>15.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Very High Complexity Artifact Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Average Reuse Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>4.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="High Reuse Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>10.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution" parameterName="Very High Reuse Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>50.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="Average Class Complexity Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>100.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="High Class Complexity Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>500.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" parameterName="Very High Class Complexity Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>1000.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="Average Class Fan-Out Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>5.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="High Class Fan-Out Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>15.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution" parameterName="Very High Class Fan-Out Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="Average Class Fan-In Threshold" parameterType="float" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>4.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="High Class Fan-In Threshold" parameterType="float" parameterIndex="2" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>10.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution" parameterName="Very High Class Fan-In Threshold" parameterType="float" parameterIndex="3" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+  <metric id="1101016" type="quality-rule" originalName="Avoid artifacts with too many parameters (SQL)" parameterName="Maximum parameters" parameterType="integer" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Max parameters number">
+    <defaultValue>9</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code" parameterName="Maximum Line Count" parameterType="integer" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Maximum Line Count per artifact">
+    <defaultValue>50</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" parameterName="Number of tables or views" parameterType="integer" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Max tables or view number">
+    <defaultValue>4</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="7760" type="quality-rule" originalName="Avoid triggers, functions and procedures with a very low comment/code ratio" parameterName="Minimum % Comment / Code Ratio" parameterType="integer" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Minimum % Comment / Code Ratio">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="7840" type="quality-rule" originalName="Trigger naming convention - prefix control" parameterName="Trigger name prefix" parameterType="text-list" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="N/A">
+    <defaultValue>N/A</defaultValue>
+    <defaultValuesList>D_ L_ U_</defaultValuesList>
+  </metric>
+  <metric id="7852" type="quality-rule" originalName="Database view naming convention - prefix control" parameterName="Prefix" parameterType="text-list" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="View naming convention">
+    <defaultValue>N/A</defaultValue>
+    <defaultValuesList>v_ V_</defaultValuesList>
+  </metric>
+  <metric id="7854" type="quality-rule" originalName="Database table naming convention - prefix control" parameterName="Prefix" parameterType="text-list" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Table naming convention">
+    <defaultValue>N/A</defaultValue>
+    <defaultValuesList>t_ T_</defaultValuesList>
+  </metric>
+  <metric id="7898" type="quality-rule" originalName="SQL Function naming convention - prefix control" parameterName="Prefix" parameterType="text-list" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Function naming convention">
+    <defaultValue>N/A</defaultValue>
+    <defaultValuesList>F_ fn_</defaultValuesList>
+  </metric>
+  <metric id="7900" type="quality-rule" originalName="Stored Procedure naming convention - prefix control" parameterName="Prefix" parameterType="text-list" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Stored procedure naming convention">
+    <defaultValue>N/A</defaultValue>
+    <defaultValuesList>P_ SP_ usp_</defaultValuesList>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Package naming convention">
+    <defaultValue>PKG_</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Package function naming convention">
+    <defaultValue>F_</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" parameterName="Prefix" parameterType="text" parameterIndex="1" filter="1101000" filterLabel="SQLAnalyzer" parameterDescription="Package procedure naming convention">
+    <defaultValue>P_</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+</root>

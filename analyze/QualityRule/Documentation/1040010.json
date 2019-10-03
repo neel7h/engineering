@@ -1,0 +1,117 @@
+{
+    "id": 1040010,
+    "name": "Always delete the cookies during the logout",
+    "href": "AIP/quality-rules/1040010",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if cookies are deleted during the logout.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When an actor claims to have a given identity, the software does not prove or insufficiently proves that the claim is correct.\nCookies should be removed when logging out to avoid this kind of risk.\n\nThe Spring Logout is composed mainly of 2 steps:\n  1. Invalidate user session : indicate to web server that the session is not used anymore\n  2. Cancel cookie send by the web server to track user session. And also all cookies sent by web application, this, in order to have a global clean state",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html\nhttps://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication",
+    "remediation": "Use the deleteCookies function just after the logout function call.",
+    "remediationSample": "@Configuration\n@EnableWebSecurity\npublic class LogoutSecurityConfig extends WebSecurityConfigurerAdapter {\n\n     @Override\n     protected void configure(HttpSecurity http) throws Exception {\n                      http.authorizeRequests().antMatchers(\"/**\").hasRole(\"USER\").and().formLogin()\n                                    .and()\n                                    .logout().deleteCookies(\"remove\") // DELETE Cookies for logout.\n                                    .invalidateHttpSession(false)\n                     .logoutUrl(\"/custom-logout\")\n                                    .logoutSuccessUrl(\"/logout-success\");\n     }\n\n     @Override\n     protected void configure(AuthenticationManagerBuilder auth) throws Exception {\n                        auth.inMemoryAuthentication().withUser(\"user\").password(\"password\").roles(\"USER\");\n     }\n}",
+    "sample": "@Configuration\n@EnableWebSecurity\npublic class LogoutSecurityConfig extends WebSecurityConfigurerAdapter {\n\n     @Override\n     protected void configure(HttpSecurity http) throws Exception {\n                      http.authorizeRequests().antMatchers(\"/**\").hasRole(\"USER\").and().formLogin()\n                                    .and()\n                                    .logout().invalidateHttpSession(true) // Cookies are not deleted during logout\n                      .logoutUrl(\"/custom-logout\")\n                                    .logoutSuccessUrl(\"/logout-success\");\n     }\n\n     @Override\n     protected void configure(AuthenticationManagerBuilder auth) throws Exception {\n                      auth.inMemoryAuthentication().withUser(\"user\").password(\"password\").roles(\"USER\");\n\n     }\n}",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure cleaning the cookies during the logout to avoid them to be used by another web application",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-287",
+            "name": "Improper Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69241",
+            "name": "The application must clear temporary storage and cookies when the session is terminated.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70207",
+            "name": "The application must destroy the session ID value and/or cookie on logoff or browser close.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70213",
+            "name": "Applications must not use URL embedded session IDs.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

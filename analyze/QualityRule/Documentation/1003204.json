@@ -1,0 +1,65 @@
+{
+    "id": 1003204,
+    "name": "Avoid script block that are too long (Flex)",
+    "href": "AIP/quality-rules/1003204",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports scripts which are more than 50 lines long.",
+    "output": "This QR reports scripts that too long. It provides following information:\n- Script full name",
+    "rationale": "Scripts that are too long become less maintainable.",
+    "remediation": "Keep script length below 50.",
+    "total": "Number of scripts",
+    "alternativeName": "Avoid script block that are too long (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.mxml.TooLongScriptBlock"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

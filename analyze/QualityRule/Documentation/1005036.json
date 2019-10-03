@@ -1,0 +1,72 @@
+{
+    "id": 1005036,
+    "name": "Avoid having Records without a naming convention (EGL)",
+    "href": "AIP/quality-rules/1005036",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rules searches for all the Record with name not adhering to a pattern. The pattern will be provided as parameter of the rule.\nThis rule will list out the record name which has the Upper or lower case of parameter valuer not present in the name.\nThe default parameter value is W.\nThe parameter value can be changed by user.",
+    "output": "This report provides the following information: OTHER RECORD full name",
+    "rationale": "Having the naming conventions make the source code more easy to ready and so to maintain.",
+    "remediation": "Try to always have the Records complying to the naming convention.",
+    "remediationSample": "For parameter value = W and having a record as below, \nrecord BBBSG_BILGILER type basicRecord \nBecause of the the W character is not in the name, this record violates the rule. \n\nTo fix the violation, you have to add W to the record name as 'BBBSGW_BILGILER' for example",
+    "sample": "For parameter value = W \nHaving a record as below, \nrecord BBBSG_BILGILER type basicRecord \n\nIn the record name does not contain W character , so this record will be listed in the violation list",
+    "total": "Number of Other Records",
+    "alternativeName": "Avoid having Records without a naming convention (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Record Character",
+            "description": "Character should not be present in the Record name",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        "W"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

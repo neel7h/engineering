@@ -1,0 +1,54 @@
+{
+    "id": 1520440,
+    "name": "Siebel eScript: Avoid undocumented Functions",
+    "href": "AIP/quality-rules/1520440",
+    "critical": false,
+    "maxWeight": 3,
+    "output": "This rule reports undocumented Functions",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel eScript: Avoid undocumented Functions",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

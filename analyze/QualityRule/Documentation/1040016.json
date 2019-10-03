@@ -1,0 +1,68 @@
+{
+    "id": 1040016,
+    "name": "PermitAll or user role should be specified to access URL(s) of the application",
+    "href": "AIP/quality-rules/1040016",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if a permitAll or a user role is specified for accessing any URL path when the URL is specified with .antMatchers() or .loginPage(). If not it gives the violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The access to any URL in your application should be secured by using permitAll() to avoid anonymous access or by specifying the role of the user allowed to get access.\nThese expressions are responsible for defining the access control or authorization to specific URLs or methods in your application.\nLet\u2019s look at the example:\n@Override\nprotected void configure(final HttpSecurity http) throws Exception {\n    ...\n    .antMatchers(\"/ForumPage/*\").permittAll()\n    .antMatchers(\"/auth/admin/*\").hasRole(\"ADMIN\")\n    .antMatchers(\"/auth/*\").hasAnyRole(\"ADMIN\",\"USER\")\n\n    ...\n}\n\nIn this example we specify access to all links starting with /auth/ restricted to users that are logged in with role USER or role ADMIN. Moreover, to access links starting with /auth/admin/ we need to have ADMIN role in the system.\nHowever for \"/ForumPage/*\" : all requests are allowed on that particular path ( not anonymous one).Setting the access=\u201dpermitAll\u201d will configure the authorization so that all requests are allowed on that particular path. This is achieved without disabling the security filters \u2013 these still run, so any Spring Security related functionality will still be available.\nThis check is also available for the login page, we should at least specify a .permitAll() for the path login as follow\n  .formLogin()\n            .loginPage(\"/login\")\n            .permitAll()",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control",
+    "remediation": "Add .permitAll() for the .loginPage(\"/login\") or .antMatchers(\"/xxx/**\") if access is allowed to anyone.\nor Specify the role with .hasRole(\"ROLE\")",
+    "remediationSample": "You need to add .permitAll() for the .loginPage(\"/login\") or .antMatchers(\"/xxx/**\") if access is allowed to anyone.\nor you have to specify the role with .hasRole(\"ROLE\")\n\nJAVA CONFIGURATION\n-----------------------------------------\nprotected void configure(HttpSecurity http) throws Exception {\nhttp\n.authorizeRequests()\n.antMatchers(\"/resources/**\", \"/signup\", \"/about\").permitAll()\n.antMatchers(\"/admin/**\").hasRole(\"ADMIN\") //here the permitall is not specified but the role is specified.\n.antMatchers(\"/db/**\").access(\"hasRole('ADMIN') and hasRole('DBA')\") //here the permitall is not specified but the role is specified.\n.anyRequest().authenticated()\n.and()\n\n.loginPage(\"/login\").permitAll()\n}\n\nXML CONFIGURATION\n-----------------------------------------\nintercept-url pattern=\"/login*\" access=\"permitAll\"",
+    "sample": "JAVA CONFIGURATION\n-----------------------------------------\nprotected void configure(HttpSecurity http) throws Exception {\nhttp\n.authorizeRequests()\n.anyRequest().authenticated()\n.and()\n\n.loginPage(\"/login\")\n\n\nXML CONFIGURATION\n-----------------------------------------\nintercept-url pattern=\"/login*\"",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure specifying \"PermitAll\" or \"user role\" for URL(s) access to enforce security",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

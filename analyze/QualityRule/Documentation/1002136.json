@@ -1,0 +1,60 @@
+{
+    "id": 1002136,
+    "name": "Avoid Subroutines with more then 1 statement per line  (FORTRAN)",
+    "href": "AIP/quality-rules/1002136",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "All the Lines of code (LoC) are taken into account, and compared to the number of statements. Whenever the artifact has LoC/STMT > 1, the artifact is reported as violation. The number of statements is calculated based on the Fortran statements",
+    "rationale": "There should be only 1 instruction per line. Homogenisation of the presentation to improve readability and comprehension of the code",
+    "remediation": "Reduce the number of statements per line; look for simpeler solution to implement the functionality",
+    "alternativeName": "Avoid Subroutines with more then 1 statement per line  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

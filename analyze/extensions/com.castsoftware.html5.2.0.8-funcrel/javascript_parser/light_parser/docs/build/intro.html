@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; light_parser 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="light_parser 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to light_parser’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to light_parser’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">light_parser 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="xref py py-mod docutils literal"><span class="pre">light_parser</span></tt> module provides simple functions to build a
+light language parser.
+This section shows some simple usage examples of these functions.</p>
+<p>Let&#8217;s get started with splitting a string containing one or more SQL
+statements into a basic AST:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">light_parser.lexer</span> <span class="kn">import</span> <span class="n">create_lexer</span><span class="p">,</span> <span class="n">BlockStatement</span><span class="p">,</span> <span class="n">Statement</span><span class="p">,</span> <span class="n">StatementFilter</span>
+
+<span class="k">class</span> <span class="nc">Block</span><span class="p">(</span><span class="n">BlockStatement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;BEGIN&#39;</span>
+    <span class="n">end</span>   <span class="o">=</span> <span class="s">&#39;END&#39;</span>
+
+<span class="k">class</span> <span class="nc">For</span><span class="p">(</span><span class="n">BlockStatement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;FOR&#39;</span>
+    <span class="n">end</span>   <span class="o">=</span> <span class="s">&#39;END&#39;</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-class docutils literal"><span class="pre">light_parser.lexer.BlockStatement</span></tt> represent block statement found in programming languages.
+They have a recursive structure. The beginning and end of a blck are is given by a pattern.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">CreateStatement</span><span class="p">(</span><span class="n">Statement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;CREATE&#39;</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="s">&#39;;&#39;</span>
+
+
+<span class="k">class</span> <span class="nc">SelectStatement</span><span class="p">(</span><span class="n">Statement</span><span class="p">):</span>
+
+    <span class="n">begin</span> <span class="o">=</span> <span class="s">&#39;SELECT&#39;</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="s">&#39;;&#39;</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-class docutils literal"><span class="pre">light_parser.lexer.Statement</span></tt> represent basic non recursive statements.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+
+  <span class="n">lexer</span> <span class="o">=</span> <span class="n">create_lexer</span><span class="p">(</span><span class="n">SqlLexer</span><span class="p">)</span>
+  <span class="n">stream</span> <span class="o">=</span> <span class="n">lexer</span><span class="o">.</span><span class="n">get_tokens</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+  <span class="nb">filter</span> <span class="o">=</span> <span class="n">StatementFilter</span><span class="p">(</span><span class="n">groups</span><span class="o">=</span><span class="p">[</span><span class="n">Block</span><span class="p">,</span> <span class="n">For</span><span class="p">],</span> <span class="n">statements</span><span class="o">=</span><span class="p">[</span><span class="n">CreateStatement</span><span class="p">,</span> <span class="n">SelectStatement</span><span class="p">])</span>
+  <span class="k">return</span> <span class="nb">filter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">CREATE TABLE toto;</span>
+<span class="s">BEGIN</span>
+<span class="s">/* comment */</span>
+<span class="s">  FOR ...</span>
+<span class="s">    select * FROM (SELECT * FROM TOTO);</span>
+<span class="s">  END;</span>
+<span class="s">END;</span>
+<span class="s">&quot;&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">print_tree</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The end of a statement is identified by the occurrence of a semicolon.
+Semicolons within certain SQL constructs like <tt class="docutils literal"><span class="pre">BEGIN</span> <span class="pre">...</span> <span class="pre">END</span></tt> blocks
+are handled correctly by the splitting mechanism.</p>
+<p>SQL statements can be beautified by using the <tt class="xref py py-meth docutils literal"><span class="pre">format()</span></tt> function.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sql</span> <span class="o">=</span> <span class="s">&#39;select * from foo where id in (select id from bar);&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">sqlparse</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">reindent</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">keyword_case</span><span class="o">=</span><span class="s">&#39;upper&#39;</span><span class="p">)</span>
+<span class="go">SELECT *</span>
+<span class="go">FROM foo</span>
+<span class="go">WHERE id IN</span>
+<span class="go">  (SELECT id</span>
+<span class="go">   FROM bar);</span>
+</pre></div>
+</div>
+<p>In this case all keywords in the given SQL are uppercased and the
+indentation is changed to make it more readable. Read <em class="xref std std-ref">formatting</em> for
+a full reference of supported options given as keyword arguments
+to that function.</p>
+<p>Before proceeding with a closer look at the internal representation of
+SQL statements, you should be aware that this SQL parser is intentionally
+non-validating. It assumes that the given input is at least some kind
+of SQL and then it tries to analyze as much as possible without making
+too much assumptions about the concrete dialect or the actual statement.
+At least it&#8217;s up to the user of this API to interpret the results right.</p>
+<p>When using the <tt class="xref py py-meth docutils literal"><span class="pre">parse()</span></tt> function a tuple of
+<tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt> instances is returned:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sql</span> <span class="o">=</span> <span class="s">&#39;select * from &quot;someschema&quot;.&quot;mytable&quot; where id = 1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parsed</span> <span class="o">=</span> <span class="n">sqlparse</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parsed</span>
+<span class="go">(&lt;Statement &#39;select...&#39; at 0x9ad08ec&gt;,)</span>
+</pre></div>
+</div>
+<p>Each item of the tuple is a single statement as identified by the above
+mentioned <tt class="xref py py-meth docutils literal"><span class="pre">split()</span></tt> function. So let&#8217;s grab the only element
+from that list and have a look at the <tt class="docutils literal"><span class="pre">tokens</span></tt> attribute.
+Sub-tokens are stored in this attribute.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stmt</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># grab the Statement object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stmt</span><span class="o">.</span><span class="n">tokens</span>
+<span class="go">(&lt;DML &#39;select&#39; at 0x9b63c34&gt;,</span>
+<span class="go"> &lt;Whitespace &#39; &#39; at 0x9b63e8c&gt;,</span>
+<span class="go"> &lt;Operator &#39;*&#39; at 0x9b63e64&gt;,</span>
+<span class="go"> &lt;Whitespace &#39; &#39; at 0x9b63c5c&gt;,</span>
+<span class="go"> &lt;Keyword &#39;from&#39; at 0x9b63c84&gt;,</span>
+<span class="go"> &lt;Whitespace &#39; &#39; at 0x9b63cd4&gt;,</span>
+<span class="go"> &lt;Identifier &#39;&quot;somes...&#39; at 0x9b5c62c&gt;,</span>
+<span class="go"> &lt;Whitespace &#39; &#39; at 0x9b63f04&gt;,</span>
+<span class="go"> &lt;Where &#39;where ...&#39; at 0x9b5caac&gt;)</span>
+</pre></div>
+</div>
+<p>Each object can be converted back to a string at any time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">unicode</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>  <span class="c"># str(stmt) for Python 3</span>
+<span class="go">u&#39;select * from &quot;someschema&quot;.&quot;mytable&quot; where id = 1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">unicode</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">tokens</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c"># or just the WHERE part</span>
+<span class="go">u&#39;where id = 1&#39;</span>
+</pre></div>
+</div>
+<p>Details of the returned objects are described in <em class="xref std std-ref">analyze</em>.</p>
+</div>
+<div class="section" id="development-contributing">
+<h2>Development &amp; Contributing<a class="headerlink" href="#development-contributing" title="Permalink to this headline">¶</a></h2>
+<p>To check out the latest sources of this module run</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git://github.com/andialbrecht/sqlparse.git
+</pre></div>
+</div>
+<p>to check out the latest sources from the repository.</p>
+<p><tt class="xref py py-mod docutils literal"><span class="pre">sqlparse</span></tt> is currently tested under Python 2.5, 2.6, 2.7, 3.2 and
+pypy. Tests are automatically run on each commit and for each pull
+request on Travis: <a class="reference external" href="https://travis-ci.org/andialbrecht/sqlparse">https://travis-ci.org/andialbrecht/sqlparse</a></p>
+<p>Make sure to run the test suite before sending a pull request by running</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tox
+</pre></div>
+</div>
+<p>It&#8217;s ok, if <strong class="command">tox</strong> doesn&#8217;t find all interpreters listed
+above. Ideally a Python 2 and a Python 3 version should be tested
+locally.</p>
+<p>Please file bug reports and feature requests on the project site at
+<a class="reference external" href="https://github.com/andialbrecht/sqlparse/issues/new">https://github.com/andialbrecht/sqlparse/issues/new</a> or if you have
+code to contribute upload it to <a class="reference external" href="http://codereview.appspot.com">http://codereview.appspot.com</a> and
+add <a class="reference external" href="mailto:albrecht&#46;andi&#37;&#52;&#48;googlemail&#46;com">albrecht<span>&#46;</span>andi<span>&#64;</span>googlemail<span>&#46;</span>com</a> as reviewer.</p>
+<p>For more information about the review tool and how to use it visit
+it&#8217;s project page: <a class="reference external" href="http://code.google.com/p/rietveld">http://code.google.com/p/rietveld</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#development-contributing">Development &amp; Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to light_parser&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to light_parser’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">light_parser 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, MRO.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

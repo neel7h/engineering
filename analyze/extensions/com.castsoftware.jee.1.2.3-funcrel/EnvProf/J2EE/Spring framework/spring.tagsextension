@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+	<!-- Note: Make sure the value of the taglibs/taglib/@uri attribute matches the value of the taglib/uri element 
+		in your tld files.
+	-->
+	
+	<!-- SPRING View -->
+	<taglib uri="http://www.springframework.org/tags">
+		<tag name="hasBindErrors">
+			<create name="errors" kind="bean" scope="page"
+				type="org.springframework.validation.Errors" />
+			<attribute name="name" resolveValueAs="bean"
+				resolutionScope="request" />
+		</tag>
+		<tag name="bind">
+			<create name="status" kind="bean" scope="page"
+				type="org.springframework.web.servlet.support.BindStatus" />
+			<attribute name="path" resolveValueAs="bean"
+				resolutionScope="request" />
+		</tag>
+		<tag name="nestedPath">
+			<create name="nestedPath" kind="bean" scope="page"
+				type="java.lang.String" value="path" />
+		</tag>
+		<tag name="message">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<attribute name="code" resolveValueAs="property-mapping" />
+		</tag>
+		<tag name="theme">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<attribute name="code" resolveValueAs="property-mapping" />
+		</tag>
+		<tag name="transform">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+		</tag>
+	</taglib>
+
+    <taglib uri="http://www.springframework.org/security/facelets/tags">
+      <!-- Default processing -->
+      <tag name="*">
+          <attribute name="*" resolveValueAs="jsf-el-method"	methodType="getter" />
+      </tag>
+    </taglib>
+  
+</taglibs>

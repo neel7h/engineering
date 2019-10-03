@@ -1,0 +1,63 @@
+{
+    "id": 1007202,
+    "name": "Avoid direct access to superglobals (PHP)",
+    "href": "AIP/quality-rules/1007202",
+    "critical": true,
+    "description": "This rule searches all artifacts that access superglobals directly. Artifacts considered for this QR are php section, constructor, method and functions.",
+    "output": "This report lists artifacts that directly access PHP superglobals. It provides:\n- Artifact Full Name",
+    "rationale": "PHP superglobals should not be accessed directly. Use one of the filter APIs instead.",
+    "remediation": "Use PHP filter APIs to access superglobals.",
+    "remediationSample": "<?php\n      \n         $search_html = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_SPECIAL_CHARS);\n         echo \"search html\", $search_html, \"</br>\";\n      ?>",
+    "sample": "<?php\n         $search_html = $_GET['search'];\n         echo \"search html\", $search_html, \"</br>\";\n      ?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid direct access to superglobals (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

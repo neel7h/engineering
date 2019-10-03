@@ -1,0 +1,72 @@
+{
+    "id": 1007134,
+    "name": "Avoid classes with excessive number of methods (PHP)",
+    "href": "AIP/quality-rules/1007134",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes that have excessive number of methods. Threshold for number of methods is set to 10. All methods, public\\private\\protected with all access qualifiers abstract and final along with static methods are considered while counting methods of the class. Base class methods unless overriden do not contribute to this QR.",
+    "output": "This report lists all the classes with excessive number of methods.\n\nThis QR provides the following information:\nClass full name.",
+    "rationale": "A Class with too many Methods is probably a good target for refactoring to reduce its complexity and find a way to have more fine-grained classes.",
+    "reference": "PHPMD - http://phpmd.org/rules/codesize.html#toomanymethods",
+    "remediation": "Refactor the class to reduce the number of methods in the class.",
+    "sample": "<?php\nclass CastExample\n{\n\n  public function test1() {}\n\n private function test2() {}\n protected function test3() {}\n final public function test4() {}\n abstract public function test4();\n //...\n\n static public function test9() {}\n static protected function test10() {}\n static private function test11() {}\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes with excessive number of methods (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum methods",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "id": 1001148,
+    "name": "Avoid Main Procedures not having an ON ERROR clause (PL1)",
+    "href": "AIP/quality-rules/1001148",
+    "critical": true,
+    "description": "This rule searches for all the PL1 Main Procedures not having an ON ERROR clause.",
+    "output": "The report lists all the PL1 Main Procedures not having ON ERROR clause. \n\nIt provides following information: \n- PL1 Main Procedure full name",
+    "rationale": "Not managing errors can lead to data corruption and incorrect behavior, even if the error is managed through specific architecture.",
+    "remediation": "Add the ON ERROR clause for the PLI Main Procedures.",
+    "remediationSample": "MY_PROG: PROC OPTIONS(MAIN) REORDER;\n  ...  \nON ERROR SNAP \nBEGIN\n...\nEND  \nEND MY_PROG;",
+    "sample": "MY_PROG: PROC OPTIONS(MAIN) REORDER;\n  ...     \nEND MY_PROG;",
+    "total": "Number of the PL1  Main procedures",
+    "alternativeName": "Avoid Main Procedures not having an ON ERROR clause (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

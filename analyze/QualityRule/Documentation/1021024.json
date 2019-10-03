@@ -1,0 +1,79 @@
+{
+    "id": 1021024,
+    "name": "Avoid return statement in finally block",
+    "href": "AIP/quality-rules/1021024",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all methods that contain an abrupt in a finally block. An abrupt completion of a statement or block occurs when it throws an exception, executes a break or continues to an enclosing statement, or executes a return from the method.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Care must be taken if completion of a try-catch block occurs as a result of executing a return. If a finally block also returns a value, then that return supersedes any previous return in the try-catch block. Also, if an exception was thrown in the try or catch blocks that was not caught, then execution of a return in the finally block prevents the exception from being thrown to the caller (because it is not possible for the caller to simultaneously evaluate the return and catch the exception). This is also valid for break or continue instructions.",
+    "reference": "CISQ OMG ASCMM-MNT-01",
+    "remediation": "Avoid using finally statement in return block. If used, it will swallow the exception raised but not handled in above try except block.",
+    "remediationSample": ">>> def experiment():\n>>>     try:\n>>>         x = 2/0\n>>>     except:\n>>>         logging.debug(\"Not Possible\")\n>>>     finally:\n>>>         logging.debug(\"Division\")\n>>>         clean_up_code()    #Return should not be used inside finally",
+    "sample": ">>> def experiment():\n>>>     try:\n>>>         x = 2/0\n>>>     except:\n>>>         logging.debug(\"Not possible\")\n>>>     finally:\n>>>         logging.debug(\"Division\")\n>>>         return",
+    "total": "Number of Python artifacts handling exceptions",
+    "alternativeName": "Avoid return statement in finally block",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-584",
+            "name": "Return Inside Finally Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

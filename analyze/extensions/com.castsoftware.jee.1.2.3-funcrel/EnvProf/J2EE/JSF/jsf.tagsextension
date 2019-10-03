@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+	<!-- Note: Make sure the value of the taglibs/taglib/@uri attribute matches the value of the taglib/uri element 
+		in your tld files.
+	-->
+
+	<!-- JSF HTML -->
+	<taglib uri="http://java.sun.com/jsf/html">
+		<tag name="inputText">
+			<create nameSrc="id" kind="jsf-input-field" />
+			<search kind="jsf-input-field">
+				<addAttribute name="Required" valueSrc="required"/>
+			</search>
+			<attribute name="value"		resolveValueAs="bean-property"					caller-type="jsf-input-field" />
+			<attribute name="converter" resolveValueAs="jsf-converter"					caller-type="jsf-input-field" />
+			<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	caller-type="jsf-input-field" >
+				<search kind="jsf-input-field">
+					<addAttribute name="Validate" value="true"/>
+				</search>
+			</attribute>
+		</tag>
+		<tag name="inputHidden">
+			<create nameSrc="id" kind="jsf-input-field" />
+			<search kind="jsf-input-field">
+				<addAttribute name="Required" valueSrc="required"/>
+			</search>
+			<attribute name="value"		resolveValueAs="bean-property"					caller-type="jsf-input-field"/>
+			<attribute name="converter" resolveValueAs="jsf-converter"					caller-type="jsf-input-field" />
+			<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	caller-type="jsf-input-field" >
+				<search kind="jsf-input-field">
+					<addAttribute name="Validate" value="true"/>
+				</search>
+			</attribute>
+		</tag>
+		<tag name="inputSecret">
+			<create nameSrc="id" kind="jsf-input-field" />
+			<search kind="jsf-input-field">
+				<addAttribute name="Required" valueSrc="required"/>
+			</search>
+			<attribute name="value"		resolveValueAs="bean-property"					caller-type="jsf-input-field"/>
+			<attribute name="converter" resolveValueAs="jsf-converter"					caller-type="jsf-input-field" />
+			<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	caller-type="jsf-input-field" >
+				<search kind="jsf-input-field">
+					<addAttribute name="Validate" value="true"/>
+				</search>
+			</attribute>
+		</tag>
+
+		<tag name="inputTextarea">
+			<create nameSrc="id" kind="jsf-input-field"/>
+			<search kind="jsf-input-field">
+				<addAttribute name="Required" valueSrc="required"/>
+			</search>
+			<attribute name="value"		resolveValueAs="bean-property"					caller-type="jsf-input-field" />
+			<attribute name="converter" resolveValueAs="jsf-converter"					caller-type="jsf-input-field" />
+			<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	caller-type="jsf-input-field" >
+				<search kind="jsf-input-field">
+					<addAttribute name="Validate" value="true"/>
+				</search>
+			</attribute>
+		</tag>
+
+		<!-- commands-->
+		<tag name="commandButton">
+			<attribute name="action" resolveValueAs="jsf-outcome;jsf-el-method"/>
+		</tag>
+
+		<tag name="commandLink">
+			<attribute name="action" resolveValueAs="jsf-outcome;jsf-el-method"/>
+		</tag>
+	</taglib>
+
+	<!-- JSF HTML 2.x -->
+	<taglib uri="http://java.sun.com/jsf/html" tlib-version="2.2">
+	<tag name="inputText">
+		<create nameSrc="id" kind="jsf-input-field" />
+		<search kind="jsf-input-field">
+		<addAttribute name="Required" valueSrc="required"/>
+		</search>
+		<attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+		<attribute name="converter" resolveValueAs="jsf-converter"					        caller-type="jsf-input-field" />
+		<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	        caller-type="jsf-input-field" >
+		<search kind="jsf-input-field">
+			<addAttribute name="Validate" value="true"/>
+		</search>
+		</attribute>
+		<attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter"   caller-type="jsf-input-field" />
+	</tag>
+	<tag name="inputHidden">
+		<create nameSrc="id" kind="jsf-input-field" />
+		<search kind="jsf-input-field">
+		<addAttribute name="Required" valueSrc="required"/>
+		</search>
+		<attribute name="value"		resolveValueAs="jsf-el-method"	methodType="allAccessors" caller-type="jsf-input-field"/>
+		<attribute name="converter"   resolveValueAs="jsf-converter"					      caller-type="jsf-input-field" />
+		<attribute name="validator"   resolveValueAs="jsf-validator;jsf-el-method"	          caller-type="jsf-input-field" >
+		<search kind="jsf-input-field">
+			<addAttribute name="Validate" value="true"/>
+		</search>
+		</attribute>
+		<attribute name="*"		resolveValueAs="jsf-el-method"	    methodType="getter"     caller-type="jsf-input-field"  />
+	</tag>
+	<tag name="inputSecret">
+		<create nameSrc="id" kind="jsf-input-field" />
+		<search kind="jsf-input-field">
+		<addAttribute name="Required" valueSrc="required"/>
+		</search>
+		<attribute name="value"	  resolveValueAs="jsf-el-method"   methodType="allAccessors" caller-type="jsf-input-field"/>
+		<attribute name="converter" resolveValueAs="jsf-converter"					         caller-type="jsf-input-field" />
+		<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	         caller-type="jsf-input-field" >
+		<search kind="jsf-input-field">
+			<addAttribute name="Validate" value="true"/>
+		</search>
+		</attribute>
+		<attribute name="*"		resolveValueAs="jsf-el-method"	     methodType="getter"     caller-type="jsf-input-field" />
+	</tag>
+
+	<tag name="inputTextarea">
+		<create nameSrc="id" kind="jsf-input-field"/>
+		<search kind="jsf-input-field">
+		<addAttribute name="Required" valueSrc="required"/>
+		</search>
+		<attribute name="value"	  resolveValueAs="jsf-el-method"	methodType="allAccessors" caller-type="jsf-input-field" />
+		<attribute name="converter" resolveValueAs="jsf-converter"				              caller-type="jsf-input-field" />
+		<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	          caller-type="jsf-input-field" >
+		<search kind="jsf-input-field">
+			<addAttribute name="Validate" value="true"/>
+		</search>
+		</attribute>
+		<attribute name="*"	   resolveValueAs="jsf-el-method"	    methodType="getter"     caller-type="jsf-input-field" />
+	</tag>
+
+	<!-- commands-->
+	<tag name="commandButton">
+		<attribute name="action" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+		<attribute name="*"	resolveValueAs="jsf-el-method" methodType="getter;method"/>
+	</tag>
+
+	<tag name="commandLink">
+		<attribute name="action" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+		<attribute name="*"	   resolveValueAs="jsf-el-method" methodType="getter;method"/>
+	</tag>
+
+    <tag name="link">
+        <attribute name="outcome" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+        <attribute name="*"	   resolveValueAs="jsf-el-method" methodType="getter;method"/>
+    </tag>
+
+	<!-- Default processing -->
+	<tag name="*">
+		<attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+	</tag>
+
+	</taglib>
+
+	<!-- JSF CORE -->
+	<taglib uri="http://java.sun.com/jsf/core">
+
+
+		<!--  Validators -->
+		<tag name="validateDoubleRange">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator" value="javax.faces.validator.DoubleRangeValidator" />
+			</search>
+		</tag>
+		<tag name="validateLength">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate"	value="true" />
+				<addAttribute name="Validator"	value="javax.faces.validator.LengthValidator" />
+			</search>
+		</tag>
+		<tag name="validateLongRange">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator"	value="javax.faces.validator.LongRangeValidator" />
+			</search>
+		</tag>
+		<tag name="validator">
+			<attribute name="validatorId" resolveValueAs="jsf-validator" caller-type="jsf-input-field" />
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator" valueSrc="validatorId" />
+			</search>
+		</tag>
+
+
+		<!--  Listeners -->
+		<tag name="actionListener">
+			<attribute name="type" resolveValueAs="java-type"/>
+		</tag>
+		<tag name="setPropertyActionListener">
+			<attribute name="type" resolveValueAs="java-type" ></attribute>
+		</tag>
+		<tag name="valueChangeListener">
+			<attribute name="type" resolveValueAs="java-type"></attribute>
+		</tag>
+
+
+		<!--  Converters -->
+		<tag name="converter">
+			<attribute name="converterId" resolveValueAs="jsf-converter" caller-type="jsf-input-field"></attribute>
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert"	value="true" />
+				<addAttribute name="Converter"	valueSrc="converterId" />
+			</search>
+		</tag>
+		<tag name="convertDateTime">
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert" value="true" />
+				<addAttribute name="Converter"	value="javax.faces.convert.DateTimeConverter" />
+			</search>
+		</tag>
+		<tag name="convertNumber">
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert" value="true" />
+				<addAttribute name="Converter"	value="javax.faces.convert.NumberConverter" />
+			</search>
+		</tag>
+	</taglib>
+	
+	<!-- JSF CORE 2.x-->
+	<taglib uri="http://java.sun.com/jsf/core" tlib-version="2.2">
+
+
+		<!--  Validators -->
+		<tag name="validateRequired">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator" value="javax.faces.validator.RequiredValidator" />
+			</search>
+		</tag>
+		<tag name="validateDoubleRange">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator" value="javax.faces.validator.DoubleRangeValidator" />
+			</search>
+		</tag>
+		<tag name="validateLength">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate"	value="true" />
+				<addAttribute name="Validator"	value="javax.faces.validator.LengthValidator" />
+			</search>
+		</tag>
+		<tag name="validateLongRange">
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator"	value="javax.faces.validator.LongRangeValidator" />
+			</search>
+		</tag>
+		<tag name="validateRegex">
+			 <search kind="jsf-input-field">
+				 <addAttribute name="Validate" value="true" />
+				 <addAttribute name="Validator"	value="javax.faces.validator.RegexValidator" />
+			 </search>
+		</tag>
+        <tag name="validateBean">
+             <search kind="jsf-input-field">
+                 <addAttribute name="Validate" value="true" />
+                 <addAttribute name="Validator"	value="com.sun.faces.facelets.tag.jsf.core.ValidateDelegateHandler" />
+             </search>
+        </tag>
+		<tag name="validator">
+			<attribute name="validatorId" resolveValueAs="jsf-validator" caller-type="jsf-input-field" />
+			<search kind="jsf-input-field">
+				<addAttribute name="Validate" value="true" />
+				<addAttribute name="Validator" valueSrc="validatorId" />
+			</search>
+		</tag>
+
+		<!--  Listeners -->
+		<tag name="actionListener">
+			<attribute name="type" resolveValueAs="java-type"/>
+		</tag>
+		<tag name="setPropertyActionListener">
+			<attribute name="type" resolveValueAs="java-type" ></attribute>
+		</tag>
+		<tag name="valueChangeListener">
+			<attribute name="type" resolveValueAs="java-type"></attribute>
+		</tag>
+
+
+		<!--  Converters -->
+		<tag name="converter">
+			<attribute name="converterId" resolveValueAs="jsf-converter" caller-type="jsf-input-field"></attribute>
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert"	value="true" />
+				<addAttribute name="Converter"	valueSrc="converterId" />
+			</search>
+		</tag>
+		<tag name="convertDateTime">
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert" value="true" />
+				<addAttribute name="Converter"	value="javax.faces.convert.DateTimeConverter" />
+			</search>
+		</tag>
+		<tag name="convertNumber">
+			<search kind="jsf-input-field">
+				<addAttribute name="Convert" value="true" />
+				<addAttribute name="Converter"	value="javax.faces.convert.NumberConverter" />
+			</search>
+		</tag>
+
+      <!-- Default processing -->
+        <tag name="*">
+            <attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+        </tag>
+	</taglib>
+
+    <!-- JSF Composite 2.x-->
+    <taglib uri="http://java.sun.com/jsf/composite">
+       <!-- This Taglib is managed internally by the analyzer -->
+    </taglib>
+  
+</taglibs>

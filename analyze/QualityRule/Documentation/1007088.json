@@ -1,0 +1,72 @@
+{
+    "id": 1007088,
+    "name": "Avoid having variable with too short name (PHP)",
+    "href": "AIP/quality-rules/1007088",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts with variables name that are too short. A name is considered short if it has less than 3 characters.",
+    "output": "This report lists all artifacts with variables name that are too short.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Source code containing short variable name is difficult to read and therefore to maintain.",
+    "reference": "PHPMD http://phpmd.org/rules/naming.html#shortvariable",
+    "remediation": "Modify the source code to reduce the number of sections with variables name that are too short.",
+    "sample": "<?php\nclass CastTest\n{\n   private $b = 20; // VIOLATION - Field\n\n      public function Test( array $as ) { // VIOLATION - Formal parameter\n         $a = 20 + $this-> b; // VIOLATION - Local variable\n         for ($i = 0; $i < 10; $i++)\n         { // Not a Violation (inside FOR)\n            $a += $this->b;\n         }\n   }\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid having variable with too short name (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum length",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        3.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

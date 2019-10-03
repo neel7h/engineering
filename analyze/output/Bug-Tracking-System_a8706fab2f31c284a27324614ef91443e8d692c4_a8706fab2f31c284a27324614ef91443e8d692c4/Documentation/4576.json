@@ -1,0 +1,53 @@
+{
+    "id": 4576,
+    "name": "Provide accessors to Private Fields",
+    "href": "AIP/quality-rules/4576",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "Each private field should have a setter and a getter except final static fields. \n\n Accessors are identified using the following java bean naming conventions: \"set\" and \"get\" followed by the name of the field with the first char in uppercase (case sensitive). For Boolean fields, the getter can also be named \"is\" followed by the name of the field. \n\n Methods not using this naming convention are not considered as accessors.",
+    "output": "This report lists all Private Fields that do not have a setter and a getter. It provides the following information: Field full name",
+    "rationale": "To respect OO encapsulation concepts, private fields should always be accessed through accessors. \n\nThe only exception is injected fields of classes which are managed by a framework (CDI, JSF). In that case, a setter is not required, since the field content will be set directly by the injection framework.",
+    "reference": "http://www.oracle.com/technetwork/java/javase/documentation/spec-136004.html\nJavaBeans(TM) Specification 1.01 Final Release - paragraph 8.3 Design Patterns for Properties p 55",
+    "remediation": "Write a getter and setter to each private field",
+    "total": "Number of private java class fields.",
+    "alternativeName": "Ensure that a getter and setter is provided for each private field",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

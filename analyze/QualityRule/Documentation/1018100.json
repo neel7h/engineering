@@ -1,0 +1,62 @@
+{
+    "id": 1018100,
+    "name": "Avoid using Get JMS Queue Message (TIBCO BW)",
+    "href": "AIP/quality-rules/1018100",
+    "critical": true,
+    "description": "This rule  reports  processes with at least a \" Get JMS Queue Message\" activity.",
+    "output": "This report lists all  Processes Activities having a Get JMS Queue Message Activity.\nIt provides the following information:\nProcess Activity full name.",
+    "rationale": "The use of the Get JMS Queue Message is discouraged for two reasons:\n- Performance issue : it is expensive for EMS server\n- It often reveals a bad architectural design (anti-pattern)",
+    "reference": "3.3.4 EFF-004: Uses of Get JMS Queue Message",
+    "remediation": "Use TIBCO BW built-in feature to read from a JMS queue.",
+    "total": "Number of  Process Activity",
+    "alternativeName": "Avoid using Get JMS Queue Message (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

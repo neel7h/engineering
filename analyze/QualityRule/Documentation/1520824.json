@@ -1,0 +1,53 @@
+{
+    "id": 1520824,
+    "name": "SiebelReview: Incorrect Thread Applet, Title, or Field Properties",
+    "href": "AIP/quality-rules/1520824",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Lists:\nThread Applet property references non-existing View Web Template Item",
+    "description": "The Thread Applet property specifies the applet from which to retrieve the Thread Field so that the History List and Thread Bar can be correctly updated.  The Thread Title property specifies the text to use in the thread title label.  If incorrectly set, the user will see misleading or confusing information.\nFurther, if CTI is implemented, a screen pop to a particular view will not function correctly if the various thread properties are not correctly set.",
+    "output": "This rule reports Applets for which Thread Applet, Thread Title, or Thread Field view properties are either missing or incorrect",
+    "rationale": "The Thread Applet, Thread Title, or Thread Field view properties are either missing or incorrect.",
+    "remediation": "Set the Thread Applet property value to the driving applet of the view, typically the parent applet.\nSet the Thread Field to a field in the Thread Applet that should be displayed in the Thread Bar and History List.\nSet the Thread Text to a meaningful text that will be displayed on the Thread Bar.\nNote that when copying an existing view, it is often necessary to modify these properties after updating the new view.",
+    "total": "Number of added or modified Views with a Thread Applet",
+    "alternativeName": "SiebelReview: Incorrect Thread Applet, Title, or Field Properties",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

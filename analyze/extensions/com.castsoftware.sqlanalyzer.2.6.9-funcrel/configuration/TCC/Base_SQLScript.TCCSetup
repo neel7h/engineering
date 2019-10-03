@@ -1,0 +1,93 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_SQLScript" version="1.0.0.0" encoding="UTF-8" date="Mon Oct 02 14:37:37 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Exclusion - SQL Script - System Tables" type = "Excluded items">
+  <selection-criteria subobjects="yes" externalobjects="yes">
+   <property name = "name" operator = "eq" >
+    <value>PLAN_TABLE</value>
+    <value>ALL_ARGUMENTS</value>
+    <value>ALL_CATALOG</value>
+    <value>ALL_COL_COMMENTS</value>
+    <value>ALL_CONSTRAINTS</value>
+    <value>ALL_CONS_COLUMNS</value>
+    <value>ALL_DB_LINKS</value>
+    <value>ALL_ERRORS</value>
+    <value>ALL_INDEXES</value>
+    <value>ALL_IND_COLUMNS</value>
+    <value>ALL_LOBS</value>
+    <value>ALL_OBJECTS</value>
+    <value>ALL_OBJECT_TABLES</value>
+    <value>ALL_SEQUENCES</value>
+    <value>ALL_SNAPSHOTS</value>
+    <value>ALL_SOURCE</value>
+    <value>ALL_SYNONYMS</value>
+    <value>ALL_TABLES</value>
+    <value>ALL_TAB_COLUMNS</value>
+    <value>ALL_TAB_COL_STATISTICS</value>
+    <value>ALL_TAB_COMMENTS</value>
+    <value>ALL_TRIGGERS</value>
+    <value>ALL_TRIGGER_COLS</value>
+    <value>ALL_TYPES</value>
+    <value>ALL_UPDATABLE_COLUMNS</value>
+    <value>ALL_USERS</value>
+    <value>ALL_VIEWS</value>
+    <value>DATABASE_COMPATIBLE_LEVEL</value>
+    <value>DBA_DB_LINKS</value>
+    <value>DBA_ERRORS</value>
+    <value>DBA_OBJECTS</value>
+    <value>DBA_ROLES</value>
+    <value>DBA_ROLE_PRIVS</value>
+    <value>DBA_SOURCE</value>
+    <value>DBA_TABLESPACES</value>
+    <value>DBA_TAB_PRIVS</value>
+    <value>DBA_TRIGGERS</value>
+    <value>DBA_TS_QUOTAS</value>
+    <value>DBA_USERS</value>
+    <value>DBA_VIEWS</value>
+    <value>DICTIONARY</value>
+    <value>DICT_COLUMNS</value>
+    <value>GLOBAL_NAME</value>
+    <value>NLS_DATABASE_PARAMETERS</value>
+    <value>NLS_INSTANCE_PARAMETERS</value>
+    <value>NLS_SESSION_PARAMETERS</value>
+    <value>PRODUCT_COMPONENT_VERSION</value>
+    <value>ROLE_TAB_PRIVS</value>
+    <value>SESSION_PRIVS</value>
+    <value>SESSION_ROLES</value>
+    <value>SYSTEM_PRIVILEGE_MAP</value>
+    <value>TABLE_PRIVILEGES</value>
+    <value>TABLE_PRIVILEGE_MAP</value>
+   </property>
+   <property name = "type" operator = "eq" >
+    <value>SQLScriptTable</value>
+   </property>
+  </selection-criteria>
+  <selection-criteria subobjects="yes" externalobjects="yes">
+   <property name = "name" operator = "like" >
+    <value>%RPUD$%</value>
+    <value>%MLOG$%</value>
+   </property>
+   <property name = "type" operator = "eq" >
+    <value>SQLScriptTable</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Exclusion - SQL Script - Quest Tables" type = "Excluded items">
+  <selection-criteria subobjects="yes" externalobjects="yes">
+   <property name = "name" operator = "eq" >
+    <value>TOAD_PLAN_TABLE</value>
+   </property>
+   <property name = "type" operator = "eq" >
+    <value>SQLScriptTable</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

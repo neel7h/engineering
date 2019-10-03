@@ -1,0 +1,90 @@
+{
+    "id": 1007250,
+    "name": "Avoid preg_replace with /e option (PHP)",
+    "href": "AIP/quality-rules/1007250",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "This rule detects call to preg_replace with /e option or raw user input as pattern to replace.",
+    "output": "This report lists all artifacts that uses call to preg_replace with /e option or user input as pattern to replace.\nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Using preg_replace with /e option or raw user input can expose code to remote code execution.",
+    "reference": "http://php.net/manual/en/function.preg-replace.php\n      https://cwe.mitre.org/data/definitions/624.html",
+    "remediation": "Use preg_replace_callback instead.",
+    "remediationSample": "<?php\n\nfunction replace_callback() {\n   return 'toreplace';\n}\n\necho preg_replace_callback(\"/.*/i\", replace_callback, 'input');\n\n?>",
+    "sample": "<?php\n\necho preg_replace(\"/.*/ei\", 'toreplace', 'input');\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid preg_replace with /e option (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-624",
+            "name": "Executable Regular Expression Error",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

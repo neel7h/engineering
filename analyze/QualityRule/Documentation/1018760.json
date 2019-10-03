@@ -1,0 +1,58 @@
+{
+    "id": 1018760,
+    "name": "Avoid AE Schema with Target namespace not defined (TIBCO BW)",
+    "href": "AIP/quality-rules/1018760",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for AE Schema without the targetNamespace attribute defined.",
+    "output": "This report lists all  AE Schemas having  no Target Namespace defined.\nIt provides the following information:\nAE Schema full name.",
+    "rationale": "Namespace favor modular programmation, and allow for multi-sourcing, importing code from different groups or organization without encountering clashes and overlapping.",
+    "reference": "GEN-003: Target namespace not defined\nFramework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition\nhttps://msdn.microsoft.com/en-us/library/vstudio/ms229026(v=vs.110).aspx",
+    "remediation": "Define a target namespace. A good targetNameSpace should be customized with a mnemonic name such as http://company.com/category/feature.xsd.",
+    "total": "Number of AE Schema",
+    "alternativeName": "Avoid AE Schema with Target namespace not defined (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

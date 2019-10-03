@@ -1,0 +1,70 @@
+{
+    "id": 1001150,
+    "name": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
+    "href": "AIP/quality-rules/1001150",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all PL1 Procedures and PL1 Functions having SELECT clauses without the default OTHERWISE clause.",
+    "output": "The report lists all the PL1 Procedures and PL1 Functions having a SELECT without the default OTHERWISE clause. \n\nIt provides following information: \n-  PL1 Procedures and PL1 Functions full name",
+    "rationale": "The default case is executed when none of the conditions being tested for in the switch statement are met or executed. Having no default, means that there is no backup.\nThe cases that are \"impossible\" today are the ones most likely to be the causes of untraceable bugs in the future, when the impossible changes to the standard.",
+    "remediation": "Add the OTHERWISE clause for the SELECT statement not having one.",
+    "remediationSample": "SELECT(COND);\nWHEN(A)\nDO;\n...\nEND;\nWHEN(B)\nDO;\n...\nEND;\nWHEN(C)\nDO;\n...\nEND;\nOTHERWISE\nDO;\n...\nEND;",
+    "sample": "SELECT(COND);\nWHEN(A)\nDO;\n...\nEND;\nWHEN(B)\nDO;\n...\nEND;\nWHEN(C)\nDO;\n...\nEND;",
+    "total": "Number of the PL1 Procedures and PL1 Functions.",
+    "alternativeName": "Avoid Functions and Procedures having a SELECT without the default OTHERWISE clause (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-478",
+            "name": "Missing Default Case in Switch Statement",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

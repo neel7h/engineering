@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric extern="true" id="61017" type="technical-criterion" originalName="Documentation - Naming Convention Conformity" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="66065" type="technical-criterion" originalName="Secure Coding - Time and State" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="66063" type="technical-criterion" originalName="Secure Coding - API Abuse" active="N/A" detached="N/A" ignored="false"/>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" active="true" detached="false" ignored="false"/>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" active="true" detached="false" ignored="false"/>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" active="true" detached="false" ignored="false"/>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" active="true" detached="false" ignored="false"/>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" active="true" detached="false" ignored="false"/>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" active="true" detached="false" ignored="false"/>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." active="true" detached="false" ignored="false"/>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" active="true" detached="false" ignored="false"/>
+  <metric extern="true" id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" active="N/A" detached="N/A" ignored="false"/>
+</metrics>

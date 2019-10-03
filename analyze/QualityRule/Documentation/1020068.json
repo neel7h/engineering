@@ -1,0 +1,84 @@
+{
+    "id": 1020068,
+    "name": "Avoid return statement in finally block (Javascript)",
+    "href": "AIP/quality-rules/1020068",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all methods that contain an abrupt in a finally block. An abrupt completion of a statement or block occurs when it throws an exception, executes a break or continues to an enclosing statement, or executes a return from the method.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Care must be taken if completion of a try-catch block occurs as a result of executing a return. If a finally block also returns a value, then that return supersedes any previous return in the try-catch block. Also, if an exception was thrown in the try or catch blocks that was not caught, then execution of a return in the finally block prevents the exception from being thrown to the caller (because it is not possible for the caller to simultaneously evaluate the return and catch the exception). This is also valid for break or continue instructions.",
+    "reference": "OWASP \nhttp://www.owasp.org/index.php/Return_Inside_Finally_Block \n\nCWE \nhttp://cwe.mitre.org/data/definitions/584.html \n\nCISQ OMG \nASCMM-MNT-01 - Control Flow Transfer Control Element outside Switch Block",
+    "remediationSample": "let f = 0;\nlet success = false; // a variable to return the status\n\ntry {\n    f = open(filename);\n    text = f.read();\n    success = true;\n}\ncatch(err) {\n    logger.error(\"Cannot read\", filename, err);\n    success = false;\n}\nfinally {\n    if (f) {\n        f.close();\n    }\n    return success; \n}",
+    "sample": "let f = 0;\ntry {\n    f = open(filename);\n    text = f.read();\n    return true;\n}\ncatch(err) {\n    logger.error(\"Cannot read\", filename, err);\n    return false; // Overwritten by finally\n}\nfinally {\n    if (f) {\n        f.close();\n    }\n    return true; \n}",
+    "total": "Number of Javascript Functions",
+    "alternativeName": "Avoid return statement in finally block (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-584",
+            "name": "Return Inside Finally Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

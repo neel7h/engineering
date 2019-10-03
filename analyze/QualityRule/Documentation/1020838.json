@@ -1,0 +1,66 @@
+{
+    "id": 1020838,
+    "name": "Avoid using Rx.observable.fromEvent without having a debouncetime set",
+    "href": "AIP/quality-rules/1020838",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Instead of requesting a \"computationally intensive\" API every time the Observable receives an event, we recommend using a time filter such as debounceTime, auditTime or trottleTime which will prevent having too many calls to the API. \nThis quality rule raises a violation whenever an observer subscribes to a \"fromEvent\" observable which was not time filtered with one of the operators mentioned above. \nBe aware that if the observer is not \"computationally demanding\" using a time filter may change the behavior in a harmful way. This quality rule does not check what the observer does. It is therefor the user's responsibility to check whether a time filter is required or not.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using delays before calling a data resource may improve the performance of the application applying just enough and just in time policy.",
+    "remediation": "Ensure you have provided a debounceTime after calling an Observable",
+    "remediationSample": "var input = document.getElementById('textInput');\nvar input$ = Rx.Observable\n  .fromEvent(input, 'keyup')\n  .map(x => x.currentTarget.value)\n  .debounceTime(500)\ninput$.subscribe(x => sendValues(x));\nfunction sendValues(x){\n  var pre = document.createElement('pre');\n  pre.innerHTML = JSON.stringify(x);\n  document.getElementById('results').appendChild(pre);\n}",
+    "sample": "var input = document.getElementById('textInput');\nvar input$ = Rx.Observable\n  .fromEvent(input, 'keyup')\n  .map(x => x.currentTarget.value)\ninput$.subscribe(x => sendValues(x));\nfunction sendValues(x){\n  var pre = document.createElement('pre');\n  pre.innerHTML = JSON.stringify(x);\n  document.getElementById('results').appendChild(pre);\n}",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "Avoid using Rx.observable.fromEvent without having a debouncetime set",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-10",
+            "name": "Non-SQL Named Callable and Method Control Element with Excessive Number of Data Resource Access",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

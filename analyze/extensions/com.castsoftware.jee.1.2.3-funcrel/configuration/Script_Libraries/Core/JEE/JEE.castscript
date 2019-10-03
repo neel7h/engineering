@@ -1,0 +1,1028 @@
+module Core.JEE.JEE;
+
+use Core.ConstantsMetamodel;
+use Core.ConstantsRemoteCalls;
+use Core.Log;
+use Core.String;
+use Core.JEE.Annotations;
+
+/** 
+* NOTE that in the following function definition, the parameters type(s), objType, propertyName, metamodelProperty are constant string that are defined in the MetaModel.
+* All custom functions should have theirs parameters with different names from those used for native functions.
+*/
+
+/** 
+* NOTE Explaination about name, full name and mangling
+* objects have a name (or short name) : that is what appears in Enlighten in the object browser
+* objects have a full name : one may see it in ADG dashboard or in enlighten in the object properties
+* objects have a mangling 
+* 
+* Generally, 
+*   a file level full name is the path of the file
+*   for other objects the full name is <parent's full name>.name
+*   an objects whose parent is a file have its name as mangling, e.g., a struts2 packag's mangling is its name
+*   sub objects have mangling : <parent's mangling>.name
+*/
+
+/**
+* Find objects of a given mangling; objects to find can be of several types defined in types 
+* 
+* @param name: fullname of the object to find
+* @param types 
+*/
+native list(symbol) findSymbols(string mangling,list(string) types);
+
+/**
+* Find object of a given short name and that belong to a specific parent; 
+* 
+* @param name: fullname of the object to find
+* @param types: object to find can be of several types defined in 'types'
+* @param parent 
+*/
+native list(symbol) findSymbols(string name,list(string) types,symbol parent);
+
+/**
+* Find all child objects that belong to object specified in 'parent'
+* Objects to find can be of several types specified in 'types'
+* 
+* @param types: list of possible types of the object to find 
+* @param parent
+*/
+native list(symbol) findSymbols(list(string) types,symbol parent);
+
+/**
+* Find all objects whose type is specified in 'types'
+* Be carefull, the result may be quite big and calling 
+* this function may induce performances issues.
+* 
+* @param types: list of possible types of the object to find 
+*/
+native list(symbol) findSymbols(list(string) types);
+
+/**
+* Return Metamodel type of given object 
+* 
+* @param object  
+*/
+native string getMetaType(symbol object);
+
+/**
+* Get the return type of a function or the type of a field 
+*
+* @param object  
+*/
+native symbol getType(symbol object);
+
+/*
+ * Indicates if the symbol has a type specified in the list: types
+ */
+boolean isOfTypes(symbol s, list(string) types) {
+  foreach (string type in types) {
+    if (getMetaType(s) == type) {
+	   return true;
+	}
+  }
+  return false;
+}
+
+/**
+* Get the list of objects that a specific object is extending; One level of inheritance 
+*
+* @param object  
+*/
+native list(symbol) getSuperTypes(symbol object);
+
+/**
+* This function will run accross the inheritance tree to find the 
+* list of parent whose type is one of the type of the list "types"
+*/
+public list(symbol) getSuperTypes(symbol sym, list(string) types) {
+   list(symbol) supers = getSuperTypes(sym);
+   list(symbol) results = {};
+   
+   foreach (symbol s in supers) {
+     if (isOfTypes(s, types)) {
+	   results = results + s;
+	 }
+   }
+   return results;
+ }
+
+/**
+* Get the list of interfaces that a specific object is implementing; One level of inheritance 
+*
+* @param object  
+*/
+native list(symbol) getInterfaces(symbol object);
+
+/**
+* Verify if object of specified name/mangling and type exists. 
+* If not, create a symbol of specified name/mangling and type.
+* 
+* @param name: name and mangling of the symbol
+* @param type  
+*/
+native symbol findOrCreateSymbol(string name,string type);
+
+/**
+* Verifiy if object of specified short name, type and parent exists. 
+* If not, create symbol of specified short name, type and parent.
+* 
+* @param name: short name of the object to find
+* @param type
+* @param parent      
+*/
+native symbol findOrCreateSymbol(string name,string type,symbol parent);
+
+/**
+* Create a link between caller and callee of type linkType, linkType is Metamodel linkType 
+*
+* @param caller
+* @param callee
+* @param linkType  
+*/
+native boolean createLink( symbol caller, symbol callee, string linkType );
+
+
+/**
+* Create a link between caller and callee of type linkType, linkType is Metamodel linkType. Callee mangling is found in string
+*
+* @param caller
+* @param target : target's mangling
+* @param targetTypeOrCategory
+* @param linkType  
+*private
+*/
+native private boolean createLink( symbol caller, string target, string targetTypeOrCategory, string linkType );
+
+/**
+* Create a link between caller and callee of type linkType, linkType is Metamodel linkType and mark is the bookmark 
+*
+* @param caller
+* @param callee
+* @param linkType 
+* @param mark 
+*/
+native boolean createLink( symbol caller, symbol callee, string linkType, bookmark mark );
+
+/**
+* Create a link between caller and callee whose name is returned by caller in a string. 
+*   For exemple a Java method that returns a java.lang.String.
+*   targetTypeOrCategory is Metamodel type or category, linkType is Metamodel linkType
+*
+* @param caller
+* @param targetTypeOrCategory
+* @param linkType 
+*/
+native boolean createLinkFromReturnedString( symbol caller, string targetTypeOrCategory, string linkType );
+
+/**
+* Create a link between caller and callee that is a direct child of targetParent and whose name is returned by caller in a string. 
+*   For exemple a Java method that returns a java.lang.String.
+*   targetTypeOrCategory is Metamodel type or category, linkType is Metamodel linkType
+*
+* @param caller
+* @param targetTypeOrCategory
+* @param targetParent
+* @param linkType 
+*/
+native boolean createLinkFromReturnedString( symbol caller, string targetTypeOrCategory, symbol targetParent, string linkType );
+
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value  
+*/
+native boolean setProperty(symbol object,string propertyName,string value);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value   
+*/
+native boolean setProperty(symbol object,string propertyName,boolean value);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param propertyValue
+*/
+native boolean setProperty(symbol object,string propertyName,int propertyValue);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param propertyValue
+*/
+native boolean setProperty(symbol object,string propertyName,symbol propertyValue);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the link between caller and callee specified in the first two parameters 
+* 
+* @param caller (only for JAVA types)
+* @param callee  
+* @param linkType: link type
+* @param propertyName: property name 
+* @param propertyValue: property value   
+*/
+native boolean setProperty(symbol caller,symbol callee,string linkType, string propertyName, string  propertyValue);
+
+/**
+* Return full name or short name type of given object (if metamodelProperty equals identification.fullName or identification.name; see file: MetaModel\SavingFrameworkMetaModel.xml) 
+* 
+* @param object
+* @param property  
+*/
+native string getStringProperty(symbol object,string property);
+
+/**
+* Return a list of string retrieved from a property
+* 
+* @param object
+* @param property name of the property
+*/
+native list(string) getStringListProperty(symbol object,string property);
+
+/**
+* Return an integer property value of given object
+* 
+* @param object
+* @param property name  
+*/
+native int getIntProperty(symbol object,string property);
+
+/**
+* Return a reference property value of given object
+* 
+* @param object
+* @param property name of the property
+*/
+native symbol getSymbolProperty(symbol object,string property);
+
+/**
+* Return list of symbols associated with given property.
+* 
+* @param object
+* @param property  
+*/
+native list(symbol) getSymbolsProperty(symbol object,string property);
+
+/**
+* Find a registered property;
+* 
+* @param key: key of the property
+*/
+native string getAnalysisProperty(string key);
+
+/**
+* Register a property;
+* 
+* @param key: key of the property
+* @param value: value of the property
+*/
+native void setAnalysisProperty(string key,string value);
+
+/**
+* Find object of a given name and type 
+* 
+* @param name: fullname of the symbol
+* @param type: found symbol type or category 
+*/
+symbol findUniqueSymbol(string name,string type)
+{
+	log(DEBUG,"findUniqueSymbol") ;
+	
+    list(symbol) results = findSymbols(name,{type});
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+	log(DEBUG,"findUniqueSymbol returned null") ;
+    return null;
+}
+
+/**
+* Find object of a given name, type and wich parent is objParent 
+* 
+* @param name: fullname of the symbol
+* @param type
+* @param parent
+*/
+symbol findUniqueSymbol(string name,string type,symbol parent)
+{
+    list(symbol) results = findSymbols(name,{type},parent);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/**
+* Find object of a given name; objects to find can be of several types defined in types 
+* 
+* @param name: fullname of the symbol
+* @param types
+*/
+symbol findUniqueSymbol(string name,list(string) types)
+{
+    list(symbol) results = findSymbols(name,types);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/**
+* Find object of a given name; objects to find can be of several types defined in the typeList 
+*
+* @param name: fullname of the symbol
+* @param types
+* @param parent  
+*/
+symbol findUniqueSymbol(string name,list(string) types,symbol parent)
+{
+    list(symbol) results = findSymbols(name,types,parent);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/** 
+* Get full name of the interface implemented by the given class and annotated with annotationName
+*
+* @param class
+* @param annotationName 
+*/
+string getAnnotatedInheritImplementParents(symbol class, string annotationName)
+{
+    log(DEBUG, ">>> findImplementedInterfaceWithAnnotation("+getStringProperty(class, identification_fullName)+", "+annotationName+")");
+    list(symbol) interfaces = getInterfaces(class);
+
+    foreach(symbol interface in interfaces)
+    {
+        if(hasAnnotation( getGenericFromInstantiation( interface ), annotationName))
+        {
+            log(DEBUG, "Annotation " + annotationName + " defined on " + getStringProperty(interface, identification_fullName));
+            return getStringProperty(interface, identification_fullName);
+        }
+        else
+        {
+            log(DEBUG, "Annotation " + annotationName + " not defined on " + getStringProperty(interface, identification_fullName));
+        }
+    }
+
+    return null;
+}
+
+symbol getGenericFromInstantiation( symbol instantiation )
+{
+    string metaType = getMetaType( instantiation );
+    if ( metaType == JV_INST_CLASS || metaType == JV_INST_INTERFACE || metaType == JV_INST_CTOR || metaType == JV_INST_METHOD )
+    {
+        return getSymbolUniqueParent( instantiation );
+    }
+    return instantiation ;
+} 
+
+
+/** 
+* Add a "SynchronizedRemote" property on all methods those fullname is specified in the list.  
+*
+* @param methodsFullNames
+*/
+void addSynchronizedRemoteOnMethods(list(string) methodsFullNames) 
+{  
+	foreach(string methodFullName in methodsFullNames)
+    {
+	    list(symbol) remoteMethods = findSymbols(methodFullName, {JV_METHOD}); 
+		foreach(symbol remoteMethod in remoteMethods)
+		{
+                    setProperty(remoteMethod, Cast_MethodProperties_SynchronizedRemote, "true");					
+                    log(DEBUG, "addSynchronizedRemoteOnMethods: add " + Cast_MethodProperties_SynchronizedRemote + " on method: " + methodFullName);		
+		}
+	}
+}
+
+/** 
+* Create links from all methods of the nterface to the same method of class (same signature); 
+* Add a "SynchronizedRemote" property on the link when remote is true.  
+*
+* @param interface
+* @param class
+* @param linkType
+* @param remote 
+*/
+boolean createLinksBetweenMethods( symbol interface, symbol class, string linkType, boolean remote, boolean isEJB3)
+{
+    boolean result = true;
+    list(symbol) listMethods = findSymbols({JV_GENERIC_METHOD, JV_METHOD},interface);
+    foreach(symbol fromMethod in listMethods)
+    {
+        string methodName = getStringProperty( fromMethod, identification_name );
+        symbol toMethod = findUniqueSymbol(methodName, getMetaType(fromMethod), class);
+        if(toMethod == null)
+        {
+            log(DEBUG, "createLinksBetweenMethods: cannot find the method " + getStringProperty( class, identification_fullName ) + "." + methodName);
+            result = false;
+        }
+        else
+        {
+            boolean linkCreation = createLink(fromMethod, toMethod, linkType);
+            if(linkCreation)
+            {
+                if(remote)
+                {
+                    setProperty(fromMethod, Cast_MethodProperties_SynchronizedRemote, "true");					
+                    log(DEBUG, "createLinksBetweenMethods: add " + Cast_MethodProperties_SynchronizedRemote + " on method: " + getStringProperty(fromMethod, identification_name));
+					/*if(isEJB3)
+					{   
+					    setProperty(fromMethod, Cast_Java_EJB_ObjectProperties_EJB3MethodIsRemote, "true");					
+                        log(DEBUG, "createLinksBetweenMethods: add " + Cast_Java_EJB_ObjectProperties_EJB3MethodIsRemote + " on method: " + getStringProperty(fromMethod, identification_name));
+					}*/
+                    /* if the implementation method is annotated with Remove, then we add a property 
+                        on the method of the remote interface to set it as remove */
+                    if(hasAnnotation(toMethod, "javax.ejb.Remove"))
+                    {
+                        setProperty(fromMethod, Cast_Java_EJB_ObjectProperties_Remove, "true");
+                        log(DEBUG, "createLinksBetweenMethods: add " + Cast_Java_EJB_ObjectProperties_Remove + " on method: " + getStringProperty(toMethod, identification_fullName));
+                    }
+					if(hasAnnotation(toMethod, methodName, class, GROUP_security_annotations) == true)
+					{
+                        setProperty(fromMethod, Cast_Java_EJB_ObjectProperties_MethodIsSecured, "true");
+                        log(DEBUG, "createLinksBetweenMethods: add " + Cast_Java_EJB_ObjectProperties_MethodIsSecured + " = true on method: " + getStringProperty(toMethod, identification_fullName));					
+					}
+					else 
+					{
+                        setProperty(fromMethod, Cast_Java_EJB_ObjectProperties_MethodIsSecured, "false");
+                        log(DEBUG, "createLinksBetweenMethods: add " + Cast_Java_EJB_ObjectProperties_MethodIsSecured + " = false on method: " + getStringProperty(toMethod, identification_fullName));										
+					}
+                }
+            }
+            else
+            {
+                result = false;
+                string msgError2 = "createLinksBetweenMethods: cannot create link from: " + getStringProperty( interface, identification_name ) + "." + methodName + getStringProperty( class, identification_name ) + "." + methodName;
+                log(DEBUG, msgError2);
+            }
+        }
+    }
+    return result;
+}
+
+
+
+
+/**
+* Return the list of parents of the symbol in argument
+* 
+* @param childObject 
+*/
+native list(symbol) getSymbolParents( symbol childObject );
+
+
+
+/**
+* Return the first parent of the symbol found by getParentSymbols
+* 
+* @param childObject 
+*/
+symbol getSymbolUniqueParent( symbol childObject )
+{
+	if(childObject == null)
+	{
+	    return null;
+	}
+	list(symbol) parents = getSymbolParents( childObject );
+	foreach ( symbol parent in parents )
+	{
+		return parent;
+	}
+	return null;
+}
+
+/**
+* Return the bean if existing in the expected scope
+* 
+* @param name 
+* @param scope 
+*/
+native symbol findScopedBean(string name,string scope);
+
+/**
+* Create and return the bean in the expected scope
+* 
+* @param name 
+* @param scope 
+*/
+native symbol createScopedBean(string name,string scope);
+
+/**
+* Create and return the bean in the expected scope
+* 
+* @param name 
+* @param scope 
+*/
+native symbol createScopedBeanFromJavaFile(string name,string scope,symbol file);
+
+
+/**
+* Return the bean in the expected scope
+* 
+* @param name 
+* @param scope 
+*/
+symbol findOrCreateScopedBean(string name,string scope)
+{
+    log(DEBUG, ">>> Creating scoped bean "+name+" in scope "+scope);
+    
+    symbol result = findScopedBean(name,scope);
+    if(result == null)
+    {
+        result = createScopedBean(name,scope);
+    }
+    return result;
+}
+
+/**
+* Return the bean in the expected scope
+* 
+* @param name 
+* @param scope 
+*/
+symbol findOrCreateScopedBeanFromJavaFile(string name,string scope,symbol file)
+{
+    log(DEBUG, ">>> Creating scoped bean "+name+" in scope "+scope);
+    
+    symbol result = findScopedBean(name,scope);
+    if(result == null)
+    {
+        result = createScopedBeanFromJavaFile(name,scope,file);
+    }
+    return result;
+}
+
+
+/**
+* Add a given value to a property of type list
+* 
+* @param object
+* @param property 
+* @param value
+*/
+native void addProperty(symbol object, string property, string value);
+
+/**
+* Add to the property 'propertyName' the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value   
+*/
+native boolean addProperty(symbol object,string propertyName,symbol value);
+
+/**
+* Return if a java class is implementing an interface or inherit from a class.
+* 
+* @param class : java class
+* @param interfaceOrClassName: interface or class name
+*/
+boolean isImplementingOrInheriting(symbol class, string interfaceOrClassName)
+{
+    symbol interfaceOrClass = findUniqueSymbol(interfaceOrClassName,{ JV_CLASS, JV_GENERIC_CLASS, JV_INTERFACE, JV_GENERIC_INTERFACE });
+    
+    if(interfaceOrClass == null)
+    {
+        return false;
+    }
+    
+    string metatype = getMetaType(interfaceOrClass);
+    
+    if( metatype == JV_CLASS || metatype == JV_GENERIC_CLASS )
+    {
+        return isInheriting(class,interfaceOrClass);
+    }
+
+    if( metatype == JV_INTERFACE || metatype == JV_GENERIC_INTERFACE )
+    {
+        return isImplementing(class,interfaceOrClass);
+    }
+    
+    return false;
+}
+
+/**
+* Return if a java class is implementing an interface or inherit from a class.
+* 
+* @param classOrInterface : java class or interface
+* @param aimedInterface: interface
+*/
+boolean isImplementing(symbol classOrInterface, symbol aimedInterface)
+{
+    string metatype = getMetaType(classOrInterface);
+    
+    if( metatype == JV_INTERFACE || metatype == JV_GENERIC_INTERFACE )
+    {
+        if(classOrInterface == aimedInterface)
+        {
+            return true;
+        }
+        
+        foreach(symbol interface in getInterfaces(classOrInterface))
+        {
+            if(isImplementing(interface,aimedInterface))
+            {
+                return true;
+            }
+        }
+    }
+    
+    if( metatype == JV_CLASS || metatype == JV_GENERIC_CLASS )
+    {
+        if(hasInterface(classOrInterface,aimedInterface))
+        {
+            return true;    
+        }
+        
+        list(symbol) parents = getInterfaces(classOrInterface) + getSuperTypes(classOrInterface);
+        
+        foreach(symbol interfaceOrSupertype in parents)
+        {
+            if(isImplementing(interfaceOrSupertype,aimedInterface))
+            {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
+
+/**
+* Return if a java class is implementing an interface or inherit from a class.
+* 
+* @param class : java class
+* @param aimedSuperType: class
+*/
+boolean isInheriting(symbol class, symbol aimedSuperType)
+{
+    if(class == aimedSuperType)
+    {
+        return true;    
+    }
+    
+    foreach( symbol supertype in getSuperTypes(class) )
+    {
+        if( isInheriting(supertype,aimedSuperType))
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+/**
+* Return if an interface is in some java class intefaces
+* 
+* @param classOrInterface : java class or interface
+* @param aimedInteface: class
+*/
+boolean hasInterface(symbol classOrInterface, symbol aimedInterface)
+{
+    foreach(symbol interface in getInterfaces(classOrInterface))
+    {
+        if( interface == aimedInterface )
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+/**
+* Return the configuration file being analyzed
+* 
+* @param type: type of the file. If the current file is different the symbol is null
+*/
+native symbol getCurrentConfigurationFile(string type);
+
+/**
+* Return the folder path of the file
+* 
+* @param file: file
+*/
+native string getConfigurationFileRelativeRootPath(symbol file);
+
+/**
+* Create a link between caller and callee of type linkType, linkType is Metamodel linkType. Callee name is found in string, 
+*
+* @param caller
+* @param target
+* @param targetTypesOrCategories - list of callee types
+* @param linkType  
+*/
+private boolean createLink( symbol caller, string target, list(string) targetTypesOrCategories, string linkType )
+{
+    list(symbol) callees = findSymbols(target,  targetTypesOrCategories);
+    boolean result = true;
+    boolean empty = true;
+    
+    foreach(symbol callee in callees)
+    {
+	    empty = false;
+	    if( !createLink(caller, callee,linkType) )
+        {
+            log(DEBUG, ">>> Error creating link between caller:"+getStringProperty(caller, identification_fullName)+" and callee:"+getStringProperty(callee, identification_fullName));
+            result = false;
+        }
+    }
+    
+    if( empty )
+    {
+        result = false;
+    }
+    
+    return result; 
+
+}
+
+
+/**
+* Analyze a given DB query whose language can be SQL, HQL or JPQL. This function will create a specific named query whose type is specified by queryType, set specific properties and create use links from the DB Named Query to the database with the modifiers Select/Insert/Update/Delete so that SQL Client metrics and quality rules will apply.
+* Note that:
+*    * it will work for SQL, HQL and JPQL and only when the type to create is CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY or JPA_NAMED_QUERY; an error is generated if the DB query type is different from the types above
+*           o if DBQuery type is one of CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY then quality rules and metrics that apply on Client SQL code will apply to these objects as well as architectural quality rules.
+*           o if DBQuery type one of HIB_HQL_NAMED_QUERY and JPA_NAMED_QUERY only architectural quality rules will apply on it
+* Input Parameters :
+* @param  queryType: type of the DB query to create, can be one of CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY and JPA_NAMED_QUERY
+* @param  queryName: name of the DB query to create
+* @param  dbRequest: the SQL, HQL or JPQL string request
+* @param  queryParent: the parent of the named query object to create (usually the XML file or the Java file in case of annotation where the named query is declared)
+*Output Parameter: return the created Named DB query symbol and null in case of error&nbsp;When the symbol that represent the named query is created, then you just have to manage links to this symbol. Depending on the situation, parametrization can be used when this name query is used as a parameter of a method or creating a direct link from the method when it is not possible and you know where this named query is called.
+*/
+symbol analyzeDBQuery(string queryType, string queryName, string dbRequest, symbol queryParent )
+{
+
+    if(!(( queryType == CAST_SQL_NamedQuery ) || ( queryType == HIB_SQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_NATIVE_QUERY ) || ( queryType == HIB_HQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_QUERY) ))
+    {
+            log(ERROR , ">>> Error in analyzeDBQuery function: queryType should be one { CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY,JPA_NAMED_QUERY }" );
+            return null; 
+    } 
+   
+
+    symbol sqlNamedQuery = findOrCreateSymbol(queryName, queryType, queryParent);
+    
+    if( sqlNamedQuery == null )
+    {
+            log(ERROR , ">>> Error in analyzeDBQuery function: failed to create query " + queryName  );
+    } 
+    else
+    {  
+        if(( queryType == CAST_SQL_NamedQuery ) || ( queryType == HIB_SQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_NATIVE_QUERY ))
+        {
+            addProperty(sqlNamedQuery, CAST_SQL_MetricableQuery_sqlQuery, dbRequest); 
+        }
+
+        boolean result = linkDBQueryToPersistenceLayer(sqlNamedQuery, queryType, dbRequest);
+        
+        if(!result)
+        {
+                log(DEBUG, ">>> analyzeDBQuery function: No link created between "+getStringProperty(sqlNamedQuery,identification_fullName)+" and the database");
+        } 
+    }
+
+    return sqlNamedQuery; 
+
+}
+
+/**
+* Analyze a given DB query whose language can be SQL, HQL or JPQL. This function will create a specific named query whose type is specified by queryType, set specific properties and create use links from the DB Named Query to the database with the modifiers Select/Insert/Update/Delete so that SQL Client metrics and quality rules will apply.
+* Note that:
+*    * it will work for SQL, HQL and JPQL and only when the type to create is CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY or JPA_NAMED_QUERY; an error is generated if the DB query type is different from the types above
+*           o if DBQuery type is one of CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY then quality rules and metrics that apply on Client SQL code will apply to these objects as well as architectural quality rules.
+*           o if DBQuery type one of HIB_HQL_NAMED_QUERY and JPA_NAMED_QUERY only architectural quality rules will apply on it
+* Input Parameters :
+* @param  queryType: type of the DB query to create, can be one of CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY and JPA_NAMED_QUERY
+* @param  queryName: name of the DB query to create
+* @param  dbRequest: the SQL, HQL or JPQL string request
+*Output Parameter: return the created Named DB query symbol and null in case of error&nbsp;When the symbol that represent the named query is created, then you just have to manage links to this symbol. Depending on the situation, parametrization can be used when this name query is used as a parameter of a method or creating a direct link from the method when it is not possible and you know where this named query is called.
+*/
+symbol analyzeDBQuery(string queryType, string queryName, string dbRequest )
+{
+
+    if(!(( queryType == CAST_SQL_NamedQuery ) || ( queryType == HIB_SQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_NATIVE_QUERY ) || ( queryType == HIB_HQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_QUERY) ))
+    {
+            log(ERROR , ">>> Error in analyzeDBQuery function: queryType should be one { CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY,JPA_NAMED_QUERY }" );
+            return null; 
+    } 
+   
+
+    symbol sqlNamedQuery =  findOrCreateSymbol(queryName, queryType);
+    
+    if( sqlNamedQuery == null )
+    {
+            log(ERROR , ">>> Error in analyzeDBQuery function: failed to create query " + queryName  );
+    } 
+    else
+    {  
+        
+        if(( queryType == CAST_SQL_NamedQuery ) || ( queryType == HIB_SQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_NATIVE_QUERY ))
+        {
+            addProperty(sqlNamedQuery, CAST_SQL_MetricableQuery_sqlQuery, dbRequest); 
+        }
+
+        boolean result = linkDBQueryToPersistenceLayer(sqlNamedQuery, queryType, dbRequest);
+
+        if(!result)
+        {
+                log(DEBUG, ">>> analyzeDBQuery function: No link created between "+getStringProperty(sqlNamedQuery,identification_fullName)+" and the database");
+        } 
+    }
+
+    return sqlNamedQuery; 
+
+}
+
+
+/**
+* Link a named query to the persistence layer. This function will  use links from the DB Named Query to the database with the modifiers Select/Insert/Update/Delete so that SQL Client metrics and quality rules will apply.
+* Input Parameters :
+* @param  namedQuery: named query
+* @param  queryType: type of the DB query to create, can be one of SPRING_BEAN, CAST_SQL_NamedQuery, HIB_SQL_NAMED_QUERY, JPA_NAMED_NATIVE_QUERY, HIB_HQL_NAMED_QUERY and JPA_NAMED_QUERY
+* @param  dbRequest: the SQL, HQL or JPQL string request
+* Output Parameter: return if the namedQuery was link to an object of the persistence layer (DB, JPA entities or Hibernate entities).
+*/
+boolean linkDBQueryToPersistenceLayer(symbol namedQuery, string queryType, string dbRequest)
+{
+    boolean result = false;
+
+    list(string) types = {};
+
+    if(( queryType == SPRING_BEAN ) || ( queryType == CAST_SQL_NamedQuery ) || ( queryType == HIB_SQL_NAMED_QUERY ) || ( queryType == JPA_NAMED_NATIVE_QUERY ))
+    {
+        types = GROUP_SqlObject; 
+    } 
+    
+    if( queryType == HIB_HQL_NAMED_QUERY )
+    {
+        types = { HIB_ENTITY }; 
+    } 
+    
+    if( queryType == JPA_NAMED_QUERY )
+    {
+        types = { JPA_ENTITY }; 
+    } 
+    
+    foreach(string sqlObjectType in types)
+    {
+        if( createLink(namedQuery, dbRequest, sqlObjectType , useLink) )
+        {
+            result = true;
+        }
+    }
+    
+    return result;
+}
+
+/**
+ * True when a list is empty.
+ */
+boolean isEmpty(list(symbol) listSym) {
+  foreach (symbol s in listSym) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Prints a symbol.
+ * For debug purpose.
+ */
+string toString (symbol sym) {
+   if (sym != null) {
+     return getStringProperty(sym, identification_fullName);
+   } else {
+     return "";
+   }
+}
+
+/**
+ * Prints a symbol.
+ * For debug purpose.
+ */
+string toShortString (symbol sym) {
+   if (sym != null) {
+     return getStringProperty(sym, identification_name);
+   } else {
+     return "";
+   }
+}
+
+
+/**
+ * Prints a list of symbol. 
+ * For debug purpose.
+ */
+string toString (list(symbol) listSym) {
+   string result = "{";
+   string delimiter = ", ";
+   string final_result = "";
+   
+   foreach (symbol s in listSym) {
+     final_result = result + toString(s) + delimiter;
+     result = final_result;
+   }
+   
+   final_result = substring(result, 0, getLength(result)-getLength(delimiter)) + "}";
+   return final_result;
+}
+
+/**
+* Get the included file as symbol
+* todo getCurrentConfigurationFile(STRUTS_CONFIG_FILE) should'nt have parameters
+*/
+symbol getCurrentFile(string path)
+{
+  symbol current_struts_file = getCurrentConfigurationFile(STRUTS_CONFIG_FILE);
+  
+  if((path == "") || (path == null))
+  {
+    return current_struts_file;
+  }
+  else
+  {
+    string current_folder      = getConfigurationFileRelativeRootPath(current_struts_file);
+
+	string included_file_path  = "/";    
+    if((current_folder != "")&&(current_folder != null))
+    {
+      included_file_path  = current_folder + included_file_path;
+    }
+    included_file_path  = included_file_path + path;
+
+    symbol included_file = findUniqueSymbol(included_file_path,JSP_XMLCONFIG_FILE);
+	if(included_file != null && getMetaType(included_file) == JSP_XMLCONFIG_FILE)
+	{
+       return included_file;
+    }
+
+    // other case : extracted file from jar path is physical path
+    symbol result = findUniqueSymbol(path,STRUTS_CONFIG_FILE);
+    if (result != null)
+    {
+      return result ;
+    }
+
+    return current_struts_file;
+  }
+}
+
+
+/**
+* Create a link of type include from default struts configuration file to the file specified in parameter
+* todo rename includeFile to createIncludeLinkWithCurrentConfigurationFile ; 
+* todo getCurrentConfigurationFile(STRUTS_CONFIG_FILE) should'nt have parameters
+* @param path: path of included file; one level
+*/
+void includeFile(string path)
+{
+	if((path != "") && (path != null))
+	{
+		symbol current_struts_file = getCurrentConfigurationFile(STRUTS_CONFIG_FILE);
+		symbol include_file = getCurrentFile(path);
+		createLink(current_struts_file, include_file, includeLink);
+		addProperty(current_struts_file, CAST_JEE_ConfigurationFile_includedFiles, include_file);
+	}
+}
+
+/**
+* Find object types actually returned by the specified method 
+* 
+* @param types: method for which symbols must be returned
+*/
+native list(symbol) findReturnedSymbols(symbol method);
+
+

@@ -1,0 +1,60 @@
+{
+    "id": 1002258,
+    "name": "Logical operators should be enclosed in proper parenthesis in Subroutines (FORTRAN)",
+    "href": "AIP/quality-rules/1002258",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "All the artifacts are reported that have insufficient parenthesis for these types of logical operators. The Cast analysis will look at this on a line per line basis; multi-line checking is not taken into account. The last case is actually considered a violation from a readibility perspective.",
+    "rationale": "For readability purposes, all the logical operators in a conditional statement (AND, OR, XOR and NOT) should be enclosed in parenthesis.",
+    "remediation": "Add proper parenthesis to each and every condition and make sure that a condition does not spread over multiple lines.",
+    "alternativeName": "Logical operators should be enclosed in proper parenthesis in Subroutines (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

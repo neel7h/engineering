@@ -1,0 +1,1 @@
+i:\nightlybuilds\assessmentmodel\MetricsCompiler.bat -encodeUA -inputdir . -outputdir .. -pck com.castsoftware.nodejs

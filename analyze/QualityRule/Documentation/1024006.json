@@ -1,0 +1,61 @@
+{
+    "id": 1024006,
+    "name": "Limit the accessibility of your app's Content Provider",
+    "href": "AIP/quality-rules/1024006",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A Content Provider is a component designed to share data across apps. You can think of a Content Provider as the public interface to your databases, allowing other apps to connect and either run queries (retrieve data) or issue updates (store data). A Content Provider typically is used as a front end for a database created using the Android standard SQLite database system. As Content Providers are typically used to share data across apps, properly securing them so that appropriate apps can access specific data is critical.\n\nA violation is reported when Content Provider is set as Public : android:exported attribute is not specified or equal to True without permissions.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The attacks and consequences of improperly exporting a component may depend on the exported component: \n\nIf access to a Content Provider is not restricted to only the expected applications, then malicious applications might be able to access the sensitive data. Note that in Android before 4.2, the Content Provider is automatically exported unless it has been explicitly declared as NOT exported.",
+    "reference": "https://cwe.mitre.org/data/definitions/926.html\nhttps://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure\nhttps://developer.android.com/topic/security/best-practices\nhttps://www.oreilly.com/library/view/application-security-for/9781449322250/ch04.html\n\n\n",
+    "remediation": "If this is a private content provider, you should set exported = \"False\" definitely.\n\nIf this is a shared content provider, the exported = \"True\" and you should set the permission for client apps to protect your data.",
+    "remediationSample": "Define a private content provider:\n  <provider android:name=\".content.AccountProvider\" \n          android:authorities=\"jp.co.vulnerable.accountprovider\" \n          android:exported=\"false\"/>\n\nRestrict access to content provider:\n\n  define the permission in AndroidManifest.xml:\n  <permission android:name=\"com.myapp.WRITE.PERMISSION\"\n          android:protectionLevel=\"signature\">\n  </permission>\n\n  <permission android:name=\"com.myapp.READ.PERMISSION\"\n          android:protectionLevel=\"signature\">\n  </permission>\n\n  <provider android:name=\".content.AccountProvider\" \n          android:authorities=\"jp.co.vulnerable.accountprovider\" \n          android:exported=\"true\"\n          android:readpermission = \"com.myapp.READ.PERMISSION\"\n          android:writepermission = \"com.myapp.WRITE.PERMISSION\">\n\n  Give the access permission for the client apps (in AndroidManifest.xml of client apps):\n\n  <uses-permission android:name=\"com.myapp.READ_PERMISSION\"/>\n  <uses-permission android:name=\"com.myapp.WRITE_PERMISSION\"/>",
+    "sample": "Ambiguous content provider:\n<provider android:name=\".content.AccountProvider\" \n          android:authorities=\"jp.co.vulnerable.accountprovider\" />\n\nPublic content provider, all apps can access:\n<provider android:name=\".content.AccountProvider\" \n          android:authorities=\"jp.co.vulnerable.accountprovider\" \n          android:exported=\"true\" \n          />",
+    "total": "Number of Android manifests",
+    "alternativeName": "Limit the accessibility of your app's Content Provider",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

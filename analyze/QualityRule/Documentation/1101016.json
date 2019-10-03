@@ -1,0 +1,82 @@
+{
+    "id": 1101016,
+    "name": "Avoid Artifacts with too many parameters (SQL)",
+    "href": "AIP/quality-rules/1101016",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of parameters",
+    "description": "Avoid artifacts with more than X parameters. The threshold X is a parameter and it can be changed at will.",
+    "output": "This report lists all artifacts with more than X parameters. It provides the following information:\n Artifact full name, number of parameters",
+    "rationale": "For maintainability and readability reasons, artifacts should not have too many parameters.",
+    "remediation": "Review the design of the artifacts to reduce the number of parameters.",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid Artifacts with too many parameters (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-13",
+            "name": "Callable and Method Control Element Excessive Number of Parameters",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum parameters",
+            "description": "Max parameters number",
+            "technologies": [
+                {
+                    "id": 1101000,
+                    "name": "SQLAnalyzer",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        9
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

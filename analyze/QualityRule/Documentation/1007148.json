@@ -1,0 +1,77 @@
+{
+    "id": 1007148,
+    "name": "Avoid methods and constructor overridden only with parent artifact call (PHP)",
+    "href": "AIP/quality-rules/1007148",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all methods and constructor overridden only with parent artifact call.",
+    "output": "This report lists all methods and constructor overridden only with parent artifact call.\n\nThis QR provides the following information:\nMethod and constructor full name.",
+    "rationale": "Overriding Methods is a very powerful way to refactor the code and produce complete functionalities. However, useless overriding can make source code more complex.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_UselessOverridingMethodSniff.html",
+    "remediation": "Modify the source code to avoid having overridden method and constructor containing only parent artifact call without adding any new functionality or behaviour.",
+    "sample": "<?php\nclass A {\n    public function Foo($bar = 1)\n    {\n        echo \"something\";\n   }\n}\n\nclass B extends A {\n    public function Foo($bar = 2)\n    {\n        parent::Foo($bar);\n    }\n}\n$obj = new A();\n$obj-> Foo(1);\n?>",
+    "total": "Number of Methods and Constructors",
+    "alternativeName": "Avoid methods and constructor overridden only with parent artifact call (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UselessOverridingMethod"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

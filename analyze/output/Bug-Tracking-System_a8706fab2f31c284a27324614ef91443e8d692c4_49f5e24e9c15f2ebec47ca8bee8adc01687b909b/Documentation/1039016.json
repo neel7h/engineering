@@ -1,0 +1,89 @@
+{
+    "id": 1039016,
+    "name": "Avoid Unvalidated URL Redirect",
+    "href": "AIP/quality-rules/1039016",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Unvalidated redirects occur when an application redirects a user to a destination URL specified by a user supplied parameter that is not validated. Such vulnerabilities can be used to facilitate phishing attacks. \n\nScenario \n1. A user is tricked into visiting the malicious URL: http://website.com/login?redirect=http://evil.vvebsite.com/fake/login \n2. The user is redirected to a fake login page that looks like a site they trust. (http://evil.vvebsite.com/fake/login) \n3. The user enters his credentials. \n4. The evil site steals the user's credentials and redirects him to the original website. \n\nThis attack is plausible because most users don't double check the URL after the redirection. Also, redirection to an authentication page is very common.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "An http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance.",
+    "reference": "http://cwe.mitre.org/data/definitions/601 \nhttps://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet",
+    "remediation": "Don't accept redirection destinations from users \nAccept a destination key, and use it to look up the target (legal) destination \nAccept only relative paths \nWhite list URLs (if possible) \nValidate that the beginning of the URL is part of a white list",
+    "remediationSample": "response.sendRedirect(\"http://www.mysite.com\"); // Violation FIXED",
+    "sample": "Sample 1: \nThe following code is a Java servlet that will receive a GET request with a url parameter in the request to redirect the browser to the address specified in the url parameter. The servlet will retrieve the url parameter value from the request and send a response to redirect the browser to the url address. \n\npublic class RedirectServlet extends HttpServlet { \nprotected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { \nString query = request.getQueryString(); \nif (query.contains(\"url\")) { \nString url = request.getParameter(\"url\"); \nresponse.sendRedirect(url); \n} \n} \n} \n\n\n------------------------------------------------------------------------ \nSample 2: \nprotected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { \n    [...] \n    resp.sendRedirect(req.getParameter(\"redirectUrl\")); \n    [...] \n}",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure that HTTP request redirections are not performed with user provided data",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-601",
+            "name": "URL Redirection to Untrusted Site ('Open Redirect')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A10-2013",
+            "name": "Unvalidated Redirects and Forwards",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

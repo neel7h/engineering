@@ -1,0 +1,60 @@
+{
+    "id": 1520322,
+    "name": "Siebel eScript: Avoid setting Scripts to Inactive",
+    "href": "AIP/quality-rules/1520322",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Name of the inactive eScript",
+    "output": "This rule reports Objects containing inactive eScript",
+    "total": "Number of added or modified Objects with eScript",
+    "alternativeName": "Siebel eScript: Avoid setting Scripts to Inactive",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

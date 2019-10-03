@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+	<service>
+		<id>ServiceId_DotNetAnalyzerActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_DotNetCommandLineAnalyzerActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_ManageDmtProjectActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_ManageProjectActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_ManageWebSiteActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_RoslynActionFactory</id>
+		<dll>DotNetActionsImpl.dll</dll>
+	</service>
+</configuration>

@@ -1,0 +1,76 @@
+{
+    "id": 1042036,
+    "name": "Avoid Long request parameter names in Struts 2.0.0 - struts 2.3.4",
+    "href": "AIP/quality-rules/1042036",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks if the setParamNameMaxLength is set with the expected Length (<=100). If not (Length> 100 or setParamNameMaxLength is not used), it gives a violation.\nThe check is done only for affected versions:  Struts 2.0.0 - struts 2.3.4\n\n\nThe maximun authorized Lengh is 100 corresponds to the defaut value from  struts 2.3.4.1",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Request parameters handled by Struts 2 are effectively treated as OGNL expressions. A possible DOS attacker might craft requests to a Struts 2 based application with extremely long parameter names (Greater than 100). OGNL evaluation of the parameter name then will consume significant CPU cycles, thus promoting the effectiveness of the DOS attack.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4387\nhttps://cwiki.apache.org/confluence/display/WW/S2-011\nhttps://nvd.nist.gov/vuln/detail/CVE-2012-4387\nhttp://cwe.mitre.org/data/definitions/264.html",
+    "remediation": "As of Struts 2.3.4.1, parameter name length is limited to a maximum of 100 characters. This configuration may be customized by providing the newly introduced parameter \"paramNameMaxLength\" to the ParametersInteceptor configuration.\n\nUpgrade to Struts 2.3.4.1 and above.",
+    "remediationSample": "Sample Code: \n\npublic void testLargeParameterNameWithCustomLimit() throws Exception {\n        ParametersInterceptor parametersInterceptor = createParametersInterceptor();\n        int limit = 90; //length to be verified if it is less than 100 is not a violation..\n//\n//If this function setParamNameMaxLength - limit is not set , then violation is it be created.\n//if setParamNameMaxLength is not found  also it is a violation.\n// default value is 100 from 2.3.4.1 version onwards and below version there is no defualt value and user //needs to explicitly declare\n//\n        parametersInterceptor.setParamNameMaxLength(limit);\n        doTestParameterNameLengthRestriction(parametersInterceptor, limit);\n    }\n\n    private void doTestParameterNameLengthRestriction(ParametersInterceptor parametersInterceptor,\n                                                      int paramNameMaxLength) {\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < paramNameMaxLength + 1; i++) {\n            sb.append(\"x\");\n        }\n\n        ...\n        ...\n        ...\n        \n    }",
+    "sample": "Sample Code: \n\npublic void testLargeParameterNameWithCustomLimit() throws Exception {\n        ParametersInterceptor parametersInterceptor = createParametersInterceptor();\n        int limit = 120; //length to be verified if it is less than 100 is not a violation..\n//\n//If this function setParamNameMaxLength - limit is not set , then violation is it be created.\n//if setParamNameMaxLength is not found  also it is a violation.\n//\n        parametersInterceptor.setParamNameMaxLength(limit);\n        doTestParameterNameLengthRestriction(parametersInterceptor, limit);\n    }\n\n    private void doTestParameterNameLengthRestriction(ParametersInterceptor parametersInterceptor,\n                                                      int paramNameMaxLength) {\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < paramNameMaxLength + 1; i++) {\n            sb.append(\"x\");\n        }\n\n        ...\n        ...\n        ...\n        \n    }",
+    "total": "Number of Java Methods",
+    "alternativeName": "Prefer using short request parameter name to prevent the DOS attack",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

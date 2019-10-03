@@ -1,0 +1,71 @@
+{
+    "id": 1520862,
+    "name": "Siebel: Avoid Business Components referencing more than X tables",
+    "href": "AIP/quality-rules/1520862",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of Tables",
+    "description": "Although developers are no longer constrained to a maximum of eight applets per view, performance and usability is adversely affected by large numbers of applets per view.\nFrom a performance perspective - with each applet on a view, additional queries must be executed and page sizes increase - both of which contribute to slower download times. There is also overall performance degradation on the servers running object managers as the additional queries are run for each user.  It is true that with even 2 or 3 BusComps being referenced in a View one can produce extremely poor performance so even more care must be taken when referencing a larger number of Applets/BusComps.\nFrom a usability perspective - users can become distracted and overwhelmed by the amount of information presented.  An exception to this case is the home page, where several small applets can entice users to drill down.\nAnother usability issue arises when applets appear completely beneath the initially visible portion of the page, and users do not realize the information is available.",
+    "output": "This rule reports Business Components referencing too many Tables",
+    "rationale": "It was noted that several views have an excessive number of applets as part of the view definition.",
+    "remediation": "Consider the function and necessity for each applet.\nConsider the placement of the applets, as some users do not realize that information is presented below the first page of scrollable material.\nMigrate applets to new views to reduce the number of applets on any given view.",
+    "total": "Number of added or modified Business Components",
+    "alternativeName": "Siebel: Avoid Business Components referencing more than X tables",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max Table",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        40
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

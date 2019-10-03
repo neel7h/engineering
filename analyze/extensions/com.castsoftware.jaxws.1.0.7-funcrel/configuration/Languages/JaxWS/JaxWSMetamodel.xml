@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!-- 
+  Categories and types for JAX-WS analyzer
+
+-->
+
+<metaModel file_level="builtin" file_no="23">
+
+    <type name="WebServices" id="142223">
+      <description>WebServices Objects</description>
+    </type>
+    <type name="SOAP_JV_SERVICE" id="1023000">
+      <description>SOAP Java Web Service</description>
+      <inheritedCategory name="CAST_PluginObject" />
+      <tree parent="WebServices" category="EnlightenTree"/>
+    </type>
+
+    <type name="SOAP_JV_PORTTYPE" id="1023001">
+      <description>SOAP Java Port Type</description>
+      <inheritedCategory name="CAST_PluginObject" />
+      <tree parent="WebServices" category="EnlightenTree"/>
+    </type>
+
+    <type name="SOAP_JV_OPERATION" id="1023002">
+      <description>SOAP Java Operation</description>
+      <inheritedCategory name="CAST_PluginObject" />
+      <inheritedCategory name="CAST_SOAP_Operation" />
+      <tree parent="WebServices" category="EnlightenTree"/>
+     </type>
+
+    <type name="SOAP_JV_CLIENT_OPERATION" id="1023003">
+        <description>SOAP Java Client Operation</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <tree parent="WebServices" category="EnlightenTree"/>
+    </type>
+
+    <type name="SOAP_JV_CLIENT_SERVICE" id="1023004">
+        <description>SOAP Java Client</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <tree parent="WebServices" category="EnlightenTree"/>
+    </type>
+    
+    <type name="SOAP_JV_CLIENT_ENDPOINT" id="1023005">
+        <description>SOAP Client end point</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <tree parent="WebServices" category="EnlightenTree"/>
+    </type>
+
+	<partialCategory name="APM Java Methods">
+        <inheritedCategory name="CAST_CalledWebService" />
+    </partialCategory>
+    
+    <category name="CAST_CalledWebService" id="142303">
+        <description>Called Web Service</description>
+        <property name="wsname" type="string"  id="140866" >
+            <description>name</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1023000"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+    </category>
+</metaModel>

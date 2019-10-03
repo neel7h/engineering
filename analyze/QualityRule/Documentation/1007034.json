@@ -1,0 +1,72 @@
+{
+    "id": 1007034,
+    "name": "Avoid empty style definition (PHP)",
+    "href": "AIP/quality-rules/1007034",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all files containing an empty style definition.",
+    "output": "This report lists all empty style definitions.\n\nThis QR provides the following information:\n- PHP File full name.",
+    "rationale": "For maintainability reasons, empty style definitions should be avoided.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_CSS_EmptyStyleDefinitionSniff.html",
+    "remediation": "Modify the source code to reduce the number of files containing an empty style definition.",
+    "sample": "<?php echo \"Title\"; ?>\n\n<html>\n   <head>\n   <title>...</title>\n   <style type=\"text/css\"/> <!-- violation -->\n   </style>\n   <style/> <!-- violation -->\n   <style> \n   /*violation*/\n   </style>\n   </head>\n<body>\n\n</body>\n</html>",
+    "total": "Number of PHP Files",
+    "alternativeName": "Avoid empty style definition (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61031,
+            "name": "Complexity - Empty Code",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "EmptyStyleDefinition"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

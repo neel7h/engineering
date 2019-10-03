@@ -1,0 +1,60 @@
+{
+    "id": 1020040,
+    "name": "Avoid using delete with no object properties",
+    "href": "AIP/quality-rules/1020040",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Because the semantics of the delete operator are a bit tricky, and it can only be reliably used to remove properties from objects. Pass anything else to it, and you may or may not get the desired result.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "ASCMM-MNT-20",
+    "reference": "http://eslint.org/docs/rules/no-delete-var",
+    "remediationSample": "var obj = { \n  x:1, \n  foo: function(){ \n  ... \n  } \n}; \ndelete obj.x; \ndelete obj.foo;",
+    "sample": "var x = 1; \ndelete x; // Noncompliant \n\nfunction foo(){ \n.. \n} \n\ndelete foo; // Noncompliant",
+    "total": "Number of HTML Contents",
+    "alternativeName": "Avoid using delete with no object properties",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  	<metric id='-1' type='N/A' originalName='' active='N/A' detached='N/A' ignored='false' />
+  	<metric id="10201" type="sizing-measure" originalName="Backfired Function Points" active="true" detached="false" ignored="false"/>
+	<metric id="61001" type="technical-criterion" originalName="Architecture - Multi-Layers and Data Access" active="true" detached="false" ignored="false"/>
+	<metric id="61003" type="technical-criterion" originalName="Programming Practices - OO Inheritance and Polymorphism" active="true" detached="false" ignored="false"/>
+	<metric id="61004" type="technical-criterion" originalName="Architecture - OS and Platform Independence" active="true" detached="false" ignored="false"/>
+	<metric id="61006" type="technical-criterion" originalName="Documentation - Style Conformity" active="true" detached="false" ignored="false"/>
+	<metric id="61009" type="technical-criterion" originalName="Complexity - Algorithmic and Control Structure Complexity" active="true" detached="false" ignored="false"/>
+	<metric id="61014" type="technical-criterion" originalName="Programming Practices - Error and Exception Handling" active="true" detached="false" ignored="false"/>
+	<metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" active="true" detached="false" ignored="false"/>
+  	<metric id='61019' type='technical-criterion' originalName='Efficiency - SQL and Data Handling Performance' active='true' detached='false' ignored='false' />
+	<metric id="61027" type="technical-criterion" originalName="Dead code (static)" active="true" detached="false" ignored="false"/>
+  	<metric id='61028' type='technical-criterion' originalName='Documentation - Volume of Comments' active='true' detached='false' ignored='false' />
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" active="true" detached="false" ignored="false"/>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" active="true" detached="false" ignored="false"/>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" active="true" detached="false" ignored="false"/>
+	<metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" active="true" detached="false" ignored="false"/>
+	<metric id="66063" type="technical-criterion" originalName="Secure Coding - API Abuse" active="true" detached="false" ignored="false"/>
+	<metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" active="true" detached="false" ignored="false"/>
+	<metric id="66068" type="technical-criterion" originalName="Efficiency - Expensive Calls in Loops" active="true" detached="false" ignored="false"/>
+	<metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior" active="true" detached="false" ignored="false"/>
+	<metric id="7768" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code" active="true" detached="false" ignored="false"/>
+	<metric id="7776" type="quality-rule" originalName="Avoid Artifacts with High Fan-In" active="true" detached="false" ignored="false"/>
+	<metric id="7778" type="quality-rule" originalName="Avoid Artifacts with High Fan-Out" active="true" detached="false" ignored="false"/>
+	<metric id="7782" type="quality-rule" originalName="Avoid empty finally blocks" active="true" detached="false" ignored="false"/>
+	<metric id="7784" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters" active="true" detached="false" ignored="false"/>
+	<metric id="7788" type="quality-rule" originalName="Avoid empty catch blocks" active="true" detached="false" ignored="false"/>
+	<metric id="7792" type="quality-rule" originalName="Avoid Classes with a High Number Of Children" active="true" detached="false" ignored="false"/>
+	<metric id="7818" type="quality-rule" originalName="Avoid Functions having a very low Comment/Code ratio" active="true" detached="false" ignored="false"/>
+	<metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code" active="true" detached="false" ignored="false"/>
+  	<metric id="7836" type="quality-rule" originalName="Avoid undocumented Functions" active="true" detached="false" ignored="false"/>
+	<metric id="7844" type="quality-rule" originalName="Avoid undocumented Classes" active="true" detached="false" ignored="false"/>
+	<metric id="7860" type="quality-rule" originalName="Avoid unreferenced Functions" active="true" detached="false" ignored="false"/>
+	<metric id="7944" type="quality-rule" originalName="Avoid High Response for Classes" active="true" detached="false" ignored="false"/>
+	<metric id="8028" type="quality-rule" originalName="Avoid missing default in switch statements" active="true" detached="false" ignored="false"/>
+	<metric id="8032" type="quality-rule" originalName="Avoid using break statement in FOR loops" active="true" detached="false" ignored="false"/>
+  	<metric id='1020000' type='quality-rule' originalName='Avoid Artifacts with High Cyclomatic Complexity (HTML5/Javascript)' active='true' detached='false' ignored='false' />
+	<metric id='1020002' type='quality-rule' originalName='Avoid programs with low comment / code ratio  (HTML5/Javascript)' active='true' detached='false' ignored='false' />
+	<metric id='1020004' type='quality-rule' originalName='Avoid to use querySelectorAll' active='true' detached='false' ignored='false' />
+	<metric id='1020006' type='quality-rule' originalName='Avoid to call a function in a termination loop' active='true' detached='false' ignored='false' />
+	<metric id='1020008' type='quality-rule' originalName='Avoid for-in loop' active='true' detached='false' ignored='false' />
+	<metric id='1020010' type='quality-rule' originalName='Avoid using forEach()' active='true' detached='false' ignored='false' />
+	<metric id='1020012' type='quality-rule' originalName='Avoid using a web service with WebSocket inside a loop' active='true' detached='false' ignored='false' />
+	<metric id='1020014' type='quality-rule' originalName='Avoid using a web service with XMLHttpRequest inside a loop' active='true' detached='false' ignored='false' />
+	<metric id='1020016' type='quality-rule' originalName='Avoid using too much dot notation in loop' active='true' detached='false' ignored='false' />
+	<metric id='1020018' type='quality-rule' originalName='Avoid using Web SQL databases' active='true' detached='false' ignored='false' />
+	<metric id='1020020' type='quality-rule' originalName='Avoid blocking page loading with synchronous Javascript import' active='true' detached='false' ignored='false' />
+	<metric id='1020022' type='quality-rule' originalName='Avoid using submitted markup containing &quot;form&quot; and &quot;formaction&quot; attributes' active='true' detached='false' ignored='false' />
+	<metric id='1020024' type='quality-rule' originalName='Avoid &quot;id&quot; attributes for forms as well as submit' active='true' detached='false' ignored='false' />
+	<metric id='1020026' type='quality-rule' originalName='Avoid using autofocus and onfocus in submitted markup' active='true' detached='false' ignored='false' />
+	<metric id='1020028' type='quality-rule' originalName='Avoid using autofocus and onblur in submitted markup' active='true' detached='false' ignored='false' />
+	<metric id='1020030' type='quality-rule' originalName='Avoid using javascript or expression in the CSS file' active='true' detached='false' ignored='false' />
+	<metric id='1020032' type='quality-rule' originalName='Avoid using video poster attributes in combination with javascript' active='true' detached='false' ignored='false' />
+	<metric id='1020034' type='quality-rule' originalName='Avoid hosting HTML code in iframe srcdoc' active='true' detached='false' ignored='false' />
+	<metric id='1020036' type='quality-rule' originalName='Avoid using onscroll event with autofocus input' active='true' detached='false' ignored='false' />
+	<metric id='1020038' type='quality-rule' originalName='Avoid defining and calling functions inside loops' active='true' detached='false' ignored='false' />
+	<metric id='1020040' type='quality-rule' originalName='Avoid using delete with no object properties' active='true' detached='false' ignored='false' />
+	<metric id='1020042' type='quality-rule' originalName='Avoid having iframe inside a tag' active='true' detached='false' ignored='false' />
+	<metric id='1020044' type='quality-rule' originalName='Avoid using setData in ondragstart with attribute draggable set to true' active='true' detached='false' ignored='false' />
+	<metric id='1020046' type='quality-rule' originalName='Avoid using oninput in body containing input autofocus' active='true' detached='false' ignored='false' />
+	<metric id='1020048' type='quality-rule' originalName='Avoid using source tag in video/audio with event handler' active='true' detached='false' ignored='false' />
+	<metric id='1020050' type='quality-rule' originalName='Avoid white-listing the &quot;dirname&quot; attribute in user generated content' active='true' detached='false' ignored='false' />
+	<metric id='1020052' type='quality-rule' originalName='Avoid using import with external URI' active='true' detached='false' ignored='false' />
+	<metric id='1020054' type='quality-rule' originalName='Avoid using delete on arrays' active='true' detached='false' ignored='false' />
+	<metric id='1020056' type='quality-rule' originalName='Avoid using Javascript Document.all collection' active='true' detached='false' ignored='false' />
+	<metric id='1020058' type='quality-rule' originalName='Avoid using eval()' active='true' detached='false' ignored='false' />
+	<metric id='1020060' type='quality-rule' originalName='Avoid using console.log()' active='true' detached='false' ignored='false' />
+	<metric id='1020062' type='quality-rule' originalName='Avoid using non thread-safe Javascript singleton pattern' active='true' detached='false' ignored='false' />
+	<metric id='1020064' type='quality-rule' originalName='Avoid Superclass knowing Subclass in Javascript' active='true' detached='false' ignored='false' />
+	<metric id='1020066' type='quality-rule' originalName='Avoid using Javascript Function constructor' active='true' detached='false' ignored='false' />
+	<metric id='1020068' type='quality-rule' originalName='Avoid return statement in finally block' active='true' detached='false' ignored='false' />
+	<metric id='1020070' type='quality-rule' originalName='Avoid hardcoded network resource names in Javascript' active='true' detached='false' ignored='false' />
+	<metric id='1020072' type='quality-rule' originalName='Avoid direct access to Database Tables in Javascript' active='true' detached='false' ignored='false' />
+	<metric id='1020074' type='quality-rule' originalName='Avoid enabling autocomplete &quot;on&quot; for inputs/forms' active='true' detached='false' ignored='false' />
+	<metric id='1020076' type='quality-rule' originalName='Avoid Artifacts with too many parameters (Javascript)' active='true' detached='false' ignored='false' />
+	<metric id='1020078' type='quality-rule' originalName='Avoid using setTimeout()' active='true' detached='false' ignored='false' />
+	<metric id='1020080' type='quality-rule' originalName='Avoid using setInterval()' active='true' detached='false' ignored='false' />
+  	<metric id="1020082" type="quality-rule" originalName="Avoid undocumented Functions (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020084" type="quality-rule" originalName="Avoid unreferenced Functions (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020086" type="quality-rule" originalName="Avoid Functions having a very low Comment/Code ratio (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020088" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020090" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020092" type="quality-rule" originalName="Avoid direct definition of JavaScript Functions in a Web page (Javascript/HTML5)" active="true" detached="false" ignored="false"/>
+	<metric id="1020094" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (Javascript)" active="true" detached="false" ignored="false"/>
+	<metric id="1020096" type="quality-rule" originalName="Avoid using unsecured cookie (Javascript)" active="true" detached="false" ignored="false"/>
+	<metric id="1020098" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Javascript)" active="true" detached="false" ignored="false"/>
+	<metric id="1020100" type="quality-rule" originalName="Avoid having cookie with an overly broad domain (Javascript)" active="true" detached="false" ignored="false"/>
+	<metric id="1020102" type="quality-rule" originalName="Always use JSON.parse &amp; JSON.stringify with try/catch block (Javascript)" active="true" detached="false" ignored="false"/>
+	<metric id="1020104" type="quality-rule" originalName="Avoid hardcoded passwords (Javascript)" active="true" detached="false" ignored="false"/>
+</root>

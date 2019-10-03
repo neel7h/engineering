@@ -1,0 +1,51 @@
+{
+    "id": 1018862,
+    "name": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+    "href": "AIP/quality-rules/1018862",
+    "critical": true,
+    "description": "If user want to connect a different DB(according to the input) every time, then Is it possible to define the database URL , User and password details in global variables so that the query runs on new connection as defined by values of global variables.",
+    "output": "This report lists all  JDBC resources having  username and password not defined as global variables.\nIt provides the following information:\nJDBC Resource full name.\nThe associated value is the number of  JDBC Resources",
+    "rationale": "For maintainability and reusability reasons, JDBC Resources should use global Username and Password.",
+    "remediation": "Verify the JDBC Resource connection parameters",
+    "total": "Number of JDBC Resources",
+    "alternativeName": "JDBC connection must use Global variable for username and password parametrization of database url (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

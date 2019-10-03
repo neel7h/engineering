@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+
+    <category name="CAST_HTML5_APM_Module" id="1020000">
+        <description>HTML5</description>
+        <inheritedCategory name="APM Client Modules" />
+    </category>
+
+    <category name="CAST_HTML5_APM_Artifacts" id="1020001">
+        <description>HTML5 Artifacts</description>
+        <inheritedCategory name="APM Client Language Artifacts" />
+    </category>
+
+    <type name="CAST_HTML5_SUBSET" id="1020002">
+        <description>HTML5 Subset</description>
+        <inheritedCategory name="PROJECT_SUBSET" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Module" />
+    </type>
+
+    <!-- SQLScript group -->
+    <type name="CAST_HTML5_Enlighten" id="1020003">
+        <description>HTML5</description>
+        <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+    </type>
+
+    <category name="HTML5" id="1020004">
+        <description>HTML5/Javascript</description>
+        <attribute name="extensions" stringValue="*.js;*.ts;*.jsx;*.tsx;*.html;*.htm;*.xhtml;*.jsp;*.jsf;*.jsff;*.jspx;*.xml;*.json;*.css;*.asp;*.aspx;*.htc;*.cshtml;*.jade;*.yml" />
+        <inheritedCategory name="UniversalLanguage" />
+        <inheritedCategory name="CsvLanguage" />
+    </category>
+
+    <!-- HTML5 project -->
+    <type name="CAST_HTML5_Project" id="1020005">
+        <description>HTML5 Project</description>
+        <inheritedCategory name="UAProject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Module" />
+    </type>
+
+    <!-- HTML5 Types -->
+
+    <category name="CAST_HTML5_External_Library" id="1020290">
+        <description>HTML5 external library</description>
+        <inheritedCategory name="UAObject" />    
+    </category>
+
+    <type name="CAST_HTML5_SourceCode" id="1020006">
+        <description>HTML5 source code</description>
+    	<property name="containsHttpReference" type="integer" id="1020016">
+			<description>Contains &lt;script src="http://*.js"&gt; (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020001"/>
+			<attribute name="INF_SUB_TYPE" intValue="2"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_Jade_SourceCode" id="1020295">
+        <description>HTML5 Jade source code</description>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <category name="CAST_HTML5_SourceCode_Diags" id="1020122">
+        <description>HTML5 source code diags</description>
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidJavaScriptBlockingPageLoading" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingMarkupWithFormAndFormAction" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidIdAttributesAndSubmitForForms" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidAutofocusWithOnfocus" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidAutofocusWithOnblur" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidVideoPosterAttribute" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidHostingHTMLCodeInIframeSrcdoc" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingOnscrollEventWithAutofocusInput" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidIframeInsideATag" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidSetDataInOndragstartWithDraggableTrue" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidOninputInBodyContainingInputAutofocus" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidSourceTagInVideoOrAudioWithEventHandler" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidWhiteListingDirnameAttribute" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidImportWithExternalURI" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidEnablingAutocompleteOn" />
+    </category>
+
+    <type name="CAST_HTML5_CSS_SourceCode" id="1020123">
+        <description>HTML5 CSS source code</description>
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidJavascriptOrExpressionInCss" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_CSS_SourceCode_Fragment" id="1020127">
+        <description>HTML5 CSS source code fragment</description>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_HTML_Fragment" id="1020243">
+        <description>HTML5 HTML fragment</description>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+<!--
+    <type name="CAST_HTML5_JSP_SourceCode" id="1020025">
+        <description>HTML5 JSP source code</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+-->
+
+    <category name="CAST_HTML5_JavaScript_SourceCode_metrics" id="1020213">
+        <description>JavaScript source code metrics</description>
+    	<property name="totalCodeLinesCount" type="integer" id="1020073">
+			<description>Total code lines count</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="22"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Function_SourceCode_Properties" />
+    </category>
+
+    <type name="CAST_HTML5_JavaScript_SourceCode" id="1020026">
+        <description>HTML5 JavaScript source code</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_SourceCode_metrics" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JSX_SourceCode" id="1020244">
+        <description>HTML5 JSX source code</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_SourceCode_metrics" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <category name="CAST_JavaScript_SourceCode_Fragment" id="1020054">
+        <description>JavaScript source code fragment</description>
+    </category>
+
+    <type name="CAST_HTML5_JavaScript_SourceCode_Fragment" id="1020030">
+        <description>HTML5 JavaScript source code fragment</description>
+        <inheritedCategory name="CAST_JavaScript_SourceCode_Fragment" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category_From_MA" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <category name="CAST_HTML5_WithParameters" id="1020214">
+        <description>HTML5 with parameters</description>
+    	<property name="numberOfParameters" type="integer" id="1020074">
+			<description>Number of parameters</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="23"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+    </category>
+
+    <category name="CAST_HTML5_JavaScript_Object_Properties" id="1020266">
+        <description>HTML5 JavaScript Object properties</description>
+    	<property name="unreferencedFunctionEnabled" type="integer" id="1020079">
+			<description>Is enabled for unreferenced functions metric(1 if yes, else empty)</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="28"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+    </category>
+
+    <type name="CAST_HTML5_JavaScript_Function" id="1020007">
+        <description>HTML5 JavaScript function</description>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Function_Properties" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Object_Properties" />
+    	<property name="anonymous" type="integer" id="1020078">
+			<description>Anonymous function (1 if anonymous, else empty)</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="27"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_WithParameters" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category" />
+        <inheritedCategory name="APM Inventory Functions"/>
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JavaScript_Initialisation" id="1020264">
+        <description>HTML5 JavaScript initialisation</description>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Function_Properties" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="0"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_WebSocketService" id="1020112">
+        <description>HTML5 WebSocket service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <category name="CAST_HTML5_XMLHttpRequestService" id="1020117">
+        <description>HTML5 XMLHttpRequest service</description>
+    </category>
+
+    <type name="CAST_HTML5_GetXMLHttpRequestService" id="1020113">
+        <description>HTML5 Get XMLHttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_XMLHttpRequestService" />
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_UpdateXMLHttpRequestService" id="1020114">
+        <description>HTML5 Update XMLHttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_XMLHttpRequestService" />
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_PostXMLHttpRequestService" id="1020115">
+        <description>HTML5 Post XMLHttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_XMLHttpRequestService" />
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_DeleteXMLHttpRequestService" id="1020116">
+        <description>HTML5 Delete XMLHttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_XMLHttpRequestService" />
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <category name="CAST_HTML5_HttpRequestService" id="1020167">
+        <description>HTML5 HttpRequest service</description>
+    </category>
+
+    <type name="CAST_HTML5_GetHttpRequestService" id="1020168">
+        <description>HTML5 Get HttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_HttpRequestService" />
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_PostHttpRequestService" id="1020169">
+        <description>HTML5 Post HttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_HttpRequestService" />
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_PutHttpRequestService" id="1020177">
+        <description>HTML5 Put HttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_HttpRequestService" />
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_DeleteHttpRequestService" id="1020178">
+        <description>HTML5 Delete HttpRequest service</description>
+        <inheritedCategory name="CAST_HTML5_HttpRequestService" />
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+	<category name="CAST_HTML5_JavaScript_Metrics_Category" id="1020110">
+		<description>Category for all metric results</description>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category_From_MA" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingQuerySelectorAll" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidFunctionCallInTerminationLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidForInLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidForEach" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidWebSocketInsideLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidXMLHttpRequestInsideLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidTooMuchDotNotationInLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingWebSQLDatabases" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidFunctionsInsideLoops" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidDeleteWithNoObjectProperties" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidDeleteOnArrays" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidDocumentAll" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidBreakInForLoop" />
+        <inheritedCategory name="CAST_HTML5_Metric_NumberOfForLoops" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingEval" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingSetTimeout" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingSetInterval" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidMissingDefaultInSwitch" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUsingConsoleLog" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidJavascriptFunctionConstructor" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidEmptyCatchBlocks" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidEmptyFinallyBlocks" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidReturnInFinallyBlock" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidHardcodedNetworkResourceNames" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidDatabaseDirectAccess" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidCookieWithoutHttpOnly" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUnsecuredCookie" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidOverlyBroadPathCookie" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidOverlyBroadDomainCookie" />
+        <inheritedCategory name="CAST_HTML5_Metric_UseJSONParseAndStringifyWithoutTryCatch" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidHardcodedPassword" />
+    </category>
+
+	<category name="CAST_HTML5_JavaScript_Metrics_Category_From_MA" id="1020335">
+		<description>Category for metrics from MA</description>
+    	<property name="lengthOfTheLongestLine" type="integer" id="1020110">
+			<description>Length of the longest line</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="9"/>
+		</property>
+    	<property name="complexity" type="integer" id="1020111">
+			<description>Cyclomatic Complexity</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="10"/>
+		</property>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+    </category>
+
+	<category name="CAST_HTML5_Metric_AvoidUsingQuerySelectorAll" id="1020097">
+		<description>Store Avoid to use querySelectorAll metric results</description>
+    	<property name="numberOfQuerySelectorAllCalls" type="integer" merge="sum" id="1020005">
+			<description>Number of querySelectorAll calls</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="6"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidFunctionCallInTerminationLoop" id="1020099">
+		<description>Store Avoid to call a function in a termination loop metric results</description>
+    	<property name="numberOfFunctionCallsInTerminationLoop" type="integer" merge="sum" id="1020006">
+			<description>Number of function calls in termination loop</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="7"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidForInLoop" id="1020103">
+		<description>Store Avoid for-in loop metric results</description>
+    	<property name="numberOfForInLoop" type="integer" merge="sum" id="1020007">
+			<description>Number of for-in loops</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="8"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidBreakInForLoop" id="1020193">
+		<description>Store Avoid break in for loop metric results</description>
+    	<property name="numberOfBreakInForLoop" type="integer" merge="sum" id="1020035">
+			<description>Number of break in for loops</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="19"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_NumberOfBreaksInForLoops" />
+	</category>
+    
+	<category name="CAST_HTML5_Metric_NumberOfForLoops" id="1020194">
+		<description>Store Number of for loops</description>
+    	<property name="numberOfForLoops" type="integer" merge="sum" id="1020036">
+			<description>Number of for loops</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="20"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_NumberOfForLoops" />
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidForEach" id="1020104">
+		<description>Store Avoid using forEach() metric results</description>
+    	<property name="numberOfForEach" type="integer" merge="sum" id="1020008">
+			<description>Number of for-in loops</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="9"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidWebSocketInsideLoop" id="1020105">
+		<description>Store Avoid using a web service with WebSocket inside a loop metric results</description>
+    	<property name="numberOfWebSocketInsideLoop" type="integer" merge="sum" id="1020009">
+			<description>Number of WebSocket in loop</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="10"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidXMLHttpRequestInsideLoop" id="1020106">
+		<description>Store Avoid using a web service with XMLHttpRequest inside a loop metric results</description>
+    	<property name="numberOfXMLHttpRequestInsideLoop" type="integer" merge="sum" id="1020011">
+			<description>Number of XMLHttpRequest in loop</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="11"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidTooMuchDotNotationInLoop" id="1020107">
+		<description>Store Avoid using too much dot notation in loop metric results</description>
+    	<property name="numberOfTooMuchDotNotationInLoop" type="integer" merge="sum" id="1020012">
+			<description>Number of too much dot notation in loop</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="12"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingWebSQLDatabases" id="1020109">
+		<description>Store Avoid using Web SQL databases metric results</description>
+    	<property name="numberOfWebSQLDatabaseAccesses" type="integer" merge="sum" id="1020013">
+			<description>Number of web SQL database accesses</description>
+			<attribute name="INF_TYPE" intValue="1020000"/>
+			<attribute name="INF_SUB_TYPE" intValue="13"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidJavaScriptBlockingPageLoading" id="1020111">
+		<description>Store Avoid JavaScript to block page loading metric results</description>
+    	<property name="numberOfJavaScriptBlockingPageLoading" type="integer" merge="sum" id="1020014">
+			<description>Number of javascript includes blocking page loading</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="0"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingMarkupWithFormAndFormAction" id="1020118">
+		<description>Store Avoid using submitted markup containing form and formaction attributes metric results</description>
+    	<property name="numberOfMarkupWithFormAndFormAction" type="integer" merge="sum" id="1020017">
+			<description>Number of submitted markup containing form and formaction attributes</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="1"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidIdAttributesAndSubmitForForms" id="1020119">
+		<description>Store Avoid id attributes for forms as well as submit metric results</description>
+    	<property name="numberOfIdAttributesAndSubmitForForms" type="integer" merge="sum" id="1020018">
+			<description>Number of id attributes for forms as well as submit</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="2"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidAutofocusWithOnfocus" id="1020120">
+		<description>Store Avoid using autofocus and onfocus in submitted markup metric results</description>
+    	<property name="numberOfAutofocusWithOnfocus" type="integer" merge="sum" id="1020019">
+			<description>Number of autofocus with onfocus</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="3"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidAutofocusWithOnblur" id="1020121">
+		<description>Store Avoid using autofocus and onblur in submitted markup metric results</description>
+    	<property name="numberOfAutofocusWithOnblur" type="integer" merge="sum" id="1020020">
+			<description>Number of autofocus with onblur</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="4"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidJavascriptOrExpressionInCss" id="1020124">
+		<description>Store Avoid using javascript or expression in the CSS file metric results</description>
+    	<property name="numberOfJavascriptOrExpressionInCss" type="integer" merge="sum" id="1020021">
+			<description>Number of javascript or expression in CSS file</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="5"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidVideoPosterAttribute" id="1020125">
+		<description>Store Avoid using video poster attributes in combination with javascript metric results</description>
+    	<property name="numberOfVideoPosterAttribute" type="integer" merge="sum" id="1020022">
+			<description>Number of video poster attributes in combination with javascript</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="6"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidHostingHTMLCodeInIframeSrcdoc" id="1020131">
+		<description>Store Avoid hosting HTML code in iframe srcdoc metric results</description>
+    	<property name="numberOfHostingHTMLCodeInIframeSrcdoc" type="integer" merge="sum" id="1020023">
+			<description>Number of hosting HTML code in iframe srcdoc</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="7"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingOnscrollEventWithAutofocusInput" id="1020132">
+		<description>Store Avoid using onscroll event with autofocus input metric results</description>
+    	<property name="numberOfOnscrollEventWithAutofocusInput" type="integer" merge="sum" id="1020024">
+			<description>Number of onscroll event with autofocus input</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="8"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidFunctionsInsideLoops" id="1020133">
+		<description>Store Avoid defining functions inside loops metric results</description>
+    	<property name="numberOfFunctionsInsideLoops" type="integer" merge="sum" id="1020025">
+			<description>Number of functions inside loops</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="9"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidDeleteWithNoObjectProperties" id="1020134">
+		<description>Store Avoid using delete with no object properties metric results</description>
+    	<property name="numberOfDeleteWithNoObjectProperties" type="integer" merge="sum" id="1020026">
+			<description>Number of delete with no object properties</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="10"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidIframeInsideATag" id="1020139">
+		<description>Store Avoid having iframe inside a tag metric results</description>
+    	<property name="numberOfIframeInsideATag" type="integer" merge="sum" id="1020027">
+			<description>Number of iframe inside a tag</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="11"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidSetDataInOndragstartWithDraggableTrue" id="1020140">
+		<description>Store Avoid using setData in ondragstart with attribute draggable set to true metric results</description>
+    	<property name="numberOfSetDataInOndragstartWithDraggableTrue" type="integer" merge="sum" id="1020028">
+			<description>Number of setData in ondragstart with attribute draggable set to true</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="12"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidOninputInBodyContainingInputAutofocus" id="1020141">
+		<description>Store Avoid using oninput in body containing input autofocus metric results</description>
+    	<property name="numberOfOninputInBodyContainingInputAutofocus" type="integer" merge="sum" id="1020029">
+			<description>Number of oninput in body containing input autofocus</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="13"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidSourceTagInVideoOrAudioWithEventHandler" id="1020142">
+		<description>Store Avoid using source tag in video/audio with event handler metric results</description>
+    	<property name="numberOfSourceTagInVideoOrAudioWithEventHandler" type="integer" merge="sum" id="1020030">
+			<description>Number of source tag in video/audio with event handler</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="14"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidWhiteListingDirnameAttribute" id="1020143">
+		<description>Store Avoid white-listing the &quot;dirname&quot; attribute in user generated content metric results</description>
+    	<property name="numberOfWhiteListingDirnameAttribute" type="integer" merge="sum" id="1020031">
+			<description>Number of white-listing the &quot;dirname&quot; attribute in user generated content</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="15"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidImportWithExternalURI" id="1020144">
+		<description>Store Avoid import with external URI metric results</description>
+    	<property name="numberOfImportWithExternalURI" type="integer" merge="sum" id="1020032">
+			<description>Number of import with external URI</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="16"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidEnablingAutocompleteOn" id="1020212">
+		<description>Store Avoid enabling autocomplete "on" for inputs/forms metric results</description>
+    	<property name="numberOfAutocompleteOn" type="integer" merge="sum" id="1020048">
+			<description>Number of autocomplete on</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="32"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidDeleteOnArrays" id="1020145">
+		<description>Store Avoid delete on arrays metric results</description>
+    	<property name="numberOfDeleteOnArrays" type="integer" merge="sum" id="1020033">
+			<description>Number of delete on arrays</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="17"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidDocumentAll" id="1020170">
+		<description>Store Avoid using Document.all metric results</description>
+    	<property name="numberOfDocumentAll" type="integer" merge="sum" id="1020034">
+			<description>Number of Document.all</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="18"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingEval" id="1020199">
+		<description>Store Avoid using eval() metric results</description>
+    	<property name="numberOfEval" type="integer" merge="sum" id="1020037">
+			<description>Number of eval</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="21"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingSetTimeout" id="1020221">
+		<description>Store Avoid using setTimeout() metric results</description>
+    	<property name="numberOfSetTimeout" type="integer" merge="sum" id="1020075">
+			<description>Number of setTimeout</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="24"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingSetInterval" id="1020222">
+		<description>Store Avoid using setInterval() metric results</description>
+    	<property name="numberOfSetInterval" type="integer" merge="sum" id="1020076">
+			<description>Number of setInterval</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="25"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidMissingDefaultInSwitch" id="1020200">
+		<description>Store Avoid missing default in switch statements metric results</description>
+    	<property name="numberOfSwitchNoDefault" type="integer" merge="sum" id="1020038">
+			<description>Number of switch without default</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="22"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_NumberOfSwitchWithNoDefault" />
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUsingConsoleLog" id="1020201">
+		<description>Store Avoid using console.log metric results</description>
+    	<property name="numberOfConsoleLog" type="integer" merge="sum" id="1020039">
+			<description>Number of console.log</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="23"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUnsafeSingleton" id="1020204">
+		<description>Store Avoid non thread-safe singleton pattern metric results</description>
+    	<property name="numberOfUnsafeSingleton" type="integer" merge="sum" id="1020040">
+			<description>Number of non thread-safe singleton</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="24"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidSuperclassKnowingSubclass" id="1020205">
+		<description>Store Avoid superclass knowing subclass metric results</description>
+    	<property name="numberOfSuperclassKnowingSubclass" type="integer" merge="sum" id="1020041">
+			<description>Number of superclass knowing subclass</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="25"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidJavascriptFunctionConstructor" id="1020206">
+		<description>Store Avoid using Javascript Function constructor metric results</description>
+    	<property name="numberOfJavascriptFunctionConstructor" type="integer" merge="sum" id="1020042">
+			<description>Number of Javascript Function constructor</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="26"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+
+	<category name="CAST_HTML5_Metric_AvoidEmptyCatchBlocks" id="1020207">
+		<description>Store Avoid empty catch blocks metric results</description>
+    	<property name="numberOfEmptyCatchBlocks" type="integer" merge="sum" id="1020043">
+			<description>Number of empty catch blocks</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="27"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_DotNet_Metric_AvoidEmptyCatchBlocks" />
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidEmptyFinallyBlocks" id="1020208">
+		<description>Store Avoid empty finally blocks metric results</description>
+    	<property name="numberOfEmptyFinallyBlocks" type="integer" merge="sum" id="1020044">
+			<description>Number of empty finally blocks</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="28"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+        <inheritedCategory name="CAST_DotNet_Metric_AvoidEmptyFinallyBlocks" />
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidReturnInFinallyBlock" id="1020209">
+		<description>Store Avoid return statement in finally block metric results</description>
+    	<property name="numberOfReturnInFinallyBlock" type="integer" merge="sum" id="1020045">
+			<description>Number of return statements in finally blocks</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="29"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidHardcodedNetworkResourceNames" id="1020210">
+		<description>Store Avoid hardcoded network resource names metric results</description>
+    	<property name="numberOfHardcodedNetworkResourceNames" type="integer" merge="sum" id="1020046">
+			<description>Number of hardcoded network resource names</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="30"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidDatabaseDirectAccess" id="1020211">
+		<description>Store Avoid direct access to database tables metric results</description>
+    	<property name="numberOfDatabaseDirectAccess" type="integer" merge="sum" id="1020047">
+			<description>Number of database direct access</description>
+			<attribute name="INF_TYPE" intValue="1020002"/>
+			<attribute name="INF_SUB_TYPE" intValue="31"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidCookieWithoutHttpOnly" id="1020273">
+		<description>Store Avoid creating cookie without setting httpOnly option metric results</description>
+    	<property name="numberOfCookieWithoutHttpOnly" type="integer" merge="sum" id="1020080">
+			<description>Number of cookie creation without httpOnly option</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="29"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidUnsecuredCookie" id="1020277">
+		<description>Store Avoid creating unsecured cookie metric results</description>
+    	<property name="numberOfUnsecuredCookie" type="integer" merge="sum" id="1020085">
+			<description>Number of unsecured cookie</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="31"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidOverlyBroadPathCookie" id="1020286">
+		<description>Store Avoid creating cookie with overly broad path metric results</description>
+    	<property name="numberOfOverlyBroadPathCookie" type="integer" merge="sum" id="1020094">
+			<description>Number of cookie with overly broad path</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="35"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidOverlyBroadDomainCookie" id="1020287">
+		<description>Store Avoid creating cookie with overly broad domain metric results</description>
+    	<property name="numberOfOverlyBroadDomainCookie" type="integer" merge="sum" id="1020095">
+			<description>Number of cookie with overly broad domain</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="36"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_UseJSONParseAndStringifyWithoutTryCatch" id="1020307">
+		<description>Store Use JSON.parse and JSON.stringify with try/catch metric results</description>
+    	<property name="numberOfJSONParseAndStringifyWithoutTryCatch" type="integer" merge="sum" id="1020105">
+			<description>Number of JSON.parse and JSON.stringify without try/catch</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="4"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_HTML5_Metric_AvoidHardcodedPassword" id="1020342">
+		<description>Store Avoid hardcoded password metric results</description>
+    	<property name="numberOfHardcodedPassword" type="integer" merge="sum" id="1020112">
+			<description>Number of hardcoded password</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="11"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<partialType name="sourceFile">
+	<!-- Put 1 in this property for each files with extension other than .js and .html if you wan to keep
+	     this file in KB. If property not present, the file will be deleted from KB after application analysis,
+	     but only if it has no children. -->
+	    <property name="html5" type="integer" id="1020004">
+	      <description>html5</description>
+	      <attribute name="INF_SUB_TYPE" intValue="5"/>
+	      <attribute name="INF_TYPE" intValue="1020000"/>
+	    </property>
+	</partialType>
+
+    <type name="CAST_HTML5_JEE_Struts_Action_Access" id="1020161">
+        <description>HTML5 Access to a JEE Struts action</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JEE_Servlet_Mapping_Access" id="1020162">
+        <description>HTML5 Access to a JEE Servlet Mapping</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JEE_Scoped_Bean_Access" id="1020163">
+        <description>HTML5 Access to a JEE Scoped Bean</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JEE_Class_Import" id="1020164">
+        <description>HTML5 Import to a Java class</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JEE_Method_Call" id="1020165">
+        <description>HTML5 Call to a Java method</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JSP_Content" id="1020166">
+        <description>HTML5 JSP Content</description>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_ASP_Content" id="1020172">
+        <description>HTML5 ASP Content</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_ASPX_Content" id="1020184">
+        <description>HTML5 ASPX Content</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_HTC_Content" id="1020185">
+        <description>HTML5 HTC Content</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JavaScript_Class" id="1020179">
+        <description>HTML5 JavaScript class</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="APM Classes" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidUnsafeSingleton" />
+        <inheritedCategory name="CAST_HTML5_Metric_AvoidSuperclassKnowingSubclass" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <category name="CAST_HTML5_JavaScript_Generic_Method" id="1020182">
+        <description>HTML5 JavaScript generic method</description>
+        <inheritedCategory name="CAST_HTML5_WithParameters" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Function_Properties" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="CAST_HTML5_JavaScript_Metrics_Category" />
+    </category>
+
+    <type name="CAST_HTML5_JavaScript_Method" id="1020180">
+        <description>HTML5 JavaScript method</description>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Generic_Method" />
+        <inheritedCategory name="APM Methods" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_JavaScript_Constructor" id="1020183">
+        <description>HTML5 JavaScript constructor</description>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Generic_Method" />
+        <inheritedCategory name="APM Methods" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <category name="CAST_HTML5_JavaScript_Function_Properties" id="1020181">
+        <description>HTML5 JavaScript function properties</description>
+    	<property name="containsWebSocket" type="integer" id="1020010">
+			<description>Contains new WebSocket() (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020001"/>
+			<attribute name="INF_SUB_TYPE" intValue="0"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsXMLHttpRequest" type="integer" id="1020015">
+			<description>Contains new XMLHttpRequest() (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020001"/>
+			<attribute name="INF_SUB_TYPE" intValue="1"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+        <inheritedCategory name="CAST_HTML5_JavaScript_Function_SourceCode_Properties" />
+    </category>
+
+    <category name="CAST_HTML5_JavaScript_Function_SourceCode_Properties" id="1020274">
+        <description>HTML5 JavaScript function and source code properties</description>
+    	<property name="containsCookieCall" type="integer" id="1020081">
+			<description>Contains cookie call (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="30"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsSetTimeout" type="integer" id="1020086">
+			<description>Contains setTimeout call (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="32"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsDocumentCookie" type="integer" id="1020093">
+			<description>Contains document.cookie assignment (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020052"/>
+			<attribute name="INF_SUB_TYPE" intValue="34"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsJSONParseOrStringify" type="integer" id="1020106">
+			<description>Contains JSON.parse or JSON.stringify (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="5"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    </category>
+
+    <type name="CAST_HTML5_GetEventSourceService" id="1020265">
+        <description>HTML5 EventSource service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_AppletClassReference" id="1020313">
+        <description>HTML5 Applet class reference</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+<!--
+    <type name="CAST_HTML5_BeanMethodReference" id="1020328">
+        <description>HTML5 Bean Method reference</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="CAST_EL_Expression" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+-->
+</metaModel>

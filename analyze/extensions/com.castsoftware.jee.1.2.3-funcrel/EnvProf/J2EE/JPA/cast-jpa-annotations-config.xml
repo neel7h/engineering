@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================================================== -->
+<!-- ==================================       cast-jpa-annotations-config.xml   ============================= -->
+<!-- ==================================  Applies to XML file generated from JPA annotations  ================ -->
+<!-- ==================================  found while parsing java source code.   ============================ -->
+<!-- ================================== since version 6.1 of CAST products    =============================== -->
+<!-- ======================================================================================================== -->
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:noNamespaceSchemaLocation="./cast-config.xsd">
+	<config-file-node xpath ="/decls"  content-type = "jpa-annotated-declarations" location=".">
+
+				<!-- =====================================  FILE PROPERTIES  ================================== -->
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+
+			<!-- =====================================  PERSISTENT UNITS	================================== -->
+
+		<!-- Entities And Mapped Super Classes -->	
+		<object-node xpath ="/decls/decl[@metatype='JV_CLASS'][anno[@name='javax.persistence.Entity']] | /decls/decl[@metatype='JV_CLASS'][anno[@name='javax.persistence.MappedSuperclass']]" 
+					 name = "./@name"  type = "jpa-entity" id = "JPAEntityConfig">
+									
+									<!-- ====================  ATTRIBUTES  ======================== -->
+			<!-- Note begin  -->
+				<!-- The following location attributes are added to objects and links by default -->
+				<!-- Feel free to override these attributes if they don't point to the right information -->
+				<!-- object-attribute name = "file" 	select="./loc/@file" 	-->
+				<!-- object-attribute name = "sLine" 	select="./loc/@sLine" 	-->
+				<!-- object-attribute name = "eLine" 	select="./loc/@eLine" 	-->
+				<!-- object-attribute name = "sCol" 	select="./loc/@sCol" 	-->
+				<!-- object-attribute name = "eCol" 	select="./loc/@eCol" 	-->
+			<!-- Note end -->
+									
+			<object-attribute name = "class"						select = "./@name"	/>
+			<object-attribute name = "id-class"						select = "./anno[@name='javax.persistence.IdClass']/mem[@name='value']/val" />
+			<object-attribute name = "inheritance"					select = "./anno[@name='javax.persistence.Inheritance']/mem[@name='strategy']/val" 	value = "javax.persistence.InheritanceType.SINGLE_TABLE" />
+
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy']" 	value = "table-per-class-hierarchy" /> <!-- Default value -->
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.SINGLE_TABLE'		]" 	value = "table-per-class-hierarchy" />
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.TABLE_PER_CLASS'	]" 	value = "table-per-concrete-class" 	/>
+			<object-attribute name = "mapping-strategy"				xpath = "../anno[name='javax.persistence.Inheritance']/mem[name='strategy' and val='javax.persistence.InheritanceType.JOINED'			]" 	value = "table-per-sub-class" 		/>
+
+			<object-attribute name = "table name"					xpath = "./anno[@name='javax.persistence.Table']/mem[@name='name']" value = "./val"	trim='"' after-last="." />
+
+			<!-- Property For Mapped Super Class -->
+			<object-attribute name = "abstract"	xpath = "self::node()[name()='javax.persistence.MappedSuperclass']" value = "true" />
+
+									<!-- ====================  LINKS  ============================= -->
+			<link-node xpath = "."	called-object = "./@name"		resolve-as = "java-type" 				link-type = "relyon" inverse = "true" />
+			<link-node xpath = "./descendant::anno[@name='javax.persistence.SecondaryTable']/mem[@name='name'] |
+								./anno[@name='javax.persistence.Table']/mem[@name='name']"		
+					   called-object = "./val"	resolve-as="server-object" link-type = "use"/>
+			<link-node xpath = "./anno[@name='javax.persistence.IdClass']/mem[@name='value']"	called-object = "./val"	resolve-as="java-type" link-type = "use"/>
+
+				<!--Associations between Entities -->
+			<link-node xpath = "./decl/anno[@name='javax.persistence.OneToOne']" called-object = "./mem[@name='targetEntity']/val | ../@type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "one-to-one"   />
+			</link-node>
+			<link-node xpath = "./decl/anno[@name='javax.persistence.ManyToOne']" called-object = "./mem[@name='targetEntity']/val | ../@type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "many-to-one"   />
+			</link-node>
+			<link-node xpath = "./decl/anno[@name='javax.persistence.OneToMany']" called-object = "./mem[@name='targetEntity']/val | ../@type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "one-to-many"   />
+			</link-node>
+			<link-node xpath = "./decl/anno[@name='javax.persistence.ManyToMany']" called-object = "./mem[@name='targetEntity']/val | ../@type"		resolve-as="jpa-entity" link-type = "use" >
+				<object-attribute name = "Cardinality"   			value = "many-to-many"   />
+			</link-node>
+
+			<link-node xpath = "./decl/anno[@name='javax.persistence.Embedded']"	  called-object = "../@type"		resolve-as="jpa-embeddable" link-type = "use"/>
+	
+									<!-- ==================== ENTITY PROPERTIES  ======================== -->
+			<!-- All properties (java fields or xX from methods setXX()) not annotated as transient are considered persistent -->
+			<!-- And a Persistent Entity Property object is to be created for each  -->
+
+			<object-node xpath ="./decl[@metatype = 'JV_FIELD' or (@metatype = 'JV_METHOD' and (starts-with(@name,'set') or starts-with(@name,'get')))][count(anno[@name='javax.persistence.Transient']) = 0]"
+								name = "./@name" type = "jpa-entity-property" >
+
+	
+				<object-attribute xpath ="./anno[@name='javax.persistence.GeneratedValue']" 	name = "id-strategy"	select = "./mem[name() = 'strategy' ]/val"  value = "javax.persistence.GenerationType.AUTO"/>
+				<object-attribute xpath ="./anno[@name='javax.persistence.GeneratedValue']" 	name = "id-generator"	select = "./mem[name() = 'generator']/val"  />
+
+				<object-attribute xpath ="./anno[@name='javax.persistence.Id']" 				name = "id"				value = "true" />
+				<object-attribute xpath ="./anno[@name='javax.persistence.EmbeddedId' or 
+												 @name='javax.persistence.Embedded'     ]" 		name = "component"		value = "true" />
+				<object-attribute xpath ="./anno[@name='javax.persistence.Version']" 			name = "version"		value = "true" />
+
+				<object-attribute xpath ="./anno[@name='javax.persistence.Basic']" 				name = "fetch-type"		select = "./mem[name()='fecth'   ]/val"  	value = "javax.persistence.FetchType.EAGER" />
+				<object-attribute xpath ="./anno[@name='javax.persistence.Basic']" 				name = "optional"		select = "./mem[name()='optional']/val"  	value = "true" />
+				<object-attribute xpath ="./anno[@name='javax.persistence.OneToMany' or 
+												 @name='javax.persistence.ManyToMany'	]" 		name = "collection"		value = "true" />
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "self::node()[@metatype = 'JV_FIELD' ]"	called-object = "./@name"	resolve-as="java-field" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/@name" link-type = "relyon" inverse = "true" />
+				<link-node xpath = "self::node()[@metatype = 'JV_METHOD']"	called-object = "./@name"	resolve-as="java-method" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/@name" link-type = "relyon" inverse = "true" />
+
+				<object-attribute xpath ="./anno[name='javax.persistence.Column']" name = "column name"	select = "./mem[name = 'name']/val"	value = ""	trim='"' after-last="." />
+
+			</object-node>
+		</object-node>
+	
+		<!-- Embeddables -->	
+		<object-node xpath ="/decls/decl[@metatype='JV_CLASS'][anno[@name='javax.persistence.Embeddable']]" 	name = "./@name" type = "jpa-embeddable">
+			<object-attribute name = "class"	select = "./@name"	/>
+
+			<!-- Properties -->
+			<object-node xpath ="./decl[@metatype = 'JV_FIELD' or @metatype = 'JV_METHOD'][anno[@name='javax.persistence.Basic']]" 	name = "./@name" type = "jpa-embeddable-property" >
+				<object-attribute name = "fetch-type"	select = "./anno/mem[name()='fecth'   ]/val"  	value = "javax.persistence.FetchType.EAGER" />
+				<object-attribute name = "optional"		select = "./anno/mem[name()='optional']/val"  	value = "true" />
+
+				<!-- Java field or setter mapped to the Property -->
+				<link-node xpath = "self::node()[@metatype = 'JV_FIELD' ]"	called-object = "./@name"	resolve-as="java-field" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/@name" link-type = "relyon" inverse = "true" />
+				<link-node xpath = "self::node()[@metatype = 'JV_METHOD']"	called-object = "./@name"	resolve-as="java-method" 	resolution-scope-src = "ancestor::decl[@metatype='JV_CLASS']/@name" link-type = "relyon" inverse = "true" />
+			</object-node>
+		</object-node>
+		
+		<!-- Named Query -->
+		<object-node xpath = "/decls/descendant::anno[@name='javax.persistence.NamedQuery']" name = "./mem[@name='name']/val" type = "jpa-named-query">
+			<object-attribute name = "value" select = "./mem[@name='query']/val" />
+
+			<!--Links-->
+			<link-node xpath = "."	called-object = "./mem[@name='query']/val"	resolve-as="server-object" link-type = "use" />
+		</object-node>
+
+		<!-- Named Native Query -->
+		<object-node xpath = "/decls/descendant::anno[@name='javax.persistence.NamedNativeQuery']"  name = "./mem[@name='name']/val" type = "jpa-named-native-query">
+			<object-attribute name = "value" select = "./mem[@name='query']/val"	/>
+
+			<!--Links-->
+			<link-node xpath = "."	called-object = "./mem[@name='query']/val"				resolve-as="server-object" link-type = "use" />
+			<link-node xpath = "."	called-object = "./mem[@name='result-class']/val"		resolve-as = "java-type" link-type = "use" default = "ancestor::decl[@metatype = 'JV_CLASS']/@name" />
+			<link-node xpath = "."	called-object = "./mem[@name='result-set-mapping']/val"	resolve-as = "jpa-sql-result-set" link-type = "use" />
+		</object-node>
+	</config-file-node>
+</xml-config>

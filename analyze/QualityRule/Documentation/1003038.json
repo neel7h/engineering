@@ -1,0 +1,72 @@
+{
+    "id": 1003038,
+    "name": "Cairngorm: Avoid Cairngorm event name without functional area (Flex)",
+    "href": "AIP/quality-rules/1003038",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports Cairngorm event class which does not have functional area as part of event name.",
+    "output": "This QR reports Cairngorm event class which does not have functional area as part of event name. It provides following information:\n\n- Class full name",
+    "rationale": "Having Caringorm event with functional area as event name makes code more compliant to the system.",
+    "remediation": "Change event name to include functional area.",
+    "sample": "public class IncorrectConstructorEvent extends CairngormEvent\n{\n   public function IncorrectConstructorEvent( model : IModel )\n   {\n      super( \"eventName\", model ); // VIOLATION. It should be \"functionalArea.eventName\" instead\n   }\n}\npublic class IncorrectConstantEvent extends CairngormEnterpriseEvent\n{\n   public static const EVENT_NAME : String = \"eventName\";\n   \n   public function IncorrectConstantEvent ( model : IModel )\n   {\n      super( EVENT_NAME, model ); // VIOLATION\n   }\n}",
+    "total": "Number of classes",
+    "alternativeName": "Cairngorm: Avoid Cairngorm event name without functional area (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.cairngorm.BadCairngormEventNameFormat"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

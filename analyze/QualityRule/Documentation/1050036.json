@@ -1,0 +1,60 @@
+{
+    "id": 1050036,
+    "name": "Ensure that iOS Projects are ARC enabled",
+    "href": "AIP/quality-rules/1050036",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Ensure that Automatic Retain Count (ARC) setting has been enabled in your Xcode project.",
+    "output": "All projects that don't have the ARC setting enabled to YES.\nAssociated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Uncontrolled memory allocation is possible in many languages, such as Objective-C using Automatic Retain Count system. However, the programmers could use directly control memory management with retain/release principles. A bad understanding of the direct memory management could lead to unexpected crashes.",
+    "reference": "https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW4",
+    "remediation": "Enable ARC option in Xcode Project",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure that iOS Projects are ARC enabled",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-789",
+            "name": "Uncontrolled Memory Allocation",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

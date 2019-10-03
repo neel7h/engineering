@@ -1,0 +1,59 @@
+{
+    "id": 1007072,
+    "name": "Avoid files with names not following naming convention (PHP)",
+    "href": "AIP/quality-rules/1007072",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "The name of the file should start with an upper case character.",
+    "output": "This report lists all files that do not respect the naming convention.\n\nThis QR provides the following information:\nFile full name.",
+    "rationale": "Filenames with naming convention makes source code easier to read and therefore to maintain.",
+    "remediation": "Modify the source code to reduce the number of Files that do not respect the naming convention.",
+    "remediationSample": "Filetest.php",
+    "sample": "filetest.php // violation",
+    "total": "Number of files",
+    "alternativeName": "Avoid files with names not following naming convention (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

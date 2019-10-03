@@ -1,0 +1,113 @@
+{
+    "id": 1005034,
+    "name": "Avoid having SQL Records without a naming convention (EGL)",
+    "href": "AIP/quality-rules/1005034",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rules searches for all the SQL Record name not adhering to a pattern. The parttern will be provided as parameter of the rule. \nThis rule searches the SQL record names with the below pattern, \n 4 parameters are used , which can be configured by the user , \nFirst Character - Default value - R \nFirst Character - Default Value - J \nFirst Character - Default Value - T \nSecond Character - Default value = _ \n\nThis rule will violate the SQL Record object if the SQL record name is not starting with First Character and Second Character",
+    "output": "This report provides the following information: SQL RECORD full name",
+    "rationale": "Having the naming conventions make the source code more easy to ready and so to maintain.",
+    "remediation": "Try to always have SQL Records complying to the naming convention.",
+    "sample": "Given the follow default values:  \nFirst Character - Default value - R \nFirst Character - Default Value - J \nFirst Character - Default Value - T \nSecond Character - Default value = _ \nAnd an SQL record statement as shown below: \nrecord R_USER_LOGON_INFO type SQLRecord \n\nAs per the above parameter values the record name Should start with R_  or  J_  or T_ because we have given the R , J , T as the first character and the _ as the second character. \n\nSo the record R_USER_LOGON_INFO will not be in the violation list . \n\nIf The SQL record name is \nrecord K_USER_LOGON_INFO type SQLRecord \nThe above record violates the rule because its first and second letter K_ are not matching thedefined pattern.",
+    "total": "Number of SQL Records",
+    "alternativeName": "Avoid having SQL Records without a naming convention (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "SQL Record name first character option 1",
+            "description": "SQL Record name first character option 1",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        "R"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SQL Record name first character option 2",
+            "description": "SQL Record name first character option 2",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        "J"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SQL Record name first character option 3",
+            "description": "SQL Record name first character option 3",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        "T"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Second Character",
+            "description": "SQL Record name second character option",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        "_"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

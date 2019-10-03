@@ -1,0 +1,89 @@
+{
+    "id": 1039058,
+    "name": "Avoid generating key with insufficient random generator in cookies",
+    "href": "AIP/quality-rules/1039058",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule will check the use of random algorithm known as weak and the use of the generated key into cookie.\n\nExceptions:\n\n1. Will not check across files.\n2. ESAPI Encoder.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When software generates predictable values in a context requiring unpredictability, it may be possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.",
+    "reference": "http://cwe.mitre.org/data/definitions/330.html",
+    "remediation": "Use random algorithm like SecureRandom instead of Random",
+    "remediationSample": "SecureRandom sr = new SecureRandom();\nsr.setSeed(somevalue);\nint value = sr.nextInt(1000);\nString rememberMeKey = Double.toString(value).substring(2); // Trim off the 0. at the front.\nString user = \"Doug\";\nString fullClassName = this.getClass().getName();\nString testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')1\"BenchmarkTest\".length());\nuser+= testCaseNumber;\nString cookieName = \"rememberMe\" + testCaseNumber;\njavax.servlet.http.Cookie rememberMe = new javax.servlet.http.Cookie(cookieName, rememberMeKey);\nrememberMe.setSecure(true);\n// rememberMe.setPath(\"/benchmark/\" + this.getClass().getSimpleName());\nrememberMe.setPath(request.getRequestURI()); // i.e., set path to JUST this servlet\n// e.g., /benchmark/sql-01/BenchmarkTest01001\nrequest.getSession().setAttribute(cookieName, rememberMeKey);\nresponse.addCookie(rememberMe);\nresponse.getWriter().println(\nuser + \" has been remembered with cookie: \" + rememberMe.getName() \n+ \" whose value is: \" + rememberMe.getValue() + \"<br/>\"\n);",
+    "sample": "/* Sample code 1 */\n\ndouble value = java.lang.Math.random();\nString rememberMeKey = Double.toString(value).substring(2); // Trim off the 0. at the front.\n\nString user = \"Doug\";\nString fullClassName = this.getClass().getName();\nString testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')1\"BenchmarkTest\".length());\nuser+= testCaseNumber;\n\nString cookieName = \"rememberMe\" + testCaseNumber;\n\njavax.servlet.http.Cookie rememberMe = new javax.servlet.http.Cookie(cookieName, rememberMeKey);\nrememberMe.setSecure(true);\nrememberMe.setPath(request.getRequestURI()); // i.e., set path to JUST this servlet\n\nrequest.getSession().setAttribute(cookieName, rememberMeKey);\nresponse.addCookie(rememberMe);\n\nresponse.getWriter().println(\nuser + \" has been remembered with cookie: \" + rememberMe.getName() \n+ \" whose value is: \" + rememberMe.getValue() + \"<br/>\"\n);\n\n/* Sample code 2 */\n// If the cookie is generated using this pattern, it is be set as violation\nint randNumber = new java.util.Random().nextInt(99)\nAttaching the source code sample file\n\n------------------------------------------\nSample code 3 :\n\ndouble value = java.lang.Math.random();\nString rememberMeKey = Double.toString(value).substring(2); // Trim off the 0. at the front.\n\nString user = \"Doug\";\nString fullClassName = this.getClass().getName();\nString testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')1\"BenchmarkTest\".length());\nuser+= testCaseNumber;\n\nString cookieName = \"rememberMe\" + testCaseNumber;\n\n------------------------------------------\n/* Sample code 4 */\nnew java.util.Random().nextBytes(bytes);\nString rememberMeKey = org.owasp.esapi.ESAPI.encoder().encodeForBase64(bytes, true);\n\nString user = \"Byron\";\nString fullClassName = this.getClass().getName();\nString testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')1\"BenchmarkTest\".length());\nuser+= testCaseNumber;\n\nString cookieName = \"rememberMe\" + testCaseNumber;\n------------------------------------------\n/* Sample code */\n\nlong l = new java.util.Random().nextLong();\nString rememberMeKey = Long.toString(l);\nString user = \"Logan\";\nString fullClassName = this.getClass().getName();\nString testCaseNumber = fullClassName.substring(fullClassName.lastIndexOf('.')1\"BenchmarkTest\".length());\nuser+= testCaseNumber;\n\nString cookieName = \"rememberMe\" + testCaseNumber;",
+    "total": "Number of Java Artifacts",
+    "alternativeName": "Ensure the cookie id are always generate with a sufficient random algorithm like SecureRandom",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-330",
+            "name": "Use of Insufficiently Random Values",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70217",
+            "name": "The application must use the Federal Information Processing Standard (FIPS) 140-2-validated cryptographic modules and random number generator if the application implements encryption, key exchange...",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70245",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

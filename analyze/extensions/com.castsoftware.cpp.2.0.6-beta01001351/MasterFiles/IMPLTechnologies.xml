@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="592" type="quality-rule" originalName="Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor" filter="-3" filterLabel="C++" />
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" filter="-3" filterLabel="C++" />
+  <metric id="1065000" type="quality-rule" originalName="Avoid using &quot;continue&quot; statement" filter="-2" filterLabel="C" />
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." filter="-3" filterLabel="C++" />
+  <metric id="1065002" type="quality-rule" originalName="&quot;enum&quot; members other than the first one should not be explicitly initialized unless all members are explicitly initialized." filter="-2" filterLabel="C" />
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." filter="-3" filterLabel="C++" />
+  <metric id="1065004" type="quality-rule" originalName="Ensure that dynamically allocated memory on local pointer in functions/methods is freed." filter="-2" filterLabel="C" />
+  <metric id="1065006" type="quality-rule" originalName="Avoid iterator invalidation." filter="-3" filterLabel="C++" />
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" filter="-3" filterLabel="C++" />
+  <metric id="1065008" type="quality-rule" originalName="Avoid use of unvalidated input in array indexing and memory allocation" filter="-2" filterLabel="C" />
+</metrics>

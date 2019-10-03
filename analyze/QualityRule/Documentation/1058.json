@@ -1,0 +1,77 @@
+{
+    "id": 1058,
+    "name": "Avoid large Files - too many Lines of Code",
+    "href": "AIP/quality-rules/1058",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of LoC",
+    "description": "This rule searches for C/C++ files that contain more than X lines of code. The threshold is a parameter and can be changed at will.",
+    "output": "Associated to each source file with violations, the Quality Rule provides:\n- The number of LoC",
+    "rationale": "Large files are more difficult to read and manage and this can decrease the application maintenance.",
+    "remediation": "Divide the code up to many files.",
+    "total": "Number of C/C++ files",
+    "alternativeName": "Avoid large Files - too many Lines of Code",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Line Count",
+            "description": "Maximum line count",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        2000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

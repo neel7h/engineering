@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.dotnet</id>
+    <version>1.2.0-beta4</version>
+    <title>.NET Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/.NET+Analyzer+-+1.2</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.dotnet.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for analyzing applications built with .NET, .NET Standard and .NET Core technologies: objects and links between these objects are identified and Automated Function Point values are calculated. A set of .NET specific structural rules are also available with the extension.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/.NET+Analyzer+-+1.2+-+Release+Notes</releaseNotes>
+    <tags>.NET DotNet FPQuality CAIP8.3.5</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.3.5" />
+      <dependency id="com.castsoftware.wbslinker" version="1.5.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,81 @@
+{
+    "id": 1001022,
+    "name": "Avoid PLC Procedures & Functions with a High Fan-out (PL1)",
+    "href": "AIP/quality-rules/1001022",
+    "critical": false,
+    "maxWeight": 2,
+    "description": "This rule searches all the PLC procedures and functions having a large number of other artifacts that are referenced in them. When computing the Fan-Out of an Artifact, multiple accesses to the same component of an Artifact are counted as one access. \nThe threshold is a parameter and can be changed at will. The default parameter value is 10.",
+    "output": "The report lists all the PLC procedures or functions having a High Fan-out. \n\nIt provides following information: \n- procedure or function full name",
+    "rationale": "The higher the number of referenced Artifacts, the more difficult the maintenance and evolution as all updates in referenced Artifacts will have to be tested and taken into account.",
+    "remediation": "Reduce the number of artifacts referenced in it.",
+    "total": "Number of  PLC Procedures and Functions.",
+    "alternativeName": "Avoid PLC Procedures & Functions with a High Fan-out (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1005000,
+            "name": "PLC",
+            "href": "AIP/technologies/1005000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-4",
+            "name": "Callable and Method Control Element Number of Outward Calls",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Fan-out",
+            "description": "Max Fan-out",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

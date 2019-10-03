@@ -1,0 +1,95 @@
+{
+    "id": 1024014,
+    "name": "A permission is required for securing Receivers",
+    "href": "AIP/quality-rules/1024014",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A receiver has exported set to true making the receiver vulnerable to tampering.\nYou should use a permission to limit the external entities that can send it messages and to protect the receiver. \nAdding the signature custom permission makes it so the broadcast can only be used with applications that were signed with the same key.\n\nA violation reported when permission is not set fot exported receiver and application.\nThis rule is compliant with CWE-926",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The attacks and consequences of improperly exporting a component may depend on the exported component: \n \nIf access to an exported Receiver is not restricted, any application may attack vulnerable Broadcast Receiver and exploit the functionality of the vulnerable app in multiple ways:\n - Using am tool available in adb.\n - Using a malicious app to query.\n - Using Mercury Framwork.",
+    "reference": "ttps://developer.android.com/topic/security/best-practices \nhttps://developer.android.com/guide/topics/manifest/receiver-element.html#prmsn \nhttps://cwe.mitre.org/data/definitions/926.html ",
+    "remediationSample": "1- Define permission in the top of the manifest file as following one \n\n<permission android: name=\"com.x8bit.bitwarden.PackageConfirmReceiverPermission\" android:protectionLevel=\"signature\" /> \n\n2- Add the permission into receiver Permission \n\n<receiver \n    android:name=\"com.x8bit.bitwarden.PackageConfirmReceiver\" \n    android:enabled=\"true\" android:exported=\"true\" \n    android:permission=\"com.x8bit.bitwarden.PackageConfirmReceiverPermission\"> \n    <intent-filter> \n        <action android:name=\"android.action.intent.MY_PACKAGE_CONFIM\"/> \n        <category android:name=\"category\" /> \n    </intent-filter> \n</receiver>",
+    "sample": "<receiver \n    android:name=\"com.x8bit.bitwarden.PackageConfirmReceiver\" \n    android:enabled=\"true\" \n    android:exported=\"true\" > \n    <intent-filter> \n        <action android:name=\"android.action.intent.MY_PACKAGE_CONFIM\"/> \n        <category android:name=\"category\" /> \n    </intent-filter> \n</receiver",
+    "total": "Number of Android manifests",
+    "alternativeName": "A permission is required for securing Receivers",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-862",
+            "name": "Missing Authorization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-926",
+            "name": "Improper Export of Android Application Components",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

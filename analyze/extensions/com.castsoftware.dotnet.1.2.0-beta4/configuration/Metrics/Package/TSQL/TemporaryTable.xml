@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="TSQL.TemporaryTable">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH" >
+					<INTERNAL_UID>1E981836-A530-4185-BA82-56E92E784545</INTERNAL_UID>
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>		
+
+			<ACTION NAME="PERSISTENCE" >
+				<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+				<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>		
+		<CATEGORY NAME="MATCH_TEMPORY_TABLE">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="TEMPORY_TABLE" type="regexp_pattern">
+				<LANGUAGE>TSQL-LANGUAGE</LANGUAGE>
+                <LANGUAGE>MSTSQL-LANGUAGE</LANGUAGE>
+                <LANGUAGE>ASETSQL-LANGUAGE</LANGUAGE>
+                <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE> 
+				<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT> 
+				<SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+                <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+                <REGEXP>
+					<![CDATA[[ \r\n\t]create[ \r\n\t]+table[ \r\n\t]+#[a-zA-Z0-9$_#@]+]]> 
+				</REGEXP>
+				<REGEXP>
+					<![CDATA[[ \r\n\t]drop[ \r\n\t]+table[ \r\n\t]+#[a-zA-Z0-9$_#@]+]]> 
+				</REGEXP>
+				<REGEXP>
+					<![CDATA[ into[ \r\n\t]+#[a-zA-Z0-9$_#@]+]]> 
+				</REGEXP>
+
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH">
+				<MATCH>TEMPORY_TABLE</MATCH>
+				<CLASS>TSQL_CLASS.CLASS</CLASS>
+				<SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+				<VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Use of temporary table</NAME>				
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+		<CATEGORY NAME="MATCH_CREATE_DROP_TEMPORY_TABLE">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="CREATE_DROP_TEMPORY_TABLE" type="regexp_pattern">
+				<LANGUAGE>TSQL-LANGUAGE</LANGUAGE>
+                <LANGUAGE>MSTSQL-LANGUAGE</LANGUAGE>
+                <LANGUAGE>ASETSQL-LANGUAGE</LANGUAGE>
+                <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE> 
+				<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT> 
+				<SEARCH_IN_STRING>No</SEARCH_IN_STRING> 
+				<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE> 
+				<REGEXP>
+					<![CDATA[[ \r\n\t]create[ \r\n\t]+table[ \r\n\t]+#[a-zA-Z0-9$_#@]+]]> 
+				</REGEXP>
+				<REGEXP>
+					<![CDATA[[ \r\n\t]drop[ \r\n\t]+table[ \r\n\t]+#[a-zA-Z0-9$_#@]+]]> 
+				</REGEXP>
+
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH">
+				<MATCH>CREATE_DROP_TEMPORY_TABLE</MATCH>
+				<CLASS>TSQL_CLASS.CLASS</CLASS>
+				<SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+				<VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Creation or dropping of temporary tables</NAME>				
+			</ADD_ACTION>
+
+		</CATEGORY>
+	</CATEGORY_LIST>
+</METRIC>

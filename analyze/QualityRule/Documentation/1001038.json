@@ -1,0 +1,76 @@
+{
+    "id": 1001038,
+    "name": "Avoid PLI Functions and Procedures declared as RECURSIVE (PL1)",
+    "href": "AIP/quality-rules/1001038",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "Reports the PL1 Main procedures that have recursive procedures. The value reported is the number of recursive procedures  inside the artifact",
+    "output": "The report lists all the PL1 Main procedures having recursive PLI procedures.\n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "Recursive calls can be unpredictable with regard to consumption of resources, especially memory.  Under certain condition, a function or procedure using a recursive call can keep calling itself and as each call consumes memory, the entire application runs out of memory. \nRecursive calls are known to be difficult to test for because the termination condition and thus the resource consumption might be dependent on the data used for the test.  For all these reasons, it is often forbidden and limited to academic usage rather than for mission-critical systems. Because the flip side is complexity, such a trade-off should be carefully chosen by architects or senior developers, balancing cost with reliability and in all cases the conditions under which it is used should be reviewed in details.",
+    "remediation": "Replace the recursive PLI procedures.",
+    "sample": "MY_PROG: PROC OPTIONS(MAIN) REORDER;\n  ...     \n F2: PROC (PROGRAMME_TEST,TEST1) RECURSIVE;        \n   ...",
+    "total": "Number of PL1 Main  Procedures",
+    "alternativeName": "Avoid PLI Functions and Procedures declared as RECURSIVE (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

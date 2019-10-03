@@ -1,0 +1,85 @@
+{
+    "id": 1005026,
+    "name": "Avoid Too Many Copy Pasted Artifacts (EGL)",
+    "href": "AIP/quality-rules/1005026",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "This rule searches for all Copy-Pasted artifacts with custom parameters.",
+    "output": "This report lists all Program having Copy Pasted Artifacts.\nIt provides the following information: Artifact full name, Copy Pasted Artifact full name",
+    "rationale": "A program with a lot of duplication is hard to change. It might be required to change every copy of a copy/pasted code while it is very difficult to locate these  copy/pasted code elements. Copy-and-paste is not always bad for a quick urgent \"hack\", but it is always a very dangerous practice in the long run.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the Copy-Pasted Artifacts.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Too Many Copy Pasted Artifacts (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "CODELINE (integer)",
+            "description": "CODELINE",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        100.0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SIMILARITY (integer)",
+            "description": "SIMILARITY",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        95.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

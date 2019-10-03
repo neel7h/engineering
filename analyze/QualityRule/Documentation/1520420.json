@@ -1,0 +1,49 @@
+{
+    "id": 1520420,
+    "name": "Siebel: Every Added Applet should have a title",
+    "href": "AIP/quality-rules/1520420",
+    "critical": false,
+    "maxWeight": 1,
+    "output": "This rule reports custom Applets without a title",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Every Added Applet should have a title",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

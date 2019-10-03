@@ -1,0 +1,59 @@
+{
+    "id": 1001074,
+    "name": "Avoid Main Procedures having  in the same statement the combination of two words among : INDEX, SUBSTR, REPEAT, TRANSLATE (PL1)",
+    "href": "AIP/quality-rules/1001074",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all the PL1 Main Procedures having in the same statement a  combination of two functions among INDEX, SUBSTR, REPEAT, TRANSLATE  and it occurs in the same line of code.",
+    "output": "The report lists all the PL1 Main Procedures having in the same statement the combination of the two words among: INDEX,SUBSTR,REPEAT,TRANSLATE.\n\nIt provides following information: \n-   procedure full name",
+    "rationale": "Mixing multiple builtins in the same statement will depreciate the performance and increase complexity of the program.",
+    "remediation": "Try to not have only one build in function in the same statement.",
+    "remediationSample": "CASTTEST1 = REPEAT('N',15);\nI=INDEX(TEST1,CASTTEST1);",
+    "sample": "I = INDEX(TEST1,REPEAT('T',15)) ;",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Main Procedures having  in the same statement the combination of two words among : INDEX, SUBSTR, REPEAT, TRANSLATE (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

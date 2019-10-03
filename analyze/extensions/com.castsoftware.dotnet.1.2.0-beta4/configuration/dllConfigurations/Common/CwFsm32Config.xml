@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration xmlns="http://www.castsoftware.com"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+    <!-- 
+    * The following two services are used when directly sending messages to 
+    * the log window. They are not needed when running in non-GUI mode.
+    -->
+    <service>
+        <id>ServiceId_FsmLogMessage</id>
+        <dll>CwFsm32.dll</dll>
+    </service>
+    <service>
+        <id>ServiceId_FsmILogMsgDataFactory</id>
+        <dll>CwFsm32.dll</dll>
+    </service>
+</configuration>

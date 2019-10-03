@@ -1,0 +1,77 @@
+{
+    "id": 1005010,
+    "name": "Avoid having multiple artifacts updating data on the same SQL table (EGL)",
+    "href": "AIP/quality-rules/1005010",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for tables having too many ways to update them. It retrieves tables (EGL records) having more than X artifacts  (EGL functions) updating data in these tables, where X is a configurable parameter.",
+    "output": "This report lists all Functions updating data in same tables.\nIt provides the following information: Function full name, SQLRecord full name.",
+    "rationale": "One main source of data corruption within applications comes from lack of compliance to data modification rules defined for an application. These rules are usually related to the use of specific procedures for update/insert/delete, a specific API or a data layer that is fully tested to maintain data integrity. The creation of new, different update/insert/delete procedures and functions that do not make use the existing tested code is at origin of many data corruption cases.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "try to reduce the sources having data update on the same table.",
+    "sample": "DML syntax supported for udpate statements detection:\nudpate CAST_INSERT set ....\nudpate CAST_INSERT with\n   #sql{\n    udpate  CAST_INSERT I1\n    set ......\n   };\nexecute update for CAST set .....;",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid having multiple artifacts updating data on the same SQL table (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Count",
+            "description": "Number of Artifacts performing multiple updations",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        1.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

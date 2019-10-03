@@ -1,0 +1,79 @@
+{
+    "id": 7196,
+    "name": "Avoid large number of String concatenation (JEE)",
+    "href": "AIP/quality-rules/7196",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Number of time the '+' is called",
+    "description": "All String Classes should not call more than X times the + Method. \n\n However: \n * This does not take into account literals since they are automatically optimized by the compiler. For example: String a = \"abc\"+\"abcd\" will not be counted as a concatenation. \n * Since version 1.6, the Oracle JVM also automatically optimizes this pattern in most cases. However, other JVMs might not. So this quality rule is kept in the AIP quality model, albeit with a low weight. ",
+    "output": "This report lists all methods calling more than X times the '+' method on String object.\nIt provides the following information:\n - Method full name\n - the number of time the '+' is called",
+    "rationale": "String concatenation resolved at runtime is much slower than using StringBuffer.",
+    "reference": "http://www.precisejava.com/javaperf/j2se/StringAndStringBuffer.htm#Strings104 \nhttp://stackoverflow.com/questions/14927630/java-string-concat-vs-stringbuilder-optimised-so-what-should-i-do \nhttp://stackoverflow.com/questions/1532461/stringbuilder-vs-string-concatenation-in-tostring-in-java/1532499 \nhttp://www.oracle.com/technetwork/java/javase/6u18-142093.html ",
+    "remediation": "Use StringBuffer and StringBuffer.append() method instead",
+    "remediationSample": "StringBuffer result = new StringBuffer(\"hello\");\nresult.append(\" John\");\nresult.append(\" Smith\");",
+    "sample": "String result = \"hello\";\nresult += \" John\";\nresult += \" Smith\"; // VIOLATION if the threshold is 3",
+    "total": "Number of non abstract Java artifacts",
+    "alternativeName": "Ensure to use StringBuffer and StringBuffer.append() method instead",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "nbr",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

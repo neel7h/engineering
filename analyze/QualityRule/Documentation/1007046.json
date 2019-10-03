@@ -1,0 +1,83 @@
+{
+    "id": 1007046,
+    "name": "Avoid Classes with High Depth of Inheritance Tree (PHP)",
+    "href": "AIP/quality-rules/1007046",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Classes with High Depth of Inheritance Tree",
+    "output": "This report lists all the Classes with High Depth of Inheritance Tree.\n\nThis QR provides the following information:\nClass full name.",
+    "rationale": "Changing a class requires prior understanding, which, in turn, is\nmore complicated for classes with many methods. Classes that are deep\ndown in hierarchy potentially inherit many methods. Moreover, the definitions of inherited methods are not local to the class making it even harder to understand.\n\nComplete testing requires coverage of all execution paths. The number of possible execution paths of class increases\nwith the number of methods and their control flow complexity.Due to late binding, base methods need to be tested again in the sub type context. This makes it potentially harder to test.\n\nTechnical or framework classes which are evolving and will not be changed often should not be concerned by this rule.",
+    "reference": "PHPMD - http://phpmd.org/rules/design.html#depthofinheritance",
+    "remediation": "Review the architecture of the application to reduce the depth of the inheritence Tree.",
+    "sample": "<?php\nclass ClassTest1{\n    public function __construct()\n    {\n    }\n}\n\nclass ClassTest2 extends ClassTest1{\n    public function __construct(ArrayObject $arrayObj, $number = 0) \n   {\n        \n    }\n}\n\nclass ClassTest3 extends ClassTest2 {\n\npublic function __construct() \n    {\n      parent::__construct(array(1));   \n    }\n}\n...\n\n\nclass\nClassTest11 extends ClassTest10 {\n    public function __construct() \n   {\n    }\n}\n\nclass ClassTest12 extends ClassTest11 {\n\npublic function __construct() \n    {\n    }\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid Classes with High Depth of Inheritance Tree (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61010,
+            "name": "Complexity - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-17",
+            "name": "Class Element Excessive Inheritance Level",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Depth of inheritance tree",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        6.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

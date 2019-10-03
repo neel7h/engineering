@@ -1,0 +1,63 @@
+{
+    "id": 1520108,
+    "name": "SiebelReview: Avoid bad Link configuration when using Standard 1:M Extension Tables",
+    "href": "AIP/quality-rules/1520108",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Value of the CascadeDel option",
+    "description": "Finally, create a link between the parent and child BusComp based on the _XM table.  This link should have the Cascade Delete property set to Delete, as a record on the _XM table will belong to one and only one parent record.  If the parent is deleted, the child should also be deleted to prevent orphaned records.  This link can be used as the basis of an MVL to display this information in a MVG, or to add the new BusComp to a BusObject.",
+    "output": "This rule reports all Links without the CascadeDel option set to Delete",
+    "rationale": "During the review, it was identified Links for BusComp based on _XM tables are not configured in the prescribed way.",
+    "remediation": "Change the Cascade Delete Property",
+    "total": "Number of added or modified Links on 1:M Extension Tables",
+    "alternativeName": "SiebelReview: Avoid bad Link configuration when using Standard 1:M Extension Tables",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

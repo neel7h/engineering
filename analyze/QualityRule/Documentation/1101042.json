@@ -1,0 +1,58 @@
+{
+    "id": 1101042,
+    "name": "Table naming convention - character set control (SQL)",
+    "href": "AIP/quality-rules/1101042",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Table name",
+    "description": "List of tables that contain characters other than [a-Z,0-9,_]",
+    "output": "This report lists all tables names containing characters other than [a-Z,0-9,_]\n\nIt provides the following information:\n\n- Table name, \n- Table full name",
+    "rationale": "For readability and changeability aspects, naming conventions must be respected.\n\n=> Table name should not contain characters other than [a-Z,0-9,_]",
+    "remediation": "Change name according to the naming convention",
+    "total": "Number of Tables.",
+    "alternativeName": "Table naming convention - character set control (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

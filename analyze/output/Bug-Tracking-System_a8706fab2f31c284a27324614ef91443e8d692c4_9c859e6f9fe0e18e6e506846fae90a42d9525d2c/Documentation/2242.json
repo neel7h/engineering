@@ -1,0 +1,125 @@
+{
+    "id": 2242,
+    "name": "Avoid direct definition of JavaScript Functions in a Web page (JEE)",
+    "href": "AIP/quality-rules/2242",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Page name",
+    "description": "All JavaScript Functions should be defined in a JS file and not directly in the Web page (HTM, HTML, JSP).",
+    "output": "This report lists all JavaScript Functions defined within the Web page and not within a JS file.\nIt provides the following information:\n - Function name\n - Page name",
+    "rationale": "Separate behavior from presentation makes the code easier to read and debug, it lets designers and developer work on different files. It allows also to load the JavaScript from the browser one time only (and not each time the file is loaded) if included in the HTML file with the HTML link tag.",
+    "reference": "Best Practices: Implementing JavaScript for rich internet applications\nhttp://thinkingandmaking.com/entries/63",
+    "total": "Number of JavaScript functions",
+    "alternativeName": "Ensure to have separate behavior from presentation and not to have direct definition of JavaScript Functions in a Web page",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 4,
+            "critical": false
+        },
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "HTM",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".htm"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "HTML",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".html"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "JSP",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        ".jsp"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

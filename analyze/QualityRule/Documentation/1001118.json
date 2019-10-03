@@ -1,0 +1,64 @@
+{
+    "id": 1001118,
+    "name": "Avoid Programs not using explicitly OPEN and CLOSE files (PL1)",
+    "href": "AIP/quality-rules/1001118",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for PL1 Main Procedures (Programs) not using explicitly OPEN and CLOSE files.",
+    "output": "The report lists all the PL1 Main Procedures  using  OPEN and not using CLOSE for the same file.\n\nIt provides following information: \n-  program full name",
+    "rationale": "Each file used by a program must be properly opened and closed. If the file is not closed explicitly, then data can be lost.",
+    "remediation": "For each programs using files, check if files are closed. If not, then add a CLOSE statement at the end of the program",
+    "remediationSample": "OPEN  FILE (TEST1FILE);\n..\nWRITE FILE(TEST1FILE) FROM(MYSTRUCT);       \n\nCLOSE FILE (TEST1FILE);",
+    "sample": "DCL    TEST1FILE  FILE  RECORD OUTPUT;\n...\n     \nWRITE FILE(TEST1FILE) FROM (MYSTRUCT);       \n...\n/*violation NO OPEN. NO CLOSE */",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid Programs not using explicitly OPEN and CLOSE files (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

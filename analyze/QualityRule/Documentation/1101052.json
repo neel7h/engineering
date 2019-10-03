@@ -1,0 +1,64 @@
+{
+    "id": 1101052,
+    "name": "Use WHEN OTHERS in exception management (SQL)",
+    "href": "AIP/quality-rules/1101052",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "WHEN OTHERS must be present in exception management.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "If not handled, exceptions can lead to unwanted program behaviour.",
+    "remediation": "Add a WHEN OTHERS clause in the exception trapping mechanism.",
+    "remediationSample": "EXCEPTION\n     WHEN DUP_VAL_ON_INDEX THEN\n        raise_application_error (-20001,'You have tried to insert a duplicate value.');\n\n    WHEN OTHERS THEN\n        raise_application_error(-20001,'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM);\n\nEND;",
+    "sample": "EXCEPTION\n     WHEN DUP_VAL_ON_INDEX THEN\n        raise_application_error (-20001,'You have tried to insert a duplicate value.');\n\nEND;",
+    "total": "Number of Artifacts with SQL code having exception handler.",
+    "alternativeName": "Use WHEN OTHERS in exception management (SQL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

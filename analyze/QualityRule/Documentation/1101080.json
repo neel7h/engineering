@@ -1,0 +1,61 @@
+{
+    "id": 1101080,
+    "name": "Avoid orphaned synonyms",
+    "href": "AIP/quality-rules/1101080",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "This metric displays the list of orphaned synonyms.",
+    "description": "This metric identifies synonyms that are defined on objects which no longer exist. This is syntactically possible.",
+    "output": "This report lists all orphaned synonyms. It provides the full name of each orphaned synonym.",
+    "rationale": "Presence of synonyms that are based on non existent object will generate error at execution time when accessed. Even if synonyms is authorized at creation time, the execution time will generate error.",
+    "reference": "Oracle documentation, for example",
+    "remediation": "Clean-up orphaned synonyms.",
+    "remediationSample": "DROP SYNONYM SYN_TABLE_B;",
+    "sample": "CREATE SYNONYM SYN_TABLE_B FOR ABC.TABLE_B; -- ABC.TABLE_B is missing",
+    "total": "Number of Synonyms.",
+    "alternativeName": "Avoid orphaned synonyms",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- Web Service Categories -->
+
+	<!-- Following type is Obsolete : use CAST_SAP_MethodSQLScriptProcedure instead -->
+    <type name="CAST_SAP_MethodProcedure" id="142309" status="deprecated">
+        <description>SAP Method Procedure (deprecated)</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="ABAP" />
+        <tree parent="EnlightenABAP" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SAP_MethodSQLScriptProcedure" id="1020299">
+        <description>SAP Method SQLScript Procedure</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="ABAP" />
+        <tree parent="EnlightenABAP" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_SAP_MethodSQLScriptFunction" id="1020298">
+        <description>SAP Method SQLScript Function</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="ABAP" />
+        <tree parent="EnlightenABAP" category="EnlightenTree"/>
+    </type>
+
+</metaModel>

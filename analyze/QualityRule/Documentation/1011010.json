@@ -1,0 +1,64 @@
+{
+    "id": 1011010,
+    "name": "Avoid Logical File without associated Physical File  (DDS400)",
+    "href": "AIP/quality-rules/1011010",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all the Logical files not having associated a Physical File.",
+    "output": "This report lists DDS400 Logical File not associated with physical file.\nIt provides the following information:\nDDS400 Logical File full name",
+    "rationale": "This is an indication of a unused LF and that means that it always need to be associated with  PF. Can also be a missing PF delivery.",
+    "remediation": "Try to reduce the number of Logicat files without associated Physical Files.",
+    "remediationSample": "Logical files should always use Physical Files for logical operations on Physical Files fields,\n\n     A          R FINRECP                   PFILE(FINFILEP)\n     A          K FENCD\n     A          K FLKNO\n     A          K FFNDT\n     A          K FFNNO\n     A          O FCRVI                     COMP(EQ 'CAN')\n     A          S FVERF                     COMP(EQ ' ')\n     A          S FVERF                     COMP(EQ 'R')",
+    "sample": "Logical file without Physical File\n     A          K FENCD\n     A          K FLKNO\n     A          K FFNDT\n     A          K FFNNO\n     A          O FCRVI                     COMP(EQ 'CAN')\n     A          S FVERF                     COMP(EQ ' ')\n     A          S FVERF                     COMP(EQ 'R')",
+    "total": "Total number of DDS400 Logical File",
+    "alternativeName": "Avoid Logical File without associated Physical File  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

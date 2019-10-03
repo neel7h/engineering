@@ -1,0 +1,67 @@
+{
+    "id": 1003198,
+    "name": "Avoid MXML component with more than one entry point (Flex)",
+    "href": "AIP/quality-rules/1003198",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports Adobe mxml scripts that have more than one entry point represented by public variables and\\or setter.",
+    "output": "This QR reports MXML scripts that have more than one public variables. It provides following information:\n- MXML Script Fullname",
+    "rationale": "In order to have better encapsulation there should be only one entry point to mxml.",
+    "remediation": "Have only one entry point into MXML component.",
+    "remediationSample": "<mx:Script>\n      <![CDATA[\n      \n      private var firstPublicVariable:int = 1;\n      private var _secondPublicVariable:int = 2;\n      public var thirdPublicVariable:int = 3;\n      \n      public function get secondPublicVariable() : int {\n         return _secondPublicVariable;\n      }\n      \n      //...       \n        \n\n        ]]>\n   </mx:Script>",
+    "sample": "<mx:Script>\n      <![CDATA[\n      \n      public var firstPublicVariable:int = 1;\n      private var _secondPublicVariable:int = 2;\n      public var thirdPublicVariable:int = 3;\n        \n      public function get secondPublicVariable() : int {\n         return _secondPublicVariable;\n      }\n      \n      public function set secondPublicVariable(anint: int) : int {\n         _secondPublicVariable = anint;\n      }\n\n      //...       \n        \n\n        ]]>\n   </mx:Script>",
+    "total": "Number of MXML scripts",
+    "alternativeName": "Avoid MXML component with more than one entry point (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.mxml.MoreThanOneEntryPointInMxml"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

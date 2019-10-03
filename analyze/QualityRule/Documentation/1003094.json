@@ -1,0 +1,66 @@
+{
+    "id": 1003094,
+    "name": "Avoid embedded metadata in script where a stylesheet may be cleaner (Flex)",
+    "href": "AIP/quality-rules/1003094",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports flex scripts which use embedded metadata where CSS would be cleaner approach.",
+    "output": "This QR reports flex scripts which use embedded metadata where CSS would be cleaner approach. It provides following information:\n\n- Flex script full name",
+    "rationale": "It is cleaner to have CSS than to embed metadata in source.",
+    "remediation": "Use css instead of embedding metadata in source.",
+    "total": "Number of flex scripts",
+    "alternativeName": "Avoid embedded metadata in script where a stylesheet may be cleaner (Flex)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61015,
+            "name": "Programming Practices - File Organization Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.css.UseCssInsteadOfEmbedMetaData"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

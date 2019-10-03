@@ -1,0 +1,88 @@
+{
+    "id": 1001158,
+    "name": "Avoid Functions and Procedures not testing the SQLCODE return code after each SQL statement (PL1)",
+    "href": "AIP/quality-rules/1001158",
+    "critical": true,
+    "description": "This rule searches all PL1 Main Procedures, PL1 Functions and PL1 Procedures having the number of EXEC SQL  (A) and compute the number of times SQLCODE appears in a testing statement (B). If A < B  then the procedure is listed as a violation.\nTwo following SQL statements are to be ignored :\nEXEC SQL DECLARE CURSOR\nEXEC SQL INCLUDE",
+    "output": "This report lists all the all PL1 Main Procedures, PL1 Functions and PL1 Procedures having the number of EXEC SQL  (A) and compute the number of times SQLCODE appears in a testing statement (B). If A < B  then the procedure is listed as a violation.\n It provides the following information:  PL1 Main Procedures, PL1 Functions and PL1 Procedures full name.",
+    "rationale": "Not testing DB2 return code will produce unpredictable behavior.",
+    "remediation": "Try to always provide testing code after all SQLCODE return after each SQL statement",
+    "total": "Number of  PL1 Main Procedures, PL1 Functions and PL1 Procedures.",
+    "alternativeName": "Avoid Functions and Procedures not testing the SQLCODE return code after each SQL statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

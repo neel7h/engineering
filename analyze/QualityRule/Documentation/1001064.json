@@ -1,0 +1,68 @@
+{
+    "id": 1001064,
+    "name": "Avoid unreferenced DB2 tables (PL1)",
+    "href": "AIP/quality-rules/1001064",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all the DB2 tables that are not referenced i.e. not called.",
+    "output": "The report lists all the unreferenced DB2 tables.\n\nIt provides following information: \n-  DB2 tables full name",
+    "rationale": "Unreferenced artifacts like any other examples of dead code make maintenance more difficult and more expensive (modification of unused code).",
+    "remediation": "Remove the unreferenced artifacts.",
+    "total": "Number of the DB2 tables",
+    "alternativeName": "Avoid unreferenced DB2 tables (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -14,
+            "name": "NO LABEL",
+            "href": "AIP/technologies/-14"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+
+    <type name="CAST_Servlet_PostOperation" id="1020171">
+        <description>Servlet Post Operation</description>
+        <inheritedCategory name="CAST_WebService_properties" />
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Servlet_PutOperation" id="1020173">
+        <description>Servlet Put Operation</description>
+        <inheritedCategory name="CAST_WebService_properties" />
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Servlet_GetOperation" id="1020174">
+        <description>Servlet Get Operation</description>
+        <inheritedCategory name="CAST_WebService_properties" />
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Servlet_DeleteOperation" id="1020175">
+        <description>Servlet Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_properties" />
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Servlet_AnyOperation" id="1020176">
+        <description>Servlet Any Operation</description>
+        <inheritedCategory name="CAST_WebService_properties" />
+        <inheritedCategory name="CAST_WebService_AnyOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+</metaModel>

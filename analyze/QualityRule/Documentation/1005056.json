@@ -1,0 +1,58 @@
+{
+    "id": 1005056,
+    "name": "Always specify a result set id when doing result set operations like Open/get next or open for update/replace (EGL)",
+    "href": "AIP/quality-rules/1005056",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all the program not specifying a result set id.",
+    "output": "This report provides the following information: Function full name",
+    "rationale": "A result set is the set of rows selected by an SQL query. The EGL open statement sends a query to the database manager. The EGL for each or get next are used to retrieve the rows in the setone at a time for processing.\nVisualAgeGenerator connected the statements using the SQL record name specified on both statements. However in scenarios where there were multiple opens in the program for the same record, the generated program had to be smart enough to connect the statements to the result set that was currently opened.\nEGL allows a handle called a result set identifier to be specified on the open statement that selects the result set and the foreach or get next statements that process the set.",
+    "reference": "EGL Best Practices: Coding For Performance. November 10, 2009. Edition 2",
+    "remediation": "Try to always specify a result set id when doing result set operations like open/get next or open.",
+    "total": "Number of Functions",
+    "alternativeName": "Always specify a result set id when doing result set operations like Open/get next or open for update/replace (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": 1008096,
+    "name": "Better to use QUALIFIED data structures  (RPG400)",
+    "href": "AIP/quality-rules/1008096",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for all RPG400 programs not using QUALIFIED data structures.",
+    "output": "This report lists RPG400 programs not using QUALIFIED data structures.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Qualified data structures allow you to use the same field name in multiple structures without name conflict, provide a means of defining standard structures (the most obvious use of this is for APIs), and they lead to self documenting code.",
+    "remediation": "Try to use the QUALIFIED data structures in the RPG400 programs.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Better to use QUALIFIED data structures  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

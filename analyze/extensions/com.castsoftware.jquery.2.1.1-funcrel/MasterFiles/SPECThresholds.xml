@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <metric id='1020300' type='quality-rule' originalName='Avoid using the call of web service $.ajax inside a loop' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020302' type='quality-rule' originalName='Avoid using element type in jQuery' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020304' type='quality-rule' originalName='Implement success and error or complete callbacks when using jquery web service call before jQuery 3.0' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020306' type='quality-rule' originalName='Always use find for Id->Child nested selectors' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020308' type='quality-rule' originalName='Always cache the returned objects in variables to be reused' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020310' type='quality-rule' originalName='Use "type=" to select elements by type' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020312' type='quality-rule' originalName='Avoid use of anonymous functions to attach events' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020314' type='quality-rule' originalName='Avoid using css() of many elements' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020316' type='quality-rule' originalName='Avoid Universal Selectors' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020318' type='quality-rule' originalName='Avoid using jQuery deprecated methods' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020320' type='quality-rule' originalName='Avoid using jQuery $.cookie' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020322' type='quality-rule' originalName='Avoid using Ajax method without dataType before jQuery 3.0' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020324' type='quality-rule' originalName='Avoid using dialog with closeText parameter before jQuery UI 1.12' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id="1020326" type="quality-rule" originalName="Always implement done, fail and/or always callbacks for $.ajax calls when using jQuery 3.0 (and latest)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020328" type="quality-rule" originalName="Avoid using html() with jQuery 1.9.0 (or older)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020330" type="quality-rule" originalName="Avoid using jQuery $(location.hash) before 1.6.3" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020332" type="quality-rule" originalName="Avoid using .append() after() in jQuery 1.4.2 (or older)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020334" type="quality-rule" originalName="Avoid using attr() with jQuery 3.0.0-rc1" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020336" type="quality-rule" originalName="Avoid using Dialog Widget with jQuery UI version older than 1.10.0" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="1020338" type="quality-rule" originalName="Avoid using Tooltip widget with jQuery UI version older than 1.10.0" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+</root>

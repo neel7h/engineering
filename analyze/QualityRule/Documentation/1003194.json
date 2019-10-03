@@ -1,0 +1,72 @@
+{
+    "id": 1003194,
+    "name": "Avoid constructor with void return type specification (Flex)",
+    "href": "AIP/quality-rules/1003194",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports constructors which has void return type specification.",
+    "output": "This QR reports flex function which is a constructor and have void type return type specification. It provides following information:\n- Flex Function full name",
+    "rationale": "Even if specifying void type for constructor is syntactically correct, there should not be a return type for a constructor.",
+    "remediation": "Remove void type return type specification from constructor.",
+    "remediationSample": "public class VoidConstructor   \n   {\n      public function VoidConstructor() //violation removed\n      {         \n      }      \n   }",
+    "sample": "public class VoidConstructor   \n   {\n      public function VoidConstructor() : void // VIOLATION\n      {         \n      }      \n   }",
+    "total": "Number of functions",
+    "alternativeName": "Avoid constructor with void return type specification (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.style.ConstructorNonEmptyReturnType"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

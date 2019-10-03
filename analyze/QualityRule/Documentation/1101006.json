@@ -1,0 +1,66 @@
+{
+    "id": 1101006,
+    "name": "Avoid non-indexed XXL SQL queries",
+    "href": "AIP/quality-rules/1101006",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric retrieves the artifacts with at least one XXL table accessed on non-indexed columns.\nA SQL query is considered on indexed columns when all the following conditions are true:\n\n- At least one index is accessed for each XXL table\n- The access is on the left-most columns of the indexes\n\nXXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.",
+    "output": "Associated to each Artifact with violations, the Quality Rule provides:\n- The number of violation patterns.\n- Each violation pattern shows :\n- the query \n- each XXL table accessed on non-indexed columns\n- the XXL table's indexes",
+    "rationale": "Non-indexed SQL Queries are potentially performance killers.\nIndeed, each execution of the query will result in a full table scan which is extremely time consuming especially if the table contains an extremely large amount of data (XXL table).",
+    "reference": "Enhancing the Quality of ABAP Development\nMeijs - Krouwels - Heuvelmans - Sommen\nSAP Press\nISBN 1-59229-030-2",
+    "remediation": "Check the statement and if so, add seconday index on queried columns.",
+    "remediationSample": "The remediation is to add index on TABLE1 (COL3, COL1).",
+    "sample": "TABLE1 is indexed on (COL2, COL1) and TABLE2 on COL3. Both tables are XXL.\nFor the following statement :\nSelect O.COL1, O.COL2, O.COL2, 1, 0, 0, 1\nFrom TABLE1 O, TABLE2 OT\nWhere O.COL3       = OT.COL3\nAnd O.COL1      in (1, 2)\nAnd OT.COL4    = 1;\nTABLE2's index cover the statement.\nTABLE1 is reported in violation.",
+    "total": "Number of Artifacts with SQL code from schemas containing XXL tables or views.",
+    "alternativeName": "Avoid non-indexed XXL SQL queries",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-5",
+            "name": "Data Resource Read Access Unsupported by Index Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

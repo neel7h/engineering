@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- Web Service Categories -->
+
+    <type name="CAST_JAXRS_Service" id="1020031">
+        <description>JAX RS Service</description>
+        <inheritedCategory name="CAST_WebService_Service" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <inheritedCategory name="CAST_GetResourceService" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JAXRS_Port" id="1020032">
+        <description>JAX RS Port</description>
+        <inheritedCategory name="CAST_WebService_Port" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JAXRS_GetOperation" id="1020033">
+        <description>JAX RS Get Operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JAXRS_PostOperation" id="1020034">
+        <description>JAX RS Post Operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JAXRS_PutOperation" id="1020035">
+        <description>JAX RS Put Operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_JAXRS_DeleteOperation" id="1020036">
+        <description>JAX RS Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_Web" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+ 	<type name="CAST_JAXRS_GetResourceService" id="142313">
+        <description>JAX RS Get Resource Service</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_GetResourceService" />
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+</metaModel>

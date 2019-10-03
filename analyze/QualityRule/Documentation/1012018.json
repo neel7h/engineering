@@ -1,0 +1,62 @@
+{
+    "id": 1012018,
+    "name": "Avoid use of DLYJOB  (CL400)",
+    "href": "AIP/quality-rules/1012018",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for CL400 programs using the DLYJOB command.",
+    "output": "This report lists all CL400 programs using DLYJOB.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "This command should be used carefuly. It allows a job to wait for an information before continuing to its execution.\nAs a consequence, the JOB queue and the sub-system can be blocked.",
+    "remediation": "Try to reduce the use of DLYJOB.",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid use of DLYJOB  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

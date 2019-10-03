@@ -1,0 +1,68 @@
+{
+    "id": 1007002,
+    "name": "Avoid artifacts directly accessing database tables (PHP)",
+    "href": "AIP/quality-rules/1007002",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts that direct access database Table. The artifacts checked are php section, function, method and constructors.",
+    "output": "This report lists all artifacts that directly access database table.\n\nThis QR provides the following information:\n- Artifact full name",
+    "rationale": "For security reasons, directly accessing database tables is not advised.",
+    "remediation": "Avoid direct access to database tables. Use views instead",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid artifacts directly accessing database tables (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-12",
+            "name": "Named Callable and Method Control Element with Layer-skipping Call",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

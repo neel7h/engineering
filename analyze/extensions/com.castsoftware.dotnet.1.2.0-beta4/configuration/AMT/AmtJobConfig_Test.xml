@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+	<!-- set of standard actions activated in any AMT tester-->
+	<actions>
+		<action name = "AMTTestAction" />
+	</actions>
+
+</configuration>

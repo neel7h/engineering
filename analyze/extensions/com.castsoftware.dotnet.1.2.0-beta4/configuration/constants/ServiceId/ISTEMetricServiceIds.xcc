@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<!-- Metrics -->
+		<constant>
+			<name>ISTEMetrics</name>
+			<value>3939ebf3-eee2-48b6-857b-b3e9464dd9ad</value>
+		</constant>
+
+		<!--Action  Persistence -->
+		<constant>
+			<name>IActionPersistence</name>
+			<value>1AE3873E-AE59-4813-8914-18CF33125148</value>					
+		</constant>
+    
+    <constant>
+      <name>ILocalMetrics</name>
+      <value>2F8A1943-F8A5-4ba8-8CC8-05AFAF8EDEB2</value>
+    </constant>
+    
+    <constant>
+      <name>IGlobalMetrics</name>
+      <value>5972C9A5-8F8C-41e5-8AB1-818C5C7FE0CB</value>
+    </constant>
+    
+	</constantFamily>
+</constants>

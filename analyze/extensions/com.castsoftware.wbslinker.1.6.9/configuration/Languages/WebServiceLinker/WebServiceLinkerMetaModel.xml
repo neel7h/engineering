@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="core" file_no="20">
+
+    <!--  REST Part -->
+
+    <!-- Web Service Categories -->
+
+    <category name="CAST_WebService_Service" id="141955">
+        <description>Web Service Service</description>
+        <inheritedCategory name="KB object" />
+        <inheritedCategory name="POSITIONABLE" />
+    </category>
+
+    <category name="CAST_WebService_Port" id="141956">
+        <description>Web Service Port</description>
+        <inheritedCategory name="port"/>
+        <inheritedCategory name="KB object" />
+        <inheritedCategory name="POSITIONABLE" />
+    </category>
+
+    <category name="CAST_WebService_Operation" id="141957">
+        <description>Web Service Operation</description>
+        <inheritedCategory name="operation" />
+        <!-- patterns found in servlet-pattern tag in web.xml file separated by ;-->
+        <property name="urlPatterns" type="string" id="140606">
+            <description>Url patterns</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140552"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+        <inheritedCategory name="KB object" />
+        <inheritedCategory name="POSITIONABLE" />
+    </category>
+
+    <category name="CAST_WebService_GetOperation" id="141958">
+        <description>Web Service Get Operation</description>
+        <inheritedCategory name="CAST_WebService_Operation" />
+    </category>
+
+    <category name="CAST_WebService_PostOperation" id="141959">
+        <description>Web Service Post Operation</description>
+        <inheritedCategory name="CAST_WebService_Operation" />
+    </category>
+
+    <category name="CAST_WebService_PutOperation" id="141960">
+        <description>Web Service Put Operation</description>
+        <inheritedCategory name="CAST_WebService_Operation" />
+    </category>
+
+    <category name="CAST_WebService_DeleteOperation" id="141961">
+        <description>Web Service Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_Operation" />
+    </category>
+
+    <category name="CAST_WebService_AnyOperation" id="142021">
+        <description>Web Service Any Operation</description>
+        <inheritedCategory name="CAST_WebService_Operation" />
+    </category>
+    
+    <category name="CAST_WebService_properties" id="142150">
+        <description>Web service properties</description>
+        <!-- Generally parent path of <file_path>/WEB-INF directory -->
+        <property name="webappRoot" type="string" id="140719">
+            <description>Webapp root</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140719"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+    </category>
+
+    <category name="CAST_ResourceService" id="141964">
+        <description>Resource service</description>
+        <property name="uri" type="string" id="140552">
+            <description>URI</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140552"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <inheritedCategory name="KB object" />
+        <inheritedCategory name="POSITIONABLE" />
+        <inheritedCategory name="CAST_WebService_Metric_PasswordInUrl" />
+        <inheritedCategory name="APM Client Language Artifacts" />
+    </category>
+
+    <category name="CAST_GetResourceService" id="141965">
+        <description>Get resource service</description>
+        <inheritedCategory name="CAST_ResourceService" />
+    </category>
+
+    <category name="CAST_PutResourceService" id="141966">
+        <description>Put resource service</description>
+        <inheritedCategory name="CAST_ResourceService" />
+    </category>
+
+    <category name="CAST_PostResourceService" id="141967">
+        <description>Post resource service</description>
+        <inheritedCategory name="CAST_ResourceService" />
+    </category>
+
+    <category name="CAST_DeleteResourceService" id="141968">
+        <description>Delete resource service</description>
+        <inheritedCategory name="CAST_ResourceService" />
+    </category>
+    
+	<category name="CAST_WebService_Metric_PasswordInUrl" id="142288">
+		<description>Store Avoid providing password in Web Service URL metric results</description>
+    	<property name="numberOfPasswordInUrl" type="integer" merge="sum" id="140859">
+			<description>Number of password in url</description>
+			<attribute name="INF_TYPE" intValue="140552"/>
+			<attribute name="INF_SUB_TYPE" intValue="4"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+
+    <!--  WSDL/SOAP Part -->
+    <!--  Server side : inherit from CAST_SOAP_Operation and set name/fullname   -->
+    
+    <category name="CAST_SOAP_Operation" id="142140">
+        <description>SOAP Operation</description>
+        <inheritedCategory name="operation" />
+    </category>
+
+    <!-- Existing platform type  -->
+    <partial_type name="WBS_OPERATION">
+        <inheritedCategory name="CAST_SOAP_Operation" />
+    </partial_type>    
+
+    <!--  
+    Client side : 
+    - inherit from CAST_SOAP_OperationCall and 
+    - set property CAST_SOAP_OperationCall.operationFullName to "porttype.operation"   
+    -->
+
+    <category name="CAST_SOAP_OperationCall" id="142141">
+        <description>SOAP Operation</description>
+        <property name="operationFullName" type="string" id="140711">
+            <description>Porttype.Operation</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140552"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+    </category>
+    
+    
+	<category name="CAST_MQE_QueueCall" id="142210">
+       <description>Message Queue Call</description>
+       <property name="queueName" type="string" id="140799">
+             <description>Name of queue</description>
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140553"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/> 
+             
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+       </property>
+       <property name="messengingSystem" type="string" id="140800">
+             <description>Messaging System, e.g., ActiveMQ, RabbitMq etc...</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140554"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/> 
+             
+       </property>         
+    </category>
+
+    <category name="CAST_MQE_QueueReceive" id="142211">
+       <description>Message Queue Receive</description>
+       <property name="queueName" type="string" id="140801">
+             <description>Name of queue</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140555"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/> 
+             
+       </property>
+       <property name="messengingSystem" type="string" id="140802">
+             <description>Messaging System, e.g.,ActiveMQ,RabbitMq etc...</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140556"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/> 
+             
+       </property>         
+    </category>    
+    
+    <category name="CAST_RabbitMQ_Exchange" id="142270">
+       <description>RabbitMQ Exchange</description>
+       <property name="exchangeName" type="string" id="140841">
+             <description>Name of exchange</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140563"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/> 
+             
+       </property>
+       
+       <property name="routingKey" type="string" id="140842">
+             <description>Routing key of message</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140564"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/> 
+             
+       </property>
+       
+       <property name="senderExchangeType" type="string" id="140843">
+             <description>Type of exchange to which sender sends message</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140565"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/> 
+             
+       </property>
+    </category>
+      
+      
+      
+    <category name="CAST_RabbitMQ_Queue" id="142271">
+       <description>Rabbit Queue</description>
+       <property name="consumerMethodName" type="string" id="140845">
+             <description>Name of consumer method</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140566"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/> 
+             
+       </property>
+       
+       <property name="exchangeName" type="string" id="140846">
+             <description>Name of exchange to which queue is bound to</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140567"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/> 
+             
+       </property>
+       <property name="exchangeType" type="string" id="140847">
+             <description>Type of exchange</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140568"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/> 
+             
+       </property>
+       
+              
+       <property name="bindingKey" type="string" id="140848">
+             <description>Binding key of the queue using which it is bound to exchange</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140569"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/> 
+             
+       </property>
+       
+       <property name="queueName" type="string" id="140849">
+             <description>Name of Queue</description>
+             <!--  attributes with specific inf_typ/inf_subtyp -->
+             <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140570"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/> 
+             
+       </property>
+     
+    </category>
+
+	<category name="CAST_EL_Expression" id="142321">
+		<description>Access to bean</description>
+		<property name="expression" type="string" id="140900">
+			<description>EL expression</description>
+			<!-- attributes with specific inf_typ/inf_subtyp -->
+			<attribute name="ACCESS_APPVIEW" intValue="1" />
+			<attribute name="ACCESS_CVS" intValue="1" />
+			<attribute name="ACCESS_HTML" intValue="1" />
+			<attribute name="INF_TYPE" intValue="140552" />
+			<attribute name="INF_SUB_TYPE" intValue="5" />
+		</property>
+	</category>         
+
+	 
+</metaModel>

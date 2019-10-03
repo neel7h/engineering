@@ -1,0 +1,72 @@
+{
+    "id": 1003192,
+    "name": "Avoid globally bindable classes (Flex)",
+    "href": "AIP/quality-rules/1003192",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports classes that are globally bindable.",
+    "output": "This QR reports classes that are globally bindable. It provides following information:\n- Class Full Name",
+    "rationale": "Globally bindable classes can lead to unexpected behaviour especially when you have a setter to a property, and hits the performance of the application.",
+    "remediation": "Make individual required items inside class that need to be bindable.",
+    "remediationSample": "package {\n\n    public class AvoidGloballyBindableClass \n    {\n        \n        public function AvoidGloballyBindableClass() \n        {\n            \n        }\n\n        [Bindable]\n        private var _avar : int = 10;\n\n        public function get avar() : int {\n           return _avar;\n        }\n        \n        public function set avar(avarin : int) : void {\n           _avar = avarin;\n        }\n    }\n}",
+    "sample": "package {\n\n    [Bindable]\n    public class AvoidGloballyBindableClass \n    {\n        \n        public function AvoidGloballyBindableClass() \n        {\n            \n        }\n\n\n        private var _avar : int = 10;\n\n        public function get avar() : int {\n           return _avar;\n        }\n        \n        public function set avar(avarin : int) : void {\n           _avar = avarin;\n        }\n\n\n    }\n}",
+    "total": "Number of classes",
+    "alternativeName": "Avoid globally bindable classes (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.performance.BindableClass"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

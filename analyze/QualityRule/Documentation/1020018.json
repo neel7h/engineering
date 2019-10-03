@@ -1,0 +1,91 @@
+{
+    "id": 1020018,
+    "name": "Avoid using Web SQL databases",
+    "href": "AIP/quality-rules/1020018",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The Web SQL Database standard will never be officially supported. It was first formulated, then deprecated by the W3C and was only implemented in some browsers. (It is not supported in Firefox or IE.) \n\nFurther, the use of a Web SQL Database poses security concerns, since you only need its name to access such a database.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "OWASP Top Ten 2013 Category A6 - Sensitive Data Exposure \nOWASP Top Ten 2013 Category A9 - Using Components with Known Vulnerabilities",
+    "reference": "http://www.w3.org/TR/webdatabase/",
+    "remediation": "Do not use window.openDatabase syntax.",
+    "sample": "if (!window.openDatabase) { \nalert('Databases are not supported in this browser.'); \n}",
+    "total": "Number of Javascript Functions",
+    "alternativeName": "Avoid using Web SQL databases",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "id": 1007132,
+    "name": "Avoid classes with excessive number of fields (PHP)",
+    "href": "AIP/quality-rules/1007132",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with excessive number of fields. Modifiers which we consider with fields are public, private, protected, const and static. A class with more than 15 fields is considered as violation.",
+    "output": "This report lists all the classes with excessive number of fields.\n\nThis QR provides the following information:\nClass full name.",
+    "rationale": "Classes with excessive number of fields could be redesigned to have fewer fields, possibly through some nested object grouping of related information. For example, a class with city/state/zip fields could have one field as address.",
+    "reference": "PHPMD http://phpmd.org/rules/codesize.html#toomanyfields",
+    "remediation": "Modify the source code to reduce the number of fields associated with a class.",
+    "sample": "<?php\nclass CastExample\n{\n  protected $one;\n  private $two;\n  public $three;\n  ...\n  static $fourteen;\n  const $fifteen;\n  private $sixteen;\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes with excessive number of fields (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum fields",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        15.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

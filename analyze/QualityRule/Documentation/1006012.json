@@ -1,0 +1,57 @@
+{
+    "id": 1006012,
+    "name": "Avoid functions without returning exit code  (Shell)",
+    "href": "AIP/quality-rules/1006012",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the functions without an exit code.",
+    "output": "The report lists all the  Shell Functions without returning exit code\nIt provides following information: \n- function full name",
+    "rationale": "Every function  should have a returning exit code. This will provide a modularity to the code.",
+    "remediation": "Try to reduce the number of function  not having a returning exit code.",
+    "total": "Number of  Shell Functions",
+    "alternativeName": "Avoid functions without returning exit code  (Shell)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

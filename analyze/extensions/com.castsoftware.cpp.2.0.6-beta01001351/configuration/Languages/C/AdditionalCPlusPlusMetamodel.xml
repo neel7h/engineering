@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!--
+  Additional categories and types for C/C++.
+  
+  Those are in the extension com.castsofwtare.cpp
+ -->
+
+<metaModel file_level="core" file_no="10">
+
+  <!-- 
+  Temporary objects for storing project belonging in the situation of execution unit ???
+  -->
+  <type name="CAST_C_ProjectBelonging" id="142241">
+    <description></description>
+    <inheritedCategory name="CAST_WithProject"/> <!-- for project -->
+    <inheritedCategory name="C/C++"/> <!-- for externalToProject -->
+  </type>
+
+  <!-- For execution unit -->
+  <category name="CAST_C_WithProjectBelonging" id="142242">
+    <description></description>
+    <property name="projects" type="referenceList" id="140826">
+      <description></description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+    <property name="currentProject" type="reference" id="140827">
+      <description>The current project, may change</description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <partialCategory name="CAST_C_KB_Symbol">
+    <inheritedCategory name="CAST_C_WithProjectBelonging"/>
+  </partialCategory>
+
+  <partialType name="C_FILE">
+    <inheritedCategory name="CAST_C_WithProjectBelonging"/>
+  </partialType>
+
+  <partialType name="C_MACRO">
+    <inheritedCategory name="CAST_C_WithProjectBelonging"/>
+  </partialType>
+
+  <!-- We also need project for links -->
+  <partialType name="CAST_C_LinkSuspensionUnresolved">
+    <inheritedCategory name="CAST_WithProject"/>
+  </partialType>
+
+  <partialType name="CAST_C_LinkSuspensionResolved">
+    <inheritedCategory name="CAST_WithProject"/>
+  </partialType>
+  
+  <!-- For avoiding create 2 objects instead of one -->
+
+  <partialCategory name="CAST_C_LinkableDef">
+    <inheritedCategory name="CAST_Resolution_Identification"/>
+  </partialCategory>
+
+  <partialCategory name="CAST_C_LinkableDecl">
+    <inheritedCategory name="CAST_Resolution_Identification"/>
+  </partialCategory>
+
+  <partialCategory name="CAST_C_NotLinkable">
+    <inheritedCategory name="CAST_Resolution_Identification"/>
+  </partialCategory>
+
+
+  <!-- For callbacks add index with signature -->
+
+  <category name="CAST_C_WithSignature" id="142275">
+    <description>indexing</description>
+    <property name="signature"  type="string" id="140850">
+      <description>Signature of function</description>
+      <attribute name="TRANSIENT" intValue="1"/>
+      <attribute name="INDEX"     intValue="1"/>
+    </property>
+  </category>
+
+  <category name="CAST_C_ReferencedByPointer" id="142282">
+    <description></description>
+    <property name="referencedByPointer" type="integer" id="140855">
+      <description>true when function is referenced by pointer</description>
+      <attribute name="TRANSIENT" intValue="1"/>
+    </property>
+  </category>
+
+  <partialCategory name="CAST_C_WithParameters">
+		<inheritedCategory name="CAST_C_WithSignature"/>
+    <inheritedCategory name="CAST_C_ReferencedByPointer"/>
+  </partialCategory>
+
+  <type name="CAST_C_CallbackSuspension" id="142277">
+    <description></description>
+    <inheritedCategory name="POSITIONABLE"/>
+    <property name="caller" type="reference" id="140852">
+      <description></description>
+    </property>
+    <property name="signature" type="string" id="140853">
+      <description></description>
+    </property>
+    
+  </type>
+
+  <!--For macros-->
+
+  <partialType name="CAST_C_JobMacro">
+    <property name="textReplacement" type="integer" id="140865">
+      <description>indicate if a macro is a text replacement only macro</description>
+    </property>
+  </partialType>
+  
+
+    <partialType name="C_ENUM">
+    <inheritedCategory name="CAST_C_Metricable"/>
+  </partialType>
+
+  <partialCategory name="CAST_C_Metricable">
+    <inheritedCategory name="CAST_C_Mistra" />
+    <inheritedCategory name="CAST_C_Metric_EnsureProvidingUserDefCopyCtrorWhenAllocatingMemoryInConstructor" />
+    <inheritedCategory name="CAST_C_Metric_avoidMethodInvocationInALoopTerminationExpression" />
+    <inheritedCategory name="CAST_C_Metric_EnsureReleasingMemoryDynamicallyAllocatedLocally" />
+    <inheritedCategory name="CAST_C_Metric_AvoidIteratorInvalidation" />
+    <inheritedCategory name="CAST_C_Metric_AvoidUseOfUnvalidatedInputInArrayIndexingAndMemoryAllocation" />
+  </partialCategory>
+            
+  
+  <category name="CAST_C_Mistra" id="142281">
+    <description></description>
+    <inheritedCategory name="CAST_C_Metric_ContinueShouldNotBeUsed" />
+    <inheritedCategory name="CAST_C_Metric_EnumInitialization" />
+  </category>
+
+  <category name="CAST_C_Metric_ContinueShouldNotBeUsed" id="142280">
+    <description>Avoid using "continue" statement</description>
+    <property name="number" type="integer" merge="sum" id="140854">
+      <description>Avoid using "continue" statement</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="63"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="1065000"  />
+    </property>
+  </category>
+  
+  <category name="CAST_C_Metric_EnumInitialization" id="142283">
+    <description>enum members should be correctly initialized</description>
+    <property name="number" type="integer" merge="sum" id="140856">
+      <description>enum members should be correctly initialized</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="64"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="1065002"  />
+    </property>
+  </category>
+
+  <category name="CAST_C_Metric_avoidMethodInvocationInALoopTerminationExpression" id="142287">
+    <description>Avoid method invocation in a loop termination expression</description>
+    <property name="number" type="integer" merge="sum" id="140858">
+      <description>Avoid method invocation in a loop termination expression</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="65"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+    </property>
+  </category>
+
+  <category name="CAST_C_Metric_EnsureProvidingUserDefCopyCtrorWhenAllocatingMemoryInConstructor" id="142289">
+    <description>Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor</description>
+    <property name="number" type="integer" merge="sum" id="140860">
+      <description>Ensure you provide a user-defined copy constructor or disable copy when a class allocates memory in its constructor</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="66"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="592"  />
+    </property>
+  </category>
+
+  <category name="CAST_C_Metric_EnsureReleasingMemoryDynamicallyAllocatedLocally" id="142296">
+    <description>Ensure that dynamically allocated memory on local pointer in functions/methods is freed.</description>
+    <property name="number" type="integer" merge="sum" id="140862">
+      <description>Ensure that dynamically allocated memory on local pointer in functions/methods is freed.</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="67"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="1065004"  />
+    </property>
+  </category>
+  
+  <!-- Metric for violation on iterator invalidation -->
+  
+  <category name="CAST_C_Metric_AvoidIteratorInvalidation" id="142305">
+    <description>Avoid iterator invalidation.</description>
+    <property name="number" type="integer" merge="sum" id="140867">
+      <description>Avoid iterator invalidation.</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="68"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="1065006"  />
+    </property>
+  </category>
+
+  <type name="CAST_C_SuspiciousOperationOnIterator" id="142307">
+    <description></description>
+    <property name="violatorSID" type="reference" id="140871">
+      <description></description>
+    </property>
+    <property name="gettingCandidateName" type="string" id="140872">
+      <description></description>
+    </property>
+    <property name="invalidatingCandidateName" type="string" id="140873">
+      <description></description>
+    </property>
+    <property name="className" type="string" id="140869">
+      <description></description>
+    </property>
+    <property name="bkmLoopStatement" type="bookmark" id="140870">
+      <description></description>
+    </property>
+    <property name="bkmGettingCandidate" type="bookmark" id="140880">
+      <description></description>
+    </property>
+    <property name="bkmInvalidatingCandidate" type="bookmark" id="140881">
+      <description></description>
+    </property>
+  </type>
+
+  <type name="CAST_C_PotentialIteratorInvalidation" id="142308">
+    <description>Potential iterator invalidation</description>
+    <inheritedCategory name="CAST_C_ClassWithPotentialIteratorInvalidation" />
+  </type>
+
+  <category name="CAST_C_ClassWithPotentialIteratorInvalidation" id="142316">
+    <description>class with potential iterator invalidation</description>
+    <property name="classSId" type="reference" id="140884">
+      <description></description>
+    </property>
+    <property name="className" type="string" id="140951">
+      <description></description>
+    </property>
+    <property name="memberSId" type="reference" id="140887">
+      <description></description>
+    </property>
+    <property name="gettingMethodName" type="string" id="140885">
+      <description></description>
+    </property>
+    <property name="invalidatingMethodName" type="string" id="140886 ">
+      <description>Name of invalidating method</description>
+      <attribute name="TRANSIENT" intValue="1"/>
+      <attribute name="INDEX"     intValue="1"/>
+    </property>
+  </category>
+
+  <!-- Metric for violation on Avoid use of unvalidated input in array indexing and memory allocation -->
+
+  <category name="CAST_C_Metric_AvoidUseOfUnvalidatedInputInArrayIndexingAndMemoryAllocation" id="142318">
+    <description>Avoid use of unvalidated input in array indexing and memory allocation.</description>
+    <property name="number" type="integer" merge="sum" id="140894">
+      <description>Avoid use of unvalidated input in array indexing and memory allocation.</description>
+      <attribute name="INF_TYPE"       intValue="13080"/>
+      <attribute name="INF_SUB_TYPE"   intValue="69"   />
+      <attribute name="ACCESS_APPVIEW" intValue="1"    />
+      <attribute name="ACCESS_HTML"    intValue="1"    />
+      <attribute name="ACCESS_CVS"     intValue="1"    />
+      <attribute name="RuleID"         intValue="1065008"  />
+    </property>
+  </category>
+
+
+  <type name="CAST_C_SQLQuery" id="142349">
+    <description>SQL Query</description>
+    <attribute name="KEY_CLASS" intValue="10630"/>
+    <inheritedCategory name="CAST_C_KB_Symbol"/>
+    <!-- Here I am not sure -->
+    <inheritedCategory name="EnlightenStandard"/>
+    <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+    <inheritedCategory name="EnlightenBrowserParent"/>
+    <inheritedCategory name="CastSystemViews"/>
+    <inheritedCategory name="CAST_SQL_MetricableQuery"/>
+    <inheritedCategory name="CAST_Linker_EmbeddedSQLCode"/>
+    <inheritedCategory name="C/C++"/>
+    <!-- Facet for the external link manager -->
+    <!-- Here I am not sure -->
+    <inheritedCategory name="CAST_DevelopmentVisible"/>
+    <tree parent="GROUP_C" category="EnlightenTree"/>
+    <tree parent="GROUP_C_CLASS" category="ParameterizeTree"/>
+  </type>
+
+  <!-- 	DO NOT FORGET TO ALSO ADD THE METRIC IN THE  CAST_C_Metricable CATEGORY. -->
+  <!-- Next inf_sub_type value : 70 -->
+
+  
+  
+  
+</metaModel>

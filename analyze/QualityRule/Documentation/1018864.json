@@ -1,0 +1,51 @@
+{
+    "id": 1018864,
+    "name": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+    "href": "AIP/quality-rules/1018864",
+    "critical": true,
+    "description": "For Security reason, Password should not be of string type. A password type should be used instead.",
+    "output": "This report lists all  JDBC resources having  password type as string.\nIt provides the following information:\nJDBC Resource full name.\nThe associated value is the number of  JDBC Resources",
+    "rationale": "For security reasons, JDBC Resources should use Password type for the Password parameter in the configuration.",
+    "remediation": "Verify the JDBC Resource password type",
+    "total": "Number of JDBC Resources",
+    "alternativeName": "Avoid JDBC Connections having password type as string (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

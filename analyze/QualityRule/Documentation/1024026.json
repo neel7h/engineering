@@ -1,0 +1,67 @@
+{
+    "id": 1024026,
+    "name": "Avoid using MODE_WORLD_READABLE and MODE_WORLD_WRITEABLE",
+    "href": "AIP/quality-rules/1024026",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "MODE_WORLD_READABLE allow all other applications to have read access to the created file.\nMODE_WORLD_WRITEABLE allow all other applications to have write access to the created file.\n\nPlease note that MODE_WORLD_READABLE, MODE_WORLD_WRITEABLE have been deprecated in API level 17.\n\nStarting from Build.VERSION_CODES.N, attempting to use this mode throws a SecurityException.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Creating world-readable/world-writable files is very dangerous, and likely to cause security holes in applications. It is strongly discouraged; instead, applications should use more formal mechanism for interactions such as ContentProvider, BroadcastReceiver, and Service. There are no guarantees that this access mode will remain on a file, such as when it goes through a backup and restore.",
+    "reference": "https://developer.android.com/training/articles/security-tips\nhttps://developer.android.com/reference/android/content/Context#MODE_WORLD_READABLE",
+    "remediation": "If your application needs to share private files with other apps, you should instead use a FileProvider with the FLAG_GRANT_READ_URI_PERMISSION. For more information, see Sharing Files : https://developer.android.com/training/secure-file-sharing/\n\nYou can also use more formal mechanism for interactions such as ContentProvider, BroadcastReceiver, and Service",
+    "sample": "Sample with MODE_WORLD_READABLE option \n---------------------------------------\n\n@Override\n   protected void onCreate(Bundle savedInstanceState) {\n      super.onCreate(savedInstanceState);\n      setContentView(R.layout.activity_main);\n\n      b1=(Button)findViewById(R.id.button);\n      b2=(Button)findViewById(R.id.button2);\n\n      ed1=(EditText)findViewById(R.id.editText);\n      tv=(TextView)findViewById(R.id.textView2);\n      b1.setOnClickListener(new View.OnClickListener() {\n         \n         @Override\n         public void onClick(View v) {\n            data=ed1.getText().toString();\n            try {\n               FileOutputStream fOut = openFileOutput(file,Context.MODE_WORLD_READABLE);\n               fOut.write(data.getBytes());\n               fOut.close();\n               Toast.makeText(getBaseContext(),\"file saved\",Toast.LENGTH_SHORT).show();\n            }\n            catch (Exception e) {\n               // TODO Auto-generated catch block\n               e.printStackTrace();\n            }\n         }\n      });",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Prefer not using MODE_WORLD_READABLE or MODE_WORLD_WRITABLE to share files with other apps",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M2-2016",
+            "name": "Insecure Data Storage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "id": 1024028,
+    "name": "Avoid using \"Android Protected Confirmation\" without User Confirmation",
+    "href": "AIP/quality-rules/1024028",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "To provide support for high-assurance user confirmation in your app when generate an asymmetric signing key using the KeyGenParameterSpec.Builder class, process as follow \n1- pass true into setUserConfirmationRequired() when create the key \n2- call setAttestationChallenge(), passing a suitable challenge value provided by the relying party. \n\n\nsetUserConfirmationRequired Sets whether this key is authorized to be used only for messages confirmed by the user. Confirmation is separate from user authentication. Keys can be created that require confirmation but not user authentication, or user authentication but not confirmation, or both. \nConfirmation verifies that some user with physical possession of the device has approved a displayed message. \n\n\nsetUserConfirmationRequired() is added in API level 28 and setAttestationChallenge() is added in API level 24\n\nWhen API level is not detected or API level supporte these methods: A violaton is reported if these methods are not setted or setUserConfirmationRequired pass false.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Android Protected Confirmation doesn't provide a secure information channel for the user. Your app cannot assume any confidentiality guarantees beyond those that the Android platform offers. In particular, don't use this workflow to display sensitive information that you wouldn't ordinarily show on the user's device. \n\nAfter the user confirms the message, its integrity is assured, but your app must still use data-in-transit encryption to assure the confidentiality of the signed message.",
+    "reference": "https://developer.android.com/training/articles/security-android-protected-confirmation",
+    "remediationSample": "KeyStore ks = KeyStore.getInstance(KEY_STORE_NAME); \nks.load(null); \n\nString alias = makeNewAlias(); \nKeyPairGenerator kpg = KeyPairGenerator.getInstance(KeyProperties.KEY_ALGORITHM_EC, KEY_STORE_NAME); \n\nkpg.initialize(new KeyGenParameterSpec.Builder( \n    alias, \n    KeyProperties.PURPOSE_SIGN | KeyProperties.PURPOSE_VERIFY) \n    .setDigests(KeyProperties.DIGEST_SHA256, KeyProperties.DIGEST_SHA512) \n    .setAttestationChallenge(attestationChallengeBytes) \n    .setUserConfirmationRequired(true) \n    .build()); \nKeyPair kp = kpg.generateKeyPair(); ",
+    "sample": "KeyStore ks = KeyStore.getInstance(KEY_STORE_NAME); \nks.load(null); \n\nString alias = makeNewAlias(); \nKeyPairGenerator kpg = KeyPairGenerator.getInstance(KeyProperties.KEY_ALGORITHM_EC, KEY_STORE_NAME); \n\nkpg.initialize(new KeyGenParameterSpec.Builder( \n    alias, \n    KeyProperties.PURPOSE_SIGN | KeyProperties.PURPOSE_VERIFY) \n    .setDigests(KeyProperties.DIGEST_SHA256, KeyProperties.DIGEST_SHA512) \n     //setAttestationChallenge is missing \n     //setUserConfirmationRequired() is missing and set to false\n    .build()); \nKeyPair kp = kpg.generateKeyPair();",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure to include User Confirmation when using Android Protection Confirmation prompt",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-863",
+            "name": "Incorrect Authorization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M6-2016",
+            "name": "Insecure Authorization",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

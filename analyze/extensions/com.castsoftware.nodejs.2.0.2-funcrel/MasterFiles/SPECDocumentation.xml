@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="description">
+    <english>This rule expects that when you're using the callback pattern in node you'll handle the error and requires that you specify the name of your error object. The name of the argument will default to err.</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="name">
+    <english>Avoid the lack of error handling in the Node.js callbacks</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="rationale">
+    <english>Ensure that each web service callback is going to be properly checked in order to make sure you will not miss any problem that occurred in your application and you will give the information to the user.</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="remediationSample">
+    <english>function loadData (err, data) { 
+    if (err) { 
+        console.log(err.stack); 
+    } 
+    doSomething(); 
+} 
+
+function generateError (err) { 
+    if (err) {} 
+}</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="sample">
+    <english>function loadData (err, data) { 
+    doSomething(); // forgot to handle error 
+}</english>
+  </metric>
+  <metric id="1020700" type="quality-rule" originalName="Avoid the lack of error handling in the Node.js callbacks" section="total">
+    <english>Number of NodeJS artifacts (javascript functions inside NodeJS files)</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="description">
+    <english>The process.exit() method in Node.js is used to immediately stop the Node.js process and exit. This is a dangerous operation because it can occur in any method at any point in time, potentially stopping a Node.js application completely when an error occurs.
+
+The reason this is problematic is because writes to process.stdout in Node.js are non-blocking and may occur over multiple ticks of the Node.js event loop. Calling process.exit(), however, forces the process to exit before those additional writes to stdout can be performed.
+
+Rather than calling process.exit() directly, the code should set the process.exitCode and allow the process to exit naturally by avoiding scheduling any additional work for the event loop</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="name">
+    <english>Avoid using process.exit() without defining exitCode</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="rationale">
+    <english>Ensure that some critical method are properly implemented. The misuse of system methods could lead to production issues and will have a huge impact on the application reliability.</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="reference">
+    <english>CISQ OMG 
+http://eslint.org/docs/rules/no-process-exit</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="remediation">
+    <english>Check that process.exit() is not used</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="remediationSample">
+    <english>if (somethingBadHappened) { 
+    console.error("Something bad happened!"); 
+    process.exitCode = 1;
+    process.exit(); 
+}</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="sample">
+    <english>if (somethingBadHappened) { 
+    console.error("Something bad happened!"); 
+    process.exit(1); 
+}</english>
+  </metric>
+  <metric id="1020702" type="quality-rule" originalName="Avoid using process.exit() without defining exitCode" section="total">
+    <english>Number of NodeJS artifacts (javascript functions inside NodeJS files)</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="description">
+    <english>In Node.js, the __dirname and __filename global variables contain the directory path and the file path of the currently executing script file, respectively. Using these variables directly you can create an invalid path using string concatenation and assuming Unix-style separators.</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="name">
+    <english>Avoid using string concatenation when using __dirname and __filename</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="rationale">
+    <english>Ensure that the global variables are correctly used to avoid any misuse when running your Node.js application on different platforms.</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="reference">
+    <english>http://eslint.org/docs/rules/no-path-concat</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="remediationSample">
+    <english>var fullPath = path.join(__dirname,"/foo.js"); 
+var fullPath = path.resolve( __filename,"/foo.js");</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="sample">
+    <english>var fullPath = __dirname + "/foo.js"; 
+var fullPath = __filename + "/foo.js";</english>
+  </metric>
+  <metric id="1020704" type="quality-rule" originalName="Avoid using string concatenation when using __dirname and __filename" section="total">
+    <english>Number of NodeJS artifacts (javascript functions inside NodeJS files)</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="description">
+    <english>In Node.js, to avoid connection to untrusted source, you have to make sure that Content-Security-Policy HTTP header has been activated.</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="name">
+    <english>Ensure the Content-Security-Policy is activated</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="rationale">
+    <english>Ensure the developer will work with a list of trusted source. Thanks to Content-Security-Policy HTTP header setup, you will only access the white-list of trusted sources.</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Content_Security_Policy</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="remediation">
+    <english>Ensure you are manually setting up the Content-Security-Policy header in your express instance or use third-party helmet package</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.use(function(req, res, next){ 
+    res.header("Content-Security-Policy", "default-src 'self';script-src 'self';object-src 'none';img-src 'self';media-src 'self';frame-src 'none';font-src 'self' data:;connect-src 'self';style-src 'self'"); 
+    next(); 
+}); 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;html&gt;"); 
+}); 
+
+app.listen(3000); 
+
+// or with helmet 
+
+var express = require('express'); 
+var app = express(); 
+var helmet = require('helmet'); 
+
+// @see https://github.com/evilpacket/helmet 
+// you should activate even more headers provided by helmet 
+app.use(helmet.csp({ 
+    defaultSrc: ["'self'"], 
+    scriptSrc: ["'self'"], 
+    styleSrc: ["'self'"], 
+    imgSrc: ["'self'"], 
+    connectSrc: ["'self'"], 
+    fontSrc: ["'self'"], 
+    objectSrc: ["'none'"], 
+    mediaSrc: ["'self'"], 
+    frameSrc: ["'none'"], 
+    // reportUri: '/report-violation', 
+    reportOnly: false, // set to true if you only want to report errors 
+    setAllHeaders: false, // set to true if you want to set all headers 
+    safari5: false // set to true if you want to force buggy CSP in Safari 5 
+})); 
+
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;hello world&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;html&gt;"); 
+});
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020706" type="quality-rule" originalName="Ensure the Content-Security-Policy is activated" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="description">
+    <english>In Node.js, Attackers can use the X-Powered-By header (which is enabled by default) to detect apps running Express and then launch specifically-targeted attacks.</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="name">
+    <english>Ensure the X-Powered-By header is disabled</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="rationale">
+    <english>Ensure the X-Powered-By is disabled.</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Content_Security_Policy</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="remediation">
+    <english>Ensure you are manually disablin the X-Powered-By in your express instance or use third-party helmet package</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.disable('x-powered-by'); 
+
+// or with helmet 
+
+var hidePoweredBy = require('hide-powered-by') 
+app.use(hidePoweredBy()) 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020708" type="quality-rule" originalName="Ensure the X-Powered-By header is disabled" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="description">
+    <english>An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive information retained by the browser and used with that site. These scripts can even rewrite the content of the HTML page.</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="name">
+    <english>Ensure the X-XSS-Protection header is enabled</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="rationale">
+    <english>In Node.js, enable X-XSS-Protection to enable the Cross-site scripting (XSS) filter in most recent web browsers.</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/XSS</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="remediation">
+    <english>Ensure you have enabled the X-XSS-Protection in your express instance or use third-party helmet package</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+var xssFilter = require('x-xss-protection') 
+app.use(xssFilter()) 
+
+// or with helmet 
+
+var helmet = require('helmet'); 
+app.use(helmet()) 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020710" type="quality-rule" originalName="Ensure the X-XSS-Protection header is enabled" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="description">
+    <english>Clickjacking, also known as a "UI redress attack", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the the top level page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. 
+Using a similar technique, keystrokes can also be hijacked. With a carefully crafted combination of stylesheets, iframes, and text boxes, a user can be led to believe they are typing in the password to their email or bank account, but are instead typing into an invisible frame controlled by the attacker.</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="name">
+    <english>Ensure the X-Frame-Options header is setup</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="rationale">
+    <english>In Node.js, setup X-Frame-Options to enable clickjacking protection.</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Clickjacking</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="remediation">
+    <english>Ensure you have setup the X-Frame-Options in your express instance or use third-party helmet package</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+var helmet = require('helmet'); 
+app.use(helmet()) 
+// or more specifically 
+app.use(helmet.frameguard()); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020712" type="quality-rule" originalName="Ensure the X-Frame-Options header is setup" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="description">
+    <english>When designing the routing system of the server, you have to make sure you have only one routing handler per path. This rule will check if a routing call is called within a loop and/or there are multiple routing call on the same path.</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="name">
+    <english>Avoid having multiple routes for the same path with Node.js Express App</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="rationale">
+    <english>When designing the routing system of the server, you have to make sure you have only one routing handler per path. Duplicating handler will affect the global performance of the server creating latency issues.</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="reference">
+    <english>CISQ Recommendation: ASCPEM-PRF-08 
+http://techblog.netflix.com/2014/11/nodejs-in-flames.html</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="remediation">
+    <english>Ensure you only have one routing handler per path.</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="remediationSample">
+    <english>// multiple handler for the same path /foo 
+var express = require('express'); 
+var app = express(); 
+app.get('/foo', function (req, res) { 
+   res.send('hi'); 
+}); 
+// add a second foo route handler 
+app.get('/foo2', function (req, res) { 
+   res.send('hi2'); 
+}); 
+
+// call in a loop for different paths 
+
+for (i = 0; i &lt; paths.length; i++) { 
+
+   app.get('/foo'+paths[i], function (req, res) { 
+      res.send('hi ' + paths[i]); 
+   }); 
+} 
+
+console.log('stack', app._router.stack); 
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="sample">
+    <english>// multiple handler for the same path /foo 
+var express = require('express'); 
+var app = express(); 
+app.get('/foo', function (req, res) { 
+   res.send('hi'); 
+}); 
+// add a second foo route handler 
+app.get('/foo', function (req, res) { 
+   res.send('hi2'); 
+}); 
+
+// call in a loop for the same path /foo 
+
+for (i = 0; i &lt; paths.length; i++) { 
+
+   app.get('/foo', function (req, res) { 
+      res.send('hi ' + paths[i]); 
+   }); 
+} 
+
+console.log('stack', app._router.stack); 
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020714" type="quality-rule" originalName="Avoid having multiple routes for the same path with Node.js Express App" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="description">
+    <english>When designing web service to get/post/put data, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official Node.js syntax http.get or http.request to do call to web service.</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="name">
+    <english>Avoid using the call of web service with Node.js http.get or http.request inside a loop</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="rationale">
+    <english>When designing web service to get/put/post data, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="reference">
+    <english>CISQ Recommendation: ASCPEM-PRF-08</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="remediation">
+    <english>Try to create a process queue that will manage all the requests with a limited number of concurrent requests. When a request callback has been managed a new request could be fired.</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="sample">
+    <english>var http = require('http');
+
+for (i = 0; i &lt; paths.length; i++) {
+  http.get( ...); 
+}
+
+for (i = 0; i &lt; paths.length; i++) { 
+  http.request( ...);
+}</english>
+  </metric>
+  <metric id="1020716" type="quality-rule" originalName="Avoid using the call of web service with Node.js http.get or http.request inside a loop" section="total">
+    <english>Number of javascript source codes using http</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="description">
+    <english>In Node.js, to avoid the browser to do client-side caching, you have to turn on the no cache option.</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="name">
+    <english>Ensure that browser cannot cache or store a page</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="rationale">
+    <english>Ensure the client-side is always up to date with the server. Prevent the client browser to cache pages that could be misused or outdated and then give bad information to the user.</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="reference">
+    <english>https://helmetjs.github.io/docs/nocache/ 
+https://expressjs.com/en/advanced/best-practice-security.html</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="remediation">
+    <english>Ensure you are manually setting up the No Cache headers in your express instance or use third-party helmet package</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+var helmet = require('helmet'); 
+app.use(helmet) 
+
+// direclty use nocache package 
+var nocache = require('nocache') 
+app.use(nocache()) 
+// or with helmet 
+app.use(helmet.noCache()) 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;hello world&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020718" type="quality-rule" originalName="Ensure that browser cannot cache or store a page" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="description">
+    <english>In Node.js, to avoid connection to unsecured source, you have to make sure that all HTTP communication are encrypted.</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="name">
+    <english>Allow only HTTPS communication</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="rationale">
+    <english>Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration 
+https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="remediation">
+    <english>Ensure you have enable Strict-Transport-Security header that enforces secure (HTTP over SSL/TLS) connections to the server.</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="remediationSample">
+    <english>// with helmet 
+
+var express = require('express'); 
+var app = express(); 
+var helmet = require('helmet'); 
+
+app.use(helmet.hsts()); 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;hello world&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020720" type="quality-rule" originalName="Allow only HTTPS communication" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="description">
+    <english>In Node.js, to avoid connection to unsecured source, you have to make sure that all HTTP communication are encrypted.</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="name">
+    <english>Ensure to use secure HTTPS protocol</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="rationale">
+    <english>Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="remediation">
+    <english>Ensure you have enabled secure https connection when creating your server.</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="remediationSample">
+    <english>// Use secure HTTPS protocol 
+// Load keys for establishing secure HTTPS connection 
+var fs = require("fs"); 
+var https = require("https"); 
+var path = require("path"); 
+var httpsOptions = { 
+ key: fs.readFileSync(path.resolve(__dirname, "./artifacts/cert/server.key")), 
+ cert: fs.readFileSync(path.resolve(__dirname, "./artifacts/cert/server.crt")) 
+}; 
+https.createServer(httpsOptions, app).listen(config.port, function() { 
+ console.log("Express https server listening on port " + config.port); 
+ });</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="sample">
+    <english>// Insecure HTTP connection 
+var http = require("http"); 
+ http.createServer(app).listen(config.port, function() { 
+ console.log("Express http server listening on port " + config.port); 
+ });</english>
+  </metric>
+  <metric id="1020722" type="quality-rule" originalName="Ensure to use secure HTTPS protocol" section="total">
+    <english>Number of javascript source codes using HTTP or HTTPS createServer</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="description">
+    <english>In Node.js, some express components must be configured carefully to avoid any security hole. Market component must be carefully configured to avoid enabling sanitize option.</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="name">
+    <english>Ensure that marked is sanitized</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="rationale">
+    <english>Attacker identifies a weak component through scanning or manual analysis. He customizes the exploit as needed and executes the attack. It gets more difficult if the used component is deep in the application.</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities 
+https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="remediation">
+    <english>Always enable the sanitize option to yes when using marked component.</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="remediationSample">
+    <english>var express = require('express'); 
+var app = express(); 
+var marked = require("marked"); 
+
+marked.setOptions({ 
+ sanitize: true 
+ }); 
+
+app.locals.marked = marked; 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;hello world&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+var marked = require("marked"); 
+
+app.locals.marked = marked; 
+
+app.get('/', function(req, res){ 
+    res.send("&lt;html&gt;&lt;body&gt;hello world&lt;script type='text/javascript'&gt;alert('got you')&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"); 
+}); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020724" type="quality-rule" originalName="Ensure that marked is sanitized" section="total">
+    <english>Number of javascript source codes using express and marked</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="description">
+    <english>In Node.js, to avoid Cross-Site forgery, you need to activate a csrf module.</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="name">
+    <english>Ensure that CSRF Protection is enabled</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="rationale">
+    <english>CSRF takes advantage the fact that most web apps allow attackers to predict all the details of a particular action. Because browsers send credentials like session cookies automatically, attackers can create malicious web pages which generate forged requests that are indistinguishable from legitimate ones.</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="reference">
+    <english>https://expressjs.com/en/advanced/best-practice-security.html 
+https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)
+http://cwe.mitre.org/data/definitions/352.html</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="remediation">
+    <english>Ensure you have enable CSRF module in Express and pass the information to the templates</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="remediationSample">
+    <english>// default csrf library 
+
+var express = require('express'); 
+var app = express(); 
+app.use(csrf()); 
+
+app.use(function (req, res, next) { 
+  res.cookie('XSRF-TOKEN', req.csrfToken()); 
+  res.locals.csrftoken = req.csrfToken(); 
+  next(); 
+}); 
+app.use(app.router); 
+
+app.listen(3000); 
+
+// or example with csurf library 
+
+var csrf = require('csurf') 
+// setup route middlewares 
+var csrfProtection = csrf({ cookie: true }) 
+
+// create express app 
+var app = express() 
+
+app.get('/form', csrfProtection, function (req, res) { 
+  // pass the csrfToken to the view 
+  res.render('send', { csrfToken: req.csrfToken() }) 
+}) 
+
+// or example with express-csrf library 
+
+var express = require('express'), 
+    csrf = require('express-csrf'); 
+
+app = express.createServer(); 
+
+app.dynamicHelpers({ 
+    csrf: csrf.token 
+}); 
+
+app.use(express.cookieParser()); 
+app.use(express.bodyParser()); 
+app.use(express.session()); 
+app.use(csrf.check()); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="sample">
+    <english>var express = require('express'); 
+var app = express(); 
+
+app.listen(3000);</english>
+  </metric>
+  <metric id="1020726" type="quality-rule" originalName="Ensure that CSRF Protection is enabled" section="total">
+    <english>Number of javascript source codes using express</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="description">
+    <english>Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. This is why all major browsers support the HttpOnly cookie property that prevents client-side scripts from accessing the cookie. When HttpOnly is not enabled, attackers may more easily access user cookies.</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="name">
+    <english>Avoid creating cookie without setting httpOnly option</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="rationale">
+    <english>If read access is not properly restricted, then attackers can steal the sensitive information. If write access is not properly restricted, then attackers can modify and possibly delete the data, causing incorrect results and possibly a denial of service.</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/1004.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="remediation">
+    <english>Always setting httpOnly option when creating a cookie</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="remediationSample">
+    <english>var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    httpOnly: true, 
+    secure: true 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="sample">
+    <english>var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+}));</english>
+  </metric>
+  <metric id="1020728" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option" section="total">
+    <english>Number of NodeJS source code using express-session</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="description">
+    <english>This rule will check the official Node.js syntax fs are closed.</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="name">
+    <english>Ensure Node.js filesystem are closed</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="rationale">
+    <english>When a file is opened by Node.js filesystem, resources are allocated until the file is closed. Thus it is important to ensure the file is closed as soon as the file manipulation is done by handling correctly potential exceptions. Delegating file closing to the underlying interpreter/compiler can have a negative impact on code portability and can result in unexpected behavior.</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="reference">
+    <english>https://nodejs.org/api/fs.html 
+OMG CISQ Recommendation: ASCRM-CWE-772 and ASCSM-CWE-772</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="remediation">
+    <english>Always close a filesystem after using open. 
+Always use closeSync after using openSync.</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="remediationSample">
+    <english>var fs = require('fs'); 
+
+fs.open('myfile', 'wx', (err, fd) =&gt; { 
+  if (err) { 
+    if (err.code === 'EEXIST') { 
+      console.error('myfile already exists'); 
+      return; 
+    } 
+
+    throw err; 
+  } 
+
+  writeMyData(fd); 
+  fs.close(fd, function(error) {}) 
+});</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="sample">
+    <english>var fs = require('fs'); 
+
+// NOT VIOLATION 
+fs.readFile('/etc/passwd', (err, data) =&gt; { 
+  if (err) throw err; 
+  console.log(data); 
+}); 
+
+// VIOLATION 
+fs.open('myfile', 'wx', (err, fd) =&gt; { 
+  if (err) { 
+    if (err.code === 'EEXIST') { 
+      console.error('myfile already exists'); 
+      return; 
+    } 
+
+    throw err; 
+  } 
+
+  writeMyData(fd); 
+});</english>
+  </metric>
+  <metric id="1020730" type="quality-rule" originalName="Ensure Node.js filesystem are closed" section="total">
+    <english>Number of javascript source codes using fs</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="description">
+    <english>MD5/SHA1 hashes were used as salt to hash a password or a passphrase. In cryptography, a salt is random data that's used as additional input to a one-way function. Recently, several exploits were developed which proved that MD5 will generate identical outputs for the different input parameters. As a consequence, somebody can break your encryption or log on to your website.</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="name">
+    <english>Avoid using risky cryptographic hash (Node.js)</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="rationale">
+    <english>The use of a non-standard algorithm is dangerous because a determined attacker may be able to break the algorithm and compromise whatever data has been protected. Well-known techniques may exist to break the algorithm.</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/327.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="remediation">
+    <english>Avoid using MD5 or SHA1 hashes as input to cryptographic functions or to store passwords. Node.js offers the following hashing algorithms: SHA224, SHA256, SHA384, and SHA512. Make sure you choose the most appropriate one, depending on your use case, security requirements and runtime constraints.</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="remediationSample">
+    <english>const filename = process.argv[2]; 
+const crypto = require('crypto'); 
+const fs = require('fs'); 
+
+const hash = crypto.createHash('sha256'); 
+
+const input = fs.createReadStream(filename); 
+input.on('readable', () =&gt; { 
+  const data = input.read(); 
+  if (data) 
+    hash.update(data); 
+  else { 
+    console.log(`${hash.digest('hex')} ${filename}`); 
+  }</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="sample">
+    <english>const filename = process.argv[2]; 
+const crypto = require('crypto'); 
+const fs = require('fs'); 
+
+const hash = crypto.createHash('md5'); 
+
+const input = fs.createReadStream(filename); 
+input.on('readable', () =&gt; { 
+  const data = input.read(); 
+  if (data) 
+    hash.update(data); 
+  else { 
+    console.log(`${hash.digest('hex')} ${filename}`); 
+  } 
+});</english>
+  </metric>
+  <metric id="1020732" type="quality-rule" originalName="Avoid using risky cryptographic hash (Node.js)" section="total">
+    <english>Number of javascript source codes using createHash function</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="description">
+    <english>Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. This is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="name">
+    <english>Avoid using unsecured cookie (Node.js)</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="rationale">
+    <english>The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/614.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="remediation">
+    <english>Always setting secure option when creating a cookie.</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="remediationSample">
+    <english>var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    secure: true 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="sample">
+    <english>var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+}));</english>
+  </metric>
+  <metric id="1020734" type="quality-rule" originalName="Avoid using unsecured cookie (Node.js)" section="total">
+    <english>Number of NodeJS source code using express-session</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="description">
+    <english>In Node.js, do not allow node server to accept self signed certificates and is not an secure behaviour.</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="name">
+    <english>Avoid bypassing self-signed ssl certificate (Node.js)</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="rationale">
+    <english>Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/295.html 
+https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration 
+https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="remediation">
+    <english>Do not disable NODE_TLS_REJECT_UNAUTHORIZED attributes</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="sample">
+    <english>process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; 
+or 
+export NODE_TLS_REJECT_UNAUTHORIZED = "0";</english>
+  </metric>
+  <metric id="1020736" type="quality-rule" originalName="Avoid bypassing self-signed ssl certificate (Node.js)" section="total">
+    <english>Number of NodeJS source code</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="description">
+    <english>In Node.js, do not disable SSL verification.</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="name">
+    <english>Avoid disabling SSL verification in node-curl</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="rationale">
+    <english>Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/295.html 
+https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration 
+https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="remediation">
+    <english>Do not disable SSL_VERIFYPEER attribute</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="remediationSample">
+    <english>var http = require('http'); 
+var curl = require('node-curl'); 
+
+http.createServer(function(request,response){ 
+
+    var url = 'https://url'; 
+    url += request.url; 
+
+    curl(url, 
+        function(err){ 
+            response.end(this.body); 
+        }) 
+
+}).listen(8000);</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="sample">
+    <english>var http = require('http'); 
+var curl = require('node-curl'); 
+
+http.createServer(function(request,response){ 
+
+    var url = 'https://url'; 
+    url += request.url; 
+
+    curl(url, 
+        { 
+            SSL_VERIFYPEER : 0 
+        }, 
+        function(err){ 
+            response.end(this.body); 
+        }) 
+
+}).listen(8000);</english>
+  </metric>
+  <metric id="1020738" type="quality-rule" originalName="Avoid disabling SSL verification in node-curl" section="total">
+    <english>Number of NodeJS source code using node-curl</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="description">
+    <english>The cookies with an overly broad path, such as the root context path ("/"), can be accessed by all web applications on the same domain name. A cookie with sensitive data, but with too broad a path, could hence be read and tampered by a less secure and untrusted application.</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="name">
+    <english>Avoid creating cookie with overly broad path (Node.js)</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="rationale">
+    <english>If read access is not properly restricted, then attackers can steal the sensitive information. If write access is not properly restricted, then attackers can modify and possibly delete the data, causing incorrect results and possibly a denial of service.</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="remediation">
+    <english>Do not provide a root path</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="remediationSample">
+    <english>// specifc path is recommended 
+
+var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    path: '/admin' 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="sample">
+    <english>// root path is not recommended 
+var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    path: '/' 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020740" type="quality-rule" originalName="Avoid creating cookie with overly broad path (Node.js)" section="total">
+    <english>Number of NodeJS source code using express-session</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="description">
+    <english>The cookies with an overly broad domain can be accessed by all web applications deployed on this domain and its sub-domains. A cookie with sensitive data, but with too broad a domain, could hence be read and tampered with by a less secure and untrusted application.</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="name">
+    <english>Avoid creating cookie with overly broad domain (Node.js)</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="rationale">
+    <english>If read access is not properly restricted, then attackers can steal the sensitive information. If write access is not properly restricted, then attackers can modify and possibly delete the data, causing incorrect results and possibly a denial of service.</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="remediation">
+    <english>Do not provide a domain with wildcard access</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="remediationSample">
+    <english>// explicit secure.example.com domain is recommended 
+// .example.com is not recommended 
+
+var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    domain: 'secure.example.com' 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="sample">
+    <english>// .example.com is not recommended 
+
+var express = require('express'); 
+var session = require('express-session'); 
+
+var app = express(); 
+
+app.use(session({ 
+  secret: 'My super session secret', 
+  cookie: { 
+    domain: '.example.com' 
+  } 
+}));</english>
+  </metric>
+  <metric id="1020742" type="quality-rule" originalName="Avoid creating cookie with overly broad domain (Node.js)" section="total">
+    <english>Number of NodeJS source code using express-session</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="description">
+    <english>All versions of 9.x and later are vulnerable and the severity is HIGH. An attacker can cause a denial of service (DoS) by causing a node process which provides an http server supporting TLS server to crash. This can be accomplished by sending duplicate/unexpected messages during the handshake. This rule has been listed as CVE-2018-7162 in the CVE registry.</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="name">
+    <english>Avoid using TLS library before Node.js 9.11.2 and 10.4.1</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7162</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="remediation">
+    <english>Update the Node.js library to have a fixed TLS implementation</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="sample">
+    <english>var tls = require("tls");
+tls.createSecureContext(options);</english>
+  </metric>
+  <metric id="1020744" type="quality-rule" originalName="Avoid using TLS library before Node.js 9.11.2 and 10.4.1" section="total">
+    <english>Number of NodeJS source code using TLS library</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="description">
+    <english>All versions of 8.x and later are vulnerable and the severity is HIGH. An attacker can cause a denial of service (DoS) by causing a node server providing an http2 server to crash. This can be accomplished by interacting with the http2 server in a manner that triggers a cleanup bug where objects are used in native code after they are no longer available. This rule has been listed as CVE-2018-7161 in the CVE registry.</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="name">
+    <english>Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="reference">
+    <english>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7161</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="remediation">
+    <english>Update the Node.js library to have a fixed HTTP/2 implementation</english>
+  </metric>
+  <metric id="1020746" type="quality-rule" originalName="Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1" section="total">
+    <english>Number of NodeJS source code using HTTP/2 library</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="description">
+    <english>When designing data service like SQL/NoSQL/Data API, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official Node.js syntaxes to do call to data service:
+
+SQL: oracledb, pg, node-sqlserver, mssql, my_connection, hapi, sails
+NoSQL : marklogic, couchdb, node-couchdb, couchdb-nano, mongoose, mode-mongodb-native, mongo-client, hapi, sails</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="name">
+    <english>Avoid using the call of data service with Node.js inside a loop</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="rationale">
+    <english>When designing data service like SQL/NoSQL/Data API, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="reference">
+    <english>CISQ Recommendation: ASCPEM-PRF-08</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="remediation">
+    <english>Try to create a process queue that will manage all the requests with a limited number of concurrent requests. When a request callback has been managed a new request could be fired.</english>
+  </metric>
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" section="total">
+    <english>Number of javascript artifacts calling data frameworks functions</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="description">
+    <english>Node.js version 8.5.0 included a change which caused a security vulnerability in the checks on paths made by some community modules. As a result, an attacker may be able to access file system paths other than those intended. This rule has been listed as CVE-2017-14849 in the CVE registry.</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="name">
+    <english>Avoid using the file path validation with Node.js 8.5.0</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="reference">
+    <english>http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14849</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="remediation">
+    <english>Avoid using normalizeStringWin32 method defined in Path module</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="sample">
+    <english>var path = require("path");
+path.normalizeStringWin32('C:/pathwithtwodots/../andyouhavetheproblem');</english>
+  </metric>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" section="total">
+    <english>Number of NodeJS source code using Path module</english>
+  </metric>
+</root>

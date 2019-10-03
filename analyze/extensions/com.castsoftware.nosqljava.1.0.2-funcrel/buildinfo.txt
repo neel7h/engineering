@@ -1,0 +1,6 @@
+Build date: 23/05/2019  7:20:08,86 
+Build number: 1000021 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master e501d3f1527ba315bb3b12ca7127c3f80c0811e0
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.nosqljava.git origin/1.0.X e60d4fa41047da491ef3792f2fc822638b591bfb
+Publish date: 23/05/2019  7:26:27,62 
+Original version: 1.0.2-funcrel1000021 

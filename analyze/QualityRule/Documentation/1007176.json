@@ -1,0 +1,63 @@
+{
+    "id": 1007176,
+    "name": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
+    "href": "AIP/quality-rules/1007176",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing break or continue statements in loops with high cyclomatic complexity. Artifacts considered for this quality rule are PHP Section, method, function and constructor.",
+    "output": "This report lists all artifacts containing break or continue statements in loops with high cyclomatic complexity.\n\nThis QR provides the following information:\nArtifact full name",
+    "rationale": "Using break or continue statements in loops with high cyclomatic complexity makes code unreadable and difficult to maintain.",
+    "remediation": "Remove break or continue statements and use loop condition or reduce cyclomatic complexity of the loop.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using break or continue statements in loops with high cyclomatic complexity (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

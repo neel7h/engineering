@@ -1,0 +1,55 @@
+{
+    "id": 1520554,
+    "name": "SiebelReview: Using Extension Tables",
+    "href": "AIP/quality-rules/1520554",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Name of the Extension Table",
+    "output": "This rule reports Joins using an Extension Table",
+    "total": "Number of added or modified Joins",
+    "alternativeName": "SiebelReview: Using Extension Tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

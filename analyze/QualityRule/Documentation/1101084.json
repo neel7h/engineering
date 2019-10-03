@@ -1,0 +1,63 @@
+{
+    "id": 1101084,
+    "name": "Avoid Cursors inside a loop (SQL)",
+    "href": "AIP/quality-rules/1101084",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This metric detects artifacts accessing a cursor inside a loop (meaning that the open, fetch loop and close operations are themselves embedded in a loop).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cursors are loops which number of iterations is based on the number of rows returned by an SQL query. Having a cursor inside a loop means having an SQL query inside a loop which number of iterations can be very high (dependent on the data returned from the database).\nThis iterative pattern has proved to be very dangerous for application performance and scalability. Database servers handle in a much better set-oriented pattern rather than pure iterative ones.",
+    "remediation": "The remediation is often to replace the iterative approach with a set-oriented one and thus replace a cursor with a query.",
+    "total": "Number of Artifacts with SQL code containing a cursor.",
+    "alternativeName": "Avoid Cursors inside a loop (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

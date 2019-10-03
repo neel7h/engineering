@@ -1,0 +1,57 @@
+{
+    "id": 1001088,
+    "name": "Avoid undocumented PLI Programs (PL1)",
+    "href": "AIP/quality-rules/1001088",
+    "critical": false,
+    "maxWeight": 8,
+    "description": "This rule searches for all the PL1 undocumented programs.",
+    "output": "The report lists all the undocumented PL1 Main Procedures (Programs). \n\nIt provides following information: \n- PL1 Main Procedure  full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Document all the artifacts.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid undocumented PLI Programs (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

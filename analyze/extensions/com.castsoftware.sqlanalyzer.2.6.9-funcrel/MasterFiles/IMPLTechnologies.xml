@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <metric id="7808" type="quality-rule" originalName="Avoid Artifacts with SQL statement including subqueries"            filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7814" type="quality-rule" originalName="Avoid tables not involved in a Foreign Key"                         filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7816" type="quality-rule" originalName="Avoid using GOTO statement"            							    filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code"            			filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7856" type="quality-rule" originalName="Avoid Tables with more than 20 columns on an OLTP system"           filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7760" type="quality-rule" originalName="Avoid triggers, functions and procedures with a very low comment/code ratio" filter="1101000" filterLabel="SQLAnalyzer"/>        
+    <metric id="7762" type="quality-rule" originalName="Avoid undocumented triggers, functions and procedures"              filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7766" type="quality-rule" originalName="Avoid Artifacts with High Cyclomatic Complexity"                    filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7768" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code"                            filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7772" type="quality-rule" originalName="Avoid Artifacts with High Essential Complexity"                     filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7828" type="quality-rule" originalName="Avoid Artifacts with High RAW SQL Complexity"                       filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7774" type="quality-rule" originalName="Avoid Artifacts with High Integration Complexity"                   filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="1634" type="quality-rule" originalName="Avoid unreferenced Tables"            								filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7860" type="quality-rule" originalName="Avoid unreferenced Functions"            							filter="1101000" filterLabel="SQLAnalyzer"/>
+
+    <metric id="7776" type="quality-rule" originalName="Avoid Artifacts with High Fan-In"                                   filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7778" type="quality-rule" originalName="Avoid Artifacts with High Fan-Out"                                  filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7404" type="quality-rule" originalName="Avoid unreferenced views"                                           filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="7784" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters"                filter="1101000" filterLabel="SQLAnalyzer"/>
+    
+    <!-- Database naming convention rules -->
+    <metric id="7840" type="quality-rule" originalName="Trigger naming convention - prefix control" 						filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="7852" type="quality-rule" originalName="Database view naming convention - prefix control" 					filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="7854" type="quality-rule" originalName="Database table naming convention - prefix control" 					filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="7898" type="quality-rule" originalName="SQL Function naming convention - prefix control" 					filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="7900" type="quality-rule" originalName="Stored Procedure naming convention - prefix control" 				filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="7786" type="quality-rule" originalName="Avoid long Table or View names" 									filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" 			filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" 			filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" 				filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" 		filter="1101000" filterLabel="SQLAnalyzer" />
+	<metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" filter="1101000" filterLabel="SQLAnalyzer" />
+    
+    <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)"               filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL tables (SQL)" filter="0" filterLabel="ALL TECHNOLOGIES"/>
+
+    <metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries"                                   filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries"                               filter="0" filterLabel="ALL TECHNOLOGIES"/>
+
+    <metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries"                                      filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries"                                      filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" filter="0" filterLabel="ALL TECHNOLOGIES"/>
+    <metric id="1101016" type="quality-rule" originalName="Avoid artifacts with too many parameters (SQL)"                  filter="1101000" filterLabel="SQLAnalyzer"/>
+    <metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause"                                 filter="1101000" filterLabel="SQLAnalyzer"/> 
+    <metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers"                                  filter="1101000" filterLabel="SQLAnalyzer"/> 
+    <metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)"                          filter="1101000" filterLabel="SQLAnalyzer"/> 
+    <metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts"                        filter="1101000" filterLabel="SQLAnalyzer"/> 
+    <metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values"                filter="0" filterLabel="ALL TECHNOLOGIES"/> 
+    <metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" filter="0" filterLabel="ALL TECHNOLOGIES"/> 
+    <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views"    filter="1101000" filterLabel="SQLAnalyzer"/> 
+    <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)"    		filter="0" filterLabel="ALL TECHNOLOGIES"/> 
+    <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements"    		filter="0" filterLabel="ALL TECHNOLOGIES"/> 
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="-4"      filterLabel="Cobol"/> 
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="1021000" filterLabel="Python"/> 
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="-8"      filterLabel="PowerBuilder"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="-9"      filterLabel="Visual Basic"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter= "138385" filterLabel="VB.Net"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="140029"  filterLabel="JEE"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="-3"      filterLabel="C++"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="-2"      filterLabel="C"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="138383"  filterLabel="C#"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="138636"  filterLabel="ASP .Net"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="1050001" filterLabel="Objective-C"/>     
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"    		    filter="1050571" filterLabel="C/C++"/> 
+    <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" filter="0" filterLabel="ALL TECHNOLOGIES"/> 
+    <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)"                                  filter="1101000" filterLabel="SQLAnalyzer"/>                                                    
+</root>

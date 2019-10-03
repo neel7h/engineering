@@ -1,0 +1,64 @@
+{
+    "id": 2254,
+    "name": "Avoid large Page files (JEE)",
+    "href": "AIP/quality-rules/2254",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of lines",
+    "description": "Pages should not have more than X lines of code. The threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Page files with more than X lines of code. \nIt provides the following information: \n - Page name\n - number of lines",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure to have pages with not a too big number of lines of code",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum line count",
+            "description": "Maximum Line Count",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

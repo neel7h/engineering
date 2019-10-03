@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!-- 
+  Categories and types for EJB Assistant.
+
+-->
+
+<metaModel file_level="core" file_no="0">
+
+    <category name="CAST_EJB" id="140767">
+        <description>EJB</description>
+    </category>
+    
+    <!-- All EJB Properties -->
+    <category name="Cast_EJB_AllProperties" id="138083">
+        <description>All EJB Properties</description>
+        <inheritedCategory name="CAST_EJB_EntityBeanProperties"/>
+        <inheritedCategory name="CAST_EJB_SessionBeanProperties"/>
+        <inheritedCategory name="CAST_EJB_MessageDrivenBeanProperties"/>
+		<inheritedCategory name="comment"/>
+		<inheritedCategory name="CAST_WithSource"/>
+		<inheritedCategory name="bookmark"/>
+        <inheritedCategory name="CAST_JEE_Managed"/>
+      
+		<!-- Bean class -->
+        <property name="BeanClass" type="string" id="137705">
+            <description>EJB bean class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+
+        <!-- Home interface -->
+        <property name="HomeInterface" type="string" id="137706">
+            <description>EJB home interface</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+
+        <!-- Local home Interface -->
+        <property name="LocalHomeInterface" type="string" id="137707">
+            <description>EJB local home interface</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+        </property>
+
+        <!-- Remote Interface -->
+        <property name="RemoteInterface" type="string" id="137708">
+            <description>EJB remote interface</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+        </property>
+
+        <!-- Local remote interface -->
+        <property name="LocalRemoteInterface" type="string" id="137709">
+            <description>EJB local remote interface</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+        </property>
+
+        <!-- Transaction type for Session Bean and Message Driven Bean (Bean,Container) -->
+        <property name="TransactionType" type="string" id="137721">
+            <description>EJB Transaction Type</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+        </property>
+
+        <!-- Bean Description -->
+        <property name="BeanDescription" type="string" id="137722">
+            <description>EJB bean Description</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+        </property>
+
+        <!-- ejb-jar file path -->
+        <property name="BeanFilePath" type="string" id="137734">
+            <description>EJB bean File Path</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+        </property>
+
+        <!-- CMP Version for Entity Bean -->
+        <property name="CMPVersion" type="string" id="137712">
+            <description>EJB CMP version</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+        </property>
+
+    </category>
+
+    <category name="CAST_EJB_EntityBeanProperties" id="138134">
+        <description>Entity Beans Properties</description>
+
+        <!-- Primary key class -->
+        <property name="PrimaryKeyClass" type="string" id="137710">
+            <description>EJB primary key class</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+        </property>
+
+        <!-- Persistence Type for Entity Bean (Bean,Container) -->
+        <property name="PersistenceType" type="string" id="137735">
+            <description>EJB Persistence Type</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/>
+        </property>
+
+        <!-- Re-entrancy property for Entity Bean (true,false)-->
+        <property name="ReEntrancy" type="string" id="137736">
+            <description>EJB Re-Entrancy</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+        </property>
+
+    </category>
+
+    <category name="CAST_EJB_SessionBeanProperties" id="138135">
+        <description>Session Beans Properties</description>
+
+        <!-- service endpoint interface -->
+        <property name="ServiceEndpointInterface" type="string" id="137711">
+            <description>EJB service endpoint interface</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>
+
+        <!-- Session type for Session Bean (Stateful, Stateless) -->
+        <property name="SessionType" type="string" id="137720">
+            <description>EJB Session Type</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+        </property>
+
+        <!-- Web Service informations for session beans -->
+        <property name="WebServiceInfos" type="string" id="137704">
+            <description>EJB Exposed Web Service</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+    </category>
+
+    <category name="CAST_EJB_MessageDrivenBeanProperties" id="138136">
+        <description>Message Driven Beans Properties</description>
+
+        <!-- Acknowlegde mode for Message Driven Bean (auto-acknowledge,dups-ok-acknowledge)-->
+        <property name="AcknowledgeMode" type="string" id="137737">
+            <description>EJB Acknowledge Mode</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+        </property>
+
+        <!-- Message selector for Message Driven Bean -->
+        <property name="MessageSelector" type="string" id="137713">
+            <description>EJB message selector</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="24000"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+        </property>
+        
+    </category>
+
+	<type name="JOB_EJB_ASSISTANT" id="722">
+		<description>EJB Assistant</description>
+		<property name="profiles" type="stringList" id="140485">
+      <description>Selected profiles id, eg CAST_JAVA_LOG4J_1214. See configuration/EnvProf/Cast.aex</description>
+    </property>
+    <inheritedCategory name="CAST_AnalysisOption_GeneralJobDefinition"/>
+    <inheritedCategory name="CAST_AnalysisOption_WithSelection"/>
+    <inheritedCategory name="ANALYZER_JOB"/>
+  </type>
+
+</metaModel>

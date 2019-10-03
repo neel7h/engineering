@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1020000</SetId>
+	<SetName>SET_HTML5_Artifact</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_1020000</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020001</SetId>
+	<SetName>SET_HTML5_Javascript_Function</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Function_1020001</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020002</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_WebSocket</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Func_WebSocket</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020003</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_XMLHttpRequest</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Func_XMLHttpReq</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020004</SetId>
+	<SetName>SET_HTML5_SourceCode_With_Http_Ref</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_SrcCode_Http_Ref</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020005</SetId>
+	<SetName>SET_HTML5_Source_Code</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Source_Code</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020006</SetId>
+	<SetName>SET_HTML5_CSS_Source_Code</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_CSS_Source_Code</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020007</SetId>
+	<SetName>SET_HTML5_Javascript_Class</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Class_1020001</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020008</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_Cookie</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Func_Cookie</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020009</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_SetTimeout</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Func_SetTimeout</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020010</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_Document_Cookie</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_Document_Cookie</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020011</SetId>
+	<SetName>SET_HTML5_Javascript_Function_with_JSONParseStringify</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_HTML5_JSONParseStringify</SetProcedure>
+</SET_Definitions>
+</DATA>

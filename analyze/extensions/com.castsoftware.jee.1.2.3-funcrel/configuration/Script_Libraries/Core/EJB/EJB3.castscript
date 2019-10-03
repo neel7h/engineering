@@ -1,0 +1,247 @@
+module Core.EJB.EJB3;
+use Core.JEE.Annotations;
+use Core.J2EE;
+use Core.ConstantsMetamodel;
+use Core.Log;
+use Core.Error;
+use Core.String;
+
+/**
+* Create Message Driven Bean: find or create ejb message named mdbName, find or create java class named className and add a prototype link between them 
+* 
+* @param mdbName: Message Driven Bean Name 
+* @param className: class of implementation
+*/
+deprecated void createEJBMDB(string mdbName, string className)
+{
+    symbol ejbMDB = findOrCreateSymbol(mdbName, JV_EJB_MESSAGE);
+    if(ejbMDB == null)
+    {
+        exit("impossible to create the EJB MDB: " + mdbName);
+    }
+    log(DEBUG, "created JV_EJB_MESSAGE: " + mdbName);	
+    setProperty(ejbMDB, Cast_EJB_AllProperties_CMPVersion, "3.0");
+
+    symbol ejbClass = findUniqueSymbol(className, GROUP_JAVA_CLASS);
+    if(ejbClass == null)
+    {
+        exit("impossible to find the class: " + className);
+    }
+    setProperty(ejbMDB, Cast_EJB_AllProperties_BeanClass, className);
+
+    createLink(ejbMDB, ejbClass, prototypeLink);
+    log(DEBUG, "created link from JV_EJB_MESSAGE: " + mdbName + " to JV_CLASS: " + className);
+}
+
+/**
+* Create an EJB Session with the short name of the class = className; 
+* Add an attribute session-type = Stateful or Stateless according to the annotation used;
+* Create a prototype link from the bean named ejbSessionName to the class className ; 
+* Create fireLinks from EJB client interface methods to EJB implementation class methods
+* 
+* @param ejbSessionName: ejb session name
+* @param className:  class of implementation
+* @param localInterfaceName 
+* @param remoteInterfaceName 
+* @param sessionType: stateful or stateless 
+* @param fromAnnotation:  true if bean is defined from annotation, false otherwise (from ejb-jar.xml file)
+*/
+deprecated void createEJBSession(string ejbSessionName, string className, string localInterfaceName, string remoteInterfaceName, string sessionType, boolean fromAnnotation)
+{
+    symbol ejbSession = findOrCreateSymbol(ejbSessionName, JV_EJB_SESSION);
+    if(ejbSession == null)
+    {
+        exit("impossible to create the EJB Session: " + ejbSessionName);
+    }
+    log(DEBUG, "created JV_EJB_SESSION: " + ejbSessionName);
+
+    setProperty(ejbSession, CAST_EJB_SessionBeanProperties_SessionType, sessionType);
+    setProperty(ejbSession, Cast_EJB_AllProperties_CMPVersion, "3.0");
+    symbol ejbClass = findUniqueSymbol(className, GROUP_JAVA_CLASS);
+    if(ejbClass == null)
+    {
+        exit("impossible to find the class: " + className);
+    }
+
+    setProperty(ejbSession, Cast_EJB_AllProperties_BeanClass, className);
+    createLink(ejbSession, ejbClass, prototypeLink);
+    log(DEBUG, "created link from JV_EJB_SESSION: " + ejbSessionName + " to JV_CLASS: " + className);
+
+    if(localInterfaceName == "" && fromAnnotation)
+    {
+        localInterfaceName = getAnnotatedInheritImplementParents(ejbClass, "javax.ejb.Local");	        
+        log(DEBUG, "Local interface of " + className + " is defined with interface annotation on: " + localInterfaceName);
+    }
+
+    if(localInterfaceName != "" && localInterfaceName != null)
+    {
+        symbol localInterface = findUniqueSymbol(localInterfaceName, GROUP_JAVA_INTERFACE);
+        if(ejbSession == null)
+        {
+            exit("impossible to find the interface: " + localInterfaceName);
+        }
+
+        setProperty(ejbSession, Cast_EJB_AllProperties_HomeInterface, localInterfaceName);
+        createLink(localInterface, ejbSession, prototypeLink);
+        createLinksBetweenMethods(localInterface, ejbClass, fireLink, false);
+        log(DEBUG, "created link from Local JV_INTERFACE: " + localInterfaceName + " to JV_CLASS: " + className);
+    }
+
+    if(remoteInterfaceName == "" && fromAnnotation)
+    {
+        remoteInterfaceName = getAnnotatedInheritImplementParents(ejbClass, "javax.ejb.Remote");		 
+        log(DEBUG, "Remote interface of " + className + " is defined with interface annotation on: " + remoteInterfaceName);
+    }
+
+    if(remoteInterfaceName != "" && remoteInterfaceName != null)
+    {
+        symbol remoteInterface = findUniqueSymbol(remoteInterfaceName, GROUP_JAVA_INTERFACE);
+        if(ejbSession == null)
+        {
+            exit("impossible to find the interface: " + remoteInterfaceName);
+        }
+
+        setProperty(ejbSession, Cast_EJB_AllProperties_RemoteInterface, remoteInterfaceName);
+        createLink(remoteInterface, ejbSession, prototypeLink);
+        createLinksBetweenMethods(remoteInterface, ejbClass, fireLink, true);
+        log(DEBUG, "created link from Local JV_INTERFACE: " + remoteInterfaceName + " to JV_CLASS: " + className);
+    }
+}
+ 
+/**
+* Look for all beans of type state
+* 
+* @param state: type of the session bean
+*/
+void createBeans(string state)
+{
+	list(symbol) beanClasses = null;
+	
+	switch(state)
+	{
+		case "Stateful" :
+		{
+			beanClasses = getSymbolsAnnotatedWith( "javax.ejb.Stateful" , JV_CLASS );
+			break;
+		}
+		case "Stateless":
+		{
+			 beanClasses = getSymbolsAnnotatedWith( "javax.ejb.Stateless" , JV_CLASS );
+			 break;
+		}
+		default :
+		{
+			return;
+		}
+	}
+	
+	foreach( symbol beanClass in beanClasses)
+	{
+	  createEJBSession(beanClass, "javax.ejb." + state );
+	}
+}
+
+/**
+* Look for all driven message bean
+*/
+void createEJBMDBeans()
+{
+	list(symbol) messagedrivenBeanClasses = getSymbolsAnnotatedWith( "javax.ejb.MessageDriven" , JV_CLASS );
+	
+	foreach( symbol messagedrivenBeanClass in messagedrivenBeanClasses)
+	{
+		createEJBMDB(messagedrivenBeanClass);
+	}
+}
+
+/**
+* Create a message driven bean from an annotated class
+* 
+* @param class: annotated class
+*/
+void createEJBMDB(symbol class)
+{
+	// attributs venant d'autres annotations de la classe d'implementation
+	list(symbol) annotations = findSymbol(CAST_Java_Annotation, class );
+		
+	string className = getClassName( class );
+
+	string ejbMDBName = getParameterStringFromAnnotations( annotations, "javax.ejb.MessageDriven" , "name");
+	if(ejbMDBName == null)
+	{
+		ejbMDBName = getBeanNameFromClass( class );
+	}
+
+	createEJBMDB( ejbMDBName, className );
+}
+
+/**
+* Create a session bean from an annotated class of type state
+* 
+* @param class: annotated class
+* @param state: ype of the session bean
+*/
+void createEJBSession( symbol class, string state)
+{
+		string className           =  getClassName( class);
+
+		if(!hasAnnotation(class,state))
+		{
+			return;
+		}
+		
+		// attributs venant d'autres annotations de la classe d'implementation
+		list(symbol) annotations = findSymbol(CAST_Java_Annotation, class );
+		
+		string ejbSessionName      =  getParameterStringFromAnnotations	( annotations, state , "name");
+		if(ejbSessionName == null)
+		{
+			ejbSessionName = getBeanNameFromClass( class );
+	}
+		
+		string localInterfaceName  =  getParameterStringFromAnnotations	( annotations, "javax.ejb.Local"     , "value");
+		string remoteInterfaceName =  getParameterStringFromAnnotations	( annotations, "javax.ejb.Remote"    , "value");
+
+		createEJBSession( ejbSessionName, className, localInterfaceName, remoteInterfaceName, state, true)
+}
+
+/**
+* Get the string value of a parameter from the list of annotations
+* 
+* @param annotations: annotations of the class
+* @param annotationName: given name of the annotation
+* @param parameterName: given name of the parameter
+*/
+string getParameterStringFromAnnotations( list(symbol) annotations, string annotationName , string parameterName)
+{
+	foreach(symbol annotation in annotations)
+	{
+		if( annotationName == getStringProperty( annotation, identification_fullName ) )
+		{
+			symbol annotationParam = getAnnotationParameter( annotation, parameterName );
+			return getStringProperty(annotationParam, CAST_Java_AnnotationParameterStringValue);
+		}
+	}
+	
+	return null;
+}
+
+/**
+* Get full qualified name of the class
+* 
+* @param class: java class
+*/
+string getClassName(symbol class)
+{
+	return getStringProperty(class, identification_fullName);
+}
+
+/**
+* Get the name of the bean from the class name
+* 
+* @param class: java class
+*/
+string getBeanNameFromClass(symbol class)
+{
+	return getStringProperty(class, identification_name);
+}

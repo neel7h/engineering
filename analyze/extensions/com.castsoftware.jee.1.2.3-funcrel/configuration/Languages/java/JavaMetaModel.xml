@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!-- 
+  Categories and types for Java.
+
+-->
+
+<metaModel file_level="core" file_no="0">
+
+    <type name="JV_SUBSET" id="107511">
+        <description>Java Subset</description>
+        <inheritedCategory name="PROJECT_SUBSET"/>
+        <inheritedCategory name="CAST_APM_JEE_Module"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+    </type>
+
+    <type name="GROUP_JAVA" id="475">
+        <description>Java</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="CAST_J2EE_GROUP" category="EnlightenTree"/>
+        <tree parent="CAST_J2EE_GROUP" category="ParameterizeTree"/>
+    </type>
+    <type name="GROUP_JAVA_CLASS" id="5200">
+        <description>Java Classes or Interfaces</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="ParameterizeTreeLeaf"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="ParameterizeTree"/>
+    </type>
+    <type name="GROUP_JAVA_METHOD" id="5201">
+        <description>Java Methods</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="ParameterizeTreeLeaf"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="ParameterizeTree"/>
+    </type>
+    <type name="GROUP_JAVA_CTOR" id="5202">
+        <description>Java Constructors</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="ParameterizeTreeLeaf"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="ParameterizeTree"/>
+    </type>
+
+    <!-- GrepTag:APP_Java_language -->
+    <!-- Language category -->
+    <category name="Java" id="6009">
+        <description>Java</description>
+        <attribute name="DefaultVersion" intValue="253"/>
+        <inheritedCategory name="CsvLanguage"/>
+        <inheritedCategory name="CAST_Java_DefinedInCompilationUnit"/>
+        <inheritedCategory name="CAST_Java_LastValidCompilationUnit"/>
+        <inheritedCategory name="CAST_Java_TopLevelSymbol"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Java_IdentifierPositions"/>
+        <inheritedCategory name="CAST_Java_UniqueKey"/>
+    </category>
+
+    <category name="CAST_Java_DefinedInCompilationUnit" id="141542">
+        <description>Reference on a compilation unit</description>
+        <property name="compUnit" type="reference" id="140123">
+            <description>the compilation unit</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_LastValidCompilationUnit" id="141543">
+        <description>Reference on a compilation unit</description>
+        <property name="compUnit" type="reference" id="140124">
+            <description>the compilation unit</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_TopLevelSymbol" id="141544">
+        <description>Top level symbol</description>
+        <property name="symbol" type="reference" id="140125">
+            <description>the top level symbol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_IdentifierPositions" id="141547">
+        <description>Line and column of the symbol identifier</description>
+        <property name="LinePosition" type="integer" id="140130">
+            <description>Line position in source code</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="ColumnPosition" type="integer" id="140131">
+            <description>Column position in source code</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_UniqueKey" id="141548">
+        <description>Unique key</description>
+        <property name="key" type="integer" id="140132">
+            <description>Unique key</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Main_Objects" id="141621">
+        <description>CAST-27016 : Add a new Category to identify main Java Objects (as opposed to EJB, JSP, etc)</description>
+    </category>
+
+    <category name="CAST_Java_All_Properties" id="138078">
+        <description>Java All Properties</description>
+        <inheritedCategory name="Java_properties"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_Project_Properties"/>
+        <inheritedCategory name="CAST_Java_Fields_Properties"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+    </category>
+
+    <partialCategory name="physicalLink">
+        <inheritedCategory name="CAST_Java_All_Link_Properties"/>
+    </partialCategory>
+
+    <!-- 
+		Java All Link Properties : All properties in java link
+	-->
+    <category name="CAST_Java_All_Link_Properties" id="138111">
+        <description>Java All Link Properties</description>
+        <inheritedCategory name="CAST_Java_Loop"/>
+    </category>
+
+    <category name="CAST_Java_Loop" id="138112">
+
+        <description>Link in loop</description>
+
+        <!-- If link is in loop -->
+        <property name="LinkInLoop" type="integer" id="137716">
+            <description>Link in loop</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="110"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/>
+        </property>
+
+    </category>
+
+
+
+    <!-- 
+		JAVA language specific properties
+		@see category 'properties'
+	-->
+    <category name="Java_properties" id="131">
+        <description>specific properties for Java language</description>
+        <inheritedCategory name="properties"/>
+        <property name="generated" type="integer" merge="bitor" id="139025">
+            <description>Generated object</description>
+        </property>
+        <property name="final" type="integer" merge="bitor" id="137">
+            <description>final modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="native" type="integer" merge="bitor" id="138">
+            <description>native modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="synchronized" type="integer" merge="bitor" id="139">
+            <description>synchronized modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="transient" type="integer" merge="bitor" id="140">
+            <description>transient modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="volatile" type="integer" merge="bitor" id="141">
+            <description>volatile modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="strictfp" type="integer" merge="bitor" id="142">
+            <description>strictfp modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="languageMask" type="integer" merge="bitor" id="139028">
+            <description>language source</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="implicit" type="integer" merge="bitor" id="143">
+            <description>implicitly generated</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="deprecated" type="integer" merge="bitor" id="144">
+            <description>deprecation flag</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="enum" type="integer" merge="bitor" id="145">
+            <description>enum modifier</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <property name="varargs" type="integer" merge="bitor" id="146">
+            <description>variable arguments support</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- The object is an instance of a class or a method -->
+        <property name="isInstance" type="integer" merge="bitor" id="138964">
+            <description>Is an instance of a class or a method</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Is a type parameter -->
+        <property name="isTypeParameter" type="integer" merge="bitor" id="138965">
+            <description>Is a Type Parameter</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             Consider this object as a package for resolution. -->
+        <property name="toConsiderAsPackage" type="integer" merge="bitor" id="138966">
+            <description>Consider this object as a package for resolution</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             Consider this object as a type for resolution. -->
+        <property name="toConsiderAsType" type="integer" merge="bitor" id="138967">
+            <description>Consider this object as a type for resolution</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             Consider this object as an expression for resolution. -->
+        <property name="toConsiderAsExpression" type="integer" merge="bitor" id="138968">
+            <description>Consider this object as an expression for resolution</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             Consider this object as a method for resolution. -->
+        <property name="toConsiderAsMethod" type="integer" merge="bitor" id="138969">
+            <description>Consider this object as a method for resolution</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             Consider this object as a constructor for resolution. -->
+        <property name="toConsiderAsConstructor" type="integer" merge="bitor" id="138970">
+            <description>Consider this object as a constructor for resolution</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Needed for resolution.
+             This object as a procedure. It may be invoked and have arguments -->
+        <property name="isAProcedure" type="integer" merge="bitor" id="138971">
+            <description>May be invoked and have arguments</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- This object is a Timed EJB -->
+        <property name="isATimedEJB" type="integer" merge="bitor" id="138972">
+            <description>is a Timed EJB</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- This object represent a Web Service -->
+        <property name="isAWebService" type="integer" merge="bitor" id="138973">
+            <description>Represent a Web Service</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+        <!-- Denotes symbols that may contain local variables -->
+        <property name="hasLocalVariable" type="integer" merge="bitor" id="138974">
+            <description>May contains local variables</description>
+            <attribute name="KEY_PROP" intValue="1"/>
+        </property>
+    </category>
+
+
+
+
+    <!-- All informations stored about JavaDoc comments -->
+    <category name="CAST_Java_JavaDoc" id="137556">
+        <description>JavaDoc comments</description>
+
+        <!-- InfTyp=5000 correspond to the main JavaDoc comment part -->
+        <!-- main JavaDoc comment -->
+        <property name="JavaDocDescription" type="string" id="137431">
+            <description>JavaDoc description</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5000"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+        <!-- InfTyp=5001 correspond to JavaDoc tags	part -->
+        <!-- Use of a custom tag in a JavaDoc comment -->
+        <property name="JavaDocCustomTag" type="stringList" id="137432">
+            <description>JavaDoc custom tag</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+        <!-- Use of a tag @author in a JavaDoc comment -->
+        <property name="JavaDocAuthorTag" type="stringList" id="137433">
+            <description>JavaDoc tag: @author</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+        </property>
+
+        <!-- Use of a tag @deprecated in a JavaDoc comment -->
+        <property name="JavaDocDeprecatedTag" type="stringList" id="137434">
+            <description>JavaDoc tag: @deprecated</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+
+        <!-- Use of a tag @exception in a JavaDoc comment -->
+        <property name="JavaDocExceptionTag" type="stringList" id="137435">
+            <description>JavaDoc tag: @exception</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+        </property>
+
+        <!-- Use of a tag @param in a JavaDoc comment -->
+        <property name="JavaDocParamTag" type="stringList" id="137436">
+            <description>JavaDoc tag: @param</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+        </property>
+
+        <!-- Use of a tag @param in a JavaDoc comment -->
+        <property name="JavaDocReturnTag" type="stringList" id="137437">
+            <description>JavaDoc tag: @return</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+        </property>
+
+        <!-- Use of a tag @see in a JavaDoc comment -->
+        <property name="JavaDocSeeTag" type="stringList" id="137438">
+            <description>JavaDoc tag: @see</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+        </property>
+
+        <!-- Use of a tag @param in a JavaDoc comment -->
+        <property name="JavaDocSerialTag" type="stringList" id="137439">
+            <description>JavaDoc tag: @serial</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>
+
+        <!-- Use of a tag @serialData in a JavaDoc comment -->
+        <property name="JavaDocSerialDataTag" type="stringList" id="137440">
+            <description>JavaDoc tag: @serialData</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+        </property>
+
+        <!-- Use of a tag @serialField in a JavaDoc comment -->
+        <property name="JavaDocSerialFieldTag" type="stringList" id="137441">
+            <description>JavaDoc tag: @serialField</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+        </property>
+
+        <!-- Use of a tag @since in a JavaDoc comment -->
+        <property name="JavaDocSinceTag" type="stringList" id="137442">
+            <description>JavaDoc tag: @since</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+        </property>
+
+        <!-- Use of a tag @throws in a JavaDoc comment -->
+        <property name="JavaDocThrowsTag" type="stringList" id="137443">
+            <description>JavaDoc tag: @throws</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+        </property>
+
+        <!-- Use of a tag @version in a JavaDoc comment -->
+        <property name="JavaDocVersionTag" type="stringList" id="137444">
+            <description>JavaDoc tag: @version</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+        </property>
+
+        <!-- Use of a tag @param in a JavaDoc comment -->
+        <property name="JavaDocInheritDocTag" type="stringList" id="137445">
+            <description>JavaDoc tag: {@inheritDoc}</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5001"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+        </property>
+
+    </category>
+
+    <!-- Line and column beginning position in source code -->
+    <category name="CAST_Java_SymbolPositions" id="140481">
+        <description>Line and column beginning position in source code</description>
+
+
+        <!-- Object line position -->
+        <property name="LinePosition" type="integer" id="137451">
+            <description>Line position in source code</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5003"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+        <!-- Object column position -->
+        <property name="ColumnPosition" type="integer" id="137452">
+            <description>Column position in source code</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5004"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+    </category>
+
+    <!-- Contains all metrics that can be saved by Analyzer on a Java Symbol -->
+    <category name="CAST_Java_SymbolMetrics" id="137557">
+        <description>All metrics that can be saved on a Java Symbol by Analyzer</description>
+
+        <inheritedCategory name="CAST_Java_PropertiesValuesMeaninglessOnLightImportedSymbol"/>
+
+        <!-- If a method calls an SQL Object in a loop -->
+        <property name="numberOfQueriesInLoop" type="integer" id="138790">
+            <description>Number of queries found in a loop</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="150"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+        </property>
+
+        <!-- Number of string concatenation -->
+        <property name="numberOfStringConcatenation" type="integer" id="138791">
+            <description>Number of String Operator+ Calls</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="51"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+        <!-- Number of string concatenation in a loop -->
+        <property name="numberOfStringConcatenationInLoop" type="integer" id="138792">
+            <description>Number of String Operator+ Calls in Loops</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="52"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+        </property>
+    </category>
+
+    <!-- Metric about Java Annotations -->
+    <category name="CAST_Java_AnnotationMetrics" id="137559">
+        <description>Metric about Java annotations</description>
+
+        <!-- Annotation code -->
+        <property name="Annotation" type="stringList" id="137455">
+            <description>Annotation:</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5007"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+    </category>
+
+    <!-- Metric that can be applied on Methods, Constructors or initializers by Analyzer -->
+    <category name="CAST_Java_MethodsMetrics" id="137560">
+        <description>Metric computed on Methods, Constructors or Initializers by Analyzer</description>
+
+        <inheritedCategory name="CAST_Java_PropertiesValuesMeaninglessOnLightImportedSymbol"/>
+        <inheritedCategory name="Cast_Java_FinalizeMethodMetrics"/>
+        <inheritedCategory name="Cast_Java_ReferenceFloat"/>
+        <inheritedCategory name="Cast_Java_OpenDatabaseResource"/>
+        <inheritedCategory name="Cast_Java_OpenStreamResource"/>
+        <inheritedCategory name="CAST_SymbolReferencedInApplication"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidMethodsWithSuspiciousSimilarNamesInInheritanceTree"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidInstantiationsInsideLoops"/>
+        <inheritedCategory name="CAST_AvoidTestingFloatingPointNumbersForEquality"/>
+        <inheritedCategory name="CAST_AvoidSynchronousCallsLackTimeouts"/>
+        <inheritedCategory name="CAST_AvoidDatabaseResourceLeaks"/>
+        <inheritedCategory name="CAST_AvoidStreamResourceLeaks"/>
+        <inheritedCategory name="CAST_AvoidTooManySQLCalls"/>
+        <inheritedCategory name="CAST_AvoidSQLCallWithoutExceptionHandling"/>"
+        <inheritedCategory name="CAST_AvoidUsingHashTable"/>"
+        <inheritedCategory name="CAST_AvoidAnonymousClass"/>
+        <inheritedCategory name="CAST_Java_ReturnInterfacesAsCollection"/>
+        <inheritedCategory name="Cast_Java_InvalidAccessToClosedResource"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="CAST_AvoidIncorrectNumericTypesConversion"/>
+        <inheritedCategory name="Cast_Java_HttpGetcontentResource"/>
+        <inheritedCategory name="Cast_UseHibernateApiForDBResource"/>
+        <inheritedCategory name="Cast_AvoidStringInitialiseWithStringObject"/>
+        <inheritedCategory name="Cast_Java_AvoidWeakEncryption"/>
+        <inheritedCategory name="Cast_Java_AvoidRSAWithoutOEAP"/>
+        <inheritedCategory name="CAST_AvoidDoubleCheckedLocking"/>
+        <inheritedCategory name="CAST_AvoidUsingPrintStackTrace"/>
+        <inheritedCategory name="Cast_Java_AvoidHidingStaticMethod"/>
+
+        <!-- Number of Calls to Operator== on Reference Types -->
+        <property name="EqualOperatorOnReferenceTypes" type="integer" id="137453">
+            <description>Number of Calls to Operator== on Reference Types</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5005"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <!-- not found in rules -->
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+        </property>
+
+        <!-- Number of Calls to Operator!= on Reference Types -->
+        <property name="NotEqualOperatorOnReferenceTypes" type="integer" id="137454">
+            <description>Number of Calls to Operator!= on Reference Types</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5006"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <!-- not found in rules -->
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+        </property>
+
+        <!-- Number of Thread unsafe use of 'this' seen in this object (constructors) -->
+        <property name="NbThreadUnsafeThis" type="integer" id="5008">
+            <description>Number of Thread unsafe use of 'this'</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+            <attribute name="rule" stringValue="CAST-7442"/>
+        </property>
+
+        <!-- Indicates that this object could have been declared with the static modifier (methods) -->
+        <property name="CouldBeDeclaredAsStatic" type="integer" id="5009">
+            <description>Does not use instance member</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <!-- Used in a rule but we take the private methods with that flag -->
+            <attribute name="notDirectlyARule" intValue="1"/>
+        </property>
+
+        <!-- Indicates that this object is a setter (methods) -->
+        <property name="IsSetter" type="integer" id="140327">
+            <description>Setter method</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="14"/>
+        </property>
+
+        <!-- Indicates that this object is a getter (methods) -->
+        <property name="IsGetter" type="integer" id="140328">
+            <description>Getter method</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="15"/>
+        </property>
+
+        <property name="getOrSetTransientField" type="integer" id="140686">
+            <description>If equals to 1 the method access only transient field</description>
+            <attribute name="TRANSIENT" intValue="0"/>
+        </property>
+
+        <!-- Number of new instance of throwable exception without the good parameter signature, thrown in a catch block -->
+        <property name="BadNewExceptionThrown" type="integer" id="137459">
+            <description>Number of exceptions instantiated in a catch block without chaining it</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+            <attribute name="rule" stringValue="CAST-7652"/>
+        </property>
+
+        <!-- Total number of new instance of throwable exception thrown in a catch block -->
+        <property name="TotalNewExceptionThrown" type="integer" id="137460">
+            <description>Total number of exceptions instantiated in a catch block</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+            <!-- not a rule : a total -->
+        </property>
+    </category>
+
+    <category name="Cast_Java_ReferenceFloat" id="141812">
+        <description>Indicates that this method reference a float </description>
+        <property name="referenceFloat" type="integer" id="140385">
+            <description>reference a float</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_OpenDatabaseResource" id="141814">
+        <description>Indicates that this method opens a database resource</description>
+        <property name="openResource" type="integer" id="140386">
+            <description>reference a database resource</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="17"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_OpenStreamResource" id="141816">
+        <description>Indicates that this method opens a stream resource</description>
+        <property name="openStream" type="integer" id="140389">
+            <description>reference a stream</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_InvalidAccessToClosedResource" id="142164">
+        <description>Expired or Released Resource should not be used(CWE-672)</description>
+        <property name="InvalidAccess" type="integer" id="140739">
+            <description>reference to released Resource Usage</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="19"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_HttpGetcontentResource" id="142191">
+        <description> File Upload Improper Input Neutralization(ASCSM-CWE-434)</description>
+        <property name="HttpRequest" type="integer" id="140764">
+            <description>reference to HttpRequest getContentType Usage</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="20"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_AvoidUsingDeprecatedEntity" id="142195">
+        <description>Avoid using deprecated method, constructor, field, type or package</description>
+        <property name="DeprecatedEntity" type="integer" id="140773">
+            <description>Not to use the deprecated java entity</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="21"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_AvoidWeakEncryption" id="142228">
+        <description> Avoid Usage of weak encryption Cryptographic algorithms</description>
+        <property name="WeakEncryption" type="integer" id="140815">
+            <description>reference to WeakEncryption Cryptographic algorithms Usage</description>
+            <attribute name="INF_TYPE" intValue="10008"/>
+            <attribute name="INF_SUB_TYPE" intValue="24"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_AvoidRSAWithoutOEAP" id="142229">
+        <description> Avoid using RSA Cryptographic algorithms without OAEP</description>
+        <property name="RSAEncryption" type="integer" id="140816">
+            <description>reference to WeakEncryption Cryptographic algorithms RSA without OEAP</description>
+            <attribute name="INF_TYPE" intValue="10008"/>
+            <attribute name="INF_SUB_TYPE" intValue="25"/>
+        </property>
+    </category>
+    
+    <category name="Cast_Java_AvoidHidingStaticMethod" id="142327">
+        <description>Avoid hiding static methods</description>
+        <property name="HidingStaticMethod" type="integer" id="140910">
+            <description>Hiding Static Method</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="26"/>
+        </property>
+    </category>
+
+    <category name="Cast_Java_FinalizeMethodMetrics" id="140923">
+        <description>Metric that concern java.lang.Object.finalize() and it's overriding methods</description>
+
+        <property name="numberOfCallsToFinalize" type="integer" id="139482">
+            <description>Number of invalid calls to java.lang.Object.finalize() or an overriding methods</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+            <!-- indicate that property is a rule whithout violation associated to it -->
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+            <attribute name="rule" stringValue="CAST-7936"/>
+        </property>
+
+        <property name="superFinalizeNotCalledInFinallyBlockOfFinalizeMethod" type="integer" id="139483">
+            <description>Indicate that super.finalize() is not called in a finally block of a finalize() method</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="11"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+            <attribute name="rule" stringValue="CAST-7252"/>
+        </property>
+
+        <property name="unproperOverrideOfFinalize" type="integer" id="139484">
+            <description>Indicate that super.finalize() was not called in this finalize method.</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="12"/>
+            <attribute name="ruleWithoutViolation" intValue="1"/>
+            <attribute name="rule" stringValue="CAST-4616"/>
+        </property>
+
+    </category>
+
+    <category name="CAST_Java_Metric_avoidMethodsWithSuspiciousSimilarNamesInInheritanceTree" id="141410">
+        <description></description>
+        <property name="number" type="integer" merge="sum" id="139939">
+            <description>Method with suspicious name or signature in inheritance tree</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_avoidInstantiationsInsideLoops" id="141633">
+        <description></description>
+        <property name="number" type="integer" merge="sum" id="140286">
+            <description>Method in which there's an instantiation inside a loop</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_avoidUnusedImports" id="141475">
+        <description></description>
+        <property name="number" type="integer" merge="sum" id="140007">
+            <description>Avoid Unused Imports</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="1"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_avoidActionClassesInheritingDirectlyFromStrutsAction" id="141618">
+        <description></description>
+        <property name="ParentActionClass" type="reference" id="140267">
+            <description>Parent class of the class where the violation occurs.</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="3"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Metric_avoidDefiningSingletonOrFactoryWhenUsingSpring" id="141631">
+        <description></description>
+        <property name="number" type="integer" merge="sum" id="140285">
+            <description>Singleton or factory class when using Spring.</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+
+    <!-- Properties of Java project -->
+    <category name="CAST_Java_Project_Properties" id="138079">
+        <description>Java Project Properties</description>
+
+        <!-- Report if inheritance links within external libraries are saved -->
+        <property name="InheritanceWithinExternalLibraries" type="integer" id="137446">
+            <description>Save inheritance links within external libs</description>
+            <attribute name="ACCESS_APPVIEW" intValue="0"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="0"/>
+            <attribute name="INF_TYPE" intValue="5009"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+    </category>
+
+    <!-- Properties of Java fields -->
+    <category name="CAST_Java_Fields_Properties" id="138080">
+        <description>Java Fields Properties</description>
+
+        <inheritedCategory name="CAST_Java_PropertiesValuesMeaninglessOnLightImportedSymbol"/>
+        <inheritedCategory name="CAST_SymbolReferencedInApplication"/>
+
+        <!-- Indicate types with which an object has been instanciated with -->
+        <property name="InstantiatedType" type="stringList" id="137458">
+            <description>Static member have been instantiated with</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+    </category>
+
+    <!-- EJB Properties on Java Objects -->
+    <category name="Cast_Java_EJB_ObjectProperties" id="138154">
+        <description>EJB Properties on Java Objects</description>
+
+        <!-- Remove Method -->
+        <property name="Remove" type="integer" id="137742">
+            <description>EJB Remove Method</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="5"/>
+        </property>
+
+        <!-- Indicate if it's a secured method (yes,no) -->
+        <property name="Secured" type="string" id="137743">
+            <description>EJB Secured Method</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+        </property>
+
+        <!-- Transaction attribute of a method -->
+        <property name="TransactionAttribute" type="string" id="137744">
+            <description>EJB Method's Transaction Attribute</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>
+
+        <!-- EJB Interfaces having removed methods  -->
+        <property name="HavingRemoveMethods" type="string" id="139221">
+            <description>EJB Interfaces having removed hhhs</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="8"/>
+        </property>
+
+        <!-- EJB 3 - Avoid non serializable stateful bean : Reports all Stateful bean class that don't implement Serializable unless they inherit from a serializable class or they are Java primitives -->
+        <property name="NonSerializableStatefulBean" type="string" id="139324">
+            <description>Non serializable stateful bean</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="9"/>
+        </property>
+    </category>
+
+
+    <!-- Fob options needed for launching a java analysis -->
+    <category name="CAST_Java_JobOptions" id="139887">
+        <description>Job Options for a Java Analysis</description>
+        <inheritedCategory name="CAST_AnalysisOption_GeneralJobDefinition"/>
+
+        <!-- Java Configuration ->  Java Settings ; Enable Inference Engine -->
+        <property name="enableInferenceEngine" type="integer" id="138640">
+            <description>Java Settings Option. Enable Inference Engine. Set to 1 by default</description>
+            <attribute name="ANA_INF_TYPE" intValue="5000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="8"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Java Configuration ->  Java Settings ; Enable Parametrization -->
+        <property name="enableParametrization" type="integer" id="138641">
+            <description>Java Settings Option. Enable Parametrization. Set to 1 by default</description>
+            <attribute name="ANA_INF_TYPE" intValue="5000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="9"/>
+            <attribute name="false" intValue="0"/>
+            <attribute name="true" intValue="1"/>
+        </property>
+        <!-- Java Configuration ->  Java Settings ; Warn About Shared Files -->
+        <!-- @deprecated -->
+        <property name="warnAboutSharedFiles" type="integer" id="138699">
+            <description>Java Settings Option. Warn About Shared Files. Set to 0 by default</description>
+        </property>
+        <!-- Java Configuration ->  Java Settings ; Verify Class Location -->
+        <property name="verifyClassLocation" type="integer" id="138700">
+            <description>Java Settings Option. Verify Class Location. Set to 0 by default</description>
+            <attribute name="ANA_INF_TYPE" intValue="5000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="4"/>
+        </property>
+        <!-- Java Configuration ->  Java Settings ; JavaVersion -->
+        <property name="javaVersion" type="integer" id="138642">
+            <description>Java Settings Option. JDK Version = 220 for jdk 1.2, 230 for 1.3, 240 for 1.4, 250 for 5.0, 251 for 6.0</description>
+            <attribute name="ANA_INF_TYPE" intValue="5000"/>
+            <attribute name="ANA_INF_SUB_TYPE" intValue="1"/>
+            <attribute name="JDK_1.2" intValue="220"/>
+            <attribute name="JDK_1.3" intValue="230"/>
+            <attribute name="JDK_1.4" intValue="240"/>
+            <attribute name="JDK_5.0" intValue="250"/>
+            <attribute name="JDK_6.0" intValue="251"/>
+        </property>
+
+        <property name="extractXmlFromJar" type="integer" id="139908">
+            <description></description>
+        </property>
+
+        <property name="deployDirectory" type="string" id="139909">
+            <description></description>
+        </property>
+
+        <property name="activateJavaTrace" type="integer" id="139910">
+            <description></description>
+        </property>
+
+        <property name="unpackArchiveInMemory" type="integer" id="139912">
+            <description></description>
+        </property>
+
+        <property name="saveInheritanceInExternalLibraries" type="integer" id="139913">
+            <description></description>
+        </property>
+
+        <property name="XQueryCommand" type="string" id="139914">
+            <description></description>
+        </property>
+
+        <property name="useSpring" type="integer" id="140612">
+            <description>If not 0 spring framework used</description>
+        </property>
+
+        <property name="usePersistence" type="integer" id="140685">
+            <description>If not 0 one persistence framework is used</description>
+        </property>
+
+        <property name="useCDI" type="integer" id="140658">
+            <description>If not 0, cdi framework used</description>
+        </property>
+
+    </category>
+
+    <!-- Java language properties about the referenced type
+         Like "number of array dimension", "is elliptic"-->
+    <category name="CAST_Java_ReferencedTypeCharacteristics" id="140264">
+        <description>Java language properties about the referenced type</description>
+        <inheritedCategory name="CAST_WithReferencedType"/>
+
+        <!-- The number of dimensions of the type. 0 only the type, 1 array ([]), 2 matrix ([][]), ... -->
+        <property name="numberOfDimension" type="integer" id="139070">
+            <description>The number of dimensions of the type</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <!-- Indicate if the type is a varagrs (String... s). 
+             1 if true, 0 if false. -->
+        <property name="isVarArgs" type="integer" id="139069">
+            <description>Indicate if the type is a varargs</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+    </category>
+
+    <!-- Inherited by a category, it indicates that it's properties values have no meaning on a light imported symbol -->
+    <category name="CAST_Java_PropertiesValuesMeaninglessOnLightImportedSymbol" id="140480">
+        <description>Inherited by a category, it indicates that it's properties values have no meaning on a light imported symbol</description>
+    </category>
+
+
+
+
+
+    <!-- Begin Categories to group MetaType -->
+
+    <!-- To indicate what is a Java Type (class, interface, ...) -->
+    <category name="CAST_Java_Types" id="139020">
+        <description>Indicate that it is a Java Type (class, interface, ...)</description>
+        <inheritedCategory name="CAST_ObjectOrientedLanguageType"/>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+    </category>
+
+    <!-- To indicate what is a generic Java Type (generic class, generic interface, ...) -->
+    <category name="CAST_Java_GenericTypes" id="140258">
+        <description>Indicate that it is a Java Generic Type (generic class, generic interface, ...)</description>
+        <inheritedCategory name="CAST_Java_Types"/>
+        <inheritedCategory name="CAST_Java_WithEfferentCoupling"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="templateObject"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+    </category>
+
+    <!-- To indicate what is a Java callable member (method, constructor, ...) -->
+    <category name="CAST_Java_Method" id="138403">
+        <description>Java All Methods</description>
+        <inheritedCategory name="CAST_WithParameters"/>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <inheritedCategory name="CAST_SQLDIAGS_NO_USE_OF_FIRST_COL_OF_INDEX"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_Java_MethodLinkSuspension" />
+        <inheritedCategory name="CAST_Java_Signature" />
+        <inheritedCategory name="CAST_Java_ServerObjectTarget" />
+        <inheritedCategory name="CAST_OO_Visibility" />
+    </category>
+
+    <!-- To indicate what is a generic Java callable member (generic method, generic constructor, ...) -->
+    <category name="CAST_Java_GenericMethod" id="140257">
+        <description>Java All Methods</description>
+        <inheritedCategory name="CAST_Java_Method"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="templateObject"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_OO_Visibility" />
+    </category>
+
+    <category name="CAST_Java_MethodLinkSuspension" id="141549">
+        <description>Link suspensions of a methods</description>
+        <property name="linkSuspension" type="referenceList" id="140133">
+            <description>Link suspensions</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_Signature" id="141552">
+        <description>Signature</description>
+        <property name="signature" type="string" id="140135">
+            <description>Signature</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_Java_ServerObjectTarget" id="141553">
+        <description>Server object target</description>
+        <property name="target" type="integer" id="140136">
+            <description>Server object target</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <!-- To indicate that the object can be saved in KB -->
+    <category name="CAST_Java_KB_Object" id="140215">
+        <description>Represent a Java symbol that can be persisted</description>
+        <inheritedCategory name="KB object"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="Java_properties"/>
+
+        <!-- GUID that the symbol should have if it was an imported object.  -->
+        <property name="guidAsImportedObject" type="string" id="139066">
+            <description>GUID that the symbol should have if it was an imported object</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <!-- For storing generic keyprop value -->
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+    </category>
+
+    <!-- 
+        Represent a Java symbol that is represented by an identifier, qualified or not. (field, variable, ...) 
+        They are not all some KB objects
+    -->
+    <category name="CAST_Java_SymbolComposedWithOnlyIdentifiers" id="140617">
+        <description>Represent a Java symbol that is represented by an identifier, qualified or not</description>
+    </category>
+
+
+
+    <!-- End Categories to group type -->
+
+
+
+
+
+
+
+
+
+    <!-- APP_Java_language -->
+    <category name="javaEmbeddedClass" id="1027">
+        <description>javaEmbeddedClass</description>
+        <property name="className" type="string" id="201">
+            <description>className</description>
+        </property>
+        <property name="classPackage" type="string" id="202">
+            <description>classPackage</description>
+        </property>
+    </category>
+
+    <!-- GrepTag:APM_Java_categories -->
+    <category name="APM Java Module" id="-5" status="deprecated">
+        <!--"APM Java Module" is deprecated from Lindbergh Technology Preview version; replaced with CAST_APM_JEE_Module-->
+        <description>Java</description>
+        <inheritedCategory name="APM Client Modules"/>
+    </category>
+
+    <category name="APM Java All" id="10034">
+        <description>Java All objects _ classes and subs</description>
+    </category>
+    <category name="APM Java Methods" id="10008">
+        <description>Java Methods</description>
+        <inheritedCategory name="APM Methods"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+    </category>
+    <category name="APM Java All Classes" id="10024">
+        <description>Java Classes and Interfaces</description>
+        <inheritedCategory name="APM Sources"/>
+        <inheritedCategory name="APM Java All"/>
+    </category>
+    <category name="APM Java Classes" id="10032">
+        <description>Java Classes</description>
+        <inheritedCategory name="APM Java All Classes"/>
+        <inheritedCategory name="APM Classes"/>
+    </category>
+    <category name="APM Java Interfaces" id="10033">
+        <description>Java Interfaces</description>
+        <inheritedCategory name="APM Java All Classes"/>
+        <inheritedCategory name="APM Interfaces"/>
+    </category>
+    <category name="APM Java Artifacts" id="10029">
+        <description>Java Artifacts</description>
+        <inheritedCategory name="APM Client Language Artifacts"/>
+        <inheritedCategory name="APM Java All"/>
+        <inheritedCategory name="APM Client-Server Artifacts"/>
+    </category>
+
+    <type name="JV_COMPONENT" id="267">
+        <description>Java Component</description>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="CAST_J2EE_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_Java_Component" id="138290">
+        <description>New Java Component</description>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="CAST_J2EE_GROUP" category="EnlightenTree"/>
+    </type>
+
+    <type name="JV_FILE" id="620">
+        <description>Java File</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5170"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="File"/>
+        <inheritedCategory name="shell"/>
+        <inheritedCategory name="synchronizable"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidUnusedImports"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+    </type>
+    <type name="JV_IMPORT" id="621">
+        <description>Java Import</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5171"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_JAVA_ImportProperties"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+    </type>
+
+    <!-- 
+		Represent a java root.
+	-->
+    <type name="CAST_Java_Root" id="140369">
+        <description>Java Root</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="CAST_WithChildren"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <attribute name="KEY_CLASS" intValue="5000"/>
+    </type>
+
+    <type name = "JV_ThisLiteral" id="142102">
+        <description>This literal</description>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <attribute name="KEY_CLASS" intValue="5260"/>
+    </type>
+    <!-- 
+		Represent a java local variable.
+	-->
+    <type name="CAST_Java_LocalVariable" id="140392">
+        <description>Java Local variable</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="object"/>
+        <inheritedCategory name="CAST_Java_NamespaceVariable"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+        <attribute name="KEY_CLASS" intValue="5100"/>
+    </type>
+
+    <!-- 
+		Represent namespace variable.
+	-->
+    <category name="CAST_Java_NamespaceVariable" id="140405">
+        <description>Java variable namespace</description>
+    </category>
+
+    <!-- 
+		Represent namespace block.
+	-->
+    <category name="CAST_Java_NamespaceBlock" id="140406">
+        <description>Java block namespace</description>
+    </category>
+
+    <category name="CAST_Java_ThisLiteral" id="142101">
+        <description>This literal</description>
+        <attribute name="KEY_CLASS" intValue="5260"/>
+    </category>
+    <!-- 
+		Represent namespace method.
+	-->
+    <category name="CAST_Java_NamespaceMethod" id="140407">
+        <description>Java block namespace</description>
+        <inheritedCategory name="CAST_Java_Method"/>
+    </category>
+
+    <!-- 
+		Represent namespace constructor.
+	-->
+    <category name="CAST_Java_NamespaceConstructor" id="140616">
+        <description>Java constructor namespace</description>
+        <inheritedCategory name="CAST_Java_Method"/>
+    </category>
+
+    <!-- 
+		Represent a java block.
+	-->
+    <type name="CAST_Java_Block" id="140393">
+        <description>Java bloack</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithChildren"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_Java_NamespaceBlock"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <attribute name="KEY_CLASS" intValue="5110"/>
+    </type>
+
+    <!-- 
+		Represent a java project.
+	-->
+    <type name="JV_PROJECT" id="98">
+        <description>Java Project</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5010"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="EnlightenBrowserRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="CAST_APM_JEE_Module"/>
+        <inheritedCategory name="project"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="CAST_Java_Project_Properties"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <property name="jspProjectRef" type="reference" id="140332">
+            <description>A reference to the associated JSP project.</description>
+        </property>
+    </type>
+
+    <!-- 
+		Represent a java package.
+	-->
+    <type name="JV_PACKAGE" id="99">
+        <description>Java Package</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5020"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="APM Inventory Packages"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_ModulesFavoriteType"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+    </type>
+
+    <category name="CAST_JEE_ActionClass" id="141173">
+        <description></description>
+        <property name="strutsVersion" type="integer" id="139592">
+            <description>Struts Action Class Version</description>
+            <attribute name="INF_TYPE" intValue="5008"/>
+            <attribute name="INF_SUB_TYPE" intValue="13"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+        </property>
+    </category>
+
+    <!-- 
+		Represent a java class that have no generic java type parameters.
+	-->
+    <type name="JV_CLASS" id="100">
+        <description>Java Class</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5040"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="APM Java Classes"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_Types"/>
+        <inheritedCategory name="CAST_Java_WithEfferentCoupling"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="CAST_JEE_ActionClass"/>
+        <inheritedCategory name="CAST_Spring_DoNotUseAutoWiring"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidActionClassesInheritingDirectlyFromStrutsAction"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidDefiningSingletonOrFactoryWhenUsingSpring"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a generic java class. 
+		A class that have some generic java type parameters.
+	-->
+    <type name="JV_GENERIC_CLASS" id="989">
+        <description>Generic Java Class</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5040"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="APM Java Classes"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_GenericTypes"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidActionClassesInheritingDirectlyFromStrutsAction"/>
+        <inheritedCategory name="CAST_Java_Metric_avoidDefiningSingletonOrFactoryWhenUsingSpring"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_Spring_DoNotUseAutoWiring"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java instatiated class. 
+		It's a generic java class but some, or all, of its generic java type parameters
+		have been qualified as a java class or a java interface.
+	-->
+    <type name="JV_INST_CLASS" id="975">
+        <description>Java Instantiated Class</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5042"/>
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="templateInstanceClass"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_Spring_DoNotUseAutoWiring"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a generic java type parameter of a generic java objet 
+		or an instanciated java object.
+	-->
+    <type name="JV_TYPEPARAM" id="699">
+        <description>Generic Java Type Parameter</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5045"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="templateObject"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_TypeParameter"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+    </type>
+
+    <!-- 
+		Represent a java enum. This object is a java class that have a specific behaviour.
+		So it inherit of the same categories as JV_CLASS. And must be considered in treatments as a
+		java class if no specific treatment must be done on java enum.
+	-->
+    <type name="JV_ENUM" id="900">
+        <description>Java Enum</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5040"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="APM Java Classes"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_Types"/>
+        <inheritedCategory name="CAST_Java_WithEfferentCoupling"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java enum item.
+	-->
+    <type name="JV_ENUM_ITEM" id="901">
+        <description>Java Enum Item</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5060"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="field"/>
+        <inheritedCategory name="CAST_SymbolReferencedInApplication"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="CAST_AvoidIncorrectNumericTypesConversion"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java constructor that has no generic java type parameters.
+	-->
+    <type name="JV_CTOR" id="101">
+        <description>Java Constructor</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5050"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="APM Java Methods"/>
+        <inheritedCategory name="APM Inventory Methods"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_NamespaceConstructor"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="CAST_JEE_UseDeclarativeTransactions"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CTOR" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a generic java constructor. 
+		A constructor that has some generic java type parameters.
+	-->
+    <type name="JV_GENERIC_CTOR" id="991">
+        <description>Generic Java Constructor</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5050"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="APM Java Methods"/>
+        <inheritedCategory name="APM Inventory Methods"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_GenericMethod"/>
+        <inheritedCategory name="CAST_Java_NamespaceConstructor"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_JEE_UseDeclarativeTransactions"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CTOR" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java instatiated constructor. 
+		It's a generic java constructor but some, or all, of its generic java type parameters
+		have been qualified as a java class or a java interface.
+	-->
+    <type name="JV_INST_CTOR" id="978">
+        <description>Java Instantiated Constructor</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5055"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="templateInstanceMethod"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CTOR" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java method that has no generic java type parameters.
+	-->
+    <type name="JV_METHOD" id="102">
+        <description>Java Method</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5070"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="APM Java Methods"/>
+        <inheritedCategory name="APM Inventory Methods"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="Cast_MethodProperties"/>
+        <inheritedCategory name="CAST_Java_NamespaceMethod"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_METHOD" category="ParameterizeTree"/>
+        <inheritedCategory name="CAST_OO_Visibility" />
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="Cast_Java_AvoidWeakEncryption"/>
+        <inheritedCategory name="Cast_Java_AvoidRSAWithoutOEAP"/>
+        <inheritedCategory name="CAST_AvoidUsingPrintStackTrace"/>
+        <inheritedCategory name="CAST_JEE_UseDeclarativeTransactions"/>
+        
+    </type>
+
+    <!-- 
+		Represent a generic java method. 
+		A method that has some generic java type parameters.
+	-->
+    <type name="JV_GENERIC_METHOD" id="988">
+        <description>Generic Java Method</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5070"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="APM Java Methods"/>
+        <inheritedCategory name="APM Inventory Methods"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="Cast_MethodProperties"/>
+        <inheritedCategory name="CAST_Java_GenericMethod"/>
+        <inheritedCategory name="CAST_Java_NamespaceMethod"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="CAST_JEE_UseDeclarativeTransactions"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_METHOD" category="ParameterizeTree"/>
+        <inheritedCategory name="CAST_OO_Visibility" />
+    </type>
+
+    <!-- 
+		Represent a java instatiated method. 
+		It's a generic java method but some, or all, of its generic java type parameters
+		have been qualified as a java class or a java interface.
+	-->
+    <type name="JV_INST_METHOD" id="977">
+        <description>Java Instantiated Method</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5075"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="templateInstanceMethod"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_METHOD" category="ParameterizeTree"/>
+    </type>
+
+
+    <!-- Correspond to CJavaVariable in C++ code -->
+    <category name="CAST_Java_Variable" id="141801">
+        <description>A Variable like object</description>
+        <inheritedCategory name="CAST_WithReferencedType"/>
+    </category>
+    <!-- 
+		Represent a java parameter of a method or a constructor.
+	-->
+    <type name="JV_PARAMETER" id="963">
+        <description>Java Parameter</description>
+        <attribute name="KEY_CLASS" intValue="5090"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="CAST_WithChildren"/>
+        <inheritedCategory name="parameter"/>
+        <inheritedCategory name="persistent"/>
+        <inheritedCategory name="CAST_Java_NamespaceVariable"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_ReferencedTypeCharacteristics"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+    </type>
+
+    <!-- 
+		Represent a java field.
+	-->
+    <type name="JV_FIELD" id="103">
+        <description>Java Field</description>
+        <attribute name="KEY_CLASS" intValue="5060"/>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="field"/>
+        <inheritedCategory name="APM Data Members"/>
+        <inheritedCategory name="APM Java All"/>
+        <inheritedCategory name="APM Client-Server Artifacts"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="ParameterizeTreePrivate"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_Java_Fields_Properties"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_SQLDIAGS_NO_USE_OF_FIRST_COL_OF_INDEX"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+        <inheritedCategory name="Cast_Java_OpenDatabaseResource"/>
+        <inheritedCategory name="Cast_Java_OpenStreamResource"/>
+        <inheritedCategory name="CAST_AvoidDatabaseResourceLeaks"/>
+        <inheritedCategory name="CAST_AvoidStreamResourceLeaks"/>
+        <inheritedCategory name="CAST_AvoidUsingHashTable"/>
+        <inheritedCategory name="CAST_AvoidSQLCallWithoutExceptionHandling"/>
+        <inheritedCategory name="CAST_AvoidTooManySQLCalls"/>
+        <inheritedCategory name="CAST_AvoidTestingFloatingPointNumbersForEquality"/>
+        <inheritedCategory name="CAST_AvoidAnonymousClass"/>
+        <inheritedCategory name="Cast_UseHibernateApiForDBResource"/>
+        <inheritedCategory name="Cast_AvoidStringInitialiseWithStringObject"/>
+        <inheritedCategory name="CAST_AvoidSynchronousCallsLackTimeouts"/>
+        <inheritedCategory name="Cast_Java_InvalidAccessToClosedResource"/>
+        <inheritedCategory name="Cast_Java_AvoidUsingDeprecatedEntity"/>
+        <inheritedCategory name="CAST_AvoidIncorrectNumericTypesConversion"/>
+        <inheritedCategory name="Cast_Java_HttpGetcontentResource"/>
+        <inheritedCategory name="Cast_Java_AvoidWeakEncryption"/>
+        <inheritedCategory name="Cast_Java_AvoidRSAWithoutOEAP"/>
+        <inheritedCategory name="CAST_AvoidUsingPrintStackTrace"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java interface that have no generic java type parameters.
+	-->
+    <type name="JV_INTERFACE" id="104">
+        <description>Java Interface</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5030"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="APM Java Interfaces"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_WithEfferentCoupling"/>
+        <inheritedCategory name="CAST_Java_Types"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a generic java interface. 
+		An interface that have some generic java type parameters.
+	-->
+    <type name="JV_GENERIC_INTERFACE" id="990">
+        <description>Generic Java Interface</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5030"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="APM Java Interfaces"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_GenericTypes"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java instatiated interface. 
+		It's a generic java interface but some, or all, of its generic java type parameters
+		have been qualified as a java class or a java interface.
+	-->
+    <type name="JV_INST_INTERFACE" id="976">
+        <description>Java Instantiated Interface</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5035"/>
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowserDomainRoot"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="templateInstanceInterface"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+    <type name="JV_INIT" id="105">
+        <description>Java Initializer</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5080"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="APM Java Artifacts"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_Java_NamespaceBlock"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_SymbolOutExtendImplementOverride" />
+        <inheritedCategory name="CAST_SymbolInExtendImplementOverride" />
+        <inheritedCategory name="CAST_AvoidAnonymousClass"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+
+        <!-- It's occurence number into it's direct parent (java class) -->
+        <property name="occurenceNumber" type="integer" id="139065">
+            <description>Occurence number of the object into it's direct parent.</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <!-- 
+		Represent a java anotation type. This object is a java interface that have a specific behaviour.
+		So it inherit of the same categories as JV_INTERFACE. And must be considered for treatments as a
+		java interface if no specific treatment must be done on java annotation type.
+	-->
+    <type name="CAST_Java_AnnotationType" id="137126">
+        <description>Java Annotation Type</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5190"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="APM Java Interfaces"/>
+        <inheritedCategory name="AUTO_VIEW_HIGH_LEVEL_OBJECT"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_Types"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_CLASS" category="ParameterizeTree"/>
+    </type>
+
+    <!-- 
+		Represent a java anotation type method. This object is a java abstract method that have a specific behaviour.
+		So it inherit of the same categories as JV_METHOD. Event if it has an implicit abstract property, it inherit
+		of "withCode" property because of the default values that can be given to an annotation type method.
+	-->
+    <type name="CAST_Java_AnnotationTypeMethod" id="137127">
+        <description>Java Annotation Type Method</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5200"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_AnnotationMetrics"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="Cast_Java_EJB_ObjectProperties"/>
+        <inheritedCategory name="CAST_Java_NamespaceMethod"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_METHOD" category="ParameterizeTree"/>
+    </type>
+
+    <type name="JOB_JAVA_ANALYZER" id="717">
+        <description>Java Analyzer</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="ANALYZER_JOB"/>
+    </type>
+    <type name="JOB_RF_JAVA" id="739">
+        <description>Java Reference Finder</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="JOB"/>
+    </type>
+    <type name="JOB_CHILD_RF_JAVA" id="766">
+        <description>Java Reference Finder</description>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="JOB"/>
+    </type>
+
+    <!-- 
+		Represent a java annotation parameter. 
+	-->
+    <type name="CAST_Java_AnnotationParameter" id="138921">
+        <description>Java Annotation Parameter</description>
+        <attribute name="KEY_CLASS" intValue="5220"/>
+        <inheritedCategory name="Java"/>
+        <property name="intValue" type="integer" id="138247">
+            <description>Integer value of the parameter</description>
+        </property>
+        <property name="stringValue" type="string" id="138248">
+            <description>String value of the parameter</description>
+        </property>
+        <property name="booleanValue" type="integer" id="138249">
+            <description>Boolean value of the parameter</description>
+        </property>
+        <property name="symbolValue" type="integer" id="138250">
+            <description>Symbol value of the parameter</description>
+        </property>
+        <property name="doubleValue" type="string" id="138251">
+            <description>Double value of the parameter</description>
+        </property>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithChildren"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="metric"/>
+        <inheritedCategory name="POSITIONABLE"/>
+        <inheritedCategory name="comment"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_JAVA_AnnotationTypeMethod"/>
+        <inheritedCategory name="CAST_JAVA_StringValues"/>
+        <inheritedCategory name="CAST_JAVA_AnnotationParamClones"/>
+        <inheritedCategory name="CAST_JAVA_AnnotationValues"/>
+        <inheritedCategory name="CAST_JAVA_DefaultedParam"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+    </type>
+
+    <category name="CAST_JAVA_AnnotationTypeMethod" id="141562">
+        <description>Annotation type method that represent this annotation element value</description>
+        <property name="typeMethod" type="reference" id="140145">
+            <description>Type method</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_StringValues" id="141563">
+        <description>String values</description>
+        <property name="values" type="stringList" id="140146">
+            <description>String values</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_AnnotationParamClones" id="141564">
+        <description>Annotation parameter clones</description>
+        <property name="clones" type="referenceList" id="140147">
+            <description>Annotation parameter clones</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_AnnotationValues" id="141565">
+        <description>Annotation values</description>
+        <property name="values" type="referenceList" id="140148">
+            <description>Annotation values</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_DefaultedParam" id="141566">
+        <description>Annotation param defaulted</description>
+        <property name="defaulted" type="integer" id="140149">
+            <description>Indicates if the parameter is defaulted</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <!-- 
+		Represent a java annotation parameter. 
+	-->
+    <type name="CAST_Java_Annotation" id="138943">
+        <description>Java Annotation</description>
+        <attribute name="KEY_CLASS" intValue="5210"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="CAST_WithChildren"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="identification"/>
+        <inheritedCategory name="CAST_Legacy_WithKeyProp"/>
+        <inheritedCategory name="CAST_WithSource"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="metric"/>
+        <inheritedCategory name="comment"/>
+        <inheritedCategory name="POSITIONABLE"/>
+        <inheritedCategory name="CAST_Java_SymbolComposedWithOnlyIdentifiers"/>
+        <inheritedCategory name="CAST_Mangled"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_JAVA_DefaultParamsComputed"/>
+        <inheritedCategory name="CAST_JAVA_DefaultParamsValues"/>
+        <inheritedCategory name="CAST_JAVA_ReferencedInAnnotationType"/>
+        <inheritedCategory name="CAST_JAVA_AnnotationConfigFromEnvProf"/>
+        <inheritedCategory name="CAST_Java_Variable"/>
+    </type>
+
+    <category name="CAST_JAVA_DefaultParamsComputed" id="141558">
+        <description>Indicate if default parameters have already been computed</description>
+        <property name="computed" type="integer" id="140142">
+            <description>Indicate if default parameter have already been computed</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_DefaultParamsValues" id="141559">
+        <description>Default values of an annotation</description>
+        <property name="values" type="referenceList" id="140143">
+            <description>Default values</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_ReferencedInAnnotationType" id="141560">
+        <description>Indicate if the annotation was already referenced in its annotation type list</description>
+        <property name="referenced" type="integer" id="140144">
+            <description>Indicate if it was already referenced</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_AnnotationConfigFromEnvProf" id="141570">
+        <description>Configuration of an annotation in environment profiles</description>
+        <property name="annotationCfg" type="reference" id="140163">
+            <description>The configuration</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="CAST_Java_AnnotationConfiguration" id="141568">
+        <description>Java Annotation Configuration</description>
+        <property name="cfgsInGoup" type="referenceList" id="140152">
+            <description>List of configurations in group</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="FQName" type="string" id="140153">
+            <description>Annotation name</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <type name="CAST_Java_AnnotationConfigurationInGroup" id="141569">
+        <description>Java Annotation Configuration In Group</description>
+        <property name="groupFQName" type="string" id="140154">
+            <description>Group annotation name</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="isIgnored" type="integer" id="140155">
+            <description>Java Annotation Configuration In Group ignored</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="xmlExportFileName" type="string" id="140157">
+            <description>XML export file name</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </type>
+
+    <!-- 
+   Holds a reference on a called procedure, the call context and a list of the Ids of Rules created for the procedure arguments
+   Its main purpose is to store information for forward utilization
+	-->
+    <type name="CAST_Java_ProcCallInfos" id="141476">
+        <description>Procedure call information</description>
+        <property name="procedure" type="reference" id="140008">
+            <description>Procedure that receive arguments (called Procedure)</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="callContext" type="reference" id="140009">
+            <description>Context within which procedure has been called</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="typeOfQualifier" type="reference" id="140011">
+            <description>Type of the qualifier of call function</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="linkInLoop" type="integer" id="140012">
+            <description>Link In Loop metric</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <inheritedCategory name="CAST_JAVA_ArgsRulesIds"/>
+    </type>
+
+    <category name="CAST_JAVA_ArgsRulesIds" id="141478">
+        <description>List of Ids of the rules that have been created within the Inf Eng for each argument position</description>
+        <property name="argsRulesIds" type="integerList" id="140010">
+            <description>List of Ids</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_ReferenceAJavaSymbol" id="141249">
+        <description>The owner reference a Java Symbol</description>
+        <property name="POSITIONS" type="bookmarkList" id="139770">
+            <description>code positions</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="symbol" type="reference" id="139740">
+            <description>Referenced symbol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="solved" type="integer" id="139741">
+            <description>Indicate is the referenced symbol is resolved</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="traced" type="integer" id="139742">
+            <description>Indicate if a link exist with the referenced object</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+        <property name="sourceName" type="string" id="139743">
+            <description>Source name of the referenced symbol</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_JAVA_JavaSymbolProperties" id="141264">
+        <description>Properties on a Java Symbol</description>
+
+    </category>
+
+    <category name="CAST_JAVA_ImportProperties" id="141248">
+        <description>Properties own by a Java Import</description>
+
+        <inheritedCategory name="CAST_JAVA_ReferenceAJavaSymbol"/>
+        <property name="dupplicated" type="integer" id="139738">
+            <description>This import is referenced serveral times</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <property name="type" type="integer" id="139739">
+            <description>Type of the import (single, on demand, ...)</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+
+    <!-- Allow to know all relation of rEXTEND, rIMPLEMENT, rOVERRIDE  where the symbol is caller -->
+    <category name="CAST_SymbolOutExtendImplementOverride" id="141277">
+        <description>List of relation extend implement override  where symbol is caller</description>
+
+        <property name="outgoingExtend" type="referenceList"  id="139791">
+            <description>list of out extend relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <property name="outgoingImplement" type="referenceList"  id="139792">
+            <description>list of out implement relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <property name="outgoingOverride" type="referenceList"  id="139793">
+            <description>list of out Override relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+    </category>
+
+    <!-- Allow to know all relation of rEXTEND, rIMPLEMENT, rOVERRIDE  where the symbol is callee -->
+    <category name="CAST_SymbolInExtendImplementOverride" id="141278">
+        <description>List of relation extend implement override  where symbol is callee</description>
+
+        <property name="ingoingExtend" type="referenceList"  id="139794">
+            <description>list of in extend relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <property name="ingoingImplement" type="referenceList"  id="139795">
+            <description>list of in implement relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+        <property name="ingoingOverride" type="referenceList"  id="139796">
+            <description>list of in Override relation</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+
+    </category>
+    <!-- this category is produced by the cache use in ResolvedQualifiedName, to be able
+         to check if a field exists for a given class (the mangling)-->
+    <type name="CAST_Java_CachedInheritedField" id="141302">
+        <description>inform us about the existence of the field in a class</description>
+        <inheritedCategory name="CAST_Mangled" />
+        <property name="exist" type="integer" id="139816">
+            <description>tag the object. Possible value 1 if it's true, 0 otherwise</description>
+            <attribute name="TRANSIENT" intValue="1" />
+        </property>
+    </type>
+
+    <type name="CAST_Java_UnresolvedType" id="141279">
+        <description>Identify Java that are not resolved during the analysis</description>
+        <inheritedCategory name="CAST_Mangled" />
+        <inheritedCategory name="CAST_ContextualItem" />
+    </type>
+
+    <type name="CAST_Java_UnresolvedPackage" id="141280">
+        <description>Identify Package that are not resolved during the analysis</description>
+        <inheritedCategory name="CAST_Mangled" />
+        <inheritedCategory name="CAST_ContextualItem" />
+    </type>
+
+    <category name="CAST_Java_WithEfferentCoupling" id="141586">
+        <description>Java objects efferent coupling</description>
+        <property name="coupling" type="integer" id="140194">
+            <description>Efferent Coupling (CE)</description>
+            <attribute name="ACCESS_APPVIEW" intValue="0"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="0"/>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="2"/>
+        </property>
+        <property name="efferentPackages" type="JV_PACKAGE" minimalCardinality="0" maximalCardinality="*"  id="140195">
+            <description>JavaDoc custom tag</description>
+            <attribute name="TRANSIENT" intValue="1"/>
+        </property>
+    </category>
+
+    <type name="JV_EJB_GROUP" id="217">
+        <description>JavaBeans</description>
+        <inheritedCategory name="KB object"/>
+        <attribute name="KEY_CLASS" intValue="5149"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="EnlightenBrowsable"/>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <inheritedCategory name="WithEnlightenProperties"/>
+        <inheritedCategory name="EnlightenBrowserRoot"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_WithParent"/>
+        <inheritedCategory name="CAST_WithProject"/>
+        <inheritedCategory name="CAST_WithAssembly"/>
+        <inheritedCategory name="InCSV"/>
+        <inheritedCategory name="Java"/>
+        <inheritedCategory name="project"/>
+        <inheritedCategory name="CastSystemViews"/>
+    </type>
+
+    <type name="PROFILE_JAVABEANS" id="476">
+        <description>Enterprise Java Beans</description>
+        <inheritedCategory name="Java"/>
+        <tree parent="JV_COMPONENT" category="EnlightenTree"/>
+        <tree parent="JV_COMPONENT" category="ParameterizeTree"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+    </type>
+
+    <!-- 
+		Represent a java method that has no generic java type parameters.
+	-->
+    <type name="CAST_Java_Lambda" id="142034">
+        <description>Java Lambda Expression</description>
+        <inheritedCategory name="CAST_Java_KB_Object"/>
+        <attribute name="KEY_CLASS" intValue="5072"/>
+        <inheritedCategory name="EnlightenStandard"/>
+        <inheritedCategory name="EnlightenBrowserParent"/>
+        <inheritedCategory name="CAST_DevelopmentVisible"/>
+        <inheritedCategory name="WithEnlightenParameters"/>
+        <inheritedCategory name="APM Java Methods"/>
+        <inheritedCategory name="APM Inventory Methods"/>
+        <inheritedCategory name="CAST_MetricAssistant_WithMetrics_Java"/>
+        <inheritedCategory name="withCode"/>
+        <inheritedCategory name="ESCALATION_ALL"/>
+        <inheritedCategory name="CastSystemViews"/>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+        <inheritedCategory name="CAST_Java_SymbolPositions"/>
+        <inheritedCategory name="CAST_Java_NamespaceMethod"/>
+        <inheritedCategory name="CAST_WithTypeParameters"/>
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <inheritedCategory name="CAST_AvoidAnonymousClass"/>
+        <inheritedCategory name="CAST_AvoidUsingPrintStackTrace"/>
+        <tree parent="GROUP_JAVA" category="EnlightenTree"/>
+        <tree parent="GROUP_JAVA_METHOD" category="ParameterizeTree"/>
+    </type>
+
+    <category name="CAST_Web_TranferedJavaProperties" id="141132">
+        <!-- false id -->
+        <description>Properties that come from java part under web files</description>
+        <inheritedCategory name="CAST_Java_MethodsMetrics"/>
+        <inheritedCategory name="CAST_Java_JavaDoc"/>
+        <inheritedCategory name="CAST_Java_SymbolMetrics"/>
+    </category>
+
+    <category name="Cast_UseHibernateApiForDBResource" id="142203">
+        <description>Use only Hibernate API to access to the database</description>
+        <property name="UseHibernateApiForDBAccess" type="integer" merge="sum" id="140792">
+            <description>Use only Hibernate API to access to the database</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="21"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="Cast_AvoidStringInitialiseWithStringObject" id="142207">
+        <description>Avoid String Initialise With String Object</description>
+        <property name="AvoidStringInitialiseWithStringObject" type="integer" id="140796">
+            <description>Post violation if String Initialisation is With String Object</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="22"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <category name="CAST_AvoidDoubleCheckedLocking" id="142290">
+        <description>Avoid double checked locking</description>
+        <property name="avoidDoubleCheckedLocking" type="integer" merge="sum" id="140861">
+            <description>double checking locking</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="23"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+  
+    <category name="CAST_AvoidUsingPrintStackTrace" id="142320">
+        <description>Avoid using Throwable.printStackTrace() without arguments</description>
+        <property name="avoidUsingPrintStackTrace" type="integer" merge="sum" id="140899">
+            <description>avoid using Throwable.printStackTrace() without arguments</description>
+            <attribute name="INF_TYPE" intValue="5010"/>
+            <attribute name="INF_SUB_TYPE" intValue="24"/>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+
+    <!-- Enhance platform type with java properties -->
+    <partial_type name="JV_APPLET">
+        <inheritedCategory name="Java" />
+        <inheritedCategory name="Java_properties"/>
+        <tree parent="JV_COMPONENT" category="EnlightenTree"/>
+        <tree parent="JV_COMPONENT" category="ParameterizeTree"/>
+    </partial_type>
+
+    <partial_type name="CAST_Java_Applet">
+        <inheritedCategory name="Java" />
+        <inheritedCategory name="CAST_Java_Main_Objects"/>
+        <tree parent="CAST_Java_Component" category="EnlightenTree"/>
+        <tree parent="CAST_Java_Component" category="ParameterizeTree"/>
+    </partial_type>
+
+    <partial_type name="CAST_DotNet_ApplicationJava">
+        <inheritedCategory name="Java" />
+    </partial_type>
+
+    <partial_type name="CAST_DotNet_Java_Subset">
+        <inheritedCategory name="Java" />
+    </partial_type>
+
+</metaModel>

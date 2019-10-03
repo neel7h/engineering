@@ -1,0 +1,58 @@
+{
+    "id": 1520764,
+    "name": "SiebelReview: Duplicate Item Identifiers",
+    "href": "AIP/quality-rules/1520764",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "List of item identifiers",
+    "description": "When multiple controls (or list columns) are mapped to the same Applet Web Template Item, only one of the controls can actually be displayed to the user.  In the best case, this will prevent the user from seeing the information.  In the worst case, this can cause a runtime error when the field that is not exposed is required or otherwise has validation that prevents a user from saving a record.",
+    "output": "This rule reports Applets with duplicated item identifiers",
+    "rationale": "Multiple controls (or list columns) have been mapped to the same item identifier on an Applet Web Template.",
+    "remediation": "Ensure that each control (or list column) on an applet is mapped to a unique identifier.\nUse the following procedure:\n1- Detect the problematic controls or list columns by using the applet validation feature on the object.\n2- From the information provided by the validation process determine which Applet Web Templates contain the invalid mappings.\n3- Close the validation window, right-click on the applet object, and select Edit Web Layout menu option.\n4- In the Web Layout editor select the problematic Web Template mode and then right-click in a blank area of the layout. Select 'Check Mappings' from the pop-up menu.  If this option is not available then the object is not locked for the currently logged in user.\n5- If mapping conflicts exist then Siebel Tools will suggest repairing these problems by re-mapping the items appropriately.\n6- Save the modified applet.",
+    "total": "Number of added or modified applets",
+    "alternativeName": "SiebelReview: Duplicate Item Identifiers",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

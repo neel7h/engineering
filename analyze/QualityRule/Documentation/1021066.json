@@ -1,0 +1,55 @@
+{
+    "id": 1021066,
+    "name": "Respect class naming conventions",
+    "href": "AIP/quality-rules/1021066",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation when class names departure from the PEP-8 recommendations, i.e., when the recommended use of capitalized \"CamelCased\" naming convention is not used. Exceptions to these rules are found in classes whose instances are expected to be called as functions (i.e. when the \"__call__\" method is defined). Use of acronymns in class naming is also acceptable.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Consistency in object naming conventions improves the reading comprehension of new contributors to the code base and thus increases productivity. Naming conventions reported in the official Python style guide known as PEP-8 is recognized as a standard accross the industry and the open source community.",
+    "remediation": "Rename the class (and update all references to it) following the PEP-8 recommendations in https://pep8.org/#class-names.",
+    "remediationSample": "class GoodName:\n    pass",
+    "sample": "class bad_name:\n    pass",
+    "total": "Number of Python Classes",
+    "alternativeName": "Respect class naming conventions",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

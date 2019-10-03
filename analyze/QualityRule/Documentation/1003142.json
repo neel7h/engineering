@@ -1,0 +1,72 @@
+{
+    "id": 1003142,
+    "name": "Cairngorm: Avoid CairngormEventDispatcher called explicitly (Flex)",
+    "href": "AIP/quality-rules/1003142",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts with explicit use of CairngormEventDispatcher for purpose of dispatching or adding event listening for events.",
+    "output": "This QR reports artifacts with explicit use of CairngormEventDispatcher for purpose of dispatching or adding event listening for events. It provides following information:\n\n- Artifact full name",
+    "rationale": "MVC pattern is not followed if CairngormEventDispatcher is used explicitly for purpose of dispatching or adding event listening for events.",
+    "remediation": "Use CairngormEvent.dispatch() for dispatching events and normal event listening framework for listening for adding event listeners.",
+    "sample": "public function foo() : void\n{\n   CairngormEventDispatcher.getInstance().dispatchEvent(new Event(CONSTANT)); // VIOLATION - use cairngormEvent.dispatch();\n   CairngormEventDispatcher.getInstance().addEventListener(CONSTANT, onHearing); // VIOLATION - MVC broken\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Cairngorm: Avoid CairngormEventDispatcher called explicitly (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.cairngorm.CairngormEventDispatcherCallExplicitly"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

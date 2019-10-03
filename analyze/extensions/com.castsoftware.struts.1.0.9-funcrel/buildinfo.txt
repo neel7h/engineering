@@ -1,0 +1,6 @@
+Build date: 06/05/2019 17:05:06,50 
+Build number: 1000033 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 5f236018388e6f175b02a69878b47680f178f727
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.struts.git origin/1.0.x cf26038bf926a537f4de27db2f992e3b6f37a3c7
+Publish date: 06/05/2019 17:07:08,61 
+Original version: 1.0.9-funcrel 

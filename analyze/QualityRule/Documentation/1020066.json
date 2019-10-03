@@ -1,0 +1,87 @@
+{
+    "id": 1020066,
+    "name": "Avoid using Javascript Function constructor",
+    "href": "AIP/quality-rules/1020066",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Each time [\u2026] the Function constructor is called on a string representing source code, the script engine must start the machinery that converts the source code to executable code. This is usually expensive for performance \u2013 easily a hundred times more expensive than a simple function call, for example. \nAn exception will be made for Function('return this')(); . It is the best way to retrieve the global in both node and web with or without \"use strict\".",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using the Function constructor to create functions is not recommended since it needs the function body as a string which may prevent some JS engine optimizations and can also cause other problems.",
+    "reference": "https://jsperf.com/function-vs-function/2 \nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions",
+    "remediationSample": "var f1 = function() { \n var x = 1; \n console.log('1'); \n}",
+    "sample": "var f2 = new Function('var x = 1;console.log(\"2\");');",
+    "total": "Number of Javascript artifacts",
+    "alternativeName": "Avoid using Javascript Function constructor",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-99",
+            "name": "Name or Reference Resolution Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

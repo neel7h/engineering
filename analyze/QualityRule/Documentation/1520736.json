@@ -1,0 +1,60 @@
+{
+    "id": 1520736,
+    "name": "Siebel: Business Component Field should have same type as related Table Column",
+    "href": "AIP/quality-rules/1520736",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Types of the field and column",
+    "output": "This rule reports Fields not having the same type as the related column",
+    "total": "Number of added or modified Fields in Business Components",
+    "alternativeName": "Siebel: Business Component Field should have same type as related Table Column",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

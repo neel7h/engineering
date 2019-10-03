@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+	<metric id="10201" type="sizing-measure" originalName="Backfired Function Points" parameterName="BackFired FP ratio" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+	    <defaultValue>63.0</defaultValue>
+	    <defaultValuesList>N/A</defaultValuesList>
+	</metric>
+  	<metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code" parameterName="Maximum Line Count" parameterType="integer" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="Maximum Line Count per artifact">
+    	<defaultValue>100</defaultValue>
+    	<defaultValuesList>N/A</defaultValuesList>
+  	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Average Size Threshold" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>100.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Large Size Threshold" parameterType="float" parameterIndex="2" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>500.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65105" type="quality-distribution" originalName="Size Distribution" parameterName="Very Large Size Threshold" parameterType="float" parameterIndex="3" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>1000.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Average Coupling Artifacts Threshold" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>4.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="High Coupling Artifacts Threshold" parameterType="float" parameterIndex="2" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>10.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution" parameterName="Very High Coupling Artifacts Threshold" parameterType="float" parameterIndex="3" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Average Complexity Artifact Threshold" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>5.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="High Complexity Artifact Threshold" parameterType="float" parameterIndex="2" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>15.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" parameterName="Very High Complexity Artifact Threshold" parameterType="float" parameterIndex="3" filter="1020000" filterLabel="HTML5" parameterDescription="N/A">
+		<defaultValue>30.0</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+	<metric id="1020000" type="quality-rule" originalName="Avoid Artifacts with High Cyclomatic Complexity (HTML5/Javascript)" parameterName="Max Cyclomatic Complexity" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="Max Cyclomatic Complexity per artifact">
+		<defaultValue>20</defaultValue>
+		<defaultValuesList>N/A</defaultValuesList>
+	</metric>
+  <metric id='1020002' type='quality-rule' originalName='Avoid programs with low comment / code ratio  (HTML5/Javascript)' parameterName='CommCode Ratio' parameterType='integer' parameterIndex='1' filter='0' filterLabel='ALL TECHNOLOGIES' parameterDescription='CommCode Ratio'>
+    <defaultValue>20</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id='1020076' type='quality-rule' originalName='Avoid Artifacts with too many parameters (Javascript)' parameterName='Maximum parameters' parameterType='integer' parameterIndex='1' filter='1020000' filterLabel='HTML5' parameterDescription='Maximum parameters'>
+    <defaultValue>9</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1020086" type="quality-rule" originalName="Avoid Functions having a very low Comment/Code ratio (Javascript/HTML5)" parameterName="Minimum % Comment / Code Ratio" parameterType="float" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="Minimum % Comment / Code Ratio for functions, methods and events">
+    <defaultValue>5.0</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1020088" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters (Javascript/HTML5)" parameterName="Maximum length" parameterType="integer" parameterIndex="1" filter="1020000" filterLabel="HTML5" parameterDescription="Maximum number of characters per line of code">
+    <defaultValue>120</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+  <metric id="1020090" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code (Javascript/HTML5)" parameterName="Max Depth of Code" parameterType="integer" parameterIndex="1" filter="0" filterLabel="ALL TECHNOLOGIES" parameterDescription="Max Depth of Code per artifact">
+    <defaultValue>5</defaultValue>
+    <defaultValuesList>N/A</defaultValuesList>
+  </metric>
+</root>

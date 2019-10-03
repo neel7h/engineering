@@ -1,0 +1,61 @@
+{
+    "id": 1021072,
+    "name": "Avoid shadowing class variables",
+    "href": "AIP/quality-rules/1021072",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation when attempting to shadow a class variable. This rule does not apply when the shadowing variable is initialized inside the __init__ method.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In Python, a variable under assignment in a given scope will be by default considered as local to that scope (and thus dynamically created when absent). Any variable in the outer scope with the same name will be shadowed. This feature can be handy to screen the effect of global variables within a method, however, shadowing class variables can cause surprising behavior and hard-to-spot bugs. This is particularly the case for the less seasoned Python developers.",
+    "reference": "https://stackoverflow.com/questions/43186844/python-static-class-variables/43200798#43200798\nhttps://stackoverflow.com/questions/68645/are-static-class-variables-possible\nhttps://stackoverflow.com/questions/19902127/what-is-the-pythonic-way-to-avoid-shadowing-variables",
+    "remediation": "Depending on the intention of the developer, one possible solution would be to assign the respective values to the class variable (A.x = value, where A is the class) instead of the shadowing instance variable (a.x = value, where a = A()). Otherwise refactoring of the code should be considered.",
+    "remediationSample": "class A:\n    x = True\n    def __init__(self):\n        if self.x:\n            A.x = False      # assignment to the class variable\n            ...",
+    "sample": "class A:\n    x = True\n    def __init__(self):\n        if self.x:             # access to class variable\n            self.x = False     # self.x refers to an instance variable that shadows A.x\n            ...",
+    "total": "Number of Python Modules and Functions",
+    "alternativeName": "Avoid shadowing class variables",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

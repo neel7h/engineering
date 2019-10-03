@@ -1,0 +1,6 @@
+Build date: 03/04/2019  9:54:42,98 
+Build number: 1000053 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.sqlanalyzer.git origin/2.6.x 602824c6e7cc91ff05e4aea18807040410107385
+Publish date: 03/04/2019 15:53:56,26 
+Original version: 2.6.9-build1000053 

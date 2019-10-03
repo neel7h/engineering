@@ -1,0 +1,152 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_HTML5" version="1.0.0.2" encoding="UTF-8" date="Mon Oct 02 14:56:00 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - HTML5" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_ASP_Content</value>
+    <value>CAST_HTML5_ASPX_Content</value>
+    <value>CAST_HTML5_HTC_Content</value>
+    <value>CAST_HTML5_JSP_Content</value>
+    <value>CAST_HTML5_SourceCode</value>
+    <value>CAST_HTML5_Jade_SourceCode</value>
+    <value>CAST_HTML5_CSHTML_Content</value>
+    <value>CAST_HTML5_JavaScript_Initialisation</value>
+    <value>CAST_J2EE_HTML5_Applet</value>
+   </property>
+   <property name = "name" operator = "notlike" >
+    <value>%error%</value>
+    <value>%header%</value>
+    <value>%footer%</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - HTML5 Called entries (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - HTML5 Called entries (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_ASP_Content</value>
+    <value>CAST_HTML5_ASPX_Content</value>
+    <value>CAST_HTML5_HTC_Content</value>
+    <value>CAST_HTML5_JSP_Content</value>
+    <value>CAST_HTML5_SourceCode</value>
+    <value>CAST_HTML5_Jade_SourceCode</value>
+    <value>CAST_HTML5_CSHTML_Content</value>
+    <value>CAST_HTML5_JavaScript_Initialisation</value>
+    <value>CAST_J2EE_HTML5_Applet</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="Standard Entry Point - HTML5 Asp.DotNet (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - HTML5 AspDotNet" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_AspDotNet_GetOperation</value>
+    <value>CAST_AspDotNet_PostOperation</value>
+    <value>CAST_AspDotNet_PutOperation</value>
+    <value>CAST_AspDotNet_DeleteOperation</value>
+    <value>CAST_AspDotNet_AnyOperation</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - HTML5 AspDotNet Called operations (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - HTML5 Asp.DotNet (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - HTML5 AspDotNet Called operations (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_AspDotNet_GetOperation</value>
+    <value>CAST_AspDotNet_PostOperation</value>
+    <value>CAST_AspDotNet_PutOperation</value>
+    <value>CAST_AspDotNet_DeleteOperation</value>
+    <value>CAST_AspDotNet_AnyOperation</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="Standard Entry Point - HTML5 Asp.DotNet (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - HTML5" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_DeleteHttpRequestService</value>
+    <value>CAST_HTML5_DeleteXMLHttpRequestService</value>
+    <value>CAST_HTML5_GetHttpRequestService</value>
+    <value>CAST_HTML5_GetXMLHttpRequestService</value>
+    <value>CAST_HTML5_PostHttpRequestService</value>
+    <value>CAST_HTML5_PostXMLHttpRequestService</value>
+    <value>CAST_HTML5_PutHttpRequestService</value>
+    <value>CAST_HTML5_UpdateXMLHttpRequestService</value>
+    <value>CAST_HTML5_WebSocketService</value>
+    <value>CAST_HTML5_Razor_GetService</value>
+    <value>CAST_HTML5_Razor_PostService</value>
+    <value>CAST_HTML5_AppletClassReference</value>
+   </property>
+   <excluded-from set ="Standard End Point - HTML5 (GS)"/>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - HTML5 (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_DeleteHttpRequestService</value>
+    <value>CAST_HTML5_DeleteXMLHttpRequestService</value>
+    <value>CAST_HTML5_GetHttpRequestService</value>
+    <value>CAST_HTML5_GetXMLHttpRequestService</value>
+    <value>CAST_HTML5_PostHttpRequestService</value>
+    <value>CAST_HTML5_PostXMLHttpRequestService</value>
+    <value>CAST_HTML5_PutHttpRequestService</value>
+    <value>CAST_HTML5_UpdateXMLHttpRequestService</value>
+    <value>CAST_HTML5_WebSocketService</value>
+    <value>CAST_HTML5_Razor_GetService</value>
+    <value>CAST_HTML5_Razor_PostService</value>
+    <value>CAST_HTML5_AppletClassReference</value>
+   </property>
+   <caller-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - HTML5 (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "All Objects - HTML5 (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

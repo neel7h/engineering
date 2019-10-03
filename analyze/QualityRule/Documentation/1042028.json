@@ -1,0 +1,95 @@
+{
+    "id": 1042028,
+    "name": "Avoid activating alwaysSelectFullNamespace when actions configured without namespace or with a wildcard namespace for Struts pre 2.3.34 and pre 2.5.1",
+    "href": "AIP/quality-rules/1042028",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Apache Struts versions 2.3 to 2.3.34 and 2.5 to 2.5.16 suffer from possible Remote Code Execution when alwaysSelectFullNamespace is true.\n\nA struts application is vulnerable to this attack only when both of the following conditions are met:\n\n- The alwaysSelectFullNamespace flag is set to true in the Struts configuration. \n- Your application uses actions that are configured without specifying a namespace, or with a wildcard namespace (e.g. \u201c/*\u201d). \n\n\nThis rule will check if both coditions above are fulfilled  in same time. If yes, it gives violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.",
+    "reference": "https://cwiki.apache.org/confluence/display/WW/S2-057\nhttps://nvd.nist.gov/vuln/detail/CVE-2018-11776",
+    "remediation": "This new remote code execution vulnerability affects all supported versions of Apache Struts 2. \n- Users of Struts 2.3 are strongly advised to upgrade to 2.3.35\n- Users of Struts 2.5 need to upgrade to 2.5.17.",
+    "sample": "For example, the following struts.xml configuration is potentially vulnerable becasue no namespace is specified \n\n<struts>\n\u00a0 <package> //no namespace is specified\n\u00a0\u00a0\u00a0 <action name=\"a1\">\n\u00a0\u00a0\u00a0\u00a0 \u00a0<result type=\"redirectAction\">\n\u00a0\u00a0\u00a0\u00a0\u00a0 \u00a0\u00a0<param name=\"actionName\">a2.action</param>\n\u00a0\u00a0\u00a0\u00a0\u00a0 </result>\n\u00a0\u00a0\u00a0 </action>\n \u00a0</package>\n</struts>\n\n<struts>\n  <constant name=\"struts.mapper.alwaysSelectFullNamespace\" value=\"true\" /> //alwaysSelectFullNamespace set to True\n  ...\n\n--------------------\n\nFor example, the following struts.xml configuration is potentially vulnerable because a wildcard namespace is used\n<struts>\n\u00a0 <package name=\"mypackage1\" namespace=\"/*\"> // wildcard namespace\n\u00a0\u00a0\u00a0 <action name=\"a1\">\n\u00a0\u00a0\u00a0\u00a0 \u00a0<result type=\"redirectAction\">\n\u00a0\u00a0\u00a0\u00a0\u00a0 \u00a0\u00a0<param name=\"actionName\">a2.action</param>\n\u00a0\u00a0\u00a0\u00a0\u00a0 </result>\n\u00a0\u00a0\u00a0 </action>\n \u00a0</package>\n</struts>\n\n<struts>\n  <constant name=\"struts.mapper.alwaysSelectFullNamespace\" value=\"true\" /> //alwaysSelectFullNamespace set to True\n  ...",
+    "total": "Number of Struts 2.x Config XML",
+    "alternativeName": "configured without namespace or with wildcard namespace is vulnerable to remote code execution attack",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

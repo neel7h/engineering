@@ -1,0 +1,73 @@
+{
+    "id": 1007114,
+    "name": "Avoid unnecessary string concatenations (PHP)",
+    "href": "AIP/quality-rules/1007114",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts with unnecessary string concatenations.",
+    "output": "This report lists all artifacts with unnecessary string concatenations.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "String concatenation results in the creation and garbage collection of large numbers of temporary objects. This consumes memory and can dramatically slow the script execution. It is recommended to avoid unnecessary string concatenations.",
+    "reference": "PHP Code Sniffer: https://pear.php.net/package/PHP_CodeSniffer/docs/2.5.0/PHP_CodeSniffer/Generic_Sniffs_Strings_UnnecessaryStringConcatSniff.html",
+    "remediation": "Modify the source code to reduce unnecessary string concatenations.",
+    "remediationSample": "<?php\n\n$str3 = \"this is string 1 this is string 2\"; //violation removed\n\n?>",
+    "sample": "<?php\n\n$str3 = \"this is string 1\" . \" this is string 2\"; //violation\n\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid unnecessary string concatenations (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UnnecessaryStringConcat"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

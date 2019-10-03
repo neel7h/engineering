@@ -1,0 +1,70 @@
+{
+    "id": 1008038,
+    "name": "Avoid unreferenced Programs  (RPG400)",
+    "href": "AIP/quality-rules/1008038",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the unreferenced programs.",
+    "output": "This report lists RPG400 unreferenced programs.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance. \nWarning: \nUnreferenced code can also be the symptoms of missing code",
+    "remediation": "Verify that the unreferenced programs are not dead code. If it is the case remove it. If  it is not the case correct the code in order to reference the programs.",
+    "remediationSample": "RPG400 Program needs to be refer in another Program.If the program is not reference then program search time in the LIB will be high\nZ-ADD     *zeros        c   \nCALL      'OP_CALL1'    PLST1\"",
+    "sample": "RPG400 Program needs to be refer in another Program.If the program is not reference then program search time in the LIB will be high",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid unreferenced Programs  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

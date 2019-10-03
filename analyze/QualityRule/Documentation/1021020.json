@@ -1,0 +1,66 @@
+{
+    "id": 1021020,
+    "name": "Avoid using wildcard (*) imports",
+    "href": "AIP/quality-rules/1021020",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Most of the time the import statements should be as specific as possible and you should only import what is needed. When from module import * is used, you are implicitly loading all locals of the imported module into and over the importing module. This has two disadvantages: first, you might unintentionally overload already imported objects. Second, it becomes difficult to detect undefined names in the program that imported the module.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Software that does not follow the principles of reuse requires more maintenance effort in order to propagate changes to all instances of duplicated code",
+    "remediation": "Avoid using wildcard (*) imports. Either import the full module. A direct import would bind to the same name as that of another object. Second way is to make the import statement more specific.",
+    "remediationSample": ">>> from math import floor\n>>> from numpy import floor as np_floor\n>>> values = array([2.3, 8.7])\n>>> np_floor(values)",
+    "sample": ">>> from math import *\n>>> from numpy import *",
+    "total": "Number of Python artifacts importing modules",
+    "alternativeName": "Avoid using wildcard (*) imports",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

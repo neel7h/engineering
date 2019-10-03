@@ -1,0 +1,399 @@
+module Core.JEE.EJB.EJB3;
+use Core.JEE.JEE;
+use Core.ConstantsMetamodel;
+use Core.Log;
+use Core.Error;
+use Core.JEE.Annotations;
+
+/**
+* Create Message Driven Bean: find or create ejb message named mdbName, find or create java class named className and add a prototype link between them 
+* 
+* @param mdbName: Message Driven Bean Name 
+* @param className: class of implementation
+*/
+void createEJBMDB(string mdbName, string className)
+{
+    symbol ejbMDB = findOrCreateSymbol(mdbName, JV_EJB_MESSAGE);
+    if(ejbMDB == null)
+    {
+        log(ERROR,"impossible to create the EJB MDB: " + mdbName);
+        return;
+    }
+    log(DEBUG, "created JV_EJB_MESSAGE: " + mdbName);	
+    setProperty(ejbMDB, Cast_EJB_AllProperties_CMPVersion, "3.0");
+
+    symbol ejbClass = findUniqueSymbol(className, GROUP_JAVA_CLASS);
+    if(ejbClass == null)
+    {
+        log(ERROR,"impossible to find the class: " + className);
+        return;
+    }
+    setProperty(ejbMDB, Cast_EJB_AllProperties_BeanClass, className);
+
+    createLink(ejbMDB, ejbClass, prototypeLink);
+    log(DEBUG, "created link from JV_EJB_MESSAGE: " + mdbName + " to JV_CLASS: " + className);
+}
+
+/**
+* Create an EJB Session with the short name of the class = className; 
+* Add an attribute session-type = Stateful or Stateless according to the annotation used;
+* Create a prototype link from the bean named ejbSessionName to the class className ; 
+* Create fireLinks from EJB client interface methods to EJB implementation class methods
+* 
+* @param ejbSessionName: ejb session name
+* @param className:  class of implementation
+* @param localInterfaceName 
+* @param remoteInterfaceName 
+* @param sessionType: stateful or stateless 
+* @param fromAnnotation:  true if bean is defined from annotation, false otherwise (from ejb-jar.xml file)
+*/
+void createEJBSession(string ejbSessionName, string className, string localInterfaceName, string remoteInterfaceName, string sessionType, boolean fromAnnotation)
+{
+    symbol ejbClass = findUniqueSymbol(className, GROUP_JAVA_CLASS);
+	
+    symbol ejbSession = null;
+	if ( fromAnnotation )
+	{
+		// create an EJB session, knowing it's defined in the Java file of the implementation class
+		symbol classFile = getJavaSymbolFile( ejbClass );
+		ejbSession = findOrCreateSymbol(ejbSessionName, JV_EJB_SESSION, classFile);
+	}
+	else
+	{
+		ejbSession = findOrCreateSymbol(ejbSessionName, JV_EJB_SESSION);
+	}
+	
+    if(ejbSession == null)
+    {
+        log(ERROR,"impossible to create the EJB Session: " + ejbSessionName);
+        return;
+    }
+    log(DEBUG, "created JV_EJB_SESSION: " + ejbSessionName);
+
+	if ( fromAnnotation )
+	{
+	    symbol annotation = findUniqueSymbol( sessionType, CAST_Java_AnnotationType ) ;
+	    
+		string sessionTypeName = sessionType ;
+		if (annotation != null)
+		{
+			sessionTypeName = getStringProperty(annotation , identification_name );
+		}
+	   	if((sessionTypeName != "Stateless") && (sessionTypeName != "Stateful"))
+		{
+			sessionTypeName = sessionType;
+		}
+		setProperty(ejbSession, CAST_EJB_SessionBeanProperties_SessionType, sessionTypeName );
+	}
+	else
+	{
+		setProperty(ejbSession, CAST_EJB_SessionBeanProperties_SessionType, sessionType );
+	}
+    setProperty(ejbSession, Cast_EJB_AllProperties_CMPVersion, "3.0");
+	
+    if(ejbClass == null)
+    {
+        log(ERROR,"impossible to find the class: " + className);
+        return;
+    }
+
+    setProperty(ejbSession, Cast_EJB_AllProperties_BeanClass, className);
+    createLink(ejbSession, ejbClass, prototypeLink);
+    log(DEBUG, "created link from JV_EJB_SESSION: " + ejbSessionName + " to JV_CLASS: " + className);
+
+    if ( fromAnnotation )
+    {
+	
+        list(symbol) removeMethods = findSymbols({JV_METHOD},ejbClass); 
+        int iRemoveMeth = 0; 
+ 		
+        foreach( symbol removeMethod in removeMethods)
+        {   
+
+		if (hasAnnotation( removeMethod,"javax.ejb.Remove" ) )
+            {
+            list(symbol) ejbInterfaces = getInterfaces(ejbClass); 
+            foreach(symbol ejbInterface in ejbInterfaces)
+            {   
+                list(symbol) removeInterfaceMethods = findSymbols(getStringProperty (removeMethod, identification_name),{JV_METHOD},ejbInterface);
+                foreach( symbol removeInterfaceMethod in removeInterfaceMethods)
+                {
+                    setProperty(removeInterfaceMethod, Cast_Java_EJB_ObjectProperties_Remove, "true");
+                    log(DEBUG, "setEjbRemovePropertyOnMethod: add " + Cast_Java_EJB_ObjectProperties_Remove + " on method: " + getStringProperty(removeMethod, identification_fullName));	                
+                    if (iRemoveMeth == 0)
+                    {
+                        setProperty(ejbInterface, Cast_Java_EJB_ObjectProperties_HavingRemoveMethods, "true");
+                        log(DEBUG, "createEJBSession: add " + Cast_Java_EJB_ObjectProperties_HavingRemoveMethods + " on interface: " + getStringProperty(ejbInterface, identification_fullName));	                
+                        iRemoveMeth = 1;
+                    }
+					
+                }
+            }
+							
+            }
+        }
+    }
+
+
+    if(localInterfaceName == "" && fromAnnotation)
+    {
+        localInterfaceName = getAnnotatedInheritImplementParents(ejbClass, "javax.ejb.Local");	        
+        log(DEBUG, "Local interface of " + className + " is defined with interface annotation on: " + localInterfaceName);
+    }
+
+    if(localInterfaceName != "" && localInterfaceName != null)
+    {
+        symbol localInterface = findUniqueSymbol(localInterfaceName, GROUP_JAVA_INTERFACE);
+        if(localInterface == null)
+        {
+            log(ERROR,"impossible to find the interface: " + localInterfaceName);
+            return;
+        }
+
+        setProperty(ejbSession, Cast_EJB_AllProperties_HomeInterface, localInterfaceName);
+        createLink(localInterface, ejbSession, prototypeLink);
+        createLinksBetweenMethods(localInterface, ejbClass, fireLink, false, true);
+        log(DEBUG, "created link from Local JV_INTERFACE: " + localInterfaceName + " to JV_CLASS: " + className);
+    }
+
+    if(remoteInterfaceName == "" && fromAnnotation)
+    {
+        remoteInterfaceName = getAnnotatedInheritImplementParents(ejbClass, "javax.ejb.Remote");		 
+        log(DEBUG, "Remote interface of " + className + " is defined with interface annotation on: " + remoteInterfaceName);
+    }
+
+    if(remoteInterfaceName != "" && remoteInterfaceName != null)
+    {
+        symbol remoteInterface = findUniqueSymbol(remoteInterfaceName, GROUP_JAVA_INTERFACE);
+        if(remoteInterface == null)
+        {
+            log(ERROR,"impossible to find the interface: " + remoteInterfaceName);
+            return;
+        }
+
+        setProperty(ejbSession, Cast_EJB_AllProperties_RemoteInterface, remoteInterfaceName);
+        createLink(remoteInterface, ejbSession, prototypeLink);
+        createLinksBetweenMethods(remoteInterface, ejbClass, fireLink, true, true);
+        log(DEBUG, "created link from Local JV_INTERFACE: " + remoteInterfaceName + " to JV_CLASS: " + className);
+    }
+}
+
+/**
+* Tag Remove Method of Stateful EJB - from ejb-jar.xml
+* 
+* @param ejbSessionName: ejb session name
+* @param className:  class of implementation
+* @param methodName:  remove method short name
+*/
+void setEjbRemovePropertyOnMethod(string ejbSessionName, string className, string methodName)
+{
+    symbol ejbSession = findUniqueSymbol(ejbSessionName, JV_EJB_SESSION);
+    if(ejbSession == null)
+    {
+        log(ERROR,"setEjbRemovePropertyOnMethod: impossible to find the EJB Session: " + ejbSessionName);
+        return;
+    }
+    log(DEBUG, "created JV_EJB_SESSION: " + ejbSessionName);
+    
+    symbol ejbClass = findUniqueSymbol(className, GROUP_JAVA_CLASS);
+    if(ejbClass == null)
+    {
+        log(ERROR,"setEjbRemovePropertyOnMethod: impossible to find the class: " + className);
+        return;
+    }
+    
+    list(symbol) ejbInterfaces = getInterfaces(ejbClass); 
+        foreach(symbol ejbInterface in ejbInterfaces)
+        {   
+            list(symbol) removeMethods = findSymbols(methodName,{JV_METHOD},ejbInterface);
+                foreach( symbol removeMethod in removeMethods)
+                {
+                    setProperty(removeMethod, Cast_Java_EJB_ObjectProperties_Remove, "true");
+                    log(DEBUG, "setEjbRemovePropertyOnMethod: add " + Cast_Java_EJB_ObjectProperties_Remove + " on method: " + getStringProperty(removeMethod, identification_fullName));	                
+                    setProperty(ejbInterface, Cast_Java_EJB_ObjectProperties_HavingRemoveMethods, "true");
+                    log(DEBUG, "createEJBSession: add " + Cast_Java_EJB_ObjectProperties_HavingRemoveMethods + " on interface: " + getStringProperty(ejbInterface, identification_fullName));	                										
+                }
+        }
+
+}
+
+ /**
+* Tag Remove Method of Stateful EJB - from ejb-jar.xml
+* 
+* @param ejbRemoteInterfaceName: Remote interface name
+* @param ejbMethodIsSecuredName: secure remote method short name
+*/
+void setEjbMethodIsSecuredPropertyOnMethod(string ejbSessionName, string ejbRemoteInterfaceName,string ejbNameAssemblyDescr, string ejbMethodIsSecuredName) 
+{
+    log(DEBUG, "setEjbMethodIsSecuredPropertyOnMethod: ejbRemoteInterfaceName = " + ejbRemoteInterfaceName + " = true on method: " + ejbMethodIsSecuredName);										
+    if (ejbSessionName==ejbNameAssemblyDescr)
+	{
+		symbol ejbRemoteInterface = findUniqueSymbol(ejbRemoteInterfaceName, GROUP_JAVA_INTERFACE);  
+        if (ejbMethodIsSecuredName=="*")
+		{
+			list(symbol) ejbMethodsAreSecured = findSymbols({JV_METHOD},ejbRemoteInterface);
+                foreach( symbol ejbSecuredMethod in ejbMethodsAreSecured)
+                {
+	    			setProperty(ejbSecuredMethod, Cast_Java_EJB_ObjectProperties_MethodIsSecured, "true");
+        			log(DEBUG, "setEjbMethodIsSecuredPropertyOnMethod: add " + Cast_Java_EJB_ObjectProperties_MethodIsSecured + " = true on method: " + getStringProperty(ejbSecuredMethod, identification_fullName));														
+				}			
+		}
+		else
+		{
+        	symbol ejbMethodIsSecured = findUniqueSymbol(ejbMethodIsSecuredName,JV_METHOD,ejbRemoteInterface); 
+	    	setProperty(ejbMethodIsSecured, Cast_Java_EJB_ObjectProperties_MethodIsSecured, "true");
+        	log(DEBUG, "setEjbMethodIsSecuredPropertyOnMethod: add " + Cast_Java_EJB_ObjectProperties_MethodIsSecured + " = true on method: " + ejbMethodIsSecuredName);										
+		}	
+	}
+}
+ 
+/**
+* Look for all beans of type state
+* 
+* @param state: type of the session bean
+*/
+void createBeans(string state)
+{
+	list(symbol) beanClasses = null;
+	
+	switch(state)
+	{
+		case "Stateful" :
+		{
+			beanClasses = getSymbolsAnnotatedWith( "javax.ejb.Stateful" , JV_CLASS );
+			break;
+		}
+		case "Stateless":
+		{
+			 beanClasses = getSymbolsAnnotatedWith( "javax.ejb.Stateless" , JV_CLASS );
+			 break;
+		}
+		default :
+		{
+			return;
+		}
+	}
+	
+	foreach( symbol beanClass in beanClasses)
+	{
+	  createEJBSession(beanClass, "javax.ejb." + state );
+	}
+}
+
+/**
+* Look for all driven message bean
+*/
+void createEJBMDBeans()
+{
+	list(symbol) messagedrivenBeanClasses = getSymbolsAnnotatedWith( "javax.ejb.MessageDriven" , JV_CLASS );
+	
+	foreach( symbol messagedrivenBeanClass in messagedrivenBeanClasses)
+	{
+		createEJBMDB(messagedrivenBeanClass);
+	}
+}
+
+/**
+* Create a message driven bean from an annotated class
+* 
+* @param class: annotated class
+*/
+void createEJBMDB(symbol class)
+{
+	// attributs venant d'autres annotations de la classe d'implementation
+	string className = getClassName( class );
+
+	string ejbMDBName = getParameterStringFromAnnotation( class, "javax.ejb.MessageDriven" , "name");
+	if(ejbMDBName == null)
+	{
+		ejbMDBName = getBeanNameFromClass( class );
+	}
+
+	createEJBMDB( ejbMDBName, className );
+}
+
+/**
+* Create a session bean from an annotated class of type state
+* 
+* @param class: annotated class
+* @param state: ype of the session bean
+*/
+void createEJBSession( symbol class, string state)
+{
+		string className           =  getClassName( class);
+
+		if(!hasAnnotation(class,state))
+		{
+			return;
+		}
+		
+		// attributs venant d'autres annotations de la classe d'implementation
+		list(symbol) annotations = getAnnotations( class );
+		
+		string ejbSessionName      =  getParameterStringFromAnnotations	( annotations, state , "name");
+		if(ejbSessionName == null)
+		{
+			ejbSessionName = getBeanNameFromClass( class );
+	    }
+	    
+		string localInterfaceName  =  getParameterStringFromAnnotations	( annotations, "javax.ejb.Local"     , "value");
+		string remoteInterfaceName =  getParameterStringFromAnnotations	( annotations, "javax.ejb.Remote"    , "value");
+
+		createEJBSession( ejbSessionName, className, localInterfaceName, remoteInterfaceName, state, true);
+}
+
+/**
+* Get the string value of a parameter from the list of annotations
+* 
+* @param annotations: annotations of the class
+* @param annotationName: given name of the annotation
+* @param parameterName: given name of the parameter
+*/
+string getParameterStringFromAnnotations( list(symbol) annotations, string annotationName , string parameterName)
+{
+	foreach(symbol annotation in annotations)
+	{
+		if( annotationName == getStringProperty( annotation, identification_fullName ) )
+		{
+			symbol annotationParam = getAnnotationParameter( annotation, parameterName );
+			return getStringProperty(annotationParam, CAST_Java_AnnotationParameterStringValue);
+		}
+	}
+	
+	return null;
+}
+
+/**
+* Get full qualified name of the class
+* 
+* @param class: java class
+*/
+string getClassName(symbol class)
+{
+	return getStringProperty(class, identification_fullName);
+}
+
+/**
+* Get the name of the bean from the class name
+* 
+* @param class: java class
+*/
+string getBeanNameFromClass(symbol class)
+{
+	return getStringProperty(class, identification_name);
+} 
+
+/**
+*	Get the symbol of a java symbol
+*
+*	@param javaSymbol : java object.
+*/
+private symbol getJavaSymbolFile( symbol javaSymbol )
+{
+	symbol parent = javaSymbol;
+	if ( parent == null || getMetaType( parent ) == JV_FILE )
+	{
+		return parent;
+	}
+	return getJavaSymbolFile( getSymbolUniqueParent( parent ) );
+}

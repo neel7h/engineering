@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- ======================================================================================================== -->
+	<!-- =======================================  Cast-Congfig.xml  ============================================= -->
+	<!-- =======================================    version: 6.0    ============================================= -->
+	<!-- ==========================    This file applies to struts-config.xml file type				 ============ -->
+	<!-- ==========================																	 ============ -->
+	<!-- ==========================    As of version 6.0 of CAST products this file is deprecated.   ============ -->
+	<!-- ==========================	   Use cast-struts-config.xml instead.							 ============ -->
+	<!-- ======================================================================================================== -->
+
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+	<!-- 
+	Notes: 
+		 For each object/link node, the xpath attribute specifies the node in the configuration file that
+		 contains the information needed to create the object/link. Once this node specified, the location of 
+		 each peace of information to consider is given by an XPath query relatively to this node.
+
+		 The xpath attribute's value is an XPath query relative to the parent node 
+		 of the node using this attribute. 
+		 It is recommended that this path points to an element rather than an attribute.
+		 
+		 If an object-node's type attribute is missing or has an unrecognized value, 
+		 a generic xml object will be created.
+
+		 For more information, see the CAST-config.xsd file or online help 
+	-->
+
+
+	<!-- ========================================================================================================-->
+	<!-- ========================================== OBJECTS AND LINKS TO CREATE =================================-->
+	<!-- ========================================================================================================-->
+
+
+	<!-- Global Forwards -->
+	<object-node xpath="/struts-config/global-forwards/forward" name="./@name" type="forward">
+		<link-node xpath = "."										called-object = "./@path"		resolve-as = "url"		/>
+		<link-node xpath = "."										called-object = "./@className"	resolve-as = "java-type"/>
+		<link-node xpath = "self::node()[contains(@path, '.do')]"	called-object = "./@path"		resolve-as = "url"		 >
+			<query-param 	
+					name					= "method_name" 
+					xpath					= "./@path" 
+					resolve-as				= "java-method" 
+					resolution-scope-src	= "/struts-config/action-mappings/action/@type" 
+					default					= "perform" />
+			
+				<!-- Note: resolution-scope-src attribute should be set like this:
+					 resolution-scope-src  = "/struts-config/action-mappings/action[ @path = (begining of this forward's path)]/@type" 
+					 Since the criteria << [ @path = (begining of this forward's path)] >> can not be specified with xpath 1.0 (No mean to reference the forward within the context of an action - in the []), this filter is applied internaly:only if query-param is used to resolve url parameters of a forward's path.
+					 Elsewhere, only the first result returned by the xpath request is considered.
+				-->
+		</link-node>
+	</object-node>
+
+	<object-node xpath="/struts-config/queries/query" name="./@name" type="xml-object">
+		<link-node xpath="."	called-object="./sql"	resolve-as="server-object" />
+	</object-node>
+
+	<!-- action mappings -->
+	<object-node xpath="/struts-config/action-mappings/action" name="./@path" default="./@unknown" type="action-mapping">
+		<object-attribute name = "class"			select = "./@type"		/>
+		<object-attribute name = "Validate"			select = "./@validate"	/>
+
+		<!-- getting links for action mappings -->
+		<link-node xpath="."	called-object="./@type"			resolve-as="java-type"	link-type="relyon"	/>
+		<link-node xpath="."	called-object="./@include"		resolve-as="java-type"						/>
+		<link-node xpath="."	called-object="./@input"		resolve-as="url"							/>
+		<link-node xpath="."	called-object="./@name"			resolve-as="form-bean"						/>
+		<link-node xpath="."	called-object="./@forward"		resolve-as="forward;url"					/>
+		
+		<link-node xpath="self::node()[count(/struts-config/controller[@processorClass = 'org.apache.struts.tiles.TilesRequestProcessor']) &gt; 0]"	
+								called-object="./@forward"		resolve-as="bean"	/>
+
+		<!-- Forwards with transform child elements: stxx in struts-config-integrated mode -->
+		<object-node xpath="./forward[transform]" name="./@name" type="forward">
+			<!-- 
+				stxx tranforms (struts 1.0  -  STXX 1.0 )
+				STXX 1.0 Transforms are created from struts-config file.
+				The path attribute value is resolved as an url (file)	
+			-->
+			<object-node xpath="./transform" name="./@name" type="stxx-transform">
+				<link-node xpath="." called-object="./@path" resolve-as="path" />
+			</object-node>
+		</object-node>
+
+		<!-- Forwards with .dox in path attribute and without transform child element: stxx in plugin mode	-->
+		<object-node xpath="./forward[contains(@path, '.dox')][count(transform) = 0]" name="./@name" type="forward">
+			<!-- 
+				stxx tranforms (struts 1.1  -  STXX 1.1, 1.2 ) 
+				STXX 1.1 and 1.2 Transforms (and pipelines for 1.2) are created from and external file in plugin mode.(see stxx-cfg-node element).
+				The config below traces a link toward a transform (via a pipeline in 1.2) if the parent element (forward) does not 
+				have a transform sub element.
+			-->
+			<link-node xpath="." called-object="./@path" resolve-as="stxx-transform"/>
+		</object-node>
+
+		<!-- Other Forwards(other than forwards for stxx) -->
+		<object-node xpath="./forward[@path][not(contains(@path, '.dox'))]" name="./@name" type="forward">
+			<link-node xpath="." called-object="./@path" resolve-as="resource"/>
+			<link-node xpath="self::node()[contains(@path, '.do')]" called-object="./@path" resolve-as="url">
+				<query-param name="method_name" xpath="./@path" resolve-as="java-method" resolution-scope-src ="/struts-config/action-mappings/action/@type" default="perform"/>
+			</link-node>
+			<link-node xpath="." called-object="./@className" resolve-as="java-type"/>
+		</object-node>
+
+		<!-- 	-->
+		<object-node xpath="./exception" name="./@key" type="xml-object">
+			<link-node xpath="." called-object="./@path" resolve-as="url"/>
+			<link-node xpath="." called-object="./@type" resolve-as="java-type"/>
+		</object-node>
+
+		<object-node xpath="self::node()[@scope]" name="./@name" type="form-bean" scope-src="./@scope">
+			<link-node xpath="." called-object="/struts-config/form-beans/form-bean[@name='{0}']/@type" resolve-as="java-type">
+				<variable name="{0}" select = "./@name" />
+			</link-node>
+		</object-node>
+
+	</object-node>
+
+	<!-- getting beans -->
+	<object-node xpath="/struts-config/form-beans/form-bean" name="./@name" type="form-bean" scope="session" java-type="./@type">
+		<object-attribute name = "class" select = "./@type" />
+		<!-- bean properties -->
+		<object-node xpath="./form-property" name="./@name" type="bean-property" java-type="./@type"/>
+	</object-node>
+
+
+
+	<!-- ========================================================================================================-->
+	<!-- ========================================== CONFIGURATION FILES =========================================-->
+	<!-- ========================================================================================================-->
+
+
+	<!-- tiles files -->
+	<config-file-node xpath="/struts-config/plug-in/set-property[@property='definitions-config']" content-type="tiles-definitions" location="./@value" />
+
+	<!-- stxx 1.1 transforms definition file (plugin version) -->
+	<config-file-node xpath="/struts-config/plug-in/set-property[@property='transform-config']" content-type="stxx-transforms" location="./@value" version="1.1">
+		<object-node xpath="/transform-definitions/transform" name="./@name" type="stxx-transform">
+			<link-node xpath="." called-object="./xsl/file/@name" resolve-as="path"/>
+		</object-node>
+	</config-file-node>
+
+	<!-- stxx 1.2 pipelines/transforms definition file -->
+	<config-file-node xpath="/struts-config/plug-in/set-property[@property='pipeline-config']" content-type="stxx-transforms" location="./@value" version="1.2">
+		<object-node xpath="/pipeline-definitions/pipeline" name="./@match" type="stxx-pipeline">
+			<param name="transform-file-path" type="path" value="./transform/param[@name='path' ]/@value"/>
+			<param name="transform-file-path" type="path" value="./transform/param[@name='page' ]/@value"/>
+			<param name="transform-file-path" type="path" value="./transform/param[@name='xform']/@value"/>
+			<!-- 	<param name="transform-file" type="path" value="./transform[@when='MSIE']/param[@name='page' ]/@value" />   -->
+		</object-node>
+	</config-file-node>
+
+	<!-- Forms validation configuration file -->
+	<config-file-node xpath="/struts-config/plug-in[@className='org.apache.struts.validator.ValidatorPlugIn']" content-type="form-validation" location="./set-property[@property = 'pathnames']/@value" version = "1.1">
+		<object-node xpath="/form-validation/formset" type="validation-forms-set" name="./@language" suffix-src="./@country"> 
+			<object-node xpath="./form" name="./@name" type="validation-form">
+				<link-node	 xpath="." called-object="./@name" resolve-as="form-bean;action-mapping" link-type="use" />
+				
+				<!-- Validation Form Fields -->
+				<object-node xpath="./field" name="./@property" type="validation-form-field"> 
+					<link-node	 xpath="." called-object="./@property" resolve-as="form-property" resolution-scope-src="../@name" link-type="use" />
+				</object-node>
+			</object-node>
+		</object-node>
+	</config-file-node>
+
+	<!-- ========================================================================================================-->
+	<!-- ==========================================		 PLUGINS		=========================================-->
+	<!-- ========================================================================================================-->
+
+	<link-node xpath="." called-object="./plug-in/@className" resolve-as="java-type" link-type="use"/>
+
+</xml-config>

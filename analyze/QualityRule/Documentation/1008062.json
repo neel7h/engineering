@@ -1,0 +1,59 @@
+{
+    "id": 1008062,
+    "name": "Avoid Programs with Subqueries  (RPG400)",
+    "href": "AIP/quality-rules/1008062",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the programs having subqueries.",
+    "output": "This report lists RPG400 Programs with Subqueries.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Having complex queries in  Programs can cause performance problems.",
+    "remediation": "Try to reduce the complexity of queries or the number of complex queries",
+    "remediationSample": "Use join instead:\n\nSELECT *\nFROM HumanResources.Employee E\nINNER JOIN HumanResources.EmployeeAddress EA ON E.EmployeeID = EA.EmployeeID",
+    "sample": "SELECT *\nFROM HumanResources.Employee E\nWHERE E.EmployeeID = ( SELECT EA.EmployeeID\nFROM HumanResources.EmployeeAddress EA\nWHERE EA.EmployeeID = E.EmployeeID)",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid Programs with Subqueries  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "id": 1005088,
+    "name": "Avoid programs not having the property I4GLItemsNullable set to NO (EGL)",
+    "href": "AIP/quality-rules/1005088",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the programs having the I4GLItemsNullable property set toYes \nThe Default value of this property is NO. \nAn EGL program that doesn't have the property I4GLItemsNullable inside its code source will not violate this rule.",
+    "output": "This report lists the following information: Program Full Name",
+    "rationale": "I4GLItemsNullable property must be set to NO\nIf the i4glItemsNullable property is set to YES, EGL emulates the behavior of I4GL in creating variables as nullable by default (not normally the case in EGL). The default for this property is NO. This property is typically used by EGL migration",
+    "remediation": "Try to reduce the use of the property I4GLItemsNullable set to YES.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid programs not having the property I4GLItemsNullable set to NO (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

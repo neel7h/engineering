@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" active="true" detached="false" ignored="false" />
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" active="true" detached="false" ignored="false" />
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" active="true" detached="false" ignored="false" />
+</root>

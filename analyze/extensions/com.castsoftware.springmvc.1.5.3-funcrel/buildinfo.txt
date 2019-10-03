@@ -1,0 +1,6 @@
+Build date: 25/04/2019 14:12:58,09 
+Build number: 1000037 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 49ff94e8048a4a6929cc4f627bd0fbd25cafcbc0
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.springmvc.git origin/1.5.x eee633c42398574b93019bd21206f79e442fa0ef
+Publish date: 25/04/2019 15:33:18,21 
+Original version: 1.5.3-build1000037 

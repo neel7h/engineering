@@ -1,0 +1,82 @@
+{
+    "id": 1020712,
+    "name": "Ensure the X-Frame-Options header is setup (Node.js)",
+    "href": "AIP/quality-rules/1020712",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Clickjacking, also known as a \"UI redress attack\", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the the top level page. Thus, the attacker is \"hijacking\" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. \nUsing a similar technique, keystrokes can also be hijacked. With a carefully crafted combination of stylesheets, iframes, and text boxes, a user can be led to believe they are typing in the password to their email or bank account, but are instead typing into an invisible frame controlled by the attacker.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In Node.js, setup X-Frame-Options to enable clickjacking protection.",
+    "reference": "https://expressjs.com/en/advanced/best-practice-security.html \nhttps://www.owasp.org/index.php/Clickjacking",
+    "remediation": "Ensure you have setup the X-Frame-Options in your express instance or use third-party helmet package",
+    "remediationSample": "var express = require('express'); \nvar app = express(); \n\nvar helmet = require('helmet'); \napp.use(helmet()) \n// or more specifically \napp.use(helmet.frameguard()); \n\napp.listen(3000);",
+    "sample": "var express = require('express'); \nvar app = express(); \n\napp.listen(3000);",
+    "total": "Number of javascript source codes using express",
+    "alternativeName": "Ensure the X-Frame-Options header is setup (Node.js)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-1021",
+            "name": "Improper Restriction of Rendered UI Layers or Frames",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

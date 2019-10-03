@@ -1,0 +1,68 @@
+{
+    "id": 1050052,
+    "name": "Avoid empty finally block",
+    "href": "AIP/quality-rules/1050052",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for Objective-C finally block that are empty.",
+    "output": "This report lists all Artifacts with an empty finally block.\nIt provides the following information: \nArtifact full name",
+    "rationale": "Finally blocks must be used to execute the code that is needed after either the try and/or the catch block have been executed. It is usually the place to code the release of resources used in the try block. As such, an empty finally block is most probably the sign of potential \"resource leaks\" that will jeopardize the application's stability.",
+    "remediation": "try {  } \ncatch ( MyException e) \n{  } \nfinally \n{ \n  DoSomething(); \n}",
+    "sample": "try { ... } \ncatch ( MyException e) \n{  } \nfinally \n{ \n  // DO NOTHING\n}",
+    "alternativeName": "Ensure the @finally block is used.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-1",
+            "name": "Empty Exception Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

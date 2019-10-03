@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1027000</SetId>
+	<SetName>SET_DotNet_PInvoke_Method</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_PInvoke_Method</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027001</SetId>
+	<SetName>SET_DotNet_OverlappedIO_Method</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_OverlappedIO_Method</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027002</SetId>
+	<SetName>SET_DotNet_UsesSystemXml</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_UsesSystemXml</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027003</SetId>
+	<SetName>SET_DotNet_Impersonate_Method</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_Impersonate_Method</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027004</SetId>
+	<SetName>SET_DotNet_Encryption_Method</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_Encryption_Method</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027005</SetId>
+	<SetName>SET_DotNet_HttpSessionAttr</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_HttpSessionAttr</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1027006</SetId>
+	<SetName>SET_DotNet_UtilityClass</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DotNet_UtilityClass</SetProcedure>
+</SET_Definitions>
+</DATA>

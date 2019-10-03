@@ -1,0 +1,1823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls>
+    <control name="AccessText" class="System.Windows.Controls.AccessText" tag="asp:AccessText" inf_typ="12007" inf_sub_typ="900301" description="AccessText">
+        <attribut name="ContextMenuClosing" resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening" resolveAS="method" context="page" />
+        <attribut name="DataContextChanged" resolveAS="method" context="page" />
+        <attribut name="DragEnter" resolveAS="method" context="page" />
+        <attribut name="DragLeave" resolveAS="method" context="page" />
+        <attribut name="DragOver" resolveAS="method" context="page" />
+        <attribut name="Drop" resolveAS="method" context="page" />
+        <attribut name="FocusableChanged" resolveAS="method" context="page" />
+        <attribut name="GiveFeedback" resolveAS="method" context="page" />
+        <attribut name="GotFocus" resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture" resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture" resolveAS="method" context="page" />
+        <attribut name="Initialized" resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged" resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="KeyDown" resolveAS="method" context="page" />
+        <attribut name="KeyUp" resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated" resolveAS="method" context="page" />
+        <attribut name="Loaded" resolveAS="method" context="page" />
+        <attribut name="LostFocus" resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture" resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture" resolveAS="method" context="page" />
+        <attribut name="MouseDown" resolveAS="method" context="page" />
+        <attribut name="MouseEnter" resolveAS="method" context="page" />
+        <attribut name="MouseLeave" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseMove" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseUp" resolveAS="method" context="page" />
+        <attribut name="MouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter" resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave" resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver" resolveAS="method" context="page" />
+        <attribut name="PreviewDrop" resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback" resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp" resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp" resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput" resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="QueryCursor" resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView" resolveAS="method" context="page" />
+        <attribut name="SizeChanged" resolveAS="method" context="page" />
+        <attribut name="SourceUpdated" resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="StylusDown" resolveAS="method" context="page" />
+        <attribut name="StylusEnter" resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="StylusInRange" resolveAS="method" context="page" />
+        <attribut name="StylusLeave" resolveAS="method" context="page" />
+        <attribut name="StylusMove" resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="StylusUp" resolveAS="method" context="page" />
+        <attribut name="TargetUpdated" resolveAS="method" context="page" />
+        <attribut name="TextInput" resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing" resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening" resolveAS="method" context="page" />
+        <attribut name="Unloaded" resolveAS="method" context="page" />
+        <attribut name="CommandBindings" resolveAS="object" context="page" />
+        <attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+</control>
+    
+<control name="Button" class="System.Windows.Controls.Button" tag="asp:Button" inf_typ="12007" inf_sub_typ="900301" description="Button">
+        <attribut name="Click" resolveAS="method" context="page" />
+        <attribut name="ContextMenuClosing" resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening" resolveAS="method" context="page" />
+        <attribut name="DataContextChanged" resolveAS="method" context="page" />
+        <attribut name="DragEnter" resolveAS="method" context="page" />
+        <attribut name="DragLeave" resolveAS="method" context="page" />
+        <attribut name="DragOver" resolveAS="method" context="page" />
+        <attribut name="Drop" resolveAS="method" context="page" />
+        <attribut name="FocusableChanged" resolveAS="method" context="page" />
+        <attribut name="GiveFeedback" resolveAS="method" context="page" />
+        <attribut name="GotFocus" resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture" resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture" resolveAS="method" context="page" />
+        <attribut name="Initialized" resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged" resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="KeyDown" resolveAS="method" context="page" />
+        <attribut name="KeyUp" resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated" resolveAS="method" context="page" />
+        <attribut name="Loaded" resolveAS="method" context="page" />
+        <attribut name="LostFocus" resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture" resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture" resolveAS="method" context="page" />
+        <attribut name="MouseDoubleClick" resolveAS="method" context="page" />
+        <attribut name="MouseDown" resolveAS="method" context="page" />
+        <attribut name="MouseEnter" resolveAS="method" context="page" />
+        <attribut name="MouseLeave" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseMove" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseUp" resolveAS="method" context="page" />
+        <attribut name="MouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter" resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave" resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver" resolveAS="method" context="page" />
+        <attribut name="PreviewDrop" resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback" resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp" resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDoubleClick" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp" resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput" resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="QueryCursor" resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView" resolveAS="method" context="page" />
+        <attribut name="SizeChanged" resolveAS="method" context="page" />
+        <attribut name="SourceUpdated" resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="StylusDown" resolveAS="method" context="page" />
+        <attribut name="StylusEnter" resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="StylusInRange" resolveAS="method" context="page" />
+        <attribut name="StylusLeave" resolveAS="method" context="page" />
+        <attribut name="StylusMove" resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="StylusUp" resolveAS="method" context="page" />
+        <attribut name="TargetUpdated" resolveAS="method" context="page" />
+        <attribut name="TextInput" resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing" resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening" resolveAS="method" context="page" />
+        <attribut name="Unloaded" resolveAS="method" context="page" />
+        <attribut name="Command" resolveAS="object" context="page" />
+    	<attribut name="CommandBindings" resolveAS="object" context="page" />
+      	<attribut name="CommantTarget" resolveAS="object" context="page" />
+        <attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+    <control name="CheckBox" class="System.Windows.Controls.CheckBox" tag="asp:CheckBox" inf_typ="12007" inf_sub_typ="900302" description="CheckBox">
+        <attribut name="Checked" resolveAS="method" context="page" />
+        <attribut name="Click" resolveAS="method" context="page" />
+        <attribut name="ContextMenuClosing" resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening" resolveAS="method" context="page" />
+        <attribut name="DataContextChanged" resolveAS="method" context="page" />
+        <attribut name="DragEnter" resolveAS="method" context="page" />
+        <attribut name="DragLeave" resolveAS="method" context="page" />
+        <attribut name="DragOver" resolveAS="method" context="page" />
+        <attribut name="Drop" resolveAS="method" context="page" />
+        <attribut name="FocusableChanged" resolveAS="method" context="page" />
+        <attribut name="GiveFeedback" resolveAS="method" context="page" />
+        <attribut name="GotFocus" resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture" resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture" resolveAS="method" context="page" />
+        <attribut name="Indeterminate" resolveAS="method" context="page" />
+        <attribut name="Initialized" resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged" resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged" resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged" resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged" resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged" resolveAS="method" context="page" />
+        <attribut name="KeyDown" resolveAS="method" context="page" />
+        <attribut name="KeyUp" resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated" resolveAS="method" context="page" />
+        <attribut name="Loaded" resolveAS="method" context="page" />
+        <attribut name="LostFocus" resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture" resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture" resolveAS="method" context="page" />
+        <attribut name="MouseDoubleClick" resolveAS="method" context="page" />
+        <attribut name="MouseDown" resolveAS="method" context="page" />
+        <attribut name="MouseEnter" resolveAS="method" context="page" />
+        <attribut name="MouseLeave" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseMove" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="MouseUp" resolveAS="method" context="page" />
+        <attribut name="MouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter" resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave" resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver" resolveAS="method" context="page" />
+        <attribut name="PreviewDrop" resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback" resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown" resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp" resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDoubleClick" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp" resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel" resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp" resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput" resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag" resolveAS="method" context="page" />
+        <attribut name="QueryCursor" resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView" resolveAS="method" context="page" />
+        <attribut name="SizeChanged" resolveAS="method" context="page" />
+        <attribut name="SourceUpdated" resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown" resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp" resolveAS="method" context="page" />
+        <attribut name="StylusDown" resolveAS="method" context="page" />
+        <attribut name="StylusEnter" resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove" resolveAS="method" context="page" />
+        <attribut name="StylusInRange" resolveAS="method" context="page" />
+        <attribut name="StylusLeave" resolveAS="method" context="page" />
+        <attribut name="StylusMove" resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange" resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture" resolveAS="method" context="page" />
+        <attribut name="StylusUp" resolveAS="method" context="page" />
+        <attribut name="TargetUpdated" resolveAS="method" context="page" />
+        <attribut name="TextInput" resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing" resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening" resolveAS="method" context="page" />
+        <attribut name="Unchecked" resolveAS="method" context="page" />
+        <attribut name="Unloaded" resolveAS="method" context="page" />
+    	<attribut name="Command" resolveAS="object" context="page" />
+        <attribut name="CommandBindings" resolveAS="object" context="page" />
+        <attribut name="CommantTarget" resolveAS="object" context="page" />
+	    <attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+    <control name="ComboBox" class="System.Windows.Controls.ComboBox" tag="asp:ComboBox" inf_typ="12007" inf_sub_typ="900103" description="ComboBox" >
+        <attribut name="ContextMenuClosing"  resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening"  resolveAS="method" context="page" />
+        <attribut name="DataContextChanged"  resolveAS="method" context="page" />
+        <attribut name="DragEnter"  resolveAS="method" context="page" />
+        <attribut name="DragLeave"  resolveAS="method" context="page" />
+        <attribut name="DragOver"  resolveAS="method" context="page" />
+        <attribut name="Drop"  resolveAS="method" context="page" />
+        <attribut name="DropDownClosed"  resolveAS="method" context="page" />
+        <attribut name="DropDownOpened"  resolveAS="method" context="page" />
+        <attribut name="FocusableChanged"  resolveAS="method" context="page" />
+        <attribut name="GiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="GotFocus"  resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="Initialized"  resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged"  resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="KeyDown"  resolveAS="method" context="page" />
+        <attribut name="KeyUp"  resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated"  resolveAS="method" context="page" />
+        <attribut name="Loaded"  resolveAS="method" context="page" />
+        <attribut name="LostFocus"  resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="MouseDoubleClick"  resolveAS="method" context="page" />
+        <attribut name="MouseDown"  resolveAS="method" context="page" />
+        <attribut name="MouseEnter"  resolveAS="method" context="page" />
+        <attribut name="MouseLeave"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseMove"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseUp"  resolveAS="method" context="page" />
+        <attribut name="MouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver"  resolveAS="method" context="page" />
+        <attribut name="PreviewDrop"  resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput"  resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="QueryCursor"  resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView"  resolveAS="method" context="page" />
+        <attribut name="SelectionChanged"  resolveAS="method" context="page" />
+        <attribut name="SizeChanged"  resolveAS="method" context="page" />
+        <attribut name="SourceUpdated"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="StylusDown"  resolveAS="method" context="page" />
+        <attribut name="StylusEnter"  resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="StylusInRange"  resolveAS="method" context="page" />
+        <attribut name="StylusLeave"  resolveAS="method" context="page" />
+        <attribut name="StylusMove"  resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="StylusUp"  resolveAS="method" context="page" />
+        <attribut name="TargetUpdated"  resolveAS="method" context="page" />
+        <attribut name="TextInput"  resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing"  resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening"  resolveAS="method" context="page" />
+        <attribut name="Unloaded"  resolveAS="method" context="page" />
+        <attribut name="CommandBindings" resolveAS="object" context="page" />
+	    <attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+<!--
+ <control name="Grid" class="System.Windows.Controls.Grid" tag="asp:Grid" inf_typ="12007" inf_sub_typ="900104" description="Grid">
+        <attribut name="ContextMenuClosing"  resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening"  resolveAS="method" context="page" />
+        <attribut name="DataContextChanged"  resolveAS="method" context="page" />
+        <attribut name="DragEnter"  resolveAS="method" context="page" />
+        <attribut name="DragLeave"  resolveAS="method" context="page" />
+        <attribut name="DragOver"  resolveAS="method" context="page" />
+        <attribut name="Drop"  resolveAS="method" context="page" />
+        <attribut name="FocusableChanged"  resolveAS="method" context="page" />
+        <attribut name="GiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="GotFocus"  resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="Initialized"  resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged"  resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="KeyDown"  resolveAS="method" context="page" />
+        <attribut name="KeyUp"  resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated"  resolveAS="method" context="page" />
+        <attribut name="Loaded"  resolveAS="method" context="page" />
+        <attribut name="LostFocus"  resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="MouseDown"  resolveAS="method" context="page" />
+        <attribut name="MouseEnter"  resolveAS="method" context="page" />
+        <attribut name="MouseLeave"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseMove"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseUp"  resolveAS="method" context="page" />
+        <attribut name="MouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver"  resolveAS="method" context="page" />
+        <attribut name="PreviewDrop"  resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput"  resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="QueryCursor"  resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView"  resolveAS="method" context="page" />
+        <attribut name="SizeChanged"  resolveAS="method" context="page" />
+        <attribut name="SourceUpdated"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="StylusDown"  resolveAS="method" context="page" />
+        <attribut name="StylusEnter"  resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="StylusInRange"  resolveAS="method" context="page" />
+        <attribut name="StylusLeave"  resolveAS="method" context="page" />
+        <attribut name="StylusMove"  resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="StylusUp"  resolveAS="method" context="page" />
+        <attribut name="TargetUpdated"  resolveAS="method" context="page" />
+        <attribut name="TextInput"  resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing"  resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening"  resolveAS="method" context="page" />
+        <attribut name="Unloaded"  resolveAS="method" context="page" />
+        <attribut name="CommandBindings" resolveAS="object" context="page" />
+		<attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+-->
+
+<control name="Image" class="System.Windows.Controls.Image" tag="asp:Image" inf_typ="12007" inf_sub_typ="900104" description="Image">
+        <attribut name="ContextMenuClosing"  resolveAS="method" context="page" />
+        <attribut name="ContextMenuOpening"  resolveAS="method" context="page" />
+        <attribut name="DataContextChanged"  resolveAS="method" context="page" />
+        <attribut name="DragEnter"  resolveAS="method" context="page" />
+        <attribut name="DragLeave"  resolveAS="method" context="page" />
+        <attribut name="DragOver"  resolveAS="method" context="page" />
+        <attribut name="Drop"  resolveAS="method" context="page" />
+        <attribut name="FocusableChanged"  resolveAS="method" context="page" />
+        <attribut name="GiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="GotFocus"  resolveAS="method" context="page" />
+        <attribut name="GotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="GotMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="GotStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="ImageFailed"  resolveAS="method" context="page" />
+        <attribut name="Initialized"  resolveAS="method" context="page" />
+        <attribut name="IsEnabledChanged"  resolveAS="method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCapturedChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"  resolveAS="method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"  resolveAS="method" context="page" />
+        <attribut name="IsVisibleChanged"  resolveAS="method" context="page" />
+        <attribut name="KeyDown"  resolveAS="method" context="page" />
+        <attribut name="KeyUp"  resolveAS="method" context="page" />
+        <attribut name="LayoutUpdated"  resolveAS="method" context="page" />
+        <attribut name="Loaded"  resolveAS="method" context="page" />
+        <attribut name="LostFocus"  resolveAS="method" context="page" />
+        <attribut name="LostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="LostMouseCapture"  resolveAS="method" context="page" />
+        <attribut name="LostStylusCapture"  resolveAS="method" context="page" />
+        <attribut name="MouseDown"  resolveAS="method" context="page" />
+        <attribut name="MouseEnter"  resolveAS="method" context="page" />
+        <attribut name="MouseLeave"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseMove"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="MouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="MouseUp"  resolveAS="method" context="page" />
+        <attribut name="MouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragEnter"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragLeave"  resolveAS="method" context="page" />
+        <attribut name="PreviewDragOver"  resolveAS="method" context="page" />
+        <attribut name="PreviewDrop"  resolveAS="method" context="page" />
+        <attribut name="PreviewGiveFeedback"  resolveAS="method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewKeyUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewMouseWheel"  resolveAS="method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusDown"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusInRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusMove"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="PreviewStylusUp"  resolveAS="method" context="page" />
+        <attribut name="PreviewTextInput"  resolveAS="method" context="page" />
+        <attribut name="QueryContinueDrag"  resolveAS="method" context="page" />
+        <attribut name="QueryCursor"  resolveAS="method" context="page" />
+        <attribut name="RequestBringIntoView"  resolveAS="method" context="page" />
+        <attribut name="SizeChanged"  resolveAS="method" context="page" />
+        <attribut name="SourceUpdated"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonDown"  resolveAS="method" context="page" />
+        <attribut name="StylusButtonUp"  resolveAS="method" context="page" />
+        <attribut name="StylusDown"  resolveAS="method" context="page" />
+        <attribut name="StylusEnter"  resolveAS="method" context="page" />
+        <attribut name="StylusInAirMove"  resolveAS="method" context="page" />
+        <attribut name="StylusInRange"  resolveAS="method" context="page" />
+        <attribut name="StylusLeave"  resolveAS="method" context="page" />
+        <attribut name="StylusMove"  resolveAS="method" context="page" />
+        <attribut name="StylusOutOfRange"  resolveAS="method" context="page" />
+        <attribut name="StylusSystemGesture"  resolveAS="method" context="page" />
+        <attribut name="StylusUp"  resolveAS="method" context="page" />
+        <attribut name="TargetUpdated"  resolveAS="method" context="page" />
+        <attribut name="TextInput"  resolveAS="method" context="page" />
+        <attribut name="ToolTipClosing"  resolveAS="method" context="page" />
+        <attribut name="ToolTipOpening"  resolveAS="method" context="page" />
+        <attribut name="Unloaded"  resolveAS="method" context="page" />
+	    <attribut name="CommandBindings" resolveAS="object" context="page" />
+		<attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+    <control name="Label" class="System.Windows.Controls.Label" tag="asp:Label" inf_typ="12007" inf_sub_typ="900105" description="Label">
+        <attribut name="ContextMenuClosing"  resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"  resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"  resolveAS = "method" context="page" />
+        <attribut name="DragEnter"  resolveAS = "method" context="page" />
+        <attribut name="DragLeave"  resolveAS = "method" context="page" />
+        <attribut name="DragOver"  resolveAS = "method" context="page" />
+        <attribut name="Drop"  resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"  resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"  resolveAS = "method" context="page" />
+        <attribut name="GotFocus"  resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"  resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"  resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"  resolveAS = "method" context="page" />
+        <attribut name="Initialized"  resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"  resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"  resolveAS = "method" context="page" />
+        <attribut name="KeyDown"  resolveAS = "method" context="page" />
+        <attribut name="KeyUp"  resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"  resolveAS = "method" context="page" />
+        <attribut name="Loaded"  resolveAS = "method" context="page" />
+        <attribut name="LostFocus"  resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"  resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"  resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"  resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"  resolveAS = "method" context="page" />
+        <attribut name="MouseDown"  resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"  resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"  resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="MouseMove"  resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="MouseUp"  resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"  resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"  resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"  resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"  resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"  resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"  resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"  resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"  resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"  resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"  resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"  resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"  resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"  resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"  resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"  resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"  resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"  resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"  resolveAS = "method" context="page" />
+        <attribut name="StylusDown"  resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"  resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"  resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"  resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"  resolveAS = "method" context="page" />
+        <attribut name="StylusMove"  resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"  resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"  resolveAS = "method" context="page" />
+        <attribut name="StylusUp"  resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"  resolveAS = "method" context="page" />
+        <attribut name="TextInput"  resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"  resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"  resolveAS = "method" context="page" />
+        <attribut name="Unloaded"  resolveAS = "method" context="page" />
+        <attribut name="CommandBindings" resolveAS="object" context="page" />
+		<attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+    <control name="ListBox" class="System.Windows.Controls.ListBox" tag="asp:ListBox" inf_typ="12007" inf_sub_typ="900106" description="ListBox" >
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SelectionChanged"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+	    <attribut name="CommandBindings" resolveAS="object" context="page" />
+        <attribut name="ContextMenu" resolveAS="object" context="page" />
+        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+    
+     <control name="ListView" class="System.Windows.Controls.ListView" tag="asp:ListView" inf_typ="12007" inf_sub_typ="900106" description="ListView" >
+            <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+            <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+            <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+            <attribut name="DragEnter"   resolveAS = "method" context="page" />
+            <attribut name="DragLeave"   resolveAS = "method" context="page" />
+            <attribut name="DragOver"   resolveAS = "method" context="page" />
+            <attribut name="Drop"   resolveAS = "method" context="page" />
+            <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+            <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+            <attribut name="GotFocus"   resolveAS = "method" context="page" />
+            <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+            <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+            <attribut name="Initialized"   resolveAS = "method" context="page" />
+            <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+            <attribut name="KeyDown"   resolveAS = "method" context="page" />
+            <attribut name="KeyUp"   resolveAS = "method" context="page" />
+            <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+            <attribut name="Loaded"   resolveAS = "method" context="page" />
+            <attribut name="LostFocus"   resolveAS = "method" context="page" />
+            <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+            <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+            <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+            <attribut name="MouseDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseMove"   resolveAS = "method" context="page" />
+            <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+            <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+            <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+            <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+            <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+            <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+            <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+            <attribut name="SelectionChanged"   resolveAS = "method" context="page" />
+            <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+            <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+            <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="StylusDown"   resolveAS = "method" context="page" />
+            <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+            <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+            <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+            <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+            <attribut name="StylusMove"   resolveAS = "method" context="page" />
+            <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+            <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+            <attribut name="StylusUp"   resolveAS = "method" context="page" />
+            <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+            <attribut name="TextInput"   resolveAS = "method" context="page" />
+            <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+            <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+            <attribut name="Unloaded"   resolveAS = "method" context="page" />
+            
+            	<attribut name="CommandBindings" resolveAS="object" context="page" />
+    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+                    <attribut name="DataContext" resolveAS="object" context="page" />
+                    
+    </control>
+    
+    
+    <control name="MediaElement" class="System.Windows.Controls.MediaElement" tag="asp:MediaElement" inf_typ="12007" inf_sub_typ="900107" description="MediaElement" >
+        <attribut name="BufferingEnded"   resolveAS = "method" context="page" />
+        <attribut name="BufferingStarted"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MediaEnded"   resolveAS = "method" context="page" />
+        <attribut name="MediaFailed"   resolveAS = "method" context="page" />
+        <attribut name="MediaOpened"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="ScriptCommand"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        		<attribut name="CommandBindings" resolveAS="object" context="page" />
+	    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+                    	<attribut name="DataContext" resolveAS="object" context="page" />
+                    
+    </control>
+    
+    <control name="Menu" class="System.Windows.Controls.Menu" tag="asp:Menu" inf_typ="12007" inf_sub_typ="900108" description="Menu">
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        
+	        		<attribut name="CommandBindings" resolveAS="object" context="page" />
+		    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+                    	<attribut name="DataContext" resolveAS="object" context="page" />
+                    	
+    </control>
+    
+    <control name="PasswordBox" class="System.Windows.Controls.PasswordBox" tag="asp:PasswordBox" inf_typ="12007" inf_sub_typ="900109" description="PasswordBox">
+    <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+    <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+    <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+    <attribut name="DragEnter"   resolveAS = "method" context="page" />
+    <attribut name="DragLeave"   resolveAS = "method" context="page" />
+    <attribut name="DragOver"   resolveAS = "method" context="page" />
+    <attribut name="Drop"   resolveAS = "method" context="page" />
+    <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+    <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+    <attribut name="GotFocus"   resolveAS = "method" context="page" />
+    <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+    <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+    <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+    <attribut name="Initialized"   resolveAS = "method" context="page" />
+    <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+    <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+    <attribut name="KeyDown"   resolveAS = "method" context="page" />
+    <attribut name="KeyUp"   resolveAS = "method" context="page" />
+    <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+    <attribut name="Loaded"   resolveAS = "method" context="page" />
+    <attribut name="LostFocus"   resolveAS = "method" context="page" />
+    <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+    <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+    <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+    <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+    <attribut name="MouseDown"   resolveAS = "method" context="page" />
+    <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+    <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+    <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="MouseMove"   resolveAS = "method" context="page" />
+    <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="MouseUp"   resolveAS = "method" context="page" />
+    <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+    <attribut name="PasswordChanged"   resolveAS = "method" context="page" />
+    <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+    <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+    <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+    <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+    <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+    <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+    <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+    <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+    <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+    <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+    <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+    <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+    <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+    <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+    <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+    <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+    <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+    <attribut name="StylusDown"   resolveAS = "method" context="page" />
+    <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+    <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+    <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+    <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+    <attribut name="StylusMove"   resolveAS = "method" context="page" />
+    <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+    <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+    <attribut name="StylusUp"   resolveAS = "method" context="page" />
+    <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+    <attribut name="TextInput"   resolveAS = "method" context="page" />
+    <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+    <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+    <attribut name="Unloaded"   resolveAS = "method" context="page" />
+    
+    	        		<attribut name="CommandBindings" resolveAS="object" context="page" />
+    		    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+                        	<attribut name="DataContext" resolveAS="object" context="page" />
+                    	
+    </control>
+    
+    
+    <control name="RadioButton" class="System.Windows.Controls.RadioButton" tag="asp:RadioButton" inf_typ="12007" inf_sub_typ="900110" description="RadioButton" >
+        <attribut name="Checked"   resolveAS = "method" context="page" />
+        <attribut name="Click"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Indeterminate"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unchecked"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        		<attribut name="Command" resolveAS="object" context="page" />
+		        <attribut name="CommandBindings" resolveAS="object" context="page" />
+		        <attribut name="CommantTarget" resolveAS="object" context="page" />
+			<attribut name="ContextMenu" resolveAS="object" context="page" />
+                <attribut name="DataContext" resolveAS="object" context="page" />
+                
+    </control>  
+    
+    <control name="RichTextBox" class="System.Windows.Controls.RichTextBox" tag="asp:RichTextBox" inf_typ="12007" inf_sub_typ="900111" description="RichTextBox" >
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SelectionChanged"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextChanged"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+            	        		<attribut name="CommandBindings" resolveAS="object" context="page" />
+	    		    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+	                        	<attribut name="DataContext" resolveAS="object" context="page" />
+                    	
+                    	
+    </control>
+    
+    <control name="TextBlock" class="System.Windows.Controls.TextBlock" tag="asp:TextBlock" inf_typ="12007" inf_sub_typ="900112" description="TextBlock" >
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        			<attribut name="CommandBindings" resolveAS="object" context="page" />
+		    		    		<attribut name="ContextMenu" resolveAS="object" context="page" />
+	                        	<attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+    
+    <control name="TextBox" class="System.Windows.Controls.TextBox" tag="asp:TextBox" inf_typ="12007" inf_sub_typ="900113" description="TextBox" >
+        <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+        <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+        <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+        <attribut name="DragEnter"   resolveAS = "method" context="page" />
+        <attribut name="DragLeave"   resolveAS = "method" context="page" />
+        <attribut name="DragOver"   resolveAS = "method" context="page" />
+        <attribut name="Drop"   resolveAS = "method" context="page" />
+        <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+        <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="GotFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="Initialized"   resolveAS = "method" context="page" />
+        <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+        <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+        <attribut name="KeyDown"   resolveAS = "method" context="page" />
+        <attribut name="KeyUp"   resolveAS = "method" context="page" />
+        <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SelectionChanged"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextChanged"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        			<attribut name="CommandBindings" resolveAS="object" context="page" />
+			    	<attribut name="ContextMenu" resolveAS="object" context="page" />
+	                        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+    
+        <control name="TreeView" class="System.Windows.Controls.TreeView" tag="asp:TreeView" inf_typ="12007" inf_sub_typ="900113" description="TreeView" >
+            <attribut name="ContextMenuClosing"   resolveAS = "method" context="page" />
+            <attribut name="ContextMenuOpening"   resolveAS = "method" context="page" />
+            <attribut name="DataContextChanged"   resolveAS = "method" context="page" />
+            <attribut name="DragEnter"   resolveAS = "method" context="page" />
+            <attribut name="DragLeave"   resolveAS = "method" context="page" />
+            <attribut name="DragOver"   resolveAS = "method" context="page" />
+            <attribut name="Drop"   resolveAS = "method" context="page" />
+            <attribut name="FocusableChanged"   resolveAS = "method" context="page" />
+            <attribut name="GiveFeedback"   resolveAS = "method" context="page" />
+            <attribut name="GotFocus"   resolveAS = "method" context="page" />
+            <attribut name="GotKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="GotMouseCapture"   resolveAS = "method" context="page" />
+            <attribut name="GotStylusCapture"   resolveAS = "method" context="page" />
+            <attribut name="Initialized"   resolveAS = "method" context="page" />
+            <attribut name="IsEnabledChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsHitTestVisibleChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsKeyboardFocusedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsKeyboardFocusWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseCapturedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseCaptureWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsMouseDirectlyOverChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusCapturedChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusCaptureWithinChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsStylusDirectlyOverChanged"   resolveAS = "method" context="page" />
+            <attribut name="IsVisibleChanged"   resolveAS = "method" context="page" />
+            <attribut name="KeyDown"   resolveAS = "method" context="page" />
+            <attribut name="KeyUp"   resolveAS = "method" context="page" />
+            <attribut name="LayoutUpdated"   resolveAS = "method" context="page" />
+            <attribut name="Loaded"   resolveAS = "method" context="page" />
+            <attribut name="LostFocus"   resolveAS = "method" context="page" />
+            <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+            <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+            <attribut name="MouseDoubleClick"   resolveAS = "method" context="page" />
+            <attribut name="MouseDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseMove"   resolveAS = "method" context="page" />
+            <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseUp"   resolveAS = "method" context="page" />
+            <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+            <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+            <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+            <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseDoubleClick"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+            <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+            <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+            <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+            <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+            <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+            <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+            <attribut name="SelectionChanged"   resolveAS = "method" context="page" />
+            <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+            <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+            <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+            <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+            <attribut name="StylusDown"   resolveAS = "method" context="page" />
+            <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+            <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+            <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+            <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+            <attribut name="StylusMove"   resolveAS = "method" context="page" />
+            <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+            <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+            <attribut name="StylusUp"   resolveAS = "method" context="page" />
+            <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+            <attribut name="TextChanged"   resolveAS = "method" context="page" />
+            <attribut name="TextInput"   resolveAS = "method" context="page" />
+            <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+            <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+            <attribut name="Unloaded"   resolveAS = "method" context="page" />
+            
+            			<attribut name="CommandBindings" resolveAS="object" context="page" />
+    			    	<attribut name="ContextMenu" resolveAS="object" context="page" />
+    	                        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+    
+    <control name="WebBrowser" class="System.Windows.Controls.WebBrowser" tag="asp:WebBrowser" inf_typ="12007" inf_sub_typ="900114" description="WebBrowser" >
+        <attribut name="Loaded"   resolveAS = "method" context="page" />
+        <attribut name="LostFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="LostMouseCapture"   resolveAS = "method" context="page" />
+        <attribut name="LostStylusCapture"   resolveAS = "method" context="page" />
+        <attribut name="MessageHook"   resolveAS = "method" context="page" />
+        <attribut name="MouseDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseEnter"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeave"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseMove"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="MouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseUp"   resolveAS = "method" context="page" />
+        <attribut name="MouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="Navigated"   resolveAS = "method" context="page" />
+        <attribut name="Navigating"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragEnter"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragLeave"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDragOver"   resolveAS = "method" context="page" />
+        <attribut name="PreviewDrop"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGiveFeedback"   resolveAS = "method" context="page" />
+        <attribut name="PreviewGotKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewKeyUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewLostKeyboardFocus"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseLeftButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseRightButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewMouseWheel"   resolveAS = "method" context="page" />
+        <attribut name="PreviewQueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusDown"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusMove"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="PreviewStylusUp"   resolveAS = "method" context="page" />
+        <attribut name="PreviewTextInput"   resolveAS = "method" context="page" />
+        <attribut name="QueryContinueDrag"   resolveAS = "method" context="page" />
+        <attribut name="QueryCursor"   resolveAS = "method" context="page" />
+        <attribut name="RequestBringIntoView"   resolveAS = "method" context="page" />
+        <attribut name="SizeChanged"   resolveAS = "method" context="page" />
+        <attribut name="SourceUpdated"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusButtonUp"   resolveAS = "method" context="page" />
+        <attribut name="StylusDown"   resolveAS = "method" context="page" />
+        <attribut name="StylusEnter"   resolveAS = "method" context="page" />
+        <attribut name="StylusInAirMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusInRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusLeave"   resolveAS = "method" context="page" />
+        <attribut name="StylusMove"   resolveAS = "method" context="page" />
+        <attribut name="StylusOutOfRange"   resolveAS = "method" context="page" />
+        <attribut name="StylusSystemGesture"   resolveAS = "method" context="page" />
+        <attribut name="StylusUp"   resolveAS = "method" context="page" />
+        <attribut name="TargetUpdated"   resolveAS = "method" context="page" />
+        <attribut name="TextInput"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipClosing"   resolveAS = "method" context="page" />
+        <attribut name="ToolTipOpening"   resolveAS = "method" context="page" />
+        <attribut name="Unloaded"   resolveAS = "method" context="page" />
+        
+        
+	            			<attribut name="CommandBindings" resolveAS="object" context="page" />
+	    			    	<attribut name="ContextMenu" resolveAS="object" context="page" />
+    	                        <attribut name="DataContext" resolveAS="object" context="page" />
+    </control>
+
+</controls>

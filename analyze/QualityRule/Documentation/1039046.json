@@ -1,0 +1,56 @@
+{
+    "id": 1039046,
+    "name": "Always use {@code} to wrap code statements or values such as null",
+    "href": "AIP/quality-rules/1039046",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check you have use {@code} instead of <code></code> block",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using two APIs for the same function is considered a problem in terms of maintainability and robustness. It is highly recommended to use only one API, especially when you are using a high-level library/framework or wrapping functionalities that provide additional checks on variables.\n\n{@code text} has been introduced in JDK 1.5 and it's equivalent to Equivalent to <code>{@literal}</code>.\n\nDisplays text in code font without interpreting the text as HTML markup or nested Javadoc tags. This enables you to use regular angle brackets (< and >) instead of the HTML entities (&lt; and &gt;) in documentation comments, such as in parameter types (<Object>), inequalities (3 < 4), or arrows (<-). For example, the documentation comment text {@code A<B>C} displayed in the generated HTML page unchanged as A<B>C. This means that the <B> is not interpreted as bold and is in code font. If you want the same functionality without the code font, then use the {@literal} tag.",
+    "reference": "https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javadoc.html#CHDJGIJB",
+    "remediation": "Use {@code} instead of <code></code>",
+    "remediationSample": "/**\n * -- ex: looping through List of Map objects --\n * {@code\n * for (int i = 0; i < list.size(); i++) {\n *      Map map = (Map)list.get(i);\n *      System.out.println(map.get(\"wordID\"));\n *      System.out.println(map.get(\"word\"));\n * }\n * }\n * \n * @param query - select statement\n * @return List of Map objects\n */",
+    "sample": "/**\n * -- ex: looping through List of Map objects --\n * <code>\n * for (int i = 0; i < list.size(); i++) {\n *      Map map = (Map)list.get(i);\n *      System.out.println(map.get(\"wordID\"));\n *      System.out.println(map.get(\"word\"));\n * }\n * </code>\n * \n * @param query - select statement\n * @return List of Map objects\n */",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure using {@code} to wrap code statements",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61008,
+            "name": "Documentation - Automated Documentation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

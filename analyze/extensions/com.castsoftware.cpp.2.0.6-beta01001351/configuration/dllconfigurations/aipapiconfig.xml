@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration xmlns="http://www.castsoftware.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+    <!--
+    *
+    * Services needed by aipapi
+    *
+    -->
+    <!-- 
+    * (1) AppRegistry must be present for opening a connection 
+    *     because it stores the connection parameters
+    -->
+    <service> <id>ServiceId_AppRegistry</id> <dll>aipapi.dll</dll> </service>
+    <!-- 
+    * (2) The database connection factory
+    -->
+    <service> <id>ServiceId_ConnectionFactory</id>  <dll>CwBaseCon.dll</dll> </service>
+    <!-- 
+    * (3) The connection factory needs a property store
+    -->
+    <service> <id>ServiceId_PropertyBagFactory</id> <dll>PropertyBagsImpl.dll</dll>  </service>
+    <!--
+    * (4) The saving 
+    -->
+    <service> <id>ServiceId_AMTSaverFactory</id>         <dll>AMT.dll</dll> </service>
+    <service> <id>ServiceId_DBAnalyzerFactory</id>       <dll>AMT.dll</dll> </service>
+    <service> <id>ServiceId_MetaModelManagerFactory</id> <dll>AMT.dll</dll> </service>
+
+</configuration>

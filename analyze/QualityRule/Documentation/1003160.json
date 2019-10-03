@@ -1,0 +1,72 @@
+{
+    "id": 1003160,
+    "name": "Avoid conditions with hardcoded boolean values (Flex)",
+    "href": "AIP/quality-rules/1003160",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports tests with hardcoded boolean values.",
+    "output": "This QR reports tests with hardcoded boolean values. It provides following information:\n\n- Artifact full name",
+    "rationale": "Tests with hardecoded boolean values may negate the purpose of having the condition.",
+    "remediation": "Use expression instead of having tests with hardcoded boolean values.",
+    "sample": "if ( true ) // VIOLATION\n{\n   if ( myCondition == false ) // VIOLATION\n   {\n   }\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid conditions with hardcoded boolean values (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.TrueFalseCondition"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

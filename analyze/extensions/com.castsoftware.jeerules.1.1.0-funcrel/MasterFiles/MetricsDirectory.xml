@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="61008" type="technical-criterion" originalName="Documentation - Automated Documentation" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="61014" type="technical-criterion" originalName="Programming Practises - Error and Exception Handling" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="61020" type="technical-criterion" originalName="Programming Practices - Modularity and OO Encapsulation Conformity" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66063" type="technical-criterion" originalName="Secure Coding - API Abuse" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66064" type="technical-criterion" originalName="Secure Coding - Weak Security Features" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66065" type="technical-criterion" originalName="Secure Coding - Time and State" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" active="true" detached="false" ignored="false" />
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" active="true" detached="false" ignored="false" />
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" active="true" detached="false" ignored="false" />
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" active="true" detached="false" ignored="false" />
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" active="true" detached="false" ignored="false" />
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" active="true" detached="false" ignored="false" />
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" active="true" detached="false" ignored="false" />
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" active="true" detached="false" ignored="false" />
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" active="true" detached="false" ignored="false" />
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" active="true" detached="false" ignored="false" />
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" active="true" detached="false" ignored="false" />
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" active="true" detached="false" ignored="false" />
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" active="true" detached="false" ignored="false" />
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" active="true" detached="false" ignored="false" />
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" active="true" detached="false" ignored="false" />
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" active="true" detached="false" ignored="false" />
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" active="true" detached="false" ignored="false" />
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" active="true" detached="false" ignored="false" />
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" active="true" detached="false" ignored="false" />
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" active="true" detached="false" ignored="false" />
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" active="false" detached="false" ignored="false" />
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" active="true" detached="false" ignored="false" />
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" active="true" detached="false" ignored="false" />
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" active="true" detached="false" ignored="false" />
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" active="true" detached="false" ignored="false" />
+</root>

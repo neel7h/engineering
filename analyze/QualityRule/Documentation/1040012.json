@@ -1,0 +1,116 @@
+{
+    "id": 1040012,
+    "name": "HTTP user session must be invalidated during logout",
+    "href": "AIP/quality-rules/1040012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Logout is composed of 2 steps:\n  1. Invalidate user session : indicate web server that the session is not used anymore.\n  2. Cancel cookie send by the web server to track user session. And also all cookies sent by web application, this, in order to have a global clean state.\n\n\nThis rule will check if Http session is invalidated  during the Logout. If not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Session sidejacking takes advantage of an unencrypted communication channel between a victim and target system. The attacker sniffs traffic on a network looking for session tokens in unencrypted traffic. Once a session token is captured, the attacker performs malicious actions by using the stolen token with the targeted application to impersonate the victim. This attack is a specific method of session hijacking, which is exploiting a valid session token to gain unauthorized access to a target system or information. Other methods to perform a session hijacking are session fixation, cross-site scripting, or compromising a user or server machine and stealing the session token.",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html\nhttps://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication",
+    "remediationSample": "protected void configure(HttpSecurity http) throws Exception {\n      http\n          .logout()\n                 .logoutUrl(\"/my/logout\")\n                 .logoutSuccessUrl(\"/my/index\")\n                 .logoutSuccessHandler(logoutSuccessHandler)\n                 .invalidateHttpSession(true) // InvalidateHttpSession is set to TRUE\n                 ...\n                 .and()\n             ...\n}",
+    "sample": "protected void configure(HttpSecurity http) throws Exception {\n      http\n          .logout()\n                     .logoutUrl(\"/my/logout\")\n                     .logoutSuccessUrl(\"/my/index\")\n                     .logoutSuccessHandler(logoutSuccessHandler)\n                     .invalidateHttpSession(false) // InvalidateHttpSession is set to FALSE\n                     ...\n                     .and()\n             ...\n}\n----------------\nprotected void configure(HttpSecurity http) throws Exception {\n      http\n          .logout()\n                     .logoutUrl(\"/my/logout\")\n                     .logoutSuccessUrl(\"/my/index\")\n                     .logoutSuccessHandler(logoutSuccessHandler)\n\n                     ...\n                     // InvalidateHttpSession is missing\n                     .and()\n             ...\n}",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure invalidating HTTP Session during logout to avoid broken Authentication",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-384",
+            "name": "Session Fixation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69241",
+            "name": "The application must clear temporary storage and cookies when the session is terminated.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70207",
+            "name": "The application must destroy the session ID value and/or cookie on logoff or browser close.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

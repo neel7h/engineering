@@ -1,0 +1,6 @@
+Build date: 28/02/2019 15:54:24,93 
+Build number: 1000030 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.python.discoverer.git origin/master ba2f8f7ac29f765a75d3283807af095e4dba2790
+Publish date: 28/02/2019 15:58:29,43 
+Original version: 1.2.1-funcrel 

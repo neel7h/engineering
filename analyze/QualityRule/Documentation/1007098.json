@@ -1,0 +1,59 @@
+{
+    "id": 1007098,
+    "name": "Avoid undocumented artifacts (PHP)",
+    "href": "AIP/quality-rules/1007098",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all undocumented Methods, Functions & constructors.",
+    "output": "This report lists all undocumented artifacts.\n\nThis QR provides the following information:\n- Artifact full name",
+    "rationale": "Code maintainability is improved if code is accompanied with comments. This rule reports whether methods and function has comments.",
+    "remediation": "Modify the source code to reduce the number of undocumented artifacts.",
+    "remediationSample": "<?php\nclass CastTest {\n    function addItem($num1,$num2) {\n        // Add items\n        $num1 += $num2;\n        echo $num1;\n    }\n}\n$obj = new CastTest();\n$obj-> addItem(2,3);\n?>",
+    "sample": "<?php\nclass CastTest {\n    function addItem($num1,$num2) {\n        $num1 += $num2;\n        echo $num1;\n    }\n}\n$obj = new CastTest();\n$obj-> addItem(2,3);\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid undocumented artifacts (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

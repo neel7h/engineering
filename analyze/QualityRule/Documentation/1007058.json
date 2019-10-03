@@ -1,0 +1,78 @@
+{
+    "id": 1007058,
+    "name": "Avoid artifacts with unused parameters (PHP)",
+    "href": "AIP/quality-rules/1007058",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Functions, Methods & constructors with unused parameters",
+    "output": "This report lists all Functions and Methods with unused parameters.\nThis QR provides following information: \n- Artifact full name.",
+    "rationale": "For readability and usability reasons, Functions, methods or constructors should not have unused parameters.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_UnusedFunctionParameterSniff.html",
+    "remediation": "Modify the source code to reduce the number of Functions and Methods with unused parameters.",
+    "remediationSample": "<?php\nfunction bar() //Violation removed : the unused parameter has been removed\n{\n   echo \"unused parameter\", PHP_EOL;\n}\n?>",
+    "sample": "<?php\nfunction bar($param) //Violation : $param is not used\n{\n   echo \"unused parameter\", PHP_EOL;\n}\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid artifacts with unused parameters (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.CodeAnalysis.UnusedFunctionParameter"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

@@ -1,0 +1,1 @@
+call I:\NightlyBuilds\AssessmentModel\MetricsCompiler.bat -encodeUA -inputdir . -outputdir ..\InstallScripts\Common\ADG

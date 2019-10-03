@@ -1,0 +1,71 @@
+{
+    "id": 1003156,
+    "name": "Avoid partial source code delivery of application (Flex)",
+    "href": "AIP/quality-rules/1003156",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR denotes events that specify type which is not given as part of application source.",
+    "output": "This QR gives the list of artifacts which use Event with type which is not part of application source. It provides following information:\n- Artifact Full Name",
+    "rationale": "In order to give correct violations, complete application source should be provided.",
+    "remediation": "Provide complete source of application.",
+    "sample": "package\n{\n          \n   import org.flashcommander.event.CustomEvent;\n        //The source for \"org.flashcommander.event.CustomEvent\" is not included as part of application source\n   [Event (name=\"select\", type=\"org.flashcommander.event.CustomEvent\")]\n   public class AClass\n   {\n   \n   }\n\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid partial source code delivery of application (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.event.UnboundTypeInMetadata"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

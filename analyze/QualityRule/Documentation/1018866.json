@@ -1,0 +1,62 @@
+{
+    "id": 1018866,
+    "name": "Avoid Activities with \"SELECT *\" queries (TIBCO BW)",
+    "href": "AIP/quality-rules/1018866",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This metric retrieves the artifacts containing queries using the \"SELECT *\" statement.",
+    "output": "This QR retrieves all the activies that use SQL statement with \"Select *\".",
+    "rationale": "A query that retrieves all columns of a table with a SELECT * can potentially be the source of important changeability problems. One cannot control how the columns will be ordered and returned to the client. This can lead to important data inconsistencies and thus stability issues. Also performance problems may arise when the execution of the query returns a large result sets (many rows with all the columns may then become a huge amount of data to transport over the network). Thus optimizer module can't provide a correct execution.",
+    "remediation": "Review the design of the query to select only useful Columns",
+    "total": "Number Process Activities",
+    "alternativeName": "Avoid Activities with \"SELECT *\" queries (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

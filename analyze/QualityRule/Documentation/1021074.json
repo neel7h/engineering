@@ -1,0 +1,60 @@
+{
+    "id": 1021074,
+    "name": "Avoid manipulating a list while iterating over it",
+    "href": "AIP/quality-rules/1021074",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule verifies that when iterating over a list no further manipulation is performed on it.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurences\n- Bookmarks for violation occurences found in the source code",
+    "rationale": "Manipulating a list while iterating over it can end in unintended behavior. Iterators on the container are not going to be informed of the alteration and it is quite likely to produce a very different loop from that expected. The user must be careful because in the situation where \"append()\" is applied over the iterated list, the program might enter into an infinite loop.",
+    "reference": "https://stackoverflow.com/questions/1207406/how-to-remove-items-from-a-list-while-iterating\nhttps://docs.python.org/3.7/tutorial/controlflow.html#for-statements",
+    "remediation": "Decouple manipulation and iteration operations. This can be done with list comprehensions or by iterating over a copy of the list.",
+    "remediationSample": "#create a slice copy of mylist can be a first simple solution to avoid violation\nmylist = [1, 2, 3, 4, 5]\nfor x in mylist[:]:\n    mylist.remove(x)\n\nThe result after each stage in for loop is:\n[2, 3, 4, 5]\n[3, 4, 5]\n[4, 5]\n[5]\n[]",
+    "sample": "mylist = [1, 2, 3, 4, 5]\nfor x in mylist:\n    mylist.remove(x)\n\nThe result after each iteration in the loop is:\n[2, 3, 4, 5]\n[2, 4, 5]\n[2, 4]",
+    "total": "Number of Python Modules and Functions",
+    "alternativeName": "Avoid manipulating a list while iterating over it",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

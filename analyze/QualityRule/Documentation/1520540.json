@@ -1,0 +1,69 @@
+{
+    "id": 1520540,
+    "name": "Siebel: Avoid too many MVG on list applet",
+    "href": "AIP/quality-rules/1520540",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of MVG",
+    "description": "You should have less than X multi value group (MVG) in a list Applet. The threshold is a parameter and can be changed at will.",
+    "output": "This rule reports Applets with many MVG",
+    "total": "Number of added or modified applets",
+    "alternativeName": "Siebel: Avoid too many MVG on list applet",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max MVG Applet",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

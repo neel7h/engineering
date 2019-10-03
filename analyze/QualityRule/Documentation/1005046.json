@@ -1,0 +1,63 @@
+{
+    "id": 1005046,
+    "name": "Avoid using string datatype (EGL)",
+    "href": "AIP/quality-rules/1005046",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all the programs declaring string datatype.",
+    "output": "This report provides the following information: Program full name. DataType name",
+    "rationale": "String processing is expensive in EGL COBOL Gen for two reasons\n- All text data has to be converted to Unicode\n- EGL has to create/manage strings in its own heap memory manager and garbage collection.   \nDBCHAR is for Double-Byte languages so doubt Halkbank will do this. \nUNICODE should only be used if intentionally trying to do Unicode processing in COBOL Gen as it is a fixed datatype.   If not doing Unicode operations in EGL COBOL Gen, then should use CHAR...Unicode to/from CHAR would require data conversion.",
+    "reference": "EGL Best Practices: Coding For Performance. November 10, 2009. Edition 2",
+    "remediation": "Try to reduce the number of string datatypes.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid using string datatype (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

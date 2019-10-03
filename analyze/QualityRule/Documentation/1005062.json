@@ -1,0 +1,71 @@
+{
+    "id": 1005062,
+    "name": "Avoid Artifacts with a Complex SELECT Clause (EGL)",
+    "href": "AIP/quality-rules/1005062",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for all the artifacts having SQL SELECT statement clause returning more than 9 columns. Such queries are considered complex. \nChanging threshold value requires a Metric Assistant configuration update.",
+    "output": "This report provides the following information: Function full name, Count of Complex Select Clauses",
+    "rationale": "Complex SELECT clauses, i.e select clauses with many column can be difficult to read and does not help the reader who needs to identify the relevant columns to be retrieved.  Also a query that retrieves many columns can potentially cause performance problems:  Such performance problems may arise when the execution of the query returns a large result sets (many row with many columns may then become a huge amount of data to transport over the network).",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Try to reduce the use of complex SELECT clause.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid Artifacts with a Complex SELECT Clause (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Cols",
+            "description": "Maximum Columns in a Select Clause",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        9.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

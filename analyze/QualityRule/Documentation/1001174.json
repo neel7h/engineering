@@ -1,0 +1,58 @@
+{
+    "id": 1001174,
+    "name": "Avoid Programs declaring STATIC variables (PL1)",
+    "href": "AIP/quality-rules/1001174",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for PL1 Main Procedures (Programs) declaring STATIC variables.",
+    "output": "The report lists all the PL1 Main Procedures declaring STATIC variables.\n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "Using STATIC variables can cause unpredictable result in case of the program is preloaded into computer memory.",
+    "remediation": "Try to minimize use of static as much as possible.",
+    "sample": "DCL  TEST  CHAR (1)  STATIC;",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Programs declaring STATIC variables (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

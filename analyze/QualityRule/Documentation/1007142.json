@@ -1,0 +1,72 @@
+{
+    "id": 1007142,
+    "name": "Avoid unused private methods (PHP)",
+    "href": "AIP/quality-rules/1007142",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with unused private methods.",
+    "output": "This report lists all the classes with unused private methods.\n\nThis QR provides the following information:\n- Class full name",
+    "rationale": "Unused private methods make the code more complex to read and are redundant.",
+    "reference": "PHPMD - http://phpmd.org/rules/unusedcode.html#unusedprivatemethod",
+    "remediation": "Modify the source code of the class to reduce the number of unused private methods.",
+    "sample": "<?php\nclass CastTest { \n   private function test() {} //violation - the private method is unused\n   //remaining implementation of the class...\n}\n?>",
+    "total": "Number Of Methods",
+    "alternativeName": "Avoid unused private methods (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UnusedPrivateMethod"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

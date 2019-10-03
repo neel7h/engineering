@@ -1,0 +1,424 @@
+﻿<?xml version="1.0"?>
+<metrics>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="associatedValueName">
+    <english>Associated Value</english>
+  </metric>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="description">
+    <english>Keywords should not be used as names</english>
+  </metric>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="name">
+    <english>Avoid using Keywords as names</english>
+  </metric>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" section="output">
+    <english>This report lists all Names identical to Keywords</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="description">
+    <english>Avoid Managed type declaration for Win32 API using Overlapped IO
+
+P/Invoke declaration for an API using Overlapped IO, should use pointer to an overlapped structure instead of a reference.
+
+This rule only checks for well known and most used Win32 APIs and will not cover native third-party or user assemblies.
+
+List of API functions checked for incorrect P/Invoke declarations - ConnectNamedPipe, LockFileEx, ReadFile, ReadFileEx, ReadFileScatter, UnlockFileEx, WriteFile, WriteFileEx, WriteFileGather, GetQueuedCompletionStatus, PostQueuedCompletionStatus, DeviceIoControl, GetOverlappedResult, CancelIoEx, GetOverlappedResultEx, TransactNamedPipe, WaitCommEvent, ReadDirectoryChangesW, ReadDirectoryChangesExW</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="name">
+    <english>Avoid Managed type declaration for Win32 API using Overlapped IO</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="rationale">
+    <english>Overlapped IO is used for asynchronous Win32 API.
+
+The caller of such API initializes and passes a Overlapped structure and completion or failure of the API call is conveyed through the structure.
+
+This means that the memory allocated for Overlapped structure should stay allocated until said IO operation is completed.
+
+With P/Invoke, if Overlapped IO structure is allocated memory using GC, there is a good chance that this memory will be collected by GC before the IO operation is completed.
+
+To avoid such error states, it is important that P/Invoke declarations for API using overlapped IO be made using unsafe pointer to a Overlapped structure.
+This declaration conveys to the user of P/Invoke that allocations for this function should be made in an unsafe context.</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="reference">
+    <english>https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1415-declare-p-invokes-correctly?view=vs-2015</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="remediation">
+    <english>Convert any references like "NativeOverlapped overlapped" or "IntPtr overlapped" to "NativeOverlapped* overlapped" and mark the P/Invoke declaration unsafe</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="remediationSample">
+    <english>[ComVisible(true)]
+internal class UnsafeNativeMethods
+{
+    private UnsafeNativeMethods() { }
+    [DllImport("kernel32.dll", SetLastError = true)]
+    unsafe internal extern static uint ReadFile(
+    IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,
+    IntPtr lpNumberOfBytesRead, NativeOverlapped* overlapped);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    unsafe internal extern static bool ReadFileEx(
+    IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,
+    NativeOverlapped* overlapped, IntPtr lpCompletionRoutine);
+}</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="sample">
+    <english>List of API functions checked for incorrect P/Invoke declarations - ConnectNamedPipe, LockFileEx, ReadFile, ReadFileEx, ReadFileScatter, UnlockFileEx, WriteFile, WriteFileEx, WriteFileGather, GetQueuedCompletionStatus, PostQueuedCompletionStatus, DeviceIoControl, GetOverlappedResult, CancelIoEx, GetOverlappedResultEx, TransactNamedPipe, WaitCommEvent, ReadDirectoryChangesW, ReadDirectoryChangesExW
+
+[ComVisible(true)]
+internal class NativeMethods
+{
+    private NativeMethods() { }
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    internal extern static uint ReadFile(
+       IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,
+       IntPtr lpNumberOfBytesRead, IntPtr overlapped);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    internal extern static bool ReadFileEx(
+       IntPtr hFile, IntPtr lpBuffer, int nNumberOfBytesToRead,
+       NativeOverlapped overlapped, IntPtr lpCompletionRoutine);
+}</english>
+  </metric>
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" section="total">
+    <english>Number of Methods using Overlapped IO</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="description">
+    <english>Avoid exposing methods that use Platform Invocation Services to access unmanaged code
+
+This rule searches all the methods public or protected or protected internal that use Platform Invocation Services to access unmanaged code meaning that has the System.Runtime.InteropServices.DllImportAttribute attribute or implemented by the Declare keyword in Visual Basic.</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="name">
+    <english>Avoid exposing methods that use Platform Invocation Services to access unmanaged code</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="rationale">
+    <english>Applications having methods exposed that use Platform Invocation Services to access unmanaged code can have security issues. These methods must not be exposed as they are accessing unmanaged code. By keeping these methods private or internal, you make sure that your library cannot be used to breach security by allowing callers access to unmanaged APIs that they could not call otherwise.</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="reference">
+    <english>https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1401-p-invokes-should-not-be-visible?view=vs-2015</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="remediation">
+    <english>Change access modifier to "private", "internal"or "private protected"</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="remediationSample">
+    <english>using System;
+using System.Runtime.InteropServices;
+
+namespace InteroperabilityLibrary
+{
+    public class NativeMethods
+    {
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        private static extern bool RemoveDirectory(string name);
+    }
+}</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="sample">
+    <english>Will flag a violation if "public" or "protected" or "protected internal" access modifiers are used for P/Invoke declarations
+
+using System;
+using System.Runtime.InteropServices;
+
+namespace InteroperabilityLibrary
+{ 
+    public class NativeMethods
+    {
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        public static extern bool RemoveDirectory(string name);
+    }
+}</english>
+  </metric>
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" section="total">
+    <english>Number of Methods using P/Invoke services</english>
+  </metric>
+  
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="description">
+    <english>Be careful when using deprecated APIs. The deprecation period should be used to smoothly make the transition. The rule raises an issue when any of the class XmlTextReader is used.</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="name">
+    <english>Avoid using deprecated XmlTextReader .NET API</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="rationale">
+    <english>Using deprecated .Net API could lead to security compliancy issues.</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="reference">
+    <english>https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmltextreader?view=netframework-4.7.2</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="remediation">
+    <english>Use XmlReader instead</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="remediationSample">
+    <english>public class XMLHandler : IHttpHandler
+{
+    public void ProcessRequest(HttpContext ctx)
+    {
+        // GOOD: use XmlReader
+        XmlReader reader = XmlReader.create(ctx.Request.QueryString["document"]);
+    ...
+  }
+}</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="sample">
+    <english>public class XMLHandler : IHttpHandler
+{
+    public void ProcessRequest(HttpContext ctx)
+    {
+        XmlTextReader reader = new XmlTextReader(ctx.Request.QueryString["document"]);
+    ...
+  }
+}</english>
+  </metric>
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" section="total">
+    <english>Number of methods and classes using System.Xml namespace</english>
+  </metric>
+  
+<!--1027008-->  
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="description">
+    <english>This quality rule checks that impersonation is carried out within a using block.</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="name">
+    <english>Always Revert After Impersonation</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="rationale">
+    <english>When using APIs that enable impersonation of a client, be sure to revert to the original identity. For example, when using the WindowsIdentity and WindowsImpersonationContext, use the C# using statement or the Visual BasicUsing statement, as shown in the following code. The WindowsImpersonationContext class implements the IDisposable interface, and therefore the common language runtime (CLR) automatically reverts to the original identity once the code leaves the using block.</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="reference">
+    <english>https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/best-practices-for-security-in-wcf
+
+https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="remediation">
+    <english>Review the source code and revert after impersonation.</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="remediationSample">
+    <english>WindowsIdentity identity = ServiceSecurityContext.Current.WindowsIdentity;
+using (identity.Impersonate())
+{
+    // Run code under the caller's identity.
+}</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="sample">
+    <english>WindowsIdentity identity = ServiceSecurityContext.Current.WindowsIdentity;
+identity.Impersonate()
+{
+    // Run code under the caller's identity.
+}</english>
+  </metric>
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" section="total">
+    <english>Number of Methods using Impersonation</english>
+  </metric>
+  
+<!--1027010--> 
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="description">
+    <english>When generating cryptograpic keys (or key pairs), it is important to use a key length that provides enough entropy against brute-force attacks. For the RSA algorithm the key should be at least 2048 bits long.
+This rule raises an issue when a RSA key-pair generator is initialized with too small a length parameter.</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="name">
+    <english>Avoid weak encryption providing insufficient key size (.NET)</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="rationale">
+    <english>Rather than directly attacking crypto, attackers steal keys, execute man-in-the-middle attacks, or steal clear text data off the server, while in transit, or from the user’s client, e.g. browser. A manual attack is generally required. Previously retrieved password databases could be brute forced by Graphics Processing Units (GPUs). 
+
+Over the last few years, this has been the most common impactful attack. The most common flaw is simply not encrypting sensitive data. When crypto is employed, weak key generation and management, and weak algorithm, protocol and cipher usage is common, particularly for weak password hashing storage techniques. For data in transit, server side weaknesses are mainly easy to detect, but hard for data at rest. 
+
+Failure frequently compromises all data that should have been protected. Typically, this information includes sensitive personal information (PII) data such as health records, credentials, personal data, and credit cards, which often require protection as defined by laws or regulations such as the EU GDPR or local privacy laws.</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="reference">
+    <english>MITRE, CWE-326 - Inadequate Encryption Strength
+OWASP Top 10 2017 Category A3 - Sensitive Data Exposure
+
+https://www.keylength.com/en/5/</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="remediation">
+    <english>Review the source code and have longer Cryptographic keys</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="remediationSample">
+    <english>using System;
+using System.Security.Cryptography;
+
+namespace MyCASTNamepace
+{
+    public class MyCASTClass
+    {
+        static void Main()
+        {
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(2048);
+            // ...
+            DSACryptoServiceProvider DSA = new DSACryptoServiceProvider(2048);
+            // ...
+        }
+    }</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="sample">
+    <english>using System;
+using System.Security.Cryptography;
+
+namespace MyCASTApplication
+{
+    public class MyCASTClass
+    {
+        static void Main()
+        {
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(1024); // Noncompliant
+            // ...
+            DSACryptoServiceProvider DSA = new DSACryptoServiceProvider(1024); // Noncompliant
+            // ...
+        }
+    }
+}</english>
+  </metric>
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" section="total">
+    <english>Number of Methods using CryptoEncryption</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="description">
+    <english>Avoid storing Non-Serializable Object as HttpSessionState attributes</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="name">
+    <english>Avoid storing Non-Serializable Object as HttpSessionState attributes.</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="rationale">
+    <english>When non-serializable object is stored as an HttpSessionState attribute, it can damage application reliablity.
+ASP.NET servers by default store the HttpSessionState object, its attributes and any objects they reference in memory which limits active session state to what can be accommodated by the system memory.
+Servers are configured to persistent session state to expand capacity. The server must serialize the HttpSessionState object to persist its session state.</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="reference">
+    <english>https://cwe.mitre.org/data/definitions/502.html</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="remediation">
+    <english>All the objects which are stored as session attributes in the application must declare [Serializable] attribute to serialize the session correctly.</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="remediationSample">
+    <english>[Serializable]
+public class EqueryRaised
+{
+#region Private Fields
+private string _queryID;
+private string _reOpenID;
+}
+________________________________________________________
+
+[Serializable]
+public class DataGlob {
+   String GlobName;
+   String GlobValue;
+
+   public void AddToSession(HttpSessionState session) {
+     session["glob"] = this;
+   }
+}</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="sample">
+    <english>HttpContext.Current.Session[CURRENT_USER_KEY] = value; 
+ 
+this.Session.Add("lbSection", (string)((LinkButton)sender).ID.ToString());
+
+_________________________________________________________
+
+public class DataGlob {
+   String GlobName;
+   String GlobValue;
+
+   public void AddToSession(HttpSessionState session) {
+     session["glob"] = this;
+   }
+}</english>
+  </metric>
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." section="total">
+    <english>Number of Methods setting HttpSessionState Attributes</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="description">
+    <english>Utility classes must have a private default constructor, but must not have other constructors. Default constructors are constructors without any parameters. Utility classes are static classes: all their fields and methods (excluding constructors) are static (this excludes classes marked as static as this case is handled by the compiler).</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="name">
+    <english>Provide a private default Constructor for utility Classes (.NET)</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="rationale">
+    <english>Utility classes are not meant to be instantiated because all the functionalities that they provide are accessible without instantiating the class. Instantiating these classes means that the developer has effectively misued the class. It also consumes memory unnecessarily. Providing a private default constructor ensures that the class is not instantiated.</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="remediation">
+    <english>Add a private default constructor to ensure that the class can't be instantiated.</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="remediationSample">
+    <english>public class MyUtilityClass
+   {
+      static public bool MyUtilityFunction1() {
+            //Do Something Usefull 
+            return true;
+      }
+      private MyUtilityClass() {   // FIXED
+            // Avoid instantiation of the class
+      }
+   }</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="output">
+    <english>This Quality Rule will list all static classes (classes with all methods/fields marked as static and with at least one static method) that do not have one private default constructor. It will also list classes that, in addition to the private default constructor, have other constructors. Classes marked with the static keyword are out of the scope of this Quality Rule and should not be returned (because this is checked by the compiler). Const fields are taken into account in the same way as other fields.</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="sample">
+    <english>public class MyUtilityClass
+   {
+      static public bool MyUtilityFunction1() {
+            //Do Something Usefull 
+            return true;
+      }
+   } }  // VIOLATION</english>
+  </metric>
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" section="total">
+    <english>Number of utility classes (all their fields and methods are static)</english>
+  </metric>
+</metrics>

@@ -1,0 +1,90 @@
+{
+    "id": 1018720,
+    "name": "Avoid oversized processes Activities (1100x900)  (TIBCO BW)",
+    "href": "AIP/quality-rules/1018720",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for Process Activities with a width greater than X pixel or an height greater than Y pixel. The thresholds X and Y are parameters that can be changed at will.",
+    "output": "This report lists all  Processe Activities having either a width or a height greater than the defined limits.\nIt provides the following information:\nProcess Activity full name.\nThe associated value is the size : width x height.",
+    "rationale": "Processes spanning over screen limits force the user to scroll in multiple directions to read the design. Keeping the process within the limits improve look & feel for the other administrators.",
+    "reference": "3.4.9 MAI-009: Oversized processes, > 1100x900",
+    "remediation": "Reduce the size in the designer",
+    "total": "Number of  Process Activity",
+    "alternativeName": "Avoid oversized processes Activities (1100x900)  (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max height",
+            "description": "Maximum height",
+            "technologies": [
+                {
+                    "id": 1018000,
+                    "name": "TIBCO",
+                    "href": "AIP/technologies/1018000",
+                    "values": [
+                        900
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Max width",
+            "description": "Maximum width",
+            "technologies": [
+                {
+                    "id": 1018000,
+                    "name": "TIBCO",
+                    "href": "AIP/technologies/1018000",
+                    "values": [
+                        1100
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

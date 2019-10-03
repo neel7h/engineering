@@ -1,0 +1,83 @@
+{
+    "id": 1007010,
+    "name": "Avoid JavaScript Functions with High Fan-Out (PHP)",
+    "href": "AIP/quality-rules/1007010",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Fan-Out",
+    "description": "This rule searches for all JavaScript Functions with High Fan-Out. \n         The Fan-out of JavaScript Function is the number of other artifacts that are referred in it. \n         When computing the Fan-Out of an artifact, multiple accesses to the same component of an artifact are counted as one access.\n         The threshold is a parameter and can be changed as per requirement.",
+    "output": "This report lists all JavaScript Functions with a High Fan-Out.\n      \nThis QR provides the following information:\nJavaScript Function full name.",
+    "rationale": "If an artifact is referencing large number of artifacts, maintenance and evolution becomes difficult. This is because all the referenced artifacts need to be updated and\\or retested.",
+    "remediation": "Modify the source code to reduce the number of JavaScript Functions with a high Fan-Out.",
+    "sample": "<!--\nJavaScriptFanOut.php\n-->\n<html>\n<head>\n\n</head>\n   <body>\n      <?php\n         echo \"JavaScript functions - Fan Out\", \"</br>\";\n      ?>\n      \n      \n      <script type=\"text/javascript\" language=\"javascript\">\n         \n         function operationStep1() {\n            document.write(\"operationStep1</br>\");\n         }\n\n         function operationStep2() {\n            document.write(\"operationStep2</br>\");\n         }\n\n         function operationStep3() {\n            document.write(\"operationStep3</br>\");\n         }\n\n         function operationStep4() {\n            document.write(\"operationStep4</br>\");\n         }\n\n         function operationStep5() {\n            document.write(\"operationStep5</br>\");\n         }\n\n         function operationStep6() {\n            document.write(\"operationStep6</br>\");\n         }\n         \n         function highFanOutOperation() {\n            document.write(\"highFanOutOperation</br>\");\n            operationStep1();\n            operationStep2();\n            operationStep3();\n            operationStep4();\n            operationStep5();\n            operationStep6();\n         }\n         \n         highFanOutOperation();\n      </script>\n      \n   </body>\n</html>",
+    "total": "Number of JavaScript Functions",
+    "alternativeName": "Avoid JavaScript Functions with High Fan-Out (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-4",
+            "name": "Callable and Method Control Element Number of Outward Calls",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Fan-Out",
+            "description": "Maximum Fan-Out",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

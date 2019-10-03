@@ -1,0 +1,61 @@
+{
+    "id": 1024002,
+    "name": "A Read permission is required to read data of Content Provider",
+    "href": "AIP/quality-rules/1024002",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "'android.readPermission' is a permission that clients must have to make changes to the data controlled by the content provider.\n\nA violaton is reported when android.readPermission is not specified in the provider definition in Manifest file.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Unlike Activities and Services, Content Providers can specify two different required permissions: one for reading and one for writing. This allows apps to be configured using the Principle of Least Privilege and recognizes how common designs are where some apps should be able to read certain data, other apps should be able to write that data, and still others should not be allowed to access the data at all. \n\nOne common misconception about these permissions is that having the write permission automatically implies the read permission. The logic is that updating data (writing) is a more powerful permission than simply reading it and anyone that can write into a database should also be able to read from it. This is a fallacy, and the Android design, separating read and write ",
+    "reference": "https://developer.android.com/topic/security/best-practices \nhttps://developer.android.com/guide/topics/manifest/receiver-element.html#prmsn \nhttps://cwe.mitre.org/data/definitions/926.html ",
+    "remediation": "It should define the read permission for content provider to restrict the access from others apps.",
+    "remediationSample": "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n package=\"com.example.testapps.test1\"> \n ... \n        <permission android:name=\"myapp.permission.READ\"\n                    android:protectionLevel=\"signature\" />\n\n        <permission android:name=\"myapp.permission.WRITE\"\n                    android:protectionLevel=\"signature\" />\n        ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\" \n        android.authorities=\"com.example.testapps.test1.mailprovider\" \n        android:exported  = \"True\" \n        android:readPermission = \"myapp.permission.READ\"\n        android:readPermission = \"myapp.permission.WRITE\"\n        </provider> \n  ... \n</manifest>",
+    "sample": "Give a permission for both read and write:\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n package=\"com.example.testapps.test1\"> \n ... \n        <permission android:name=\"myapp.permission\"\n                    android:protectionLevel=\"signature\" />\n\n        ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\" \n        android.authorities=\"com.example.testapps.test1.mailprovider\" \n        android:exported  = \"True\" \n        android:Permission = \"myapp.permission\"\n        </provider> \n  ... \n</manifest>\n\nOnly specify WritePermission\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n package=\"com.example.testapps.test1\"> \n ... \n        <permission android:name=\"myapp.permission.WRITE\"\n                    android:protectionLevel=\"signature\" />\n\n        ...\n        <provider android.name=\"com.example.testapps.test1.MailProvider\" \n        android.authorities=\"com.example.testapps.test1.mailprovider\" \n        android:exported  = \"True\" \n        android:writePermission = \"myapp.permission.WRITE\"\n        </provider> \n  ... \n</manifest>",
+    "total": "Number of Android manifests",
+    "alternativeName": "A Read permission is required to read data of Content Provider",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

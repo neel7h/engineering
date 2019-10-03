@@ -1,0 +1,75 @@
+{
+    "id": 1006014,
+    "name": "Function should not be named as UNIX commands  (Shell)",
+    "href": "AIP/quality-rules/1006014",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the functions named as UNIX commands.",
+    "output": "The report lists all the  Shell Functions named as UNIX Commands\nIt provides following information: \n- function full name",
+    "rationale": "Naming the functions as the UNIX commands  can create confusion.",
+    "remediation": "Try to rename functions having  named as UNIX commands.",
+    "total": "Number of  Shell Functions",
+    "alternativeName": "Function should not be named as UNIX commands  (Shell)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "CommandName",
+            "description": "Unix command",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        "gzip",
+                        "diff",
+                        "cp",
+                        "rm",
+                        "mv",
+                        "emacs"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "id": 1101086,
+    "name": "VARCHAR2 and NVARCHAR2 should be used",
+    "href": "AIP/quality-rules/1101086",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "You use the VARCHAR2 datatype to store variable-length character data. \n\nThe STRING and VARCHAR are subtypes of VARCHAR2 having the same range of values as their base type. For example, VARCHAR is just another name for VARCHAR2.\nVARCHAR is synonymous with VARCHAR2. \n\nHowever, in future releases of PL/SQL, to accommodate emerging SQL standards, VARCHAR might become a separate datatype with different comparison semantics. \n\nTherefore the recommendation from Oracle is to change char to VARCHAR2 to save space and change VARCHAR to VARCHAR2 to accommodate future changes.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "CHAR should be used for storing fix length character strings. String values will be space padded before stored on disk. If this type is used to store variable length strings, it will waste a lot of disk space.\n\nSo, Oracle suggests to use VARCHAR2 / NVARCHAR2 instead of CHAR / NCHAR while declaring datatype.\nAlso VARCHAR is going to be replaced by VARCHAR2 in future so Oracle recommends to replace VARCHAR by VARCHAR2.",
+    "remediation": "Change CHAR columns / variables / parameters to VARCHAR2.\nChange VARCHAR columns / variables / parameters to VARCHAR2.\nChange NCHAR columns / variables / parameters to NVARCHAR2.",
+    "remediationSample": "Use Case 1 :\nCREATE TABLE leaders\n(\n lead_name  varchar2(12) null,\n lead_id    varchar2(6)  not null,\n lead_add   varchar2(40) null\n)\n/\n\nUse Case 2 :\nCREATE PROCEDURE remove_leaders (par_lead_name NVARCHAR2(10)) AS\nBEGIN\n  DELETE FROM leaders\n  WHERE leaders.lead_name = par_lead_name;\nEND;\n/",
+    "sample": "Use Case 1 :\nCREATE TABLE leaders\n(\n lead_name  varchar2(12) null,\n lead_id    char(6) not null,\n lead_add   varchar2(40) null\n)\n/\n\nUse Case 2 :\nCREATE PROCEDURE remove_leaders (par_lead_name NCHAR(10)) AS\nBEGIN\n  DELETE FROM leaders\n  WHERE leaders.lead_name = par_lead_name;\nEND;\n/",
+    "total": "Number of Tables, Functions, Procedures, Packages.",
+    "alternativeName": "VARCHAR2 and NVARCHAR2 should be used",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

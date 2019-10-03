@@ -1,0 +1,95 @@
+{
+    "id": 1101958,
+    "name": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
+    "href": "AIP/quality-rules/1101958",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation patterns",
+    "description": "Be careful when using deprecated methods. The deprecation period should be used to smoothly make the transition. The rule raises an issue when using MongoDB collections with ensureIndex.",
+    "output": "List all Artifacts with ensureIndex on MongoDB collections.\nThe following information is provided: \n- The number of violation patterns\n- Bookmarks for violation patterns found in the source code",
+    "rationale": "As the db.collection.ensureIndex() is deprecated since version 3.0.0 and the  db.collection.ensureIndex() is now an alias for db.collection.createIndex() it is recommended to always use db.collection.createIndex() rather than db.collection.ensureIndex() to create new indexes.\nIndeed using deprecated MongoDB API could lead to security compliancy issues.",
+    "remediation": "Use db.collection.createIndex() rather than db.collection.ensureIndex() to create new indexes.",
+    "remediationSample": "var client = new MongoClient(\"mongodb://localhost\");\nvar db = client.GetServer().GetDatabase(\"myapp\");\nvar collection = db.GetCollection<User>(\"users\");\n\ncollection.CreateIndex(new IndexKeysBuilder().Ascending(\"EmailAddress\"), IndexOptions.SetBackground(true));",
+    "sample": "var server = MongoServer.Create(\"mongodb://localhost\");\nvar db = server.GetDatabase(\"myapp\");\n\nvar users = db.GetCollection<User>(\"users\");\n\nusers.EnsureIndex(new IndexKeysBuilder().Ascending(\"EmailAddress\"));",
+    "total": "The total procedure counts MongoDB Collections.",
+    "alternativeName": "Avoid artifacts having db.collection.ensureIndex() to create new indexes",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

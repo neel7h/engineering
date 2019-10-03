@@ -1,0 +1,77 @@
+{
+    "id": 1024022,
+    "name": "Media Resources should be released",
+    "href": "AIP/quality-rules/1024022",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Android Media objects \"MediaRecorder, MediaPlayer, or AudioRecord\" usually consume valuable system resources. Therefore, you should always take extra precautions to make sure you are not hanging on to a MediaPlayer instance longer than necessary. When done with it, you should always call release() to make sure any system resources allocated to it are properly released \n\nUsally is not siffcent to release ressorce at onDestroy() level, you should ensure doing this in onPause(), onStop() also ",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a resource is created or allocated, the developer is responsible for properly releasing the resource as well as accounting for all potential paths of expiration or invalidation, such as a set period of time or revocation",
+    "reference": "https://cwe.mitre.org/data/definitions/404.html ",
+    "remediation": "The activity \n\nYou should always override the onStop() and call the release() as follow : \n\npublic class MyActivity extends Activity{ \n   MediaPlayer mMediaPlayer;\n   ... \n   @Override \n   public void onStop() { \n       MR.stop(); \n       MR.release(); \n       MR = null; \n\n   }  \n}\n\n----- \nIn the case when using a service, you should always override the onDestroy() method to make sure you are releasing the media object: \n\npublic class MyService extends Service { \n   MediaPlayer mMediaPlayer; \n   ... \n\n   @Override \n   public void onDestroy() { \n       super.onDestroy() \n       if (mMediaPlayer != null) mMediaPlayer.release(); \n   }\n}",
+    "sample": "Using Media Object as activity \npublic class MyActivity extends Activity { \n  private MediaRecorder MR; \n\n  @Override \n  public void onCreate(Bundle state) { \n      ... \n  } \n\n  @Override \n  public void onRestart() { \n      ... \n  } \n\n  @Override \n  public void onStop() { \n      MR.stop(); \n  } \n} \n\n----- \nUsing Media Object as Service \npublic class MyService extends Service { \n   MediaPlayer mMediaPlayer; \n   // ... \n\n   @Override \n   public void onDestroy() { \n       \n   }\n}",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure to release media resorces at OnStop() and OnDestroy() to efficiently use resources",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-14",
+            "name": "Storable and Member Data Element Memory Allocation Missing De-Allocation Control Element",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

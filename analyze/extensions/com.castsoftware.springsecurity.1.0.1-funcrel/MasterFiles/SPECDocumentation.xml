@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="description">
+    <english>Include Spring Security’s CSRF protection within your application via XML or JAVA configuration is one of the most important step to secure your application.
+Some frameworks handle invalid CSRF tokens by invalidating the user’s session, but this causes its own problems. Instead by default Spring Security’s CSRF protection will produce an HTTP 403 access denied.
+This rule reports violation when Spring Security’s CSRF protection is deactivated.</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="name">
+    <english>Spring Security CSRF Protection must not be disabled</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="rationale">
+    <english>When a web server is designed to receive a request from a client without any mechanism for verifying that it was intentionally sent, then it might be possible for an attacker to trick a client into making an unintentional request to the web server which will be treated as an authentic request. This can be done via a URL, image load, XMLHttpRequest, etc. and can result in exposure of data or unintended code execution. There multiple forms of Cross-Site Request Forgery (CSRF) attacks that can be avoided using Spring Security.</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/352.html
+https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)
+http://www.baeldung.com/spring-security-csrf
+https://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html#csrf-use-proper-verbs</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="remediation">
+    <english>CSRF protection must be enabled.
+
+As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.
+http
+    csrf disabled="false"
+http</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="remediationSample">
+    <english>As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.
+http
+    csrf disabled="false"
+http
+_____________
+In the older XML config (pre Spring Security 4), CSRF protection was disabled by default and we could enable it as follows:
+
+{code}
+http
+    ...
+    csrf
+http
+{code}</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="sample">
+    <english>As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration. If you would like to disable CSRF protection, the corresponding XML configuration can be seen below.
+http
+    csrf disabled="true"
+http
+-------------------
+In the older XML config (pre Spring Security 4), CSRF protection was disabled by default.
+--------------------
+JAVA Configuration :
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+              http
+              .csrf().disable();     //CSRF Protection is disabled
+       }
+}</english>
+  </metric>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="description">
+    <english>To enable HTTP Security in Spring, we need to extend the WebSecurityConfigurerAdapter to provide a default configuration in the configure(HttpSecurity http) method.
+This rule reports violation when a request to the application is authenticated without HTTP basic authentication.</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="name">
+    <english>Ensure that any application request is authenticated with HTTP basic</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="rationale">
+    <english>HTTP Basic Authentication is simplest way to deal with authentication. As you probably know, Basic Authentication is just a standard HTTP header with the username:password encoded in base64. In case of HTTP basic authentication, instead of using a form, user login credentials are passed on HTTP request header, precisely "Authorization" request header. This header allows you to send username and password into request headers instead of the request body, as is the case of form login authentication. This is ideal for authenticating REST clients.When HTTP basic authentication is enabled, the client that is sending the request, for example, a browser or a REST client concatenates the username and the password with a colon between them and then use Base64 encoding to encode the resulting string. This string is then sent into "Authorization" header of the request. When this request reaches to the server then server extract value of the Authorization header and uses the base64 algorithm to decode the password and authenticate a user. If a request doesn't have Authentication header than server rejects the request with 401 response and also appends header "WWW-Authenticate: Basic realm" to instruct client that it needs to send username and password in request header for authentication.</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html
+https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication
+https://javarevisited.blogspot.com/2018/01/how-to-enable-http-basic-authentication-spring-security-java-xml-configuration.html#axzz54bw3m88x
+https://www.javacodegeeks.com/2018/01/http-basic-authentication-works-spring-security.html</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="remediation">
+    <english>Authenticate with HTTP basic with 'http-basic' or 'httpBasic()' element.</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="remediationSample">
+    <english>JAVA Configuration
+protected void configure(HttpSecurity http) throws Exception {
+      http.authorizeRequests()
+        .anyRequest().authenticated() // Autentication Request
+        .and().httpBasic() // HTTP Basic Authentication
+}
+
+------------------
+
+XML configuration:
+
+http
+    intercept-url pattern="/**" access="authenticated"
+    http-basic
+http</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="sample">
+    <english>JAVA Configuration
+
+protected void configure(HttpSecurity http) throws Exception {
+      http.authorizeRequests() // Authorization is made without any authentication request
+
+}
+------------------------------
+XML Configuration
+
+http
+    intercept-url pattern="/**" access="authenticated"
+http</english>
+  </metric>
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="description">
+    <english>It is important to note that Spring Security does not add Content Security Policy by default. The web application author must declare the security policy(s) to enforce and/or monitor for the protected resources.
+The rule reports violation when 'Content-Security-Policy' is not set.</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="name">
+    <english>Ensure that Content-Security-Policy is set for Spring Application</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="rationale">
+    <english>One way to help protect your site from XSS is to restrict the web domains where scripts can be served from, as is made possible by Content Security Policy (CSP) headers. CSP headers allow the server to instruct the browser to only accept content served from specific domains, e.g. safedomain.com. The 'Content-Security-Policy' header can restrict the source of all content served, or just specific content types, such as images, media and scripts.</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/1021.html
+https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="remediation">
+    <english>Enable CSP header in XML configuration and JAVA configuration with "the content-security-policy" element.</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="remediationSample">
+    <english>You can enable the CSP header using XML configuration with "the content-security-policy" element as shown below:
+
+http
+
+    headers
+     content-security-policy
+            policy-directives="script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/" /&gt;
+                                report-only="true" /&gt; // This enable the CSP 'report-only' header,
+    headers
+
+http
+--------------------------------------
+Similarly, you can enable the CSP header using Java configuration as shown below ( and enable the CSP 'report-only' header)
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+        .headers()
+        .contentSecurityPolicy("script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/") //CSP is enabled
+        .reportOnly();
+    }
+}</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="sample">
+    <english>The CSP header is not enabled in XML configuration or with JAVA configuration
+JAVA configuration:
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+        .headers() // Content Security Policy is not enabled
+            .cacheControl()
+            .frameOptions();
+
+    }
+}
+------------------------------------------------
+XML Configuration:
+
+http
+    headers // Content Security Policy is not enabled
+        cache-control
+        content-type-options
+    headers
+http</english>
+  </metric>
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="description">
+    <english>Since Spring Security’s default configuration does not explicitly set a URL for the login page, Spring Security generates one automatically, based on the features that are enabled and using standard values for the URL which processes the submitted login, the default target URL the user will be sent to after logging in and so on.
+While the automatically generated log in page is convenient to get up and running quickly, most applications will want to provide their own log in page. but this should be done after requesting authorization and authentication.
+This rule reports violation when login form is set without requesting authorization and authentication.</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="name">
+    <english>Ensure that login form is declared after requesting authorization and authentication</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="rationale">
+    <english>When an actor claims to have a given identity, the software does not prove or insufficiently proves that the claim is correct. Based on "authorizeRequests()", we are allowing anonymous access on /login so that users can authenticate. We are also securing everything else.</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html
+https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="remediation">
+    <english>Declare login form after requesting authorization and authentication, using 'formLogin()'</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="remediationSample">
+    <english>protected void configure(HttpSecurity http) throws Exception {
+    http
+         .authorizeRequests()
+                  .anyRequest().authenticated()
+                   .and()
+         .formLogin()    //Login form is declared after authentication and authorization
+                  .loginPage("/login")
+                  .permitAll();
+}</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="sample">
+    <english>protected void configure(HttpSecurity http) throws Exception {
+    http
+        .formLogin()   //Login form is declared without authentication and authorization
+             .loginPage("/login")
+             .permitAll();
+}</english>
+  </metric>
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" section="total">
+    <english>Number of Java Methods</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="description">
+    <english>Logout is composed mainly of 2 steps:
+  1. Invalidate user session : indicate to web server that the session is not used anymore
+  2. Cancel cookie send by the web server to track user session. And also all cookies sent by web application, this, in order to have a global clean state
+This rule reports violation when cookies are not cleaned during the Logout.</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="name">
+    <english>Cookies must be deleted during the logout</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="rationale">
+    <english>When an actor claims to have a given identity, the software does not prove or insufficiently proves that the claim is correct.
+Cookies should be removed when logging out to avoid this kind of risk</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html
+https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="remediationSample">
+    <english>@Configuration
+ @EnableWebSecurity
+ public class LogoutSecurityConfig extends WebSecurityConfigurerAdapter {
+
+                @Override
+                protected void configure(HttpSecurity http) throws Exception {
+                      http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin()
+                                    .and()
+                                    .logout().deleteCookies("remove") // DELETE Cookies for logout.
+                                    .invalidateHttpSession(false)
+                     .logoutUrl("/custom-logout")
+                                    .logoutSuccessUrl("/logout-success");
+                     }
+
+                @Override
+                 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+                        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+                     }
+}</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="sample">
+    <english>@Configuration
+ @EnableWebSecurity
+ public class LogoutSecurityConfig extends WebSecurityConfigurerAdapter {
+
+                @Override
+                protected void configure(HttpSecurity http) throws Exception {
+                      http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin()
+                                    .and()
+                                    .logout().invalidateHttpSession(true) // Cookies are not deleted during logout
+                      .logoutUrl("/custom-logout")
+                                    .logoutSuccessUrl("/logout-success");
+                 }
+
+                @Override
+                 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+                      auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+
+                 }
+}</english>
+  </metric>
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="description">
+    <english>Logout is composed of 2 steps:
+  1. Invalidate user session : indicate web server that the session is not used anymore.
+  2. Cancel cookie send by the web server to track user session. And also all cookies sent by web application, this, in order to have a global clean state.
+This rule reports violation when Http session has not been invalidated during the Logout.</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="name">
+    <english>Ensure that HTTP Session is invalidated during logout</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="rationale">
+    <english>Session sidejacking takes advantage of an unencrypted communication channel between a victim and target system. The attacker sniffs traffic on a network looking for session tokens in unencrypted traffic. Once a session token is captured, the attacker performs malicious actions by using the stolen token with the targeted application to impersonate the victim. This attack is a specific method of session hijacking, which is exploiting a valid session token to gain unauthorized access to a target system or information. Other methods to perform a session hijacking are session fixation, cross-site scripting, or compromising a user or server machine and stealing the session token.</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/287.html
+https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="remediationSample">
+    <english>protected void configure(HttpSecurity http) throws Exception {
+      http
+          .logout()
+                 .logoutUrl("/my/logout")
+                 .logoutSuccessUrl("/my/index")
+                 .logoutSuccessHandler(logoutSuccessHandler)
+                 .invalidateHttpSession(true) // InvalidateHttpSession is set to TRUE
+                 ...
+                 .and()
+             ...
+}</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="sample">
+    <english>protected void configure(HttpSecurity http) throws Exception {
+      http
+          .logout()
+                     .logoutUrl("/my/logout")
+                     .logoutSuccessUrl("/my/index")
+                     .logoutSuccessHandler(logoutSuccessHandler)
+                     .invalidateHttpSession(false) // InvalidateHttpSession is set to FALSE
+                     ...
+                     .and()
+             ...
+}
+----------------
+protected void configure(HttpSecurity http) throws Exception {
+      http
+          .logout()
+                     .logoutUrl("/my/logout")
+                     .logoutSuccessUrl("/my/index")
+                     .logoutSuccessHandler(logoutSuccessHandler)
+
+                     ...
+                     // InvalidateHttpSession is missing
+                     .and()
+             ...
+}</english>
+  </metric>
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="description">
+    <english>Spring Security's debug mode is useful during development and debugging, but could expose sensitive information to attackers such as request parameters or headers and should not be included in production code.</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="name">
+    <english>Avoid using Spring Security's debug mode</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="rationale">
+    <english>A common development practice is to add "back door" code specifically designed for debugging or testing purposes that is not intended to be shipped or deployed with the application. These back door entry points create security risks because they are not considered during design or testing and fall outside of the expected operating conditions of the application.</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/489.html
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="remediation">
+    <english>Disable Debug Spring Security's Debug mode using '@EnableWebSecurity(debug = false)'</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="remediationSample">
+    <english>@Configuration
+@EnableWebSecurity(debug = false) // Violation Fixed
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+...
+}</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="sample">
+    <english>@Configuration
+@EnableWebSecurity(debug = true) // Violation
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+...
+}</english>
+  </metric>
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" section="total">
+    <english>Number of Java Classes</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="description">
+    <english>This rule reports violation when permitAll or no user role is specified for accessing any URL path when the URL is specified with .antMatchers() or .loginPage().</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="name">
+    <english>PermitAll or user role should be specified to access URL(s) of the application</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="rationale">
+    <english>The access to the any URL in your application should secured by using permitAll() to avoid anonymous access or by specifing the role of the user allowed to get access
+These expressions are responsible for defining the access control or authorization to specific URLs or methods in your application.
+Let’s look at the example:
+@Override
+protected void configure(final HttpSecurity http) throws Exception {
+    ...
+    .antMatchers("/ForumPage/*").permittAll()
+    .antMatchers("/auth/admin/*").hasRole("ADMIN")
+    .antMatchers("/auth/*").hasAnyRole("ADMIN","USER")
+
+    ...
+}
+In this example we specify access to all links starting with /auth/ restricted to users that are logged in with role USER or role ADMIN. Moreover, to access links starting with /auth/admin/ we need to have ADMIN role in the system.
+However for "/ForumPage/*" : all requests are allowed on that particular path ( not anonymous one).Setting the access=”permitAll” will configure the authorization so that all requests are allowed on that particular path. This is achieved without disabling the security filters – these still run, so any Spring Security related functionality will still be available.
+This check is also available for the login page, we should at least specify a .permitAll() for the path login as follow
+  .formLogin()
+            .loginPage("/login")
+            .permitAll()</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="reference">
+    <english>https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="remediation">
+    <english>Add .permitAll() for the .loginPage("/login") or .antMatchers("/xxx/**") if access is allowed to any one.
+or Speciy the role with .hasRole("ROLE")</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="remediationSample">
+    <english>You need to add .permitAll() for the .loginPage("/login") or .antMatchers("/xxx/**") if access is allowed to any one.
+or you have to speciy the role with .hasRole("ROLE")
+
+JAVA CONFIGURATION
+-----------------------------------------
+protected void configure(HttpSecurity http) throws Exception {
+http
+.authorizeRequests()
+.antMatchers("/resources/**", "/signup", "/about").permitAll()
+.antMatchers("/admin/**").hasRole("ADMIN") //here the permitall is not specified but the role is specified.
+.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')") //here the permitall is not specified but the role is specified.
+.anyRequest().authenticated()
+.and()
+
+.loginPage("/login").permitAll()
+}
+
+XML CONFIGURATION
+-----------------------------------------
+intercept-url pattern="/login*" access="permitAll"</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="sample">
+    <english>@Configuration
+@EnableWebSecurity(debug = true) // Violation
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+...
+}</english>
+  </metric>
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="associatedValueName">
+    <english>Single Value</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="description">
+    <english>The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a frame or iframe. Sites can use this to avoid Clickjacking attacks, by ensuring that their content is not embedded into other sites. Set the X-Frame-Options header for all responses containing HTML content. The possible values are "DENY", "SAMEORIGIN", or "ALLOW-FROM uri".
+There are three possible values for the X-Frame-Options header:
+
+1. DENY, which prevents any domain from framing the content. The "DENY" setting is recommended unless a specific need has been identified for framing.
+2. SAMEORIGIN, which only allows the current site to frame the content.
+3. ALLOW-FROM uri, which permits the specified 'uri' to frame this page. (e.g., ALLOW-FROM http://www.example.com) Check Limitations Below this will fail open if the browser does not support it. Other browsers support the new CSP frame-ancestors directive instead. A few support both.
+This rule report violation when the value of "X-Frame-Options" is not specified or it's set to ALLOW.</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="name">
+    <english>X-Frame-Option should be correctly set to avoid Clickjacking attack</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="rationale">
+    <english>Clickjacking is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the the top level page. Thus, the attacker is "hijacking" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both.
+Using a similar technique, keystrokes can also be hijacked. With a carefully crafted combination of stylesheets, iframes, and text boxes, a user can be led to believe they are typing in the password to their email or bank account, but are instead typing into an invisible frame controlled by the attacker.</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="reference">
+    <english>https://www.owasp.org/index.php/Clickjacking
+https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="remediationSample">
+    <english>XML CONFIGURATION
+---------------------------------
+http
+
+  headers
+       frame-options
+       policy="SAMEORIGIN"
+  headers
+http
+
+Similarly, you can customize frame options to use the same origin within Java Configuration using the following:
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+        // ...
+               .headers()
+                    .frameOptions()
+                            .sameOrigin();
+        }
+    }</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="sample">
+    <english>XML CONFIGURATION
+---------------------------------
+http
+    headers
+       frame-options
+         policy="ALLOW-FORM"
+    headers
+http
+
+Similarly, you can customize frame options to use the same origin within Java Configuration using the following:
+
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+        // ...
+               .headers()
+                        .frameOptions()
+                            .Allow-form();
+        }
+    }</english>
+  </metric>
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" section="total">
+    <english>Number of Java Methods and Xml tags</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="description">
+    <english>Actuator endpoints lets the user to monitor and interact with application. Spring Boot includes a number of built-in endpoints and lets the user for.example, the health endpoint provides basic application health information.</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="name">
+    <english>Ensure to enable Spring Boot Actuator Endpoint</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="rationale">
+    <english>Each individual endpoint can be enabled or disabled. This controls whether or not the endpoint is created and its bean exists in the application context. To be remotely accessible an endpoint also has to be exposed via JMX or HTTP. Most applications choose HTTP, where the ID of the endpoint along with a prefix of /actuator is mapped to a URL. For example, by default, the health endpoint is mapped to /actuator/health.
+
+Endpoint Security
+To enable the features of Endpoint security authentication
+Makes the critical endpoints as non-critical and non-sensitive</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="reference">
+    <english>https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+
+Standards :
+OWASP Top 10 2010 A6 - Security Misconfiguration
+OWASP Top 10 2013 A5 - Security Misconfiguration
+OWASP Top 10 2017 A6 - Security Misconfiguration
+
+OWASP Mobile 2014 M1 - Weak Server Side Controls
+
+AIP-GDPR
+
+Web Application Security Consortium Version 2.00 - WASC-15 : Application Misconfiguration</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="remediation">
+    <english>1) management.security.enabled=true
+
+2) endpoints.health.sensitive=true</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="remediationSample">
+    <english>1) management.security.enabled=true
+
+2) endpoints.health.sensitive=true</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="sample">
+    <english>1) management.security.enabled=false
+
+2) endpoints.health.sensitive=false
+
+3)
+@Component
+public class castEndpoint implements Endpoint&lt;List&lt;String&gt;&gt; {
+
+    public String getId() {
+        return "castEndpoint";
+    }
+
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public boolean isSensitive() {
+        return false;
+    }
+
+    public List%lt;String&gt; invoke() {
+        // Custom logic to build the output
+        ...
+    }
+}
+
+4. Basic configuration
+Step 1
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+Step 2
+By default, the basic security enabled. This will be enabled for all the endpoints. But, it can disabled by updating the application.properties file and expose the non-sensitive endpoints without security.
+
+Step 3
+The following are the basic entries that are required to configure the security for your spring boot actuator application: (needs to verified in the application.properties file.)
+
+management.security.enabled=true
+security.basic.enabled=true</english>
+  </metric>
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" section="total">
+    <english>Number of Properties file object</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="description">
+    <english>This feature could be used to administer Spring Boot application remotely.
+This feature could be useful for any service wrapper implementation.</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="name">
+    <english>Ensure to enable Spring Boot Admin MBean</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="rationale">
+    <english>This feature exposes the SpringApplicationAdminMXBean on the platform MBeanServer.
+
+This exposes the application by causing an additional attack surface in the form of a remote JMX endpoint. Also it depends on the configuration performed for the MBeanServer, the MBean can be exposed locally or remotely, and does not not require authentication aswell.</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="reference">
+    <english>https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+
+# ADMIN (SpringApplicationAdminJmxAutoConfiguration)
+spring.application.admin.enabled=false # Whether to enable admin features for the application.
+spring.application.admin.jmx-name=org.springframework.boot:type=Admin,name=SpringApplication # JMX name of the application admin MBean.
+
+OWASP Top 10 2010 A6 - Security Misconfiguration
+OWASP Top 10 2013 A5 - Security Misconfiguration
+OWASP Top 10 2017 A6 - Security Misconfiguration
+
+OWASP Mobile 2014 M1 - Weak Server Side Controls
+
+AIP-GDPR
+
+Web Application Security Consortium Version 2.00 - WASC-15 : Application Misconfiguration</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="remediation">
+    <english>Enable admin-related features for the application by specifying the
+
+spring.application.admin.enabled
+
+property.</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="remediationSample">
+    <english># ADMIN (SpringApplicationAdminJmxAutoConfiguration)
+spring.application.admin.enabled=false # Whether to enable admin features for the application.
+spring.application.admin.jmx-name=org.springframework.boot:type=Admin,name=SpringApplication # JMX name of the application admin MBean.</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="sample">
+    <english># ADMIN (SpringApplicationAdminJmxAutoConfiguration)
+spring.application.admin.enabled=false # Whether to enable admin features for the application.
+spring.application.admin.jmx-name=org.springframework.boot:type=Admin,name=SpringApplication # JMX name of the application admin MBean.</english>
+  </metric>
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" section="total">
+    <english>Number of Properties file object</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="description">
+    <english>Spring Boot Shutdown Actuator is enabled and will allow users/attackers to shut down the application without authentication.</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="name">
+    <english>Ensure Spring Boot Shutdown Actuator Endpoint is disabled</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="rationale">
+    <english>This configuration flag Shutdown Actuator will allow authenticated users to shut down the application incidentally or intentionally or accidentally.
+By default this feature is disabled.</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="reference">
+    <english>https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="remediation">
+    <english>management.endpoint.shutdown.enabled=false</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="remediationSample">
+    <english>endpoints.shutdown.enabled=false
+management.endpoint.shutdown.enabled=false</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="sample">
+    <english>endpoints.shutdown.enabled=true
+management.endpoint.shutdown.enabled=true</english>
+  </metric>
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" section="total">
+    <english>Number of Properties file object</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="description">
+    <english>A @RequestMapping method handles all matching requests by default. That means that a method you intended only to be POST-ed to could also be called by a GET, thereby allowing hackers to call the method inappropriately. For example a "transferFunds" method might be invoked like so: &lt;img src="http://bank.com/actions/transferFunds?reciepientRouting=000000&amp;receipientAccount=11111111&amp;amount=200.00" width="1" height="1"/&gt;
+
+For that reason, you should always explicitly list the single HTTP method with which you expect your @RequestMapping Java method to be called.</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="name">
+    <english>RequestMapping methods should specify HTTP method</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="rationale">
+    <english>The web application does not, or can not, sufficiently verify whether a well-formed, valid, consistent request was intentionally provided by the user who submitted the request.</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/352.html</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="remediation">
+    <english>Specify HTTP method with which you expect your @RequestMapping Java method to be called.
+Example: @RequestMapping("/greet", method = GET)</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="remediationSample">
+    <english>@RequestMapping("/greet", method = GET)
+  public String greet(String greetee) {</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="sample">
+    <english>@RequestMapping("/greet", )
+  public String greet(String greetee) {</english>
+  </metric>
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" section="total">
+    <english>Number of Java methods having @RequestMapping</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="description">
+    <english>Enabling spring-boot-devtools on a remote application is a security risk.
+Flagging the dependency as optional in Maven is a best practice that prevents devtools from being transitively applied.</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="name">
+    <english>Never Enable Spring Boot Devtools in Production.</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="rationale">
+    <english>Enabling spring-boot-devtools on a remote application is a security risk.
+Never enable support on a production system or environment as it turns to be a security risk and attackers can control the application remotely.
+
+Remote devtools support is provided in two parts - a server-side endpoint that accepts connections and a client application that is run in IDE.
+The server component is automatically enabled when the spring.devtools.remote.secret property is set. The client component must be launched manually.</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="reference">
+    <english>https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
+https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration
+
+OWASP Top 10 2010 A6 - Security Misconfiguration
+OWASP Top 10 2013 A5 - Security Misconfiguration
+OWASP Top 10 2017 A6 - Security Misconfiguration
+
+OWASP Mobile 2014 M1 - Weak Server Side Controls
+
+AIP-GDPR
+
+Web Application Security Consortium Version 2.00 - WASC-15 : Application Misconfiguration</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="remediation">
+    <english>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;optional&gt;false&lt;/optional&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="remediationSample">
+    <english>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="sample">
+    <english>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+        &lt;optional&gt;false&lt;/optional&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+or
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</english>
+  </metric>
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." section="total">
+    <english>Number of xml file object</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="associatedValueName">
+    <english>Number of violation patterns</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="description">
+    <english>An authentication error can happen, for example, when the credentials supplied by the user program is invalid or otherwise fails to authenticate the user to the naming/directory service.
+
+org.springframework.security.core.AuthenticationException superclass is usually used for all exceptions related to an Authentication object being invalid for whatever reason.
+
+However, it’s not uncommon to be is particular situations where the generic AuthenticationException isn’t enough to meet requirements.
+
+Spring security provides others ready to use components that we can leverage depending on what we want to do.
+
+In this rule, a violation is reported each time when the AuthenticationException.</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="name">
+    <english>Avoid Using Generic Authentication Exception Class</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="rationale">
+    <english>Logging exception details is important when you need to properly diagnose error conditions with the system. You don't want this detail to be displayed on an error page because it may inadvertently aid a malicious user in an attack. Logging allows your error pages to display a simple generic message alerting end users that an error has occurred, with possibly some options for contacting support. The detail you need for assisting with these issues will be kept securely in the log store.</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="reference">
+    <english>https://www.baeldung.com/spring-security-custom-authentication-failure-handler
+https://www.baeldung.com/spring-security-redirect-login
+https://docs.spring.io/spring-security/site/docs/4.2.6.RELEASE/apidocs/org/springframework/security/web/authentication/AuthenticationFailureHandler.html
+https://docs.spring.io/spring-security/site/docs/4.2.7.RELEASE/apidocs/org/springframework/security/core/AuthenticationException.html</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="remediation">
+    <english>Follow sample of Spring components ready to be used is specific situations:
+
+- DelegatingAuthenticationFailureHandler delegates AuthenticationException subclasses to different AuthenticationFailureHandlers, meaning we can create different behaviors for different instances of AuthenticationException
+- ExceptionMappingAuthenticationFailureHandler redirects the user to a specific URL depending on the AuthenticationException’s full class name
+- ForwardAuthenticationFailureHandler will forward the user to the specified URL regardless of the type of the AuthenticationException
+SimpleUrlAuthenticationFailureHandler is the component that is used by default, it will redirect the user to a failureUrl, if specified; otherwise, it will simply return a 401 response
+
+for more details, Please refer to https://www.baeldung.com/spring-security-custom-authentication-failure-handler</english>
+  </metric>
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="sample">
+    <english>Sample 1
+
+@Override public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
+  final AuthenticationRequest request=new AuthenticationRequest(authentication);
+  final User user;
+  if (request.wasExternallyAuthenticated()) {
+    user=authenticatedExternally(request.getUsercode());
+  }
+ else {
+    user=login(request.getUserEmail(),request.getPassword());
+  }
+  final List&lt;GrantedAuthority&gt; grantedAuthorities;
+  final AuthenticatedUserInfo authUser;
+  authUser=new AuthenticatedUserInfo(user.getId(),request.getUsername());
+  grantedAuthorities=getGrantedAuthority(user);
+  return new UsernamePasswordAuthenticationToken(authUser,null,grantedAuthorities);
+}
+______________________
+
+Sample 2
+
+/**
+ * Authenticate a token
+ */
+public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    if( authentication == BAD_CREDENTIALS ) {
+        throw new BadCredentialsException( "Bad credentials" );
+    } else if( authentication == LOCKED ) {
+        throw new LockedException( "Account is locked" );
+    }
+    return authentication;
+}
+
+_____________________
+
+Sample 3
+
+@ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity&lt;String&gt; handleBadCredentials(AuthenticationException e) {
+        return new ResponseEntity&lt;String&gt;(HttpStatus.UNAUTHORIZED);
+    }</english>
+  </metric>
+  
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" section="total">
+    <english>Number of Java Methods</english>
+  </metric>
+  
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="description">
+    <english>To track all of the exceptions in Spring, we’ll be making use of a global exception handler. This receives uncaught exceptions for your whole application, not just an individual controller. Spring offers two main approaches:
+
+- ControllerAdvice
+- HandlerExceptionResolver
+
+But you cannot mix both approaches in the same application. Most applications use one approach, and using two may result in unexpected behavior.</english>
+  </metric>
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="name">
+    <english>Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously</english>
+  </metric>
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="reference">
+    <english>https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc</english>
+  </metric>
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="remediation">
+    <english>we should not use "ControllerAdvice" and "HandlerExceptionResolver" in same application.</english>
+  </metric>
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="sample">
+    <english>Usage of @ControllerAdvice Sample:
+
+package com.concretepage.controller;
+import java.io.IOException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
+import com.concretepage.exception.KeywordNotFoundException;
+@ControllerAdvice
+public class GlobalExceptionHandler {
+      @ExceptionHandler(IOException.class)
+      public ModelAndView myError(Exception exception) {
+        System.out.println("----Caught IOException----");
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("exception", exception);
+        mav.setViewName("globalerror");
+        return mav;
+      }
+      @ExceptionHandler(KeywordNotFoundException.class)
+      public String notFound() {
+            System.out.println("----Caught KeywordNotFoundException----");
+            return "404";
+      }
+}
+
+------------------
+Usage of HandlerExceptionResolver Sample:
+
+package com.logicbig.example;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@EnableWebMvc
+public class Config {
+
+    @Bean
+    HandlerExceptionResolver errorHandler () {
+        return new HandlerExceptionResolver() {
+            @Override
+            public ModelAndView resolveException (HttpServletRequest request,
+                                                  HttpServletResponse response,
+                                                  Object handler,
+                                                  Exception ex) {
+                ModelAndView model = new ModelAndView("error-page");
+                model.addObject("exceptionType", ex);
+                model.addObject("handlerMethod", handler);
+                return model;
+            }
+        };
+    }
+
+    //registering an interceptor</english>
+  </metric>
+  
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" section="total">
+    <english>Number of JAVA Projects</english>
+  </metric>
+  
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall&quot; should be set as the HttpFirewall" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall&quot; should be set as the HttpFirewall" section="description">
+    <english>This rule checks if Strict Http Firewall is set as the Http Firewall
+StrictHttpFirewall can be set as the HTTP Firewall by default or via configuration file.
+
+In the following versions it is implicitly set as the Http Firewall (by default):
+5.0.1, 4.2.4, and 4.1.5 or newer versions of these.
+
+In older versions , Strict Http Firewall is explicitly set as the Http Firewall (xml configuration or java configuration).
+
+Violation should be raised in following cases:
+
+1. If DefaultHttpFirewall is set as the Http firewall, instead of StrictHttpFirewall.
+2. If no configuration of firewall is provided and the spring security version is not among:5.0.1(&gt;), 4.2.4(&gt;), and 4.1.5(&gt;)
+    (in this case make sure the application is making use of spring security)
+
+Consider following cases to prevent false positives:
+1. Java Application with no configuration of firewall and not using spring security.
+2. Java Application making use of newer versions of spring security in which strict http firewall is default firewall.</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="name">
+    <english>"StrictHttpFirewall" should be set as the HttpFirewall</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="rationale">
+    <english>Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="reference">
+    <english>https://pivotal.io/security/cve-2018-1199
+https://spring.io/blog/2018/01/30/cve-2018-1199-spring-security-5-0-1-4-2-4-4-1-5-released
+https://docs.spring.io/autorepo/docs/spring-security/4.2.x/reference/html/technical-overview.html</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="remediation">
+    <english>By default the StrictHttpFirewall is used. This implementation rejects requests that appear to be malicious. If it is too strict for your needs, then you can customize what types of requests are rejected. However, it is important that you do so knowing that this can open your application up to attacks. For example, if you wish to leverage Spring MVC’s Matrix Variables, the following configuration could be used in XML:
+
+&lt;b:bean id="httpFirewall"
+      class="org.springframework.security.web.firewall.StrictHttpFirewall"
+      p:allowSemicolon="true"/&gt;
+
+&lt;http-firewall ref="httpFirewall"/&gt;
+
+
+
+The same thing can be achieved with Java Configuration by exposing a StrictHttpFirewall bean.
+
+@Bean
+public StrictHttpFirewall httpFirewall() {
+    StrictHttpFirewall firewall = new StrictHttpFirewall();
+    firewall.setAllowSemicolon(true);
+    return firewall;
+}</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="remediationSample">
+    <english>&lt;b:bean id="httpFirewall"
+      class="org.springframework.security.web.firewall.StrictHttpFirewall"
+      p:allowSemicolon="true"/&gt;
+
+&lt;http-firewall ref="httpFirewall"/&gt;
+
+The same thing can be achieved with Java Configuration by exposing a bean.
+
+@Bean
+public StrictHttpFirewall httpFirewall() {
+    StrictHttpFirewall firewall = new StrictHttpFirewall();
+    firewall.setAllowSemicolon(true);
+    return firewall;
+}</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="sample">
+    <english>In the XML configutaion:
+
+&lt;b:bean id="httpFirewall"
+      class="org.springframework.security.web.firewall.DefaultHttpFirewall"
+      p:allowSemicolon="true"/&gt;
+
+&lt;http-firewall ref="httpFirewall"/&gt;
+
+
+
+The same thing can be achieved with Java Configuration by exposing a bean.
+
+@Bean
+public DefaultHttpFirewall httpFirewall() {
+    DefaultHttpFirewall firewall = new DefaultHttpFirewall();
+    firewall.setAllowSemicolon(true);
+    return firewall;
+}</english>
+  </metric>
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" section="total">
+    <english>Number of Java Project and JSP Project</english>
+  </metric>
+</root>

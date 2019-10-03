@@ -1,0 +1,59 @@
+{
+    "id": 1007012,
+    "name": "Avoid using embedded CSS in Web Pages (PHP)",
+    "href": "AIP/quality-rules/1007012",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all PHP Files that are not linked to a style sheet(*.css) and contain hardcoded style definition. Style sheets (*.css) should be used instead of hardcoded style definition.",
+    "output": "This report lists all PHP Files with hardcoded style definition instead of having link to a style sheet.\n\nThis QR provides the following information:\nPHP File full name.",
+    "rationale": "Using style sheets (*.css) instead of hardcoded style definition improves readability and is less costly to maintain.",
+    "remediation": "Modify the source code to reduce the number of web pages with hardcoded style definition instead of having link to a style sheet(*.css).",
+    "remediationSample": "<?php echo \"!!!A Title - Uses css file!!!\"; ?>\n\n<html>\n<head>\n<title>...</title>\n<link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n\n</body>\n</html>",
+    "sample": "<?php echo \"Text\"; ?>\n\n<html>\n<head>\n<title>...</title>\n<style> \n/*violation*/\nbody {background-color: powderblue;}\nh1   {color: blue;}\np    {color: red;}\n</style>\n</head>\n<body>\n\n</body>\n</html>",
+    "total": "Number of PHP Files",
+    "alternativeName": "Avoid using embedded CSS in Web Pages (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

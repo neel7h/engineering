@@ -1,0 +1,6 @@
+Build date: 18/03/2019  7:02:26,85 
+Build number: 1000167 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.jeerules.git origin/master 35c8b3f6d03510dd451dd646651de35321033442
+Publish date: 18/03/2019  7:04:39,51 
+Original version: 1.1.0-funcrel1000167 

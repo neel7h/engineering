@@ -1,0 +1,59 @@
+{
+    "id": 1009058,
+    "name": "Avoid Programs With Queries using GROUP BY  (RPG300)",
+    "href": "AIP/quality-rules/1009058",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches all the programs having quaries using GROUP BY.",
+    "output": "This report lists RPG300 Programs With Queries on more than 4 Tables.\nIt provides the following information:\nRPG300 Program full name",
+    "rationale": "Having complex queries in Artifacts can cause performance problems. Queries using group by is considered complex and not efficient.",
+    "remediation": "Review the design of the query to avoid if possible GROUP BY clause.",
+    "remediationSample": "105     11 C/EXEC SQL                                                                     10400\n  106        C+  DECLARE C2 CURSOR FOR                                                      10500\n  107        C+    SELECT EMPPROJACT.PROJNO, PROJNAME, COUNT(*),                            10600\n  108        C+       SUM((DAYS(EMENDATE) - DAYS(EMSTDATE)) * EMPTIME *                     10700\n  109        C+           DECIMAL((SALARY/:WRKDAY),8,2))                                    10800\n  110        C+    FROM CORPDATA/EMPPROJACT, CORPDATA/PROJECT, CORPDATA/EMPLOYEE            10900\n  111        C+    WHERE EMPPROJACT.PROJNO = PROJECT.PROJNO AND                             11000\n  112        C+          EMPPROJACT.EMPNO = EMPLOYEE.EMPNO AND                              11100\n  113        C+          PRENDATE = :RDATE                                                  11200\n  114        C+    GROUP BY EMPPROJACT.PROJNO                                               11300\n  115        C+    ORDER BY 1                                                               11400\n  116        C/END-EXEC                                                                     11500",
+    "sample": "Use Group by statements along with the Aggregate function.Never use group by on Non Indexed columns\n\n  105     11 C/EXEC SQL                                                                     10400\n  106        C+  DECLARE C2 CURSOR FOR                                                      10500\n  107        C+    SELECT EMPPROJACT.PROJNO, PROJNAME, COUNT(*),                            10600\n  108        C+       SUM((DAYS(EMENDATE) - DAYS(EMSTDATE)) * EMPTIME *                     10700\n  109        C+           DECIMAL((SALARY/:WRKDAY),8,2))                                    10800\n  110        C+    FROM CORPDATA/EMPPROJACT, CORPDATA/PROJECT, CORPDATA/EMPLOYEE            10900\n  111        C+    WHERE EMPPROJACT.PROJNO = PROJECT.PROJNO AND                             11000\n  112        C+          EMPPROJACT.EMPNO = EMPLOYEE.EMPNO AND                              11100\n  113        C+          PRENDATE = :RDATE                                                  11200\n  114        C+    GROUP BY EMPPROJACT.PROJNO, PROJNAME                                     11300\n  115        C+    ORDER BY 1                                                               11400\n  116        C/END-EXEC                                                                     11500",
+    "total": "Total number of RPG300 Programs",
+    "alternativeName": "Avoid Programs With Queries using GROUP BY  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

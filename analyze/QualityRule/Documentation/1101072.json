@@ -1,0 +1,60 @@
+{
+    "id": 1101072,
+    "name": "Tables should be aliased",
+    "href": "AIP/quality-rules/1101072",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When multiple tables are involved in a query, using table aliases it improves readability.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Table aliasing is a common and helpful practice.\n\nIt saves you keystrokes when referencing columns anywhere in your query.\nIt improves the readability of your query when you are referencing many tables. Aliases let you give those tables a short name plus a little meaning to how they are being used.\nIt is even required when you join a table to itself or when you join to the same table multiple times.",
+    "remediation": "Check the statement and if so, add aliases to your tables.",
+    "remediationSample": "select sal.date,\n       sal.ord_num,\n       saldet.qty,\n       saldet.title_id,\n       saldet.discount,\n       titl.price,\n       total = saldet.qty * titl.price * (1 - saldet.discount/100)\nfrom sales sal\n     join salesdetail saldet on sal.ord_num = saldet.ord_num\n     join titles titl on titl.title_id = saldet.title_id\nwhere sal.stor_id = @stor_id\norder by sal.date desc, sal.ord_num",
+    "sample": "select date,\n       sales.ord_num,\n       qty,\n       salesdetail.title_id,\n       discount,\n       price,\n       total = qty * price * (1 - discount/100)\nfrom sales, salesdetail, titles\nwhere sales.stor_id = @stor_id\nand sales.ord_num = salesdetail.ord_num\nand titles.title_id = salesdetail.title_id\norder by date desc, sales.ord_num",
+    "total": "Number of Artifacts with SQL code having JOINs.",
+    "alternativeName": "Tables should be aliased",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

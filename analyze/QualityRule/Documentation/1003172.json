@@ -1,0 +1,72 @@
+{
+    "id": 1003172,
+    "name": "Avoid * and use strongly typed objects instead in fields (Flex)",
+    "href": "AIP/quality-rules/1003172",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports Flex fields with variables that are not strongly typed.",
+    "output": "This QR reports fields with variables that are not strongly typed. It provides following information:\n- Flex Field full name",
+    "rationale": "Strongly typed fields increases readability and maintainability of the code.",
+    "remediation": "Use strongly typed fields.",
+    "remediationSample": "package {\n   public class Foo\n   {\n      public var bar : int; // violation removed\n   }\n}",
+    "sample": "package {\n   public class Foo\n   {\n      public var bar : *; // VIOLATION      \n   }\n}",
+    "total": "Number of fields",
+    "alternativeName": "Avoid * and use strongly typed objects instead in fields (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.forbiddentypes.UseGenericType"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

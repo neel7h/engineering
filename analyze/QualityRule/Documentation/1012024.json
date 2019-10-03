@@ -1,0 +1,57 @@
+{
+    "id": 1012024,
+    "name": "Avoid use of OPNQRYF  (CL400)",
+    "href": "AIP/quality-rules/1012024",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for CL400 programs which use the OPNQRYF command.",
+    "output": "This report lists all CL400 programs using OPNQRYF.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "As the OPNQRYF command has to process the query every time it is called, this can impact the performance of the calling program.",
+    "remediation": "If the selection criterion does not change often, then it is better to use Logical Files.",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid use of OPNQRYF  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

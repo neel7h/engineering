@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+
+<!-- Rich Faces -->
+<taglib uri="http://primefaces.org/ui">
+	<tag name="autocomplete">
+		<create nameSrc="id" kind="jsf-input-field" />
+		<search kind="jsf-input-field">
+		<addAttribute name="Required" valueSrc="required"/>
+		</search>
+		<attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+		<attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+		<attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+		<search kind="jsf-input-field">
+			<addAttribute name="Validate" value="true"/>
+		</search>
+		</attribute>
+		<attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+	</tag>
+
+  <tag name="editor">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <tag name="inputMask">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <tag name="inputText">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <tag name="inputTextarea">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <tag name="keyboard">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <tag name="password">
+    <create nameSrc="id" kind="jsf-input-field" />
+    <search kind="jsf-input-field">
+      <addAttribute name="Required" valueSrc="required"/>
+    </search>
+    <attribute name="value"	  resolveValueAs="jsf-el-method"  methodType="allAccessors"	caller-type="jsf-input-field" />
+    <attribute name="converter" resolveValueAs="jsf-converter"					    caller-type="jsf-input-field" />
+    <attribute name="validator" resolveValueAs="jsf-validator;jsf-el-method"	    caller-type="jsf-input-field" >
+      <search kind="jsf-input-field">
+        <addAttribute name="Validate" value="true"/>
+      </search>
+    </attribute>
+    <attribute name="*"		 resolveValueAs="jsf-el-method"	  methodType="getter;method"   caller-type="jsf-input-field" />
+  </tag>
+
+  <!-- commands-->
+  <tag name="Button">
+    <attribute name="outcome" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+    <attribute name="*"	resolveValueAs="jsf-el-method" methodType="getter;method"/>
+  </tag>
+
+  <tag name="commandButton">
+    <attribute name="outcome" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+    <attribute name="*"	resolveValueAs="jsf-el-method" methodType="getter;method"/>
+  </tag>
+
+  <tag name="commandLink">
+    <attribute name="outcome" resolveValueAs="jsf-outcome;jsf-el-method;url" linkType="call"/>
+    <attribute name="*"	resolveValueAs="jsf-el-method" methodType="getter;method"/>
+  </tag>
+
+  <!-- Default processing -->
+	<tag name="*">
+		<attribute name="*"	resolveValueAs="jsf-el-method"	methodType="getter;method" />
+	</tag>
+
+</taglib>
+
+ </taglibs>

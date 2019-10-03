@@ -1,0 +1,62 @@
+{
+    "id": 1018144,
+    "name": "Avoid hardcoded timeout in Process Activities (TIBCO BW)",
+    "href": "AIP/quality-rules/1018144",
+    "critical": true,
+    "description": "This rule searches for ProcessActivities having a timeout not starting with %% (so defined by a Global Variable).",
+    "output": "This report lists all  Processe Activities having an hardcoded timeout.\nIt provides the following information:\nProcess Activity full name.\nThe associated value is the timeout value.",
+    "rationale": "A connection is not configurable if one element of its configuration is not set by using a Global Variable.\nThe timeout is one of these elements. Such hardcoded value makes it harder to move from one environment to another without changing each hardcoded value.",
+    "reference": "3.1.2 GEN-002: Connections not configurable\nRules/ERROR-Hardcoded_activities_timeout-JDBC_activities.rule (QA Rules from Behaim IT Solutions).",
+    "remediation": "Define a Global Variable for the timeout, and set the timeout paremeter to this GV.\nSample GV value : \"%%Connections/JDBC/TImeout%%\"",
+    "total": "Number of  Process Activity",
+    "alternativeName": "Avoid hardcoded timeout in Process Activities (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

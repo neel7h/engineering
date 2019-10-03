@@ -1,0 +1,71 @@
+{
+    "id": 1009120,
+    "name": "Avoid Subroutines with more than X lines of code  (RPG300)",
+    "href": "AIP/quality-rules/1009120",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the subroutines having more than X lines of code.",
+    "output": "This report lists RPG300 Subroutines with more than X lines of code.\nIt provides the following information:\nRPG300 Subroutines full name, no. of lines in the Subroutine",
+    "rationale": "Maintainability of the code is facilitated if there the Soubroutines are not too big.",
+    "remediation": "Review the source code in order to have Soubroutines with less than X lines of code.",
+    "total": "Total number of RPG300 Subroutines",
+    "alternativeName": "Avoid Subroutines with more than X lines of code  (RPG300)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1009000,
+            "name": "RPG300",
+            "href": "AIP/technologies/1009000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max LOC",
+            "description": "Max LOC",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        250.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

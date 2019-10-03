@@ -1,0 +1,48 @@
+<setup version="1.0.0.0" encoding="UTF-8">
+<associations package="Base_Java_SpringMVC" version="1.0.0.0" encoding="UTF-8" date="Mon Oct 02 12:57:46 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - Java - Spring MVC" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_SpringMVC_PostOperation</value>
+    <value>CAST_SpringMVC_PutOperation</value>
+    <value>CAST_SpringMVC_GetOperation</value>
+    <value>CAST_SpringMVC_DeleteOperation</value>
+    <value>CAST_SpringMVC_AnyOperation</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - Java - Spring MVC - Called Operations (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - Java - Spring.MVC (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - Java - Spring MVC - Called Operations (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_SpringMVC_PostOperation</value>
+    <value>CAST_SpringMVC_PutOperation</value>
+    <value>CAST_SpringMVC_GetOperation</value>
+    <value>CAST_SpringMVC_DeleteOperation</value>
+    <value>CAST_SpringMVC_AnyOperation</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="Standard Entry Point - Java - Spring.MVC (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

@@ -1,0 +1,44 @@
+{
+    "id": 1001050,
+    "name": "Avoid Procedures and Functions using the ITERATE statement (PL1)",
+    "href": "AIP/quality-rules/1001050",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for the PL1 Main Procedures, PL1 Functions and PL1 Procedures using the ITERATE statement.",
+    "output": "The report lists all the  PL1 Main Procedures, PL1 Functions and PL1 Procedures using ITERATE  statements.\n\nIt provides following information: \n-   PL1 Main Procedure, PL1 Function and PL1 Procedure full name",
+    "rationale": "Using the ITERATE statement results in the production of unstructureness coding.",
+    "remediation": "The logic flow of the program is to be upgraded and ITERATE statements must be eliminated.",
+    "sample": "TEST_ITERATE:\nDO LOOP;\nIF TEST1='CAST'\nTHEN ITERATE TEST_END:\nTEST_END:\nEND;",
+    "total": "Number of  PL1 Main Procedures, PL1 Function and PL1 Procedures.",
+    "alternativeName": "Avoid Procedures and Functions using the ITERATE statement (PL1)",
+    "businessCriteria": [
+        
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66008,
+            "name": "Complexity - Functional Evolvability",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "id": 1040044,
+    "name": "Avoid using spring-integration-zip in versions prior to 1.0.1",
+    "href": "AIP/quality-rules/1040044",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of UnZipTransformer transform function provided by spring-integration-zip in versions prior to 1.0.1",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "spring-integration-zip , versions prior to 1.0.1, exposes an arbitrary file write vulnerability, that can be achieved using a specially crafted zip archive (affects other archives as well, bzip2, tar, xz, war, cpio, 7z), that holds path traversal filenames. So when the filename gets concatenated to the target extraction directory, the final path ends up outside of the target folder.\n\nThis specifically applies to the unzip transformer.\n\nThis can only happen if an application using this library accepts and unpacks zip files from untrusted sources.",
+    "reference": "https://pivotal.io/security/cve-2018-1261\nhttp://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1261\nhttp://cwe.mitre.org/data/definitions/22.html",
+    "remediation": "Upgrade to Spring Integration Zip Community Extension Project version 1.0.1.RELEASE",
+    "remediationSample": "import org.springframework.integration.zip.transformer // version 1.0.2\n\npublic final class Main {\n\n   ...\n   UnZipTransformer unZipTransformer = new UnZipTransformer();\n\n   unZipTransformer.transform(message);\n   ...\n}",
+    "sample": "import org.springframework.integration.zip.transformer // version 1.0.1\n\npublic final class Main { k\n\n   ...\n   UnZipTransformer unZipTransformer = new UnZipTransformer();\n\n   unZipTransformer.transform(message); // VIOLATION HERE\n   ...\n}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Upgrade to the spring-integration-zip version 1.0.2 to unsafe unzip",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-22",
+            "name": "Path Traversal Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-22",
+            "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2013",
+            "name": "Insecure Direct Object References",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

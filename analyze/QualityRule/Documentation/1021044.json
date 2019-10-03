@@ -1,0 +1,102 @@
+{
+    "id": 1021044,
+    "name": "Avoid Python string interpolations to prevent SQL injections",
+    "href": "AIP/quality-rules/1021044",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule identifies potential risky string interpolations used to parameterize SQL queries.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "To avoid the creation of Injection flaws, the Open Web Application Security Project (OWASP) recommends to check \"Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker\u2019s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.\"\n\nThe Common Weakness Enumeration defines Improper Neutralization of Special Elements used in an SQL Command ( CWE-89 ) as follows:\n\n\"Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including execution of system commands.\nSQL injection has become a common issue with database-driven web sites. The flaw is easily detected, and easily exploited, and as such, any site or software package with even a minimal user base is likely to be subject to an attempted attack of this kind. This flaw depends on the fact that SQL makes no real distinction between the control and data planes.\"",
+    "remediation": "Common database libraries handling SQL code provide specific API to perform parameterized SQL queries. Use them to assure sanitized SQL queries.",
+    "remediationSample": ">>> from flask.ext.sqlalchemy import SQLAlchemy\n>>> db = SQLAlchemy(app)\n>>> db.execute('insert into entries (title, text) values (?, ?)', [request.form['title'], request.form['text']])",
+    "sample": ">>> from flask.ext.sqlalchemy import SQLAlchemy\n>>> db = SQLAlchemy(app)\n>>> db.execute(\"insert into entries (title, text) values ('{0}', '{1}')\".format(request.form['title'], request.form['text']))",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Avoid Python string interpolations to prevent SQL injections",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70267",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "id": 1027008,
+    "name": "Always Revert After Impersonation",
+    "href": "AIP/quality-rules/1027008",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This quality rule checks that impersonation is carried out within a using block.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When using APIs that enable impersonation of a client, be sure to revert to the original identity. For example, when using the WindowsIdentity and WindowsImpersonationContext, use the C# using statement or the Visual BasicUsing statement, as shown in the following code. The WindowsImpersonationContext class implements the IDisposable interface, and therefore the common language runtime (CLR) automatically reverts to the original identity once the code leaves the using block.",
+    "reference": "https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/best-practices-for-security-in-wcf\n\nhttps://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control",
+    "remediation": "Review the source code and revert after impersonation.",
+    "remediationSample": "WindowsIdentity identity = ServiceSecurityContext.Current.WindowsIdentity;\nusing (identity.Impersonate())\n{\n    // Run code under the caller's identity.\n}",
+    "sample": "WindowsIdentity identity = ServiceSecurityContext.Current.WindowsIdentity;\nidentity.Impersonate()\n{\n    // Run code under the caller's identity.\n}",
+    "total": "Number of Methods using Impersonation",
+    "alternativeName": "Always Revert After Impersonation",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-520",
+            "name": ".NET Misconfiguration: Use of Impersonation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

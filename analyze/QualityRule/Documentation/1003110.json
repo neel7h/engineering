@@ -1,0 +1,65 @@
+{
+    "id": 1003110,
+    "name": "Avoid functions that are too long (Flex)",
+    "href": "AIP/quality-rules/1003110",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports functions\\getters\\setters with more than 20 lines.",
+    "output": "This QR reports functions\\getters\\setters with more than 20 lines. It provides following information:\n\n- function\\getter\\settter full name",
+    "rationale": "Violations of this rule usually indicate that the method has too much responsibility. Try to reduce the method size by creating helper methods and removing any copy/pasted code.",
+    "remediation": "Refactor function\\getter\\setter to have less than 20 lines of code.",
+    "total": "Number of functions\\getters\\settters",
+    "alternativeName": "Avoid functions that are too long (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.sizing.TooLongFunction"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

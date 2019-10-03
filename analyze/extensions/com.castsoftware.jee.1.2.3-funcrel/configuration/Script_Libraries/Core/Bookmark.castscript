@@ -1,0 +1,109 @@
+module Core.Bookmark;
+
+/** 
+* NOTE that in the following function definition, the parameters type(s), objType, propertyName, metamodelProperty are constant string that are defined in the MetaModel.
+* All custom functions should have theirs parameters with different names from those used for native functions.
+*/
+
+/** 
+* Create a bookmark object
+* 
+* @param fileFullPath : full path of the file
+* @param startLine    : beginning line
+* @param startCol     : beginning column
+* @param endLine      :	ending line
+* @param endCol       : ending column
+*/
+native bookmark createBookmark( string fileFullPath, int startLine, int startCol, int endLine, int endCol ); 
+
+/**
+* Set the bookmark of an object.
+* 
+* @param object			(only for JEE Types)
+* @param mark   
+*/
+native void setBookmark(symbol object,bookmark mark);
+
+/** 
+* Return the bookmark of the object
+* 
+* @param bookmarkedSymbol: bookmarked object.
+*/
+native bookmark getBookmark( symbol bookmarkedSymbol );
+
+/** 
+* Return the bookmark position as a list
+* 
+* @param mark: bookmark
+*/
+native list(int) getBookmarkPositions(bookmark mark);
+
+/** 
+* Return the file full path
+* 
+* @param mark: bookmark.
+*/
+native string getBookmarkFilePath(bookmark mark);
+
+/** 
+* Return the bookmark position
+* 
+* @param mark: bookmark
+*/
+int getBookmarkBeginningRow(bookmark mark)
+{
+    return getBookmarkNthPosition(mark, 1);
+}
+
+/** 
+* Return the bookmark position
+* 
+* @param mark: bookmark
+*/
+int getBookmarkBeginningColumn(bookmark mark)
+{
+    return getBookmarkNthPosition(mark, 2);
+}
+
+/** 
+* Return the bookmark position
+* 
+* @param mark: bookmark
+*/
+int getBookmarkEndingRow(bookmark mark)
+{
+    return getBookmarkNthPosition(mark, 3);
+}
+
+/** 
+* Return the bookmark position
+* 
+* @param mark: bookmark
+*/
+int getBookmarkEndingColumn(bookmark mark)
+{
+    return getBookmarkNthPosition(mark, 4);
+}
+
+/** 
+* Return the bookmark position
+* 
+* @param mark: bookmark
+* @param index: index
+*/
+int getBookmarkNthPosition(bookmark mark, int index)
+{
+    list(int) positions = getBookmarkPositions(mark);
+    int loopIndex = 0;
+    
+    foreach(int p in positions)
+    {
+        loopIndex = loopIndex +1;
+        if(loopIndex == index)
+        {
+            return p;
+        }        
+    }
+    
+    return 1;    
+}

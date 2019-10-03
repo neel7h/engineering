@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : CNU@CAST 
+£ Date     : 22/04/2008
+£ Filename : CatchClause.xml
+£ Role     : 
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+<METRIC PACKAGE_NAME="Java.CatchClause" >
+	<ACTIVE>YES</ACTIVE>
+
+	<!-- Actions used -->
+	<ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+			<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="PERSISTENCE" >
+			<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+	</ACTION_LIST>
+
+	<!-- Categories -->
+	<CATEGORY_LIST>
+		
+		<!-- Match Catch In Methods and Constructors -->
+		
+		<CATEGORY NAME="MATCH_METH_CATCH">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+	
+			<PROPERTY NAME="MATCH_METH_CATCH_PATT" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_J11_CatchClause" />
+            <SIGNATURE NAME="NODE_J11_CatchClause" SUB_NAME="EMPTY_CATCH_BLOCK" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>MATCH_METH_CATCH_PATT</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Catch Blocks in Methods, Constructors</NAME>
+			</ADD_ACTION>
+		</CATEGORY>
+
+
+		<!-- Match Assertion In Catch -->
+		<CATEGORY NAME="MATCH_ASSERT_IN_CATCH">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<PROPERTY NAME="MATCH_ASSERT_IN_CATCH_PATT" type="pattern">
+				<TREE>
+					<OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_J11_CatchClause</SIGNATURE>
+						</OR>
+							<SUB_TREE_OR>
+								<TOKEN NAME="_ASSERT_" />
+							</SUB_TREE_OR>
+						</TREE>
+				</TREE>
+			</PROPERTY>
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>MATCH_ASSERT_IN_CATCH_PATT</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Catch blocks with assertion</NAME>
+			</ADD_ACTION>
+		</CATEGORY>
+
+    <CATEGORY NAME="MATCH_EMPTY_CATCH_BLOCK_JAVA">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="MATCH_EMPTY_CATCH_BLOCK_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_J11_CatchClause" SUB_NAME="EMPTY_CATCH_BLOCK" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>MATCH_EMPTY_CATCH_BLOCK_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid empty catch blocks</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+	<!-- End categories -->
+
+
+</METRIC>

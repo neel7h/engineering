@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="61014" type="technical-criterion" originalName="Programming Practices - Error and Exception Handling" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66064" type="technical-criterion" originalName="Secure Coding - Weak Security Features" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" active="N/A" detached="N/A" ignored="N/A" />
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" active="true" detached="false" ignored="false" />
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" active="true" detached="false" ignored="false" />
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" active="true" detached="false" ignored="false" />
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" active="true" detached="false" ignored="false" />
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" active="true" detached="false" ignored="false" />
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" active="true" detached="false" ignored="false" />
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" active="true" detached="false" ignored="false" />
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" active="true" detached="false" ignored="false" />
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" active="true" detached="false" ignored="false" />
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" active="false" detached="false" ignored="false" />
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" active="true" detached="false" ignored="false" />
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" active="true" detached="false" ignored="false" />
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" active="true" detached="false" ignored="false" />
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." active="true" detached="false" ignored="false" />
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" active="true" detached="false" ignored="false" />
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" active="true" detached="false" ignored="false" />
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" active="true" detached="false" ignored="false" />
+</root>

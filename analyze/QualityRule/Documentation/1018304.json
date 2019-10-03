@@ -1,0 +1,68 @@
+{
+    "id": 1018304,
+    "name": "Avoid unreferenced Processes (TIBCO BW)",
+    "href": "AIP/quality-rules/1018304",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This metric retrieves all Tibco Processes that are not referenced i.e. not used by Tibco code.",
+    "output": "This report lists all Number of Tibco Processes that are not referenced.\nIt provides the following information:\nTibco Process full name",
+    "rationale": "Unreferenced Processes like any other example of dead code make maintenance more difficult and more expensive.",
+    "remediation": "Check if the members of class are going to be used. If not, then remove them from the class.",
+    "total": "Number of Tibco Process",
+    "alternativeName": "Avoid unreferenced Processes (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

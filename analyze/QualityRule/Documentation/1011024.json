@@ -1,0 +1,70 @@
+{
+    "id": 1011024,
+    "name": "Avoid Physical files with more than X fields  (DDS400)",
+    "href": "AIP/quality-rules/1011024",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rules searches for all Physical files with more than X fields",
+    "output": "This report lists DDS400 physical File having more than X fields.\nIt provides the following information:\nDDS400 Physical File full name",
+    "rationale": "For maintainability and readability reasons, the Psysical files should not have more than X fields",
+    "remediation": "Try to reduce the number of Physical with more than X fields.",
+    "total": "Total number of DDS400 Physical File",
+    "alternativeName": "Avoid Physical files with more than X fields  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "MaxField",
+            "description": "Max field",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        80.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

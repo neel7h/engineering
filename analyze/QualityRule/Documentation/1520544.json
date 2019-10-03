@@ -1,0 +1,57 @@
+{
+    "id": 1520544,
+    "name": "Siebel: Don't overload Siebel Tables",
+    "href": "AIP/quality-rules/1520544",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of overload",
+    "description": "Overloading of tables may cause several issues:\n-The search specification used to type the table into various business components may cause performance issues. Often, the table is not designed to be overloaded. For example, on the S_EVT_ACT table, the TODO_CD column, which is often used for typing the table, is not denormalized on to the S_ACT_EMP activity/employee intersection table. Queries using SalesRep visibility against a business component based on the S_EVT_ACT table might result in compromised performance. \n-There is no guarantee that the addition of indexes against these type columns will resolve any performance issues because adding one may compromise performance elsewhere. Again, the fact that the type columns are often not denormalized onto position, employee, or organization intersection tables will have an impact on queries in certain views. \n-Overloading of tables increases the table size. \nNOTE: Some tables in the Siebel repository are built to be overloaded. For example, in Siebel Industry Applications, the S_ASSET table uses the TYPE_CD column to type various business components. This column is denormalized and indexed into the S_ASSET_POSTN and S_ASSET_BU intersection tables to aid performance in SalesRep and Organization visibility views. Also, XM tables, such as S_ORG_EXT_XM, are built for overloading.",
+    "output": "This rule reports overloaded Tables",
+    "rationale": "Overloading of tables may cause several issues. Overloading of tables occurs when you reuse the same table multiple times on different business components and each business component is typed with a search specification. For example, you may choose to use the S_EVT_ACT table to store regular activities, audit logs, error logs, messages, EAI logs, and so forth. \nWhen you decide to overload a table, it is often necessary to add a search specification against a Type field to prevent data from one business component displaying in another.",
+    "total": "Number of added or modified Tables Data (Public) except XM",
+    "alternativeName": "Siebel: Don't overload Siebel Tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

@@ -1,0 +1,187 @@
+<!--
+DTD for the CAST XPath Configuration File, Version 2.0
+-->
+
+
+<!-- *** Legend *** -->
+
+<!-- "?"="0..1", "+"="1..n", "*"="0..n" occurrences
+-->
+
+
+<!-- *** Defined Types *** -->
+
+
+<!-- A "XPathValue" is a string value used to specify an XPath query.
+-->
+<!ENTITY % XPathValue "CDATA">
+
+
+<!-- A "XPathList" is a list of string values used to specify at least one XPath query.
+Items are separated by semicolon. 
+-->
+<!ENTITY % XPathList "CDATA">
+
+
+<!-- A "ResolveAs" is a string value used to indicate to JSP Analyzer how a string value should 
+be resolved. For "javatype" value, JSP Analyzer will attempt to resolve the string as a Java type 
+(class or interface). For the "url" value, JSP Analyzer will attempt to resolve the string as a file 
+name or mapping. For "bean" value, JSP Analyzer will attempt to resolve the string as a java bean. 
+For "resource" value it will attempt to resolve the string as a file name or mapping and if the 
+resolution fails as a Java type and then as a bean. Default value is "url". 
+-->
+<!ENTITY % ResolveAs "(url|javatype|resource|bean|config-item)">
+
+<!-- A "ResolutionScope" is a string value used to indicate to JSP Analyzer the scope within which a string value should 
+be resolved. 
+'this' means that the string is to be resolved as a configuration item defined within the referencing item ". 
+'parent' means that the string is to be resolved as a configuration item defined within the parent of the referencing item ". 
+'file' means that the string is to be resolved as a configuration item defined within the host file of the referencing item ". 
+default is 'file'
+-->
+<!ENTITY % ResolutionScope "(this|parent|file)">
+
+
+<!-- A "LinkType" is a string value used to specify the type of the link traced between two objects. 
+Default value is "call". The value of this attribute it is not case sensitive.
+-->
+<!ENTITY % LinkType "(access|call|catch|fire|include|inherit|lock
+|mention|prototype|raise|refer|relyon|throw|use)">
+
+
+
+<!-- *** Document Elements *** -->
+
+
+
+<!-- The "xml-config" element is the root of the CAST configuration file
+hierarchy, and contains nested elements for all of the other
+configuration settings. 
+-->
+<!ELEMENT xml-config (xref-node*, object-node*, mapping-node*, bean-node*, tiles-cfg-node?, stxx-cfg-node?)>
+
+
+
+<!-- The "xref-node" element describes a particular link between the object introduced by its 
+parent node ( could be a configuration file object for a "xml-config" element, a mapping object 
+for a "mapping-node" element or a bean for a "bean-node" element) and the object resolved using 
+the specified XPath query. The following attributes are defined:
+
+xpath      The XPath query used to find a particular node or a list of nodes
+           from the associated XML configuration file. 
+
+resolve-as Describes how the JSP Analyzer will resolve the value of each
+           node ( JSP File, Java Class, Java Interface or bean).
+
+link-type  Describes the type of the link traced between the object
+           introduced by its parent and the resolved object. Default value is 
+           "call".
+-->
+<!ELEMENT xref-node EMPTY>
+<!ATTLIST xref-node xpath       %XPathValue; #REQUIRED >
+<!ATTLIST xref-node resolve-as  %ResolveAs;  #IMPLIED  >
+<!ATTLIST xref-node link-type   %LinkType;   #IMPLIED  >
+
+
+
+<!-- The "object-node" element describes any kind of object. The "xpath"
+attribute is used to name the object instance. The following attributes 
+are defined:
+
+xpath      The XPath query used to find a particular node or a list of nodes
+           from the associated XML configuration file.
+value      XPath query used to read the object value node for a particular object node. 
+
+default    The XPath query used to read the mapping "default" node for a 
+           particular mapping node. The default value is the empty string (FALSE).
+-->
+<!ELEMENT object-node (object-node*,xref-node*)>
+<!ATTLIST object-node xpath		%XPathValue; #REQUIRED >
+<!ATTLIST object-node value		%XPathValue; #REQUIRED >
+<!ATTLIST object-node default	%XPathValue; #REQUIRED >
+
+
+
+<!-- The "mapping-node" element describes all the elements used to find from the
+associated XML configuration file all the mappings that it defines. 
+The following attributes are defined:
+
+xpath      The XPath query used to find one or all of the mapping nodes 
+           defined in the associated XML configuration file.
+
+key        The XPath query used to read the mapping key node for a particular
+           mapping node.
+
+value      A list of XPath queries used to read the mapping key value node for a 
+           particular mapping node. The first XPath query which returns a non 
+           empty value will be used to set the mapping value. The other ones will
+           be ignored (used when the mapping value is introduced by nodes which 
+           are mutually exclusive). 
+
+default    The XPath query used to read the mapping "default" node for a 
+           particular mapping node. The default value is the empty string (FALSE).
+-->
+<!ELEMENT mapping-node (xref-node*)>
+<!ATTLIST mapping-node xpath   %XPathValue; #REQUIRED >
+<!ATTLIST mapping-node key     %XPathValue; #REQUIRED >
+<!ATTLIST mapping-node value   %XPathList;  #REQUIRED >
+<!ATTLIST mapping-node default %XPathValue; #IMPLIED  >
+
+
+
+<!-- The "bean-node" element describes all the elements used to find from the
+associated XML configuration file all the java beans that it defines. 
+The following attributes are defined:
+
+xpath      The XPath query used to find one or all of the bean nodes 
+           defined in the associated XML configuration file.
+
+id         The XPath query used to read the java bean id node for a particular
+           bean node.
+
+type       The XPath query used to read the java bean type node for a particular
+           bean node. JSP Analyzer will automatically trace a link of type “rely on” 
+           between the bean object and the resolved Java type.
+
+scope      The XPath query used to read the java bean scope node for a 
+           particular bean node. Default value is the empty string and in this case
+           it will be converted to "session" value.
+-->
+<!ELEMENT bean-node (xref-node*)>
+<!ATTLIST bean-node xpath   %XPathValue; #REQUIRED >
+<!ATTLIST bean-node id      %XPathValue; #REQUIRED >
+<!ATTLIST bean-node type    %XPathValue; #IMPLIED  >
+<!ATTLIST bean-node scope   %XPathValue; #IMPLIED  >
+
+
+
+<!-- The "tiles-cfg-node" element describes all the elements used to find from the
+associated XML configuration file the path to Tiles configurations files:
+
+xpath      The XPath query used to find one or all of the nodes describing the
+           path to Tiles configurations files. 
+
+files      The XPath query used to read the paths of the Tiles configurations files. 
+           Note that the value may represent several comma separated file names.
+
+-->
+<!ELEMENT tiles-cfg-node (xref-node*)>
+<!ATTLIST tiles-cfg-node xpath   %XPathValue; #REQUIRED >
+<!ATTLIST tiles-cfg-node files   %XPathValue; #REQUIRED >
+
+
+<!-- The "stxx-cfg-node" element describes all the elements used to find from the
+associated XML configuration file the path to STXX transforms configuration file:
+
+xpath      The XPath query used to find the node describing the
+           path to STXX transforms configuration file. 
+
+file       The XPath query used to read the paths of the STXX transforms configuration file. 
+
+-->
+<!ELEMENT stxx-cfg-node (object-node*,xref-node*)>
+<!ATTLIST stxx-cfg-node xpath   %XPathValue; #REQUIRED >
+<!ATTLIST stxx-cfg-node file    %XPathValue; #REQUIRED >
+
+
+<!-- *** EOF *** -->

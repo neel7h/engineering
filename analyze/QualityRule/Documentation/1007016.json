@@ -1,0 +1,81 @@
+{
+    "id": 1007016,
+    "name": "Avoid artifacts with High Cyclomatic Complexity (PHP)",
+    "href": "AIP/quality-rules/1007016",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Functions Methods & constructors with High Cyclomatic Complexity.\n          Cyclomatic Complexity is a measure of the complexity of the control structure of an artifact. It is the number of linearly independent paths and also the minimum number of independent paths while executing the software. \n          The threshold is a parameter and can be changed as per requirement.",
+    "output": "This report lists all Methods and Functions with a High Cyclomatic Complexity.\n\nThis QR provides the following information:\n- Artifact full name",
+    "rationale": "Cyclomatic Complexity computes the number of linearly independent paths and a lower boundary of all execution paths ignoring multiple iterations.\n      \nThe effort and time for diagnosis of deficiencies or causes of failures, or for\nidentification of parts to be modified is directly related to the number of execution paths, i.e. the\ncomplexity of the control flow.\n\nAnalyzability, changeability and testability decreases with increasing Cyclomatic Complexity.\n\nEach modification must be correct for all execution paths. \nComplete testing requires coverage of all execution paths.",
+    "remediation": "Modify the source code to reduce the number of conditional statements which results in reducing number of independent paths.",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid artifacts with High Cyclomatic Complexity (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max CC",
+            "description": "Max CC",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        20.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

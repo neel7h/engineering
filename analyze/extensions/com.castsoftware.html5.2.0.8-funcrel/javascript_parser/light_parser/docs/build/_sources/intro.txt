@@ -1,0 +1,57 @@
+Introduction
+============
+
+Getting Started
+---------------
+
+The :mod:`light_parser` module provides simple functions to build a language parser.
+This section shows some simple usage examples of these functions.
+
+Let's get started with splitting a string containing one or more SQL
+statements into a basic AST containing create statements and begin...end blocks:
+
+.. code-block:: python
+
+  from pygments.lexers.sql import SqlLexer
+  from light_parser import Parser, BlockStatement, Statement
+  
+  class Create(Statement):
+      
+      begin = 'CREATE'
+      end   = ';'
+  
+  class Block(BlockStatement):
+    
+      begin = 'BEGIN'
+      end   = 'END'
+  
+  parser = Parser(SqlLexer, [Create, Block]
+  
+  nodes = parser.parse("""
+  begin
+    create table foo;  
+  end;
+  """
+  
+  for node in nodes:
+      node.print_tree()
+
+
+:class:`light_parser.BlockStatement` represent block statement found in programming languages. 
+They have a recursive structure. The beginning and end of a block are is given by a pattern.
+:class:`light_parser.Statement` represent basic non recursive statements.
+
+:class:`light_parser.Parser` will parse the text and try to recognize any statement present using the 'begin' and 'end'. 
+It will then : 
+* create an object of this statement class
+* 'move' the recognized tokens as children as children of this statement
+* and continue recursively
+Unrecognized tokens are left as is in the token stream. 
+
+Each created node will have the recognized tokens as children. Blocks will also have blocks and statements as child.
+
+
+
+
+The key idea is to progressively transform a stream of tokens into an AST. 
+

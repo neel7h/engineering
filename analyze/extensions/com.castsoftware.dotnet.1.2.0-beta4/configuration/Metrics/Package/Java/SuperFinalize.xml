@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : CNU@CAST 
+£ Date     : 23/04/2008
+£ Filename : SuperFinalize.xml
+£ Role     : Used to detect explicit calls to finalize and super.finalize
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+<METRIC PACKAGE_NAME="Java.SuperFinalize" >
+	<ACTIVE>YES</ACTIVE>
+
+	<!-- Actions used -->
+	<ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+			<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="PERSISTENCE" >
+			<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+	</ACTION_LIST>
+
+	<!-- Categories -->
+	<CATEGORY_LIST>
+
+		<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+		<!-- Match All Super Finalize -->
+		<CATEGORY NAME="MATCH_ALL_SUPER_FINALIZE">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<PROPERTY NAME="ALL_SUPER_FINALIZE_CALL" type="pattern">
+				<TREE>
+					<OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_J11_SuperInvocation</SIGNATURE>
+						</OR>
+						<SUB_TREE_OR>
+							<TOKEN NAME="IDENTIFIER" EQUAL="finalize" />
+						</SUB_TREE_OR>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>ALL_SUPER_FINALIZE_CALL</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Call Super Finalize in any method</NAME>
+			</ADD_ACTION>
+		</CATEGORY>
+		<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+
+		<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+		<!-- Match All Finalize -->
+		<CATEGORY NAME="MATCH_ALL_FINALIZE">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<PROPERTY NAME="ALL_FINALIZE_CALL" type="pattern">
+				<TREE>
+					<OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_1</SIGNATURE>
+							<SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_2</SIGNATURE>
+							<SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_3</SIGNATURE>
+							<SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_4</SIGNATURE>
+							<SIGNATURE>NODE_J11_MethodInvocationMETHOD_INVOC_5</SIGNATURE>
+						</OR>
+						<SUB_TREE_OR>
+							<TOKEN NAME="IDENTIFIER" EQUAL="finalize" />
+						</SUB_TREE_OR>
+					</TREE>
+				</TREE>
+			</PROPERTY>
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				<MATCH>ALL_FINALIZE_CALL</MATCH>
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+				<RESULT_COUNT>VALUE</RESULT_COUNT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Call Finalize in any method</NAME>
+			</ADD_ACTION>
+
+		</CATEGORY>
+		<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+	</CATEGORY_LIST>
+	<!-- End categories -->
+
+
+</METRIC>

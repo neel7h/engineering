@@ -1,0 +1,72 @@
+{
+    "id": 4656,
+    "name": "Avoid declaring throwing an exception and not throwing it",
+    "href": "AIP/quality-rules/4656",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Exception Class Full Name",
+    "description": "Reports all methods with code (i.e. not interface or abstract method or instance of generic method) that are declared to throw an exception that is never thrown in the method body.\n\nThat is to say all methods:\n- declared to throw an exception in the signature\n- AND \n   o not throwing this exception or subclass directly or via a method declared to throw it\n   o OR that catch this exception \n\nNote that catching an exception is verified independently of where it occurs in the method code.",
+    "output": "This report lists all Methods declaring throwing an exception and not throwing it.\nIt provides the following information:\n - Method full name\n - Exception Class Full Name",
+    "rationale": "When a method is declared to throw an exception but does not throw any exception:\n- the caller must write extra code to handle this potential exception\n- it makes the code difficult to read\n- the caller will have to write a try/catch block that will affect the performance of the application",
+    "reference": "http://www.onjava.com/pub/a/onjava/2003/11/19/exceptions.html",
+    "remediation": "Remove the throw declaration in the signature.",
+    "remediationSample": "public void aMethod() {\n   System.println(\"a Method\"); // FIXED\n}",
+    "sample": "public void aMethod() throws myException {\n   System.println(\"a Method\"); // VIOLATION\n}",
+    "total": "Number of methods declaring throwing an exception in the signature except methods from interface and abstract methods",
+    "alternativeName": "Ensure to throw an exception when declared",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-397",
+            "name": "Declaration of Throws for Generic Exception",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

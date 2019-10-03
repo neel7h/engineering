@@ -1,0 +1,72 @@
+{
+    "id": 1002104,
+    "name": "Limit the use of the attribute ALLOCATE in Fortran-90 Subroutines  (FORTRAN)",
+    "href": "AIP/quality-rules/1002104",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The number of ALLOCATE statements are counted; too many of these statements is causing the artifcat to run into violation.  Number of ALLOCATE statements is a threshold and can be changed at will.",
+    "rationale": "If an array or variable is not de-allocated, memory is not freed up. This main lead to memory issues. Advised standard is to both limit the use of ALLOCATE and to make sure that variables are de-allocated from memory",
+    "alternativeName": "Limit the use of the attribute ALLOCATE in Fortran-90 Subroutines  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

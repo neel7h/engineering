@@ -1,0 +1,89 @@
+{
+    "id": 1042052,
+    "name": "Avoid using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14",
+    "href": "AIP/quality-rules/1042052",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if JSON-lib library is used when used version is Struts 2.5 to 2.5.14. If yes, it gives violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In Apache Struts 2.5 to 2.5.14, the REST Plugin is using an outdated JSON-lib library which is vulnerable and allow perform a DoS attack using malicious request with specially crafted JSON payload.",
+    "reference": "https://nvd.nist.gov/vuln/detail/CVE-2017-15707\nhttps://cwiki.apache.org/confluence/display/WW/S2-054\nhttps://cwiki.apache.org/confluence/display/WW/REST+Plugin#RESTPlugin-UseJacksonframeworkasJSONContentTypeHandler",
+    "remediation": "Use Jackson handler instead of the default JSON-lib handler.\nUpgrade to Struts 2.5.14.1",
+    "remediationSample": "Upgrade to Struts 2.5.14.1\n\n---\nOverwrite the Content Handler with the Jackson Content Handler in the struts.xml:\n\n<bean type=\"org.apache.struts2.rest.handler.ContentTypeHandler\" name=\"jackson\" class=\"org.apache.struts2.rest.handler.JacksonLibHandler\"/>\n<constant name=\"struts.rest.handlerOverride.json\" value=\"jackson\"/>\n \n<!-- Set to false if the json content can be returned for any kind of http method -->\n<constant name=\"struts.rest.content.restrictToGET\" value=\"false\"/>\n \n<!-- Set encoding to UTF-8, default is ISO-8859-1 -->\n<constant name=\"struts.i18n.encoding\" value=\"UTF-8\"/>",
+    "sample": "<struts>\n\n  <package name=\"example\"  extends=\"json-default\">\n     <action name=\"JSONExample\" class=\"example.JSONExample\">\n        <result type=\"json\"/>\n     </action>\n  </package>\n\n</struts>\n\n---------------------------------------\n<struts>\n  <package name=\"employee\" extends=\"struts-default, json-default\" namespace=\"/employee\">\n\n    <action name=\"list\" method=\"list\" \n                     class=\"org.apache.struts2.showcase.action.EmployeeAction\" >\n        <result>/empmanager/listEmployees.jsp</result>\n        <result type=\"json\">\n            <param name=\"root\">employees</param>\n        </result>\n    </action>\n\n  </package>\n</struts>",
+    "total": "Number of Struts 2.x config XML file",
+    "alternativeName": "Ensure not using JSON-lib library for Rest Plugin of Struts 2.5 to 2.5.14",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

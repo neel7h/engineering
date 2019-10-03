@@ -1,0 +1,62 @@
+{
+    "id": 1002204,
+    "name": "Number of continuation lines can't be greater then XX in Fortran-90 Modules",
+    "href": "AIP/quality-rules/1002204",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "A continuation lines is detected by making a count of the continuation characters (& or a .). The maximum number is a threshold parameter and can be changed at will",
+    "rationale": "Number of continuation lines cannot be greater then 19 in Fortran artifacts.",
+    "alternativeName": "Number of continuation lines can't be greater then XX in Fortran-90 Modules",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of continuation lines",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        19.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

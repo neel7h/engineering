@@ -1,0 +1,61 @@
+{
+    "id": 1024044,
+    "name": "Always check the device supports Biometric capability before using BiometricPrompt API",
+    "href": "AIP/quality-rules/1024044",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "If your app uses FingerprintManager to display a fingerprint authentication dialog to users, switch to using BiometricPrompt instead. BiometricPrompt relies on the system to display the authentication dialog. It also changes its behavior to adapt to the type of biometric authentication that a user has chosen.\nThe public static final String FEATURE_FINGERPRINT Feature for getSystemAvailableFeatures() and hasSystemFeature(String): it allows to check that device has biometric hardware to detect a fingerprint. FEATURE_FINGERPRINT has been added in API level 23.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Running an application which does not fail of/correctly use the platform capability is a mandatory step from development team. The defining characteristic of risks in this category of rules is that the platform (iOS, Android, Windows Phone, etc.) provides a feature or a capability that is documented and well understood.\n\nIn Android 9, the system provides biometric authentication dialogs on behalf of your app. This functionality creates a standardized look, feel, and placement for the dialog, giving users more confidence that they're authenticating against a trusted biometric credential checker.",
+    "reference": "https://developer.android.com/reference/android/content/pm/PackageManager.html#FEATURE_FINGERPRINT",
+    "remediation": "Always check the device supports Biometric capability before using BiometricPrompt API\nThis must be done with PackageManager.FEATURE_FINGERPRINT. If a device doesn't support biometric authentication, you can fall back to verifying the user's PIN, pattern, or password using the createConfirmDeviceCredentialIntent() method.",
+    "remediationSample": "public class MainActivity extends AppCompatActivity\n        implements NavigationView.OnNavigationItemSelectedListener {\n\n    ...\n\n\n     /**\n     * Before using biometric prompt, we need to check system feature to ensure that the device supports \n       fingerprint, iris, or face.\n     * Currently, there is no FEATURE_IRIS and FEATURE_FACE constant on PackageManager\n     * So, only check FEATURE_FINGERPRINT\n     * @return\n     */\n    private boolean isSupportBiometricPrompt() {\n        PackageManager packageManager = this.getPackageManager();\n        if (packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {\n            return true;\n        }\n        return false;\n    }\n\n    @Override\n    public boolean onNavigationItemSelected(MenuItem item) {\n        // Handle navigation view item clicks here.\n        int id = item.getItemId();\n\n        if (id == R.id.nav_register) {\n\n        ...\n\n            if (isSupportBiometricPrompt()) {\n\n               // Create biometricPrompt\n               mBiometricPrompt = new BiometricPrompt.Builder(this)\n                        .setDescription(\"Description\")\n                        .setTitle(\"Title\")\n                        .setSubtitle(\"Subtitle\")\n                        .setNegativeButton(\"Cancel\", getMainExecutor(), new DialogInterface.OnClickListener() {\n                            @Override\n                            public void onClick(DialogInterface dialogInterface, int i) {\n                                Log.i(TAG, \"Cancel button clicked\");\n                            }\n                        })\n                        .build();\n               CancellationSignal cancellationSignal = getCancellationSignal();\n               BiometricPrompt.AuthenticationCallback authenticationCallback = getAuthenticationCallback();\n\n            }\n        }\n\n        ...\n   }\n\n   ...\n}",
+    "sample": "public class MainActivity extends AppCompatActivity\n        implements NavigationView.OnNavigationItemSelectedListener {\n\n    ...\n\n    @Override\n    public boolean onNavigationItemSelected(MenuItem item) {\n        // Handle navigation view item clicks here.\n        int id = item.getItemId();\n\n        if (id == R.id.nav_register) {\n\n        ...\n\n              // Create biometricPrompt\n              mBiometricPrompt = new BiometricPrompt.Builder(this)\n                        .setDescription(\"Description\")\n                        .setTitle(\"Title\")\n                        .setSubtitle(\"Subtitle\")\n                        .setNegativeButton(\"Cancel\", getMainExecutor(), new DialogInterface.OnClickListener() {\n                            @Override\n                            public void onClick(DialogInterface dialogInterface, int i) {\n                                Log.i(TAG, \"Cancel button clicked\");\n                            }\n                        })\n                        .build();\n              CancellationSignal cancellationSignal = getCancellationSignal();\n              BiometricPrompt.AuthenticationCallback authenticationCallback = getAuthenticationCallback();\n        }\n\n        ...\n   }\n\n   ...\n}",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure that you check the device's bio-metric capability before using bio-metric API",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

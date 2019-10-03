@@ -1,0 +1,77 @@
+{
+    "id": 1101030,
+    "name": "Avoid Artifacts with queries on too many Tables and/or Views",
+    "href": "AIP/quality-rules/1101030",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of joined Tables and/or Views",
+    "description": "Avoid SQL Artifacts with queries on more than X Tables and/or Views. Queries with more than X Tables and/or Views are considered complex.",
+    "output": "This report lists all Artifacts, except Views, with queries on too many Tables and/or Views.\nIt provides the following information:\n Artifact full name",
+    "rationale": "Having complex queries in Artifacts can cause performance problems.",
+    "remediation": "Review the query to reduce the number of involved Tables and/or Views.",
+    "remediationSample": "The following procedures should be reviewed:\n1. 5 Views are are joined:\nDELIMITER //\nCREATE OR REPLACE PROCEDURE SQLCPLEX001_13_DN_SHOW_8_Y() CONTAINS SQL\nBEGIN\n  DECLARE SQLCPLEX001_var INTEGER;\n  SELECT STDTBL_COL_1_1 INTO SQLCPLEX001_var FROM SQLCPLEX001_8_DN_SHOW_3_Y, SQLCPLEX001_9_DN_SHOW_4_Y, SQLCPLEX001_10_DN_SHOW_5_Y, SQLCPLEX001_11_DN_SHOW_6_Y, SQLCPLEX001_12_DN_SHOW_7_Y;\nEND\n//                                                                 \nDELIMITER ;\n2. 5 Tables are joined, STD_TABLE_4 is joined 2 times : \nDELIMITER //\nCREATE OR REPLACE PROCEDURE SQLCPLEX001_16_DN_SHOW_12_X()  CONTAINS SQL\nBEGIN\n    DECLARE SQLCPLEX001_var VARCHAR(11);\n    SELECT DISTINCT STD_TABLE_1.COL1, STD_TABLE_2.COL1\n    FROM  STD_TABLE_1, STD_TABLE_2\n    WHERE STD_TABLE_2.COL1 IN\n    (SELECT COL1\n      FROM  STD_TABLE_3\n      WHERE COL2 = DATE '1999-04-27') AND\n            STD_TABLE_1.COL1 IN\n              (SELECT COL1\n                FROM  STD_TABLE_4\n                WHERE STDTBL_COL1_1 = DATE '1999-04-27') AND\n                   STD_TABLE_2.COL1 IN\n                     (SELECT COL1\n                        FROM  STD_TABLE_4\n                        WHERE STDTBL_COL1_1 = DATE '1999-04-28') ;\nEND\n//\nDELIMITER ;\n3. 5 Tables are joined :\nDELIMITER //\nCREATE OR REPLACE PROCEDURE SQLCPLEX001_15_SHOW_11_X()  CONTAINS SQL\nBEGIN\n    DECLARE SQLCPLEX001_var VARCHAR(11);\n    SELECT STD_TABLE_4.STDTBL_COL1_1, STD_TABLE_1.COL1\n        FROM STD_TABLE_1\n    INNER JOIN STD_TABLE_2\n        ON STD_TABLE_2.COL1 = STD_TABLE_1.COL1\n    INNER JOIN STD_TABLE_3\n        ON STD_TABLE_3.COL1 = STD_TABLE_2.COL1\n    INNER JOIN STD_TABLE_4\n        ON STD_TABLE_4.COL1 = STD_TABLE_3.COL1\n    INNER JOIN STD_TABLE_5\n        ON STD_TABLE_5.COL1 = STD_TABLE_4.COL1;\nEND\n//                           \nDELIMITER ;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid Artifacts with queries on too many Tables and/or Views",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Number of tables or views",
+            "description": "Max tables or view number",
+            "technologies": [
+                {
+                    "id": 1101000,
+                    "name": "SQLAnalyzer",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        4
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

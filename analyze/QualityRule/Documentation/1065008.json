@@ -1,0 +1,81 @@
+{
+    "id": 1065008,
+    "name": "Avoid use of unvalidated input in array indexing and memory allocation",
+    "href": "AIP/quality-rules/1065008",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule raises a violation when an unvalidated input is used to compute an index or as index to access an array or to allocate memory.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using an unvalidated input as an array index or to compute an array index is a security hazard which can lead to reading or writing out of bounds of the array.\nUsing an unvalidated input as a size of a memory allocation is a security hazard which can lead to allocate a null size or a too great size of memory.",
+    "reference": "CWE-129",
+    "remediation": "Validate the input, from outside the function, which are used as array index or allocation size.",
+    "remediationSample": "#define MAX_ARRAY_SIZE 1000000\nint *array = NULL; \nvoid allocateArray()\n{\n      int len, itr;\n      scanf(\"%i\", &len);\n     if (len > 0 && len < MAX_ARRAY_SIZE)\n     {\n           array = malloc(len);\n           for(itr=0;itr<len;itr++)\n               array[itr] = 0;\n     }\n }\n\nint getValue(int index)\n{\n    if(index >= 0 && index < MAX_ARRAY_SIZE)\n          return array[index];\n    else\n          return array[MAX_ARRAY_SIZE-1];\n}",
+    "sample": "int *array = NULL; \nvoid allocateArray()\n{\n      int len, itr;\n      scanf(\"%i\", &len);\n      array = malloc(len);\n      for(itr=0;itr<len;itr++)\n          array[itr] = 0;\n }\n\nint getValue(int index)\n{\n    return array[index];\n}",
+    "total": "Number of  C/C++ method and function",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-129",
+            "name": "Array Index Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-129",
+            "name": "Improper Validation of Array Index",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-16",
+            "name": "Memory Protection",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

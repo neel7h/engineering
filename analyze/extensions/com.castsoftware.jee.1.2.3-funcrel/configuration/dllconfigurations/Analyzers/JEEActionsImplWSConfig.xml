@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+	<service>
+		<id>ServiceId_AlternateCreateJEEJobFactory</id>
+		<dll>JEEActionsImplWS.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_JEEAnalyzerActionNewFactory</id>
+		<dll>JEEActionsImplWS.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_JEEGUIDGeneratorActionNewFactory</id>
+		<dll>JEEActionsImplWS.dll</dll>
+	</service>
+	<service>
+		<id>ServiceId_SaveCASTScriptObjectFactory</id>
+		<dll>JEEActionsImplWS.dll</dll>
+	</service>
+</configuration>

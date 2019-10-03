@@ -1,0 +1,70 @@
+{
+    "id": 1520860,
+    "name": "Siebel: Avoid Business Objects referencing too many Business Components",
+    "href": "AIP/quality-rules/1520860",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of Business Components",
+    "description": "The threshold is a parameter and can be changed at will.",
+    "output": "This rule reports Business Objects referencing too many Business Components",
+    "rationale": "Too many underlying Business Components in an Business Object results in an above average cost to modify the Business Component",
+    "total": "Number of added or modified Business Objects",
+    "alternativeName": "Siebel: Avoid Business Objects referencing too many Business Components",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Siebel: Max Buscomp",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 1520000,
+                    "name": "Siebel",
+                    "href": "AIP/technologies/1520000",
+                    "values": [
+                        50
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

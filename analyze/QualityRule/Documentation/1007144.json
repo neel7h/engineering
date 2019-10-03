@@ -1,0 +1,77 @@
+{
+    "id": 1007144,
+    "name": "Avoid classes with excessive number of weighted methods (PHP)",
+    "href": "AIP/quality-rules/1007144",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with excessive number of weighted methods. Threshold for weighted methods is set to 50. Weight of a method is it's cyclomatic complexity.",
+    "output": "This report lists all the classes with excessive number of weighted methods.\n\nThis QR provides the following information:\nClass  full name.",
+    "rationale": "The number of weighted methods in a class is a good indicator of how much time and effort is required to modify and maintain this class. A class with a large number of weighted methods also means that this class has a greater potential impact on derived classes and therefore the cost to maintain and test it is also high.\n\nLarge number of weighted methods also means that this class has a greater potential impact on derived classes.\n\n\nA class with more than 50 weighted methods is considered violation for this QR.",
+    "reference": "PHPMD http://phpmd.org/rules/codesize.html#excessiveclasscomplexity",
+    "remediation": "Modify the source code of the class to reduce the number of weighted methods.",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid classes with excessive number of weighted methods (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Weighted Methods",
+            "description": "External PHP Code scanner Rule Name-PHP Mess Detector",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        50.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

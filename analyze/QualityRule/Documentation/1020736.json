@@ -1,0 +1,88 @@
+{
+    "id": 1020736,
+    "name": "Avoid bypassing self-signed ssl certificate (Node.js)",
+    "href": "AIP/quality-rules/1020736",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In Node.js, do not allow node server to accept self signed certificates and is not an secure behaviour.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure the developer will work with a list of trusted source. Thanks to Strict-Transport-Security header you will enforces secure (HTTP over SSL/TLS) connections to the server.",
+    "reference": "https://cwe.mitre.org/data/definitions/295.html \nhttps://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration \nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration",
+    "remediation": "Do not disable NODE_TLS_REJECT_UNAUTHORIZED attributes",
+    "sample": "process.env.NODE_TLS_REJECT_UNAUTHORIZED = \"0\"; \nor \nexport NODE_TLS_REJECT_UNAUTHORIZED = \"0\";",
+    "total": "Number of NodeJS source code",
+    "alternativeName": "Avoid bypassing self-signed ssl certificate (Node.js)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69547",
+            "name": "The application must utilize mutual authentication when endpoint device non-repudiation protections are required by DoD policy or by the data owner.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69551",
+            "name": "Service-Oriented Applications handling non-releasable data must authenticate endpoint devices via mutual SSL/TLS.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

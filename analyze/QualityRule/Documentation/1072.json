@@ -1,0 +1,70 @@
+{
+    "id": 1072,
+    "name": "Avoid using memory management Functions (free/malloc/realloc)",
+    "href": "AIP/quality-rules/1072",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for C/C++ functions that call memory-elated functions like \"free\", \"malloc\", and \"realloc\".",
+    "output": "Associated to each C/C++ function with violations, the Quality Rule provides:\n- Number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - function call",
+    "rationale": "Using those functions slow down application. It might be necessary to use them however.\nIn addition it is recommended to centralize their utilization to:\n-  use of well-proven memory management primitives that are easier to control, test, etc., when they are grouped in a well-identified component than when they are distributed all over the source code,\n- create the opportunity to build a custom memory management layer that will replace all individual small-size system \"malloc\" by individual small-size custom \"malloc\" that will rely on a centralized large-size system \"malloc\"; this would increase performance",
+    "remediation": "Use a centralized memory allocation function.",
+    "remediationSample": "The output of the sample program is the following:\n1.69200 seconds\n0.21000 seconds",
+    "sample": "#include <time.h>\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\n#define MY_SIZE 3000000\nclock_t start, finish;\nstruct toto\n{ int i, j; };\n\ntoto * my_array[MY_SIZE];\ntoto * first = NULL;\n\ntoto * MyMalloc( int i)\n{\n   if (0 == i )\n      first = (toto *)malloc( sizeof( toto) * MY_SIZE);\n   return (first+i);\n}\n\nint main(int argc, char* argv[])\n{\n   double duration;\n   /* Standard allocation */\n   start = clock();\n   for (int i = 0; i<MY_SIZE; i++)\n   { my_array[i] = (toto *)malloc( sizeof( toto)); }\n   finish = clock();\n   duration = (double)(finish - start) / CLOCKS_PER_SEC;\n   printf( \"%2.5f seconds\\n\", duration );\n\n   /* Optimized allocation */\n   start = clock();\n   for (i = 0; i<MY_SIZE; i++)\n   { my_array[i] = MyMalloc( i);  }\n   finish = clock();\n   duration = (double)(finish - start) / CLOCKS_PER_SEC;\n   printf( \"%2.5f seconds\\n\", duration );\n   return 0;\n}",
+    "total": "Number of C/C++ functions",
+    "alternativeName": "Avoid using memory management Functions (free/malloc/realloc)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

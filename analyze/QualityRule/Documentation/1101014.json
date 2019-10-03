@@ -1,0 +1,60 @@
+{
+    "id": 1101014,
+    "name": "Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)",
+    "href": "AIP/quality-rules/1101014",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The old syntax used for joining tables should definitely be abandoned in favor of the standard ANSI syntax, which is more readable and more maintainable.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "ANSI syntax allows a clear separation between joins clauses and the where clause restrictions. The ANSI notation makes the relations between the tables explicit, and saves you from coding equality tests for join conditions in the WHERE clause. Support for full outer joins also eliminates the need for complex workarounds to do those queries (with the old syntax some constructions can lead to unexpected behavior). Moreover ANSI joins allows the use of optimization hints.",
+    "remediation": "Check the statement and if so, replace non ANSI-Standard joins with ANSI-Standard joins.",
+    "remediationSample": "SELECT first_name, department_name\nFROM employees\n     JOIN departments\nON (employees.manager_id = departments.manager_id\n     AND employees.department_id = departments.department_id);",
+    "sample": "SELECT first_name, department_name\nFROM employees, departments\nwhere(employees.manager_id = departments.manager_id\n     AND employees.department_id = departments.department_id);",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

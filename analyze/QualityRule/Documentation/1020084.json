@@ -1,0 +1,68 @@
+{
+    "id": 1020084,
+    "name": "Avoid unreferenced Functions (Javascript/HTML5)",
+    "href": "AIP/quality-rules/1020084",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "Reports all Functions that are not referenced except main.\n\nNotes: \n- JavaScript eventHandler are not taken in account.\n- PL/SQL stored procedures are taken in account.",
+    "output": "This report lists all unreferenced Functions\nIt provides the following information:\n  Function full name.",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.\n\nWarning:\nUnreferenced code can also be the symptoms of missing code (code not included in the source code analysis).",
+    "remediation": "Check if the Function is truly unnecessary.\nRemove Functions that are not used.",
+    "total": "Number of functions",
+    "alternativeName": "Avoid unreferenced Functions (Javascript/HTML5)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

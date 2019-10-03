@@ -1,0 +1,67 @@
+{
+    "id": 1007274,
+    "name": "Avoid Object Injection (PHP)",
+    "href": "AIP/quality-rules/1007274",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A PHP object injection vulnerability occurs when user input is deserialized. This QR detects such cases.",
+    "output": "This report lists all artifacts that cause object injection. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "An attacker can inject objects of any class type with arbitrary properties into the application's scope by providing these in a serialized string format. When the object defined by the attacker is instantiated, certain magic methods of the injected class type, such as __wakeup() and __destruct(), are automatically invoked. Depending on the magic methods defined within the application's code and the involved properties that can be controlled by the attacker, further vulnerabilities or code can be triggered.",
+    "reference": "https://cwe.mitre.org/data/definitions/502.html",
+    "remediation": "It is highly recommended to avoid the deserialization of user input and to use the built-in functions json_encode() instead.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Object Injection (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

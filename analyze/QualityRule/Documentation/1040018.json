@@ -1,0 +1,75 @@
+{
+    "id": 1040018,
+    "name": "Ensure the X-Frame-Options header is setup (Spring)",
+    "href": "AIP/quality-rules/1040018",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a frame or iframe. Sites can use this to avoid Clickjacking attacks, by ensuring that their content is not embedded into other sites. Set the X-Frame-Options header for all responses containing HTML content. The possible values are \"DENY\", \"SAMEORIGIN\", or \"ALLOW-FROM uri\".\nThere are three possible values for the X-Frame-Options header:\n\n1. DENY, which prevents any domain from framing the content. The \"DENY\" setting is recommended unless a specific need has been identified for framing.\n2. SAMEORIGIN, which only allows the current site to frame the content.\n3. ALLOW-FROM uri, which permits the specified 'uri' to frame this page. (e.g., ALLOW-FROM http://www.example.com) Check Limitations Below this will fail open if the browser does not support it. Other browsers support the new CSP frame-ancestors directive instead. A few support both.\n\n\nThis rule will check if a value of \"X-Frame-Options\" is specified and it's not set to \"ALLOW\". If not it gives the violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Clickjacking is when an attacker uses multiple transparent or opaque layers to trick users into clicking on a button or a link on another page when they are intending to click on the top level page. Thus, the attacker is \"hijacking\" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both.\nUsing a similar technique, keystrokes can also be hijacked. With a carefully crafted combination of stylesheets, iframes, and text boxes, users can be led to believe that they are typing in the password to their email or bank account, but are instead typing into an invisible frame controlled by the attacker.",
+    "reference": "https://www.owasp.org/index.php/Clickjacking\nhttps://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet",
+    "remediation": "Set the X-Frame-Options header for all responses containing HTML content. The possible values are \"DENY\", \"SAMEORIGIN\", or \"ALLOW-FROM uri\".",
+    "remediationSample": "// XML CONFIGURATION\n\n<http>\n  <headers>\n       <frame-options policy=\"SAMEORIGIN\"/>  // NO VIOLATION HERE\n  </headers>\n</http>\n\n// Java code\n// Similarly, you can customize frame options to use the same origin within Java Configuration using the following:\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n        // ...\n               .headers()\n                    .frameOptions()\n                            .sameOrigin(); // NO VIOLATION HERE\n        }\n    }",
+    "sample": "// XML CONFIGURATION\n\n<http>\n    <headers>\n       <frame-options policy=\"ALLOW-FORM\"/>  // VIOLATION HERE\n    </headers>\n</http>\n\n\n// Java code\n// Similarly, you can customize frame options to use the same origin within Java Configuration using the following:\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n        // ...\n               .headers()\n                        .frameOptions()\n                            .Allow-form(); // VIOLATION HERE\n        }\n    }",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure you safely set X-Frame-Option  to ALLOW to avoid Clickjacking attack",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-1021",
+            "name": "Improper Restriction of Rendered UI Layers or Frames",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

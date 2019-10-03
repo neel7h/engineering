@@ -1,0 +1,64 @@
+{
+    "id": 1050060,
+    "name": "Avoid using a break statement in 'for' loops (Objective-C)",
+    "href": "AIP/quality-rules/1050060",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule searches for functions that contain a 'break' statement in a 'for' loop. 'break' statements located in nested loops will also be reported as a violation to this rule.\n\nNote: Range-based for loops are not considered because there is no stop condition in the loop definition.",
+    "output": "Associated to each Function with violations, the Quality Rule provides:\n- Number of violation occurrences\n- Bookmarks for violation patterns found in the source code:\n  - 'break' statement\n  - 'for' loop",
+    "rationale": "A 'for' loop must be straightforward to read. Using too many 'break' statements in 'for' loops makes them more difficult to read.\n    This rule mostly applies to C code where manual clean-up may need to be performed at each step, and having several ways to exit a block can lead to more complex code.",
+    "remediation": "Try to remove the 'break' statements from the loop and to manage the end-of-loop within the loop condition part.",
+    "sample": "for (int i = 0; i < 10; i++) \n{        \n    if (true) \n    {\n        break;   // Violation\n    }\n    // ...\n}",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure removing the 'break' statements from the loop and to manage the end-of-loop within the loop condition part.",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

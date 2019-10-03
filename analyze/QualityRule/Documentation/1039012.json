@@ -1,0 +1,96 @@
+{
+    "id": 1039012,
+    "name": "Avoid using referer header field in HTTP request",
+    "href": "AIP/quality-rules/1039012",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The fields in an HTTP request are putty in the hands of an attacker, and you cannot rely on them to tell you the truth about anything. While it may be safe to store such values after they have been neutralized, decisions should never be made based on their contents. \n\nThis rule reports a violation when a referer header field is used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Developers may assume that inputs such as cookies, environment variables, and hidden form fields cannot be modified. However, an attacker could change these inputs using customized clients or other attacks. This change might not be detected. When security decisions such as authentication and authorization are made based on the values of these inputs, attackers can bypass the security of the software. \n\nWithout sufficient encryption, integrity checking, or other mechanism, any input that originates from an outsider cannot be trusted. \n\nThe referer field in HTTP requests can be easily modified and, as such, is not a valid means of message integrity checking.",
+    "reference": "http://cwe.mitre.org/data/definitions/293 \nhttp://cwe.mitre.org/data/definitions/807 \nOWASP 2017 Category A2 - Broken Authentication",
+    "remediation": "Use of referer in HTTP request header field is not recommended.",
+    "remediationSample": "public class MyServlet extends HttpServlet { \n  protected void doPost(HttpServletRequest request, HttpServletResponse response) \n        throws ServletException, IOException { \n    String referer = request.getHeader(headerName); // VIOLATION FIXED\n    //...\n  } \n}",
+    "sample": "public class MyServlet extends HttpServlet { \n  protected void doPost(HttpServletRequest request, HttpServletResponse response) \n        throws ServletException, IOException { \n    String referer = request.getHeader(\"referer\"); // VIOLATION \n    if(isTrustedReferer(referer)){ \n      //.. \n    } \n    //... \n  } \n}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Ensure you are not using \"referer\" header field in HTTP request",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-293",
+            "name": "Using Referer Field for Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

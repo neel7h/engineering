@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<languagePattern id="Python" UsedByUA="false">
+
+	<comment>
+		<begin><![CDATA[#]]></begin>
+		<end><![CDATA[\n]]></end>
+		<multiline>false</multiline>
+	</comment>	
+	<comment>
+		<begin><![CDATA[^[[']['][']]]]></begin>
+		<end><![CDATA[[']['][']]]></end>
+		<multiline>true</multiline>
+	</comment>
+	
+	<string>
+		<begin>[']['][']</begin>
+		<end>[']['][']</end>
+	</string>
+	
+	<string>
+		<begin>["]["]["]</begin>
+		<end>["]["]["]</end>
+	</string>
+	
+	<string>
+		<begin>'</begin>
+		<end>'</end>
+		<escape_char>\</escape_char>
+	</string>
+
+	<string>
+		<begin>"</begin>
+		<end>"</end>
+		<escape_char>\</escape_char>
+	</string>
+	
+	<keyword>False</keyword>
+	<keyword>None</keyword>
+	<keyword>True</keyword>
+	<keyword>and</keyword>
+	<keyword>as</keyword>
+	<keyword>assert</keyword>
+	<keyword>break</keyword>
+	<keyword>class</keyword>
+	<keyword>continue</keyword>
+	<keyword>def</keyword>
+	<keyword>del</keyword>
+	<keyword>elif</keyword>
+	<keyword>else</keyword>
+	<keyword>except</keyword>
+	<keyword>finally</keyword>
+	<keyword>for</keyword>
+	<keyword>from</keyword>
+	<keyword>global</keyword>
+	<keyword>if</keyword>
+	<keyword>import</keyword>
+	<keyword>in</keyword>
+	<keyword>is</keyword>
+	<keyword>lambda</keyword>
+	<keyword>nonlocal</keyword>
+	<keyword>not</keyword>
+	<keyword>or</keyword>
+	<keyword>pass</keyword>
+	<keyword>raise</keyword>
+	<keyword>return</keyword>
+	<keyword>try</keyword>
+	<keyword>while</keyword>
+	<keyword>with</keyword>
+	<keyword>yield</keyword>
+
+</languagePattern>

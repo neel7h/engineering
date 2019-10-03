@@ -1,0 +1,395 @@
+module Core.ConstantsMetamodel;
+
+
+/* category */
+const string Cast_EJB_AllProperties                                    = "Cast_EJB_AllProperties"; 
+const string CAST_Java_All_Properties                                  = "CAST_Java_All_Properties"; 
+
+
+/* types */
+ const string CAST_Java_Annotation                                     = "CAST_Java_Annotation";			  /* Type Description = Java annotation*/
+ const string CAST_Java_AnnotationParameter                            = "CAST_Java_AnnotationParameter";     /* Type Description = Java Annotation Parameter*/
+ const string CAST_Java_AnnotationType                                 = "CAST_Java_AnnotationType";          /* Type Description = Java Annotation Type*/
+ const string CAST_Java_AnnotationTypeMethod                           = "CAST_Java_AnnotationTypeMethod";    /* Type Description = Java Annotation Type Method*/
+ const string HIB_ENTITY                                               = "HIB_ENTITY";                        /* Type Description = Hibernate Entity*/
+ const string HIB_ENTITY_PROPERTY                                      = "HIB_ENTITY_PROPERTY";               /* Type Description = Hibernate Entity Property*/
+ const string HIB_HQL_NAMED_QUERY                                      = "HIB_HQL_NAMED_QUERY";               /* Type Description = Hibernate HQL Named Query*/
+ const string HIB_SQL_NAMED_QUERY                                      = "HIB_SQL_NAMED_QUERY";               /* Type Description = Hibernate SQL Named Query*/
+ const string JPA_EMBEDDABLE                                           = "JPA_EMBEDDABLE";                    /* Type Description = JPA Embeddable*/
+ const string JPA_EMBEDDABLE_PROPERTY                                  = "JPA_EMBEDDABLE_PROPERTY";           /* Type Description = JPA Embeddable Property*/
+ const string JPA_ENTITY                                               = "JPA_ENTITY";                        /* Type Description = JPA Entity*/
+ const string JPA_ENTITY_PROPERTY                                      = "JPA_ENTITY_PROPERTY";               /* Type Description = JPA Entity Property*/
+ const string JPA_NAMED_NATIVE_QUERY                                   = "JPA_NAMED_NATIVE_QUERY";            /* Type Description = JPA Named Native Query*/
+ const string JPA_NAMED_QUERY                                          = "JPA_NAMED_QUERY";                   /* Type Description = JPA Named Query*/
+ const string CAST_SQL_NamedQuery                                      = "CAST_SQL_NamedQuery";               /* Type Description = SQL Named Query*/
+ const string HIB_HQL_QUERY                                            = "HIB_HQL_QUERY";                     /* Type Description = Hibernate HQL Query*/
+ const string HIB_SQL_QUERY                                            = "HIB_SQL_QUERY";                     /* Type Description = Hibernate SQL Query*/
+ const string CAST_JSP_JPQLQuery                                       = "CAST_JSP_JPQLQuery";                /* Type Description = JPQL Query*/
+ const string JPA_PERSISTENCE_UNIT                                     = "JPA_PERSISTENCE_UNIT";              /* Type Description = JPA Persistence Unit*/
+ const string JPA_SQL_RESULT_SET                                       = "JPA_SQL_RESULT_SET";                /* Type Description = JPA Result Set*/
+ const string JSF_CONVERTER                                            = "JSF_CONVERTER";                     /* Type Description = JSF Converter*/
+ const string JSF_MANAGED_BEAN                                         = "JSF_MANAGED_BEAN";                  /* Type Description = JSF Managed Bean*/
+ const string JSF_OUTCOME                                              = "JSF_OUTCOME";                       /* Type Description = JSF Outcome*/
+ const string JSF_VALIDATOR                                            = "JSF_VALIDATOR";                     /* Type Description = JSF Validator*/
+ const string JSP_ACTION_MAPPING                                       = "JSP_ACTION_MAPPING";                /* Type Description = Struts Action Mapping*/
+ const string JSP_FORWARD                                              = "JSP_FORWARD";                       /* Type Description = Struts Forward*/
+ const string JSP_PROPERTY_MAPPING                                     = "JSP_PROPERTY_MAPPING";              /* Type Description = Java Property Mapping*/
+ const string JSP_STXX_PIPELINE                                        = "JSP_STXX_PIPELINE";                 /* Type Description = STXX Pipeline*/
+ const string JV_CLASS                                                 = "JV_CLASS";                          /* Type Description = Java Class*/
+ const string JV_CTOR                                                  = "JV_CTOR";                           /* Type Description = Java Constructor*/
+ const string JV_EJB_ENTITY                                            = "JV_EJB_ENTITY";                     /* Type Description = Entity Java Bean*/
+ const string JV_EJB_MESSAGE                                           = "JV_EJB_MESSAGE";                    /* Type Description = Message Driven Java Bean*/
+ const string JV_EJB_SESSION                                           = "JV_EJB_SESSION";                    /* Type Description = Session Java Bean*/
+ const string JV_ENUM                                                  = "JV_ENUM";                           /* Type Description = Java Enum*/
+ const string JV_ENUM_ITEM                                             = "JV_ENUM_ITEM";                      /* Type Description = Java Enum Item*/
+ const string JV_FIELD                                                 = "JV_FIELD";                          /* Type Description = Java Field*/
+ const string JV_FILE                                                  = "JV_FILE";                           /* Type Description = Java File*/
+ const string JV_GENERIC_CLASS                                         = "JV_GENERIC_CLASS";                  /* Type Description = Generic Java Class*/
+ const string JV_GENERIC_CTOR                                          = "JV_GENERIC_CTOR";                   /* Type Description = Generic Java Constructor*/
+ const string JV_GENERIC_INTERFACE                                     = "JV_GENERIC_INTERFACE";              /* Type Description = Generic Java Interface*/
+ const string JV_GENERIC_METHOD                                        = "JV_GENERIC_METHOD";                 /* Type Description = Generic Java Method*/
+ const string JV_IMPORT                                                = "JV_IMPORT";                         /* Type Description = Java Import*/
+ const string JV_INIT                                                  = "JV_INIT";                           /* Type Description = Java Initializer*/
+ const string JV_INST_CLASS                                            = "JV_INST_CLASS";                     /* Type Description = Java Instantiated Class*/
+ const string JV_INST_CTOR                                             = "JV_INST_CTOR";                      /* Type Description = Java Instantiated Constructor*/
+ const string JV_INST_INTERFACE                                        = "JV_INST_INTERFACE";                 /* Type Description = Java Instantiated Interface*/
+ const string JV_INST_METHOD                                           = "JV_INST_METHOD";                    /* Type Description = Java Instantiated Method*/
+ const string JV_INTERFACE                                             = "JV_INTERFACE";                      /* Type Description = Java Interface*/
+ const string JV_METHOD                                                = "JV_METHOD";                         /* Type Description = Java Method*/
+ const string JV_PACKAGE                                               = "JV_PACKAGE";                        /* Type Description = Java Package*/
+ const string JV_TYPEPARAM                                             = "JV_TYPEPARAM";                      /* Type Description = Generic Java Type Parameter*/
+ const string SPRING_BEAN                                              = "SPRING_BEAN";                       /* Type Description = Spring Bean*/
+ const string SPRING_CONTROLLER                                        = "SPRING_CONTROLLER";                 /* Type Description = Spring Controller*/
+ const string SPRING_VIEW                                              = "SPRING_VIEW";                       /* Type Description = Spring View*/
+ const string CAST_JEE_SpringBeanProperty                              = "CAST_JEE_SpringBeanProperty";       /* Type Description = Spring Bean Property*/
+ const string VALIDATION_FORM                                          = "VALIDATION_FORM";                   /* Type Description = Validation Form*/
+ const string VALIDATION_FORM_FIELD                                    = "VALIDATION_FORM_FIELD";             /* Type Description = Validation Form Field*/
+ const string CAST_JEE_VALIDATION_FORM                                 = "CAST_JEE_VALIDATION_FORM";          /* Type Description = Validation Form*/
+ const string CAST_JEE_VALIDATION_FORM_FIELD                           = "CAST_JEE_VALIDATION_FORM_FIELD";    /* Type Description = Validation Form Field*/
+ const string XML_BEAN                                                 = "XML_BEAN";                          /* Type Description = Xml Bean*/
+ const string SPRING_BEANS_FILE                                        = "SPRING_BEANS_FILE";				  /* Type Description = Spring Beans File*/
+ const string JSP_BEAN                                                 = "JSP_BEAN";                          /* Type Description = JSP beans*/
+ const string JSP_XMLCONFIG_FILE                                       = "JSP_XMLCONFIG_FILE";                /* Type Description = J2EE XML File*/
+ const string CAST_JEE_StrutsPackage                                   = "CAST_JEE_StrutsPackage";            /* Type Description = Struts Package*/
+ const string CAST_JEE_StrutsAction                                    = "CAST_JEE_StrutsAction";             /* Type Description = Struts Action*/
+ const string CAST_JEE_StrutsInterceptor                               = "CAST_JEE_StrutsInterceptor";        /* Type Description = Struts Interceptor*/
+ const string CAST_JEE_StrutsInterceptorStack                          = "CAST_JEE_StrutsInterceptorStack";   /* Type Description = Struts Interceptor Stack*/
+ const string CAST_JEE_StrutsResult                                    = "CAST_JEE_StrutsResult" ;            /* Type Description = Struts Result*/
+ const string CAST_JEE_StrutsValidator                                 = "CAST_JEE_StrutsValidator" ;         /* Type Description = Struts Validator*/
+
+/*param types*/
+ /** DOT.Net types*/
+ const list(string) CAST_LegacyDotNet_GroupControl                    = {"CAST_LegacyDotNet_Control"};        /* Type Description = .NET Control*/
+ const list(string) CAST_LegacyDotNet_GroupField                      = {"NET_FIELD"};                        /* Type Description = .NET Field*/  
+ const list(string) CAST_LegacyDotNet_GroupMethod                     = {"NET_METHOD"};                       /* Type Description = .NET Method*/ 
+ const string CAST_LegacyDotNet_Object                                = "CAST_LegacyDotNet_Object";           /* Type Description = .NET Object*/ 
+ 
+ /** C/C++ types*/
+ const list(string) GROUP_C_CLASS                                     = { "C_CLASS", "C_TEMPLATE_CLASS_INSTANCE", "C_TEMPLATE_CLASS"};                                                                                /* Type Description = C/C++ Classes */                                                      
+ const list(string) GROUP_C_CTOR_DTOR                                 = { "C_DESTRUCTOR", "C_CONSTRUCTOR", "C_TEMPLATE_CTOR_INSTANCE", "C_TEMPLATE_CTOR"};                                                            /* Type Description = C/C++ Constructors or Destructors */
+ const list(string) GROUP_C_FUNCTION                                  = { "C_METHOD", "C_FUNCTION", "C_TEMPLATE_FUNCTION_INSTANCE", "C_TEMPLATE_METHOD_INSTANCE", "C_TEMPLATE_FUNCTION", "C_TEMPLATE_METHOD"};        /* Type Description = C/C++ Functions */                  
+ const list(string) GROUP_C_PROGRAM                                   = { "C_CLASSPROJECT", "C_CLASSPROJECT_C"};                                                                                                      /* Type Description = C/C++ Program */                    
+ const list(string) GROUP_C_STRUCTURE                                 = { "C_STRUCT", "C_UNION", "C_TYPEDEF"};                                                                                                        /* Type Description = C/C++ Data Structure */             
+ 
+ /* BO types*/
+ const list(string) GROUP_BO_FILE                                    = { "BO_UNIVERSE", "BO_DOCUMENT", "BO_WEBI_DOCUMENT"};         /* Type Description = BO Files */
+ 
+ /*COM types*/
+ const string CAST_Com_CoClass                                       = "CAST_Com_CoClass";                                           /* Type Description = COM CoClass*/           
+ const string CAST_Com_Method                                        = "CAST_Com_Method";                                            /* Type Description = COM Method*/           
+ const string CAST_Com_Method_Parameter                              = "CAST_Com_Method_Parameter";                                  /* Type Description = COM Method Parameters*/
+ const string CAST_Com_PropGet                                       = "CAST_Com_PropGet";                                           /* Type Description = COM PropGet*/          
+ const string CAST_Com_PropPut                                       = "CAST_Com_PropPut";                                           /* Type Description = COM PropPut*/          
+ const string CAST_Com_PropPutRef                                    = "CAST_Com_PropPutRef";                                        /* Type Description = COM PropPutRef*/                                                                                                  
+ const list(string) CAST_Com_GroupComObjects                         = {"CAST_Com_TypeLib", "CAST_Com_TypeLibCwmmImported", "CAST_Com_Property"}; /* Type Description = COM Objects*/                     
+                                                                                           
+ /**Mainframe types*/
+ const string CICS_TRANSACTION                                       = "CICS_TRANSACTION";                                           /* Type Description = CICS Transaction*/  
+ const string COBOL_ENTRYPOINT                                       = "COBOL_ENTRYPOINT";                                           /* Type Description = Cobol Entry Point*/
+ const string COBOL_PROGRAM                                          = "COBOL_PROGRAM";                                              /* Type Description = Cobol Program*/     
+ const string IMS_DATABASE                                           = "IMS_DATABASE";                                               /* Type Description = IMS DB Definition*/
+ const string IMS_PS_BLOCK                                           = "IMS_PS_BLOCK";                                               /* Type Description = IMS PSB*/          
+ const string JCL_CATALOGED_JOB                                      = "JCL_CATALOGED_JOB";                                          /* Type Description = JCL Job*/
+ const string JCL_DATASET                                            = "JCL_DATASET";                                                /* Type Description = JCL Data Set*/                                                                                                      
+
+ /**RDBMS types*/
+ const list(string) GROUP_SqlObject                                 = {"TSQL_DYNAMIC_PROJECT", "SQL_TABLE", "SQL_PROC", "VIEW", "SQL_FUNCTION", "SQL_SEQUENCE", "SQL_PACKAGE", "SYNONYM", "SQL_SCHEMA", "SQL_DBLINK", "SQL_UDT", "SUBPROCHEADER", "SUBFUNCHEADER", "SUBCURSORHEADER", "SUBVARIABLEHEADER", "TYPEHEADER", "TYPEPACKAGEHEADER", "DATABASE", "OBJCONSTCTORHEADER", "OBJFUNCHEADER", "OBJPROCHEADER", "UDBSCHEMA", "STRUCTUDT", "ALIAS", "NICKNAME", "UDBDISTINCTUDT", "DB2_DYNAMIC_PROJECT", "PLSQLFILE", "ORACLE_DYNAMIC_PROJECT"};  /*RDBMS Objects*/
+     
+ /**SSIS Package*/
+ const string SSISPackage                                           = "SSISPackage";                                                /* Type Description = SSIS Package*/    
+     
+ /**SSRS */
+ const string SSRSReport                                            = "SSRSReport";                                                 /* Type Description = SSRS Report*/
+    
+ /**ABAP Types*/   
+ const string CAST_SAP_BAPI_METHOD                                  = "CAST_SAP_BAPI_METHOD";                                       /* Type Description = SAP BAPI Method*/
+ const string CAST_SAP_R3WDYN_Application                           = "CAST_SAP_R3WDYN_Application";                                /* Type Description = R3 WebDynpro Application*/
+       
+ /**TIBCO types/
+ const string TIB_ACTIVITY                                          = "TIB_ACTIVITY";                                               /* Type Description = TIBCO Activity*/                     
+ const string TIB_ACTIVITY_INPUT                                    = "TIB_ACTIVITY_INPUT";                                         /* Type Description = TIBCO Activity Input*/               
+ const string TIB_ACTIVITY_OUTPUT                                   = "TIB_ACTIVITY_OUTPUT";                                        /* Type Description = TIBCO Activity Output*/              
+ const string TIB_AECLASS                                           = "TIB_AECLASS";                                                /* Type Description = TIBCO Active Enterprise Class*/      
+ const string TIB_AEFIELD                                           = "TIB_AEFIELD";                                                /* Type Description = TIBCO Active Enterprise Class Field*/
+ const string TIB_AESCHEMA                                          = "TIB_AESCHEMA";                                               /* Type Description = TIBCO Active Enterprise Schema*/     
+ const string TIB_DIRECTORY                                         = "TIB_DIRECTORY";                                              /* Type Description = TIBCO Directory*/                    
+ const string TIB_EXTERNAL_COMMAND_ACTIVITY                         = "TIB_EXTERNAL_COMMAND_ACTIVITY";                              /* Type Description = TIBCO External Command*/             
+ const string TIB_GROUP                                             = "TIB_GROUP";                                                  /* Type Description = TIBCO Objects*/                      
+ const string TIB_GVARIABLE                                         = "TIB_GVARIABLE";                                              /* Type Description = TIBCO Global Variable*/              
+ const string TIB_JAVA_CODE_ACTIVITY                                = "TIB_JAVA_CODE_ACTIVITY";                                     /* Type Description = TIBCO Java Code*/                    
+ const string TIB_JAVA_METHOD_ACTIVITY                              = "TIB_JAVA_METHOD_ACTIVITY";                                   /* Type Description = TIBCO Java Method*/                  
+ const string TIB_JAVA_TO_XML_ACTIVITY                              = "TIB_JAVA_TO_XML_ACTIVITY";                                   /* Type Description = TIBCO Java to XML*/                  
+ const string TIB_JDBC_CALL_PROCEDURE_ACTIVITY                      = "TIB_JDBC_CALL_PROCEDURE_ACTIVITY";                           /* Type Description = TIBCO JDBC Call Procedure*/          
+ const string TIB_JDBC_QUERY_ACTIVITY                               = "TIB_JDBC_QUERY_ACTIVITY";                                    /* Type Description = TIBCO JDBC Query*/                   
+ const string TIB_JDBC_UPDATE_ACTIVITY                              = "TIB_JDBC_UPDATE_ACTIVITY";                                   /* Type Description = TIBCO JDBC Update*/                  
+ const string TIB_JMS_QUEUE_RECEIVER_ACTIVITY                       = "TIB_JMS_QUEUE_RECEIVER_ACTIVITY";                            /* Type Description = TIBCO JMS Queue Receiver*/           
+ const string TIB_JMS_QUEUE_REQUESTOR_ACTIVITY                      = "TIB_JMS_QUEUE_REQUESTOR_ACTIVITY";                           /* Type Description = TIBCO JMS Queue Requestor*/          
+ const string TIB_JMS_QUEUE_SENDER_ACTIVITY                         = "TIB_JMS_QUEUE_SENDER_ACTIVITY";                              /* Type Description = TIBCO JMS Queue Sender*/             
+ const string TIB_JMS_REPLY_TO_MESSAGE_ACTIVITY                     = "TIB_JMS_REPLY_TO_MESSAGE_ACTIVITY";                          /* Type Description = TIBCO JMS Reply to Message*/         
+ const string TIB_JMS_TOPIC_PUBLISHER_ACTIVITY                      = "TIB_JMS_TOPIC_PUBLISHER_ACTIVITY";                           /* Type Description = TIBCO JMS Topic Publisher*/          
+ const string TIB_JMS_TOPIC_SUBSCRIBER_ACTIVITY                     = "TIB_JMS_TOPIC_SUBSCRIBER_ACTIVITY";                          /* Type Description = TIBCO JMS Topic Subscriber*/         
+ const string TIB_PROCESS                                           = "TIB_PROCESS";                                                /* Type Description = TIBCO Process*/                      
+ const string TIB_PROCESS_VARIABLE                                  = "TIB_PROCESS_VARIABLE";                                       /* Type Description = TIBCO Process Variable*/             
+ const string TIB_RV_PUBLISH_MESSAGE_ACTIVITY                       = "TIB_RV_PUBLISH_MESSAGE_ACTIVITY";                            /* Type Description = TIBCO RV Publish Message*/           
+ const string TIB_RV_REPLY_TO_REQUEST_ACTIVITY                      = "TIB_RV_REPLY_TO_REQUEST_ACTIVITY";                           /* Type Description = TIBCO RV Reply to Request*/          
+ const string TIB_RV_SEND_REQUEST_ACTIVITY                          = "TIB_RV_SEND_REQUEST_ACTIVITY";                               /* Type Description = TIBCO RV Send Request*/              
+ const string TIB_RV_SUBSCRIBER_ACTIVITY                            = "TIB_RV_SUBSCRIBER_ACTIVITY";                                 /* Type Description = TIBCO RV Subscriber*/                
+ const string TIB_SHARED_CONNECTION                                 = "TIB_SHARED_CONNECTION";                                      /* Type Description = TIBCO Shared Connection*/            
+ const string TIB_SHARED_HTTP_CONNECTION                            = "TIB_SHARED_HTTP_CONNECTION";                                 /* Type Description = TIBCO Shared HTTP Connection*/       
+ const string TIB_SHARED_JAVA_SCHEMA                                = "TIB_SHARED_JAVA_SCHEMA";                                     /* Type Description = TIBCO Shared Java Schema*/           
+ const string TIB_SHARED_JMS_CONNECTION                             = "TIB_SHARED_JMS_CONNECTION";                                  /* Type Description = TIBCO Shared JMS Connection*/        
+ const string TIB_SOAP_EVENT_SOURCE_ACTIVITY                        = "TIB_SOAP_EVENT_SOURCE_ACTIVITY";                             /* Type Description = TIBCO SOAP Event Source*/            
+ const string TIB_SOAP_REQUEST_REPLY_ACTIVITY                       = "TIB_SOAP_REQUEST_REPLY_ACTIVITY";                            /* Type Description = TIBCO SOAP Request Reply*/           
+ const string TIB_SOAP_SEND_REPLY_ACTIVITY                          = "TIB_SOAP_SEND_REPLY_ACTIVITY";                               /* Type Description = TIBCO SOAP Send Reply*/              
+ const string TIB_VARIABLE_GROUP                                    = "TIB_VARIABLE_GROUP";                                         /* Type Description = TIBCO Variable Group*/               
+ const string TIB_XML_TO_JAVA_ACTIVITY                              = "TIB_XML_TO_JAVA_ACTIVITY";                                   /* Type Description = TIBCO XML to Java*/                  
+ 
+ /**Web Services*/
+ const string WBS_FILE                                              = "WBS_FILE";                                                   /* Type Description = WSDL File*/     
+ const string WBS_OPERATION                                         = "WBS_OPERATION";                                              /* Type Description = WSDL Operation*/
+ const string WBS_PORT                                              = "WBS_PORT";                                                   /* Type Description = WSDL Port*/     
+ const string WBS_PORTTYPE                                          = "WBS_PORTTYPE";                                               /* Type Description = WSDL Port Type*/
+ const string WBS_SERVICE                                           = "WBS_SERVICE";                                                /* Type Description = WSDL Service*/  
+ 
+ /**Java Language*/
+ const list(string) GROUP_JAVA_USERTYPES                            ={ "JV_CLASS", "JV_GENERIC_CLASS", "JV_INST_CLASS", "JV_ENUM", "JV_INTERFACE", "JV_GENERIC_INTERFACE", "JV_INST_INTERFACE", "CAST_Java_AnnotationType"};          /* Type Description = Java Classes or Interfaces */
+ const list(string) GROUP_JAVA_CLASS                                ={ "JV_CLASS", "JV_GENERIC_CLASS", "JV_INST_CLASS", "JV_ENUM"                                                                                         };          /* Type Description = Java Classes */
+ const list(string) GROUP_JAVA_INTERFACE                            ={ "JV_INTERFACE", "JV_GENERIC_INTERFACE", "JV_INST_INTERFACE", "CAST_Java_AnnotationType"                                                            };          /* Type Description = Java Interfaces */ 
+ const list(string) GROUP_JAVA_CTOR                                 ={ "JV_CTOR", "JV_GENERIC_CTOR", "JV_INST_CTOR"                                                                                                       };          /* Type Description = Java Constructors */         
+ const list(string) GROUP_JAVA_METHOD                               ={ "JV_METHOD", "JV_GENERIC_METHOD", "JV_INST_METHOD", "CAST_Java_AnnotationTypeMethod"                                                               };          /* Type Description = Java Methods */              
+
+ 
+ /**Java Component*/                         
+ const string JV_APPLET                                             = "JV_APPLET";                                                 /* Type Description = Applet*/  
+ 
+ /**WEB - JSP types*/
+ const string Cast_SQL_SQLQuery                                    = "Cast_SQL_SQLQuery";                                         /* Type Description = SQL Query*/                         
+ const string HIB_CONFIG_FILE                                      = "HIB_CONFIG_FILE";                                           /* Type Description = Hibernate Configuration File*/      
+ const string HIB_MAPPING_FILE                                     = "HIB_MAPPING_FILE";                                          /* Type Description = Hibernate Mapping File*/            
+ const string JPA_ORM_CONFIG_FILE                                  = "JPA_ORM_CONFIG_FILE";                                       /* Type Description = JPA ORM Configuration File*/        
+ const string JPA_PERS_CONFIG_FILE                                 = "JPA_PERS_CONFIG_FILE";                                      /* Type Description = JPA Persistence configuration File*/
+ const string JSP_BEAN_PROP                                        = "JSP_BEAN_PROP";                                             /* Type Description = Bean Property*/                     
+ const string JSP_GENERIC                                          = "JSP_GENERIC";                                               /* Type Description = J2EE XML Object*/                   
+ const string JSP_PROPERTIES_FILE                                  = "JSP_PROPERTIES_FILE";                                       /* Type Description = Java Properties File*/              
+ const string JSP_SERVLET                                          = "JSP_SERVLET";                                               /* Type Description = Servlet*/                           
+ const string JSP_TILES_DEF_FILE                                   = "JSP_TILES_DEF_FILE";                                        /* Type Description = Tiles Configuration File*/          
+ const string STRUTS_CONFIG_FILE                                   = "STRUTS_CONFIG_FILE";                                        /* Type Description = Struts Configuration File*/         
+ const string STRUTS_FORM_BEAN                                     = "STRUTS_FORM_BEAN";                                          /* Type Description = Struts Form Bean*/                  
+ const string URL                                                  = "URL";                                                       /* Type Description = URL*/                               
+ const string JSP_APPDESCRIPTOR									   = "JSP_APPDESCRIPTOR"; 
+
+ /**WEB - ASP types*/
+ const string CAST_Web_Asp_Collection                               = "CAST_Web_Asp_Collection";                                   /* Type Description = ASP Server eCollection*/    
+ const string CAST_Web_Asp_CollectionItem                           = "CAST_Web_Asp_CollectionItem";                               /* Type Description = ASP Server eCollectionItem*/
+ const string CAST_Web_Asp_Method                                   = "CAST_Web_Asp_Method";                                       /* Type Description = ASP Server eMethod*/        
+ const string CAST_Web_Asp_Object                                   = "CAST_Web_Asp_Object";                                       /* Type Description = ASP Server eObject*/        
+ const string CAST_Web_Asp_Property                                 = "CAST_Web_Asp_Property";                                     /* Type Description = ASP Server eProperty*/      
+ 
+ 
+ /**WEB - CAST_Web_MethodGroup*/
+ const string CAST_HTML_Event                                           = "CAST_HTML_Event";                                       /* Type Description = HTML Event*/                      
+ const string CAST_Javascript_ClientSide_Method                         = "CAST_Javascript_ClientSide_Method";                     /* Type Description = Javascript Client Side Method*/   
+ const string CAST_Javascript_Method_Parameter                          = "CAST_Javascript_Method_Parameter";                      /* Type Description = Javascript Method Parameter*/     
+ const string CAST_Javascript_ServerSide_Method                         = "CAST_Javascript_ServerSide_Method";                     /* Type Description = Javascript Server Side Method*/   
+ const string CAST_VBScript_ClientSide_Function                         = "CAST_VBScript_ClientSide_Function";                     /* Type Description = VBScript Client Side Function*/   
+ const string CAST_VBSCript_ClientSide_PropertyGet                      = "CAST_VBSCript_ClientSide_PropertyGet";                  /* Type Description = VBScript Client Side PropertyGet*/
+ const string CAST_VBSCript_ClientSide_PropertyLet                      = "CAST_VBSCript_ClientSide_PropertyLet";                  /* Type Description = VBScript Client Side PropertyLet*/
+ const string CAST_VBSCript_ClientSide_PropertySet                      = "CAST_VBSCript_ClientSide_PropertySet";                  /* Type Description = VBScript Client Side PropertySet*/
+ const string CAST_VBScript_ServerSide_Function                         = "CAST_VBScript_ServerSide_Function";                     /* Type Description = VBScript Server Side Function*/   
+ const string CAST_VBSCript_ServerSide_PropertyGet                      = "CAST_VBSCript_ServerSide_PropertyGet";                  /* Type Description = VBScript Server Side PropertyGet*/
+ const string CAST_VBSCript_ServerSide_PropertyLet                      = "CAST_VBSCript_ServerSide_PropertyLet";                  /* Type Description = VBScript Server Side PropertyLet*/
+ const string CAST_VBSCript_ServerSide_PropertySet                      = "CAST_VBSCript_ServerSide_PropertySet";                  /* Type Description = VBScript Server Side PropertySet*/
+ const string CAST_Web_FunctionEvent                                    = "CAST_Web_FunctionEvent";                                /* Type Description = eEvent*/                          
+ const string CAST_Web_FunctionFunction                                 = "CAST_Web_FunctionFunction";                             /* Type Description = eFunction*/                       
+ const string CAST_Web_FunctionMethod                                   = "CAST_Web_FunctionMethod";                               /* Type Description = eMethod*/                         
+ const string CAST_Web_FunctionPropertyGet                              = "CAST_Web_FunctionPropertyGet";                          /* Type Description = ePropertyGet*/                    
+ const string CAST_Web_FunctionPropertyLet                              = "CAST_Web_FunctionPropertyLet";                          /* Type Description = ePropertyLet*/                    
+ const string CAST_Web_FunctionPropertySet                              = "CAST_Web_FunctionPropertySet";                          /* Type Description = ePropertySet*/                    
+ const string CAST_Web_HTC_Event                                        = "CAST_Web_HTC_Event";                                    /* Type Description = HTC Event*/                       
+ const string CAST_Web_HTC_Method                                       = "CAST_Web_HTC_Method";                                   /* Type Description = HTC Method*/                      
+ 
+ 
+ /**WEB Others*/
+ const string CAST_Javascript_ClientSide_Variable                       = "CAST_Javascript_ClientSide_Variable";                   /* Type Description = Javascript Client Side Variable*/
+ const string CAST_Javascript_ServerSide_Variable                       = "CAST_Javascript_ServerSide_Variable";                   /* Type Description = Javascript Server Side Variable*/
+ const string CAST_VBScript_ClientSide_Class                            = "CAST_VBScript_ClientSide_Class";                        /* Type Description = VBScript Client Side Class*/     
+ const string CAST_VBScript_ClientSide_Constant                         = "CAST_VBScript_ClientSide_Constant";                     /* Type Description = VBScript Client Side Constant*/  
+ const string CAST_VBScript_ClientSide_Variable                         = "CAST_VBScript_ClientSide_Variable";                     /* Type Description = VBScript Client Side Variable*/  
+ const string CAST_VBScript_ServerSide_Class                            = "CAST_VBScript_ServerSide_Class";                        /* Type Description = VBScript Server Side Class*/     
+ const string CAST_VBScript_ServerSide_Constant                         = "CAST_VBScript_ServerSide_Constant";                     /* Type Description = VBScript Server Side Constant*/  
+ const string CAST_VBScript_ServerSide_Variable                         = "CAST_VBScript_ServerSide_Variable";                     /* Type Description = VBScript Server Side Variable*/  
+ const string CAST_Web_Constant                                         = "CAST_Web_Constant";                                     /* Type Description = eConstant*/                      
+ const string CAST_Web_Directory                                        = "CAST_Web_Directory";                                    /* Type Description = eDirectory*/                     
+ const string CAST_Web_File                                             = "CAST_Web_File";                                         /* Type Description = eFile*/                          
+ const string CAST_Web_FunctionClass                                    = "CAST_Web_FunctionClass";                                /* Type Description = eClass*/                         
+ const string CAST_Web_HTC_Class                                        = "CAST_Web_HTC_Class";                                    /* Type Description = HTC Class*/                      
+ const string CAST_Web_HTC_Property                                     = "CAST_Web_HTC_Property";                                 /* Type Description = eProperty*/                      
+ const string CAST_Web_Instance                                         = "CAST_Web_Instance";                                     /* Type Description = eInstance*/                      
+ const string CAST_Web_Property                                         = "CAST_Web_Property";                                     /* Type Description = eProperty*/                      
+ const string CAST_Web_Variable                                         = "CAST_Web_Variable";                                     /* Type Description = eVariable*/                      
+ 
+/*param types*/
+
+/* propr SHELL */
+const string shell_fullPath						                      = "shell.fullPath";                                                                                                                                                      
+
+/* propr JAVA */
+const string CAST_Java_JavaDoc_JavaDocDescription                      = "CAST_Java_JavaDoc.JavaDocDescription";                                                                                                                                                      
+const string CAST_Java_JavaDoc_JavaDocCustomTag                        = "CAST_Java_JavaDoc.JavaDocCustomTag";                                                                                                                                                                           
+const string CAST_Java_JavaDoc_JavaDocAuthorTag                        = "CAST_Java_JavaDoc.JavaDocAuthorTag";                                                                                                                                                                           
+const string CAST_Java_JavaDoc_JavaDocDeprecatedTag                    = "CAST_Java_JavaDoc.JavaDocDeprecatedTag";                                                                                                                                                                       
+const string CAST_Java_JavaDoc_JavaDocExceptionTag                     = "CAST_Java_JavaDoc.JavaDocExceptionTag";                                                                                                                                                                        
+const string CAST_Java_JavaDoc_JavaDocParamTag                         = "CAST_Java_JavaDoc.JavaDocParamTag";                                                                                                                                                                            
+const string CAST_Java_JavaDoc_JavaDocReturnTag                        = "CAST_Java_JavaDoc.JavaDocReturnTag";                                                                                                                                                                           
+const string CAST_Java_JavaDoc_JavaDocSeeTag                           = "CAST_Java_JavaDoc.JavaDocSeeTag";                                                                                                                                                                              
+const string CAST_Java_JavaDoc_JavaDocSerialTag                        = "CAST_Java_JavaDoc.JavaDocSerialTag";                                                                                                                                                                           
+const string CAST_Java_JavaDoc_JavaDocSerialDataTag                    = "CAST_Java_JavaDoc.JavaDocSerialDataTag";                                                                                                                                                                       
+const string CAST_Java_JavaDoc_JavaDocSerialFieldTag                   = "CAST_Java_JavaDoc.JavaDocSerialFieldTag";                                                                                                                                                                      
+const string CAST_Java_JavaDoc_JavaDocSinceTag                         = "CAST_Java_JavaDoc.JavaDocSinceTag";                                                                                                                                                                            
+const string CAST_Java_JavaDoc_JavaDocThrowsTag                        = "CAST_Java_JavaDoc.JavaDocThrowsTag";                                                                                                                                                                           
+const string CAST_Java_JavaDoc_JavaDocVersionTag                       = "CAST_Java_JavaDoc.JavaDocVersionTag";                                                                                                                                                                          
+const string CAST_Java_JavaDoc_JavaDocInheritDocTag                    = "CAST_Java_JavaDoc.JavaDocInheritDocTag";                                                                                                                                                                       
+const string CAST_Java_Anomalies_ReturnInFinally                       = "CAST_Java_Anomalies.ReturnInFinally";                                                                                                                                                                          
+const string CAST_Java_Anomalies_EmptyFinally                          = "CAST_Java_Anomalies.EmptyFinally";                                                                                                                                                                             
+const string CAST_Java_Anomalies_EmptyCatch                            = "CAST_Java_Anomalies.EmptyCatch";                                                                                                                                                                               
+const string CAST_Java_Anomalies_MissingDefaultInSwitch                = "CAST_Java_Anomalies.MissingDefaultInSwitch";                                                                                                                                                                   
+const string CAST_Java_SymbolMetrics_LinePosition                      = "CAST_Java_SymbolMetrics.LinePosition";                                                                                                                                                                         
+const string CAST_Java_SymbolMetrics_ColumnPosition                    = "CAST_Java_SymbolMetrics.ColumnPosition";                                                                                                                                                                       
+const string CAST_Java_AnnotationMetrics_Annotation                    = "CAST_Java_AnnotationMetrics.Annotation";                                                                                                                                                                       
+const string CAST_Java_MethodsMetrics_EqualOperatorOnReferenceTypes    = "CAST_Java_MethodsMetrics.EqualOperatorOnReferenceTypes";                                                                                                                                                                 
+const string CAST_Java_MethodsMetrics_NotEqualOperatorOnReferenceTypes = "CAST_Java_MethodsMetrics.NotEqualOperatorOnReferenceTypes";                                                                                                                                                                 
+const string CAST_Java_MethodsMetrics_NbThreadUnsafeThis               = "CAST_Java_MethodsMetrics.NbThreadUnsafeThis";                                                                                                                                                                  
+const string CAST_Java_MethodsMetrics_CouldBeDeclaredAsStatic          = "CAST_Java_MethodsMetrics.CouldBeDeclaredAsStatic";                                                                                                                                                                 
+const string CAST_Java_MethodsMetrics_BadNewExceptionThrown            = "CAST_Java_MethodsMetrics.BadNewExceptionThrown";                                                                                                                                                                 
+const string CAST_Java_MethodsMetrics_TotalNewExceptionThrown          = "CAST_Java_MethodsMetrics.TotalNewExceptionThrown";                                                                                                                                                                 
+const string CAST_Java_Fields_Properties_InstantiatedType              = "CAST_Java_Fields_Properties.InstantiatedType";   
+
+/* Annotations */
+const string CAST_Java_AnnotationParameterIntValue              	   = "CAST_Java_AnnotationParameter.intValue";
+const string CAST_Java_AnnotationParameterBooleanValue                 = "CAST_Java_AnnotationParameter.booleanValue";
+const string CAST_Java_AnnotationParameterStringValue                  = "CAST_Java_AnnotationParameter.stringValue";
+const string CAST_Java_AnnotationParameterDoubleValue                  = "CAST_Java_AnnotationParameter.doubleValue";
+const string CAST_Java_AnnotationParameterSymbolValue                  = "CAST_Java_AnnotationParameter.symbolValue";
+const string CAST_Java_AnnotationParameterStringValues                 = "CAST_JAVA_StringValues.values";
+
+/* propr EJB */
+const string Cast_EJB_AllProperties_BeanClass                          = "Cast_EJB_AllProperties.BeanClass";
+const string Cast_EJB_AllProperties_BeanDescription                    = "Cast_EJB_AllProperties.BeanDescription";
+const string Cast_EJB_AllProperties_BeanFilePath                       = "Cast_EJB_AllProperties.BeanFilePath";
+const string Cast_EJB_AllProperties_HomeInterface                      = "Cast_EJB_AllProperties.HomeInterface";
+const string Cast_EJB_AllProperties_LocalHomeInterface                 = "Cast_EJB_AllProperties.LocalHomeInterface";
+const string Cast_EJB_AllProperties_LocalRemoteInterface               = "Cast_EJB_AllProperties.LocalRemoteInterface";
+const string Cast_EJB_AllProperties_RemoteInterface                    = "Cast_EJB_AllProperties.RemoteInterface";
+const string Cast_EJB_AllProperties_TransactionType                    = "Cast_EJB_AllProperties.TransactionType";
+const string Cast_EJB_AllProperties_CMPVersion                         = "Cast_EJB_AllProperties.CMPVersion";
+deprecated const string CAST_EJB_EntityBeanProperties_CMPVersion       = "CAST_EJB_EntityBeanProperties.CMPVersion";
+const string CAST_EJB_EntityBeanProperties_PersistenceType             = "CAST_EJB_EntityBeanProperties.PersistenceType";
+const string CAST_EJB_EntityBeanProperties_PrimaryKeyClass             = "CAST_EJB_EntityBeanProperties.PrimaryKeyClass";
+const string CAST_EJB_EntityBeanProperties_ReEntrancy                  = "CAST_EJB_EntityBeanProperties.ReEntrancy";
+const string CAST_EJB_MessageDrivenBeanProperties_AcknowledgeMode      = "CAST_EJB_MessageDrivenBeanProperties.AcknowledgeMode";
+const string CAST_EJB_MessageDrivenBeanProperties_MessageSelector      = "CAST_EJB_MessageDrivenBeanProperties.MessageSelector";
+const string CAST_EJB_SessionBeanProperties_ServiceEndpointInterface   = "CAST_EJB_SessionBeanProperties.ServiceEndpointInterface";
+const string CAST_EJB_SessionBeanProperties_SessionType                = "CAST_EJB_SessionBeanProperties.SessionType";
+const string CAST_EJB_SessionBeanProperties_WebServiceInfos            = "CAST_EJB_SessionBeanProperties.WebServiceInfos";
+const string Cast_MethodProperties_SynchronizedRemote                  = "Cast_MethodProperties.SynchronizedRemote";
+const string Cast_MethodProperties_FactoryMethod                       = "Cast_MethodProperties.isFactoryMethod";
+const string Cast_Java_EJB_ObjectProperties_Remove                     = "Cast_Java_EJB_ObjectProperties.Remove";
+const string Cast_Java_EJB_ObjectProperties_HavingRemoveMethods        = "Cast_Java_EJB_ObjectProperties.HavingRemoveMethods";
+const string Cast_Java_EJB_ObjectProperties_NonSerializableStatefulBean = "Cast_Java_EJB_ObjectProperties.NonSerializableStatefulBean";
+const string Cast_Java_EJB_ObjectProperties_MethodIsSecured            = "Cast_Java_EJB_ObjectProperties.Secured";
+/*const string Cast_Java_EJB_ObjectProperties_EJB3MethodIsRemote         = "Cast_Java_EJB_ObjectProperties.EJB3MethodIsRemote";*/
+
+/* propr J2EE */
+const string CAST_JEE_ActualObjectType                                 = "CAST_Saving_WithDynamicType.realTypeIdentifier";
+
+/* propr Spring */
+const string Cast_Spring_Properties_BeanClass                          = "CAST_JEE_SpringBeansProperties.beanClass";
+const string Cast_Spring_Properties_ParentBean                         = "CAST_JEE_SpringBeansProperties.parentBean";
+const string Cast_Spring_Properties_isAbstract                         = "CAST_JEE_XMLObjectCommonProperties.isAbstract";  
+const string Cast_Spring_Properties_isSingleton                        = "CAST_JEE_SpringBeansProperties.isSingleton";
+const string Cast_Spring_Properties_autowire                           = "CAST_JEE_SpringBeansProperties.autowire";
+const string Cast_Spring_Properties_dependencyCheck                    = "CAST_JEE_SpringBeansProperties.dependencyCheck";
+const string Cast_Spring_Properties_lazyInit                           = "CAST_JEE_SpringBeansProperties.lazyInit";
+const string CAST_Spring_Properties_Aliases                            = "CAST_JEE_SpringBeansProperties.aliases";
+
+/* propr Struts */
+ const string CAST_JEE_StrutsPackage_namespace                         = "CAST_JEE_Struts2Properties.namespace";
+ const string CAST_JEE_ResultRedirectAction_namespace                  = "CAST_JEE_ResultRedirectAction.namespace";
+ const string CAST_JEE_ResultRedirectAction_actionName                 = "CAST_JEE_ResultRedirectAction.actionName";
+ const string CAST_JEE_Struts2Properties_isWildcard                    = "CAST_JEE_Struts2Properties.isWildcard";
+ const string CAST_JEE_Struts2Properties_method                        = "CAST_JEE_Struts2Properties.method";
+ const string CAST_JEE_Struts2Properties_webFile                       = "CAST_JEE_Struts2Properties.webFile";
+ const string CAST_JEE_Struts2Properties_globalResults                 = "CAST_JEE_Struts2Properties.globalResults";
+ const string CAST_JEE_Struts2Properties_defaultActionRef              = "CAST_JEE_Struts2Properties.defaultActionRef";
+  
+/* General properties */
+const string CAST_Mangled_mangling                                     = "CAST_Mangled.mangling" ;
+const string CAST_AST_WithInheritanceList_baseTypes                    = "CAST_AST_WithInheritanceList.baseTypes";
+
+/** files **/
+const string CAST_JEE_ConfigurationFile_includedFiles				   = "CAST_JEE_ConfigurationFile.includedFiles";
+
+/*prop JEE */
+const string CAST_JEE_BeansProperties_subtype                          = "CAST_JEE_BeansProperties.subtype";
+const string CAST_JEE_XMLObjectCommonProperties_implementationClass    = "CAST_JEE_XMLObjectCommonProperties.implementationClass";
+const string CAST_JEE_XMLObjectCommonProperties_javaReference          = "CAST_JEE_XMLObjectCommonProperties.javaReference";
+
+/*prop SQL */
+const string CAST_SQL_MetricableQuery_sqlQuery                         = "CAST_SQL_MetricableQuery.sqlQuery";
+
+/* property short and fullname */
+const string identification_name                                       = "identification.name";
+const string identification_fullName                                   = "identification.fullName";
+
+/* links */
+const string useLink                                                   = "useLink";
+const string useSelectLink                                             = "useSelectLink";
+const string useInsertLink                                             = "useInsertLink";
+const string useUpdateLink                                             = "useUpdateLink";
+const string useDeleteLink                                             = "useDeleteLink";
+const string relyonLink                                                = "relyonLink";
+const string includeLink                                               = "includeLink";
+const string accessLink                                                = "accessLink";
+const string accessWriteLink                                           = "accessWriteLink";
+const string accessReadLink                                            = "accessReadLink";
+const string accessMemberLink                                          = "accessMemberLink";
+const string accessExecLink                                            = "accessExecLink";
+const string inheritLink                                               = "inheritLink";
+const string callLink                                                  = "callLink";
+const string fireLink                                                  = "fireLink";
+const string inheritImplementLink                                      = "inheritImplementLink";
+const string inheritExtendLink                                         = "inheritExtendLink";
+const string catchLink                                                 = "catchLink";
+const string throwLink                                                 = "throwLink";
+const string raiseLink                                                 = "raiseLink";
+const string mentionLink                                               = "mentionLink";
+const string prototypeLink                                             = "prototypeLink";
+                                                                                                                                                                                  
+/* scope JEE */
+const string request_scope                                             = "request";
+const string session_scope                                             = "session";
+const string application_scope                                         = "application";
+const string page_scope                                                = "page";
+
+/*annotations*/
+const list(string) GROUP_security_annotations                         = {"javax.annotation.security.DeclareRoles", "javax.annotation.security.DenyAll", "javax.annotation.security.PermitAll", "javax.annotation.security.RolesAllowed"};

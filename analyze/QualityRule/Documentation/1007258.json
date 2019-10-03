@@ -1,0 +1,104 @@
+{
+    "id": 1007258,
+    "name": "Avoid cross-site scripting - Improper Neutralization of input during web page generation (PHP)",
+    "href": "AIP/quality-rules/1007258",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A reflected cross-site scripting (XSS) vulnerability occurs when user input is embedded unsanitized into the HTML response page of the web application. It allows an attacker to inject arbitrary HTML or JavaScript code into the response page of a tampered request. Usually, this attack is performed by crafting a malicious link that is sent to a victim. When opened, the attacker's JavaScript payload within the link is reflected by the application and executed in the victim's browser in the context of the web application's domain. This enables the attacker to perform phishing attacks or to steal cookies associated with the domain.",
+    "output": "This report lists all artifacts that do improper neutralization of input during web page generation within double quoted HTML attribute which could expose application to XSS attack. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The detected injection occurs within a double-quoted HTML attribute. An attacker can break out of this attribute by injecting a double quote (\"). This allows to terminate the current attribute and to append another attribute to the HTML element. For example, a eventhandler attribute can be appended that allows to execute arbitrary JavaScript code.",
+    "reference": "https://cwe.mitre.org/data/definitions/80.html\nhttps://www.owasp.org/index.php/Cross-site_Scripting_(XSS)\nhttps://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet",
+    "remediation": "In order to prevent the break out of the double-quoted attribute, all double-quotes within the attribute's value must be transformed into the corresponding HTML entity \". For this purpose, the PHP built-in function htmlentities() or htmlspecialchars() can be used that performs this transformation.",
+    "remediationSample": "<?php\n\necho(htmlspecialchars($_GET['a']));\n\n?>",
+    "sample": "<?php\n\necho($_GET['a']);\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid cross-site scripting - Improper Neutralization of input during web page generation (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

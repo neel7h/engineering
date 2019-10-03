@@ -1,0 +1,61 @@
+{
+    "id": 1024020,
+    "name": "Avoid using implicit intent",
+    "href": "AIP/quality-rules/1024020",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Explicit intents specify which application will satisfy the intent, by supplying either the target app's package name or a fully-qualified component class name. You'll typically use an explicit intent to start a component in your own app, because you know the class name of the activity or service you want to start. For example, you might start a new activity within your app in response to a user action, or start a service to download a file in the background.\n\nImplicit intents do not name a specific component, but instead declare a general action to perform, which allows a component from another app to handle it. For example, if you want to show the user a location on a map, you can use an implicit intent to request that another capable app show a specified location on a map.\n\nWhen you use an implicit intent, the Android system finds the appropriate component to start by comparing the contents of the intent to the intent filters declared in the manifest file of other apps on the device. If the intent matches an intent filter, the system starts that component and delivers it the Intent object. If multiple intent filters are compatible, the system displays a dialog so the user can pick which app to use.\n\nA violation reported when an implicit intent is using.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "For activities and broadcast receivers, intents are the preferred mechanism for asynchronous IPC in Android. Depending on your application requirements, you might use sendBroadcast(), sendOrderedBroadcast(), or an explicit intent to a specific application component. For security purposes, explicit intents are preferred. For services, to ensure that your app is secure, always use an explicit intent when starting a Service and do not declare intent filters for your services. Using an implicit intent to start a service is a security hazard because you can't be certain what service will respond to the intent, and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system throws an exception if you call bindService() with an implicit intent.",
+    "reference": "https://developer.android.com/guide/components/intents-filters#Types\nhttps://developer.android.com/training/articles/security-tips#use-intents",
+    "remediation": "Never use an implicit intent to bind to a Service.\n\nVerify if your application need to use an implicit intent for the activities and activities and broadcast receivers. If not, you should use explicit intent for your application security.",
+    "remediationSample": "Using an explicit Intent:\n\nIntent serviceIntent = new Intent(this, nameClass.class);\nstartService(serviceIntent);",
+    "sample": "implicit intent:\nIntent ServiceIntent= new Intent();\nsendIntent.setAction(Intent.ACTION_SEND); // ACTION_SEND is defined in AndroidManifest file.\nstartService(serviceIntent);",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Avoid using implicit intent",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

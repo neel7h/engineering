@@ -1,0 +1,60 @@
+{
+    "id": 1101078,
+    "name": "Prefer PRIVATE to PUBLIC synonym",
+    "href": "AIP/quality-rules/1101078",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "This metric displays the list of PUBLIC synonyms.",
+    "description": "For the maintenance reasons, prefer PRIVATE to PUBLIC synonyms.",
+    "output": "This report lists all PUBLIC synonyms. It provides the full name of each PUBLIC synonym.",
+    "rationale": "Public synonyms can leads to a maintenance headache.\n\nPublic synonyms are public, no one owns them, anyone that can create them can overwrite them, change them and that can leads to security issues.",
+    "remediation": "Replace the PUBLIC synonym with PRIVATE.",
+    "remediationSample": "CREATE SYNONYM EMP FOR SCOTT.EMP;",
+    "sample": "CREATE PUBLIC SYNONYM EMP FOR SCOTT.EMP;",
+    "total": "Number of Synonyms.",
+    "alternativeName": "Prefer PRIVATE to PUBLIC synonym",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

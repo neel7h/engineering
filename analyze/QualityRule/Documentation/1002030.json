@@ -1,0 +1,73 @@
+{
+    "id": 1002030,
+    "name": "Avoid using too many GOTO statement in Modules  (FORTRAN)",
+    "href": "AIP/quality-rules/1002030",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The number of GOTO statements is reported per artifact. Whenever the artifact contains 10 or more of these statements, it is considered as being a violation. Number of GOTO statements is a threshold and can be changed at will.",
+    "rationale": "Use the structured instructions (IF-THEN-ELSE, DO,END DO, DO WHILE,END DO) instead of GOTO each time it is possible.",
+    "remediation": "Reduce the number of GOTO statements; restructure the artifact to eliminate the use of a GOTO Statement. Add subroutines and Function for common behavior inside the artifact.",
+    "alternativeName": "Avoid using too many GOTO statement in Modules  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max allowed GOTO Statements",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

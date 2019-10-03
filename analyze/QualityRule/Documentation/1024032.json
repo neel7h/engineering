@@ -1,0 +1,60 @@
+{
+    "id": 1024032,
+    "name": "Always manage the BiometricPrompt onAuthenticationFailed method",
+    "href": "AIP/quality-rules/1024032",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Once we\u2019ve called authenticate, our user can carry out the authentication flow and we will receive the result through the provided callback. At this point we will handle the result within our user interface.  When the fingerprint (even VALID one) doesn\u2019t match with any of the fingerprints registered on the device ans so the authentication process fails, then onAuthenticationFailed: callback will be triggered",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Running an application which does not fail of/correctly use the platform capability is a mandatory step from development team. The defining characteristic of risks in this category of rules is that the platform (iOS, Android, Windows Phone, etc.) provides a feature or a capability that is documented and well understood.",
+    "reference": "https://medium.com/exploring-android/exploring-android-p-fingerprint-dialog-fa672ae62c6f\nhttps://proandroiddev.com/5-steps-to-implement-biometric-authentication-in-android-dbeb825aeee8",
+    "remediationSample": "@RequiresApi(api = Build.VERSION_CODES.P)\npublic class BiometricCallbackV28 extends BiometricPrompt.AuthenticationCallback {\n\n    private BiometricCallback biometricCallback;\n    public BiometricCallbackV28(BiometricCallback biometricCallback) {\n        this.biometricCallback = biometricCallback;\n    }\n\n\n    @Override\n    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {\n        super.onAuthenticationSucceeded(result);\n        biometricCallback.onAuthenticationSuccessful();\n    }\n\n\n    @Override\n    public void onAuthenticationHelp(int helpCode, CharSequence helpString) {\n        super.onAuthenticationHelp(helpCode, helpString);\n        biometricCallback.onAuthenticationHelp(helpCode, helpString);\n    }\n\n\n    @Override\n    public void onAuthenticationError(int errorCode, CharSequence errString) {\n        super.onAuthenticationError(errorCode, errString);\n        biometricCallback.onAuthenticationError(errorCode, errString);\n    }\n\n\n    @Override\n    public void onAuthenticationFailed() {\n        super.onAuthenticationFailed();\n        biometricCallback.onAuthenticationFailed();\n    }\n}",
+    "sample": "@RequiresApi(api = Build.VERSION_CODES.P)\npublic class BiometricCallbackV28 extends BiometricPrompt.AuthenticationCallback {\n\n    private BiometricCallback biometricCallback;\n    public BiometricCallbackV28(BiometricCallback biometricCallback) {\n        this.biometricCallback = biometricCallback;\n    }\n\n\n    @Override\n    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {\n        super.onAuthenticationSucceeded(result);\n        biometricCallback.onAuthenticationSuccessful();\n    }\n\n\n    @Override\n    public void onAuthenticationHelp(int helpCode, CharSequence helpString) {\n        super.onAuthenticationHelp(helpCode, helpString);\n        biometricCallback.onAuthenticationHelp(helpCode, helpString);\n    }\n\n\n    @Override\n    public void onAuthenticationError(int errorCode, CharSequence errString) {\n        super.onAuthenticationError(errorCode, errString);\n        biometricCallback.onAuthenticationError(errorCode, errString);\n    }\n}",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Ensure that you have managed the BiometricPrompt onAuthenticationFailed method",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

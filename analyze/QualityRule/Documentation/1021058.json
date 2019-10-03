@@ -1,0 +1,56 @@
+{
+    "id": 1021058,
+    "name": "Avoid superfluous parenthesis",
+    "href": "AIP/quality-rules/1021058",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A violation is raised when detected superfluous parentheses in expressions.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Clever use of optional parentheses in expressions involving few operators or long lines can dramatically enhance the readability of the code. On the contrary, when a superfluous parenthesis is unintentionally introduced (perhaps influenced by other language syntaxes) it contributes to visual clutter.",
+    "reference": "PEP-8",
+    "remediation": "Remove the superfluous parenthesis or leverage it to construct multiline expressions.",
+    "remediationSample": "# example 1\nif value == 1: \n   return value\n\n# example 2\nwhile (condition1 and\n            condition2 and\n            condition3):\n    do_something()",
+    "sample": "# example 1 \nif (value == 1): \n    return value\n\n# example 2 \nwhile (condition1 and condition2 and condition3):\n    do_something()",
+    "total": "Number of Python artifacts",
+    "alternativeName": "Avoid superfluous parenthesis",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

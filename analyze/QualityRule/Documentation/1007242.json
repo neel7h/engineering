@@ -1,0 +1,77 @@
+{
+    "id": 1007242,
+    "name": "Avoid Methods and Functions having recursive calls (PHP)",
+    "href": "AIP/quality-rules/1007242",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This quality rule retrieves all functions and methods that are recursive in nature.",
+    "output": "This report lists all methods and functions having recursive calls.\nThis QR provides the following information:\nMethod or Function full name",
+    "rationale": "Recursive calls can be unpredictable with regard to memory consumption, takes more time than iterative. It may cause stack-overflow if recursion goes deep to solve problem. It is very difficult to debug and trace the values with each step of recursion",
+    "remediation": "Review the source code to reduce the number of methods and function with recursive call",
+    "remediationSample": "<?php\nfunction iterative_global($a) {\n   for($a;$a < 4;$a++)\n   {\n      echo \"$a \\n\" ;                            //violation removed\n   }\n}\nclass CastTest {\n   public function iterative($b) {\n      for($b;$b <7;$b++) {\n        echo \"$b \\n\" ;                            //violation removed\n      }\n   }\n}\n$test =  new CastTest();\n$test->iterative(4);\niterative_global(1);\n?>",
+    "sample": "<?php\nfunction recursive_global($a) {\n   if($a < 4) {\n      echo \"$a \\n\";\n      recursive_global($a +1);                       //violation\n   }\n}   \nclass CastTest {\n   public function recursive($b) {\n      if($b < 7) {\n         echo \"$b \\n\";\n         $this->recursive($b +1);                  //violation\n      }\n   }\n}\n$test =  new CastTest();\n$test->recursive(4);\nrecursive_global(1);\n?>",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid Methods and Functions having recursive calls (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

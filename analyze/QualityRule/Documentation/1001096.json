@@ -1,0 +1,70 @@
+{
+    "id": 1001096,
+    "name": "Avoid PLI Programs with a very low comment/code ratio (PL1)",
+    "href": "AIP/quality-rules/1001096",
+    "critical": false,
+    "maxWeight": 8,
+    "description": "This rule searches for all the PL1 Main Procedures (Programs) having a very low comment/code ratio. PLI programs should have at least a ratio comment/code > X %\nThe threshold is a parameter and can be changed at will. The default parameter value is 5 percent. Undocumented artifacts are not considered for violation in this QR.",
+    "output": "The report lists all the PL1 Main Procedures (Programs) having a very low comment/code ratio. \n\nIt provides following information: \n-  PLI  programs full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact",
+    "remediation": "Document your source code in order to keep a  satisfactory comment/code ratio.",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid PLI Programs with a very low comment/code ratio (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Min percent",
+            "description": "Min percent",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

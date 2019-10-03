@@ -1,0 +1,71 @@
+{
+    "id": 1018860,
+    "name": "Avoid Process with too many Activities (TIBCO BW)",
+    "href": "AIP/quality-rules/1018860",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "Processes should have less than a defined number of Activities. The threshold is a parameter and can be changed at will.",
+    "output": "This report lists all  Processes having  too many Activities.\nIt provides the following information:\nProcess full name.\nThe associated value is the number of  Activities defined inside the Process.",
+    "rationale": "For maintainability and readability reasons, classes should not have too many Activities.",
+    "reference": "3.4.7 MAI-007:Number of activities by process > 15",
+    "remediation": "Review the Process design to reduce the number of activities.",
+    "total": "Number of Process",
+    "alternativeName": "Avoid Process with too many Activities (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max activities",
+            "description": "Maximum nb of activities per process",
+            "technologies": [
+                {
+                    "id": 1018000,
+                    "name": "TIBCO",
+                    "href": "AIP/technologies/1018000",
+                    "values": [
+                        15
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

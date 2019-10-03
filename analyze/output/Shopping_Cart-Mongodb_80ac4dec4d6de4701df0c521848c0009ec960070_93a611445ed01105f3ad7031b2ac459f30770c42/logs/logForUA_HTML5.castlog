@@ -1,0 +1,3 @@
+Info   : Total physical memory: 16275 MB.
+Info   : Using default serialization memory threshold of 11392 MB.
+Warning: Internal exception occurred during processing listener CUniversalAnalyzerAction::ProcessUAJob on instance CAST_UA_JobOptions #2 : Error : No plugin found

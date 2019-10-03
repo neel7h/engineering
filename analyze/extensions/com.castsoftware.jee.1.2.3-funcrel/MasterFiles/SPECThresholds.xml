@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within Constructor in multi-thread environment" thresholdToGet1="98" thresholdToGet2="99" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" thresholdToGet1="98" thresholdToGet2="99" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99" />
+  <metric id="4700" type="quality-rule" originalName="DELETED: Avoid using 'Throwable.printStackTrace()' within a try catch block" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" thresholdToGet1="90" thresholdToGet2="95" thresholdToGet3="99" thresholdToGet4="100"/>
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" thresholdToGet1="90" thresholdToGet2="95" thresholdToGet3="99" thresholdToGet4="100"/>
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" thresholdToGet1="98" thresholdToGet2="99" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+</metrics>

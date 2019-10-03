@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ************************* -->
+<!-- Use of 'new' inside loops -->
+<!-- ************************* -->
+
+<METRIC PACKAGE_NAME="Performance.NewInsideLoops">
+  <ACTIVE>YES</ACTIVE>
+    <ACTION_LIST>
+	<ACTION NAME="MATCH IN TREE ELEMENT" >
+	  <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>
+	<ACTION NAME="CALCULATE" >
+	  <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>				
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>		
+
+	<ACTION NAME="PERSISTENCE" >
+	  <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>
+    </ACTION_LIST>
+	
+    <CATEGORY_LIST>		
+      <CATEGORY NAME="MATCH_NEWINLOOPS">
+        <PROPERTY NAME="VALUE" type="integer" />
+        
+        <!-- New in Java loops -->
+        <PROPERTY NAME="NEWINSIDELOOPS_JAVA" type="pattern">
+        <TREE>
+	        <OR>
+	          <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+		        <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+		        <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+		        <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+    	    </OR>
+  	      <TREE>													
+	      	  <OR>
+		          <SIGNATURE>NODE_J11_WhileStatement</SIGNATURE>
+		          <SIGNATURE>NODE_J11_ForStatement</SIGNATURE>
+		          <SIGNATURE>NODE_J11_DoStatement</SIGNATURE>
+      		  </OR>
+		      <SUB_TREE_OR>
+		        <TOKEN NAME="_NEW_"  />
+		      </SUB_TREE_OR>
+	      </TREE>
+	    </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+          <MATCH>NEWINSIDELOOPS_JAVA</MATCH>
+	        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+	        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+	        <RESULT_COUNT>VALUE</RESULT_COUNT> 
+	      </ADD_ACTION>
+	      </CATEGORY>
+      
+    <CATEGORY NAME="INSTANTIATION_INSIDE_LOOP">
+      <PROPERTY NAME="VALUE" type="integer" />
+      
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>MATCH_NEWINLOOPS.VALUE</ADD_VALUE>      
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+      
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid instantiations inside loops</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+
+
+
+    </CATEGORY_LIST>
+
+</METRIC>
+
+
+
+
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+	<!-- set of standard actions activated in any AMT analyzer -->
+	<actions>
+		<action name = "AMTExternalLinkAction" />
+		<action name = "AMTPersistingAction" />
+    <action name = "AMTAllInstancesDumpAction" />
+  </actions>
+
+</configuration>

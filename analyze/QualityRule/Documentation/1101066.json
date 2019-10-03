@@ -1,0 +1,60 @@
+{
+    "id": 1101066,
+    "name": "Avoid improperly written triangular joins with XXL tables",
+    "href": "AIP/quality-rules/1101066",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all SQL artifacts having queries with tables joined improperly with triangular join.\n\nA Triangular Join is nothing more than about half of a Cross-Join. The \"shape\" of the Triangular Join depends on the relationship of < or >, <= or >=, or < > between tables.\n\nThe quality rule will detect:\n- <= or >= or \"Equality\" Triangular Join\n- < or > \"Inequality\" Triangular Join\n- < > or != \"Not Equal\" Triangular Join \n\nThey appear in the SELECT list as correlated subqueries usually with a stand-alone inequality of some sort.\nThey can also appear in WHERE clauses with the same type of standalone inequality.\n\nWith some restraint and the right criteria, Triangular Joins can be used. As a consequence we will only detect statements that include improperly written triangular joins i.e  that include only a triangular join and nothing else in terms of restrictive criteria.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Improperly written Triangular Joins are worse than even Cursors or While Loops and can bring a CPU and Disk System right to it's knees. their processing algorithm is close to quadratic complexity.\n\nFor very small counts, the number of internal rows spawned are nearly trivial. But, it doesn't take very many rows to spawn nightmarish numbers of internal rows that can bring a server to its knees. \nThere's danger in thinking that just avoiding the loop leads to set based code. Triangular Joins are a form of \"Hidden row by row agonizing row\" that can and will crush performance in the face of even the smallest scalability expectations.",
+    "remediation": "Restrict the conditions using other criterion",
+    "remediationSample": "SELECT x.OrderID, x.Freight, \n        (SELECT SUM(y.Freight) FROM dbo.Orders y\n          WHERE y.OrderID <= x.OrderID) AS RunningTotal,\n        (SELECT COUNT(y.Freight)\n           FROM dbo.Orders y\n          WHERE y.OrderID <= x.OrderID) AS RunningCount\n  FROM dbo.Orders X\nWHERE x.OrderID between 10 and 20\n ORDER BY x.OrderID",
+    "sample": "SELECT x.OrderID, x.Freight, \n        (SELECT SUM(y.Freight) FROM dbo.Orders y\n          WHERE y.OrderID <= x.OrderID) AS RunningTotal,\n        (SELECT COUNT(y.Freight)\n           FROM dbo.Orders y\n          WHERE y.OrderID <= x.OrderID) AS RunningCount\n  FROM dbo.Orders X\n ORDER BY x.OrderID",
+    "total": "Number of Artifacts with SQL code having JOINs.",
+    "alternativeName": "Avoid improperly written triangular joins with XXL tables",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

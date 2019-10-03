@@ -1,0 +1,64 @@
+{
+    "id": 2282,
+    "name": "Avoid large Include Files",
+    "href": "AIP/quality-rules/2282",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Included files",
+    "description": "Included files should not have more than X lines of code. The threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Files including Files with more than X lines of code. \nIt provides the following information: \n- JSP page name\n- Included files",
+    "total": "Number of JSP pages",
+    "alternativeName": "Ensure to have a limited include files",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of code lines",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        500
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

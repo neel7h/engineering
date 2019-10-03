@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BlackBox name="junit-4.12.jar" xmlns="http://tempuri.org/BlackBoxes.xsd">
+    <Interface mangling="org.junit.ClassRule" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Class mangling="org.junit.Assert" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="assertTrue(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertTrue(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertFalse(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertFalse(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="fail(java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="fail()" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(java.lang.String,long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(java.lang.String,double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,java.lang.Object[],java.lang.Object[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(java.lang.Object[],java.lang.Object[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,boolean[],boolean[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(boolean[],boolean[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,byte[],byte[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(byte[],byte[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,char[],char[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(char[],char[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,short[],short[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(short[],short[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,int[],int[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(int[],int[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,long[],long[])" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(long[],long[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,double[],double[],double)" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(double[],double[],double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertArrayEquals(java.lang.String,float[],float[],float)" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertArrayEquals(float[],float[],float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotEquals(java.lang.String,float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(double,double)" isStatic="true" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="assertEquals(java.lang.String,double,double)" isStatic="true" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="assertEquals(double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotNull(java.lang.String,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotNull(java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNull(java.lang.String,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNull(java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertSame(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertSame(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotSame(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotSame(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="format(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]java.lang.String"/>
+            <Method signature="assertEquals(java.lang.String,java.lang.Object[],java.lang.Object[])" isStatic="true" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="assertEquals(java.lang.Object[],java.lang.Object[])" isStatic="true" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method genParams="T" signature="assertThat(T,org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method genParams="T" signature="assertThat(java.lang.String,T,org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.After" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Class mangling="org.junit.rules.Stopwatch$Clock" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="nanoTime()" returnType="[ext]long" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.DisableOnDebug" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.rules.TestRule)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(org.junit.rules.TestRule,java.util.List&lt;java.lang.String&gt;)" returnType="[ext]void"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="isDebugging()" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.ExternalResource" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="before()" returnType="[ext]void" visibility="protected">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+            <Method signature="after()" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.Timeout$Builder" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="withTimeout(long,java.util.concurrent.TimeUnit)" returnType="[ext]org.junit.rules.Timeout.Builder" visibility="public"/>
+            <Method signature="getTimeout()" returnType="[ext]long" visibility="protected"/>
+            <Method signature="getTimeUnit()" returnType="[ext]java.util.concurrent.TimeUnit" visibility="protected"/>
+            <Method signature="withLookingForStuckThread(boolean)" returnType="[ext]org.junit.rules.Timeout.Builder" visibility="public"/>
+            <Method signature="getLookingForStuckThread()" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="build()" returnType="org.junit.rules.Timeout" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.ExpectedException" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Fields/>
+        <Methods>
+            <Method signature="none()" isStatic="true" returnType="org.junit.rules.ExpectedException" visibility="public"/>
+            <Method signature="handleAssertionErrors()" returnType="org.junit.rules.ExpectedException" visibility="public" deprecated="true"/>
+            <Method signature="handleAssumptionViolatedExceptions()" returnType="org.junit.rules.ExpectedException" visibility="public" deprecated="true"/>
+            <Method signature="reportMissingExceptionWithMessage(java.lang.String)" returnType="org.junit.rules.ExpectedException" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="expect(org.hamcrest.Matcher&lt;?&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="expect(java.lang.Class&lt;? extends java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="expectMessage(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="expectMessage(org.hamcrest.Matcher&lt;java.lang.String&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="expectCause(org.hamcrest.Matcher&lt;? extends java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.RuleChain" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Fields/>
+        <Methods>
+            <Method signature="emptyRuleChain()" isStatic="true" returnType="org.junit.rules.RuleChain" visibility="public"/>
+            <Method signature="outerRule(org.junit.rules.TestRule)" isStatic="true" returnType="org.junit.rules.RuleChain" visibility="public"/>
+            <Method signature="around(org.junit.rules.TestRule)" returnType="org.junit.rules.RuleChain" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.rules.TestRule" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.rules.Verifier" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="verify()" returnType="[ext]void" visibility="protected">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.Stopwatch" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(org.junit.rules.Stopwatch.Clock)" returnType="[ext]void"/>
+            <Method signature="runtime(java.util.concurrent.TimeUnit)" returnType="[ext]long" visibility="public"/>
+            <Method signature="succeeded(long,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="failed(long,java.lang.Throwable,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="skipped(long,org.junit.AssumptionViolatedException,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="finished(long,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" isFinal="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.Timeout" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Fields/>
+        <Methods>
+            <Method signature="builder()" isStatic="true" returnType="[ext]org.junit.rules.Timeout.Builder" visibility="public"/>
+            <Method signature="+ctor(int)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="+ctor(long,java.util.concurrent.TimeUnit)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(org.junit.rules.Timeout.Builder)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="millis(long)" isStatic="true" returnType="org.junit.rules.Timeout" visibility="public"/>
+            <Method signature="seconds(long)" isStatic="true" returnType="org.junit.rules.Timeout" visibility="public"/>
+            <Method signature="getTimeout(java.util.concurrent.TimeUnit)" returnType="[ext]long" isFinal="true" visibility="protected"/>
+            <Method signature="getLookingForStuckThread()" returnType="[ext]boolean" isFinal="true" visibility="protected"/>
+            <Method signature="createFailOnTimeoutStatement(org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.ExpectedExceptionMatcherBuilder" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="add(org.hamcrest.Matcher&lt;?&gt;)" returnType="[ext]void"/>
+            <Method signature="expectsThrowable()" returnType="[ext]boolean"/>
+            <Method signature="build()" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Throwable&gt;"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.rules.MethodRule" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runners.model.FrameworkMethod,java.lang.Object)" returnType="org.junit.runners.model.Statement" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.rules.TestWatchman" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.MethodRule"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runners.model.FrameworkMethod,java.lang.Object)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="succeeded(org.junit.runners.model.FrameworkMethod)" returnType="[ext]void" visibility="public"/>
+            <Method signature="failed(java.lang.Throwable,org.junit.runners.model.FrameworkMethod)" returnType="[ext]void" visibility="public"/>
+            <Method signature="starting(org.junit.runners.model.FrameworkMethod)" returnType="[ext]void" visibility="public"/>
+            <Method signature="finished(org.junit.runners.model.FrameworkMethod)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.rules.TestWatcher" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.rules.TestRule"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="apply(org.junit.runners.model.Statement,org.junit.runner.Description)" returnType="org.junit.runners.model.Statement" visibility="public"/>
+            <Method signature="succeeded(org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="failed(java.lang.Throwable,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="skipped(org.junit.AssumptionViolatedException,org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="skipped(org.junit.internal.AssumptionViolatedException,org.junit.runner.Description)" returnType="[ext]void" visibility="protected" deprecated="true"/>
+            <Method signature="starting(org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="finished(org.junit.runner.Description)" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.ComparisonFailure$ComparisonCompactor$DiffExtractor" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="expectedDiff()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="actualDiff()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="compactPrefix()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="compactSuffix()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.Assume" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeTrue(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeFalse(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeTrue(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeFalse(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeNotNull(java.lang.Object[])" isStatic="true" returnType="[ext]void" visibility="public" isVarargs="true"/>
+            <Method genParams="T" signature="assumeThat(T,org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method genParams="T" signature="assumeThat(java.lang.String,T,org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeNoException(java.lang.Throwable)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assumeNoException(java.lang.String,java.lang.Throwable)" isStatic="true" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.Suite$SuiteClasses" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;?&gt;[]" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.BlockJUnit4ClassRunner" extends="org.junit.runners.ParentRunner" isGeneric="false" visibility="public">
+        <Extends mangling="org.junit.runners.ParentRunner" genParams="org.junit.runners.model.FrameworkMethod"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="runChild(org.junit.runners.model.FrameworkMethod,org.junit.runner.notification.RunNotifier)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="isIgnored(org.junit.runners.model.FrameworkMethod)" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="describeChild(org.junit.runners.model.FrameworkMethod)" returnType="org.junit.runner.Description" visibility="protected"/>
+            <Method signature="getChildren()" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt;" visibility="protected"/>
+            <Method signature="computeTestMethods()" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt;" visibility="protected"/>
+            <Method signature="collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateNoNonStaticInnerClass(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateConstructor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateOnlyOneConstructor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateZeroArgConstructor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateInstanceMethods(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected" deprecated="true"/>
+            <Method signature="validateFields(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validateTestMethods(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="createTest()" returnType="[ext]void" visibility="protected">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testName(org.junit.runners.model.FrameworkMethod)" returnType="[ext]java.lang.String" visibility="protected"/>
+            <Method signature="methodBlock(org.junit.runners.model.FrameworkMethod)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="methodInvoker(org.junit.runners.model.FrameworkMethod,java.lang.Object)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="possiblyExpectingExceptions(org.junit.runners.model.FrameworkMethod,java.lang.Object,org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="withPotentialTimeout(org.junit.runners.model.FrameworkMethod,java.lang.Object,org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected" deprecated="true"/>
+            <Method signature="withBefores(org.junit.runners.model.FrameworkMethod,java.lang.Object,org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="withAfters(org.junit.runners.model.FrameworkMethod,java.lang.Object,org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="rules(java.lang.Object)" returnType="[ext]java.util.List&lt;org.junit.rules.MethodRule&gt;" visibility="protected"/>
+            <Method signature="getTestRules(java.lang.Object)" returnType="[ext]java.util.List&lt;org.junit.rules.TestRule&gt;" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.Parameterized$Parameters" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="name()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.MethodSorters" extends="[ext]java.lang.Enum" isGeneric="false" isFinal="true" visibility="public">
+        <Extends mangling="java.lang.Enum" genParams="org.junit.runners.MethodSorters"/>
+        <Fields>
+            <Field name="NAME_ASCENDING" type="org.junit.runners.MethodSorters" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="JVM" type="org.junit.runners.MethodSorters" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="DEFAULT" type="org.junit.runners.MethodSorters" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="values()" isStatic="true" returnType="[ext]org.junit.runners.MethodSorters[]" isFinal="true" visibility="public"/>
+            <Method signature="valueOf(java.lang.String)" isStatic="true" returnType="org.junit.runners.MethodSorters" visibility="public"/>
+            <Method signature="getComparator()" returnType="[ext]java.util.Comparator&lt;java.lang.reflect.Method&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.Parameterized$UseParametersRunnerFactory" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;? extends org.junit.runners.parameterized.ParametersRunnerFactory&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.ParentRunner" extends="org.junit.runner.Runner" isGeneric="true" genParams="T" visibility="public">
+        <Extends mangling="org.junit.runner.Runner"/>
+        <Implements mangling="org.junit.runner.manipulation.Filterable"/>
+        <Implements mangling="org.junit.runner.manipulation.Sortable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="protected">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="createTestClass(java.lang.Class&lt;?&gt;)" returnType="org.junit.runners.model.TestClass" visibility="protected"/>
+            <Method signature="getChildren()" returnType="[ext]java.util.List&lt;T&gt;" isAbstract="true" visibility="protected"/>
+            <Method signature="describeChild(T)" returnType="org.junit.runner.Description" isAbstract="true" visibility="protected"/>
+            <Method signature="runChild(T,org.junit.runner.notification.RunNotifier)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="validatePublicVoidNoArgMethods(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,boolean,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="classBlock(org.junit.runner.notification.RunNotifier)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="withBeforeClasses(org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="withAfterClasses(org.junit.runners.model.Statement)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="classRules()" returnType="[ext]java.util.List&lt;org.junit.rules.TestRule&gt;" visibility="protected"/>
+            <Method signature="childrenInvoker(org.junit.runner.notification.RunNotifier)" returnType="org.junit.runners.model.Statement" visibility="protected"/>
+            <Method signature="isIgnored(T)" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="protected"/>
+            <Method signature="getTestClass()" returnType="org.junit.runners.model.TestClass" isFinal="true" visibility="public"/>
+            <Method signature="runLeaf(org.junit.runners.model.Statement,org.junit.runner.Description,org.junit.runner.notification.RunNotifier)" returnType="[ext]void" isFinal="true" visibility="protected"/>
+            <Method signature="getRunnerAnnotations()" returnType="[ext]java.lang.annotation.Annotation[]" visibility="protected"/>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="run(org.junit.runner.notification.RunNotifier)" returnType="[ext]void" visibility="public"/>
+            <Method signature="filter(org.junit.runner.manipulation.Filter)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runner.manipulation.NoTestsRemainException"/>
+            </Method>
+            <Method signature="sort(org.junit.runner.manipulation.Sorter)" returnType="[ext]void" visibility="public"/>
+            <Method signature="setScheduler(org.junit.runners.model.RunnerScheduler)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.Parameterized$Parameter" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]int" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.runners.parameterized.ParametersRunnerFactory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="createRunnerForTestWithParameters(org.junit.runners.parameterized.TestWithParameters)" returnType="org.junit.runner.Runner" isAbstract="true" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.parameterized.TestWithParameters" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,org.junit.runners.model.TestClass,java.util.List&lt;java.lang.Object&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getTestClass()" returnType="org.junit.runners.model.TestClass" visibility="public"/>
+            <Method signature="getParameters()" returnType="[ext]java.util.List&lt;java.lang.Object&gt;" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.parameterized.BlockJUnit4ClassRunnerWithParametersFactory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.runners.parameterized.ParametersRunnerFactory"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="createRunnerForTestWithParameters(org.junit.runners.parameterized.TestWithParameters)" returnType="org.junit.runner.Runner" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.Suite" extends="org.junit.runners.ParentRunner" isGeneric="false" visibility="public">
+        <Extends mangling="org.junit.runners.ParentRunner" genParams="org.junit.runner.Runner"/>
+        <Fields/>
+        <Methods>
+            <Method signature="emptySuite()" isStatic="true" returnType="org.junit.runner.Runner" visibility="public"/>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;,org.junit.runners.model.RunnerBuilder)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="+ctor(org.junit.runners.model.RunnerBuilder,java.lang.Class&lt;?&gt;[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;,java.lang.Class&lt;?&gt;[])" returnType="[ext]void" visibility="protected">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="+ctor(org.junit.runners.model.RunnerBuilder,java.lang.Class&lt;?&gt;,java.lang.Class&lt;?&gt;[])" returnType="[ext]void" visibility="protected">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;,java.util.List&lt;org.junit.runner.Runner&gt;)" returnType="[ext]void" visibility="protected">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="getChildren()" returnType="[ext]java.util.List&lt;org.junit.runner.Runner&gt;" visibility="protected"/>
+            <Method signature="describeChild(org.junit.runner.Runner)" returnType="org.junit.runner.Description" visibility="protected"/>
+            <Method signature="runChild(org.junit.runner.Runner,org.junit.runner.notification.RunNotifier)" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.MultipleFailureException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getFailures()" returnType="[ext]java.util.List&lt;java.lang.Throwable&gt;" visibility="public"/>
+            <Method signature="getMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="assertEmpty(java.util.List&lt;java.lang.Throwable&gt;)" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.model.RunnerScheduler" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="schedule(java.lang.Runnable)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="finished()" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.model.NoGenericTypeParametersValidator" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.reflect.Method)" returnType="[ext]void"/>
+            <Method signature="validate(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.RunnerBuilder" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="runnerForClass(java.lang.Class&lt;?&gt;)" returnType="org.junit.runner.Runner" isAbstract="true" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+            <Method signature="safeRunnerForClass(java.lang.Class&lt;?&gt;)" returnType="org.junit.runner.Runner" visibility="public"/>
+            <Method signature="addParent(java.lang.Class&lt;?&gt;)" returnType="[ext]java.lang.Class&lt;?&gt;">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="removeParent(java.lang.Class&lt;?&gt;)" returnType="[ext]void"/>
+            <Method signature="runners(java.lang.Class&lt;?&gt;,java.lang.Class&lt;?&gt;[])" returnType="[ext]java.util.List&lt;org.junit.runner.Runner&gt;" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="runners(java.lang.Class&lt;?&gt;,java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)" returnType="[ext]java.util.List&lt;org.junit.runner.Runner&gt;" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runners.model.Annotatable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="getAnnotations()" returnType="[ext]java.lang.annotation.Annotation[]" isAbstract="true" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runners.model.FrameworkField" extends="org.junit.runners.model.FrameworkMember" isGeneric="false" visibility="public">
+        <Extends mangling="org.junit.runners.model.FrameworkMember" genParams="org.junit.runners.model.FrameworkField"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.reflect.Field)" returnType="[ext]void"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getAnnotations()" returnType="[ext]java.lang.annotation.Annotation[]" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+            <Method signature="isShadowedBy(org.junit.runners.model.FrameworkField)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="getModifiers()" returnType="[ext]int" visibility="protected"/>
+            <Method signature="getField()" returnType="[ext]java.lang.reflect.Field" visibility="public"/>
+            <Method signature="getType()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getDeclaringClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="get(java.lang.Object)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.IllegalArgumentException"/>
+                <Throw mangling="java.lang.IllegalAccessException"/>
+            </Method>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.Statement" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="evaluate()" returnType="[ext]void" isAbstract="true" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.TestTimedOutException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(long,java.util.concurrent.TimeUnit)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getTimeout()" returnType="[ext]long" visibility="public"/>
+            <Method signature="getTimeUnit()" returnType="[ext]java.util.concurrent.TimeUnit" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.FrameworkMember" extends="[ext]java.lang.Object" isGeneric="true" genParams="T extends org.junit.runners.model.FrameworkMember&lt;T&gt;" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.runners.model.Annotatable"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="isShadowedBy(T)" returnType="[ext]boolean" isAbstract="true"/>
+            <Method signature="isShadowedBy(java.util.List&lt;T&gt;)" returnType="[ext]boolean"/>
+            <Method signature="getModifiers()" returnType="[ext]int" isAbstract="true" visibility="protected"/>
+            <Method signature="isStatic()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="isPublic()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public"/>
+            <Method signature="getType()" returnType="[ext]java.lang.Class&lt;?&gt;" isAbstract="true" visibility="public"/>
+            <Method signature="getDeclaringClass()" returnType="[ext]java.lang.Class&lt;?&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.TestClass" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.runners.model.Annotatable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="scanAnnotatedMembers(java.util.Map&lt;java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt;&gt;,java.util.Map&lt;java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;org.junit.runners.model.FrameworkField&gt;&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method genParams="T extends org.junit.runners.model.FrameworkMember&lt;T&gt;" signature="addToAnnotationLists(T,java.util.Map&lt;java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;T&gt;&gt;)" isStatic="true" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAnnotatedMethods()" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt;" visibility="public"/>
+            <Method signature="getAnnotatedMethods(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt;" visibility="public"/>
+            <Method signature="getAnnotatedFields()" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkField&gt;" visibility="public"/>
+            <Method signature="getAnnotatedFields(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)" returnType="[ext]java.util.List&lt;org.junit.runners.model.FrameworkField&gt;" visibility="public"/>
+            <Method signature="getJavaClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getOnlyConstructor()" returnType="[ext]java.lang.reflect.Constructor&lt;?&gt;" visibility="public"/>
+            <Method signature="getAnnotations()" returnType="[ext]java.lang.annotation.Annotation[]" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+            <Method genParams="T" signature="getAnnotatedFieldValues(java.lang.Object,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.lang.Class&lt;T&gt;)" returnType="[ext]java.util.List&lt;T&gt;" visibility="public"/>
+            <Method genParams="T" signature="getAnnotatedMethodValues(java.lang.Object,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.lang.Class&lt;T&gt;)" returnType="[ext]java.util.List&lt;T&gt;" visibility="public"/>
+            <Method signature="isPublic()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="isANonStaticInnerClass()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.TestClass$FieldComparator" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.Comparator" genParams="java.lang.reflect.Field"/>
+        <Methods>
+            <Method signature="compare(java.lang.reflect.Field,java.lang.reflect.Field)" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.FrameworkMethod" extends="org.junit.runners.model.FrameworkMember" isGeneric="false" visibility="public">
+        <Extends mangling="org.junit.runners.model.FrameworkMember" genParams="org.junit.runners.model.FrameworkMethod"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.reflect.Method)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getMethod()" returnType="[ext]java.lang.reflect.Method" visibility="public"/>
+            <Method signature="invokeExplosively(java.lang.Object,java.lang.Object[])" returnType="[ext]void" visibility="public" isVarargs="true">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="validatePublicVoidNoArg(boolean,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="validatePublicVoid(boolean,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getModifiers()" returnType="[ext]int" visibility="protected"/>
+            <Method signature="getReturnType()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getType()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getDeclaringClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="validateNoTypeParametersOnArgs(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="isShadowedBy(org.junit.runners.model.FrameworkMethod)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="producesType(java.lang.reflect.Type)" returnType="[ext]boolean" visibility="public" deprecated="true"/>
+            <Method signature="getAnnotations()" returnType="[ext]java.lang.annotation.Annotation[]" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.TestClass$MethodComparator" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.Comparator" genParams="org.junit.runners.model.FrameworkMethod"/>
+        <Methods>
+            <Method signature="compare(org.junit.runners.model.FrameworkMethod,org.junit.runners.model.FrameworkMethod)" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runners.model.InitializationError" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getCauses()" returnType="[ext]java.util.List&lt;java.lang.Throwable&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.ComparisonFailure" extends="[ext]java.lang.AssertionError" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.AssertionError"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,java.lang.String,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getActual()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getExpected()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.matchers.JUnitMatchers" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method genParams="T" signature="hasItem(T)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Iterable&lt;T&gt;&gt;" visibility="public" deprecated="true"/>
+            <Method genParams="T" signature="hasItem(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Iterable&lt;T&gt;&gt;" visibility="public" deprecated="true"/>
+            <Method genParams="T" signature="hasItems(T[])" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Iterable&lt;T&gt;&gt;" visibility="public" isVarargs="true" deprecated="true"/>
+            <Method genParams="T" signature="hasItems(org.hamcrest.Matcher&lt;T[]&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Iterable&lt;T&gt;&gt;" visibility="public" isVarargs="true" deprecated="true"/>
+            <Method genParams="T" signature="everyItem(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Iterable&lt;T&gt;&gt;" visibility="public" deprecated="true"/>
+            <Method signature="containsString(java.lang.String)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.String&gt;" visibility="public" deprecated="true"/>
+            <Method genParams="T" signature="both(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.core.CombinableMatcher.CombinableBothMatcher&lt;T&gt;" visibility="public" deprecated="true"/>
+            <Method genParams="T" signature="either(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.core.CombinableMatcher.CombinableEitherMatcher&lt;T&gt;" visibility="public" deprecated="true"/>
+            <Method genParams="T extends java.lang.Throwable" signature="isThrowable(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+            <Method genParams="T extends java.lang.Exception" signature="isException(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.Test$None" extends="[ext]java.lang.Throwable" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Throwable"/>
+        <Fields/>
+        <Methods/>
+    </Class>
+    <Interface mangling="org.junit.runner.FilterFactory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="createFilter(org.junit.runner.FilterFactoryParams)" returnType="org.junit.runner.manipulation.Filter" isAbstract="true" visibility="public">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runner.Result" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="getRunCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getFailureCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getRunTime()" returnType="[ext]long" visibility="public"/>
+            <Method signature="getFailures()" returnType="[ext]java.util.List&lt;org.junit.runner.notification.Failure&gt;" visibility="public"/>
+            <Method signature="getIgnoreCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="wasSuccessful()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="createListener()" returnType="org.junit.runner.notification.RunListener" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.JUnitCommandLineParseResult$CommandLineParserError" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.JUnitCommandLineParseResult" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="getFilterSpecs()" returnType="[ext]java.util.List&lt;java.lang.String&gt;" visibility="public"/>
+            <Method signature="getClasses()" returnType="[ext]java.util.List&lt;java.lang.Class&lt;?&gt;&gt;" visibility="public"/>
+            <Method signature="parse(java.lang.String[])" isStatic="true" returnType="org.junit.runner.JUnitCommandLineParseResult" visibility="public"/>
+            <Method signature="parseOptions(java.lang.String[])" returnType="[ext]java.lang.String[]" isVarargs="true"/>
+            <Method signature="parseParameters(java.lang.String[])" returnType="[ext]void"/>
+            <Method signature="createRequest(org.junit.runner.Computer)" returnType="org.junit.runner.Request" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runner.Describable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runner.FilterFactories" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="createFilterFromFilterSpec(org.junit.runner.Request,java.lang.String)" isStatic="true" returnType="org.junit.runner.manipulation.Filter" visibility="public">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+            <Method signature="createFilter(java.lang.String,org.junit.runner.FilterFactoryParams)" isStatic="true" returnType="org.junit.runner.manipulation.Filter" visibility="public">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+            <Method signature="createFilter(java.lang.Class&lt;? extends org.junit.runner.FilterFactory&gt;,org.junit.runner.FilterFactoryParams)" isStatic="true" returnType="org.junit.runner.manipulation.Filter" visibility="public">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+            <Method signature="createFilterFactory(java.lang.String)" isStatic="true" returnType="org.junit.runner.FilterFactory">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+            <Method signature="createFilterFactory(java.lang.Class&lt;? extends org.junit.runner.FilterFactory&gt;)" isStatic="true" returnType="org.junit.runner.FilterFactory">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.Result$SerializedForm" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.Result)" returnType="[ext]void" visibility="public"/>
+            <Method signature="serialize(java.io.ObjectOutputStream)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="deserialize(java.io.ObjectInputStream)" isStatic="true" returnType="[ext]org.junit.runner.Result.SerializedForm" visibility="public">
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.Runner" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.runner.Describable"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" isAbstract="true" visibility="public"/>
+            <Method signature="run(org.junit.runner.notification.RunNotifier)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testCount()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runner.RunWith" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;? extends org.junit.runner.Runner&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runner.manipulation.NoTestsRemainException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runner.manipulation.Sortable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="sort(org.junit.runner.manipulation.Sorter)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runner.manipulation.Filter" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="ALL" type="org.junit.runner.manipulation.Filter" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="matchMethodDescription(org.junit.runner.Description)" isStatic="true" returnType="org.junit.runner.manipulation.Filter" visibility="public"/>
+            <Method signature="shouldRun(org.junit.runner.Description)" returnType="[ext]boolean" isAbstract="true" visibility="public"/>
+            <Method signature="describe()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public"/>
+            <Method signature="apply(java.lang.Object)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runner.manipulation.NoTestsRemainException"/>
+            </Method>
+            <Method signature="intersect(org.junit.runner.manipulation.Filter)" returnType="org.junit.runner.manipulation.Filter" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.manipulation.Sorter" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.Comparator" genParams="org.junit.runner.Description"/>
+        <Fields>
+            <Field name="NULL" type="org.junit.runner.manipulation.Sorter" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.util.Comparator&lt;org.junit.runner.Description&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="apply(java.lang.Object)" returnType="[ext]void" visibility="public"/>
+            <Method signature="compare(org.junit.runner.Description,org.junit.runner.Description)" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runner.manipulation.Filterable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="filter(org.junit.runner.manipulation.Filter)" returnType="[ext]void" isAbstract="true" visibility="public">
+                <Throw mangling="org.junit.runner.manipulation.NoTestsRemainException"/>
+            </Method>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.runner.JUnitCore" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="main(java.lang.String[])" isStatic="true" returnType="[ext]void" visibility="public" isVarargs="true"/>
+            <Method signature="runClasses(java.lang.Class&lt;?&gt;[])" isStatic="true" returnType="org.junit.runner.Result" visibility="public" isVarargs="true"/>
+            <Method signature="runClasses(org.junit.runner.Computer,java.lang.Class&lt;?&gt;[])" isStatic="true" returnType="org.junit.runner.Result" visibility="public" isVarargs="true"/>
+            <Method signature="runMain(org.junit.internal.JUnitSystem,java.lang.String[])" returnType="org.junit.runner.Result" isVarargs="true"/>
+            <Method signature="getVersion()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="run(java.lang.Class&lt;?&gt;[])" returnType="org.junit.runner.Result" visibility="public" isVarargs="true"/>
+            <Method signature="run(org.junit.runner.Computer,java.lang.Class&lt;?&gt;[])" returnType="org.junit.runner.Result" visibility="public" isVarargs="true"/>
+            <Method signature="run(org.junit.runner.Request)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="run(junit.framework.Test)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="run(org.junit.runner.Runner)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="addListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="removeListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="defaultComputer()" isStatic="true" returnType="org.junit.runner.Computer"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.FilterFactory$FilterNotCreatedException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Exception)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.Request" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="method(java.lang.Class&lt;?&gt;,java.lang.String)" isStatic="true" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="aClass(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="classWithoutSuiteMethod(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="classes(org.junit.runner.Computer,java.lang.Class&lt;?&gt;[])" isStatic="true" returnType="org.junit.runner.Request" visibility="public" isVarargs="true"/>
+            <Method signature="classes(java.lang.Class&lt;?&gt;[])" isStatic="true" returnType="org.junit.runner.Request" visibility="public" isVarargs="true"/>
+            <Method signature="errorReport(java.lang.Class&lt;?&gt;,java.lang.Throwable)" isStatic="true" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="runner(org.junit.runner.Runner)" isStatic="true" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="getRunner()" returnType="org.junit.runner.Runner" isAbstract="true" visibility="public"/>
+            <Method signature="filterWith(org.junit.runner.manipulation.Filter)" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="filterWith(org.junit.runner.Description)" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="sortWith(java.util.Comparator&lt;org.junit.runner.Description&gt;)" returnType="org.junit.runner.Request" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.FilterFactoryParams" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.Description,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getArgs()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getTopLevelDescription()" returnType="org.junit.runner.Description" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.notification.Failure" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.Description,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getTestHeader()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="getException()" returnType="[ext]java.lang.Throwable" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getTrace()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.notification.RunNotifier" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="addListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="removeListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="wrapIfNotThreadSafe(org.junit.runner.notification.RunListener)" returnType="org.junit.runner.notification.RunListener"/>
+            <Method signature="fireTestRunStarted(org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestRunFinished(org.junit.runner.Result)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestStarted(org.junit.runner.Description)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runner.notification.StoppedByUserException"/>
+            </Method>
+            <Method signature="fireTestFailure(org.junit.runner.notification.Failure)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestAssumptionFailed(org.junit.runner.notification.Failure)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestIgnored(org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestFinished(org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="pleaseStop()" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFirstListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.runner.notification.RunListener$ThreadSafe" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Class mangling="org.junit.runner.notification.RunNotifier$SafeNotifier" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.notification.RunNotifier)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.util.List&lt;org.junit.runner.notification.RunListener&gt;)" returnType="[ext]void"/>
+            <Method signature="run()" returnType="[ext]void"/>
+            <Method signature="notifyListener(org.junit.runner.notification.RunListener)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.notification.StoppedByUserException" extends="[ext]java.lang.RuntimeException" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.RuntimeException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.notification.RunListener" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="testRunStarted(org.junit.runner.Description)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testRunFinished(org.junit.runner.Result)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testStarted(org.junit.runner.Description)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testFinished(org.junit.runner.Description)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testFailure(org.junit.runner.notification.Failure)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="testAssumptionFailure(org.junit.runner.notification.Failure)" returnType="[ext]void" visibility="public"/>
+            <Method signature="testIgnored(org.junit.runner.Description)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.Description" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields>
+            <Field name="EMPTY" type="org.junit.runner.Description" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="TEST_MECHANISM" type="org.junit.runner.Description" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="createSuiteDescription(java.lang.String,java.lang.annotation.Annotation[])" isStatic="true" returnType="org.junit.runner.Description" visibility="public" isVarargs="true"/>
+            <Method signature="createSuiteDescription(java.lang.String,java.io.Serializable,java.lang.annotation.Annotation[])" isStatic="true" returnType="org.junit.runner.Description" visibility="public" isVarargs="true"/>
+            <Method signature="createTestDescription(java.lang.String,java.lang.String,java.lang.annotation.Annotation[])" isStatic="true" returnType="org.junit.runner.Description" visibility="public" isVarargs="true"/>
+            <Method signature="createTestDescription(java.lang.Class&lt;?&gt;,java.lang.String,java.lang.annotation.Annotation[])" isStatic="true" returnType="org.junit.runner.Description" visibility="public" isVarargs="true"/>
+            <Method signature="createTestDescription(java.lang.Class&lt;?&gt;,java.lang.String)" isStatic="true" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="createTestDescription(java.lang.String,java.lang.String,java.io.Serializable)" isStatic="true" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="createSuiteDescription(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="getDisplayName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="addChild(org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getChildren()" returnType="[ext]java.util.ArrayList&lt;org.junit.runner.Description&gt;" visibility="public"/>
+            <Method signature="isSuite()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="isTest()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="testCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="isEmpty()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="childlessCopy()" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+            <Method signature="getAnnotations()" returnType="[ext]java.util.Collection&lt;java.lang.annotation.Annotation&gt;" visibility="public"/>
+            <Method signature="getTestClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getClassName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getMethodName()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.runner.Computer" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="serial()" isStatic="true" returnType="org.junit.runner.Computer" visibility="public"/>
+            <Method signature="getSuite(org.junit.runners.model.RunnerBuilder,java.lang.Class&lt;?&gt;[])" returnType="org.junit.runner.Runner" visibility="public">
+                <Throw mangling="org.junit.runners.model.InitializationError"/>
+            </Method>
+            <Method signature="getRunner(org.junit.runners.model.RunnerBuilder,java.lang.Class&lt;?&gt;)" returnType="org.junit.runner.Runner" visibility="protected">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationsValidator$FieldValidator" extends="[ext]org.junit.validator.AnnotationsValidator.AnnotatableValidator" isGeneric="false">
+        <Extends mangling="org.junit.validator.AnnotationsValidator.AnnotatableValidator" genParams="org.junit.runners.model.FrameworkField"/>
+        <Methods>
+            <Method signature="getAnnotatablesForTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.lang.Iterable&lt;org.junit.runners.model.FrameworkField&gt;"/>
+            <Method signature="validateAnnotatable(org.junit.validator.AnnotationValidator,org.junit.runners.model.FrameworkField)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.validator.TestClassValidator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="validateTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.validator.ValidateWith" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;? extends org.junit.validator.AnnotationValidator&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.validator.AnnotationsValidator$AnnotatableValidator" extends="[ext]java.lang.Object" isGeneric="true" genParams="T extends org.junit.runners.model.Annotatable">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="getAnnotatablesForTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.lang.Iterable&lt;T&gt;" isAbstract="true"/>
+            <Method signature="validateAnnotatable(org.junit.validator.AnnotationValidator,T)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" isAbstract="true"/>
+            <Method signature="validateTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationsValidator$MethodValidator" extends="[ext]org.junit.validator.AnnotationsValidator.AnnotatableValidator" isGeneric="false">
+        <Extends mangling="org.junit.validator.AnnotationsValidator.AnnotatableValidator" genParams="org.junit.runners.model.FrameworkMethod"/>
+        <Methods>
+            <Method signature="getAnnotatablesForTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.lang.Iterable&lt;org.junit.runners.model.FrameworkMethod&gt;"/>
+            <Method signature="validateAnnotatable(org.junit.validator.AnnotationValidator,org.junit.runners.model.FrameworkMethod)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationsValidator$ClassValidator" extends="[ext]org.junit.validator.AnnotationsValidator.AnnotatableValidator" isGeneric="false">
+        <Extends mangling="org.junit.validator.AnnotationsValidator.AnnotatableValidator" genParams="org.junit.runners.model.TestClass"/>
+        <Methods>
+            <Method signature="getAnnotatablesForTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.lang.Iterable&lt;org.junit.runners.model.TestClass&gt;"/>
+            <Method signature="validateAnnotatable(org.junit.validator.AnnotationValidator,org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationValidatorFactory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="createAnnotationValidator(org.junit.validator.ValidateWith)" returnType="org.junit.validator.AnnotationValidator" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationValidator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateAnnotatedClass(org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+            <Method signature="validateAnnotatedField(org.junit.runners.model.FrameworkField)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+            <Method signature="validateAnnotatedMethod(org.junit.runners.model.FrameworkMethod)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.AnnotationsValidator" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.validator.TestClassValidator"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.validator.PublicClassValidator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.validator.TestClassValidator"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateTestClass(org.junit.runners.model.TestClass)" returnType="[ext]java.util.List&lt;java.lang.Exception&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.Ignore" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.BeforeClass" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Interface mangling="org.junit.Before" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Interface mangling="org.junit.Test" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="expected()" returnType="[ext]java.lang.Class&lt;? extends java.lang.Throwable&gt;" isAbstract="true" visibility="public"/>
+            <Method signature="timeout()" returnType="[ext]long" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.AfterClass" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Interface mangling="org.junit.FixMethodOrder" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="org.junit.runners.MethodSorters" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.ComparisonFailure$ComparisonCompactor" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,java.lang.String,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="compact(java.lang.String)" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.matchers.ThrowableMessageMatcher" extends="[ext]org.hamcrest.TypeSafeMatcher" isGeneric="true" genParams="T extends java.lang.Throwable" visibility="public">
+        <Extends mangling="org.hamcrest.TypeSafeMatcher" genParams="T"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.hamcrest.Matcher&lt;java.lang.String&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="describeTo(org.hamcrest.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="matchesSafely(T)" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="describeMismatchSafely(T,org.hamcrest.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method genParams="T extends java.lang.Throwable" signature="hasMessage(org.hamcrest.Matcher&lt;java.lang.String&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.matchers.TypeSafeMatcher" extends="[ext]org.hamcrest.BaseMatcher" isGeneric="true" genParams="T" visibility="public" deprecated="true">
+        <Extends mangling="org.hamcrest.BaseMatcher" genParams="T"/>
+        <Fields/>
+        <Methods>
+            <Method signature="matchesSafely(T)" returnType="[ext]boolean" isAbstract="true" visibility="public"/>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="+ctor(java.lang.Class&lt;T&gt;)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="matches(java.lang.Object)" returnType="[ext]boolean" isFinal="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.matchers.StacktracePrintingMatcher" extends="[ext]org.hamcrest.TypeSafeMatcher" isGeneric="true" genParams="T extends java.lang.Throwable" visibility="public">
+        <Extends mangling="org.hamcrest.TypeSafeMatcher" genParams="T"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.hamcrest.Matcher&lt;T&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="describeTo(org.hamcrest.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="matchesSafely(T)" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="describeMismatchSafely(T,org.hamcrest.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method genParams="T extends java.lang.Throwable" signature="isThrowable(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+            <Method genParams="T extends java.lang.Exception" signature="isException(org.hamcrest.Matcher&lt;T&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.matchers.ThrowableCauseMatcher" extends="[ext]org.hamcrest.TypeSafeMatcher" isGeneric="true" genParams="T extends java.lang.Throwable" visibility="public">
+        <Extends mangling="org.hamcrest.TypeSafeMatcher" genParams="T"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.hamcrest.Matcher&lt;? extends java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="describeTo(org.hamcrest.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="matchesSafely(T)" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="describeMismatchSafely(T,org.hamcrest.Description)" returnType="[ext]void" visibility="protected"/>
+            <Method genParams="T extends java.lang.Throwable" signature="hasCause(org.hamcrest.Matcher&lt;? extends java.lang.Throwable&gt;)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;T&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.ArrayComparisonFailure" extends="[ext]java.lang.AssertionError" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.AssertionError"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,java.lang.AssertionError,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addDimension(int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.MethodSorter" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="DEFAULT" type="java.util.Comparator" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="NAME_ASCENDING" type="java.util.Comparator" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="getDeclaredMethods(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="[ext]java.lang.reflect.Method[]" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.internal.JUnitSystem" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="exit(int)" returnType="[ext]void" isAbstract="true" visibility="public" deprecated="true"/>
+            <Method signature="out()" returnType="[ext]java.io.PrintStream" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.internal.runners.JUnit38ClassRunner$OldTestClassAdaptingListener" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.TestListener"/>
+        <Fields/>
+        <Methods>
+            <Method signature="endTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="startTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addError(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailure(junit.framework.Test,junit.framework.AssertionFailedError)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.TestMethod" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.reflect.Method,org.junit.internal.runners.TestClass)" returnType="[ext]void" visibility="public"/>
+            <Method signature="isIgnored()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="getTimeout()" returnType="[ext]long" visibility="public"/>
+            <Method signature="getExpectedException()" returnType="[ext]java.lang.Class&lt;? extends java.lang.Throwable&gt;" visibility="protected"/>
+            <Method signature="isUnexpected(java.lang.Throwable)" returnType="[ext]boolean"/>
+            <Method signature="expectsException()" returnType="[ext]boolean"/>
+            <Method signature="getBefores()" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;"/>
+            <Method signature="getAfters()" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;"/>
+            <Method signature="invoke(java.lang.Object)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.IllegalArgumentException"/>
+                <Throw mangling="java.lang.IllegalAccessException"/>
+                <Throw mangling="java.lang.reflect.InvocationTargetException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="CLASS_RULE_VALIDATOR" type="org.junit.internal.runners.rules.RuleMemberValidator" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="RULE_VALIDATOR" type="org.junit.internal.runners.rules.RuleMemberValidator" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="CLASS_RULE_METHOD_VALIDATOR" type="org.junit.internal.runners.rules.RuleMemberValidator" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="RULE_METHOD_VALIDATOR" type="org.junit.internal.runners.rules.RuleMemberValidator" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(org.junit.internal.runners.rules.RuleMemberValidator.Builder)" returnType="[ext]void"/>
+            <Method signature="validate(org.junit.runners.model.TestClass,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$MethodMustBeARule" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$MemberMustBePublic" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.ValidationError" extends="[ext]java.lang.Exception" isGeneric="false">
+        <Extends mangling="java.lang.Exception"/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$MemberMustBeStatic" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$Builder" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="forMethods()" returnType="[ext]org.junit.internal.runners.rules.RuleMemberValidator.Builder"/>
+            <Method signature="withValidator(org.junit.internal.runners.rules.RuleMemberValidator.RuleValidator)" returnType="[ext]org.junit.internal.runners.rules.RuleMemberValidator.Builder"/>
+            <Method signature="build()" returnType="org.junit.internal.runners.rules.RuleMemberValidator"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$MemberMustBeNonStaticOrAlsoClassRule" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$FieldMustBeARule" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$MethodMustBeATestRule" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$DeclaringClassMustBePublic" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.rules.RuleMemberValidator$FieldMustBeATestRule" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.runners.rules.RuleMemberValidator$RuleValidator"/>
+        <Methods>
+            <Method signature="validate(org.junit.runners.model.FrameworkMember&lt;?&gt;,java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;,java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.TestClass" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getTestMethods()" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;" visibility="public"/>
+            <Method signature="getBefores()" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;"/>
+            <Method signature="getAfters()" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;"/>
+            <Method signature="getAnnotatedMethods(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)" returnType="[ext]java.util.List&lt;java.lang.reflect.Method&gt;" visibility="public"/>
+            <Method signature="getConstructor()" returnType="[ext]java.lang.reflect.Constructor&lt;?&gt;" visibility="public">
+                <Throw mangling="java.lang.SecurityException"/>
+                <Throw mangling="java.lang.NoSuchMethodException"/>
+            </Method>
+            <Method signature="getJavaClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.FailedBefore" extends="[ext]java.lang.Exception" isGeneric="false" deprecated="true">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.statements.FailOnTimeout$Builder" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="withTimeout(long,java.util.concurrent.TimeUnit)" returnType="[ext]org.junit.internal.runners.statements.FailOnTimeout.Builder" visibility="public"/>
+            <Method signature="withLookingForStuckThread(boolean)" returnType="[ext]org.junit.internal.runners.statements.FailOnTimeout.Builder" visibility="public"/>
+            <Method signature="build(org.junit.runners.model.Statement)" returnType="[ext]org.junit.internal.runners.statements.FailOnTimeout" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.statements.FailOnTimeout$CallableStatement" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.concurrent.Callable" genParams="java.lang.Throwable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="call()" returnType="[ext]java.lang.Throwable" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="awaitStarted()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.InterruptedException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.MethodValidator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.internal.runners.TestClass)" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateInstanceMethods()" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateStaticMethods()" returnType="[ext]void" visibility="public"/>
+            <Method signature="validateMethodsForDefaultRunner()" returnType="[ext]java.util.List&lt;java.lang.Throwable&gt;" visibility="public"/>
+            <Method signature="assertValid()" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.runners.InitializationError"/>
+            </Method>
+            <Method signature="validateNoArgConstructor()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.MethodRoadie" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Object,org.junit.internal.runners.TestMethod,org.junit.runner.notification.RunNotifier,org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="run()" returnType="[ext]void" visibility="public"/>
+            <Method signature="runTest()" returnType="[ext]void" visibility="public"/>
+            <Method signature="runBeforesThenTestThenAfters(java.lang.Runnable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="runTestMethod()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="addFailure(java.lang.Throwable)" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.InitializationError" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.util.List&lt;java.lang.Throwable&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Throwable[])" returnType="[ext]void" visibility="public" isVarargs="true"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getCauses()" returnType="[ext]java.util.List&lt;java.lang.Throwable&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.ClassRoadie" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.notification.RunNotifier,org.junit.internal.runners.TestClass,org.junit.runner.Description,java.lang.Runnable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="runUnprotected()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="addFailure(java.lang.Throwable)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="runProtected()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.model.ReflectiveCallable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="run()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+            <Method signature="runReflectiveCall()" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.runners.model.EachTestNotifier" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.notification.RunNotifier,org.junit.runner.Description)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailure(java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailedAssumption(org.junit.internal.AssumptionViolatedException)" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestFinished()" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestStarted()" returnType="[ext]void" visibility="public"/>
+            <Method signature="fireTestIgnored()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.AssumptionViolatedException" extends="[ext]java.lang.RuntimeException" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.RuntimeException"/>
+        <Implements mangling="[ext]org.hamcrest.SelfDescribing"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,boolean,java.lang.Object,org.hamcrest.Matcher&lt;?&gt;)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="+ctor(java.lang.Object,org.hamcrest.Matcher&lt;?&gt;)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="+ctor(java.lang.String,java.lang.Object,org.hamcrest.Matcher&lt;?&gt;)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="+ctor(java.lang.String,java.lang.Throwable)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="getMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="describeTo(org.hamcrest.Description)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.RealSystem" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.internal.JUnitSystem"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="exit(int)" returnType="[ext]void" visibility="public" deprecated="true"/>
+            <Method signature="out()" returnType="[ext]java.io.PrintStream" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.ComparisonCriteria" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="arrayEquals(java.lang.String,java.lang.Object,java.lang.Object)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.internal.ArrayComparisonFailure"/>
+            </Method>
+            <Method signature="assertElementsEqual(java.lang.Object,java.lang.Object)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.Throwables" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="rethrowAsException(java.lang.Throwable)" isStatic="true" returnType="[ext]java.lang.Exception" visibility="public">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.internal.Classes" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="getClass(java.lang.String)" isStatic="true" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public">
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.results.FailureList" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.util.List&lt;org.junit.runner.notification.Failure&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="result()" returnType="org.junit.runner.Result" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.results.ResultMatchers" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="isSuccessful()" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;org.junit.experimental.results.PrintableResult&gt;" visibility="public"/>
+            <Method signature="failureCountIs(int)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;org.junit.experimental.results.PrintableResult&gt;" visibility="public"/>
+            <Method signature="hasSingleFailureContaining(java.lang.String)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;java.lang.Object&gt;" visibility="public"/>
+            <Method signature="hasFailureContaining(java.lang.String)" isStatic="true" returnType="[ext]org.hamcrest.Matcher&lt;org.junit.experimental.results.PrintableResult&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.results.PrintableResult" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="testResult(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="org.junit.experimental.results.PrintableResult" visibility="public"/>
+            <Method signature="testResult(org.junit.runner.Request)" isStatic="true" returnType="org.junit.experimental.results.PrintableResult" visibility="public"/>
+            <Method signature="+ctor(java.util.List&lt;org.junit.runner.notification.Failure&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="failureCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.max.MaxCore" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="forFolder(java.lang.String)" isStatic="true" returnType="org.junit.experimental.max.MaxCore" visibility="public" deprecated="true"/>
+            <Method signature="storedLocally(java.io.File)" isStatic="true" returnType="org.junit.experimental.max.MaxCore" visibility="public"/>
+            <Method signature="run(java.lang.Class&lt;?&gt;)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="run(org.junit.runner.Request)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="run(org.junit.runner.Request,org.junit.runner.JUnitCore)" returnType="org.junit.runner.Result" visibility="public"/>
+            <Method signature="sortRequest(org.junit.runner.Request)" returnType="org.junit.runner.Request" visibility="public"/>
+            <Method signature="sortedLeavesForTest(org.junit.runner.Request)" returnType="[ext]java.util.List&lt;org.junit.runner.Description&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.max.MaxHistory$TestComparator" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.Comparator" genParams="org.junit.runner.Description"/>
+        <Fields/>
+        <Methods>
+            <Method signature="compare(org.junit.runner.Description,org.junit.runner.Description)" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.max.CouldNotReadCoreException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.max.MaxHistory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="forFolder(java.io.File)" isStatic="true" returnType="org.junit.experimental.max.MaxHistory" visibility="public"/>
+            <Method signature="getFailureTimestamp(org.junit.runner.Description)" returnType="[ext]java.lang.Long"/>
+            <Method signature="putTestFailureTimestamp(org.junit.runner.Description,long)" returnType="[ext]void"/>
+            <Method signature="isNewTest(org.junit.runner.Description)" returnType="[ext]boolean"/>
+            <Method signature="getTestDuration(org.junit.runner.Description)" returnType="[ext]java.lang.Long"/>
+            <Method signature="putTestDuration(org.junit.runner.Description,long)" returnType="[ext]void"/>
+            <Method signature="listener()" returnType="org.junit.runner.notification.RunListener" visibility="public"/>
+            <Method signature="testComparator()" returnType="[ext]java.util.Comparator&lt;org.junit.runner.Description&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.theories.ParameterSignature" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="signatures(java.lang.reflect.Method)" isStatic="true" returnType="[ext]java.util.ArrayList&lt;org.junit.experimental.theories.ParameterSignature&gt;" visibility="public"/>
+            <Method signature="signatures(java.lang.reflect.Constructor&lt;?&gt;)" isStatic="true" returnType="[ext]java.util.List&lt;org.junit.experimental.theories.ParameterSignature&gt;" visibility="public"/>
+            <Method signature="canAcceptValue(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="canAcceptType(java.lang.Class&lt;?&gt;)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="canPotentiallyAcceptType(java.lang.Class&lt;?&gt;)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="getType()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getAnnotations()" returnType="[ext]java.util.List&lt;java.lang.annotation.Annotation&gt;" visibility="public"/>
+            <Method signature="hasAnnotation(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)" returnType="[ext]boolean" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="findDeepAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+            <Method genParams="T extends java.lang.annotation.Annotation" signature="getAnnotation(java.lang.Class&lt;T&gt;)" returnType="[ext]T" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.experimental.theories.Theory" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="nullsAccepted()" returnType="[ext]boolean" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.experimental.theories.FromDataPoints" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.experimental.theories.DataPoints" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.String[]" isAbstract="true" visibility="public"/>
+            <Method signature="ignoredExceptions()" returnType="[ext]java.lang.Class&lt;? extends java.lang.Throwable[]&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.experimental.theories.suppliers.TestedOn" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="ints()" returnType="[ext]int[]" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.experimental.theories.PotentialAssignment" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="forValue(java.lang.String,java.lang.Object)" isStatic="true" returnType="org.junit.experimental.theories.PotentialAssignment" visibility="public"/>
+            <Method signature="getValue()" returnType="[ext]void" isAbstract="true" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+            <Method signature="getDescription()" returnType="[ext]java.lang.String" isAbstract="true" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.experimental.theories.ParametersSuppliedBy" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;? extends org.junit.experimental.theories.ParameterSupplier&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.experimental.theories.DataPoint" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.String[]" isAbstract="true" visibility="public"/>
+            <Method signature="ignoredExceptions()" returnType="[ext]java.lang.Class&lt;? extends java.lang.Throwable[]&gt;" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.experimental.theories.internal.Assignments" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="allUnassigned(java.lang.reflect.Method,org.junit.runners.model.TestClass)" isStatic="true" returnType="org.junit.experimental.theories.internal.Assignments" visibility="public"/>
+            <Method signature="isComplete()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="nextUnassigned()" returnType="org.junit.experimental.theories.ParameterSignature" visibility="public"/>
+            <Method signature="assignNext(org.junit.experimental.theories.PotentialAssignment)" returnType="org.junit.experimental.theories.internal.Assignments" visibility="public"/>
+            <Method signature="getActualValues(int,int)" returnType="[ext]java.lang.Object[]" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+            <Method signature="potentialsForNextUnassigned()" returnType="[ext]java.util.List&lt;org.junit.experimental.theories.PotentialAssignment&gt;" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+            <Method signature="getConstructorArguments()" returnType="[ext]java.lang.Object[]" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+            <Method signature="getMethodArguments()" returnType="[ext]java.lang.Object[]" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+            <Method signature="getAllArguments()" returnType="[ext]java.lang.Object[]" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+            <Method signature="getArgumentStrings(boolean)" returnType="[ext]java.lang.Object[]" visibility="public">
+                <Throw mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.theories.internal.ParameterizedAssertionError" extends="[ext]java.lang.AssertionError" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.AssertionError"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Throwable,java.lang.String,java.lang.Object[])" returnType="[ext]void" visibility="public" isVarargs="true"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="join(java.lang.String,java.lang.Object[])" isStatic="true" returnType="[ext]java.lang.String" visibility="public" isVarargs="true"/>
+            <Method signature="join(java.lang.String,java.util.Collection&lt;java.lang.Object&gt;)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException" extends="[ext]java.lang.Exception" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Exception"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="org.junit.experimental.theories.ParameterSupplier" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="getValueSources(org.junit.experimental.theories.ParameterSignature)" returnType="[ext]java.util.List&lt;org.junit.experimental.theories.PotentialAssignment&gt;" isAbstract="true" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.experimental.categories.Categories$ExcludeCategory" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;?&gt;[]" isAbstract="true" visibility="public"/>
+            <Method signature="matchAny()" returnType="[ext]boolean" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.experimental.categories.Category" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;?&gt;[]" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="org.junit.experimental.categories.CategoryFilterFactory" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="org.junit.runner.FilterFactory"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="createFilter(org.junit.runner.FilterFactoryParams)" returnType="org.junit.runner.manipulation.Filter" visibility="public">
+                <Throw mangling="org.junit.runner.FilterFactory$FilterNotCreatedException"/>
+            </Method>
+            <Method signature="createFilter(java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)" returnType="org.junit.runner.manipulation.Filter" isAbstract="true" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Interface mangling="org.junit.experimental.categories.Categories$IncludeCategory" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+        <Methods>
+            <Method signature="value()" returnType="[ext]java.lang.Class&lt;?&gt;[]" isAbstract="true" visibility="public"/>
+            <Method signature="matchAny()" returnType="[ext]boolean" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="org.junit.Rule" extends="[ext]java.lang.Object" isGeneric="false" isAnnotation="true" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.annotation.Annotation"/>
+    </Interface>
+    <Class mangling="junit.framework.TestResult" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="fFailures" type="java.util.List" visibility="protected"/>
+            <Field name="fErrors" type="java.util.List" visibility="protected"/>
+            <Field name="fListeners" type="java.util.List" visibility="protected"/>
+            <Field name="fRunTests" type="int" visibility="protected"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="addError(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailure(junit.framework.Test,junit.framework.AssertionFailedError)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addListener(junit.framework.TestListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="removeListener(junit.framework.TestListener)" returnType="[ext]void" visibility="public"/>
+            <Method signature="endTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="errorCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="errors()" returnType="[ext]java.util.Enumeration&lt;junit.framework.TestFailure&gt;" visibility="public"/>
+            <Method signature="failureCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="failures()" returnType="[ext]java.util.Enumeration&lt;junit.framework.TestFailure&gt;" visibility="public"/>
+            <Method signature="run(junit.framework.TestCase)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="runCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="runProtected(junit.framework.Test,junit.framework.Protectable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="shouldStop()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="startTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="stop()" returnType="[ext]void" visibility="public"/>
+            <Method signature="wasSuccessful()" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.TestFailure" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="fFailedTest" type="junit.framework.Test" visibility="protected"/>
+            <Field name="fThrownException" type="java.lang.Throwable" visibility="protected"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="failedTest()" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="thrownException()" returnType="[ext]java.lang.Throwable" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="trace()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="exceptionMessage()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="isFailure()" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.JUnit4TestAdapter" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.Test"/>
+        <Implements mangling="org.junit.runner.manipulation.Filterable"/>
+        <Implements mangling="org.junit.runner.manipulation.Sortable"/>
+        <Implements mangling="org.junit.runner.Describable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;,junit.framework.JUnit4TestAdapterCache)" returnType="[ext]void" visibility="public"/>
+            <Method signature="countTestCases()" returnType="[ext]int" visibility="public"/>
+            <Method signature="run(junit.framework.TestResult)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getTests()" returnType="[ext]java.util.List&lt;junit.framework.Test&gt;" visibility="public"/>
+            <Method signature="getTestClass()" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="public"/>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="filter(org.junit.runner.manipulation.Filter)" returnType="[ext]void" visibility="public">
+                <Throw mangling="org.junit.runner.manipulation.NoTestsRemainException"/>
+            </Method>
+            <Method signature="sort(org.junit.runner.manipulation.Sorter)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.AssertionFailedError" extends="[ext]java.lang.AssertionError" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.AssertionError"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.TestSuite" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.Test"/>
+        <Fields/>
+        <Methods>
+            <Method signature="createTest(java.lang.Class&lt;?&gt;,java.lang.String)" isStatic="true" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="getTestConstructor(java.lang.Class&lt;?&gt;)" isStatic="true" returnType="[ext]java.lang.reflect.Constructor&lt;?&gt;" visibility="public">
+                <Throw mangling="java.lang.NoSuchMethodException"/>
+            </Method>
+            <Method signature="warning(java.lang.String)" isStatic="true" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Class&lt;? extends junit.framework.TestCase&gt;,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.Class&lt;?&gt;[])" returnType="[ext]void" visibility="public" isVarargs="true"/>
+            <Method signature="+ctor(java.lang.Class&lt;? extends junit.framework.TestCase[]&gt;,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addTestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;)" returnType="[ext]void" visibility="public"/>
+            <Method signature="countTestCases()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="run(junit.framework.TestResult)" returnType="[ext]void" visibility="public"/>
+            <Method signature="runTest(junit.framework.Test,junit.framework.TestResult)" returnType="[ext]void" visibility="public"/>
+            <Method signature="setName(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="testAt(int)" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="testCount()" returnType="[ext]int" visibility="public"/>
+            <Method signature="tests()" returnType="[ext]java.util.Enumeration&lt;junit.framework.Test&gt;" visibility="public"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.ComparisonCompactor" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,java.lang.String,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="compact(java.lang.String)" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.JUnit4TestAdapterCache" extends="[ext]java.util.HashMap" isGeneric="false" visibility="public">
+        <Extends mangling="java.util.HashMap" genParams="org.junit.runner.Description,junit.framework.Test"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="getDefault()" isStatic="true" returnType="junit.framework.JUnit4TestAdapterCache" visibility="public"/>
+            <Method signature="asTest(org.junit.runner.Description)" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="createTest(org.junit.runner.Description)" returnType="junit.framework.Test"/>
+            <Method signature="getNotifier(junit.framework.TestResult,junit.framework.JUnit4TestAdapter)" returnType="org.junit.runner.notification.RunNotifier" visibility="public"/>
+            <Method signature="asTestList(org.junit.runner.Description)" returnType="[ext]java.util.List&lt;junit.framework.Test&gt;" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.Assert" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="assertTrue(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertTrue(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertFalse(java.lang.String,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertFalse(boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="fail(java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="fail()" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,java.lang.String,java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(double,double,double)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(float,float,float)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(long,long)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,boolean,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(boolean,boolean)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,byte,byte)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(byte,byte)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,char,char)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(char,char)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,short,short)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(short,short)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(java.lang.String,int,int)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertEquals(int,int)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotNull(java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotNull(java.lang.String,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNull(java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNull(java.lang.String,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertSame(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertSame(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotSame(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="assertNotSame(java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="failSame(java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="failNotSame(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="failNotEquals(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="format(java.lang.String,java.lang.Object,java.lang.Object)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.framework.JUnit4TestCaseFacade" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.Test"/>
+        <Implements mangling="org.junit.runner.Describable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(org.junit.runner.Description)" returnType="[ext]void"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="countTestCases()" returnType="[ext]int" visibility="public"/>
+            <Method signature="run(junit.framework.TestResult)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getDescription()" returnType="org.junit.runner.Description" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="junit.framework.TestListener" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="addError(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="addFailure(junit.framework.Test,junit.framework.AssertionFailedError)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="endTest(junit.framework.Test)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="startTest(junit.framework.Test)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="junit.framework.Protectable" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="protect()" returnType="[ext]void" isAbstract="true" visibility="public">
+                <Throw mangling="java.lang.Throwable"/>
+            </Method>
+        </Methods>
+    </Interface>
+    <Interface mangling="junit.framework.Test" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="countTestCases()" returnType="[ext]int" isAbstract="true" visibility="public"/>
+            <Method signature="run(junit.framework.TestResult)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="junit.runner.Version" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="id()" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="main(java.lang.String[])" isStatic="true" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="junit.runner.TestRunListener" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="STATUS_ERROR" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="STATUS_FAILURE" type="int" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="testRunStarted(java.lang.String,int)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testRunEnded(long)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testRunStopped(long)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testStarted(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testEnded(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testFailed(int,java.lang.String,java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="junit.runner.BaseTestRunner" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.TestListener"/>
+        <Fields>
+            <Field name="SUITE_METHODNAME" type="java.lang.String" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="fgMaxMessageLength" type="int" isStatic="true"/>
+            <Field name="fgFilterStack" type="boolean" isStatic="true"/>
+            <Field name="fLoading" type="boolean"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="startTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="setPreferences(java.util.Properties)" isStatic="true" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getPreferences()" isStatic="true" returnType="[ext]java.util.Properties" visibility="protected"/>
+            <Method signature="savePreferences()" isStatic="true" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="setPreference(java.lang.String,java.lang.String)" isStatic="true" returnType="[ext]void" visibility="public"/>
+            <Method signature="endTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addError(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailure(junit.framework.Test,junit.framework.AssertionFailedError)" returnType="[ext]void" visibility="public"/>
+            <Method signature="testStarted(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testEnded(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="testFailed(int,junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" isAbstract="true" visibility="public"/>
+            <Method signature="getTest(java.lang.String)" returnType="junit.framework.Test" visibility="public"/>
+            <Method signature="elapsedTimeAsString(long)" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="processArguments(java.lang.String[])" returnType="[ext]java.lang.String" visibility="protected"/>
+            <Method signature="setLoading(boolean)" returnType="[ext]void" visibility="public"/>
+            <Method signature="extractClassName(java.lang.String)" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="truncate(java.lang.String)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="runFailed(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="loadSuiteClass(java.lang.String)" returnType="[ext]java.lang.Class&lt;?&gt;" visibility="protected">
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+            </Method>
+            <Method signature="clearStatus()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="useReloadingTestSuiteLoader()" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="getPreference(java.lang.String)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getPreference(java.lang.String,int)" isStatic="true" returnType="[ext]int" visibility="public"/>
+            <Method signature="getFilteredTrace(java.lang.Throwable)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getFilteredTrace(java.lang.String)" isStatic="true" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="showStackRaw()" isStatic="true" returnType="[ext]boolean" visibility="protected"/>
+            <Method signature="filterLine(java.lang.String)" isStatic="true" returnType="[ext]boolean"/>
+        </Methods>
+    </Class>
+    <Class mangling="junit.textui.ResultPrinter" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="junit.framework.TestListener"/>
+        <Fields>
+            <Field name="fWriter" type="java.io.PrintStream"/>
+            <Field name="fColumn" type="int"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.io.PrintStream)" returnType="[ext]void" visibility="public"/>
+            <Method signature="print(junit.framework.TestResult,long)" returnType="[ext]void"/>
+            <Method signature="printWaitPrompt()" returnType="[ext]void"/>
+            <Method signature="printHeader(long)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printErrors(junit.framework.TestResult)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printFailures(junit.framework.TestResult)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printDefects(java.util.Enumeration&lt;junit.framework.TestFailure&gt;,int,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printDefect(junit.framework.TestFailure,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="printDefectHeader(junit.framework.TestFailure,int)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printDefectTrace(junit.framework.TestFailure)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="printFooter(junit.framework.TestResult)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="elapsedTimeAsString(long)" returnType="[ext]java.lang.String" visibility="protected"/>
+            <Method signature="getWriter()" returnType="[ext]java.io.PrintStream" visibility="public"/>
+            <Method signature="addError(junit.framework.Test,java.lang.Throwable)" returnType="[ext]void" visibility="public"/>
+            <Method signature="addFailure(junit.framework.Test,junit.framework.AssertionFailedError)" returnType="[ext]void" visibility="public"/>
+            <Method signature="endTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+            <Method signature="startTest(junit.framework.Test)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+</BlackBox>

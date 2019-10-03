@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <metric id='-1' type='N/A' originalName='' active='N/A' detached='N/A' ignored='false' />
+    <metric id="61009" type="technical-criterion" originalName="Complexity - Algorithmic and Control Structure Complexity" active="true" detached="false" ignored="false"/>
+    <metric id="61026" type="technical-criterion" originalName="Complexity - Technical Complexity" active="true" detached="false" ignored="false"/>
+    <metric id="65105" type="quality-distribution" originalName="Size Distribution" active="N/A" detached="N/A" ignored="false"/>
+    <metric id="65350" type="quality-distribution" originalName="Coupling Distribution" active="N/A" detached="N/A" ignored="false"/>
+    <metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution" active="N/A" detached="N/A" ignored="false"/>
+    <metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution"          active="N/A" detached="N/A" ignored="false"/>
+    <metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" active="N/A" detached="N/A" ignored="false"/>
+    <metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution"          active="N/A" detached="N/A" ignored="false"/>
+    <metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution"           active="N/A" detached="N/A" ignored="false"/>
+    <metric id='61003' type="technical-criterion" originalName='Programming Practices - OO Inheritance and Polymorphism' active="N/A" detached="N/A" ignored="false"/>
+    <metric id="61004" type="technical-criterion" originalName="Architecture - OS and Platform Independence"             active="true" detached="false" ignored="false"/>
+    <metric id="61006" type="technical-criterion" originalName="Documentation - Style Conformity"                        active="true" detached="false" ignored="false"/>
+    <metric id="61014" type="technical-criterion" originalName="Programming Practices - Error and Exception Handling"    active="true" detached="false" ignored="false"/>
+    <metric id="61017" type="technical-criterion" originalName="Documentation - Naming Convention Conformity"            active="true" detached="false" ignored="false"/>
+	<metric id="61019" type="technical-criterion" originalName="Efficiency - SQL and Data Handling Performance"          active="true" detached="false" ignored="false"/>
+    <metric id="61020" type="technical-criterion" originalName="Programming Practices - Modularity and OO Encapsulation Conformity"     active="true" detached="false" ignored="false"/>
+    <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness"                                 active="true" detached="false" ignored="false"/>
+    <metric id="66062" type="technical-criterion" originalName="Secure Coding - Input Validation"                                       active="true" detached="false" ignored="false"/>
+    <metric id='66063' type="technical-criterion" originalName="Secure Coding - API Abuse"                                              active="true" detached="false" ignored="false"/>
+    <metric id="66064" type="technical-criterion" originalName="Secure Coding - Weak Security Features"                                 active="true" detached="false" ignored="false"/>
+    <metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation"                                          active="true" detached="false" ignored="false"/>
+    <metric id="66068" type="technical-criterion" originalName="Efficiency - Expensive Calls in Loops"                                  active="true" detached="false" ignored="false"/>
+    <metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior"                            active="true" detached="false" ignored="false"/>
+    <metric id="7776"    type="quality-rule" originalName="Avoid Artifacts with High Fan-In"                                            active="true" detached="false" ignored="false" />
+    <metric id="7778"    type="quality-rule" originalName="Avoid Artifacts with High Fan-Out"                                           active="true" detached="false" ignored="false" />
+    <metric id="7792"    type="quality-rule" originalName="Avoid Classes with a High Number Of Children"                                active="true" detached="false" ignored="false" />
+    <metric id='1021000' type='quality-rule' originalName='Avoid Artifacts with High Cyclomatic Complexity (Python)'                    active='true' detached='false' ignored='false' />
+    <metric id='1021002' type='quality-rule' originalName='Avoid using a web service with Python httplib HTTPConnection inside a loop'  active='true' detached='false' ignored='false' />
+    <metric id='1021004' type='quality-rule' originalName='Avoid using a web service with Python requests inside a loop'                active='true' detached='false' ignored='false' />
+    <metric id='1021006' type='quality-rule' originalName='Avoid using a web service with Python aiohttp ClientSession inside a loop'   active='true' detached='false' ignored='false' />
+    <metric id='1021008' type='quality-rule' originalName='Avoid using a web service with Python urllib.request inside a loop'          active='true' detached='false' ignored='false' />
+    <metric id='1021010' type='quality-rule' originalName='Avoid using a web service with Python urllib2 inside a loop'                 active='true' detached='false' ignored='false' />
+    <metric id='1021012' type='quality-rule' originalName='Avoid using a web service with Python httplib2 Http inside a loop'           active='true' detached='false' ignored='false' />
+    <metric id='1021014' type='quality-rule' originalName='Avoid using yield and return with value inside a function'                   active='true' detached='false' ignored='false' />
+    <metric id='1021016' type='quality-rule' originalName='Avoid using MD5, SHA1 hashes to hash passwords or to encrypt data'           active='true' detached='false' ignored='false' />
+    <metric id='1021018' type='quality-rule' originalName='Avoid catch-all except blocks with empty handlers'                           active='true' detached='false' ignored='false' />
+    <metric id='1021020' type='quality-rule' originalName='Avoid using wildcard (*) imports'                                            active='true' detached='false' ignored='false' />
+    <metric id='1021022' type='quality-rule' originalName='Initialize ancestors when overriding __init__'                               active='true' detached='false' ignored='false' />
+    <metric id='1021024' type='quality-rule' originalName='Avoid return statement in finally block'                                     active='true' detached='false' ignored='false' />
+    <metric id='1021026' type='quality-rule' originalName='Avoid leaving open file resources (Python)'                                  active='true' detached='false' ignored='false' />
+    <metric id='1021028' type='quality-rule' originalName='Avoid empty finally block (Python)'                                          active='true' detached='false' ignored='false' />
+    <metric id='1021030' type='quality-rule' originalName='Avoid hardcoded network resource names (Python)'                             active='true' detached='false' ignored='false' />
+    <metric id='1021032' type='quality-rule' originalName='Avoid disabling certificate check when requesting secured urls'              active='true' detached='false' ignored='false' />
+    <metric id='1021034' type='quality-rule' originalName='Avoid inconsistent initialization when deriving a new exception'             active='true' detached='false' ignored='false' />
+    <metric id='1021036' type='quality-rule' originalName='Avoid using eval (Python)'                                                   active='true' detached='false' ignored='false' />
+    <metric id='1021038' type='quality-rule' originalName='Avoid using exec (Python)'                                                   active='true' detached='false' ignored='false' />
+    <metric id='1021040' type='quality-rule' originalName='Avoid attributes only differing by caps'                                     active='true' detached='false' ignored='false' />
+    <metric id='1021042' type='quality-rule' originalName='Avoid hardcoded passwords (Python)'                                                   active='true' detached='false' ignored='false' />
+    <metric id='1021044' type='quality-rule' originalName='Avoid Python string interpolations to prevent SQL injections'                active='true' detached='false' ignored='false' />
+    <metric id='1021046' type='quality-rule' originalName='Avoid Not Is'                                                                active='true' detached='false' ignored='false' />
+    <metric id='1021048' type='quality-rule' originalName='Protect sensitive data in config files from disclosure'                      active='true' detached='false' ignored='false' />
+    <metric id='1021050' type='quality-rule' originalName='Avoid using unsecured cookie (Python)'                                       active='true' detached='false' ignored='false' />
+    <metric id='1021052' type='quality-rule' originalName='Avoid too long lines'                                                        active='true' detached='false' ignored='false' />
+    <metric id='1021054' type='quality-rule' originalName='Avoid long docstring lines'                                                  active='true' detached='false' ignored='false' />
+    <metric id='1021056' type='quality-rule' originalName='Missing whitespace after comma'                                              active='true' detached='false' ignored='false' />
+    <metric id='1021058' type='quality-rule' originalName='Avoid superfluous parenthesis'                                               active='true' detached='false' ignored='false' />
+    <metric id='1021060' type='quality-rule' originalName='Avoid trailing whitespace'                                                   active='true' detached='false' ignored='false' />
+    <metric id='1021062' type='quality-rule' originalName='Respect variable naming conventions'                                         active='true' detached='false' ignored='false' />
+    <metric id='1021064' type='quality-rule' originalName='Respect function naming conventions'                                         active='true' detached='false' ignored='false' />
+    <metric id='1021066' type='quality-rule' originalName='Respect class naming conventions'                                            active='true' detached='false' ignored='false' />
+    <metric id='1021068' type='quality-rule' originalName='Avoid using global statement'                                                active='true' detached='false' ignored='false' />
+    <metric id='1021070' type='quality-rule' originalName='Avoid Superclass knowing Subclass (Python)'                                  active='true' detached='false' ignored='false' />
+</root>

@@ -1,0 +1,71 @@
+{
+    "id": 1003180,
+    "name": "Avoid packages having artifacts with misplaced metadata (Flex)",
+    "href": "AIP/quality-rules/1003180",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports packages having artifacts with misplaced metadata.",
+    "output": "This QR reports packages having artifacts with misplaced metadata. It provides following information:\n- Package full name",
+    "rationale": "Misplaced metadata will result unexpected behaviour.",
+    "remediation": "Put metadata at appropriate place.",
+    "sample": "package {\n    [MessageHandler(type=\"a.b.MyMessage\")] // VIOLATION\n    public class AvoidMethodWithRedundantMetadataForType\n    {\n        \n        public function AvoidMethodWithRedundantMetadataForType() \n        {\n            \n        }\n\n        public function doSomething( message : MyMessage ) : void\n        {\n           message.toString();\n        }\n\n   }\n\n}",
+    "total": "Number of packages",
+    "alternativeName": "Avoid packages having artifacts with misplaced metadata (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.parsley.MisplacedMetaData"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

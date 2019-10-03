@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="description">
+    <english>The software transmits sensitive or security-critical data in cleartext in a communication channel that can be sniffed by unauthorized actors. 
+The javax.net.ssl.SSLContext.getInstance returns a SSLContext object that implements the specified secure socket protocol. However, not all protocols are created equal and some legacy ones like "SSL", have been proven to be insecure. 
+This rule reports a violation when an SSLContext is created with an insecure protocol (ie: a protocol different from "TLSv1.2" or "DTLSv1.2"). 
+
+- SSL v2 is insecure and must not be used. This protocol version is so bad that it can be used to attack RSA keys and sites with the same name even if they are on an entirely different servers (the DROWN attack). 
+- SSL v3 is insecure when used with HTTP (the POODLE attack) and weak when used with other protocols. It’s also obsolete and shouldn’t be used. 
+- TLS v1.0 is also a legacy protocol that shouldn't be used, but it's typically still necessary in practice. Its major weakness (BEAST) has been mitigated in modern browsers, but other problems remain. 
+- TLS v1.1 and v1.2 are both without known security issues, but only v1.2 provides modern cryptographic algorithms.</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="name">
+    <english>Avoid using Deprecated SSL protocols to secure connection</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="rationale">
+    <english>Secure Socket Layer (SSL) technology is security that is implemented at the transport layer (see Transport-Layer Security for more information about transport-layer security). SSL allows web browsers and web servers to communicate over a secure connection. In this secure connection, the data is encrypted before being sent and then is decrypted upon receipt and before processing. Both the browser and the server encrypt all traffic before sending any data. SSL addresses the following important security considerations: Authentication, Confidentiality and Integrity</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="reference">
+    <english>https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices 
+https://cwe.mitre.org/data/definitions/319.html
+
+This rule is compliant with CWE-319: Cleartext Transmission of Sensitive Information</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="remediation">
+    <english>Use TLS or DTLS  in place of SSL.</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="remediationSample">
+    <english>context = SSLContext.getInstance("TLSv1.2"); // Violation FIXED</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="sample">
+    <english>context = SSLContext.getInstance("SSL"); // Violation used protocol is not 'TLSv1.2' or 'DTLSv1.2'</english>
+  </metric>
+  <metric id="1039002" type="quality-rule" originalName="Avoid using Deprecated SSL protocols to secure connection" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="description">
+    <english>According to the Oracle Java API, the HttpServletRequest.getRequestedSessionId() method Returns the session ID specified by the client. 
+        This may not be the same as the ID of the current valid session for this request. If the client did not specify a session ID, this method returns null. 
+
+        The session ID it returns is either transmitted in a cookie or a URL parameter so by definition, nothing prevents the end-user from manually updating 
+        the value of this session ID in the HTTP request. 
+
+        Here is an example of a updated HTTP header: 
+        
+        ----------------------------------- 
+        GET /pageSomeWhere HTTP/1.1 
+        Host: webSite.com 
+        User-Agent: Mozilla/5.0 
+        Cookie: JSESSIONID=Hacked_Session_Value 
+        -------------------------------------- 
+
+        Due to the ability of the end-user to manually change the value, the session ID in the request should only be used by a servlet container (E.G. Tomcat or Jetty) 
+        to see if the value matches the ID of an an existing session. If it does not, the user should be considered unauthenticated. Moreover, 
+        this session ID should never be logged to prevent hijacking of active sessions.</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="name">
+    <english>Avoid using HttpServletRequest.getRequestedSessionId()</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="rationale">
+    <english>Developers may assume that inputs such as cookies, environment variables, and hidden form fields cannot be modified. 
+        However, an attacker could change these inputs using customized clients or other attacks. This change might not be detected. 
+        When security decisions such as authentication and authorization are made based on the values of these inputs, attackers can bypass the security of the software. 
+        Without sufficient encryption, integrity checking, or other mechanism, any input that originates from an outsider cannot be trusted.</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/807 
+        OWASP 2017 Category A2 - Broken Authentication</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="remediation">
+    <english>Do NOT USE getRequestedSessionId.</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="remediationSample">
+    <english>Do NOT USE getRequestedSessionId.</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="sample">
+    <english>if(isActiveSession(request.getRequestedSessionId()) ){ 
+               ... 
+              }</english>
+  </metric>
+  <metric id="1039004" type="quality-rule" originalName="Avoid using HttpServletRequest.getRequestedSessionId()" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="description">
+    <english>The java.security.SecureRandom class provides a strong random number generator (RNG) appropriate for cryptography. However, seeding it with a constant or another predictable value will weaken it significantly. In general, it is much safer to rely on the seed provided by the SecureRandom implementation. 
+
+This rule reports violation when SecureRandom.setSeed() or SecureRandom(byte[]) are called with a seed that is either of: 
+
+A constant 
+System.currentTimeMillis()</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="name">
+    <english>Avoid using predictable SecureRandom Seeds</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="rationale">
+    <english>The use of predictable seeds significantly reduces the number of possible seeds that an attacker would need to test in order to predict which random numbers will be generated by the RNG</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/337.html 
+http://cwe.mitre.org/data/definitions/336.html 
+OWASP Top 10 2017 Category A6 - Security Misconfiguration</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="remediation">
+    <english>Use of predictable seeds is not recommended.</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="remediationSample">
+    <english>SecureRandom sr = new SecureRandom(); 
+int v = sr.next(32) // Violation FIXED</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="sample">
+    <english>Sample 1 
+SecureRandom sr = new SecureRandom(); 
+sr.setSeed(123456L); // VIOLATION 
+int v = sr.next(32); 
+
+sr = new SecureRandom("abcdefghijklmnop".getBytes("us-ascii")); // VIOLATION 
+v = sr.next(32); 
+
+------------------------ 
+Sample 2 
+Random random = new Random(System.currentTimeMillis()); // VIOLATION 
+int accountID = random.nextInt();</english>
+  </metric>
+  <metric id="1039006" type="quality-rule" originalName="Avoid using predictable SecureRandom Seeds" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="description">
+    <english>Even though the signatures for methods in a servlet include throws IOException, ServletException, it's a bad idea to let such exceptions be thrown. 
+
+This rule report all exceptions in methods named "do*" ( doPost; doGet...) are explicitly handled in servlet classes.</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="name">
+    <english>Avoid thrown Exceptions in servlet methods</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="rationale">
+    <english>When a Servlet throws an exception, the default error response the Servlet container sends back to the user typically includes debugging information. 
+        This information is of great value to an attacker. For example, a stack trace might show the attacker a malformed SQL query string, the type of database being used, 
+        and the version of the application container. This information enables the attacker to target known vulnerabilities in these components.</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/600.html 
+OWASP Top 10 2017 Category A3 - Sensitive Data Exposure</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="remediation">
+    <english>Use of try catch block is not recommended.</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="remediationSample">
+    <english>public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  throws IOException, ServletException { 
+  try { 
+    String ip = request.getRemoteAddr(); 
+    InetAddress addr = InetAddress.getByName(ip); 
+    //... 
+  } 
+  catch (UnknownHostException uhex) { 
+    //... 
+  } 
+}</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="sample">
+    <english>protected void doPost (HttpServletRequest req, HttpServletResponse res) throws IOException { 
+String ip = req.getRemoteAddr(); 
+InetAddress addr = InetAddress.getByName(ip); 
+... 
+out.println("hello " + addr.getHostName()); 
+} 
+
+
+public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  throws IOException, ServletException { 
+  String ip = request.getRemoteAddr(); 
+  InetAddress addr = InetAddress.getByName(ip); // VIOLATION; getByName(String) throws UnknownHostException 
+  //... 
+}</english>
+  </metric>
+  <metric id="1039008" type="quality-rule" originalName="Avoid thrown Exceptions in servlet methods" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="description">
+    <english>MD5/SHA1 hashes were used as salt to hash a password or a passphrase. In cryptography, a salt is random data that's used as additional input to a one-way function. 
+Recently, several exploits were developed which proved that MD5 will generate identical outputs for the different input parameters. 
+As a consequence, somebody can break your encryption or log on to your website. 
+MD2, MD4, Bouncy Castle, JCE are also considered as week hash functions and should not be used.
+Hashing algorithm is either passed through parameter or by properties file.</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="name">
+    <english>Avoid using risky cryptographic hash (JEE)</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="rationale">
+    <english>The use of a non-standard algorithm is dangerous because a determined attacker may be able to break the algorithm and compromise whatever data has been protected. 
+        Well-known techniques may exist to break the algorithm.</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/327.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="remediation">
+    <english>Avoid using MD5 or SHA1 hashes as input to cryptographic functions or to store passwords. The following hashing algorithms: SHA256, SHA384, and SHA512 are recommanded instead. 
+Make sure you choose the most appropriate one, depending on your use case, security requirements and runtime constraints. 
+
+SHA-256 is a 256-bit hash function intended to provide 128 bits of security against collision attacks, 
+while SHA-512 is a 512-bit hash function intended to provide 256 bits of security. A 384-bit hash may be obtained by truncating the SHA-512 output</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="remediationSample">
+    <english>Remediation for Sample 1 
+private static String getSalt() throws NoSuchAlgorithmException 
+{ 
+SecureRandom sr = SecureRandom.getInstance(“SHA-256”);
+byte[] salt = new byte[16]; 
+sr.nextBytes(salt); 
+return salt.toString(); 
+} 
+____________________________________________________________ 
+Remediation for Sample 2 
+Solution (Using bouncy castle): 
+
+public static byte[] getEncryptedPassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException 
+ { 
+    PKCS5S2ParametersGenerator gen = new PKCS5S2ParametersGenerator(new SHA256Digest()); 
+    gen.init(password.getBytes("UTF-8"), salt.getBytes(), 4096); 
+    return ((KeyParameter) gen.generateDerivedParameters(256)).getKey(); 
+} 
+
+Solution (Java 8 and later): 
+public static byte[] getEncryptedPassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException 
+{ 
+    KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 4096, 256 * 8); 
+    SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256"); 
+    return f.generateSecret(spec).getEncoded(); 
+}</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="sample">
+    <english>Sample 1 : 
+private static String getSalt() throws NoSuchAlgorithmException 
+{ 
+SecureRandom sr = SecureRandom.getInstance(“SHA1PRNG”); 
+byte[] salt = new byte[16]; 
+sr.nextBytes(salt); 
+return salt.toString(); 
+} 
+___________________________________________________________ 
+Sample 2 
+MessageDigest md5Digest = MessageDigest.getInstance("MD5"); 
+    md5Digest.update(password.getBytes()); 
+    byte[] hashValue = md5Digest.digest(); 
+
+byte[] hashValue = DigestUtils.getMd5Digest().digest(password.getBytes());
+____________________________________________________________
+Sample 3 
+java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+byte[] input = { (byte)'?' };
+Object inputParam = param;
+
+if (inputParam instanceof String) input = ((String) inputParam).getBytes();
+    if (inputParam instanceof java.io.InputStream) {
+        byte[] strInput = new byte[1000];
+        int i = ((java.io.InputStream) inputParam).read(strInput);
+        if (i == -1) {
+                response.getWriter().println(
+"This input source requires a POST, not a GET. Incompatible UI for the InputStream source."
+);
+            return;
+            }
+            input = java.util.Arrays.copyOf(strInput, i);
+            }           
+            md.update(input);</english>
+  </metric>
+  <metric id="1039010" type="quality-rule" originalName="Avoid using risky cryptographic hash (JEE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="description">
+    <english>The fields in an HTTP request are putty in the hands of an attacker, and you cannot rely on them to tell you the truth about anything. While it may be safe to store such values after they have been neutralized, decisions should never be made based on their contents. 
+
+This rule reports a violation when a referer header field is used.</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="name">
+    <english>Avoid using referer header field in HTTP request</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="rationale">
+    <english>Developers may assume that inputs such as cookies, environment variables, and hidden form fields cannot be modified. However, an attacker could change these inputs using customized clients or other attacks. This change might not be detected. When security decisions such as authentication and authorization are made based on the values of these inputs, attackers can bypass the security of the software. 
+
+Without sufficient encryption, integrity checking, or other mechanism, any input that originates from an outsider cannot be trusted. 
+
+The referer field in HTTP requests can be easily modified and, as such, is not a valid means of message integrity checking.</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/293 
+http://cwe.mitre.org/data/definitions/807 
+OWASP 2017 Category A2 - Broken Authentication</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="remediation">
+    <english>Use of referer in HTTP request header field is not recommended.</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="remediationSample">
+    <english>public class MyServlet extends HttpServlet { 
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException { 
+    String referer = request.getHeader(headerName); // VIOLATION FIXED
+    //...
+  } 
+}</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="sample">
+    <english>public class MyServlet extends HttpServlet { 
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException { 
+    String referer = request.getHeader("referer"); // VIOLATION 
+    if(isTrustedReferer(referer)){ 
+      //.. 
+    } 
+    //... 
+  } 
+}</english>
+  </metric>
+  <metric id="1039012" type="quality-rule" originalName="Avoid using referer header field in HTTP request" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="description">
+    <english>The ciphertext produced is susceptible to alteration by an adversary. This mean that the cipher provides no way to detect that the data has been tampered with. If the ciphertext can be controlled by an attacker, it could be altered without detection. 
+
+The solution is to used a cipher that includes a Hash based Message Authentication Code (HMAC) to sign the data. 
+As following modes don't provide a HMAC, a violation will be reported when one of them is used. 
+- CBC 
+- OFB 
+- CTR 
+- ECB</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="name">
+    <english>Avoid using Cipher with no HMAC to ensure data integrity</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="rationale">
+    <english>If integrity check values or "checksums" are omitted from a protocol, there is no way of determining if data has been corrupted in transmission. The lack of checksum functionality in a protocol removes the first application-level check of data that can be used. The end-to-end philosophy of checks states that integrity checks should be performed at the lowest level that they can be completely implemented. 
+
+So using a cipher that includes a Hash based Message Authentication Code (HMAC) to sign the data will ensure data integrity. It is always recommended that you be able to verify the HMAC first, and only if the data is unmodified, do you then perform any cryptographic functions on the data.</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/353.html</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="remediation">
+    <english>Only uses mode introduceing an HMAC into the resulting encrypted data, providing integrity of the result as GCM.</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="remediationSample">
+    <english>Cipher c = Cipher.getInstance("AES/GCM/NoPadding"); 
+c.init(Cipher.ENCRYPT_MODE, k, iv); 
+byte[] cipherText = c.doFinal(plainText);</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="sample">
+    <english>AES in CBC mode 
+Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding"); 
+c.init(Cipher.ENCRYPT_MODE, k, iv); 
+byte[] cipherText = c.doFinal(plainText);</english>
+  </metric>
+  <metric id="1039014" type="quality-rule" originalName="Avoid using Cipher with no HMAC to ensure data integrity" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="description">
+    <english>Unvalidated redirects occur when an application redirects a user to a destination URL specified by a user supplied parameter that is not validated. Such vulnerabilities can be used to facilitate phishing attacks. 
+
+Scenario 
+1. A user is tricked into visiting the malicious URL: http://website.com/login?redirect=http://evil.vvebsite.com/fake/login 
+2. The user is redirected to a fake login page that looks like a site they trust. (http://evil.vvebsite.com/fake/login) 
+3. The user enters his credentials. 
+4. The evil site steals the user's credentials and redirects him to the original website. 
+
+This attack is plausible because most users don't double check the URL after the redirection. Also, redirection to an authentication page is very common.</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="name">
+    <english>Avoid Unvalidated URL Redirect</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="rationale">
+    <english>An http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance.</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/601 
+https://www.owasp.org/index.php/Unvalidated_Redirects_and_Forwards_Cheat_Sheet</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="remediation">
+    <english>Don't accept redirection destinations from users 
+Accept a destination key, and use it to look up the target (legal) destination 
+Accept only relative paths 
+White list URLs (if possible) 
+Validate that the beginning of the URL is part of a white list</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="remediationSample">
+    <english>response.sendRedirect("http://www.mysite.com"); // Violation FIXED</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="sample">
+    <english>Sample 1: 
+The following code is a Java servlet that will receive a GET request with a url parameter in the request to redirect the browser to the address specified in the url parameter. The servlet will retrieve the url parameter value from the request and send a response to redirect the browser to the url address. 
+
+public class RedirectServlet extends HttpServlet { 
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+String query = request.getQueryString(); 
+if (query.contains("url")) { 
+String url = request.getParameter("url"); 
+response.sendRedirect(url); 
+} 
+} 
+} 
+
+
+------------------------------------------------------------------------ 
+Sample 2: 
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { 
+    [...] 
+    resp.sendRedirect(req.getParameter("redirectUrl")); 
+    [...] 
+}</english>
+  </metric>
+  <metric id="1039016" type="quality-rule" originalName="Avoid Unvalidated URL Redirect" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="description">
+    <english>When using some cryptography function, a hardcoded salt could compromise system security in a way that cannot be easily remedied. 
+It is never a good idea to hardcode a salt. Not only does a hardcoded salt allow all of the project's developers to view the salt, it also makes fixing the problem extremely difficult. Once the code is in production, the salt cannot be easily changed. If attackers know the value of the salt, they can compute "rainbow tables" for the application and more easily determine the hashed values.</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="name">
+    <english>Avoid using cryptography hash with hardcoded salt</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="rationale">
+    <english>This makes it easier for attackers to pre-compute the hash value using dictionary attack techniques such as rainbow tables, effectively disabling the protection that an unpredictable salt would provide. 
+
+It should be noted that, despite common perceptions, the use of a good salt with a hash does not sufficiently increase the effort for an attacker who is targeting an individual password, or who has a large amount of computing resources available, such as with cloud-based services or specialized, inexpensive hardware. Offline password cracking can still be effective if the hash function is not expensive to compute; many cryptographic functions are designed to be efficient and can be vulnerable to attacks using massive computing resources, even if the hash is cryptographically strong.</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="reference">
+    <english>http://cwe.mitre.org/data/definitions/760.html
+This rule is compliant with OWASP M5 2016 and with CISQ-OMG ASCSM-CWE-327 recommendation.</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="remediation">
+    <english>Do not use Hardcoded Salt.</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="remediationSample">
+    <english>PBEParameterSpec paramSpec =  new PBEParameterSpec(getSalt(), 2); // Violation FIXED</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="sample">
+    <english>Sample 1 
+  ... 
+    Encryptor instance = ESAPI.encryptor(); 
+    String hash1 = instance.hash(input, "2!@$(5#@532@%#$253l5#@$"); 
+    ... 
+------------------------------------ 
+Sample 2 
+... 
+private static final String salt = "2!@$(5#@532@%#$253l5#@$"; 
+... 
+PBEKeySpec pbeSpec=new PBEKeySpec(password); 
+SecretKeyFactory keyFact=SecretKeyFactory.getInstance(CIPHER_ALG); 
+PBEParameterSpec defParams=new PBEParameterSpec(salt,0); 
+Cipher cipher=Cipher.getInstance(CIPHER_ALG); 
+cipher.init(cipherMode,keyFact.generateSecret(pbeSpec),defParams); 
+... 
+
+This is a sample for Hardcoded PBE Salt.</english>
+  </metric>
+  <metric id="1039018" type="quality-rule" originalName="Avoid using cryptography hash with hardcoded salt" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="description">
+    <english>By contract, the NullCipher class provides an "identity cipher" one that does not transform or encrypt the plaintext in any way. As a consequence, the ciphertext is identical to the plaintext. So this class should never be used In production code. So "javax.crypto.NullCipher" should not be used for anything other than testing</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="name">
+    <english>Avoid using javax.crypto.NullCipher</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="rationale">
+    <english>The NullCipher is seldom used intentionally in production applications. It implements the Cipher interface by returning ciphertext identical to the supplied plaintext. In a few contexts, such as testing, a NullCipher may be appropriate.</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/327.html 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="remediation">
+    <english>Avoid using the NullCipher.</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="remediationSample">
+    <english>Avoid using the NullCipher</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="sample">
+    <english>public class javax.crypto.NullCipher 
+extends javax.crypto.Cipher { 
+
+// Constructors 
+public NullCipher( ); 
+}</english>
+  </metric>
+  <metric id="1039020" type="quality-rule" originalName="Avoid using javax.crypto.NullCipher" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="description">
+    <english>The iteration count used by a password-based key derivation function should not be too low to decrease attack possibilities.</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="name">
+    <english>Avoid using Insecure PBE Iteration Count</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="rationale">
+    <english>An iteration count has traditionally served the purpose of increasing the cost of producing keys from a password,     thereby also increasing the difficulty of attack. According to PKCS #5: Password-Based Cryptography Specification,         Version 2.0, a minimum of 1000 iterations is recommended. This will increase the cost of exhaustive search for passwords significantly, without a noticeable impact in the cost of deriving individual keys.</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/916.html 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure
+This rule is compliant with: 
+CWE-916: Use of Password Hash With Insufficient Computational Effort 
+OWASP Top 10 2013 A6 Sensitive Data Exposure 
+OWASP Top 10 2017 A3 Sensitive Data Exposure</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="remediation">
+    <english>According to PKCS #5: Password-Based Cryptography Specification, Version 2.0, a minimum of 1000 iterations is recommended.</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="remediationSample">
+    <english>An iteration count is greater or equal to 1000</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="sample">
+    <english>int iterationCount = 10; 
+    PBEParameterSpec pbeps = new PBEParameterSpec(salt, iterationCount);</english>
+  </metric>
+  <metric id="1039022" type="quality-rule" originalName="Avoid using Insecure PBE Iteration Count" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="description">
+    <english>Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. 
+This is why all major browsers support the secure cookie property that prevents client-side scripts from accessing the cookie. 
+The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="name">
+    <english>Avoid using unsecured cookie (JEE)</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="rationale">
+    <english>The Secure attribute for sensitive cookies in HTTPS sessions is not set, which could cause the user agent to send those cookies in plaintext over an HTTP session.</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/614.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+This rule is compliant with OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="remediation">
+    <english>Always setting secure option when creating a cookie.</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="remediationSample">
+    <english>Cookie c = new Cookie(ACCOUNT_ID, acctID); 
+c.setSecure(true); // Compliant Code with secure cookies 
+response.addCookie(c);</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="sample">
+    <english>Cookie c = new Cookie(ACCOUNT_ID, acctID); // Violation - cookie is not secure 
+response.addCookie(c);</english>
+  </metric>
+  <metric id="1039024" type="quality-rule" originalName="Avoid using unsecured cookie (JEE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="description">
+    <english>Cross-site scripting attacks often access cookies in an attempt to steal session identifiers or authentication tokens. 
+This is why all major browsers support the HttpOnly cookie property that prevents client-side scripts from accessing the cookie. 
+When HttpOnly is not enabled, attackers may more easily access user cookies.</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="name">
+    <english>Avoid creating cookie without setting httpOnly option (JEE)</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="rationale">
+    <english>If read access is not properly restricted, then attackers can steal the sensitive information. If write access is not properly restricted, 
+then attackers can modify and possibly delete the data, causing incorrect results and possibly a denial of service.</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/1004.html 
+https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure 
+https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure
+This rule is compliant with CWE-1004, OWASP 2013 A6 and 2017 A3 - Sensitive Data Exposure</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="remediation">
+    <english>Always setting httpOnly option when creating a cookie</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="remediationSample">
+    <english>Cookie cookie = new Cookie("userName",userName); 
+cookie.setSecure(true); 
+cookie.setHttpOnly(true); // HttpOnly flag 
+
+_________________________________________ 
+Solution (Servlet 3.0 configuration): 
+&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0" &gt; 
+[...] 
+&lt;session-config &gt; 
+ &lt;cookie-config &gt; 
+  &lt;http-only&gt;true&lt;/http-only&gt; 
+  &lt;secure&gt;true&lt;/secure&gt; 
+ &lt;/cookie-config&gt; 
+&lt;/session-config&gt; 
+&lt;/web-app&gt;</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="sample">
+    <english>Sample
+
+Cookie cookie = new Cookie("userName",userName); 
+response.addCookie(cookie);</english>
+  </metric>
+  <metric id="1039026" type="quality-rule" originalName="Avoid creating cookie without setting httpOnly option (JEE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="description">
+    <english>The current cryptography guidelines suggest that: 
+For asymmetric encryption ( RSA), the recommended key size should be at least 2048 bits. 
+For Symmetric Algorithms, (AES), the recommended key size should be at least 256 bits. 
+
+This rules will report violation when the used key size does not match the recommendation.</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="name">
+    <english>Avoid weak encryption providing not sufficient key size (JEE)</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="rationale">
+    <english>The security level of an encryption scheme is directly proportional to the size of its key. Key sizes should be long enough that brute force attacks become unfeasible, but short enough to keep computational feasibility in mind.</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="reference">
+    <english>https://www.owasp.org/index.php/Mobile_Top_10_2016-M5-Insufficient_Cryptography 
+https://cwe.mitre.org/data/definitions/327.html</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="remediation">
+    <english>The current cryptography guidelines suggest that: 
+For asymmetric encryption ( RSA), the recommended key size should be at least 2048 bits. 
+For Symmetric Algorithms, (AES), the recommended key size should be at least 256 bits.</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="remediationSample">
+    <english>Remediation for AES 
+
+KeyGenerator keygen = KeyGenerator.getInstance("AES") ; // key generator to be used with AES algorithm. 
+keygen.init(256) ; // Key size is specified here. 
+byte[] key = keygen.generateKey().getEncoded(); 
+SecretKeySpec skeySpec = new SecretKeySpec(key, "AES"); 
+_______________________________________________________________ 
+Remediation for RSA 
+
+KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA"); 
+keyGen.initialize(4096); // key size specified here. 
+KeyPair pair = keyGen.generateKeyPair(); 
+_______________________________________________________________ 
+Sample for PBKDF2 
+
+// Should be as long and as many special characters as possible 
+String user_entered_password = sys.args[0] ; 
+// salt value 
+byte[] salt = new byte[128] ; // Should be atleast 64 bits 
+SecureRandom secRandom = new SecureRandom() ; 
+secRandom.nextBytes(salt) ; // self-seeded randomizer for salt 
+// iteration count 
+int iterCount = 12288 ; 
+int derivedKeyLength = 256 ; // Should be atleast longer than 112 bits. Depends on Key size of algorithm. 
+KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, iterCount, derivedKeyLength * 8); 
+SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="sample">
+    <english>Sample with AES 
+
+KeyGenerator keygen = KeyGenerator.getInstance("AES") ; // key generator to be used with AES algorithm. 
+keygen.init(128) ; // Key size is specified here. 
+byte[] key = keygen.generateKey().getEncoded(); 
+SecretKeySpec skeySpec = new SecretKeySpec(key, "AES"); 
+___________________________________________________________ 
+Sample for RSA 
+
+KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA"); 
+keyGen.initialize(1024); // key size specified here. 
+KeyPair pair = keyGen.generateKeyPair(); 
+___________________________________________________________ 
+Sample for PBKDF2 
+
+// Should be as long and as many special characters as possible 
+String user_entered_password = sys.args[0] ; 
+// salt value 
+byte[] salt = new byte[128] ; // Should be atleast 64 bits 
+SecureRandom secRandom = new SecureRandom() ; 
+secRandom.nextBytes(salt) ; // self-seeded randomizer for salt 
+// iteration count 
+int iterCount = 12288 ; 
+int derivedKeyLength = 128 ; // Should be atleast longer than 112 bits. Depends on Key size of algorithm. 
+KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, iterCount, derivedKeyLength * 8); 
+SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");</english>
+  </metric>
+  <metric id="1039028" type="quality-rule" originalName="Avoid weak encryption providing not sufficient key size (JEE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="description">
+    <english>DefaultHttpClient constructor is not compatible with TLS 1.2. It is required to upgrade the implementation and use specific constructor that will benefit from the latest security JVM options.</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="name">
+    <english>Avoid using DefaultHttpClient constructor</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="rationale">
+    <english>Secure Socket Layer (SSL) technology is security that is implemented at the transport layer (see Transport-Layer Security for more information about transport-layer security). SSL allows web browsers and web servers to communicate over a secure connection. In this secure connection, the data is encrypted before being sent and then is decrypted upon receipt and before processing. Both the browser and the server encrypt all traffic before sending any data. SSL addresses the following important security considerations: Authentication, Confidentiality and Integrity</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="reference">
+    <english>https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="remediation">
+    <english>Do not use DefaultHttpClient</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="remediationSample">
+    <english>HttpClient client = HttpClientBuilder.create().useSystemProperties().build();</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="sample">
+    <english>HttpClient client = new DefaultHttpClient();</english>
+  </metric>
+  <metric id="1039030" type="quality-rule" originalName="Avoid using DefaultHttpClient constructor" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="description">
+    <english>This rule detects the usage of XML parser calls not proceeded in same Java method by a call to the secure mode of the parser.</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="name">
+    <english>Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="rationale">
+    <english>XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:///c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.
+
+Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/611.html
+https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)
+http://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="remediation">
+    <english>Add restriction before calling parser</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="remediationSample">
+    <english>DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+DocumentBuilder db = dbf.newDocumentBuilder();
+
+Document doc = db.parse(input);</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="sample">
+    <english>DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+
+Document doc = db.parse(input);</english>
+  </metric>
+  <metric id="1039032" type="quality-rule" originalName="Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="description">
+    <english>This rule detects the usage of XML parser calls not proceeded in same Java method by a call to the secure mode of the parser.</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="name">
+    <english>Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="rationale">
+    <english>XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:///c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.
+
+Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/611.html
+https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)
+http://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="remediation">
+    <english>Add restriction before calling parser</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="remediationSample">
+    <english>SAXParserFactory spf = SAXParserFactory.newInstance();
+spf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+SAXParser parser = spf.newSAXParser();
+
+parser.parse(inputStream, customHandler);</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="sample">
+    <english>SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+
+parser.parse(inputStream, customHandler);</english>
+  </metric>
+  <metric id="1039034" type="quality-rule" originalName="Avoid using SAXParserFactory without restriction of XML External Entity Reference (XXE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="description">
+    <english>This rule detects the usage of XML parser calls not proceeded in same Java method by a call to the secure mode of the parser.</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="name">
+    <english>Avoid using XMLReader without restriction of XML External Entity Reference (XXE)</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="rationale">
+    <english>XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:///c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.
+
+Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/611.html
+https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)
+http://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="remediation">
+    <english>Add restriction before calling parser</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="remediationSample">
+    <english>XMLReader reader = XMLReaderFactory.createXMLReader();
+reader.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+reader.setContentHandler(customHandler);
+
+reader.parse(new InputSource(inputStream));</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="sample">
+    <english>XMLReader reader = XMLReaderFactory.createXMLReader();
+reader.setContentHandler(customHandler);
+reader.parse(new InputSource(inputStream));</english>
+  </metric>
+  <metric id="1039036" type="quality-rule" originalName="Avoid using XMLReader without restriction of XML External Entity Reference (XXE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="description">
+    <english>This rule detects the usage of XML parser calls not proceeded in same Java method by a call to the secure mode of the parser.</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="name">
+    <english>Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="rationale">
+    <english>XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:///c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.
+
+Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/611.html
+https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)
+http://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="remediation">
+    <english>Add restriction before calling parser</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="remediationSample">
+    <english>DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
+df.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+DocumentBuilder builder = df.newDocumentBuilder();
+
+[...]
+
+xPathExpr.evaluate( builder.parse(inputStream) );</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="sample">
+    <english>DocumentBuilder builder = df.newDocumentBuilder();
+
+XPathFactory xPathFactory = XPathFactory.newInstance();
+XPath xpath = xPathFactory.newXPath();
+XPathExpression xPathExpr = xpath.compile("/somepath/text()");
+
+xPathExpr.evaluate(new InputSource(inputStream));</english>
+  </metric>
+  <metric id="1039038" type="quality-rule" originalName="Avoid using XPathFactory without restriction of XML External Entity Reference (XXE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="description">
+    <english>This rule detects the usage of XML parser calls not proceeded in same Java method by a call to the secure mode of the parser.</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="name">
+    <english>Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="rationale">
+    <english>XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:///c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.
+
+Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="reference">
+    <english>https://cwe.mitre.org/data/definitions/611.html
+https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)
+http://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="remediation">
+    <english>Add restriction before calling parser</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="remediationSample">
+    <english>public void parseXML(InputStream input) throws XMLStreamException {
+
+    XMLInputFactory factory = XMLInputFactory.newFactory();
+    factory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
+    XMLStreamReader reader = factory.createXMLStreamReader(input);
+    [...]
+}</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="sample">
+    <english>public void parseXML(InputStream input) throws XMLStreamException {
+
+    XMLInputFactory factory = XMLInputFactory.newFactory();
+    XMLStreamReader reader = factory.createXMLStreamReader(input);
+    [...]
+}</english>
+  </metric>
+  <metric id="1039040" type="quality-rule" originalName="Avoid using XMLStreamReader without restriction of XML External Entity Reference (XXE)" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="associatedValueName">
+    <english>Number of Java Methods</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="description">
+    <english>With java.util.Optional&lt;T&gt; introduced in Java 1.8, the need for null references is significantly reduced. Nevertheless, some care is needed when creating an instance of an Optional or when using it. 
+
+For instance, the Optional.get method will throw a NoSuchElementException if the value is not present, or the Optional.of method will throw a NullPointerException if the provided value is null. Therefore, both of these methods are as risky as directly de-referencing potential null values. 
+ 
+In this rule, we check if Optional.isPresent is used before invoking  Optional.get as showing in the following sample 
+
+public String findZipCode(String userId) {
+    Optional&lt;User&gt; optUser = userRepository.findById(userId);
+    if(optUser.isPresent()) {
+        User user = optUser.get();
+        Optional&lt;Address&gt; optAddress = user.getAddress();
+        if(optAddress.isPresent()) {
+            Address address = optAddress.get();
+            return address.getZipCode().orElse("");
+        }
+    }
+    return "";
+}</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="name">
+    <english>'Optional.isPresent' should be used before invoking 'Optional.get' to access value</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation patterns
+- Bookmarks for violation patterns found in the source code</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="rationale">
+    <english>NULL pointer dereference issues can occur through a number of flaws, including race conditions, and simple programming omissions</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="reference">
+    <english>https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html
+https://dzone.com/articles/features-to-avoid-null-reference-exceptions-java-a
+https://cwe.mitre.org/data/definitions/476.html </english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="remediation">
+    <english>Optional.isPresent should be used before invoking  Optional.get. But PLEASE Note that one major benefit we get from an Optional is that it provides a set of higher order functions, which can be chained without worrying whether the value is present or not. orElse(...), orElseGet(...), or orElseThrow(...) or .ifPresentOrElse(...)  as following sample 
+
+Optional.ifPresentOrElse is similar to Optional.ifPresent from Java 1.8, but it performs a second action if the value is not present. For example, if the task was to print the ZIP code and it is provided or print a message otherwise, we could do the following:
+
+public String printZipCode(String userId) {
+    userRepository.findById(userId)  
+        .flatMap(User::getAddress)
+        .flatMap(Address::getZipCode)
+        .ifPresentOrElse(
+            System.out::println, 
+            () -&gt; System.out.println("The zip Code is not provided!")
+        );
+}
+
+--------------------------
+
+Java 10 introduced a better alternative — Optional.orElseThrow — whose behavior is the same, but the method name is screaming that an exception will be thrown if the value is not present.
+
+The code above is only intending to show an ugly usage of Optionals. A more elegant approach would be to make a chain of higher-order functions provided by the Optional API:
+
+public String findZipCode(String userId) {
+    return userRepository.findById(userId)
+        .flatMap(User::getAddress)
+        .flatMap(Address::getZipCode)
+        .orElse("");
+}</english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="remediationSample">
+    <english> Optional&lt;Department&gt; deptOpt= studList.stream().min(comparator.comparing(Department::getDepartmentNo));
+
+Department department = null;
+if(deptOpt.isPresent())  // Violation FIXED
+    department = deptOpt.get();
+} </english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="sample">
+    <english>Optional&lt;Department&gt; deptOpt= studList.stream().min(comparator.comparing(Department::getDepartmentNo));
+
+Department department = null;
+    department = deptOpt.get();  // Violation  
+} </english>
+  </metric>
+  <metric id="1039042" type="quality-rule" originalName="'Optional.isPresent' should be used before invoking 'Optional.get' to access value" section="total">
+    <english>Number of Java Artifact</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="description">
+    <english>The following calls/api are dangerous and should be replaced with the safer calls provided by ESAPI.
+Avoid using of the list of Banned API
+
+System.out.println()
+Throwable.printStackTrace()
+Runtime.exec()
+Session.getId()
+ServletRequest.getUserPrincipal()
+ServletRequest.isUserInRole()
+Session.invalidate()
+Math.Random.*
+File.createTempFile()
+ServletResponse.setContentType()
+ServletResponse.sendRedirect()
+RequestDispatcher.forward()
+ServletResponse.addHeader()
+ServletResponse.addCookie()
+ServletRequest.isSecure()
+Properties.*
+ServletContext.log()
+java.security and javax.crypto
+java.net.URLEncoder/Decoder
+java.sql.Statement.execute
+ServletResponse.encodeURL
+ServletResponse.encodeRedirectURL</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="name">
+    <english>Avoid usage of BannedAPI when using ESAPI library</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="rationale">
+    <english>While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components.</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="reference">
+    <english>https://www.owasp.org/index.php/ESAPI_Secure_Coding_Guideline</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="remediation">
+    <english>Remediation, using the equivalent APi provided OWASP ESAPI
+
+BAN001  System.out.println()                Logger.*    
+BAN002  Throwable.printStackTrace()         Logger.*    
+BAN003  Runtime.exec()                  Executor.safeExec() 
+BAN004  Session.getId()                 Randomizer.getRandomString (better not to use at all)   
+BAN005  ServletRequest.getUserPrincipal()               Authenticator.getCurrentUser()  
+BAN006  ServletRequest.isUserInRole()           AccessController.isAuthorized*()    
+BAN007  Session.invalidate()                Authenticator.logout()  
+BAN008  Math.Random.*                   Randomizer.*    
+BAN009  File.createTempFile()               Randomizer.getRandomFilename()  
+BAN010  ServletResponse.setContentType()            HTTPUtilities.setContentType()  
+BAN011  ServletResponse.sendRedirect()              HTTPUtilities.safeSendRedirect()    
+BAN012  RequestDispatcher.forward()         HTTPUtilities.safeSendForward() 
+BAN013  ServletResponse.addHeader()         HTTPUtilities.safeSetHeader()/safeSetHeader()   
+BAN014  ServletResponse.addCookie()         HTTPUtilities.safeAddCookie()   
+BAN015  ServletRequest.isSecure()           HTTPUtilties.isSecureChannel()  
+BAN016  Properties.*                    EncryptedProperties.*   
+BAN017  ServletContext.log()                Logger.*    
+BAN018  java.security and javax.crypto              Encryptor.* 
+BAN019  java.net.URLEncoder/Decoder         Encoder.encodeForURL()/decodeForURL()   
+BAN020  java.sql.Statement.execute          PreparedStatement.execute   
+BAN021  ServletResponse.encodeURL           HTTPUtilities.safeEncodeURL() (better not to use at all)    
+BAN022  ServletResponse.encodeRedirectURL           HTTPUtilities.safeEncodeRedirectURL() (better not to use at all)</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="remediationSample">
+    <english>Use the available OWASP ESAPI or equivalent.
+
+BAN001  System.out.println()                Logger.*    
+BAN002  Throwable.printStackTrace()         Logger.*    
+BAN003  Runtime.exec()                  Executor.safeExec() 
+BAN004  Session.getId()                 Randomizer.getRandomString (better not to use at all)   
+BAN005  ServletRequest.getUserPrincipal()               Authenticator.getCurrentUser()  
+BAN006  ServletRequest.isUserInRole()           AccessController.isAuthorized*()    
+BAN007  Session.invalidate()                Authenticator.logout()  
+BAN008  Math.Random.*                   Randomizer.*    
+BAN009  File.createTempFile()               Randomizer.getRandomFilename()  
+BAN010  ServletResponse.setContentType()            HTTPUtilities.setContentType()  
+BAN011  ServletResponse.sendRedirect()              HTTPUtilities.safeSendRedirect()    
+BAN012  RequestDispatcher.forward()         HTTPUtilities.safeSendForward() 
+BAN013  ServletResponse.addHeader()         HTTPUtilities.safeSetHeader()/safeSetHeader()   
+BAN014  ServletResponse.addCookie()         HTTPUtilities.safeAddCookie()   
+BAN015  ServletRequest.isSecure()           HTTPUtilties.isSecureChannel()  
+BAN016  Properties.*                    EncryptedProperties.*   
+BAN017  ServletContext.log()                Logger.*    
+BAN018  java.security and javax.crypto              Encryptor.* 
+BAN019  java.net.URLEncoder/Decoder         Encoder.encodeForURL()/decodeForURL()   
+BAN020  java.sql.Statement.execute          PreparedStatement.execute   
+BAN021  ServletResponse.encodeURL           HTTPUtilities.safeEncodeURL() (better not to use at all)    
+BAN022  ServletResponse.encodeRedirectURL           HTTPUtilities.safeEncodeRedirectURL() (better not to use at all)</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="sample">
+    <english>The following calls in the code.
+
+System.out.println()
+Throwable.printStackTrace()
+Runtime.exec()
+Session.getId()
+ServletRequest.getUserPrincipal()
+ServletRequest.isUserInRole()
+Session.invalidate()
+Math.Random.*
+File.createTempFile()
+ServletResponse.setContentType()
+ServletResponse.sendRedirect()
+RequestDispatcher.forward()
+ServletResponse.addHeader()
+ServletResponse.addCookie()
+ServletRequest.isSecure()
+Properties.*
+ServletContext.log()
+java.security and javax.crypto
+java.net.URLEncoder/Decoder
+java.sql.Statement.execute
+ServletResponse.encodeURL
+ServletResponse.encodeRedirectURL</english>
+  </metric>
+  <metric id="1039044" type="quality-rule" originalName="Avoid usage of BannedAPI when using ESAPI library" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="description">
+    <english>{@code text} has been introduced in JDK 1.5
+it's equivalent to Equivalent to &lt;code&gt;{@literal}&lt;/code&gt;.
+
+Displays text in code font without interpreting the text as HTML markup or nested Javadoc tags. This enables you to use regular angle brackets (&lt; and &gt;) instead of the HTML entities (&amp;lt; and &amp;gt;) in documentation comments, such as in parameter types (&lt;Object&gt;), inequalities (3 &lt; 4), or arrows (&lt;-). For example, the documentation comment text {@code A&lt;B&gt;C} displayed in the generated HTML page unchanged as A&lt;B&gt;C. This means that the &lt;B&gt; is not interpreted as bold and is in code font. If you want the same functionality without the code font, then use the {@literal} tag.
+
+
+Here for example: :
+
+* &lt;pre&gt;
+* {@code
+* Set&lt;String&gt; s;
+* System.out.println(s);
+* }
+* &lt;/pre&gt;
+
+The HTML output will be correct as expected : 
+
+Set&lt;String&gt; s;
+System.out.println(s);
+
+
+But While omitting the @code block (or using a &lt;code&gt; tag) will result in HTML like this:
+
+Set s;
+System.out.println(s);</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="name">
+    <english>Always use {@code} to wrap code statements or values such as null</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="rationale">
+    <english>Using two APIs for the same function is considered a problem in terms of maintainability and robustness. It is highly recommended to use only one API, especially when you are using a high-level library/framework or wrapping functionalities that provide additional checks on variables.</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="reference">
+    <english>https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javadoc.html#CHDJGIJB</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="remediationSample">
+    <english>/**
+ * -- ex: looping through List of Map objects --
+ * {@code
+ * for (int i = 0; i &lt; list.size(); i++) {
+ *      Map map = (Map)list.get(i);
+ *      System.out.println(map.get("wordID"));
+ *      System.out.println(map.get("word"));
+ * }
+ * }
+ * 
+ * @param query - select statement
+ * @return List of Map objects
+ */</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="sample">
+    <english>/**
+ * -- ex: looping through List of Map objects --
+ * &lt;code&gt;
+ * for (int i = 0; i &lt; list.size(); i++) {
+ *      Map map = (Map)list.get(i);
+ *      System.out.println(map.get("wordID"));
+ *      System.out.println(map.get("word"));
+ * }
+ * &lt;/code&gt;
+ * 
+ * @param query - select statement
+ * @return List of Map objects
+ */</english>
+  </metric>
+  <metric id="1039046" type="quality-rule" originalName="Always use {@code} to wrap code statements or values such as null" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="description">
+    <english>"int[] array = new int[10];" and "int array[] = new int[10];" are both basically same, there is no difference in performance.
+
+But, this syntax "int[] array = new int[10];" is recommended as best practice for readability. Otherwise, developers must look both at the type and the variable name to know whether or not a variable is an array.
+
+
+This rule will report violation when an Array designator is not set on the type</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="name">
+    <english>Always prefer set Array designators "[]" on the type and not at variable</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="rationale">
+    <english>Developers must look both at the type and the variable name to know whether or not a variable is an array.</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="reference">
+    <english>https://alvinalexander.com/blog/post/java/java-faq-create-array-int-example-syntax</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="remediation">
+    <english>"int[] array = new int[10];" is recommended as best practice for readability.</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="remediationSample">
+    <english>int[][] matrix;   // Violation fixed</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="sample">
+    <english>int matrix[][];   // Violation 
+int[] matrix[];   // Violation</english>
+  </metric>
+  <metric id="1039048" type="quality-rule" originalName="Always prefer set Array designators &quot;[]&quot; on the type and not at variable" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="description">
+    <english>Since Java 1.5, the @Override annotation type has been provided to allow developers to specify that a method declaration is intended to override or implement a method in a supertype (super class or super interface). When a method is marked with the @Override annotation, the compiler will perform a check to ensure that the method does indeed override or implement a method in super class or super interface. This helps in preventing unintentional errors such as misspelled method name, wrongly-typed parameters or anything that does not obey overriding rules.</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="name">
+    <english>Add @Override on methods overriding or implementing a method declared in a super type</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="rationale">
+    <english>Using the @Override annotation every time you override a method for two benefits. Do it so that you can take advantage of the compiler checking to make sure you actually are overriding a method when you think you are. 
+This way, if you make a common mistake of misspelling a method name or not correctly matching the parameters, you will be warned that you method does not actually override as you think it does. 
+
+Secondly, it makes The code easier to understand because it is more obvious when methods are overwritten.</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="remediationSample">
+    <english>package com.journaldev.annotations;
+
+public class BaseClass {
+    
+    public void doSomething(String str){
+        System.out.println("Base impl:"+str);
+    }
+    
+}</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="sample">
+    <english>package com.journaldev.annotations;
+
+public class BaseClass {
+    
+    public void doSomething(String str){
+        System.out.println("Base impl:"+str);
+    }
+    
+}
+
+--------------
+package com.journaldev.annotations;
+
+public class ChildClass extends BaseClass{
+
+   //@Override
+   public void doSomething(String str){
+       System.out.println("Child impl:"+str);
+   }
+
+}
+
+---------
+package com.journaldev.annotations;
+
+public class OverrideTest {
+
+    public static void main(String[] args) {
+        BaseClass bc = new ChildClass();
+        bc.doSomething("override");
+    }
+
+}
+Output of the above program is: Child impl:override
+Here “bc” is of type BaseClass but at runtime it’s object of ChildClass. So when we invoke its doSomething(String str) method, it looks for the method in ChildClass and hence the output.
+
+Now let’s change the BaseClass doSomething method like below.
+
+
+//Change argument from String to Object
+public void doSomething(Object str){
+    System.out.println("Base impl:"+str);
+}
+You will notice that compiler won’t throw any warnings/errors and now if you run the test program output will be: ase impl:override
+The reason is that BaseClass doSomething(Object str) method is not anymore overridden by ChildClass. Hence it’s invoking BaseClass implementation. ChildClass is overloading the doSomething() method in this case.
+
+If you will uncomment the @Override annotation in ChildClass, you will get following compile time error message</english>
+  </metric>
+  <metric id="1039050" type="quality-rule" originalName="Add @Override on methods overriding or implementing a method declared in a super type" section="total">
+    <english>Number of Java artifacts</english>
+  </metric>
+</root>

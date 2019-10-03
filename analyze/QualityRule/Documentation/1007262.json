@@ -1,0 +1,90 @@
+{
+    "id": 1007262,
+    "name": "Avoid file name or path controlled by raw user input (PHP)",
+    "href": "AIP/quality-rules/1007262",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A file create vulnerability occurs when user input is embedded unsanitized into a file path used for file operations.",
+    "output": "This report lists all artifacts that use raw user input that would expose to file creation vulnerability. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "If the file operation attempts to create the file, an attacker can create arbitrary files on the file system or even overwrite existing files. She can use path traversal character sequences (../) to reach any file on the file system. This can be misused to bypass security mechanisms that rely on the presence of a specific file, for example a config or .htaccess file.",
+    "reference": "https://cwe.mitre.org/data/definitions/73.html",
+    "remediation": "to prevent path traversal, the built-in function basename() can be used to limit the user input to a file name and to ignore injected path names. It is recommended to create a whitelist of all allowed file names.",
+    "remediationSample": "<?php\n\nmkdir(\"../upload/{basename($_POST['tag'])}\", 0777, True);\n\n?>",
+    "sample": "<?php\n\nmkdir(\"../upload/{$_POST['tag']}\", 0777, True);\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid file name or path controlled by raw user input (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-73",
+            "name": "External Control of File Name or Path",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

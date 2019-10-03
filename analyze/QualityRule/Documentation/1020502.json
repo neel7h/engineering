@@ -1,0 +1,66 @@
+{
+    "id": 1020502,
+    "name": "Avoid the use of JSON.parse and JSON.stringify in AngularJS web app",
+    "href": "AIP/quality-rules/1020502",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "You should use angular.fromJson or angular.toJson instead of JSON.parse and JSON.stringify. In addition to the benefits of using all the provided API and improve the maintainability/robustness (some API everywhere) the AngularJS method provides additional checking mechanism to check the serialization/deserialization of the JSON to prevent any kind of JSON injection via web webservices call.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using two APIs for the same function is considered a problem in terms of maintainability and robustness. It is highly recommended to use only one API, especially when you are using a high-level library/framework or wrapping functionalities that provide additional checks on variables.",
+    "remediation": "Replace all the default JavaScript implementation JSON.parse and JSON.stringify with angular.fromJson or angular.toJson instead.",
+    "remediationSample": "function CarCtrl($scope, $http) { \n\n    $scope.getAllCars = function () { \n        $scope.url = 'getAllCars'; \n\n        $http.get($scope.url).success(function (data, status) { \n            var carsFromServer = angular.fromJSON(data); \n            $scope.cars = carsFromServer.allCars; \n        }).error(function (data, status) { \n                $scope.response = 'Request failed'; \n            }); \n    } \n\n    $scope.getAllCars(); \n}",
+    "sample": "function CarCtrl($scope, $http) { \n\n    $scope.getAllCars = function () { \n        $scope.url = 'getAllCars'; \n\n        $http.get($scope.url).success(function (data, status) { \n            var carsFromServer = JSON.parse(data); \n            $scope.cars = carsFromServer.allCars; \n        }).error(function (data, status) { \n                $scope.response = 'Request failed'; \n            }); \n    } \n\n    $scope.getAllCars(); \n}",
+    "total": "Number of angular artifacts (controllers, services, factories, directives)",
+    "alternativeName": "Avoid the use of JSON.parse and JSON.stringify in AngularJS web app",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-252-data",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

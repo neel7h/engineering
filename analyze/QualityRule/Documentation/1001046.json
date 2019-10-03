@@ -1,0 +1,62 @@
+{
+    "id": 1001046,
+    "name": "Avoid Functions and Procedures using logical operators (or, and) in the \"WHEN\" clause of the SELECT statement (PL1)",
+    "href": "AIP/quality-rules/1001046",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches all the PL1 Main Procedures, PL1 Function and PL1 Procedures using the logical operators in a \"WHEN\" clause of the \"SELECT\" statement. If the result is greater than 0 then the procedure is listed as a violation.\nPlease notice that False Positives May be reported in case of Binary Operations",
+    "output": "The report lists all the PL1 Main Procedures, PL1 Function and PL1 Procedures using the logical operators in a \"WHEN\" clause of the \"SELECT\" statement.\n\nIt provides following information: \n-  PL1 Main Procedures, PL1 Function and PL1 Procedures  full name",
+    "rationale": "Including logical operators in the \"WHEN\" clause of a SELECT statement is to be discarded because it introduces complexity.",
+    "remediation": "Try to reduce the use of logical operators in the WHEN clause",
+    "total": "Number of PL1 Main Procedures, PL1 Function and PL1 Procedures.",
+    "alternativeName": "Avoid Functions and Procedures using logical operators (or, and) in the \"WHEN\" clause of the SELECT statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

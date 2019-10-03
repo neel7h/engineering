@@ -1,0 +1,68 @@
+{
+    "id": 1001056,
+    "name": "Avoid unreferenced PLC Procedures & Functions (PL1)",
+    "href": "AIP/quality-rules/1001056",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for all PLC Procedures or Functions that are not referenced i.e. not called.",
+    "output": "The report lists all the PLC unreferenced Procedures and Functions.\n\nIt provides following information: \n-  procedures and functions full name",
+    "rationale": "Unreferenced artifacts like any other examples of dead code make maintenance more difficult and more expensive (modification of unused code).",
+    "remediation": "Remove the unreferenced artifacts.",
+    "total": "Number of the PLC Procedures and Functions",
+    "alternativeName": "Avoid unreferenced PLC Procedures & Functions (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1005000,
+            "name": "PLC",
+            "href": "AIP/technologies/1005000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="61018" type="technical-criterion" originalName="Efficiency - Memory, Network and Disk Space Management" contributorId="1101920" contributorType="quality-rule" contributorOriginalName="Avoid using explain() in production code (JEE)" critical="false" weight="5" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" contributorId="1101916" contributorType="quality-rule" contributorOriginalName="When using compound indexes, avoid having different indexes" critical="false" weight="6" />
+  <metric id="61024" type="technical-criterion" originalName="Programming Practices - Structuredness" contributorId="1101918" contributorType="quality-rule" contributorOriginalName="Avoid having MongoDB databases access without authentication activated" critical="false" weight="6" />
+</root>

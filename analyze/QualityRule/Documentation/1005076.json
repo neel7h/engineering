@@ -1,0 +1,62 @@
+{
+    "id": 1005076,
+    "name": "Avoid having V60ExceptionCompatibility property set to NO (EGL)",
+    "href": "AIP/quality-rules/1005076",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the programs having V60ExceptionCompatibility property = NO. \n\nEGL sets v60ExceptionCompatibility to YES automatically when migrating code from EGL version 6 or VisualAge\u00ae Generator. You do not need this property for new code \n\nProgram not having the V60ExceptionCompatibility property in the code is not violating this rule.",
+    "output": "This report lists the following information: Program full name",
+    "rationale": "V60ExceptionCompatibility property must be set to YES\nYou can have only a single onException block within a try block, and you cannot specify an exception type. \nYou can use the sysLib.currentException variable to determine the nature of the problem. This variable is only available in V60 compatibility mode. \nExceptions do not propagate beyond the part in which they occur\u0097for instance, if an error occurs within a function called by a try block, the try block never receives an indication that the exception was thrown. \nHard I/O errors terminate the application unless you set the handleHardIOErrors program property to YES. In that case, EGL throws an exception so the program can handle the hard I/O error itself. \nYou cannot throw your own exceptions.",
+    "remediation": "Try to always have the V60ExceptionCompatibility set to YES.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid having V60ExceptionCompatibility property set to NO (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

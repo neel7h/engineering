@@ -1,0 +1,237 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+	<!-- Note: Make sure the value of the taglibs/taglib/@uri attribute matches the value of the taglib/uri element 
+		in your tld files.
+	-->
+	
+	<!-- customization of struts 2.0 taglib -->
+	<taglib uri="/struts-tags">
+		<tag name="action">
+			<attribute name="name" resolveValueAs="action;url" namespaceSrc="namespace" /> 
+		</tag>
+		
+		<tag name="actionerror">
+			<attribute name="value"	resolveValueAs="action;url" />
+		</tag>
+		
+		<tag name="actionmessage">
+			<attribute name="value" resolveValueAs="action;url" />
+		</tag>
+		
+		<tag name="a">
+			<attribute name="href" resolveValueAs="url;action" namespaceSrc="namespace"/>
+            <attribute name="value" resolveValueAs="action;url" namespaceSrc="namespace"/>
+            <attribute name="action" resolveValueAs="action;url" namespaceSrc="namespace"/>
+        </tag>	
+		
+		<tag name="autocompleter">
+			<attribute name="href" resolveValueAs="url;action" />
+		</tag>
+		
+		<tag name="bean">
+			<create nameSrc="id" kind="bean"/>
+
+			<declare name-from-attribute="id" scope="AT_END" typeSrc="name">
+				<useTypeOf instanceSrc="id">
+					<search kind="bean" nameSrc="id" scopeSrc="toScope"  verbose="false"/>
+				</useTypeOf>
+			</declare>
+
+			<attribute name="name" resolveValueAs="java-type" />
+		</tag>		
+		
+		<tag name="checkbox">
+			<attribute name="name" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"	resolveValueAs="property-mapping" />
+		</tag>	
+		
+		<tag name="checkboxlist">
+			<attribute name="list" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"	resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="combobox">
+			<attribute name="list" resolveValueAs="bean" />
+			<attribute name="altKey" resolveValueAs="property-mapping" />
+			<attribute name="titleKey"	resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="date">
+			<create nameSrc="name" kind="bean" scopeSrc="scope" type="java.lang.String"/>
+		</tag>
+
+		<tag name="datetimepicker">
+			<create nameSrc="name" kind="bean" scopeSrc="scope" type="java.lang.String"/>
+		</tag>
+		
+		<tag name="div">
+			<attribute name="errorText" resolveValueAs="property-mapping" />
+			<attribute name="href" resolveValueAs="url;action" />
+		</tag>
+		
+		<tag name="doubleselect">
+			<attribute name="formName" resolveValueAs="bean" />
+			<attribute name="list" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="else">
+		</tag>
+		
+		<tag name="elseif">
+		</tag>
+		
+		<tag name="fielderror">
+			<attribute name="label" resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="file">
+			<attribute name="label" resolveValueAs="property-mapping" />
+		</tag>
+		
+		<tag name="form">
+			<attribute name="action" resolveValueAs="action;url" />
+		</tag>
+		
+		<tag name="component">
+		</tag>
+		
+		<tag name="hidden">
+			<search kind="bean" nameSrc="name" verbose="false">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+		</tag>
+		
+		<tag name="i18n">
+		</tag>
+		
+		<tag name="if">
+		</tag>
+		
+		<tag name="include">
+			<attribute name="value" resolveValueAs="url" linkType="include"/>
+		</tag>
+		
+		<tag name="inputtransferselect">
+			<attribute name="list" resolveValueAs="bean" />
+		</tag>
+
+		<tag name="iterator">
+			<attribute name="value" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="label">
+			<attribute name="value" resolveValueAs="property-mapping" />
+		</tag>
+
+		<tag name="merge">
+		</tag>		
+
+		<tag name="optgroup">
+		</tag>
+		
+		<tag name="optiontransferselect">		
+			<attribute name="list" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="param">			
+			<attribute name="value" resolveValueAs="bean" />
+		</tag>
+
+		<tag name="password">		
+			<attribute name="value" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="property">		
+			<attribute name="value" resolveValueAs="bean" />
+		</tag>		
+
+		<tag name="push">		
+			<attribute name="value" resolveValueAs="bean" />
+		</tag>
+
+		<tag name="radio">		
+			<attribute name="list" resolveValueAs="bean" />
+			<search kind="bean" nameSrc="list" verbose="false">
+				<create kind="bean.property" nameSrc="listValue" />
+			</search>
+		</tag>
+
+		<tag name="reset">					
+			<noattribute resolveValueAs="action" escapeIn="s:form"/>
+		</tag>
+
+		<tag name="select">				
+		    <attribute name="list" resolveValueAs="bean" />
+			<search kind="bean" nameSrc="list" verbose="false">
+				<create kind="bean.property" nameSrc="listValue" />
+			</search>
+		</tag>
+
+		<tag name="set">				
+			<create nameSrc="name" kind="bean" scopeSrc="scope"/>
+		</tag>
+		
+		<tag name="submit">						
+			<attribute name="action" resolveValueAs="action;url"/>
+			<attribute name="method" resolveValueAs="action;" prefixSrc="action" separator="!"/>
+			<attribute name="href" resolveValueAs="action;url"/> 				
+			<attribute name="errorText" resolveValueAs="property-mapping" />
+			<noattribute resolveValueAs="action" escapeIn="s:form"/>
+		</tag>		
+		
+		<tag name="textarea">				
+		</tag>
+		
+		<tag name="textfield">	
+			<attribute name="name" resolveValueAs="bean" />		
+		</tag>
+		
+		<tag name="token">	
+			<attribute name="name" resolveValueAs="bean" />				
+		</tag>
+
+		<tag name="tree">		
+			<attribute name="name" resolveValueAs="bean">
+				<create kind="bean.property" nameSrc="rootNode" />
+			</attribute>
+		</tag>		
+
+		<tag name="treenode">		
+			<attribute name="name" resolveValueAs="bean">
+				<create kind="bean.property" nameSrc="rootNode" />
+			</attribute>
+		</tag>
+		
+		<tag name="url">		
+			<attribute name="value" resolveValueAs="action;url" namespaceSrc="namespace" /> 
+			<attribute name="action" resolveValueAs="action;url" namespaceSrc="namespace" /> 
+			<attribute name="method" resolveValueAs="action;" prefixSrc="action" separator="!" namespaceSrc="namespace" />
+        </tag>	
+		
+		<tag name="updownselect">
+		    <attribute name="list" resolveValueAs="bean" />
+			<search kind="bean" nameSrc="list" verbose="false">
+				<create kind="bean.property" nameSrc="listValue" />
+			</search>
+		</tag>	
+		
+		<tag name="table">
+		    <attribute name="name" resolveValueAs="bean" />
+		</tag>			
+		
+		<tag name="generator">
+		    <attribute name="val" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="sort">
+		    <attribute name="source" resolveValueAs="bean" />
+		</tag>
+		
+		<tag name="subset">
+		    <attribute name="source" resolveValueAs="bean" />
+		</tag>		
+	</taglib>
+</taglibs>

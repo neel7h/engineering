@@ -1,0 +1,78 @@
+{
+    "id": 1040030,
+    "name": "Avoid Using Generic Authentication Exception Class",
+    "href": "AIP/quality-rules/1040030",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "An authentication error can happen, for example, when the credentials supplied by the user program is invalid or otherwise fails to authenticate the user to the naming/directory service.\n\norg.springframework.security.core.AuthenticationException superclass is usually used for all exceptions related to an Authentication object being invalid for whatever reason.\n\nHowever, it\u2019s not uncommon to be in particular situations where the generic AuthenticationException isn\u2019t enough to meet requirements.\n\nSpring security provides others ready to use components that we can leverage depending on what we want to do.\n\n\n\nThis will report violation each time when the AuthenticationException Class is used.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Logging exception details is important when you need to properly diagnose error conditions with the system. You don't want this detail to be displayed on an error page because it may inadvertently aid a malicious user in an attack. Logging allows your error pages to display a simple generic message alerting end users that an error has occurred, with possibly some options for contacting support. The detail you need for assisting with these issues will be kept securely in the log store.",
+    "reference": "https://www.baeldung.com/spring-security-custom-authentication-failure-handler\nhttps://www.baeldung.com/spring-security-redirect-login\nhttps://docs.spring.io/spring-security/site/docs/4.2.6.RELEASE/apidocs/org/springframework/security/web/authentication/AuthenticationFailureHandler.html\nhttps://docs.spring.io/spring-security/site/docs/4.2.7.RELEASE/apidocs/org/springframework/security/core/AuthenticationException.html",
+    "remediation": "Follow sample of Spring components ready to be used is specific situations: \n\n- DelegatingAuthenticationFailureHandler delegates AuthenticationException subclasses to different AuthenticationFailureHandlers, meaning we can create different behaviors for different instances of AuthenticationException\n- ExceptionMappingAuthenticationFailureHandler redirects the user to a specific URL depending on the AuthenticationException\u2019s full class name\n- ForwardAuthenticationFailureHandler will forward the user to the specified URL regardless of the type of the AuthenticationException\nSimpleUrlAuthenticationFailureHandler is the component that is used by default, it will redirect the user to a failureUrl, if specified; otherwise, it will simply return a 401 response\n \nfor more details, Please refer to https://www.baeldung.com/spring-security-custom-authentication-failure-handler",
+    "sample": "Sample 1\n\n@Override public Authentication authenticate(final Authentication authentication) throws AuthenticationException {\n  final AuthenticationRequest request=new AuthenticationRequest(authentication);\n  final User user;\n  if (request.wasExternallyAuthenticated()) {\n    user=authenticatedExternally(request.getUsercode());\n  }\n else {\n    user=login(request.getUserEmail(),request.getPassword());\n  }\n  final List<GrantedAuthority> grantedAuthorities;\n  final AuthenticatedUserInfo authUser;\n  authUser=new AuthenticatedUserInfo(user.getId(),request.getUsername());\n  grantedAuthorities=getGrantedAuthority(user);\n  return new UsernamePasswordAuthenticationToken(authUser,null,grantedAuthorities);\n}\n______________________\n\nSample 2\n\n/**\n * Authenticate a token\n */\npublic Authentication authenticate(Authentication authentication) throws AuthenticationException {\n    if( authentication == BAD_CREDENTIALS ) {\n        throw new BadCredentialsException( \"Bad credentials\" );\n    } else if( authentication == LOCKED ) {\n        throw new LockedException( \"Account is locked\" );\n    }\n    return authentication;\n}\n\n_____________________\n\nSample 3\n\n@ExceptionHandler(AuthenticationException.class)\n\tpublic ResponseEntity<String> handleBadCredentials(AuthenticationException e) {\n\t\treturn new ResponseEntity<String>(HttpStatus.UNAUTHORIZED);\n\t}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Prefer not using Generic Authentication Exception Class to promote easy error handling",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-396",
+            "name": "Declaration of Catch for Generic Exception",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-755",
+            "name": "Improper Handling of Exceptional Conditions",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

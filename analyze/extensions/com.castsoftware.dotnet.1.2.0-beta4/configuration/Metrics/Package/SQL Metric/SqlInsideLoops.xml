@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ File : SqlInsideLoops.xml
+£ Author : YLE@CAST
+£ Date : 21 Feb 2007
+£ Role : SQL queries inside loops detection
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+<!-- The detected SQL queries are the SELECT, INSERT, UPDATE, DELETE queries
+£ enclosed in a loop. The detection is made for languages that can contain
+£ embedded SQL : C/C++(Pro*C), Cobol(Pro*Cobol) and Java(SQLJ)
+£ and SQL languages : T-SQL, PL/SQL and UDB/DSN.
+£-->
+
+<METRIC PACKAGE_NAME="SQL Metric.SqlInsideLoops">
+  <ACTIVE>YES</ACTIVE>
+
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+
+  <CATEGORY_LIST>
+    <CATEGORY NAME="MATCH_SQL_IN_A_LOOP">
+      <PROPERTY NAME="VALUE" TYPE="integer"/>
+
+      <!-- The Pro*C, Pro*Cobol, PL/SQL, T-SQL and UDB/DSN case -->
+      <PROPERTY NAME="PATT_SQL_IN_LOOP" TYPE="pattern">
+        <TREE>
+          <OR>
+            <!-- C/C++ -->
+            <SIGNATURE>NODE_C_BODY</SIGNATURE>
+            <!-- UDB/DSN -->
+            <SIGNATURE>LIST_UDB_SQL_STATEMENT_LIST</SIGNATURE>
+            <SIGNATURE>LIST_DSN_SQL_STATEMENT_LIST</SIGNATURE>
+            <!-- PL-SQL -->
+            <SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_function_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_TRIGGER</SIGNATURE>
+            <SIGNATURE>NODE_PL_TRIGGER</SIGNATURE> --
+            <SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_procedure_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_1</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_2</SIGNATURE> --
+            <!-- T-SQL -->
+            <SIGNATURE>LIST_NV_INSTRUCTIONS</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <!-- C/C++ -->
+              <SIGNATURE>NODE_C_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_C_WHILE_MISSING_BRACKET</SIGNATURE>
+              <SIGNATURE>NODE_C_DO_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_C_FOR</SIGNATURE>
+              <SIGNATURE>NODE_C_FOR_MISSING_BRACKET</SIGNATURE>
+              <!-- UDB/DSN -->
+              <SIGNATURE>NODE_UDB_CTRL_REPEAT</SIGNATURE>
+              <SIGNATURE>NODE_UDB_CTRL_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_DSN_CTRL_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_DSN_CTRL_REPEAT</SIGNATURE>
+              <!-- PL-SQL -->
+              <SIGNATURE>NODE_P23_STATEMENT_LOOP</SIGNATURE>
+              <SIGNATURE>NODE_PL_STATEMENT_LOOP</SIGNATURE> --
+              <SIGNATURE>NODE_P23_STATEMENT_LOOP_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_PL_STATEMENT_LOOP_WHILE</SIGNATURE> --
+              <!-- T-SQL -->
+              <SIGNATURE>NODE_49X_WHILE</SIGNATURE>
+            </OR>
+              <SUB_TREE_OR>
+                <!-- UDB/DSN -->
+                <SIGNATURE NAME="NODE_DSN_ITEM_SELECT_LIST"/>
+                <SIGNATURE NAME="NODE_DSN_INSERT_INTO"/>
+                <SIGNATURE NAME="NODE_DSN_UPDATE"/>
+                <SIGNATURE NAME="NODE_DSN_DELETE_ROWS"/>
+                <SIGNATURE NAME="NODE_UDB_ITEM_SELECT_LIST"/>
+                <SIGNATURE NAME="NODE_UDB_INSERT_INTO"/>
+                <SIGNATURE NAME="NODE_UDB_UPDATE"/>
+                <SIGNATURE NAME="NODE_UDB_DELETE_ROWS"/>
+                <!-- PL-SQL -->
+                <SIGNATURE NAME="NODE_P23_QUERY"/>
+                <SIGNATURE NAME="NODE_PL_QUERY"/> --
+                <!-- T-SQL -->
+                <SIGNATURE NAME="NODE_49X_SELECT"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_1"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_2"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_VALUES"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_INTO_1"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_INTO_2"/>
+                <SIGNATURE NAME="NODE_49X_INSERT_INTO_VALUES"/>
+                <SIGNATURE NAME="NODE_49X_UPDATE"/>
+                <SIGNATURE NAME="NODE_49X_DELETE"/>
+                <SIGNATURE NAME="NODE_M90_INSERT_SELECT"/>
+                <SIGNATURE NAME="NODE_M90_INSERT_GENERAL"/>
+                <SIGNATURE NAME="NODE_M90_INSERT_EXEC"/>
+                <SIGNATURE NAME="NODE_M80_UPDATE_1"/>
+                <SIGNATURE NAME="NODE_M80_UPDATE_2"/>
+                <SIGNATURE NAME="NODE_M80_DELETE_1"/>
+                <SIGNATURE NAME="NODE_M80_DELETE_2"/>
+              </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <!-- The Java case : we simply look for SQLJ clauses that are enclosed in a loop.
+      £ Our Java parser sees everything between "#sql {" and "};" as a sequence 
+      £ of characters so it's impossible to detect a SQL query properly 
+      £ For example  : 
+      £    #sql { UPDATE ... }; 
+      £ is parsed as NODE_J11_SQLJClause - ... - NODE_J11_SQLOperation - then
+      £ CHAR_LITERAL (=U) , CHAR_LITERAL (=P), CHAR_LITERAL (=D), CHAR_LITERAL (=A) -->
+      <PROPERTY NAME="PATT_SQL_IN_JAVA_LOOP" TYPE="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+            <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_J11_ForStatement</SIGNATURE>
+              <SIGNATURE>NODE_J11_WhileStatement</SIGNATURE>
+              <SIGNATURE>NODE_J11_DoStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_J11_SQLJClause</SIGNATURE>
+              </OR>
+                <SUB_TREE_OR>
+                  <SIGNATURE NAME="NODE_J11_SQLOperation" />
+                </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>PATT_SQL_IN_LOOP</MATCH>
+        <MATCH>PATT_SQL_IN_JAVA_LOOP</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid using SQL queries inside loops</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+  </CATEGORY_LIST>
+
+</METRIC>
+
+

@@ -1,0 +1,76 @@
+{
+    "id": 1001040,
+    "name": "Avoid PLC Includes having recursive PLC procedures (PL1)",
+    "href": "AIP/quality-rules/1001040",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the PLC Includes that have PLC recursive procedures.",
+    "output": "The report lists all the PLC includes having PLC recursive procedures.\n\nIt provides following information: \n-  PLC includes artifacts",
+    "rationale": "Recursive calls can be unpredictable regarding the consumption of resources, especially memory. Under certain condition, a function or procedure using a recursive call can keep calling itself and as each call consumes memory, the entire application runs out of memory. Recursive calls are also known to be difficult to test because the termination condition. Testing the memory consumption can be dependent on the data used for the test. For all these reasons, it is often forbidden and most of the time limited to academic usage rather than for mission-critical systems. Because the flip side is complexity, such a trade-off should be carefully chosen by architects or senior developers, balancing cost with reliability and in all cases the conditions under which it is used should be reviewed in details.",
+    "remediation": "Replace the PLC recursive procedures in the PLC includes.",
+    "sample": ".....   \nF2: PROC (PROGRAMME_TEST,TEST1) RECURSIVE;        \n.....",
+    "total": "Number of PLC  includes",
+    "alternativeName": "Avoid PLC Includes having recursive PLC procedures (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1005000,
+            "name": "PLC",
+            "href": "AIP/technologies/1005000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

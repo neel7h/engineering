@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="4602" type="quality-rule" originalName="Avoid using fields (non Static final) from other Classes" filter="140029" filterLabel="JEE" />
+  <metric id="7210" type="quality-rule" originalName="Avoid instantiations inside loops" filter="140029" filterLabel="JEE" />
+  <metric id="7446" type="quality-rule" originalName="Avoid double checked locking" filter="140029" filterLabel="JEE" />
+  <metric id="7442" type="quality-rule" originalName="Avoid to use this within constructor in multi-thread environment" filter="140029" filterLabel="JEE" />
+  <metric id="1022000" type="quality-rule" originalName="Avoid using weak encryption algorithm as DES and triple DES" filter="140029" filterLabel="JEE" />
+  <metric id="1022002" type="quality-rule" originalName="Avoid using RSA Cryptographic algorithms without OAEP (Optimal Asymmetric Encryption Padding) " filter="140029" filterLabel="JEE" />
+  <metric id="7730" type="quality-rule" originalName="Use declarative transaction" filter="140029" filterLabel="JEE" />
+  <metric id="7150" type="quality-rule" originalName="Favor PreparedStatement or CallableStatement over Statement" filter="140029" filterLabel="JEE" />
+  <metric id="7146" type="quality-rule" originalName="JSP pages should only reference Java Objects associated to J2EE Scoped Bean" filter="140029" filterLabel="JEE" />
+  <metric id="7144" type="quality-rule" originalName="Struts Action Artifacts should not directly use database objects" filter="140029" filterLabel="JEE" />  
+  <metric id="8216" type="quality-rule" originalName="CWE-681: Avoid numerical data corruption during incompatible mutation" filter="140029" filterLabel="JEE" />
+  <metric id="4700" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' within a try catch block" filter="140029" filterLabel="JEE" />
+  <metric id="4702" type="quality-rule" originalName="Avoid using 'Throwable.printStackTrace()' with no argument" filter="140029" filterLabel="JEE" />
+  <metric id="8104" type="quality-rule" originalName="Close database resources ASAP" filter="140029" filterLabel="JEE" />
+  <metric id="8214" type="quality-rule" originalName="Expired or Released Resource should not be used" filter="140029" filterLabel="JEE" />
+  <metric id="4592" type="quality-rule" originalName="Avoid hiding static Methods" filter="140029" filterLabel="JEE" />
+  <metric id="4594" type="quality-rule" originalName="Avoid using 'java.io.File'" filter="140029" filterLabel="JEE" />
+  <metric id="7714" type="quality-rule" originalName="Do not use auto-wiring" filter="140029" filterLabel="JEE" />
+  <metric id="7706" type="quality-rule" originalName="Avoid table and column names that are too long (portability)" filter="140029" filterLabel="JEE" />
+</metrics>

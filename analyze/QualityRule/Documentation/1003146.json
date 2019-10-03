@@ -1,0 +1,71 @@
+{
+    "id": 1003146,
+    "name": "Avoid calling callLater explicitly (Flex specific) (Flex)",
+    "href": "AIP/quality-rules/1003146",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that call callLater explicitly.",
+    "output": "This QR reports artifacts that call callLater explicitly. It provides following information:\n\n- Artifact full name",
+    "rationale": "If callLater is called explicitly it denotes that lifecycle of correct component was not extended.",
+    "remediation": "Use correct component that will eliminate the need for explicit callLater call.",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid calling callLater explicitly (Flex specific) (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.component.CallLaterDirectly"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

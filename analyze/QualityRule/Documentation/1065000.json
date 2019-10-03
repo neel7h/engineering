@@ -1,0 +1,70 @@
+{
+    "id": 1065000,
+    "name": "Avoid using \"continue\" statement",
+    "href": "AIP/quality-rules/1065000",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "\"continue\" is an unstructured control flow statement. It makes code less testable, less readable and less maintainable. Structured control flow statements such as if should be used instead. This rule is compliant with MISRA-C:2004.",
+    "output": "Associated to each C++ constructor, destructor, method, C and C++ functions with violations, the Quality Rule provides:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code:\n  - use of continue",
+    "rationale": "Avoid using \"continue\" statement.",
+    "remediation": "Do not used the continue statement, insted used conditionals.",
+    "remediationSample": "int i;\nfor (i = 0; i < 10; i++) {\n  if (i != 5) {\n    printf(\"i = %d\\n\", i);\n  }\n}",
+    "sample": "int i;\nfor (i = 0; i < 10; i++) {\n  if (i == 5) {\n    continue;  /* Noncompliant */\n  }\n  printf(\"i = %d\\n\", i);\n}",
+    "total": "Number of C++ constructors, destructors, methods, C and C++ functions",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

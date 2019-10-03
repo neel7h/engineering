@@ -1,0 +1,78 @@
+{
+    "id": 1007026,
+    "name": "Use identical type operator rather than \"equal\" operator (PHP)",
+    "href": "AIP/quality-rules/1007026",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts using \"equal\" operators instead of type operator. Artifacts considered for this QR are PHP Section, function, method and constructor.",
+    "output": "This report lists all artifacts that use implicit true checking or equal operators rather than identical type operators.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "To compare with type safety,identical type operators should be preffered over implicit true check or equal operators.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_Operators_ComparisonOperatorUsageSniff.html",
+    "remediation": "Reduce number of artifacts using true check or equal operators instead of identical type operators.",
+    "remediationSample": "<?php\nclass Test\n{\n  function testOperator()\n  {\n    $a = \"1\";\n    if ($a === \"1\")  //violation removed\n   {\n   echo \"this is true\";\n    }\n  }\n}\n$test = new Test();\n$test-> testOperator();\n?>",
+    "sample": "<?php\nclass Test\n{\n function testOperator()\n {\n  $a = \"1\";\n  if ($a == \"1\")      //violation\n  {\n   echo \"this is false\";  \n  }\n }\n}\n$test = new Test();\n$test-> testOperator();\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Use identical type operator rather than \"equal\" operator (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Squiz.Operators.ComparisonOperatorUsage"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

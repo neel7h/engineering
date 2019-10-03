@@ -1,0 +1,53 @@
+{
+    "id": 1001052,
+    "name": "Avoid Programs having modules declared as external entries and unused (PL1)",
+    "href": "AIP/quality-rules/1001052",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all PL1 Main Procedures having modules declared as ENTRY and not used.",
+    "output": "The report lists all the PL1 Main Procedures having modules declared as external entries and unused. \n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "Unused external entry definitions should be discarded because they make the code heavy to read and understand.",
+    "remediation": "Best practices recommend to eliminate obsolete ENTRY declarations.",
+    "sample": "CASTTEST: PROC OPTIONS(MAIN) \n... \nDCL UNUSEDPROC ENTRY OPTIONS(FETCHABLE); \n... \nEND CASTTEST;",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Programs having modules declared as external entries and unused (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61026,
+            "name": "Complexity - Technical Complexity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

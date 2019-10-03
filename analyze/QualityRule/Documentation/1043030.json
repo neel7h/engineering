@@ -1,0 +1,87 @@
+{
+    "id": 1043030,
+    "name": "Ensure the X-Frame-Options header is setup (ASP.NET)",
+    "href": "AIP/quality-rules/1043030",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will detect if X-Frame-Options has been enabled for clickjacking protection when doing HTTP calls. It will check the web.config file as well as the source code.",
+    "output": "Violated Config files",
+    "rationale": "Clickjacking, also known as a \"UI redress attack\", is when an attacker uses multiple transparent or opaque layers to trick a user into clicking on a button or link on another page when they were intending to click on the the top level page. Thus, the attacker is \"hijacking\" clicks meant for their page and routing them to another page, most likely owned by another application, domain, or both. \nUsing a similar technique, keystrokes can also be hijacked. With a carefully crafted combination of stylesheets, iframes, and text boxes, a user can be led to believe they are typing in the password to their email or bank account, but are instead typing into an invisible frame controlled by the attacker.",
+    "reference": "https://www.owasp.org/index.php/Clickjacking\n\nhttps://www.owasp.org/index.php/Cross_Frame_Scripting",
+    "remediation": "Ensure you have setup the X-Frame-Options in HTTP Response",
+    "remediationSample": "// globally in Web.config file\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n  </system.web>\n  <system.webServer>\n    <httpProtocol>\n      <customHeaders>\n        <add name=\"X-Frame-Options\" value=\"SAMEORIGIN\" />\n      </customHeaders>\n    </httpProtocol>\n  </system.webServer>\n</configuration>\n\n// or in the source code\n\nprotected void Application_BeginRequest(object sender, EventArgs e)\n{\n    HttpContext.Current.Response.AddHeader(\"X-Frame-Options\", \"Deny\");\n}\n\n// In case of .NetCore app, in Configure method of Startup class:-\n\napp.Use(async (context, next) =>\n{\n    context.Response.Headers.Add(\"X-Frame-Options\", \"SAMEORIGIN\");\n    await next();\n});\n\nNote:- Accepted values are 'SAMEORIGIN', 'DENY' and 'ALLOW FROM \"url\"'. 'ALLOW FROM *' will result into violation.",
+    "sample": "// globally in Web.config file\n\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n  </system.web>\n  <system.webServer>\n    <httpProtocol>\n      <customHeaders>\n      ...\n      </customHeaders>\n    </httpProtocol>\n  </system.webServer>\n</configuration>\n\n// or locally in the source code\n\nprotected void Application_BeginRequest(object sender, EventArgs e)\n{\n    ...\n}",
+    "total": "Number of Config files and Global methods",
+    "alternativeName": "Ensure the X-Frame-Options header is setup (ASP.NET)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-1021",
+            "name": "Improper Restriction of Rendered UI Layers or Frames",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

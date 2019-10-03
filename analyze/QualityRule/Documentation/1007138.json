@@ -1,0 +1,73 @@
+{
+    "id": 1007138,
+    "name": "Avoid unused local variables (PHP)",
+    "href": "AIP/quality-rules/1007138",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the artifacts with unused variables.\nA violation is detected when a local variable is declared and/or assigned and not used.",
+    "output": "This report lists all artifacts with unused variables.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "For readability and usability reasons, artifacts should not have unused variables. For more complex types, such as class, having unused variables would cost resources.",
+    "reference": "PHPMD - http://phpmd.org/rules/unusedcode.html#unusedlocalvariable",
+    "remediation": "Modify the source code to reduce the number of unused variables.",
+    "remediationSample": "<?php\nfunction getSomething() {\n   echo \"removed unused variable\", PHP_EOL;       //violation removed\n}\nclass CastTest {  \n public function doSomething() {\n   $unusedVariable3 = 20; \n   echo $unusedVariable3;     //  violation removed\n }\n}\ngetSomething();\n$obj = new CastTest();\n$obj->doSomething();\n?>",
+    "sample": "<?php\nfunction getSomething() {\n   $unusedVariable2 = 15 ;  //violation\n}\nclass CastTest {  \n public function doSomething() {\n $unusedVariable3 = 20; // violation\n }\n}\ngetSomething();\n$obj = new CastTest();\n$obj->doSomething();\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid unused local variables (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UnusedLocalVariable"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

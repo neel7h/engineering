@@ -1,0 +1,55 @@
+{
+    "id": 1040040,
+    "name": "The Endpoint URI must not include a fragment component (OAuth)",
+    "href": "AIP/quality-rules/1040040",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The Redirection Endpoint is used by the Authorization Server for returning the Authorization Response (which contains the authorization credentials) to the client via the Resource Owner user-agent.\n\nThe endpoint URI MUST NOT include a fragment component.\n\nThe default Authorization Response baseUri (redirection endpoint) is /login/oauth2/code/*, which is defined in OAuth2LoginAuthenticationFilter.DEFAULT_FILTER_PROCESSES_URI.\n\nA fragment identifier component is indicated by the presence of a number sign (\"#\") character and terminated by the end of the URI as : https://tools.ietf.org/html/rfc3986#section-3.5\n\nRedirect URI with # character breaks parsing",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The endpoint URI MAY include an \"application/x-www-form-urlencoded\" formatted query component    which MUST be retained when adding additional query parameters. But, the endpoint URI MUST NOT include a fragment component.",
+    "reference": "https://tools.ietf.org/html/rfc6749#section-3.1",
+    "remediation": "If you would like to customize the Authorization Response baseUri, you should not include a fragment component.",
+    "remediationSample": "@EnableWebSecurity\npublic class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n            .oauth2Login()\n                .redirectionEndpoint()\n                    .baseUri(http://127.0.0.1:5555/callback?code=xznhxzcjqbwg3jjavth5tk7s7&state=I+wish+to+wash+my+irish+wristwatch#/more_url)\n                    ....\n    }\n}",
+    "sample": "@EnableWebSecurity\npublic class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n            .oauth2Login()\n                .redirectionEndpoint()\n                    .baseUri(http://127.0.0.1:5555/callback/#/more_url?code=xznhxzcjqbwg3jjavth5tk7s7&state=I+wish+to+wash+my+irish+wristwatch)\n                    ....\n    }\n}",
+    "total": "Number of java methods",
+    "alternativeName": "Ensure not using fragment component in the Endpoint URI",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

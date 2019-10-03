@@ -1,0 +1,63 @@
+{
+    "id": 4566,
+    "name": "Avoid declaring Instance Variables without defined access type",
+    "href": "AIP/quality-rules/4566",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "Instance Variables should have an access type defined (Public, Private or Protected). Instance Variables are Non Static Fields.",
+    "output": "This report lists all Instance Variables without defined access types. It provides the following information: Field full name",
+    "rationale": "For security reasons, Instance Variables should always have an access type defined. When no access type is defined, the visibility of the variable is at the Package level.",
+    "remediation": "Review the Field declaration to add the relevant access type.",
+    "total": "Number of Java attributes",
+    "alternativeName": "Ensure that field declaration have  the relevant access type",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 6,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,18 @@
+{ "functionCallsThroughParameters" : [
+	{ "identifierFullname" : "angular.forEach",
+	  "isLoop" : "true" },
+	{ "identifierName" : "each",
+	  "isLoop" : "true" },
+	{ "identifierName" : "forEach",
+	  "isLoop" : "true" },
+	{ "identifierName" : "replace" },
+	{ "identifierName" : "then" },
+	{ "identifierName" : "get" },
+	{ "identifierName" : "put" },
+	{ "identifierName" : "post" },
+	{ "identifierName" : "delete" },
+	{ "identifierName" : "connect" },
+	{ "identifierName" : "on" },
+	{ "identifierName" : "done" }
+	]
+}

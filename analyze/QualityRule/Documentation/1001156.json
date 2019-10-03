@@ -1,0 +1,75 @@
+{
+    "id": 1001156,
+    "name": "Avoid PL1 Errors Blocks having ON ERROR SYSTEM blocks and not containing and displaying ONCODE and ONLOC (PL1)",
+    "href": "AIP/quality-rules/1001156",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all PL1 Errors  Blocks having ON ERROR SYSTEM blocks and not containing and displaying ON CODE and ONLOC.",
+    "output": "The report lists all the  PL1 Errors  Blocks having ON ERROR SYSTEM blocks and not containing and displaying ON CODE and ONLOC.\n\nIt provides following information: \n- PL1 Errors  Blocks full name",
+    "rationale": "A more information about the error is provided by ONCODE and ONLOC, which is required and useful.",
+    "remediation": "Always have ONCODE and ONLOC statement for the blocks having ON ERROR.",
+    "total": "Number of the PL1 Errors  Blocks.",
+    "alternativeName": "Avoid PL1 Errors Blocks having ON ERROR SYSTEM blocks and not containing and displaying ONCODE and ONLOC (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

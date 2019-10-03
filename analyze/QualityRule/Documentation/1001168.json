@@ -1,0 +1,64 @@
+{
+    "id": 1001168,
+    "name": "Avoid Functions and Procedures  not having variable declared on a separate line (PL1)",
+    "href": "AIP/quality-rules/1001168",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for PL1 Main Procedures, PL1 Functions and PL1 Procedures not having variables declared on a separate line",
+    "output": "The report lists all the PL1 Main Procedures, PL1 Functions and PL1 Procedures not having variables declared on the separate lines.\n\nIt provides following information: \n-  PL1 Main Procedures, PL1 Functions and PL1 Procedures full name",
+    "rationale": "Not grouping variables improve the facility to modify the attributes of one of them.",
+    "remediation": "The best practice is to code only one variable per line.",
+    "remediationSample": "DCL TEST1  BIN FIXED(31);\nDCL TEST2  BIN FIXED(31);",
+    "sample": "DCL (TEST1,TEST2) BIN FIXED (31);",
+    "total": "Number of the PL1 Main Procedures, PL1 Functions and PL1 Procedures",
+    "alternativeName": "Avoid Functions and Procedures  not having variable declared on a separate line (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

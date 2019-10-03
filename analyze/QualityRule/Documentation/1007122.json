@@ -1,0 +1,118 @@
+{
+    "id": 1007122,
+    "name": "Avoid empty catch blocks (PHP)",
+    "href": "AIP/quality-rules/1007122",
+    "critical": true,
+    "description": "This rule searches for all the artifacts containing empty catch blocks.\nIn a Try and Catch statement, Catch blocks should have code to handle the thrown exception or at least comments denoting why the exception was not handled.",
+    "output": "This report lists all artifacts containing an empty catch block.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "An empty catch block defeats the purpose of exceptions.\nWith empty catch block, when an exception occurs, nothing happens and the program may fail because subsequent processing may rely on the result of exception causing statements. If exception cannot or should not be handled for concrete reason, empty catch block should have at least explanation of why.\nSince the reason for the issue (the type of the exception and potential embedded message) are not known, it will require more time to fix the issue.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_Commenting_EmptyCatchCommentSniff.html",
+    "remediation": "Exception should be handled or at least contain a comment explaining concrete reason for not handling the exception.",
+    "remediationSample": "<?php\ntry {\n      $fileHandle = fopen(\"my_file.csv\", \"r\");\n      if(false === $fileHandle) { \n         throw new Exception('Could not open CSV file!'); \n      }\n   } \n   catch (RuntimeException $ex) \n   {\n      // violation removed with comment: we should handle the exception properly \n   } catch (Exception $e)\n   { \n      echo $e->getMessage(); \n   }\n?>",
+    "sample": "<?php\ntry {\n      $fileHandle = fopen(\"my_file.csv\", \"r\");\n      if(false === $fileHandle) { throw new Exception('Could not open CSV file!'); }\n   } catch (Exception $ex) //Violation\n   {\n \n   }\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid empty catch blocks (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-1",
+            "name": "Empty Exception Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-390",
+            "name": "Detection of Error Condition Without Action",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "EmptyCatchComment"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

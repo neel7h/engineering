@@ -1,0 +1,64 @@
+{
+    "id": 1012014,
+    "name": "Avoid locking object by ALCOBJ command    (CL400)",
+    "href": "AIP/quality-rules/1012014",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule seraches for CL400 programs containing objects locked by the ALCOBJ command.",
+    "output": "This report lists CL400 programs .\nIt provides the following information:\n- CL400 artifact full name",
+    "rationale": "Objects that are allocated to you should be deallocated as soon as you are finished using them because other users may need those objects. However, allocated objects are automatically deallocated at the end of the routing step.",
+    "remediation": "Try to deallocate the  objects as soon as possible.",
+    "remediationSample": "Please refer for the below link,\nhttps://publib.boulder.ibm.com/iseries/v5r2/ic2924/index.htm?info/cl/alcobj.htm",
+    "sample": "ALCOBJ command will allocate object and will lock the object till the end of the scope. User needs to use explicitly release the allocation by using DLCOBJ. \n\nALCOBJ   OBJ((LIBY/DATAAREAX  *DTAARA  *EXCL ))\n  SCOPE(*THREAD)",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid locking object by ALCOBJ command    (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

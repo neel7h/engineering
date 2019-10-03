@@ -1,0 +1,75 @@
+{
+    "id": 1001012,
+    "name": "Avoid having multiple artifacts updating data on the same SQL table (PLI)",
+    "href": "AIP/quality-rules/1001012",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This metric detects DB2 tables having too many ways to updating data into them. It retrieves table having more than X artifacts inserting these tables, where X a configurable parameter.",
+    "output": "The report lists all the  DB2 tables having too many artifacts updating data in them. \n\nIt provides following information: \n- DB2 table full name",
+    "rationale": "One main source of data corruption within applications comes from lack of compliance to data modification rules defined for an application. These rules are usually related to the use of specific procedures for update/insert/delete, a specific API or a data layer that is fully tested to maintain data integrity. The creation of new, different update/insert/delete procedures and functions that do not make use the existing tested code is at origin of many data corruption cases.",
+    "remediation": "Reduce the number of updates  by multiple artifact into the same table.",
+    "total": "Number of DB2 Tables.",
+    "alternativeName": "Avoid having multiple artifacts updating data on the same SQL table (PLI)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max artifacts",
+            "description": "Max artifacts",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        1
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

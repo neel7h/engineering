@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC_LIST>
+
+    <METRIC Name="Cyclomatic Complexity" TYPE="1">
+        <LANGUAGE NAME="HTML5-LANGUAGE">
+            <ACTIVE>yes</ACTIVE>
+            <INIT>1</INIT>
+            <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+            <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+            <SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+            <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+            <SEARCH_CASE_SENSITIVE>NO</SEARCH_CASE_SENSITIVE>
+            
+            <REGEXP>if\b</REGEXP>
+            <REGEXP>else\b</REGEXP>
+            <REGEXP>and\b</REGEXP>
+            <REGEXP>or\b</REGEXP>
+            <REGEXP>break\b</REGEXP>
+            <REGEXP>continue\b</REGEXP>
+            <REGEXP>try\b</REGEXP>
+            <REGEXP>except\b</REGEXP>
+            <REGEXP>while\b</REGEXP>
+            <REGEXP>for\b</REGEXP>
+            <REGEXP>throw\b</REGEXP>
+            <REGEXP>return\b</REGEXP>
+        </LANGUAGE>
+    </METRIC>
+
+</METRIC_LIST>

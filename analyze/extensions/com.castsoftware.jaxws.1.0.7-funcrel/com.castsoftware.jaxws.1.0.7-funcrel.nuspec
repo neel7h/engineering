@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.jaxws</id>
+    <version>1.0.7-funcrel</version>
+    <title>JAX-WS Analyzer</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/JAX-WS+-+1.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.jee.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support of JAX-WS Web Services used in JEE applications. It's handle a collection of annotations introduced with(JSR 224)enabling the definition of SOAP web services contract directly inside the java code.This extension detects also Webservice implemention when Apache CXF/Spring framework is used (through XML configuration files)and Client-side WebServices created via Spring WebServiceTemplate</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/JAX-WS+-+1.0+-+Release+Notes</releaseNotes>
+    <tags>Java JEE J2EE</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.wbslinker" version="1.2.0-beta40170515" />
+      <dependency id="com.castsoftware.internal.platform" version="0.8.1-alpha01000067" />
+    </dependencies>
+  </metadata>
+</package>

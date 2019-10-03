@@ -1,0 +1,67 @@
+{
+    "id": 1020038,
+    "name": "Avoid defining and calling functions inside loops",
+    "href": "AIP/quality-rules/1020038",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Defining a function inside a loop is adding unnecessary steps and will certainly affect performance, this is why this rule will find all the javascript anonymous function call/creation in loops.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Writing functions within loops tends to result in errors due to the way the function creates a closure around the loop.",
+    "reference": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures\nhttp://eslint.org/docs/rules/no-loop-func",
+    "remediation": "Define the function out of the loop and use the reference inside the loop",
+    "remediationSample": "var a = function() {}; \n\nfor (var i=10; i; i--) { \n    a(); \n} \n\nfor (var i=10; i; i--) { \n    var a = function() {}; // OK, no references to variables in the outer scopes. \n    a(); \n} \n\nfor (let i=10; i; i--) { \n    var a = function() { return i; }; // OK, all references are referring to block scoped variables in the loop. \n    a(); \n} \n\nvar foo = 100; \nfor (let i=10; i; i--) { \n    var a = function() { return foo; }; // OK, all references are referring to never modified variables. \n    a(); \n}",
+    "sample": "for (var i=10; i; i--) { \n    (function() { return i; })(); \n} \n\nwhile(i) { \n    var a = function() { return i; }; \n    a(); \n} \n\ndo { \n    function a() { return i; }; \n    a(); \n} while (i); \n\nlet foo = 0; \nfor (let i=10; i; i--) { \n    // Bad, function is referencing block scoped variable in the outer scope. \n    var a = function() { return foo; }; \n    a(); \n}",
+    "total": "Number of anonymous javascript function call in loops",
+    "alternativeName": "Avoid defining and calling functions inside loops",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

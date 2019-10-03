@@ -1,0 +1,59 @@
+{
+    "id": 1001172,
+    "name": "Avoid Programs overriding the *PROCESS statement (PL1)",
+    "href": "AIP/quality-rules/1001172",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for PL1 Main Procedures (Programs) overriding the *PROCESS statement.",
+    "output": "The report lists all the PL1 Main Procedures overriding the *PROCESS statement.\n\nIt provides following information: \n-  PL1 Main Procedures full name",
+    "rationale": "Not using the parameters defined in the procedure will override the standard options of the compiler and can generate unexpected behavior due to inconsistency between  load modules.",
+    "remediation": "Try to reduce the use in programs of the overriding  *PROCESS statements.",
+    "remediationSample": "*PROCESS;",
+    "sample": "*PROCESS TEST1,TEST2",
+    "total": "Number of PL1 Main Procedures.",
+    "alternativeName": "Avoid Programs overriding the *PROCESS statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

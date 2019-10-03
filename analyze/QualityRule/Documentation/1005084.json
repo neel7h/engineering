@@ -1,0 +1,56 @@
+{
+    "id": 1005084,
+    "name": "Avoid using parameters on the Record column level (EGL)",
+    "href": "AIP/quality-rules/1005084",
+    "critical": true,
+    "description": "This rules searches for records having specific parameter statements on the column declarations.",
+    "output": "This report lists the following information: Record Full Name",
+    "rationale": "Block the parameter that comes with retrieve sql.\nCOBOL will be generated, but you will get errors with DATE and TIMESTAMP at runtime.",
+    "remediation": "Try to reduce the use of parameters on the Record columns levels.",
+    "total": "Number of Records",
+    "alternativeName": "Avoid using parameters on the Record column level (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

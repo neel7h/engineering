@@ -1,0 +1,64 @@
+{
+    "id": 1101064,
+    "name": "Avoid cascading Triggers (SQL)",
+    "href": "AIP/quality-rules/1101064",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Trigger name",
+    "description": "Triggers should not modify data in a Table which has a Trigger for this action.",
+    "output": "This report lists all cascading Triggers\nIt provides the following information: \nTrigger Full Name, Cascaded Trigger Name",
+    "rationale": "Creating cascade in Trigger's execution can have unexpected results. Meaning having triggers that act on other tables in a way that causes triggers on that table to fire lead to obscure behavior. \nThis behavior should be avoided.",
+    "remediation": "Review the design of the Triggers",
+    "sample": "Example: \nTrigger_A is a trigger ON INSERT on the Table A \nTrigger_B which is a trigger of anytype is performing an INSERT on the same table Table_A therefore we consider that Trigger_B is cascading Trigger_A over Table_A",
+    "total": "Number of Triggers.",
+    "alternativeName": "Avoid cascading Triggers (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "id": 1018870,
+    "name": "Avoid Activities using \"Group By\" statement (TIBCO BW)",
+    "href": "AIP/quality-rules/1018870",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This metric retrieves the artifacts containing queries using the \"Group By\" statement.",
+    "output": "This QR retrieves all the activies that use SQL statement with \"Group By\".",
+    "rationale": "Having complex queries in Tibco Activities can cause performance problems. Queries using group by are considered complex and not efficient.",
+    "remediation": "Review the design of the query to avoid if possible Group By clause",
+    "total": "Number Process Activities",
+    "alternativeName": "Avoid Activities using \"Group By\" statement (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

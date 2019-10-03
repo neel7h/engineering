@@ -1,0 +1,77 @@
+{
+    "id": 1003130,
+    "name": "Avoid managed events without matching [Event] metadata (Flex)",
+    "href": "AIP/quality-rules/1003130",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that define events with mismatched even metadata.",
+    "output": "This QR reports artifacts that define events with mismatched even metadata. It provides following information:\n\n- Artifact full name",
+    "rationale": "Each managed event should have matching [Event] metadata.",
+    "remediation": "Use matching event metadata.",
+    "sample": "[Event(name=\"message\", type=\"my.package.MyEvemt\")]\n[ManagedEvents(names=\"messag\")] // VIOLATION\npublic class MyClass  \n{      \n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid managed events without matching [Event] metadata (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.parsley.MismatchedManagedEvent"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

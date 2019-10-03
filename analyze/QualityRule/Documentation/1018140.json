@@ -1,0 +1,61 @@
+{
+    "id": 1018140,
+    "name": "Avoid using Java Activities (TIBCO BW)",
+    "href": "AIP/quality-rules/1018140",
+    "critical": true,
+    "description": "This rule searches for ProcessActivities of type Java Activities.\nProcessActivity is a property captured in the metamodel.",
+    "output": "This report lists all  Processe Activities of type Java Activity.\nIt provides the following information:\nProcess Activity full name.\nThe associated value is the activityType.",
+    "rationale": "The use of Java activities is discouraged since it will break the BusinessWorks design.\nIt is possible to use Java code from external classes instead or to use the Java Custom Functions to extend XPaths possibilities of BusinessWorks.",
+    "reference": "3.5.2 POR-002: Uses of Java activities",
+    "total": "Number of  Process Activity",
+    "alternativeName": "Avoid using Java Activities (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

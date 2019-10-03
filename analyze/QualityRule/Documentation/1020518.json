@@ -1,0 +1,77 @@
+{
+    "id": 1020518,
+    "name": "Avoid using Javascript Date typecheck in AngularJS application",
+    "href": "AIP/quality-rules/1020518",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "You should use the angular.isDate method instead of the default JavaScript implementation (typeof new Date() === \"[object Date]\").",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure you are using the official AngularJS API, you should use the angular.isDate",
+    "remediationSample": "var myObject = new Date(); \n\nif(angular.isDate(myObject)) { \n\n}",
+    "sample": "var myObject = new Date(); \n\nif(typeof myObject === \"[object Date]\") { \n\n}",
+    "total": "Number of angular artifacts",
+    "alternativeName": "Avoid using Javascript Date typecheck in AngularJS application",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-252-data",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

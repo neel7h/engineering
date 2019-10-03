@@ -1,0 +1,71 @@
+{
+    "id": 1039068,
+    "name": "Avoid using the Non-Serializable Object Stored in Session",
+    "href": "AIP/quality-rules/1039068",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check that session contains only serializable object by checking class inheritance and specific API usage.",
+    "output": "Total number of violation related to Java Method\n-Primary Bookmark to Method.\n-Secondary Bookmark to Class.",
+    "rationale": "Accessing a non-serializable object as an HttpSesion attribute can result in damaging the application reliability. It could break the session replication because the deserialization will happen only for attributes stored as serializable. So it is recommended to make the class Serializable and improve the reliability of the application.",
+    "reference": "https://cwe.mitre.org/data/definitions/579.html\nhttps://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication",
+    "remediation": "Inherits from the class Serializable",
+    "remediationSample": "//The java.io.Serializable class serializes the session attribute. \n\npublic class DataGlob implements java.io.Serializable {\n   String globName;\n   String globValue;\n\n   public void addToSession(HttpSession session) {\n     session.setAttribute(\"glob\", this);\n   }\n}",
+    "sample": "// Sample Code: The following class adds itself to the session, but because it is not serializable, the session can no longer be replicated.\n\npublic class DataGlob {\n   String globName;\n   String globValue;\n\n   public void addToSession(HttpSession session) {\n     session.setAttribute(\"glob\", this);\n   }\n}",
+    "total": "Number of Java Methods",
+    "alternativeName": "Ensure to declare the object as serializable if you are using it as a httpsession attribute",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66065,
+            "name": "Secure Coding - Time and State",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-579",
+            "name": "J2EE Bad Practices: Non-serializable Object Stored in Session",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

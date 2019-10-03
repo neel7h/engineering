@@ -1,0 +1,70 @@
+{
+    "id": 1060018,
+    "name": "Avoid String concatenation in loops for artifacts with high fan in",
+    "href": "AIP/quality-rules/1060018",
+    "critical": true,
+    "description": "All String objects that use concatenation in loops (for, while, do while) will be reported.\n\nNote that the JVM is optimizing code such as System.out.println(\"x:\"+x+\" y:\"+y); by \nSystem.out.println((new StringBuilder()).append(\"x:\").append(x).append(\" y:\").append(y).toString()); \nsee: http://kaioa.com/node/59 \n\nSo only the cases where the variable used to save the result of the concatenation is used in the concatenation itself. So, only these cases when executed in loop are taken into account: \n* result += string (literal or not) \n* result = result + string (literal or not) \n* result = result.concat(string: literal or not)",
+    "output": "This report lists all methods with a high fan-in that call String concatenation in loops.\nIt provides the following information:\n Method full name",
+    "rationale": "String concatenation is not efficient because it creates a StringBuffer for each concatenation. When placed in a loop, String concatenation  results in the creation and garbage collection of large numbers of temporary objects. This both consumes memory and can dramatically slow the program execution. It is recommended to create a StringBuffer before entering the loop, and append to it within the loop, thus reducing the overhead.\nWhen the artifacts have a high fan-in the risk is highly increased.",
+    "reference": "http://www.precisejava.com/javaperf/j2se/StringAndStringBuffer.htm#Strings104",
+    "remediation": "It is recommended to create a StringBuilder (if JDK >= 1.5 and not in thread environment) or StringBuffer before entering the loop, and append to it within the loop, thus reducing the overhead.",
+    "remediationSample": "StringBuffer result = new StringBuffer(\"hello\");\nfor (int i = 0; i < 1500; i++) {\n   result.append(\"hello\");  // FIXED\n}",
+    "sample": "String result = \"hello\";\nfor (int i = 0; i < 1500; i++) {\n   result += \"hello\";  // VIOLATION\n}",
+    "total": "Number of artifacts with a high fan-in",
+    "alternativeName": "Avoid String concatenation in loops for artifacts with high fan in",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

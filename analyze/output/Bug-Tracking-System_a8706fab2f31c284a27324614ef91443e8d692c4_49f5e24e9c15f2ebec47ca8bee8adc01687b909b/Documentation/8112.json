@@ -1,0 +1,95 @@
+{
+    "id": 8112,
+    "name": "Avoid improper processing of the execution status of data handling operations",
+    "href": "AIP/quality-rules/8112",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule identifies Java control elements that embed data resource access actions without checking return code or handling error. \n\nThis quality rule checks methods that contain calls to SQL insert, update, select, create table enclosed in a try/catch block. Cases where SQL calls in functions that throw exceptions to be caught higher in the call graph are not addressed by this rule. \nEither empty catch blocks, catch blocks with comments only, or only write to a stream are violating the rule. Appropriate logging or other treatment of exception are said to be valid. \n\nNote: This quality rule implements the rule ASCSM-CWE-252 of the CISQ standard.",
+    "output": "Associated to each Method in violation, the Quality Rule provides: \n- The number of SQL accesses without any check \n- Bookmarks for violation occurrences found in source code: \n  - SQL access",
+    "rationale": "Software without consistent and complete handling of errors and exceptions makes it impossible to accurately identify and adequately respond to unusual and unexpected situations.",
+    "reference": "ASCSM 1.0, Automated Source Code Security Measure, Object Management Group.",
+    "remediation": "Implement a consistent and complete handling of errors and exceptions to make it possible to accurately identify and adequately respond to unusual and unexpected situations. Using a logger library is a good practice.",
+    "remediationSample": "public void remediation() { \n    try \n    { \n        Statement statement = connection.createStatement(); \n        String sql1 = \"INSERT INTO STUDENTS VALUES\" + \n                      \"('BOB','DAVI', {d '2001-12-16'})\"; \n        statement.execute(sql1); \n    } \n    catch (Exception e) \n    { \n        logger.error(\"SQL error\", e); \n    } \n}",
+    "sample": "// Sample 1 \npublic void method1() { \n    try \n    { \n        Statement statement = connection.createStatement(); \n        String sql1 = \"INSERT INTO STUDENTS VALUES\" + \n                      \"('BOB','DAVI', {d '2001-12-16'})\"; \n        statement.execute(sql1); \n    } \n    catch (Exception e) \n    { \n        System.err.println(\"This is an output that does not handle properly the exception\"); \n        System.err.println(e.toString()); \n    } \n} \n\n// Sample 2 \npublic void method2() { \n    try \n    { \n        Statement statement = connection.createStatement(); \n        String sql1 = \"INSERT INTO STUDENTS VALUES\" + \n                      \"('BOB','DAVI', {d '2001-12-16'})\"; \n        statement.execute(sql1); \n    } \n    catch (Exception e) \n    { \n        // comments are not a good way to handle the exception \n   } \n} \n\n// Sample 3 \npublic void method3() { \n    try \n    { \n        Statement statement = connection.createStatement(); \n        String sql1 = \"INSERT INTO STUDENTS VALUES\" + \n                      \"('BOB','DAVI', {d '2001-12-16'})\"; \n        statement.execute(sql1); \n    } \n    catch (Exception e) \n    { \n         \n    } \n}",
+    "total": "Number of Methods with SQL access",
+    "alternativeName": "Avoid improper processing of the execution status of data handling operations",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-252-data",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Data Resource",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.9
+    ]
+}

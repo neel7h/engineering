@@ -1,0 +1,63 @@
+{
+    "id": 1007184,
+    "name": "Avoid using size functions inside loops (PHP)",
+    "href": "AIP/quality-rules/1007184",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches all artifacts using size functions inside loops. The functions include count, sizeof and strlen. The artifacts considered for this quality rule are PHP Section, constructor, method and function.",
+    "output": "This report lists all the artifacts using size function inside loops.\n      \nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Using size functions inside loops can decrease performance.",
+    "remediation": "Try to reduce artifacts that use size functions inside loops.",
+    "sample": "<?php\n      \nclass Test\n   {\n      public function testNames($names) {\n         for($counter = 0; $counter < count($names); $counter++) { //violation\n            if (10 < strlen($names[$counter])) { //violation\n               if (100 > sizeof($names)) { //violation\n                  break;\n               }\n            } \n         }\n      }\n   }\n                           \n   $obj = new Test();\n   $obj->testNames(array(\"first name\", \"second name\", \"third name\"));\n   \n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using size functions inside loops (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

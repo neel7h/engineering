@@ -1,0 +1,95 @@
+{
+    "id": 1007276,
+    "name": "Avoid Cookie Misconfiguration (path) (PHP)",
+    "href": "AIP/quality-rules/1007276",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "Cookies are often used to store a session identifier of the web application's state for a specific user. In order to harden against related attacks, such as session riding that can lead to the compromise of user data or the takeover of adminstrator sessions, a secure configuration of sensitive cookies is crucial. It has been detected that a new cookie is set insecure within the HTTP response header which can be improved by enabling additional flags.",
+    "output": "This report lists all artifacts that cause cookie misconfiguration. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The specified path for cookie should not be broad than necessary.",
+    "reference": "https://cwe.mitre.org/data/definitions/287.html",
+    "remediation": "In order to increase security, the validity of the cookie can be limited to a more specific application path in the 4th parameter.",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Cookie Misconfiguration (path) (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-287",
+            "name": "Improper Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "id": 1007094,
+    "name": "Avoid Methods and Functions with lines more than 120 characters in length (PHP)",
+    "href": "AIP/quality-rules/1007094",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all functions and methods containing lines with length more than 120 characters including comments.",
+    "output": "This report lists all Methods and Functions containing lines with more than 120 character(including comments) in length.\n\nThis QR provides the following information:\nMethod or Function full name.",
+    "rationale": "For maintainability and readability reasons, length of lines in functions and methods should not be more than 120 characters.",
+    "remediation": "Modify the source code to reduce the number of functions and methods with lines more than 120 characters in length including comments.",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid Methods and Functions with lines more than 120 characters in length (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        80.0,
+        99.0
+    ]
+}

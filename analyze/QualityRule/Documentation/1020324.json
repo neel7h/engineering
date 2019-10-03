@@ -1,0 +1,74 @@
+{
+    "id": 1020324,
+    "name": "Avoid using dialog with closeText parameter with jQuery UI version older than 1.12",
+    "href": "AIP/quality-rules/1020324",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "jQuery UI versions older than 1.12.0 are vulnerable to Cross-site Scripting (XSS) attacks when using dialog API with closeText argument containing html content. This rule has been listed as CVE-2016-7103 in the CVE registry.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7103",
+    "remediation": "Use a newer version of jQuery UI.",
+    "sample": "<script src=\"https://code.jquery.com/jquery-2.1.4.js\"></script> \n<script src=\"https://code.jquery.com/ui/1.11.4/jquery-ui.js\"></script> \n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://code.jquery.com/ui/1.9.1/themes/base/ \njquery-ui.css\"> \n    <script> \n        $(document).ready(function () { \n            $('#dialog').dialog({ closeText: '<script>alert(\"XSS\")<\\/script>' }); \n        }); \n    </script>",
+    "total": "Number of JQuery artifacts using jquery dialog",
+    "alternativeName": "Avoid using dialog with closeText parameter with jQuery UI version older than 1.12",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

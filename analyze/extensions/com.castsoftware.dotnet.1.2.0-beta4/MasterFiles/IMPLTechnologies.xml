@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metrics>
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" filter="138383" filterLabel="C#" />
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" filter="138385" filterLabel="VB.NET" />
+  <metric id="3570" type="quality-rule" originalName="Avoid using Keywords as names" filter="141901" filterLabel=".NET (Legacy Analyzer)" />
+  <metric id="1027000" type="quality-rule" originalName="Avoid Managed type declaration for Win32 API using Overlapped IO" filter="138383" filterLabel="C#" />
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" filter="138383" filterLabel="C#" />
+  <metric id="1027002" type="quality-rule" originalName="Avoid exposing methods that use Platform Invocation Services to access unmanaged code" filter="138385" filterLabel="VB.NET" />
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" filter="138383" filterLabel="C#" />
+  <metric id="1027004" type="quality-rule" originalName="Avoid using deprecated XmlTextReader .NET API" filter="138385" filterLabel="VB.NET" />
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" filter="138383" filterLabel="C#" />
+  <metric id="1027008" type="quality-rule" originalName="Always Revert After Impersonation" filter="138385" filterLabel="VB.NET" /> 
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" filter="138383" filterLabel="C#" />
+  <metric id="1027010" type="quality-rule" originalName="Avoid weak encryption providing insufficient key size (.NET)" filter="138385" filterLabel="VB.NET" /> 
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." filter="138383" filterLabel="C#" />
+  <metric id="1027012" type="quality-rule" originalName="Avoid storing Non-Serializable Object as HttpSessionState attributes." filter="138385" filterLabel="VB.NET" /> 
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" filter="138383" filterLabel="C#" />
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" filter="138385" filterLabel="VB.NET" />
+  <metric id="7272" type="quality-rule" originalName="Provide a private default Constructor for utility Classes (.NET)" filter="141901" filterLabel=".NET (Legacy Analyzer)" />
+</metrics>

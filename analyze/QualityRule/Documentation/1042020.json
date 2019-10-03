@@ -1,0 +1,60 @@
+{
+    "id": 1042020,
+    "name": "Avoid Struts Invalidated Action Form 1.x",
+    "href": "AIP/quality-rules/1042020",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check that each Action Form is having a validation form. If not it gives the violation.\n\nThis check is done when used used struts version is 1.x",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code\n- Secondary Bookmarks for violation occurrences found in the source code",
+    "rationale": "Every Action Form must have a corresponding validation form. If a Struts Action Form Mapping specifies a form, it must have a validation form defined under the Struts Validator.\n\nSecurity misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.",
+    "reference": "https://cwe.mitre.org/data/definitions/108.html",
+    "remediation": "The source code below is the validate(..) method of the ExampleForm class.\n\npublic ActionErrors validate(\n ActionMapping mapping,\n HttpServletRequest request) {\n ActionErrors actionErrors = new ActionErrors();  //Create a new instance of ActionErrors\n\n  if(exampleForm.get(\"name\").toString().length() < 3){\n actionErrors.add(ActionErrors.GLOBAL_ERROR, new ActionError(\"error.name\"));\n } //validate the properties of the DynaActionForm\n\n if(Integer.parseInt(exampleForm.get(\"age\").toString()) < 1){\n actionErrors.add(ActionErrors.GLOBAL_ERROR, new ActionError(\"error.age\"));\n }\n\n    return actionErrors;  //return the actionErrors \n    }\n\nValidation by XML file:\n\n<form-validation>          \n <formset>\n        <!-- validation mappings -->\n        <form name=\"exampleXMLForm\">\n            <field \n                property=\"name\"\n                depends=\"required, minlength\">\n                    <arg key=\"exampleXMLForm.name\" />\n                    <arg key=\"${var:minlength}\" resource=\"false\" />\n                    <var>\n                      <var-name>minlength</var-name>\n                      <var-value>3</var-value>\n                    </var>\n            </field>\n            <field\n                property=\"age\"\n                depends=\"required, integer, validwhen\">\n                    <arg key=\"exampleXMLForm.age\"/>\n                    <arg name=\"validwhen\" key=\"${var:min}\" resource=\"false\" />\n                    <var>\n                      <var-name>test</var-name>\n                      <var-value>(*this* > 18)</var-value>\n                    </var>\n            </field>\n        </form>\n    </formset>\n</form-validation>",
+    "sample": "<form-beans >\n    <form-bean name=\"exampleForm\" type=\"de.laliluna.tutorial.actionform.form.ExampleForm\" />\n</form-beans>\n\n\n<action-mappings>\n      <action\n         attribute=\"exampleForm\"\n         input=\"/form/example.jsp\"\n         name=\"exampleForm\"\n         path=\"/example\"\n         scope=\"request\"\n         type=\"de.laliluna.tutorial.actionform.action.ExampleAction\">\n\n        <forward name=\"showExample\" path=\"/form/example.jsp\" />\n\n    </action>\n</action-mappings>",
+    "total": "Number of Struts 1.x XML Config File",
+    "alternativeName": "Ensure that each Action Form is having a validation form",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-108",
+            "name": "Struts: Unvalidated Action Form",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

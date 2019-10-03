@@ -1,0 +1,6 @@
+Build date: 14/12/2018  7:07:09,59 
+Build number: 1000027 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master fc3221408051add72455dea6103be19ffb8e5139
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.jaxrs.git origin/master 4ed7dbf421e206837a2ef61d8d5f38b3333d8f28
+Publish date: 14/12/2018  7:09:24,86 
+Original version: 1.4.0-funcrel 

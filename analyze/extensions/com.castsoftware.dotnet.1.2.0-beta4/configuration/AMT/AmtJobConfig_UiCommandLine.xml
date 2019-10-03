@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- For command line analyser.exe -->
+
+<configuration>
+
+    <actions>
+        <excludeStandardActions/>
+
+        <action name = "UACommandLine" />
+      
+        <action name = "UALinkAction" />
+        <action name = "UAFileRegExpAction" />
+        <!--action name = "CwMetricsActionUA" /-->
+        <!--<action name = "UAChecksumAction" />-->
+        <action name = "UAChecksumAction" />-->
+        <action name = "UAPluginAction" />
+        <action name = "UniversalAnalyzerAction" />
+        <action name = "UAFileRegExpAction" />
+
+    </actions>
+
+    <analyzer name = "Universal Importer Command Line" maxMem = "1300" maxInstancesForFlat64bits = "200000"/>
+
+</configuration>

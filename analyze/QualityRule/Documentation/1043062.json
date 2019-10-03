@@ -1,0 +1,74 @@
+{
+    "id": 1043062,
+    "name": "Ensure to limit users access only to authorized resources (C#)",
+    "href": "AIP/quality-rules/1043062",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check that the resources cannot be accessed by all the users",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Use URL Authorization module class to verify that the user has permission to access the URL requested.",
+    "reference": "Secure coding practices",
+    "remediation": "Provide access only to administrators",
+    "remediationSample": "The example allows only users in the Administrators role to have access. Users not in the Administrators role are denied. \n<authorization>  \n  <deny users=\"?\" />  \n  <allow roles=\"Administrators\" />  \n  <deny users=\"*\" />  \n</authorization>",
+    "sample": "<authorization>  \n  <allow roles=\"*\" />  \n</authorization>",
+    "total": "Number of Root web.config file",
+    "alternativeName": "Ensure to limit users access only to authorized resources (C#)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

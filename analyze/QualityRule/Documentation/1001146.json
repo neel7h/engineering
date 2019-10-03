@@ -1,0 +1,57 @@
+{
+    "id": 1001146,
+    "name": "Avoid Programs having cursors that doesn't contain the \"FOR UPDATE\" clause and not containing the \"FOR READ ONLY\" or \"FOR FETCH ONLY\" clause (PL1)",
+    "href": "AIP/quality-rules/1001146",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches all PL1 Main Procedures (Programs) having cursors not containing either  \"FOR UPDATE\" or \"FOR READ ONLY\" or FOR FETCH ONLY\" clause.",
+    "output": "The report lists all PL1 Main Procedures having cursors not containing either  \"FOR UPDATE\" or \"FOR READ ONLY\" or FOR FETCH ONLY\" clause. \nIt provides the following information: PL1 Function and PL1 Procedure full name.",
+    "rationale": "While FOR UPDATE forces a certain access path, FOR FETCH ONLY provides more opportunities to the optimizer to choose the most efficient access path.",
+    "remediation": "Add one of the three clause :  \"FOR UPDATE\" or \"FOR READ ONLY\" or FORFETCH ONLY\". If you specify FOR FETCH ONLY, then DB2 does not need to know the current position of\nyour cursor on the base table, because you are not going to update qualifying rows.\nTherefore, a more efficient access path for read-only cursors may be available to the optimizer. In order to get the benefit of lock avoidance, it is important to code cursors unambiguously.\nThis is especially true for dynamic SQL. Coding a cursor unambiguously means explicitly specifying either FOR FETCH ONLY for read-only cursors or FOR UPDATE for cursors whose data will be used to perform subsequent updates.",
+    "total": "Number of  PL1 Main Procedures.",
+    "alternativeName": "Avoid Programs having cursors that doesn't contain the \"FOR UPDATE\" clause and not containing the \"FOR READ ONLY\" or \"FOR FETCH ONLY\" clause (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

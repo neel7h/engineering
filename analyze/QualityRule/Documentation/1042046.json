@@ -1,0 +1,103 @@
+{
+    "id": 1042046,
+    "name": "Avoid Using Dynamic Method Invocation for Apache Struts 2.x",
+    "href": "AIP/quality-rules/1042046",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if DMI is enabled and used for Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1. If yes, it gives a violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.\n\nThe \u201cDynamic Method Invocation\u201d (DMI) feature has been intoduced in Struts 2 allowing Action to expose other methods instead of execute()\n\nThis feature can lead to security problem because any user of Struts 2 web application can also use DMI to call a public method that is in the Action class.\nIt's, also, possible to pass a malicious expression which can be used to execute arbitrary code on server side when Dynamic Method Invocation is enabled.\n\nDMI will use the string following a \u201c!\u201d character in an action name as the name of a method to invoke: A reference to Category!create.action, means using the \u201cCategory\u201d action mapping, but calling 'create' method instead.\n\nAnother way to use DMI is to provide HTTP parameters prefixed with method: in the URL it could be Category.action?method:create=foo, the parameter value is ignored. In POST-Requests that can be used e.g. with a hidden parameter (<s:hidden name=\"method:create\" value=\"foo\" />) or along with a button (<s:submit method=\"create\" />).",
+    "reference": "https://nvd.nist.gov/vuln/detail/CVE-2016-3081\nhttp://cwe.mitre.org/data/definitions/77.html\nhttp://www.voidcn.com/article/p-rxshpdqc-kh.html",
+    "remediation": "Disable Dynamic Method Invocation when possible or upgrade to Apache Struts versions 2.3.20.3, 2.3.24.3 or 2.3.28.1.",
+    "remediationSample": "Disable Dynamic Method Invocation when possible or upgrade to Apache Struts versions 2.3.20.2, 2.3.24.2 or 2.3.28.1.\n\nDisable DMI using on of following approach\n\nInclude this Struts2 property setting in struts.xml:\n<constant name=\"struts.enable.DynamicMethodInvocation\" value=\"false\" />\n\nor in struts.properties:\nstruts.enable.DynamicMethodInvocation = false\n\nor in web.xml, include this init-param node in the Struts 2 filter:\n<init-param>\n<param-name>struts.enable.DynamicMethodInvocation</param-name>\n<param-value>false</param-value>\n</init-param>",
+    "sample": "Consider below jsp code:\n\n<s:form action=\"calculator_add\" >\n<s:textfield name=\"num1\" label=\"Number 1\"></s:textfield>\n<s:textfield name=\"num2\" label=\"Number 2\"></s:textfield>\n<s:submit action=\"calculator_add\" value=\"Add\" />\n<s:submit action=\"calculator_sub\" value=\"Substract\" />\n</s:form>\n\n\nStruts configuration:\n<package name=\"calc\" extends=\"struts-default\">\n        <action name=\"calculatorInput\">\n            <result>/pages/calculator.jsp</result>\n        </action>\n        <action name=\"calculatorResult\">\n            <result>/pages/calculatorResult.jsp</result>\n        </action>\n        <action name=\"calculator_*\" method=\"{1}\"\n            class=\"com.G2.Actions.CalculatorAction\">\n            <result name=\"success\" type=\"chain\">calculatorResult</result>\n        </action>\n\n</package>\n\nAs you can see, instead of writing different action, action name is provided like \u201ccalculator_*\u201d, and method=\u201d{1}\u201d, means if the input is \u201ccalculator_add\u201d then the add() method will be executed in Action class. That means we can invoke any methods dynamically other than execute() in action class.",
+    "total": "Number of Struts 2.x config XML file",
+    "alternativeName": "Using Dynamic Method Invocation for Apache Struts 2.x allows remote attackers to execute arbitrary code via method: prefix, related to chained expressions.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-77",
+            "name": "Improper Neutralization of Special Elements used in a Command ('Command Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

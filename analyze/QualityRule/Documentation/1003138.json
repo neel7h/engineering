@@ -1,0 +1,72 @@
+{
+    "id": 1003138,
+    "name": "Avoid BindingUtils class (Flex)",
+    "href": "AIP/quality-rules/1003138",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that use BindingUtils class.",
+    "output": "This QR reports artifacts that use BindingUtils class. It provides following information:\n\n- Artifact full name",
+    "rationale": "BindingUtils class uses hard coded strings, which will not be picked up by the compiler if this attribute is renamed.",
+    "remediation": "Use events instead.",
+    "sample": "public class Controller extends FrontController\n{\n   public function Controller()\n   {\n     BindingUtils.bindSetter(setContent, value, \"content\"); // VIOLATION\n   }\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid BindingUtils class (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.binding.BindingUtils"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

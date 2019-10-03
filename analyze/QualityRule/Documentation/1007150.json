@@ -1,0 +1,77 @@
+{
+    "id": 1007150,
+    "name": "Avoid artifacts with optional parameters before required parameters (PHP)",
+    "href": "AIP/quality-rules/1007150",
+    "critical": true,
+    "description": "This rule searches for all the Artifacts with optional parameters before required ones. Artifacts are being checked including methods, functions and constructor.",
+    "output": "This report lists all artifact with optional parameters listed before required ones.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "Using optional parameters is a common practice in PHP. When using optional parameters, it is very important to assign a value to the optional parameters and to ensure that the optional parameters always follow required parameters. This will prevent application from giving unpredictable results.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/PEAR_Sniffs_Functions_ValidDefaultValueSniff.html",
+    "remediation": "Modify the source code and try to reduce number of artifacts with optional parameters before required ones.",
+    "remediationSample": "<?php\nfunction optionalBeforeRequired ($optionalParameter = \"\", $requiredParameter = \"\")\n{\n    echo \"optionalBeforeRequired: violation removed\", PHP_EOL;\n}\n?>\nOR \n<?php\nfunction optionalBeforeRequired ($requiredParameter, $optionalParameter = \"\")\n{\n    echo \"optionalBeforeRequired: violation removed\", PHP_EOL;\n}\n?>",
+    "sample": "<?php\nfunction optionalBeforeRequired ($optionalParameter = \"\", $requiredParameter)\n{\n    echo \"optionalBeforeRequired\", PHP_EOL;\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts with optional parameters before required parameters (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "PEAR.Functions.ValidDefaultValue.NotAtEnd"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

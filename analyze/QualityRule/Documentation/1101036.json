@@ -1,0 +1,110 @@
+{
+    "id": 1101036,
+    "name": "Use ANSI standard operators in SQL WHERE clauses",
+    "href": "AIP/quality-rules/1101036",
+    "critical": false,
+    "maxWeight": 3,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all Artifacts having !=, !> and !< operators in SQL WHERE clauses",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Identify !=, !> and !< operators in SQL WHERE clauses:\n- to prevent portability issues\n- applicable only for embedded sql",
+    "remediation": "Check the statement and if so, !=, !> and !< operators with <>, <= or >=<",
+    "remediationSample": "Replace non-ANSI operators:\nSelect col1, col2, col3 \nFrom table1 \nWhere col1 <> 1\n  and col2 <= 2\n  and col3 >= 3\nOrder By col1, col2",
+    "sample": "The following SQL WHERE clause should be reviewed:\nSelect col1, col2, col3 \nFrom table1 \nWhere col1 != 1\n  and col2 !< 2\n  and col3 !> 3\nOrder By col1, col2;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Use ANSI standard operators in SQL WHERE clauses",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 1050571,
+            "name": "C/C++",
+            "href": "AIP/technologies/1050571"
+        },
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "id": 1007270,
+    "name": "Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command in dynamic query (PHP)",
+    "href": "AIP/quality-rules/1007270",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A SQL query is constructed dynamically by concatenation.",
+    "output": "This report lists all artifacts that create SQL query dynamically by concatenation. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "An SQL query constructed dynamically through string concatenation can lead to SQL injection attacks.",
+    "reference": "https://cwe.mitre.org/data/definitions/89.html",
+    "remediation": "It is recommended to use prepared statements for all SQL queries. The prepared statement itself should only use placeholders for data and never concatenate data directly into the query.",
+    "remediationSample": "<?php\n\nmysqli_query($GLOBALS[\"___mysqli_ston\"], \"USE \" . $_DVWA['db_database']);\n\n?>",
+    "sample": "<?php\n\nTBD: Code would be big.\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid SQL Injection - Improper Neutralization of Special Elements used in an SQL Command in dynamic query (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-89",
+            "name": "SQL Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70267",
+            "name": "The application must not be vulnerable to SQL Injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

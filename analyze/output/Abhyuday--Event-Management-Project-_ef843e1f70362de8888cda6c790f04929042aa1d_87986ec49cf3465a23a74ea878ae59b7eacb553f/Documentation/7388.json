@@ -1,0 +1,75 @@
+{
+    "id": 7388,
+    "name": "Avoid artifacts having recursive calls",
+    "href": "AIP/quality-rules/7388",
+    "critical": false,
+    "maxWeight": 8,
+    "description": "This metric retrieves all artifacts that are explicitly calling themselves (recursive call). Only executable artifacts are considered.",
+    "output": "This report lists all recursive artifacts.\nIt provides the following information:\n  artifact full name.",
+    "rationale": "Recursive calls can be unpredictable with regard to consumption of resources, especially memory.  Under certain condition, a function or procedure using a recursive call can keep calling itself and as each call consumes memory, the entire application runs out of memory. \nRecursive calls are known to be difficult to test for because the termination condition and thus the resource consumption might be dependent on the data used for the test.  For all these reasons, it is often forbidden and limited to academic usage rather than for mission-critical systems. Because the flip side is complexity, such a trade-off should be carefully chosen by architects or senior developers, balancing cost with reliability and in all cases the conditions under which it is used should be reviewed in details.",
+    "remediation": "Review the Function / Procedure design",
+    "total": "Number of executable artifacts (all artifacts excepts tables, views,  jsp, asp, vbScript, javascript, JScript and HTML files)",
+    "alternativeName": "Avoid artifacts having recursive calls",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-674",
+            "name": "Uncontrolled Recursion",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

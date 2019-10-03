@@ -1,0 +1,74 @@
+{
+    "id": 1042050,
+    "name": "Avoid using special top object in struts 2.0.0 - struts 2.3.24",
+    "href": "AIP/quality-rules/1042050",
+    "critical": true,
+    "description": "This rule will check the version of the struts framework used in your application and will check if the use the interceptor-stack in the XML files.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Struts internals can be accessed by special top object which represents root of execution and can be manipulated.\n\nComponents, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5209\nhttps://cwiki.apache.org/confluence/display/WW/S2-026\nhttp://cwe.mitre.org/data/definitions/20.html\nhttps://www.dineshonjava.com/the-valuestack-in-struts-2/",
+    "remediation": "Upgrade to Struts 2.3.24.1 and above.",
+    "remediationSample": "<!-- Sample execute and wait stack.\n                 Note: execAndWait should always be the *last* interceptor. -->\n    <interceptor-stack name=\"executeAndWaitStack\">\n        <interceptor-ref name=\"execAndWait\">\n            <param name=\"excludeMethods\">input,back,cancel</param>\n        </interceptor-ref>\n        <interceptor-ref name=\"defaultStack\"/>\n        <interceptor-ref name=\"execAndWait\">\n            <param name=\"excludeMethods\">input,back,cancel</param>\n        </interceptor-ref>\n        <interceptor-ref name=\"params\">\n            <param name=\"excludeParams\">\"(^|\\\\%\\\\{)((#?)(top(\\\\.|\\\\['|\\\\[\\\")|\\\\[\\\\d\\\\]\\\\.)?)(dojo|struts|session|request|response|application|servlet(Request|Response|Context)|parameters|context|_memberAccess)(\\\\.|\\\\[).*\",\n\"^(action|method):.*\"</param>\n        </interceptor-ref>\n    </interceptor-stack>\n\nOr:\n\nUpgrade to Struts 2.3.24.1 and above.",
+    "sample": "<!-- Basic stack -->\n<interceptor-stack name=\"basicStack\">\n    <interceptor-ref name=\"exception\"/>\n    <interceptor-ref name=\"servletConfig\"/>\n    <interceptor-ref name=\"prepare\"/>\n    <interceptor-ref name=\"checkbox\"/>\n    <interceptor-ref name=\"datetime\"/>\n    <interceptor-ref name=\"multiselect\"/>\n    <interceptor-ref name=\"actionMappingParams\"/>\n    <interceptor-ref name=\"params\">\n        <param name=\"excludeParams\">^dojo\\..*,^struts\\..*,^session\\..*,^request\\..*,^application\\..*,^servlet(Request|Response)\\..*,^parameters\\..*,^action:.*,^method:.*</param>\n    </interceptor-ref>\n    <interceptor-ref name=\"conversionError\"/>\n</interceptor-stack>",
+    "total": "Number of Struts2 Config XML File",
+    "alternativeName": "Ensure you have upgraded your Struts framework 2.3.24.1 and above if you use special top object",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "id": 1042004,
+    "name": "Avoid Duplicate Struts validation forms with the same name",
+    "href": "AIP/quality-rules/1042004",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The application uses multiple validation forms with the same name, which might cause the Struts Validator to validate a form that the programmer does not expect. \n\n\nThis rule will check if same name is used by multiple validation forms. If yes, it gives the violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Primary and Secondary Bookmarks for violation occurrences found in the source code",
+    "rationale": "If two validation forms have the same name, the Struts Validator arbitrarily chooses one of the forms to use for input validation and discards the other. This decision might not correspond to the programmer's expectations, possibly leading to resultant weaknesses. Moreover, it indicates that the validation logic is not up-to-date, and can indicate that other, more subtle validation errors are present.\n\nIt is critically important that validation logic be maintained and kept in sync with the rest of the application. Unchecked input is the root cause of some of today's worst and most common software security problems. Cross-site scripting, SQL injection, and process control vulnerabilities all stem from incomplete or absent input validation.",
+    "reference": "https://cwe.mitre.org/data/definitions/102.html\nhttps://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Duplicate_Validation_Forms\nhttps://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration",
+    "remediation": "Remove the duplicate struts validation form.",
+    "remediationSample": "<form-validation>\n    <formset>\n        <form name=\"LoginForm1\">\n            <field property=\"userName\" depends=\"required\">\n                <arg key=\"LoginForm1.userName\"/>\n            </field>\n            <field property=\"password\" depends=\"required,minlength\">\n                <arg0 key=\"LoginForm1.password\"/>\n                <arg1 key=\"${var:minlength}\" name=\"minlength\" resource=\"false\"/><br>\n                <var>\n                <var-name>minlength</var-name>\n                <var-value>6</var-value>\n                </var>\n            </field>\n        </form>\n       <form name=\"LoginForm2\"> // FIXED\n            <field property=\"userPhone\" depends=\"required\">\n                <arg key=\"LoginForm2.userPhone\"/>\n            </field>\n            ......\n        </form>\n    </formset>\n</form-validation>",
+    "sample": "Two validation forms with the same name.\n\n\n<form-validation>\n    <formset>\n        <form name=\"LoginForm\">\n            <field property=\"userName\" depends=\"required\">\n                <arg key=\"LoginForm.userName\"/>\n            </field>\n            <field property=\"password\" depends=\"required,minlength\">\n                <arg0 key=\"LoginForm.password\"/>\n                <arg1 key=\"${var:minlength}\" name=\"minlength\" resource=\"false\"/><br>\n                <var>\n                <var-name>minlength</var-name>\n                <var-value>6</var-value>\n                </var>\n            </field>\n        </form>\n       <form name=\"LoginForm\"> // Violation \n            <field property=\"userPhone\" depends=\"required\">\n                <arg key=\"LoginForm.userPhone\"/>\n            </field>\n            ......\n        </form>\n    </formset>\n</form-validation>",
+    "total": "Number of field in struts1 XML Config File",
+    "alternativeName": "Ensure not using the same name for multiple validation forms to avoid any validation error.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-102",
+            "name": "Struts: Duplicate Validation Forms",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

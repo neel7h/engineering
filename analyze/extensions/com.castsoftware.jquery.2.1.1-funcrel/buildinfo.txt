@@ -1,0 +1,6 @@
+Build date: 09/04/2019 13:46:49,12 
+Build number: 1000091 
+Git head commit: git@jnk-centos-git:technology_extensions/build.git origin/master 443da522c5b942703e4fd8359538a89ac1453836
+Git head commit: git@jnk-centos-git:technology_extensions/com.castsoftware.jquery.git origin/master e42902c8110ed953c05565e25f599c9de6478b17
+Publish date: 09/04/2019 14:08:05,11 
+Original version: 2.1.1-funcrel 

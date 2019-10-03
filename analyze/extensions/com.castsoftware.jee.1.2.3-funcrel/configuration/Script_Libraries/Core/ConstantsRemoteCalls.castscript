@@ -1,0 +1,103 @@
+module Core.ConstantsRemoteCalls;
+
+/*see http://static.springframework.org/spring/docs/2.0.x/api/org/springframework/jdbc */
+const list(string) GROUP_SpringJDBC_RemoteCalls     ={"org.springframework.jdbc.core.simple.SimpleJdbcOperations.query",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.queryForInt",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.queryForList",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.queryForLong",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.queryForMap",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.queryForObject",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcOperations.update",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.execute",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.query",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForInt",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForList",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForLong",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForMap",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForObject",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.queryForRowSet",
+                                                      "org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations.update",
+                                                      "org.springframework.jdbc.core.JdbcOperations.batchUpdate",
+                                                      "org.springframework.jdbc.core.JdbcOperations.call",
+                                                      "org.springframework.jdbc.core.JdbcOperations.execute",
+                                                      "org.springframework.jdbc.core.JdbcOperations.query",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForInt",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForList",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForLong",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForMap",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForObject",
+                                                      "org.springframework.jdbc.core.JdbcOperations.queryForRowSet",
+                                                      "org.springframework.jdbc.core.JdbcOperations.update",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.batchUpdate",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.query",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForInt",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForList",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForLong",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForMap",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForObject",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForRowSet",
+                                                      "org.springframework.jdbc.core.simple.SimpleJdbcTemplate.update",
+                                                      "org.springframework.jdbc.object.SqlQuery.execute",
+                                                      "org.springframework.jdbc.object.SqlQuery.executeByNamedParam",
+                                                      "org.springframework.jdbc.object.SqlQuery.findObject",
+                                                      "org.springframework.jdbc.object.SqlQuery.findObjectByNamedParam",
+                                                      "org.springframework.jdbc.object.StoredProcedure.execute",
+                                                      "org.springframework.jdbc.object.SqlUpdate.update",
+                                                      "org.springframework.jdbc.object.SqlUpdate.updateByNamedParam"}; 
+													  
+
+/* see http://java.sun.com/javaee/5/docs/api/javax/persistence/EntityManager.html for more information:*/
+const list(string) GROUP_JPA_RemoteCalls            ={"javax.persistence.EntityManager.find", 
+                                                      "javax.persistence.EntityManager.merge", 
+                                                      "javax.persistence.EntityManager.persist", 
+                                                      "javax.persistence.EntityManager.refresh", 
+                                                      "javax.persistence.EntityManager.remove", 
+                                                      "javax.persistence.Query.executeUpdate", 
+                                                      "javax.persistence.Query.getResultList", 
+                                                      "javax.persistence.Query.getSingleResult"};
+
+/* see https://www.hibernate.org/hib_docs/v3/api/org/hibernate/Session.html for more information:*/
+const list(string) GROUP_Hib_RemoteCalls            ={"org.hibernate.Session.delete", 
+                                                      "org.hibernate.Session.get", 
+                                                      "org.hibernate.Session.load", 
+                                                      "org.hibernate.Session.merge", 
+                                                      "org.hibernate.Session.persist", 
+                                                      "org.hibernate.Session.refresh", 
+                                                      "org.hibernate.Session.save", 
+                                                      "org.hibernate.Session.saveOrUpdate", 
+                                                      "org.hibernate.Session.update", 
+                                                      "org.hibernate.SessionImplementor.executeNativeUpdate", 
+                                                      "org.hibernate.SessionImplementor.executeUpdate", 
+                                                      "org.hibernate.SessionImplementor.list", 
+                                                      "org.hibernate.SessionImplementor.listCustomQuery", 
+                                                      "org.hibernate.SessionImplementor.listFilter", 
+                                                      "org.hibernate.SessionImplementor.scroll", 
+                                                      "org.hibernate.SessionImplementor.scrollCustomQuery", 
+                                                      "org.hibernate.StatelessSession.delete", 
+                                                      "org.hibernate.StatelessSession.get", 
+                                                      "org.hibernate.StatelessSession.insert", 
+                                                      "org.hibernate.StatelessSession.refresh", 
+                                                      "org.hibernate.StatelessSession.update", 
+                                                      "org.hibernate.Query.executeUpdate", 
+                                                      "org.hibernate.Query.iterate", 
+                                                      "org.hibernate.Query.list", 
+                                                      "org.hibernate.Query.scroll", 
+                                                      "org.hibernate.Query.uniqueResult", 
+                                                      "org.hibernate.Criteria.list", 
+                                                      "org.hibernate.Criteria.scroll", 
+                                                      "org.hibernate.Criteria.uniqueResult", 
+                                                      "org.hibernate.Transaction.commit"}; 
+		  	  
+/*JDBC Calls to:*/
+const list(string) GROUP_JDBC_RemoteCalls            ={"java.sql.Statement.execute", 
+                                                      "java.sql.Statement.executeQuery", 
+                                                      "java.sql.Statement.executeUpdate", 
+                                                      "java.sql.Statement.executeBatch", 
+                                                      "java.sql.PreparedStatement.execute", 
+                                                      "java.sql.PreparedStatement.executeQuery", 
+                                                      "java.sql.PreparedStatement.executeUpdate"}; 		  
+		  
+		  
+													  
+
+

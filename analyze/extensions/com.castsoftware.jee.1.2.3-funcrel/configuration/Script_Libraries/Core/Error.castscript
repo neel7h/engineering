@@ -1,0 +1,8 @@
+module Core.Error;
+
+/**
+* Exit current castscript, log error message and continue with the following castscripts
+* 
+* @param errMessage 
+*/
+native void exit(string errorMessage);

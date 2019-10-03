@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="description">
+    <english>This report lists all artifacts with compound indexes and having different index ordering in collection access.</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="name">
+    <english>When using compound indexes, avoid having different indexes</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="rationale">
+    <english>When using compound indexes, avoid having different indexes. Indeed, Mongo DB give the compound index, when we have index on more than two column, it is always good to have the indexes put the same way,it is highly recommended to have the indexes, either both positives(ascending) or either both negatives(descending).</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="remediation">
+    <english>Use instead indexes, either both positives(ascending) or either both negatives(descending)</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="remediationSample">
+    <english>MongoClient conn_str = new MongoClient("localhost", 27017);
+		
+		DB db = conn_str.getDB("database");
+		
+		DBCollection docColl = db.getCollection("document");
+		
+		docColl.createIndex(new BasicDBObject("filed_1",1), 
+		
+		new BasicDBObject("_id", 1), 
+		
+		new BasicDBObject("filed_2", 1));</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="sample">
+    <english>MongoClient conn_str = new MongoClient("localhost", 27017);
+		
+		DB db = conn_str.getDB("database");
+		
+		DBCollection docColl = db.getCollection("document");
+		
+		docColl.createIndex(new BasicDBObject("filed_1",1),
+		
+		new BasicDBObject("_id", -1),
+		
+		new BasicDBObject("filed_2", -1));</english>
+  </metric>
+  <metric id="1101916" type="quality-rule" originalName="When using compound indexes, avoid having different indexes" section="total">
+    <english>Number of MongoDB collection</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="description">
+    <english>This report lists all artifacts without authentication activated. Accessing a database without proper authentication is not permitted.</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="name">
+    <english>Avoid having MongoDB databases access without authentication activated</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="rationale">
+    <english>Avoid having MongoDB databases access without authentication activated.Accessing a database without a proper authentication will harm security of data. One should set user authentication over a database.</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="remediation">
+    <english>Set authentication for database before accessing.</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="remediationSample">
+    <english>MongoClientURI connstr = new MongoClientURI("mongodb://admin:password@localhost:27017");
+DB database = connstr.getDB("IndexingCheck");
+		
+// or using springData
+		 
+ApplicationContext ctx = new ClassPathXmlApplicationContext("web_configg.xml");
+		
+SpringMongoConfig1 mongoOperation1 = (SpringMongoConfig1) ctx.getBean("mongoURI");
+		
+MongoClient mongoClient = new MongoClient(mongoOperation1.uri);</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="sample">
+    <english>MongoClient mongo = new MongoClient("localhost", 27017);</english>
+  </metric>
+  <metric id="1101918" type="quality-rule" originalName="Avoid having MongoDB databases access without authentication activated" section="total">
+    <english>Number of MongoDB connection</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="description">
+    <english>Explain() provides information on the query plan for the db.collection.find(). The explain() method returns a document with the query plan and, optionally, the execution statistics.</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="name">
+    <english>Avoid using explain() in production code (JEE)</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="rationale">
+    <english>Having explain() in the production code can slow down the performance of the code and it is not required.</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="remediation">
+    <english>Do not use explain() in production code.</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="remediationSample">
+    <english>// DBObject explainObject = db.getCollection("mnMongo1").find(searchObject);
+
+//.explain not to be used</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="sample">
+    <english>DBObject explainObject = db.getCollection("mnMongo1").find(searchObject).explain();</english>
+  </metric>
+  <metric id="1101920" type="quality-rule" originalName="Avoid using explain() in production code (JEE)" section="total">
+    <english>Number of MongoDB collection</english>
+  </metric>
+</root>

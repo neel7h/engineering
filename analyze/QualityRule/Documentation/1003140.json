@@ -1,0 +1,72 @@
+{
+    "id": 1003140,
+    "name": "Avoid use of ChangeWatcher class (Flex)",
+    "href": "AIP/quality-rules/1003140",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that use use of ChangeWatcher class.",
+    "output": "This QR reports artifacts that use use of ChangeWatcher class. It provides following information:\n\n- Artifact full name",
+    "rationale": "ChangeWatcher class uses hard coded strings to specify the attribute name, to listen to.",
+    "remediation": "Prefer listening to events or setters.",
+    "sample": "public final class Title \n{\n private var watcher : ChangeWatcher; // VIOLATION\n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid use of ChangeWatcher class (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.binding.ChangeWatcher"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

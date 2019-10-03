@@ -1,0 +1,70 @@
+{
+    "id": 1001108,
+    "name": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+    "href": "AIP/quality-rules/1001108",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches for all the PLC Copybooks having variables being allocated, but not de-allocated using the FREE statement. The diagnostic will report only the mis-behavior on the artifact level in terms of number of variables not de-allocated.",
+    "output": "The report lists all the PLC Copybooks using variables with ALLOCATE and without FREE.\n\nIt provides following information: \n-  PLC Copybooks full name",
+    "rationale": "Not freeing up the memory can lead to performance issues",
+    "remediation": "Free all your allocated variables.",
+    "remediationSample": ".....\nDECLARE X(N) FIXED BIN CTL; \nN=20;\nALLOCATE X;\n.....\nFREE X;",
+    "sample": ".....\nDECLARE X(N) FIXED BIN CTL; \nN=20;\nALLOCATE X;\n....",
+    "total": "Number of PLC Copybooks",
+    "alternativeName": "Avoid PLC Copybooks using variables with ALLOCATE and without FREE  (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1005000,
+            "name": "PLC",
+            "href": "AIP/technologies/1005000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

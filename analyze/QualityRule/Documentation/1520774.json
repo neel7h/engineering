@@ -1,0 +1,64 @@
+{
+    "id": 1520774,
+    "name": "SiebelScriptReview: Setting field values using hardcoded values",
+    "href": "AIP/quality-rules/1520774",
+    "critical": false,
+    "maxWeight": 8,
+    "associatedValueName": "Number of field value setting",
+    "description": "With the current code implementation fields are set by using hardcoded values.",
+    "output": "This rule reports Functions setting field values with hardcoded values",
+    "rationale": "Fields are set using hardcoded values instead of LOV values.",
+    "remediation": "Change the code retrieving values based on LOV type using TheApplication().InvokeMethod(\"LookupValue\",<TYPE>, <LANG INDEPENDEND CODE>);",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "SiebelScriptReview: Setting field values using hardcoded values",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 8,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-3",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Literals",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

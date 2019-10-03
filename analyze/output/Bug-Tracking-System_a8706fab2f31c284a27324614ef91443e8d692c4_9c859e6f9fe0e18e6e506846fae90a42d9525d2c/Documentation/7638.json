@@ -1,0 +1,71 @@
+{
+    "id": 7638,
+    "name": "Avoid using DriverManager",
+    "href": "AIP/quality-rules/7638",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "Reports all methods that call java.sql.DriverManager.getConnection()",
+    "output": "This report lists all methods that call java.sql.DriverManager.getConnection() method.\nIt provides the following information: Method Full Name",
+    "rationale": "Creating a connection to the database server is expensive. It is even more expensive if the server is located on another machine. Connection can take 30 to 50 ms depending on the platform.",
+    "reference": "http://www.precisejava.com/javaperf/j2ee/EJB.htm#EJB142\nhttp://www.webdevelopersjournal.com/columns/connection_pool.html\nhttp://commons.apache.org/dbcp/\nhttp://sourceforge.net/projects/c3p0",
+    "remediation": "Use a pool of connections unless the DriverManager is the implementation of the connection pool itself.\n\nIn a J2EE container, it is recommended to use a JNDI DataSource provided by the container. Outside of a J2EE container, consider Apache's Jakarta Commons DBCP  or C3P0. Commons DBCP's BasicDataSource and C3P0's ComboPooledDataSource are full connection pool beans, supporting the same basic properties as this class plus specific settings (such as minimal/maximal pool size etc)..",
+    "remediationSample": "import org.apache.commons.dbcp.BasicDataSource;\n\nBasicDataSource ds = new BasicDataSource();\nds.setDriverClassName(\"oracle.jdbc.driver.OracleDriver\");\nds.setUsername(\"scott\");\nds.setPassword(\"tiger\");\nds.setUrl(\"jdbc:oracle:thin:scott/tiger@myhost:1521:mysid\");\nConnection con = ds.getConnection();",
+    "sample": "Connection con = DriverManager.getConnection(URL, user, password); // VIOLATION",
+    "total": "Number of methods that reference java.sql.Connection class",
+    "alternativeName": "Ensure not using DriverManager",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-245",
+            "name": "J2EE Bad Practices: Direct Management of Connections",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

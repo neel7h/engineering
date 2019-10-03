@@ -1,0 +1,103 @@
+{
+    "id": 1040002,
+    "name": "Avoid disabling Spring Security CSRF Protection",
+    "href": "AIP/quality-rules/1040002",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if Spring Security\u2019s CSRF protection is activated. if not it gives the violation",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When a web server is designed to receive a request from a client without any mechanism for verifying that it was intentionally sent, then it might be possible for an attacker to trick a client into making an unintentional request to the web server which will be treated as an authentic request. This can be done via a URL, image load, XMLHttpRequest, etc. and can result in exposure of data or unintended code execution. There multiple forms of Cross-Site Request Forgery (CSRF) attacks that can be avoided using Spring Security.\n\nSome frameworks handle invalid CSRF tokens by invalidating the user\u2019s session, but this causes its own problems. Instead by default Spring Security\u2019s CSRF protection will produce an HTTP 403 access denied.\nInclude Spring Security\u2019s CSRF protection within your application via XML or JAVA configuration is one of the most important step to secure your application.",
+    "reference": "https://cwe.mitre.org/data/definitions/352.html\nhttps://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)\nhttp://www.baeldung.com/spring-security-csrf\nhttps://docs.spring.io/spring-security/site/docs/current/reference/html/csrf.html#csrf-use-proper-verbs",
+    "remediation": "CSRF protection must be enabled, as of Spring Security 4.0, CSRF protection is enabled by default with XML configuration with csrf option.",
+    "remediationSample": "// As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.\n// If you would like to disable CSRF protection, the corresponding XML configuration can be seen below.\n\n<http>\n    ...\n    <csrf disabled=\"false\"/>\n\n// or\n    <csrf/>\n\n</http>\n\n// CSRF protection is enabled by default in the Java configuration.\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n        @Override\n        protected void configure(HttpSecurity http) throws Exception {\n            // No violation CSRF Protection is enabled by default\n       }\n}",
+    "sample": "// As of Spring Security 4.0, CSRF protection is enabled by default with XML configuration.\n// If you would like to disable CSRF protection, the corresponding XML configuration can be seen below.\n\n<http>\n    ...\n    <csrf disabled=\"true\"/>\n</http>\n\n// CSRF protection is enabled by default in the Java configuration.\n\n@EnableWebSecurity\npublic class WebSecurityConfig extends WebSecurityConfigurerAdapter {\n        @Override\n        protected void configure(HttpSecurity http) throws Exception {\n              http\n              .csrf().disable();     // Violation CSRF Protection is disabled\n       }\n}",
+    "total": "Number of Java Methods and XML Files",
+    "alternativeName": "Ensure you have not disabled Spring Security CSRF protection",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-352",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-489",
+            "name": "Leftover Debug Code",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2013",
+            "name": "Cross-Site Request Forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.9",
+            "name": "Cross-site request forgery (CSRF)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70259",
+            "name": "The application must protect from Cross-Site Request Forgery (CSRF) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

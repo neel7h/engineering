@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="description">
+    <english>List all SQL Artifacts which contain a query that has a cartesian join, i.e; that does not explicitly state a join condition among the tables
+A cartesian join is found if, for any of the table in the from clause, no column of the table is found in a join (either in the from or where clause).</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="name">
+    <english>Never use SQL queries with a cartesian product (SQL)</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="rationale">
+    <english>Cartesian joins which lead to cartesian products is an absolute performance killer, especially when large data sets are involved.  A cartesian join is a multiple-table query that does not explicitly state a join condition among the tables, it creates a Cartesian product. A Cartesian product consists of every possible combination of rows from the tables. This result set is usually extremely large and unwieldy, killing application performance.
+In addition, most of the time, this is also a functional bug.</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="remediation">
+    <english>Check the statement and if so, add a join clause  between the tables.</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="remediationSample">
+    <english>Select * from table1 T1 inner join table2 T2 on (T1.C = T2.C)
+
+example of non cartesian product:
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id AND
+ t.title_id = r.title_id
+--&gt; 87 rows</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="sample">
+    <english>Select * from table1, table2
+
+Select count(*) from publishers
+-&gt;3 rows
+Select count(*) from roysched
+-&gt;87 rows
+Select count(*) from Titles
+-&gt; 18 rows
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r
+--&gt; 4698 rows( 87 x 18 x 3)
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id
+--&gt; 1566 rows ( 87 x 18)
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id AND
+ r.royalty = 14 
+--&gt; 252 rows</english>
+  </metric>
+  <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="description">
+    <english>List all SQL Artifacts (except tables) which contain a query on XXL tables that have a cartesian join, i.e; that does not explicitly state a join condition among the tables
+A cartesian join is found if, for any of the tables in the from clause, no column of the table is found in a join (either in the from or where clause).
+XXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="name">
+    <english>Never use SQL queries with a cartesian product on XXL Tables (SQL)</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="rationale">
+    <english>Cartesian joins which lead to cartesian products are an absolute performance killer, especially when large data sets are involved which is the case when extremely large tables are involved.
+A cartesian join is a multiple-table query that does not explicitly state a join condition among the tables, it creates a Cartesian product. A Cartesian product consists of every possible combination of rows from the tables. This result set is usually extremely large and unwieldy, killing application performance.
+In addition, most of the time, this is also a functional bug.</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="remediation">
+    <english>Check the statement and if so, add a join clause  between the tables.</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="remediationSample">
+    <english>Select * from table1 T1 inner join table2 T2 on (T1.C = T2.C)
+
+example of non cartesian product:
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id AND
+ t.title_id = r.title_id
+--&gt; 87 rows</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="sample">
+    <english>Select * from table1, table2
+
+Select count(*) from publishers
+-&gt;3 rows
+Select count(*) from roysched
+-&gt;87 rows
+Select count(*) from Titles
+-&gt; 18 rows
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r
+--&gt; 4698 rows( 87 x 18 x 3)
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id
+--&gt; 1566 rows ( 87 x 18)
+ 
+Select p.pub_name, p.city, t.title, r.royalty
+From
+ publishers p,
+ titles t,
+ roysched r 
+Where
+ p.pub_id = t.pub_id AND
+ r.royalty = 14 
+--&gt; 252 rows</english>
+  </metric>
+  <metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL Tables (SQL)" section="total">
+    <english>Number of Artifacts with SQL code from schemas containing XXL tables or views.</english>
+  </metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="description">
+		<english>This metric retrieves the artifacts with at least one table accessed on non-indexed columns.
+A SQL query is considered indexed when all the following conditions are true:
+
+- At least one index is accessed for each non XXS table
+- the access is on the left-most columns of the indexes
+
+An XXS table is a table containing an extremely low amount of data. Default is 10. The threshold that determines when a table XXS can be configured by the user in the same manner as for XXL tables.</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="name">
+		<english>Avoid non-indexed SQL queries</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="output">
+		<english>Associated to each Artifact with violations, the Quality Rule provides:
+- The number of violation patterns.
+- Each violation pattern shows :
+- the query 
+- each table accessed on non-indexed columns
+- the table's indexes</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="rationale">
+		<english>Non-indexed SQL Queries are potentially performance killers.
+Indeed, each execution of the query will result in a full table scan which is extremely time consuming.</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="reference">
+		<english>Enhancing the Quality of ABAP Development
+Meijs - Krouwels - Heuvelmans - Sommen
+SAP Press
+ISBN 1-59229-030-2</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="remediation">
+		<english>Check the statement and if so, add secondary index on queried columns.</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="remediationSample">
+		<english>The remediation is to add index on TABLE1 (COL3, COL1).</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="sample">
+		<english>TABLE1 is indexed on (COL2, COL1) and TABLE2 on COL3. Both tables are not XXS.
+For the following statement :
+Select O.COL1, O.COL2, O.COL2, 1, 0, 0, 1
+From TABLE1 O, TABLE2 OT
+Where O.COL3       = OT.COL3
+And O.COL1      in (1, 2)
+And OT.COL4    = 1;
+TABLE2's index cover the statement.
+TABLE1 is reported in violation.</english>
+	</metric>
+	<metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries" section="total">
+		<english>Number of Artifacts with SQL code from schemas containing tables or views.</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="description">
+		<english>This metric retrieves the artifacts with at least one XXL table accessed on non-indexed columns.
+A SQL query is considered on indexed columns when all the following conditions are true:
+
+- At least one index is accessed for each XXL table
+- The access is on the left-most columns of the indexes
+
+XXL tables are extremely large tables which contain a huge amount of data. The threshold that determines when a table is considered to contain a huge amount of data can be configured by the user.</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="name">
+		<english>Avoid non-indexed XXL SQL queries</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="output">
+		<english>Associated to each Artifact with violations, the Quality Rule provides:
+- The number of violation patterns.
+- Each violation pattern shows :
+- the query 
+- each XXL table accessed on non-indexed columns
+- the XXL table's indexes</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="rationale">
+		<english>Non-indexed SQL Queries are potentially performance killers.
+Indeed, each execution of the query will result in a full table scan which is extremely time consuming especially if the table contains an extremely large amount of data (XXL table).</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="reference">
+		<english>Enhancing the Quality of ABAP Development
+Meijs - Krouwels - Heuvelmans - Sommen
+SAP Press
+ISBN 1-59229-030-2</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="remediation">
+		<english>Check the statement and if so, add seconday index on queried columns.</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="remediationSample">
+		<english>The remediation is to add index on TABLE1 (COL3, COL1).</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="sample">
+		<english>TABLE1 is indexed on (COL2, COL1) and TABLE2 on COL3. Both tables are XXL.
+For the following statement :
+Select O.COL1, O.COL2, O.COL2, 1, 0, 0, 1
+From TABLE1 O, TABLE2 OT
+Where O.COL3       = OT.COL3
+And O.COL1      in (1, 2)
+And OT.COL4    = 1;
+TABLE2's index cover the statement.
+TABLE1 is reported in violation.</english>
+	</metric>
+	<metric id="1101006" type="quality-rule" originalName="Avoid non-indexed XXL SQL queries" section="total">
+		<english>Number of Artifacts with SQL code from schemas containing XXL tables or views.</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="description">
+		<english>List all SQL Artifacts containing a query that has only non-SARGable arquments expressions in where clauses or in the join.</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="name">
+		<english>Avoid non-SARGable queries</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="rationale">
+		<english>non-SARGable WHERE clauses are performances killers : for a non-SARGable query, the query optimizer has to scan all the rows in the table even if that column has an index.</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="remediation">
+		<english>Check the statement and if so, replace non-SARGable predicates with SARGable.</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="remediationSample">
+		<english>-- Index seek  (fast)
+WHERE ColumnValue = 'Summer' -- sargable predicate
+
+------------
+-- Index seek if there is an index on ColumnValue
+WHERE ColumnValue LIKE 'sum%'  -- sargable predicate
+
+------------
+-- Index seek
+WHERE ColumDate &gt;='2017-01-01' and ColumDate &lt; '2017-02-01' -- sargable predicate
+
+------------
+-- Index seek if there is an index on ColumnValue
+WHERE  ColumnValue = 50 -- sargable predicate</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="sample">
+		<english>-- Index scan (slow)
+WHERE UPPER(ColumnValue) = 'SUMMER' -- not sargable predicate
+
+------------
+-- Table scan or index scan on a primary key index
+-- no index use on ColumnValue
+WHERE SUBSTRING(ColumnValue,1,3) = 'sum' -- not sargable predicate
+
+------------
+-- Table scan - no index use on ColumDate
+WHERE year(ColumDate) = 2017 and month(ColumDate) = 1 -- not sargable predicate
+
+------------
+-- not sargable predicate due to function use
+-- Table scan
+WHERE  floor(ColumnValue) = 50  -- not sargable predicate</english>
+	</metric>
+	<metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="description">
+		<english>List all SQL Artifacts containing a query that has NATURAL JOINs.</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="name">
+		<english>Avoid NATURAL JOIN queries</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="rationale">
+		<english>A NATURAL JOIN is a type of equi-join which implicitly compares all identically-named columns of the two tables. While this a feature may seem convenient at first, it becomes hard to maintain over time.</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="remediation">
+		<english>Check the statement and if so, replace NATURAL JOINs with INNER JOINs.</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="remediationSample">
+		<english>Could be rewritten as:
+SELECT first_name,department_name
+FROM employees
+     JOIN departments
+ON (employees.manager_id = departments.manager_id
+     AND employees.department_id = departments.department_id);
+
+or as:
+
+SELECT first_name, department_name
+FROM employees
+     JOIN departments
+     USING(manager_id, department_id);</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="sample">
+		<english>SELECT first_name, department_name
+FROM employees
+     NATURAL JOIN departments;</english>
+	</metric>
+	<metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="description">
+		<english>List all SQL Artifacts containing a query that has column numbers in ORDER BY clauses.</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="name">
+		<english>Specify column names instead of column numbers in ORDER BY clauses</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="rationale">
+		<english>Improve readability by sorting on column names rather than column numbers. Improve maintainability by making the ORDER BY part independent.</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="remediation">
+		<english>Check the statement and if so, replace column numbers with column names.</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="remediationSample">
+		<english>SELECT first_name, department_name
+FROM employees
+     JOIN departments
+ON (employees.manager_id = departments.manager_id
+     AND employees.department_id = departments.department_id)
+ORDER BY first_name, department_name;</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="sample">
+		<english>SELECT first_name, department_name
+FROM employees
+     JOIN departments
+ON (employees.manager_id = departments.manager_id
+     AND employees.department_id = departments.department_id)
+ORDER BY 1, 2;</english>
+	</metric>
+	<metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="description">
+    <english>The old syntax used for joining tables should definitely be abandoned in favor of the standard ANSI syntax, which is more readable and more maintainable.</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="name">
+    <english>Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="rationale">
+    <english>ANSI syntax allows a clear separation between joins clauses and the where clause restrictions. The ANSI notation makes the relations between the tables explicit, and saves you from coding equality tests for join conditions in the WHERE clause. Support for full outer joins also eliminates the need for complex workarounds to do those queries (with the old syntax some constructions can lead to unexpected behavior). Moreover ANSI joins allows the use of optimization hints.</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="remediation">
+    <english>Check the statement and if so, replace non ANSI-Standard joins with ANSI-Standard joins.</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="remediationSample">
+    <english>SELECT first_name, department_name
+FROM employees
+     JOIN departments
+ON (employees.manager_id = departments.manager_id
+     AND employees.department_id = departments.department_id);</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="sample">
+    <english>SELECT first_name, department_name
+FROM employees, departments
+where(employees.manager_id = departments.manager_id
+     AND employees.department_id = departments.department_id);</english>
+  </metric>
+  <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="associatedValueName">
+		<english>Number of parameters</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="description">
+		<english>Avoid artifacts with more than X parameters. The threshold X is a parameter and it can be changed at will.</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="name">
+		<english>Avoid Artifacts with too many parameters (SQL)</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="output">
+		<english>This report lists all artifacts with more than X parameters. It provides the following information:
+ Artifact full name, number of parameters</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="rationale">
+		<english>For maintainability and readability reasons, artifacts should not have too many parameters.</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="remediation">
+		<english>Review the design of the artifacts to reduce the number of parameters.</english>
+	</metric>
+	<metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="description">
+		<english>Using complex queries can cause performance problems. Queries using group by clauses are considered complex and inefficient.</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="name">
+		<english>Avoid using the GROUP BY clause</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="rationale">
+		<english>Using complex queries in Artifacts can cause performance problems. Queries using group by clauses are considered complex and inefficient.</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="remediation">
+		<english>Check the statement and if so, review the design of the statement to avoid if possible the GROUP BY clause.</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="sample">
+		<english>The following query should be reviewed:
+Select T.title_id, T.def_id, T.publisher_id, T.pub_name into var1_title_id, var1_def_id, var1_publisher_id, var1_pub_name
+from (Select ALLESQL007_TBL3.title_id, def_id, publisher_id, pub_name from ALLESQL007_TBL1, ALLESQL007_TBL2, ALLESQL007_TBL3
+where pub_id = publisher_id
+and pub_name = authorname
+Group By ALLESQL007_TBL3.title_id, publisher_id) T
+Group By T.title_id, T.publisher_id;</english>
+	</metric>
+	<metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="description">
+		<english>Quoted identifiers are confusing, as they look similar to string literals.</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="name">
+		<english>Avoid using quoted identifiers</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="rationale">
+		<english>Quoted identifiers are confusing, as they look similar to string literals.</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="remediation">
+		<english>Check the statement and if so, replace quoted identifiers with unquoted identifiers.</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="remediationSample">
+		<english>The following statement should be reviewed:
+DECLARE
+  L_End NUMBER := 1;
+BEGIN
+  dbms_output.put_line('A quoted identifier End ['||L_End||']');
+END;
+/</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="sample">
+		<english>The following statement should be reviewed:
+DECLARE
+  "End" NUMBER := 1;
+BEGIN
+  dbms_output.put_line('A quoted identifier End ['||"End"||']');
+END;
+/</english>
+	</metric>
+	<metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="associatedValueName">
+		<english>List of tables without Primary key constraints</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="description">
+		<english>This metric displays the list of tables without Primary key constraints</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="name">
+		<english>Avoid Tables without Primary Key (SQL)</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="output">
+		<english>This report lists all tables without a primary key defined. It provides the full name of each table without a primary key.</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="rationale">
+		<english>In relational database design, a candidate key is just a unique identifier. Next, a primary key is a candidate key that's been singled out  to uniquely identify each row in a table. 
+A unique key or primary key comprises a single column or set of columns. No two distinct rows in a table can have the same value (or combination of values) in those columns. 
+
+Depending on its design, a table may have arbitrarily have many unique keys but at most one primary key.</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="remediation">
+		<english>Check the statement and if so, add primary key.</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="remediationSample">
+		<english>Add a primary key:
+alter table SQLAMDA001_7_TBL1 add constraint SQLAMDA001_7_TBL1_PK primary key (category_name)
+using index
+/</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key" section="sample">
+		<english>The following statement should be reviewed:
+create table SQLAMDA001_7_TBL1
+(category_name varchar2(10) not null ,
+  title        varchar2(50) null ,
+  title_id     varchar2(10) null ,
+  author_name  varchar2(30) null
+)
+/</english>
+	</metric>
+	<metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)" section="total">
+		<english>Number of Tables.</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="description">
+		<english>Dynamic SQL could lead to some performance problems. The execution plan cannot be stored in memory and thus needs to be calculated each time.</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="name">
+		<english>Avoid using dynamic SQL in SQL Artifacts</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="rationale">
+		<english>Each repetition of the same dynamic SQL statement incurs a soft parse, which is a small overhead compared to a static statement, but still an overhead. The overhead of dynamic SQL is small, it can be in the thousandths of a second - however, it can add up if this is inside a loop / on a method called once per object.</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="remediation">
+		<english>Check the statement and if so, replace dynamic with static statement.</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="sample">
+		<english>The following procedure should be reviewed:
+CREATE PROCEDURE SEARCH (IN V_DYNAMICSQL VARCHAR(2000))
+BEGIN
+  EXECUTE IMMEDIATE V_DYNAMICSQL;
+END;</english>
+	</metric>
+	<metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="description">
+		<english>To preserve code functionality and avoid mistakes with regard to column handling, always explicitly use the column name.</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="name">
+		<english>Always define column names when inserting values</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="rationale">
+		<english>To preserve code functionality and avoid mistakes with regard to column handling, always explicitly use the column name.</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="remediation">
+		<english>Check the statement and if so, add columns in INSERT clause.</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="remediationSample">
+		<english>Add columns in INSERT clause:
+CREATE PROCEDURE INSERT_VALUES
+BEGIN
+  INSERT INTO Persons (LastName, FirstName, Address, City) VALUES ('Last', 'First', 'Add', 'City');
+END;</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="sample">
+		<english>The following procedure should be reviewed:
+CREATE PROCEDURE INSERT_VALUES
+BEGIN
+  INSERT INTO Persons VALUES ('Last', 'First', 'Add', 'City');
+END;</english>
+	</metric>
+	<metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="associatedValueName">
+		<english>Number of violation occurrences</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="description">
+		<english>Using the MINUS or EXCEPT operator instead of NOT IN and NOT Exists will result in a faster execution plan.</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="name">
+		<english>Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="output">
+		<english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="rationale">
+		<english>Using the MINUS or EXCEPT operator instead of NOT IN and NOT Exists will result in a faster execution plan.</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="remediation">
+		<english>Check the statement and if so, replace NOT EXISTS and NOT IN suqueries with MINUS or EXCEPT operator.</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="remediationSample">
+		<english>Replace NOT EXISTS suquerie with MINUS operator:
+CREATE PROCEDURE INSERT_BOOK_TITLE
+BEGIN
+  INSERT INTO BOOK_TITLE_COPY 
+  SELECT BOOK_TITLE 
+  FROM BOOKS
+  MINUS
+  SELECT BOOK_TITLE 
+  FROM SALES;
+END;</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="sample">
+		<english>The following procedure should be reviewed:
+CREATE PROCEDURE INSERT_BOOK_TITLE
+BEGIN
+  INSERT INTO BOOK_TITLE_COPY 
+  SELECT BOOK_TITLE 
+  FROM BOOKS
+  WHERE
+  NOT EXISTS 
+  (SELECT BOOK_TITLE 
+     FROM SALES
+     WHERE SALES.BOOK_TITLE = BOOKS.BOOK_TITLE);
+END;</english>
+	</metric>
+	<metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" section="total">
+		<english>Number of Artifacts with SQL code.</english>
+	</metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="associatedValueName">
+    <english>Number of joined Tables and/or Views</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="description">
+    <english>Avoid SQL Artifacts with queries on more than X Tables and/or Views. Queries with more than X Tables and/or Views are considered complex.</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="name">
+    <english>Avoid Artifacts with queries on too many Tables and/or Views</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="rationale">
+    <english>Having complex queries in Artifacts can cause performance problems.</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="remediation">
+    <english>Review the query to reduce the number of involved Tables and/or Views.</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="remediationSample">
+    <english>The following procedures should be reviewed:
+1. 5 Views are are joined:
+DELIMITER //
+CREATE OR REPLACE PROCEDURE SQLCPLEX001_13_DN_SHOW_8_Y() CONTAINS SQL
+BEGIN
+  DECLARE SQLCPLEX001_var INTEGER;
+  SELECT STDTBL_COL_1_1 INTO SQLCPLEX001_var FROM SQLCPLEX001_8_DN_SHOW_3_Y, SQLCPLEX001_9_DN_SHOW_4_Y, SQLCPLEX001_10_DN_SHOW_5_Y, SQLCPLEX001_11_DN_SHOW_6_Y, SQLCPLEX001_12_DN_SHOW_7_Y;
+END
+//                                                                 
+DELIMITER ;
+2. 5 Tables are joined, STD_TABLE_4 is joined 2 times : 
+DELIMITER //
+CREATE OR REPLACE PROCEDURE SQLCPLEX001_16_DN_SHOW_12_X()  CONTAINS SQL
+BEGIN
+    DECLARE SQLCPLEX001_var VARCHAR(11);
+    SELECT DISTINCT STD_TABLE_1.COL1, STD_TABLE_2.COL1
+    FROM  STD_TABLE_1, STD_TABLE_2
+    WHERE STD_TABLE_2.COL1 IN
+    (SELECT COL1
+      FROM  STD_TABLE_3
+      WHERE COL2 = DATE '1999-04-27') AND
+            STD_TABLE_1.COL1 IN
+              (SELECT COL1
+                FROM  STD_TABLE_4
+                WHERE STDTBL_COL1_1 = DATE '1999-04-27') AND
+                   STD_TABLE_2.COL1 IN
+                     (SELECT COL1
+                        FROM  STD_TABLE_4
+                        WHERE STDTBL_COL1_1 = DATE '1999-04-28') ;
+END
+//
+DELIMITER ;
+3. 5 Tables are joined :
+DELIMITER //
+CREATE OR REPLACE PROCEDURE SQLCPLEX001_15_SHOW_11_X()  CONTAINS SQL
+BEGIN
+    DECLARE SQLCPLEX001_var VARCHAR(11);
+    SELECT STD_TABLE_4.STDTBL_COL1_1, STD_TABLE_1.COL1
+        FROM STD_TABLE_1
+    INNER JOIN STD_TABLE_2
+        ON STD_TABLE_2.COL1 = STD_TABLE_1.COL1
+    INNER JOIN STD_TABLE_3
+        ON STD_TABLE_3.COL1 = STD_TABLE_2.COL1
+    INNER JOIN STD_TABLE_4
+        ON STD_TABLE_4.COL1 = STD_TABLE_3.COL1
+    INNER JOIN STD_TABLE_5
+        ON STD_TABLE_5.COL1 = STD_TABLE_4.COL1;
+END
+//                           
+DELIMITER ;</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="output">
+    <english>This report lists all Artifacts, except Views, with queries on too many Tables and/or Views.
+It provides the following information:
+ Artifact full name</english>
+  </metric>
+  <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="description">
+    <english>List all Artifacts which contain a query having independent "exists" and "not exists" clauses, which are not referring to the parent object</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="name">
+    <english>Avoid exists and not exists independent clauses (SQL)</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="rationale">
+    <english>Identify "exists" and "not exists" independent clauses:
+- solve a potential performance and disk space issue 
+- applicable for all sql, including embedded sql</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="remediation">
+    <english>Check the statement and if so, add a join clause between exists and parent object.</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="remediationSample">
+    <english>Add a join between children table from exists clause and person table from parent query:
+    select name 
+      from person 
+     where exists 
+          (select 1 
+             from children 
+            where children.fatherid = person.id)</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="sample">
+    <english>The following query should be reviewed:
+      select name 
+        from person 
+       where exists (select 1 
+                       from children)</english>
+  </metric>
+  <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="description">
+    <english>List all Artifacts having "DISTINCT", "DISTINCTROW", "UNIQUE" modifiers in SQL "SELECT" statements</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="name">
+    <english>DISTINCT should not be used in SQL SELECT statements</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="rationale">
+    <english>Identify "DISTINCT", "DISTINCTROW", "UNIQUE" modifiers in SQL "SELECT" statements:
+- is frequently a "code smell"
+- it indicates that something is not quite right because using the DISTINCT keyword means that redundant data is being pulled from the database and then discarded
+- applicable for all sql, including embedded sql</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="remediation">
+    <english>Check the statement and if so, rearrange the "WHERE" or the "FROM" clause in the SQL "SELECT" statement to only get the rows you need.</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="remediationSample">
+    <english>Add an uncorrelated subquery:
+SELECT u.user_id, u.user_name, u.realname, u.email, u.confirm_hash
+FROM users u 
+WHERE u.status = 'A' 
+ AND u.user_id 
+ IN (
+  SELECT ug.user_id 
+  FROM user_group ug, groups g 
+  WHERE ug.admin_flags='A' 
+   AND g.status = 'A' 
+   AND g.group_id = ug.group_id
+  )
+ORDER BY u.user_id;</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="sample">
+    <english>The following SQL "SELECT" statement should be reviewed:
+SELECT DISTINCT u.user_id, u.user_name, u.realname, u.email, u.confirm_hash 
+FROM users u, user_group ug, groups g 
+WHERE u.status='A' 
+ AND u.user_id=ug.user_id 
+ AND ug.admin_flags='A' 
+ AND g.status='A' 
+ AND g.group_id=ug.group_id 
+ORDER BY u.user_id;</english>
+  </metric>
+  <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="description">
+    <english>List all Artifacts having !=, !&gt; and !&lt; operators in SQL WHERE clauses</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="name">
+    <english>Use ANSI standard operators in SQL WHERE clauses</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="rationale">
+    <english>Identify !=, !&gt; and !&lt; operators in SQL WHERE clauses:
+- to prevent portability issues
+- applicable only for embedded sql</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="remediation">
+    <english>Check the statement and if so, !=, !&gt; and !&lt; operators with &lt;&gt;, &lt;= or &gt;=&lt;</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="remediationSample">
+    <english>Replace non-ANSI operators:
+Select col1, col2, col3 
+From table1 
+Where col1 &lt;&gt; 1
+  and col2 &lt;= 2
+  and col3 &gt;= 3
+Order By col1, col2</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="sample">
+    <english>The following SQL WHERE clause should be reviewed:
+Select col1, col2, col3 
+From table1 
+Where col1 != 1
+  and col2 !&lt; 2
+  and col3 !&gt; 3
+Order By col1, col2;</english>
+  </metric>
+  <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="description">
+    <english>List all Artifacts having OR conditions testing equality on the same identifier in SQL WHERE clauses.</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="name">
+    <english>Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="rationale">
+    <english>Identify OR conditions testing equality on the same identifier in SQL WHERE clauses:
+- one way to improve readability and understandability is to replace them by an IN test condition
+- applicable for all sql, including embedded sql</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="remediation">
+    <english>Check the statement and if so, replace them by an IN test condition.</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="remediationSample">
+    <english>Use an IN test condition:
+SELECT supplier_name, city, state
+FROM suppliers
+WHERE supplier_name IN ('Microsoft', 'Oracle', 'Flowers Foods');</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="sample">
+    <english>The following SQL WHERE clause should be reviewed:
+SELECT supplier_name, city, state
+FROM suppliers
+WHERE supplier_name = 'Microsoft'
+OR supplier_name = 'Oracle'
+OR supplier_name = 'Flowers Foods';</english>
+  </metric>
+  <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="associatedValueName">
+    <english>Number of violation occurrences</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="description">
+    <english>In a TRY..CATCH statement, CATCH blocks should have code to handle the thrown exception. If they are empty or only contain comments, the Exception will not be handled.</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="name">
+    <english>Avoid empty catch blocks (SQL)</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="rationale">
+    <english>An empty catch block defeats the purpose of exceptions.
+When an exception occurs, nothing happens and the program fails for an unknown reason. The application can be in an unknown state that will affect subsequent processing.
+Since the reason for the issue (the exception type and potential embedded message) are ignored, it will require more time to fix the issue.</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="reference">
+    <english>An insider's guide to writing robust, understandable, maintainable, state-of-the-art ABAP programs - Part 3
+Andreas Blumenthal - Horst Keller 
+
+http://www.javapractices.com/Topic16.cjp
+http://cwe.mitre.org/data/definitions/391.html</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="remediation">
+    <english>The exception must be handled correctly according to its type.</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="remediationSample">
+    <english>Microsoft SQL Server:
+BEGIN TRY  
+-- Generate divide-by-zero error. 
+    SELECT 1/0 
+END TRY 
+BEGIN CATCH  
+-- Compliant
+ SELECT ERROR_NUMBER() AS ErrorNumber, ERROR_MESSAGE() AS ErrorMessage;
+END CATCH; 
+
+MySQL and MariaDB:
+DECLARE CONTINUE HANDLER FOR SQLWARNING 
+# Compliant
+BEGIN 
+# not an empty block
+SET done = TRUE;
+END;
+
+PostgreSQL:
+BEGIN
+    INSERT INTO db(a,b) VALUES (key, data);
+        RETURN;
+    EXCEPTION WHEN unique_violation THEN
+    RAISE NOTICE 'caught unique_violation ';
+    RETURN;
+END;
+
+Oracle:
+DECLARE
+    pe_ratio NUMBER(3,1);
+    BEGIN
+        BEGIN  ---------- sub-block begins
+            SELECT 1 / NVL(null, 0) INTO pe_ratio FROM dual;
+        EXCEPTION
+          WHEN ZERO_DIVIDE THEN
+            -- Compliant
+            pe_ratio := 0;
+        END;  ---------- sub-block ends
+    EXCEPTION
+        WHEN OTHERS THEN
+            NULL;
+            -- Compliant
+            pe_ratio := Null;
+    END;</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="output">
+    <english>Associated to each violation, the following information is provided:
+- The number of violation occurrences
+- Bookmarks for violation occurrences found in the source code</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="sample">
+    <english>Microsoft SQL Server:
+BEGIN TRY  
+-- Generate divide-by-zero error. 
+    SELECT 1/0 
+END TRY 
+BEGIN CATCH  
+-- Non-compliant
+END CATCH;
+
+MySQL and MariaDB:
+DECLARE CONTINUE HANDLER FOR SQLWARNING 
+# Non-compliant 
+BEGIN 
+# empty block
+END;
+
+PostgreSQL:
+BEGIN
+    INSERT INTO db(a,b) VALUES (key, data);
+        RETURN;
+    EXCEPTION WHEN unique_violation THEN
+    -- Do nothing, and loop to try the UPDATE again.
+    NULL;
+END;
+
+Oracle:
+DECLARE
+    pe_ratio NUMBER(3,1);
+    BEGIN
+        BEGIN  ---------- sub-block begins
+            SELECT 1 / NVL(null, 0) INTO pe_ratio FROM dual;
+        EXCEPTION
+          WHEN ZERO_DIVIDE THEN
+            -- Compliant
+            pe_ratio := 0;
+        END;  ---------- sub-block ends
+    EXCEPTION
+        WHEN OTHERS THEN
+            -- Non-Compliant
+            NULL;
+    END;</english>
+  </metric>
+  <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)" section="total">
+    <english>Number of Artifacts with SQL code.</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="associatedValueName">
+    <english>Table name</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="description">
+    <english>List of tables that contain characters other than [a-Z,0-9,_]</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="name">
+    <english>Table naming convention - character set control (SQL)</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="rationale">
+    <english>For readability and changeability aspects, naming conventions must be respected.
+
+=&gt; Table name should not contain characters other than [a-Z,0-9,_]</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="output">
+    <english>This report lists all tables names containing characters other than [a-Z,0-9,_]
+
+It provides the following information:
+
+- Table name, 
+- Table full name</english>
+  </metric>
+  <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" section="total">
+    <english>Number of Tables.</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="associatedValueName">
+    <english>View name</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="description">
+    <english>List of views that contain characters other than [a-Z,0-9,_]</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="name">
+    <english>View naming convention - character set control (SQL)</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="rationale">
+    <english>For readability and changeability aspects, naming conventions must be respected.
+
+
+=&gt; View names should not contain characters other than [a-Z,0-9,_]</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="output">
+    <english>This report lists all View names containing characters other than [a-Z,0-9,_]
+
+It provides the following information:
+
+- View name, 
+- View full name</english>
+  </metric>
+  <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)" section="total">
+    <english>Number of Views.</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="associatedValueName">
+    <english>Package name</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="description">
+    <english>Names of Packages should start with X. 
+The prefix value is a parameter that can be changed at will</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="name">
+    <english>Package naming convention - prefix control (SQL)</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="output">
+    <english>This report lists all Package names not starting with X.
+It provides the following information: Package full name.</english>
+  </metric>
+  <metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" section="total">
+    <english>Number of Packages.</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="associatedValueName">
+    <english>Package Functions name</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="description">
+    <english>Names of Functions should start with X.  
+The prefix value is a parameter that can be changed at will</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="name">
+    <english>Package Function naming convention - prefix control (SQL)</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="output">
+    <english>This report lists all Function names not starting with the specific prefix.
+It provides the following information: Function full name.</english>
+  </metric>
+  <metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)" section="total">
+    <english>Number of Package Functions.</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="associatedValueName">
+    <english>Package Stored Procedure name</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="description">
+    <english>Names of Stored Procedures should start with X. 
+The prefix value is a parameter that can be changed at will</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="name">
+    <english>Package Stored Procedure naming convention - prefix control (SQL)</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="rationale">
+    <english>For readability aspects, naming conventions must be respected</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="remediation">
+    <english>Change name according to the naming convention</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="output">
+    <english>This report lists all Stored Procedure names not starting with the specific prefix.
+It provides the following information: Procedure Name, Procedure Full Name.</english>
+  </metric>
+  <metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" section="total">
+    <english>Number of Package Stored Procedures.</english>
+  </metric>
+</root>

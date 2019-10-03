@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    
+    <!-- Functional weight - Backfired IFPUG Function Point Definition -->
+    <metric id="10201" type="sizing-measure"      originalName="Backfired Function Points"                      active="true" detached="false" ignored="false" />
+    <!-- High part of metric tree -->
+    <metric id="61019" type="technical-criterion" originalName="Efficiency - SQL and Data Handling Performance" active="true" detached="false" ignored="false" />
+    <metric id="61009" type="technical-criterion" originalName="Complexity - Algorithmic and Control Structure Complexity" active="true" detached="false" ignored="false"/>
+    <metric id="61027" type="technical-criterion" originalName="Dead code (static)" 							active="true" detached="false" ignored="false" />
+    <metric id="66069" type="technical-criterion" originalName="Programming Practices - Unexpected Behavior"    active="true" detached="false" ignored="false"/>
+    <metric id="61004" type="technical-criterion" originalName="Architecture - OS and Platform Independence"    active="true" detached="false" ignored="false"/>
+    <metric id="61011" type="technical-criterion" originalName="Complexity - SQL Queries"                       active="true" detached="false" ignored="false"/>
+    <metric id="61014" type="technical-criterion" originalName="Programming Practices - Error and Exception Handling" active="true" detached="false" ignored="false"/>
+	<metric id="61017" type="technical-criterion" originalName="Documentation - Naming Convention Conformity" 	active="true" detached="false" ignored="false"/>
+           
+    <!-- attached to existing rules with technology parameter -->
+    <metric id="7808" type="quality-rule" originalName="Avoid Artifacts with SQL statement including subqueries" active="true" detached="false" ignored="false"/>
+    <metric id="7810" type="quality-rule" originalName="Avoid Artifacts with a Complex SELECT Clause"            active="true" detached="false" ignored="false"/>
+    <metric id="7814" type="quality-rule" originalName="Avoid tables not involved in a Foreign Key"              active="true" detached="false" ignored="false"/>
+    <metric id="7816" type="quality-rule" originalName="Avoid using GOTO statement"                              active="true" detached="false" ignored="false"/>
+    <metric id="7842" type="quality-rule" originalName="Avoid large Artifacts - too many Lines of Code"          active="true" detached="false" ignored="false"/>
+    <metric id="7856" type="quality-rule" originalName="Avoid Tables with more than 20 columns on an OLTP system" active="true" detached="false" ignored="false"/>
+    <metric id="7760" type="quality-rule" originalName="Avoid triggers, functions and procedures with a very low comment/code ratio" active="true" detached="false" ignored="false"/>
+    <metric id="7762" type="quality-rule" originalName="Avoid undocumented triggers, functions and procedures"   active="true" detached="false" ignored="false"/>
+    <metric id="7766" type="quality-rule" originalName="Avoid Artifacts with High Cyclomatic Complexity"         active="true" detached="false" ignored="false"/>
+    <metric id="7768" type="quality-rule" originalName="Avoid Artifacts with High Depth of Code"                 active="true" detached="false" ignored="false"/>
+    <metric id="7772" type="quality-rule" originalName="Avoid Artifacts with High Essential Complexity"          active="true" detached="false" ignored="false"/>
+    <metric id="7860" type="quality-rule" originalName="Avoid unreferenced Functions"            				 active="true" detached="false" ignored="false"/>	
+	<metric id="1634" type="quality-rule" originalName="Avoid unreferenced Tables"            					 active="true" detached="false" ignored="false"/>
+	<metric id="7776" type="quality-rule" originalName="Avoid Artifacts with High Fan-In"            			 active="true" detached="false" ignored="false"/>
+	<metric id="7778" type="quality-rule" originalName="Avoid Artifacts with High Fan-Out"            			 active="true" detached="false" ignored="false"/>
+	<metric id="7404" type="quality-rule" originalName="Avoid unreferenced views"            			         active="true" detached="false" ignored="false"/>
+	<metric id="7784" type="quality-rule" originalName="Avoid Artifacts with lines longer than X characters"     active="true" detached="false" ignored="false"/>
+    <metric id="7828" type="quality-rule" originalName="Avoid Artifacts with High RAW SQL Complexity"            active="true" detached="false" ignored="false"/>
+    <metric id="7774" type="quality-rule" originalName="Avoid Artifacts with High Integration Complexity"        active="true" detached="false" ignored="false"/>
+    
+    <!-- Database naming convention rules -->
+    <metric id="7840" type="quality-rule" originalName="Trigger naming convention - prefix control" 			active="false" detached="false" ignored="false"/>
+	<metric id="7852" type="quality-rule" originalName="Database view naming convention - prefix control"		active="false" detached="false" ignored="false"/>
+	<metric id="7854" type="quality-rule" originalName="Database table naming convention - prefix control" 		active="false" detached="false" ignored="false"/>
+	<metric id="7898" type="quality-rule" originalName="SQL Function naming convention - prefix control" 		active="false" detached="false" ignored="false"/>
+	<metric id="7900" type="quality-rule" originalName="Stored Procedure naming convention - prefix control" 	active="false" detached="false" ignored="false"/>    			
+    <metric id="7786" type="quality-rule" originalName="Avoid long Table or View names" 						active="true" detached="false" ignored="false"/>
+
+    <metric id="1101042" type="quality-rule" originalName="Table naming convention - character set control (SQL)" 	active="true"  detached="false" ignored="false"/>
+    <metric id="1101044" type="quality-rule" originalName="View naming convention - character set control (SQL)"   	active="true"  detached="false" ignored="false"/>
+	<metric id="1101046" type="quality-rule" originalName="Package naming convention - prefix control (SQL)" 		active="false" detached="false" ignored="false"/>
+	<metric id="1101048" type="quality-rule" originalName="Package Function naming convention - prefix control (SQL)"         active="false" detached="false" ignored="false"/>
+	<metric id="1101050" type="quality-rule" originalName="Package Stored Procedure naming convention - prefix control (SQL)" active="false" detached="false" ignored="false"/>
+
+    <!-- New rules due to implementation details -->
+    <metric id="1101000" type="quality-rule" originalName="Never use SQL queries with a cartesian product (SQL)"               active="true" detached="false" ignored="false"/>
+	<metric id="1101002" type="quality-rule" originalName="Never use SQL queries with a cartesian product on XXL tables (SQL)" active="true" detached="false" ignored="false"/>
+    
+    <metric id="1101004" type="quality-rule" originalName="Avoid non-indexed SQL queries"                                active="true" detached="false" ignored="false"/>
+    <metric id="1101006" type="quality-rule" originalName="Avoid XXL JOINs on non-indexed columns"                       active="true" detached="false" ignored="false"/>
+
+    <metric id="1101008" type="quality-rule" originalName="Avoid non-SARGable queries"							 active="true" detached="false" ignored="false"/>
+    <metric id="1101010" type="quality-rule" originalName="Avoid NATURAL JOIN queries"							 active="true" detached="false" ignored="false"/>
+
+    <metric id="1101012" type="quality-rule" originalName="Specify column names instead of column numbers in ORDER BY clauses"           active="true" detached="false" ignored="false"/>
+    <metric id="1101014" type="quality-rule" originalName="Avoid queries using old style join convention instead of ANSI-Standard joins (SQL)" active="true" detached="false" ignored="false"/>
+    <metric id="1101016" type="quality-rule" originalName="Avoid Artifacts with too many parameters (SQL)"       active="true" detached="false" ignored="false"/>
+    <metric id="1101018" type="quality-rule" originalName="Avoid using the GROUP BY clause"                      active="true" detached="false" ignored="false"/>
+    <metric id="1101020" type="quality-rule" originalName="Avoid using quoted identifiers"                       active="true" detached="false" ignored="false"/>
+    <metric id="1101022" type="quality-rule" originalName="Avoid Tables without Primary Key (SQL)"                     active="true" detached="false" ignored="false"/>
+    <metric id="1101024" type="quality-rule" originalName="Avoid using dynamic SQL in SQL Artifacts"             active="true" detached="false" ignored="false"/>
+    <metric id="1101026" type="quality-rule" originalName="Always define column names when inserting values"     active="true" detached="false" ignored="false"/>
+    <metric id="1101028" type="quality-rule" originalName="Use MINUS or EXCEPT operator instead of NOT EXISTS and NOT IN subqueries" active="true" detached="false" ignored="false"/>
+    <metric id="1101030" type="quality-rule" originalName="Avoid Artifacts with queries on too many Tables and/or Views" active="true" detached="false" ignored="false"/>
+    <metric id="1101032" type="quality-rule" originalName="Avoid exists and not exists independent clauses (SQL)"        active="true" detached="false" ignored="false"/>               
+    <metric id="1101034" type="quality-rule" originalName="DISTINCT should not be used in SQL SELECT statements" active="true" detached="false" ignored="false"/>
+    <metric id="1101036" type="quality-rule" originalName="Use ANSI standard operators in SQL WHERE clauses"     active="true" detached="false" ignored="false"/>
+    <metric id="1101038" type="quality-rule" originalName="Replace OR conditions testing equality on the same identifier in SQL WHERE clauses by an IN test condition" active="true" detached="false" ignored="false"/>
+    <metric id="1101040" type="quality-rule" originalName="Avoid empty catch blocks (SQL)"                       active="true" detached="false" ignored="false"/>   
+   
+ 	<metric id="65105" type="quality-distribution" originalName="Size Distribution"                   active="N/A" detached="N/A" ignored="false"/>
+	<metric id="65350" type="quality-distribution" originalName="Coupling Distribution"               active="N/A" detached="N/A" ignored="false"/>
+	<metric id="65501" type="quality-distribution" originalName="Cyclomatic Complexity Distribution"  active="N/A" detached="N/A" ignored="false"/>
+	<metric id="66010" type="quality-distribution" originalName="Reuse by Call Distribution"          active="N/A" detached="N/A" ignored="false"/>
+	<metric id="66015" type="quality-distribution" originalName="Class Complexity Distribution (WMC)" active="N/A" detached="N/A" ignored="false"/>
+	<metric id="66020" type="quality-distribution" originalName="Class Fan-Out Distribution"          active="N/A" detached="N/A" ignored="false"/>
+	<metric id="66021" type="quality-distribution" originalName="Class Fan-In Distribution"           active="N/A" detached="N/A" ignored="false"/>
+</root>

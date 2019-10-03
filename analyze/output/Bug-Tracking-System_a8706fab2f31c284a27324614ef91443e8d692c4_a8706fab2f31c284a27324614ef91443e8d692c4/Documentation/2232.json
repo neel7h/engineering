@@ -1,0 +1,90 @@
+{
+    "id": 2232,
+    "name": "Pages should use error handling page",
+    "href": "AIP/quality-rules/2232",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "When the web.xml file doesn't reference an error page through the <error-page> directive, this Quality Rule reports each page that does not reference an error page directive (<%@ page errorPage=\"error.jsp\" %>) except for the error page itself (page with the directive <%@ page isErrorPage=\"true\"%>)",
+    "output": "This report lists all JSP pages not using error page (except the error pages themselves) and the web.xml file when no error-page is specified in the web.xml file.\nIt provides the following information: \n JSP page full file name",
+    "rationale": "While a thrown exception's stack trace proves extremely useful for developers when debugging their code, it is rarely desirable to share an entire exception stack trace with the software's users. \nLengthy stack traces are not aesthetically pleasing and can increase security risks by exposing information that does not need to be released. JSPs allow developers to catch and handle exceptions in the code, resulting in more secure and aesthetically pleasing exception handling.",
+    "reference": "http://blog.java-hoster.com/2010/java-course/how-to-manage-error-pages-in-java-web-sites\nhttps://www.owasp.org/index.php/Reviewing_Code_for_Error_Handling#Vulnerable_Patterns_for_Error_Handling\nhttps://www.onehippo.org/12/library/concepts/error-pages-and-error-handling/1.-handling-error-codes-and-exceptions-by-the-web.xml.html",
+    "remediation": "In small applications, you can specify the JSP page directive's errorPage attribute. For an enterprise application using a combination of servlets, filters and JSP pages a shared error handler for all these component types allows you to better control error handling and fine-tune it in one place when needed. To do this, you can specify an error handler in the web.xml file through the error-page directive where you need to reference a JSP error page or a servlet (that has the advantage of easily capturing information about the error and then forwarding it to a page).",
+    "total": "Number of JSP files except the error pages + the web.xml",
+    "alternativeName": "Ensure to use a combination of servlets, filters and JSP pages a shared error handler for all these component types allows you to better control error handling",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

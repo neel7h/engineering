@@ -1,0 +1,52 @@
+{
+    "id": 1001084,
+    "name": "Avoid Main Procedures having the FETCH statement not followed by the word \"TITLE\" (PL1)",
+    "href": "AIP/quality-rules/1001084",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches all PL1 Main Procedures  having FETCH without the TITLE option.",
+    "output": "The report lists all the PL1 Main Procedures  having FETCH without the TITLE option. \n\nIt provides following information: \n-  PL1 Main Procedure full name",
+    "rationale": "For better performance, It is recommended to declare a component as fetchable in the fetchable component itself rather then issuing a fetch.",
+    "remediation": "Limit the usage of FETCH and add \"OPTIONS(FETCHABLE)\" to the ENTRY declaration.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid Main Procedures having the FETCH statement not followed by the word \"TITLE\" (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

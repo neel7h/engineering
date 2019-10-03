@@ -1,0 +1,68 @@
+{
+    "id": 1007238,
+    "name": "Avoid having multiple classes defined in a single file - Symfony STD (PHP)",
+    "href": "AIP/quality-rules/1007238",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR will have violation if multiple classes are defined in a single file.\u00a0\nDefine one class per file - this does not apply to private helper classes that are not intended to be instantiated from the outside and thus are not concerned by the PSR-0 and PSR-4 autoload standards.",
+    "output": "This QR lists all the files thave multiple classes defined. It gives following information:\n-PHP section full name",
+    "rationale": "Maintainability is increased if a file contains a single class.",
+    "reference": "Symfony2-coding-standard - Author : <Symfony2-coding-standard@escapestudios.github.com> \n\nhttps://github.com/djoos/Symfony2-coding-standard/blob/master/Symfony2/Sniffs/Classes/MultipleClassesOneFileSniff.php",
+    "remediation": "There should be one class in one file.",
+    "remediationSample": "<?php \n\n                          Class Test \n                          { \n                              public function test() {}\n                          } \n                            \n?>",
+    "sample": "<?php \n\n                        Class Test \n                         { \n                              public function test() {}\n                          } \n                            \n                        Class Foo \n                         { \n                              public function foo() {}\n                         } \n?>",
+    "total": "Number of Sections",
+    "alternativeName": "Avoid having multiple classes defined in a single file - Symfony STD (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61026,
+            "name": "Complexity - Technical Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Symfony2.Classes.MultipleClassesOneFile"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "id": 1007170,
+    "name": "Avoid function return value ignored (PHP)",
+    "href": "AIP/quality-rules/1007170",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the methods and functions returning value and their return value is being ignored.",
+    "output": "This report lists all the methods and functions returning value and their return value is being ignored.\n\nThis QR provides the following information:\nMethod and Function full name.",
+    "rationale": "In PHP ignoring the result of a function indicates that the programmer has made an assumption about this return value. Unfortunately, sometimes this assumption can be wrong and produce unexpected results for the application.",
+    "remediation": "Modify the source code and always check the return value of functions that return values before proceeding further.",
+    "remediationSample": "<?php\n\n   function sumGreatherThanZero($param1, $param2){\n      return (($param1 + $param2) > 0);\n    }\n \n    $result = sumGreatherThanZero(1, 2); //violation removed\n    if (0 < $result) {\n     //further processing\n    }\n  ?>",
+    "sample": "<?php\nfunction sumGreatherThanZero($param1, $param2){\n      return (($param1 + $param2) > 0);\n    }\n \n    sumGreatherThanZero(1, 2); //violation\n \n     //further processing\n \n  ?>",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid function return value ignored (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

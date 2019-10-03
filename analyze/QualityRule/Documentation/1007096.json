@@ -1,0 +1,68 @@
+{
+    "id": 1007096,
+    "name": "Avoid \"elseif\" statements (PHP)",
+    "href": "AIP/quality-rules/1007096",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts containing \"elseif\" statements.",
+    "output": "This report lists all artifacts containing \"elseif\" statements.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "For readability reasons, \"elseif\" statements should be avoided.",
+    "reference": "Code Sniffer  - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_ControlStructures_ElseIfDeclarationSniff.html",
+    "remediation": "Modify the source code to replace \"elseif\" statements with \"else if\".",
+    "remediationSample": "<?php\n$a = 10;\n$b = 20;\nif ( $a > $b ) {\n    echo \"a is bigger than b\", PHP_EOL;\n    }\nelse if ( $a === $b ) {   //VIOLATION REMOVED\n    echo \"a is equal to b\", PHP_EOL;\n    }\nelse {\n    echo \"a is smaller than b\", PHP_EOL;\n    }\n?>",
+    "sample": "<?php\n$a = 10 ;\n$b = 20 ;      \nif ( $a > $b ) {\n    echo \"a is bigger than b\", PHP_EOL;\n} elseif ( $a === $b ) {               //VIOLATION\n    echo \"a is equal to b\", PHP_EOL;\n} else {\n    echo \"a is smaller than b\", PHP_EOL;\n}\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid \"elseif\" statements (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "ElseIfDeclaration"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

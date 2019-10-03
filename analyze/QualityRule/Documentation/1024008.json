@@ -1,0 +1,60 @@
+{
+    "id": 1024008,
+    "name": "Always use onActivityResult to pass the login results when using Facebook SDK",
+    "href": "AIP/quality-rules/1024008",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "In the onActivityResult method, you need to call callbackManager.onActivityResult to pass the results of the login request to LoginManager via callbackManager. \n\nThe method that should be called from the Activity's or Fragment's onActivityResult method.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Android Protected Confirmation doesn't provide a secure information channel for the user. Your app cannot assume any confidentiality guarantees beyond those that the Android platform offers. In particular, don't use this workflow to display sensitive information that you wouldn't ordinarily show on the user's device. \n\nAfter the user confirms the message, its integrity is assured, but your app must still use data-in-transit encryption to assure the confidentiality of the signed message",
+    "reference": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M4-Insecure_Authentication \n\nhttps://developers.facebook.com/docs/reference/androidsdk/current/facebook/com/facebook/callbackmanager.html/ ",
+    "remediationSample": "public class FrameActivity extends BaseActivity { \n\n public static CallbackManager callbackManager; \n@Override \nprotected void onCreate(Bundle savedInstanceState) { \n// FacebookSdk.sdkInitialize is called in the Application onCreate \n\ncallbackManager = CallbackManager.Factory.create(); \n} \n@Override \npublic void onActivityResult(int requestCode, int resultCode, Intent data) { \n    super.onActivityResult(requestCode, resultCode, data); \n    callbackManager.onActivityResult(requestCode, resultCode, data); // FIXED \n\n} ",
+    "sample": "public class FrameActivity extends BaseActivity { \n\n public static CallbackManager callbackManager; \n@Override \nprotected void onCreate(Bundle savedInstanceState) { \n// FacebookSdk.sdkInitialize is called in the Application onCreate \n\ncallbackManager = CallbackManager.Factory.create(); \n} \n@Override \npublic void onActivityResult(int requestCode, int resultCode, Intent data) { \n    super.onActivityResult(requestCode, resultCode, data); \n     \n\n} ",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Always use onActivityResult to pass the login results when using Facebook SDK",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

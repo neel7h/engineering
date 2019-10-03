@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+  <metric id='1020700' type='quality-rule' originalName='Avoid the lack of error handling in the Node.js callbacks' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020702' type='quality-rule' originalName='Avoid using process.exit() without defining exitCode' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020704' type='quality-rule' originalName='Avoid using string concatenation when using __dirname and __filename' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020706' type='quality-rule' originalName='Ensure the Content-Security-Policy is activated' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020708' type='quality-rule' originalName='Ensure the X-Powered-By header is disabled' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020710' type='quality-rule' originalName='Ensure the X-XSS-Protection header is enabled' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020712' type='quality-rule' originalName='Ensure the X-Frame-Options header is setup' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020714' type='quality-rule' originalName='Avoid having multiple routes for the same path with Node.js Express App' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020716' type='quality-rule' originalName='Avoid using the call of web service with Node.js http.get or http.request inside a loop' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020718' type='quality-rule' originalName='Ensure that browser cannot cache or store a page' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020720' type='quality-rule' originalName='Allow only HTTPS communication' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020722' type='quality-rule' originalName='Ensure to use secure HTTPS protocol' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020724' type='quality-rule' originalName='Ensure that marked is sanitized' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020726' type='quality-rule' originalName='Ensure that CSRF Protection is enabled' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020728' type='quality-rule' originalName='Avoid creating cookie without setting httpOnly option' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020730' type='quality-rule' originalName='Ensure Node.js filesystem are closed' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020732' type='quality-rule' originalName='Avoid using risky cryptographic hash (Node.js)' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020734' type='quality-rule' originalName='Avoid using unsecured cookie (Node.js)' thresholdToGet1='50.0' thresholdToGet2='90.0' thresholdToGet3='95.0' thresholdToGet4='99.0' />
+  <metric id='1020736' type='quality-rule' originalName='Avoid bypassing self-signed ssl certificate (Node.js)' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020738' type='quality-rule' originalName='Avoid disabling SSL verification in node-curl' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020740' type='quality-rule' originalName='Avoid creating cookie with overly broad path (Node.js)' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020742' type='quality-rule' originalName='Avoid creating cookie with overly broad domain (Node.js)' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020744' type='quality-rule' originalName='Avoid using TLS library before Node.js 9.11.2 and 10.4.1' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id='1020746' type='quality-rule' originalName='Avoid using HTTP/2 library before Node.js 8.11.3, 9.11.2 and 10.4.1' thresholdToGet1='10.0' thresholdToGet2='70.0' thresholdToGet3='90.0' thresholdToGet4='99.0' />
+  <metric id="1020748" type="quality-rule" originalName="Avoid using the call of data service with Node.js inside a loop" thresholdToGet1="98" thresholdToGet2="99" thresholdToGet3="99.5" thresholdToGet4="99.99"/>
+  <metric id="1020750" type="quality-rule" originalName="Avoid using the file path validation with Node.js 8.5.0" thresholdToGet1="50" thresholdToGet2="90" thresholdToGet3="95" thresholdToGet4="99"/>
+</root>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.springmvc</id>
+    <version>1.6.0-funcrel</version>
+    <title>Spring MVC Framework</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/Spring+MVC+-+1.6</projectUrl>
+    <iconUrl>https://extend.castsoftware.com/resources/com.castsoftware.springmvc.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for the Spring MVC framework. The analysis of your JEE/Spring application by the default AIP analyzer will be enriched with modeling of the HTTP API created with Spring MVC. This will enable transactions starting in a client application which uses these API (web app for instance) to be traced into the backend application.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/Spring+MVC+-+1.6</releaseNotes>
+    <tags>JEE Spring MVC HTTP API</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.wbslinker" version="1.6.7-funcrel" />
+      <dependency id="com.castsoftware.internal.platform" version="0.8.2-funcrel" />
+      <dependency id="com.castsoftware.html5" />
+    </dependencies>
+  </metadata>
+</package>

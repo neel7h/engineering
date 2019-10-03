@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- 
+ File : $/a3sql/CwMetrics/Metrics/Package/miscellaneous/HardcodedResource.xml
+ What it is : the name says it all
+ Author : IBO@CAST
+ Creation date : 2014 May 23
+-->
+
+
+
+<METRIC PACKAGE_NAME="TruncateInStrings" >
+	<ACTIVE>YES</ACTIVE>
+
+	<!-- Actions used -->
+	<ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+			<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="CALCULATE" >
+			<INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+		<ACTION NAME="PERSISTENCE" >
+			<INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+			<ACTIVE>YES</ACTIVE>
+		</ACTION>
+	</ACTION_LIST>
+	<!-- End of actions used -->
+
+	<!-- Categories -->
+	<CATEGORY_LIST>
+
+		<!-- ************************************* -->
+		<!-- Use of hard-coded resource -->
+
+		<CATEGORY NAME="TRUNCATE_TABLE_REGEX_STD_CAT">
+			<PROPERTY NAME="VALUE" type="integer" />
+			<PROPERTY NAME="TRUNCATE_TABLE_REGEX_STD_PATT" type="regexp_pattern">
+        <LANGUAGE>MSTSQL-LANGUAGE</LANGUAGE>
+        <LANGUAGE>ASETSQL-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+				<SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+				<SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+				<SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+				<SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+				<MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+
+				<REGEXP><![CDATA[([Tt][Rr][Uu][Nn][Cc][Aa][Tt][Ee]([[:Zs:]\t]+[Tt][Aa][Bb][Ll][Ee]))[^']*]]></REGEXP>
+			</PROPERTY>
+
+			<!--
+-         Truncate table
+-           ([Tt][Rr][Uu][Nn][Cc][Aa][Tt][Ee]([[:Zs:]\t]+[Tt][Aa][Bb][Ll][Ee]))[^']*
+-->
+
+			<ADD_ACTION NAME="MATCH">
+				<MATCH>TRUNCATE_TABLE_REGEX_STD_PATT</MATCH>
+				<CLASS>TSQL_CLASS.CLASS</CLASS>
+				<SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+				<VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+			</ADD_ACTION>
+		</CATEGORY>
+
+
+		<CATEGORY NAME="TRUNCATE_TABLE_REGEX_CAT">
+			<PROPERTY NAME="VALUE" type="integer" />
+
+			<ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>TRUNCATE_TABLE_REGEX_STD_CAT.VALUE</ADD_VALUE>
+				<RESULT>VALUE</RESULT>
+			</ADD_ACTION>
+
+			<ADD_ACTION NAME="PERSISTENCE">
+				<SAVE>VALUE</SAVE>
+				<NAME>Use of truncate table in strings</NAME>
+			</ADD_ACTION>
+
+		</CATEGORY>
+
+		<!-- ************************************* -->
+
+
+  </CATEGORY_LIST>
+
+</METRIC>
+
+<!-- End of file -->

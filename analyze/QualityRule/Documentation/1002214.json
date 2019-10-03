@@ -1,0 +1,60 @@
+{
+    "id": 1002214,
+    "name": "All Read and Write statements in Modules must use the return code IOSTAT (FORTRAN)",
+    "href": "AIP/quality-rules/1002214",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "All the read, write and open statements are counted and compared to the number of IOSTAT statements used in these same operations. Whenever these numbers are different for an artifact, the artifact is considered being in violation.",
+    "rationale": "All the Input/Output operations must be tested by the return code IOSTAT. Once the return code is not verified and tested, the artifact may run into unexpected behaviour causing the application to halt",
+    "remediation": "Always use a variable to capture the return code in and test this variable to see if the operation resulted in success or not.",
+    "alternativeName": "All Read and Write statements in Modules must use the return code IOSTAT (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

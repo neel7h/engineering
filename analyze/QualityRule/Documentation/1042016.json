@@ -1,0 +1,82 @@
+{
+    "id": 1042016,
+    "name": "Avoid Struts action Mapping with disabled validator ",
+    "href": "AIP/quality-rules/1042016",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Disabling validation exposes the action to numerous types of attacks.\n\nThis rule will check that each action form mapping is enabling validation by setting the validate field to true. If not it gives the violation.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Automatic filtering via a Struts bean has been turned off, which disables the Struts Validator and custom validation logic. This exposes the application to other weaknesses related to insufficient input validation.",
+    "reference": "https://www.owasp.org/index.php/Improper_Data_Validation#Struts:_Validator_Turned_Off\nhttps://cwe.mitre.org/data/definitions/109.html",
+    "remediation": "Set the validate field to true",
+    "remediationSample": "<action-mappings>\n    <action path=\"/address\"\n            type=\"com.action.MainAction\"\n            name=\"myForm\"            \n            scope=\"request\" \n            input=\"/addressInput.jsp\" \n            validate=\"true\">\n        <forward name=\"success\" path=\"/addressInput.jsp\"/>\n    </action>\n</action-mappings>",
+    "sample": "<action-mappings>\n    <action path=\"/address\"\n            type=\"com.action.MainAction\"\n            name=\"myForm\"            \n            scope=\"request\" \n            input=\"/addressInput.jsp\" \n            validate=\"false\">\n        <forward name=\"success\" path=\"/addressInput.jsp\"/>\n    </action>\n</action-mappings>",
+    "total": "Number of field in struts1 XML Config File",
+    "alternativeName": "Ensure to enable validation for each Struts action Mapping of your application to prevent any types of attacks.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-109",
+            "name": "Struts: Validator Turned Off",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

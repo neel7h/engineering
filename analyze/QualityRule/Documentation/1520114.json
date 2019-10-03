@@ -1,0 +1,63 @@
+{
+    "id": 1520114,
+    "name": "SiebelReview: Pick Maps Missing or Incorrectly Defined",
+    "href": "AIP/quality-rules/1520114",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Reason for violation (No pickmap|Unecessary pickmaps)",
+    "description": "A pick map determines which fields from the pick BusComp will be copied to the BusComp in which the field with a pick list is defined.\n* For a static pick list, if no pick map is defined, the user will not see a list of values to choose from.\n* For a dynamic pick list, if no pick map is defined, nothing will be copied from the source BusComp.  If the pick map is defined, but does not contain a mapping to a foreign key column on the base table, no reference to the picked data will be saved to the base record, and the data will not be appear when the user returns to the record.\n* For fields that do not have a pick list attribute defined, there should be no pick maps defined.",
+    "output": "This rule reports all Fields with Pick Maps missig or Incorrectly defined",
+    "rationale": "It was noted that pick maps were incorrectly defined or missing for fields with pick lists specified.",
+    "remediation": "Make sure that all fields where pick lists are defined have a valid pick map definition.\nFor static pick lists, there is generally a single pick map defined, mapping the Value field of the pick BusComp to the current field.\nFor dynamic pick lists, there are generally at least two pick maps defined:\n* 1 pick map copies the field in the destination BusComp to the current field for visibility in the UI.  For example, when picking an account for an opportunity, the account Name gets mapped to the opportunity Account Name field.\n* 1 pick map copies a reference to the picked data, so that it may be retrieved in a subsequent visit to the record.  To continue the example, the account Id gets mapped to the opportunity Account Id field.  This will stored the value of the account's ROW_ID in S_OPTY.PR_DEPT_OU_ID to build a relationship between the records.\n* Many more pick maps may exist to allow additional data to be immediately available in the base BusComp.\nFor fields that do not have a pick list defined, delete any associated pick maps.",
+    "total": "Number of added or modified Fields with PickList or PickMap",
+    "alternativeName": "SiebelReview: Pick Maps Missing or Incorrectly Defined",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        80.0,
+        99.0
+    ]
+}

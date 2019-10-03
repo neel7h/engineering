@@ -1,0 +1,72 @@
+{
+    "id": 1003152,
+    "name": "Avoid dispatching events using hardcoded strings (Flex)",
+    "href": "AIP/quality-rules/1003152",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports artifacts that dispatch events using hardcoded strings.",
+    "output": "This QR reports artifacts that dispatch events using hardcoded strings. It provides following information:\n\n- Artifact full name",
+    "rationale": "Events should not be dispatched using hardcoded strings for maintainability reasons.",
+    "remediation": "Use constant strings to dispatch events.",
+    "sample": "public class Foo \n{\n   public function bar() : void\n   {\n      dispatch( new Event( \"myHardCodedEvent\" ) ); // VIOLATION\n   }\n}",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid dispatching events using hardcoded strings (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.event.DispatchHardCodedEventName"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

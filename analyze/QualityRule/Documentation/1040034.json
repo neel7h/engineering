@@ -1,0 +1,82 @@
+{
+    "id": 1040034,
+    "name": "StrictHttpFirewall should be set as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5",
+    "href": "AIP/quality-rules/1040034",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Spring Security does not consider URL path parameters when processing security constraints. By adding a URL path parameter with special encodings, an attacker may be able to bypass a security constraint. The root cause of this issue is a lack of clarity regarding the handling of path parameters in the Servlet Specification (see below)\n\nto adress this issue, Spring Security 5.0.1, 4.2.4, and 4.1.5 has been released. The major changes introduced for this CVE was setting StrictHttpFirewall as the default HttpFirewall. \n\n\nThis rule checks if \"Strict Http Firewall\" is set as the Http Firewall for all affected version. If not a violation is reported.\n\n\nThe Violation is be raised when: \n\n1. DefaultHttpFirewall is set as the Http firewall instead of StrictHttpFirewall.\n2. No configuration of firewall is provided \n\n\nConsider following cases to prevent false positives:\n\n1. Java Application with no configuration of firewall and not using spring security.\n2. Java Application making use of newer versions of spring security in which strict http firewall is default firewall.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.",
+    "reference": "https://pivotal.io/security/cve-2018-1199\nhttps://spring.io/blog/2018/01/30/cve-2018-1199-spring-security-5-0-1-4-2-4-4-1-5-released\nhttps://docs.spring.io/autorepo/docs/spring-security/4.2.x/reference/html/technical-overview.html",
+    "remediation": "By default the StrictHttpFirewall is used. This implementation rejects requests that appear to be malicious. If it is too strict for your needs, then you can customize what types of requests are rejected. However, it is important that you do so knowing that this can open your application up to attacks. For example, if you wish to leverage Spring MVC\u2019s Matrix Variables, the following configuration could be used in XML:\n\n<b:bean id=\"httpFirewall\"\n      class=\"org.springframework.security.web.firewall.StrictHttpFirewall\"\n      p:allowSemicolon=\"true\"/>\n\n<http-firewall ref=\"httpFirewall\"/>\n\n\n\nThe same thing can be achieved with Java Configuration by exposing a StrictHttpFirewall bean.\n\n@Bean\npublic StrictHttpFirewall httpFirewall() {\n    StrictHttpFirewall firewall = new StrictHttpFirewall();\n    firewall.setAllowSemicolon(true);\n    return firewall;\n}",
+    "remediationSample": "<b:bean id=\"httpFirewall\"\n      class=\"org.springframework.security.web.firewall.StrictHttpFirewall\"\n      p:allowSemicolon=\"true\"/>\n\n<http-firewall ref=\"httpFirewall\"/>\n\nThe same thing can be achieved with Java Configuration by exposing a bean.\n\n@Bean\npublic StrictHttpFirewall httpFirewall() {\n    StrictHttpFirewall firewall = new StrictHttpFirewall();\n    firewall.setAllowSemicolon(true);\n    return firewall;\n}",
+    "sample": "In the XML configutaion: \n \n<b:bean id=\"httpFirewall\"\n      class=\"org.springframework.security.web.firewall.DefaultHttpFirewall\"\n      p:allowSemicolon=\"true\"/>\n\n<http-firewall ref=\"httpFirewall\"/>\n\n\n\nThe same thing can be achieved with Java Configuration by exposing a bean.\n\n@Bean\npublic DefaultHttpFirewall httpFirewall() {\n    DefaultHttpFirewall firewall = new DefaultHttpFirewall();\n    firewall.setAllowSemicolon(true);\n    return firewall;\n}",
+    "total": "Number of Java Project and JSP Project",
+    "alternativeName": "Ensure setting \"StrictHttpFirewall\" as Http Firewall before Spring Security 5.0.1, 4.2.4, and 4.1.5 to reject requests that appear to be malicious.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.4",
+            "name": "Insecure communications",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

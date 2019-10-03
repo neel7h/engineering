@@ -1,0 +1,95 @@
+{
+    "id": 1040046,
+    "name": "Avoid using Spring Data with XMLBeam integration",
+    "href": "AIP/quality-rules/1040046",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid using Spring Data (versions prior to 1.13 to 1.13.11 and 2.0 to 2.0.6) with XMLBeam integration (1.4.14 or earlier versions).\n\nAffected version\nSpring Data Commons 1.13 to 1.13.11 (Ingalls SR11)\nSpring Data REST 2.6 to 2.6.11 (Ingalls SR11)\nSpring Data Commons 2.0 to 2.0.6 (Kay SR6)\nSpring Data REST 3.0 to 3.0.6 (Kay SR6)",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When Spring Data Commons(versions prior to 1.13 to 1.13.11 and 2.0 to 2.0.6) is used along with XMLBeam(1.4.14 or earlier versions), it may lead to property binder vulnerability due to improper restriction of XML external entity references because of XMLBeam library not restricting external reference expansion.An unauthenticated remote malicious user can supply specially crafted request parameters against Spring Data\u2019s projection-based request payload binding to access arbitrary files on the system.",
+    "reference": "https://pivotal.io/security/cve-2018-1259\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1259\nhttp://cwe.mitre.org/data/definitions/611.html",
+    "remediation": "Upgrade from 1.13.x to 1.13.12 (Ingalls SR12)\nUpgrade from 2.0.x to 2.0.7 (Kay SR7)\nUpgrade to XMLBeam 1.4.15",
+    "remediationSample": "Upgrade from 1.13.x to 1.13.12 (Ingalls SR12)\nUpgrade from 2.0.x to 2.0.7 (Kay SR7)\nUpgrade to XMLBeam 1.4.15",
+    "sample": "package com.casttest.demo;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.web.bind.annotation.RequestMethod;\nimport org.xmlbeam.annotation.XBRead;\nimport org.springframework.web.bind.annotation.RequestBody;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@RestController\n@SpringBootApplication\npublic class CastTestApplication {\n   @RequestMapping(value = \"/login\", method = RequestMethod.POST)\n   public String handleCustomer(@RequestBody Userone testuser) {\n      return String.format(\"%s:%s login success!\", testuser.getFirstname(), testuser.getLastname());\n   }\n   public static void main(String[] args) {\n      SpringApplication.run(CastTestApplication.class, args);\n   }\n   public interface Userone {\n      @XBRead(\"//username\")\n      String getFirstname();\n      @XBRead(\"//password\")\n      String getLastname();\n   }\n}",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-611",
+            "name": "Improper Restriction of XML External Entity Reference",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2017",
+            "name": "XML External Entities (XXE)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70237",
+            "name": "XML-based applications must mitigate DoS attacks by using XML filters, parser options, or gateways.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70269",
+            "name": "The application must not be vulnerable to XML-oriented attacks.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

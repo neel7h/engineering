@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+        
+	<!-- Barre de Progression CAST -->
+	<service>
+		<id>ServiceId_CastProgressFactory</id>
+		<dll>CMToolImpl.dll</dll>
+		
+	</service>
+
+	<!-- Dynamic Link Assistant Service -->
+	<service>
+		<id>ServiceId_RunLinkAssistantService</id>
+		<dll>CMToolImpl.dll</dll>
+		
+	</service>
+
+	<!-- Chargement du Code Loader -->
+	<service>
+		<id>ServiceId_CodeLoaderFactory</id>
+		<dll>CMToolImpl.dll</dll>
+		
+	</service>
+
+	<!-- Chargement rapide de l'OMC -->
+	<service>
+		<id>ServiceId_OMCOptimFactory</id>
+		<dll>CMToolImpl.dll</dll>
+		
+	</service>
+
+	<!-- Implementtion for mettre à jour les répertoires des sources -->
+	<service>
+		<id>ServiceId_AutoPathManager</id>
+		<dll>CMToolImpl.dll</dll>
+		
+	</service>
+
+</configuration>

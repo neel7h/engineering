@@ -1,0 +1,108 @@
+{
+    "id": 1043022,
+    "name": "Ensure not to disable Secure attribute while creating cookie (C#)",
+    "href": "AIP/quality-rules/1043022",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "Ensure not to disable the secure attribute while creating the cookie.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cookie can be viewed or read by the attacked if it is not secured.\n\nSecurity misconfiguration can happen at any level of an application stack, including the platform, web server, application server, database, framework, and custom code. Developers and system administrators need to work together to ensure that the entire stack is configured properly. Automated scanners are useful for detecting missing patches, misconfigurations, use of default accounts, unnecessary services, etc.",
+    "reference": "https://cwe.mitre.org/data/definitions/614.html\nhttps://cwe.mitre.org/data/definitions/315.html\nhttps://cwe.mitre.org/data/definitions/311.html\n\nCWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute\nCWE-315: Cleartext Storage of Sensitive Information in a Cookie\nCWE-311: Missing Encryption of Sensitive Data\n\nOWASP: Secure Flag",
+    "remediation": "Review the source code and update the value of the property.",
+    "remediationSample": "HttpCookie cookie = new HttpCookie(\"UserName\", lgn.UserName);\ncookie.Secure = true;",
+    "sample": "HttpCookie cookie = new HttpCookie(\"UserName\", lgn.UserName); \ncookie.Secure = false;",
+    "total": "Number of methods using HttpCookie",
+    "alternativeName": "Ensure not to disable Secure attribute while creating cookie (C#)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-614",
+            "name": "Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2017",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2013",
+            "name": "Sensitive Data Exposure",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70203",
+            "name": "The application must set the secure flag on session cookies.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

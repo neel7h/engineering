@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<METRIC PACKAGE_NAME="ControlFlow.Try">
+	<ACTIVE>YES</ACTIVE>
+	<ACTION_LIST>
+			<ACTION NAME="MATCH IN TREE ELEMENT" >
+					<INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>					
+					<ACTIVE>YES</ACTIVE>
+			</ACTION>
+	</ACTION_LIST>
+	
+	<CATEGORY_LIST>
+
+		<CATEGORY NAME="MATCH_TRY">
+			<PROPERTY NAME="VALUE" type="integer" /> 
+			<PROPERTY NAME="JAVA_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+						<SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+						<SIGNATURE>NODE_J11_MethodBody</SIGNATURE> 
+						<SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE> 
+					</OR> 
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_J11_TryStatement" /> 
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="PB_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_PB6_LIST_STATEMENT</SIGNATURE> 					
+					</OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_PB6_TRY" /> 						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+                                                
+			<PROPERTY NAME="C_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_C_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_C_TRY" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="C_SHARP_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_CSharp_BODY</SIGNATURE>						
+					</OR>
+														
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_CSharp_TRY" />						
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="VB_NET_TRY" type="pattern">
+					<TREE>
+						<OR>
+							<SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+							<SIGNATURE>NODE_VbNet_SUB</SIGNATURE>																								
+						</OR>
+															
+						<SUB_TREE_OR>
+							<SIGNATURE NAME="NODE_VbNet_TRY" />								
+						</SUB_TREE_OR>
+					</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="DELPHI_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_DP6_FUNC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_PROC_BLOCK</SIGNATURE>
+						<SIGNATURE>NODE_DP6_CONSTRUCTOR_IMPL</SIGNATURE>
+						<SIGNATURE>NODE_DP6_DESTRUCTOR_IMPL</SIGNATURE>
+					</OR>																						
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_DP6_TRY_STATEMENT"/> 							
+					</SUB_TREE_OR>							
+					
+				</TREE>
+			</PROPERTY>
+
+			<PROPERTY NAME="JAVA_SCRIPT_TRY" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_JS15_Script</SIGNATURE>												
+					</OR>
+														
+					<SUB_TREE_OR>					
+						<SIGNATURE NAME="NODE_JS15_TryStatement1"  />																		
+						<SIGNATURE NAME="NODE_JS15_TryStatement2"  />																		
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+
+
+			<ADD_ACTION NAME="MATCH IN TREE ELEMENT">            
+				<MATCH>JAVA_SCRIPT_TRY</MATCH>
+				<MATCH>VB_NET_TRY</MATCH>
+				<MATCH>DELPHI_TRY</MATCH> 
+				<MATCH>C_TRY</MATCH> 
+				<MATCH>C_SHARP_TRY</MATCH> 
+				<MATCH>JAVA_TRY</MATCH> 
+				<MATCH>PB_TRY</MATCH> 
+				<TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				<SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				<RESULT_CLUMP>VALUE</RESULT_CLUMP> 
+			</ADD_ACTION>
+		</CATEGORY>
+			
+	</CATEGORY_LIST>
+</METRIC>

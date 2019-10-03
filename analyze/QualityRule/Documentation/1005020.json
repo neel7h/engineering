@@ -1,0 +1,62 @@
+{
+    "id": 1005020,
+    "name": "Avoid old VAGen Compatibility statements (EGL)",
+    "href": "AIP/quality-rules/1005020",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches for all programs having old VAGen Compatibility statements",
+    "output": "This report provides the following information: Program full name",
+    "rationale": "VAGen Compatibility must be set to YES.\nWe want to get rid of this mode in the futur.",
+    "remediation": "Try to reduce the number of VAGen Compatibility statements and when possible replace them.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid old VAGen Compatibility statements (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

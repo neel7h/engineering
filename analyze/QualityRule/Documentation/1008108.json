@@ -1,0 +1,68 @@
+{
+    "id": 1008108,
+    "name": "Avoid using GOTO statement in RPG Programs  (RPG400)",
+    "href": "AIP/quality-rules/1008108",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches all the programs having GO TO statements.",
+    "output": "This report lists RPG400 programs using GOTO statement.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "GOTO in is nor recomended to be used in the RPG programs . Instead, substitute either a structured alternative like status variables to skip code or to direct a program to a specific location or there is no other option use  nested IF statements.",
+    "remediation": "Try to replace the GO TO with alternative structured like status variables to skip code or to direct a program to a specific location or there is no other option use  nested IF statements.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using GOTO statement in RPG Programs  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "id": 1012026,
+    "name": "Do not use MONMSG CPF0000 without EXEC  (CL400)",
+    "href": "AIP/quality-rules/1012026",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches for CL400 programs which use the MONMSG CPF0000 command without EXEC.",
+    "output": "This report lists all CL400 programs.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "Checking this generic message will catch all associated exceptions. Then, not using the subsequent EXEC command means that no actions will be performed when an error accurs.",
+    "remediation": "In a general way, avoid using this generic message. Otherwise, a specific action must be performed through the EXEC command.",
+    "remediationSample": "MONMSG without EXEC Sample Code:\n\nREADLOOP: RCVF /* Read a file record */ \nMONMSG MSGID(CPF0864) EXEC(GOTO CMDLBL(EOF)) \n/* Process the file record */ \nGOTO CMDLBL(READLOOP) /* Get another record */ \nEOF: /* End of file processing */",
+    "sample": "Using EXEC with the MONMSG command makes the failed CLProgram to do the recovery action mentioned in the EXEC Command. If the EXEC command is not included, then program behaviour will be uncontrolled.\n\nMONMSG without EXEC Sample Code:\nREADLOOP: RCVF /* Read a file record */\nMONMSG MSGID(CPF0864) \n/* Process the file record */ \nGOTO CMDLBL(READLOOP) /* Get another record */ \nEOF: /* End of file processing */",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Do not use MONMSG CPF0000 without EXEC  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

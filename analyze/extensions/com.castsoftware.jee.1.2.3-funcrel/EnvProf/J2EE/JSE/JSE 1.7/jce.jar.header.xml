@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BlackBox name="jce.jar" xmlns="http://tempuri.org/BlackBoxes.xsd">
+    <Class mangling="javax.crypto.ShortBufferException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" visibility="public">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DESedeKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Fields>
+            <Field name="DES_EDE_KEY_LEN" type="int" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="+ctor(byte[],int)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getKey()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="isParityAdjusted(byte[],int)" isStatic="true" returnType="[ext]boolean" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DHParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.math.BigInteger,java.math.BigInteger)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.math.BigInteger,java.math.BigInteger,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getP()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getG()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getL()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DESKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Fields>
+            <Field name="DES_KEY_LEN" type="int" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="+ctor(byte[],int)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getKey()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="isParityAdjusted(byte[],int)" isStatic="true" returnType="[ext]boolean" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="isWeak(byte[],int)" isStatic="true" returnType="[ext]boolean" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DHPublicKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.math.BigInteger,java.math.BigInteger,java.math.BigInteger)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getY()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getP()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getG()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.PBEKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(char[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(char[],byte[],int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(char[],byte[],int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="clearPassword()" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="getPassword()" returnType="[ext]char[]" isFinal="true" visibility="public"/>
+            <Method signature="getSalt()" returnType="[ext]byte[]" isFinal="true" visibility="public"/>
+            <Method signature="getIterationCount()" returnType="[ext]int" isFinal="true" visibility="public"/>
+            <Method signature="getKeyLength()" returnType="[ext]int" isFinal="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.IvParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(byte[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(byte[],int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getIV()" returnType="[ext]byte[]" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.PSource" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.PBEParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(byte[],int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getSalt()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getIterationCount()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DHGenParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getPrimeSize()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getExponentSize()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.RC5ParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(int,int,int,byte[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(int,int,int,byte[],int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getRounds()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getWordSize()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getIV()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.SecretKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Implements mangling="javax.crypto.SecretKey"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(byte[],java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(byte[],int,int,java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getFormat()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getEncoded()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.DHPrivateKeySpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.math.BigInteger,java.math.BigInteger,java.math.BigInteger)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getX()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getP()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+            <Method signature="getG()" returnType="[ext]java.math.BigInteger" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.OAEPParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields>
+            <Field name="DEFAULT" type="javax.crypto.spec.OAEPParameterSpec" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,java.lang.String,java.security.spec.AlgorithmParameterSpec,javax.crypto.spec.PSource)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getDigestAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getMGFAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getMGFParameters()" returnType="[ext]java.security.spec.AlgorithmParameterSpec" visibility="public"/>
+            <Method signature="getPSource()" returnType="javax.crypto.spec.PSource" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.PSource$PSpecified" extends="javax.crypto.spec.PSource" isGeneric="false" isFinal="true" visibility="public">
+        <Extends mangling="javax.crypto.spec.PSource"/>
+        <Fields>
+            <Field name="DEFAULT" type="javax.crypto.spec.PSource.PSpecified" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(byte[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="getValue()" returnType="[ext]byte[]" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.GCMParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,byte[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(int,byte[],int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getTLen()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getIV()" returnType="[ext]byte[]" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.spec.RC2ParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(int,byte[])" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(int,byte[],int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getEffectiveKeyBits()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getIV()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPolicyParser$ParsingException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" isFinal="true">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void"/>
+            <Method signature="+ctor(int,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="+ctor(int,java.lang.String,java.lang.String)" returnType="[ext]void"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPolicyParser" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="read(java.io.Reader)" returnType="[ext]void">
+                <Throw mangling="javax.crypto.CryptoPolicyParser$ParsingException"/>
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="getPermissions()" returnType="[ext]javax.crypto.CryptoPermission[]"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.extObjectInputStream" extends="[ext]java.io.ObjectInputStream" isGeneric="false" isFinal="true">
+        <Extends mangling="java.io.ObjectInputStream"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.io.InputStream)" returnType="[ext]void">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="java.io.StreamCorruptedException"/>
+            </Method>
+            <Method signature="resolveClass(java.io.ObjectStreamClass)" returnType="[ext]java.lang.Class" visibility="protected">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.MacSpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineGetMacLength()" returnType="[ext]int" isAbstract="true" visibility="protected"/>
+            <Method signature="engineInit(java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="engineUpdate(byte)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="engineUpdate(byte[],int,int)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="engineUpdate(java.nio.ByteBuffer)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineDoFinal()" returnType="[ext]byte[]" isAbstract="true" visibility="protected"/>
+            <Method signature="engineReset()" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="clone()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.lang.CloneNotSupportedException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.NullCipherSpi" extends="javax.crypto.CipherSpi" isGeneric="false" isFinal="true">
+        <Extends mangling="javax.crypto.CipherSpi"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineSetMode(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineSetPadding(java.lang.String)" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineGetBlockSize()" returnType="[ext]int" visibility="protected"/>
+            <Method signature="engineGetOutputSize(int)" returnType="[ext]int" visibility="protected"/>
+            <Method signature="engineGetIV()" returnType="[ext]byte[]" visibility="protected"/>
+            <Method signature="engineGetParameters()" returnType="[ext]java.security.AlgorithmParameters" visibility="protected"/>
+            <Method signature="engineInit(int,java.security.Key,java.security.SecureRandom)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineInit(int,java.security.Key,java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineInit(int,java.security.Key,java.security.AlgorithmParameters,java.security.SecureRandom)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineUpdate(byte[],int,int)" returnType="[ext]byte[]" visibility="protected"/>
+            <Method signature="engineUpdate(byte[],int,int,byte[],int)" returnType="[ext]int" visibility="protected"/>
+            <Method signature="engineDoFinal(byte[],int,int)" returnType="[ext]byte[]" visibility="protected"/>
+            <Method signature="engineDoFinal(byte[],int,int,byte[],int)" returnType="[ext]int" visibility="protected"/>
+            <Method signature="engineGetKeySize(java.security.Key)" returnType="[ext]int" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.KeyGenerator" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.KeyGeneratorSpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.KeyGenerator" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.KeyGenerator" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.KeyGenerator" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="disableFailover()" returnType="[ext]void"/>
+            <Method signature="init(java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="init(java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(int)" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="init(int,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="generateKey()" returnType="javax.crypto.SecretKey" isFinal="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPermissionCollection" extends="[ext]java.security.PermissionCollection" isGeneric="false" isFinal="true">
+        <Extends mangling="java.security.PermissionCollection"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="add(java.security.Permission)" returnType="[ext]void" visibility="public"/>
+            <Method signature="implies(java.security.Permission)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="elements()" returnType="[ext]java.util.Enumeration" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.ExemptionMechanismException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" visibility="public">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.PermissionsEnumerator" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.util.Enumeration"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.util.Enumeration)" returnType="[ext]void"/>
+            <Method signature="hasMoreElements()" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="nextElement()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CipherInputStream" extends="[ext]java.io.FilterInputStream" isGeneric="false" visibility="public">
+        <Extends mangling="java.io.FilterInputStream"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.io.InputStream,javax.crypto.Cipher)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.io.InputStream)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="read()" returnType="[ext]int" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="read(byte[])" returnType="[ext]int" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="read(byte[],int,int)" returnType="[ext]int" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="skip(long)" returnType="[ext]long" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="available()" returnType="[ext]int" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="close()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="markSupported()" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.Cipher$Transform" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="transform" type="java.lang.String" isFinal="true"/>
+            <Field name="suffix" type="java.lang.String" isFinal="true"/>
+            <Field name="mode" type="java.lang.String" isFinal="true"/>
+            <Field name="pad" type="java.lang.String" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.lang.String,java.lang.String,java.lang.String,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="setModePadding(javax.crypto.CipherSpi)" returnType="[ext]void">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="javax.crypto.NoSuchPaddingException"/>
+            </Method>
+            <Method signature="supportsModePadding(java.security.Provider.Service)" returnType="[ext]int"/>
+            <Method signature="supportsMode(java.security.Provider.Service)" returnType="[ext]int"/>
+            <Method signature="supportsPadding(java.security.Provider.Service)" returnType="[ext]int"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPermissions" extends="[ext]java.security.PermissionCollection" isGeneric="false" isFinal="true">
+        <Extends mangling="java.security.PermissionCollection"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="load(java.io.InputStream)" returnType="[ext]void">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="javax.crypto.CryptoPolicyParser$ParsingException"/>
+            </Method>
+            <Method signature="isEmpty()" returnType="[ext]boolean"/>
+            <Method signature="add(java.security.Permission)" returnType="[ext]void" visibility="public"/>
+            <Method signature="implies(java.security.Permission)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="elements()" returnType="[ext]java.util.Enumeration" visibility="public"/>
+            <Method signature="getMinimum(javax.crypto.CryptoPermissions)" returnType="javax.crypto.CryptoPermissions"/>
+            <Method signature="getPermissionCollection(java.lang.String)" returnType="[ext]java.security.PermissionCollection"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.AEADBadTagException" extends="javax.crypto.BadPaddingException" isGeneric="false" visibility="public">
+        <Extends mangling="javax.crypto.BadPaddingException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.EncryptedPrivateKeyInfo" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="+ctor(java.lang.String,byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="+ctor(java.security.AlgorithmParameters,byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getAlgName()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getAlgParameters()" returnType="[ext]java.security.AlgorithmParameters" visibility="public"/>
+            <Method signature="getEncryptedData()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getKeySpec(javax.crypto.Cipher)" returnType="[ext]java.security.spec.PKCS8EncodedKeySpec" visibility="public">
+                <Throw mangling="java.security.spec.InvalidKeySpecException"/>
+            </Method>
+            <Method signature="getKeySpec(java.security.Key)" returnType="[ext]java.security.spec.PKCS8EncodedKeySpec" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getKeySpec(java.security.Key,java.lang.String)" returnType="[ext]java.security.spec.PKCS8EncodedKeySpec" visibility="public">
+                <Throw mangling="java.security.NoSuchProviderException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getKeySpec(java.security.Key,java.security.Provider)" returnType="[ext]java.security.spec.PKCS8EncodedKeySpec" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getEncoded()" returnType="[ext]byte[]" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.KeyGeneratorSpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineInit(java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="engineInit(java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="engineInit(int,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected"/>
+            <Method signature="engineGenerateKey()" returnType="javax.crypto.SecretKey" isAbstract="true" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CipherSpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineSetMode(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="engineSetPadding(java.lang.String)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.NoSuchPaddingException"/>
+            </Method>
+            <Method signature="engineGetBlockSize()" returnType="[ext]int" isAbstract="true" visibility="protected"/>
+            <Method signature="engineGetOutputSize(int)" returnType="[ext]int" isAbstract="true" visibility="protected"/>
+            <Method signature="engineGetIV()" returnType="[ext]byte[]" isAbstract="true" visibility="protected"/>
+            <Method signature="engineGetParameters()" returnType="[ext]java.security.AlgorithmParameters" isAbstract="true" visibility="protected"/>
+            <Method signature="engineInit(int,java.security.Key,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="engineInit(int,java.security.Key,java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="engineInit(int,java.security.Key,java.security.AlgorithmParameters,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="engineUpdate(byte[],int,int)" returnType="[ext]byte[]" isAbstract="true" visibility="protected"/>
+            <Method signature="engineUpdate(byte[],int,int,byte[],int)" returnType="[ext]int" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="engineUpdate(java.nio.ByteBuffer,java.nio.ByteBuffer)" returnType="[ext]int" visibility="protected">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="engineDoFinal(byte[],int,int)" returnType="[ext]byte[]" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="engineDoFinal(byte[],int,int,byte[],int)" returnType="[ext]int" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="engineDoFinal(java.nio.ByteBuffer,java.nio.ByteBuffer)" returnType="[ext]int" visibility="protected">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="getTempArraySize(int)" isStatic="true" returnType="[ext]int"/>
+            <Method signature="engineWrap(java.security.Key)" returnType="[ext]byte[]" visibility="protected">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="engineUnwrap(byte[],java.lang.String,int)" returnType="[ext]java.security.Key" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="engineGetKeySize(java.security.Key)" returnType="[ext]int" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="engineUpdateAAD(byte[],int,int)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="engineUpdateAAD(java.nio.ByteBuffer)" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPolicyParser$GrantEntry" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="add(javax.crypto.CryptoPolicyParser.CryptoPermissionEntry)" returnType="[ext]void"/>
+            <Method signature="remove(javax.crypto.CryptoPolicyParser.CryptoPermissionEntry)" returnType="[ext]boolean"/>
+            <Method signature="contains(javax.crypto.CryptoPolicyParser.CryptoPermissionEntry)" returnType="[ext]boolean"/>
+            <Method signature="permissionElements()" returnType="[ext]java.util.Enumeration"/>
+        </Methods>
+    </Class>
+    <Interface mangling="javax.crypto.SecretKey" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.Key"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+    </Interface>
+    <Class mangling="javax.crypto.KeyAgreementSpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineInit(java.security.Key,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="engineInit(java.security.Key,java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="engineDoPhase(java.security.Key,boolean)" returnType="[ext]java.security.Key" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="engineGenerateSecret()" returnType="[ext]byte[]" isAbstract="true" visibility="protected">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="engineGenerateSecret(byte[],int)" returnType="[ext]int" isAbstract="true" visibility="protected">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="engineGenerateSecret(java.lang.String)" returnType="javax.crypto.SecretKey" isAbstract="true" visibility="protected">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.NoSuchPaddingException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" visibility="public">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.Cipher" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="ENCRYPT_MODE" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="DECRYPT_MODE" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="WRAP_MODE" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="UNWRAP_MODE" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="PUBLIC_KEY" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="PRIVATE_KEY" type="int" isStatic="true" isFinal="true" visibility="public"/>
+            <Field name="SECRET_KEY" type="int" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.CipherSpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="+ctor(javax.crypto.CipherSpi,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.Cipher" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="javax.crypto.NoSuchPaddingException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.Cipher" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+                <Throw mangling="javax.crypto.NoSuchPaddingException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.Cipher" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="javax.crypto.NoSuchPaddingException"/>
+            </Method>
+            <Method signature="chooseFirstProvider()" returnType="[ext]void"/>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getBlockSize()" returnType="[ext]int" isFinal="true" visibility="public"/>
+            <Method signature="getOutputSize(int)" returnType="[ext]int" isFinal="true" visibility="public"/>
+            <Method signature="getIV()" returnType="[ext]byte[]" isFinal="true" visibility="public"/>
+            <Method signature="getParameters()" returnType="[ext]java.security.AlgorithmParameters" isFinal="true" visibility="public"/>
+            <Method signature="getExemptionMechanism()" returnType="javax.crypto.ExemptionMechanism" isFinal="true" visibility="public"/>
+            <Method signature="init(int,java.security.Key)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(int,java.security.Key,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(int,java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(int,java.security.Key,java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(int,java.security.Key,java.security.AlgorithmParameters)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(int,java.security.Key,java.security.AlgorithmParameters,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(int,java.security.cert.Certificate)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(int,java.security.cert.Certificate,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="update(byte[])" returnType="[ext]byte[]" isFinal="true" visibility="public"/>
+            <Method signature="update(byte[],int,int)" returnType="[ext]byte[]" isFinal="true" visibility="public"/>
+            <Method signature="update(byte[],int,int,byte[])" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="update(byte[],int,int,byte[],int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="update(java.nio.ByteBuffer,java.nio.ByteBuffer)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="doFinal()" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(byte[],int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(byte[])" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(byte[],int,int)" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(byte[],int,int,byte[])" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(byte[],int,int,byte[],int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="doFinal(java.nio.ByteBuffer,java.nio.ByteBuffer)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="wrap(java.security.Key)" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="unwrap(byte[],java.lang.String,int)" returnType="[ext]java.security.Key" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getMaxAllowedKeyLength(java.lang.String)" isStatic="true" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getMaxAllowedParameterSpec(java.lang.String)" isStatic="true" returnType="[ext]java.security.spec.AlgorithmParameterSpec" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="updateAAD(byte[])" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="updateAAD(byte[],int,int)" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="updateAAD(java.nio.ByteBuffer)" returnType="[ext]void" isFinal="true" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.JarVerifier" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.net.URL,boolean)" returnType="[ext]void"/>
+            <Method signature="verify()" returnType="[ext]void">
+                <Throw mangling="java.util.jar.JarException"/>
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="verifyPolicySigned(java.security.cert.Certificate[])" isStatic="true" returnType="[ext]void">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="getPermissions()" returnType="javax.crypto.CryptoPermissions"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.KeyAgreement" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.KeyAgreementSpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.KeyAgreement" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.KeyAgreement" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.KeyAgreement" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="chooseFirstProvider()" returnType="[ext]void"/>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="init(java.security.Key)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.spec.AlgorithmParameterSpec,java.security.SecureRandom)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="doPhase(java.security.Key,boolean)" returnType="[ext]java.security.Key" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="generateSecret()" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="generateSecret(byte[],int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+            </Method>
+            <Method signature="generateSecret(java.lang.String)" returnType="javax.crypto.SecretKey" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.SecretKeyFactorySpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineGenerateSecret(java.security.spec.KeySpec)" returnType="javax.crypto.SecretKey" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.spec.InvalidKeySpecException"/>
+            </Method>
+            <Method signature="engineGetKeySpec(javax.crypto.SecretKey,java.lang.Class)" returnType="[ext]java.security.spec.KeySpec" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.spec.InvalidKeySpecException"/>
+            </Method>
+            <Method signature="engineTranslateKey(javax.crypto.SecretKey)" returnType="javax.crypto.SecretKey" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.JarVerifier$JarHolder" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="file" type="java.util.jar.JarFile"/>
+            <Field name="useCaches" type="boolean"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.util.jar.JarFile,boolean)" returnType="[ext]void"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.Mac" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.lang.Cloneable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.MacSpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.Mac" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.Mac" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.Mac" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="chooseFirstProvider()" returnType="[ext]void"/>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="getMacLength()" returnType="[ext]int" isFinal="true" visibility="public"/>
+            <Method signature="init(java.security.Key)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+            </Method>
+            <Method signature="update(byte)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="update(byte[])" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="update(byte[],int,int)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="update(java.nio.ByteBuffer)" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="doFinal()" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="doFinal(byte[],int)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="doFinal(byte[])" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="reset()" returnType="[ext]void" isFinal="true" visibility="public"/>
+            <Method signature="clone()" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.CloneNotSupportedException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoAllPermission" extends="javax.crypto.CryptoPermission" isGeneric="false" isFinal="true">
+        <Extends mangling="javax.crypto.CryptoPermission"/>
+        <Fields>
+            <Field name="ALG_NAME" type="java.lang.String" isStatic="true" isFinal="true"/>
+            <Field name="INSTANCE" type="javax.crypto.CryptoAllPermission" isStatic="true" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="implies(java.security.Permission)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="newPermissionCollection()" returnType="[ext]java.security.PermissionCollection" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.NullCipher" extends="javax.crypto.Cipher" isGeneric="false" visibility="public">
+        <Extends mangling="javax.crypto.Cipher"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPermission" extends="[ext]java.security.Permission" isGeneric="false">
+        <Extends mangling="java.security.Permission"/>
+        <Fields>
+            <Field name="ALG_NAME_WILDCARD" type="java.lang.String" isStatic="true" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.lang.String,int)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.lang.String,int,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.lang.String,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.lang.String,int,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="+ctor(java.lang.String,int,java.security.spec.AlgorithmParameterSpec,java.lang.String)" returnType="[ext]void"/>
+            <Method signature="implies(java.security.Permission)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getActions()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="newPermissionCollection()" returnType="[ext]java.security.PermissionCollection" visibility="public"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true"/>
+            <Method signature="getExemptionMechanism()" returnType="[ext]java.lang.String" isFinal="true"/>
+            <Method signature="getMaxKeySize()" returnType="[ext]int" isFinal="true"/>
+            <Method signature="getCheckParam()" returnType="[ext]boolean" isFinal="true"/>
+            <Method signature="getAlgorithmParameterSpec()" returnType="[ext]java.security.spec.AlgorithmParameterSpec" isFinal="true"/>
+            <Method signature="toString()" returnType="[ext]java.lang.String" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.SealedObject" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true"/>
+            <Field name="encodedParams" type="byte[]" visibility="protected"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(java.io.Serializable,javax.crypto.Cipher)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+            </Method>
+            <Method signature="+ctor(javax.crypto.SealedObject)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getObject(java.security.Key)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+            <Method signature="getObject(javax.crypto.Cipher)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+                <Throw mangling="javax.crypto.IllegalBlockSizeException"/>
+                <Throw mangling="javax.crypto.BadPaddingException"/>
+            </Method>
+            <Method signature="getObject(java.security.Key,java.lang.String)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+                <Throw mangling="java.lang.ClassNotFoundException"/>
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.SecretKeyFactory" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.SecretKeyFactorySpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.SecretKeyFactory" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.SecretKeyFactory" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.SecretKeyFactory" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="generateSecret(java.security.spec.KeySpec)" returnType="javax.crypto.SecretKey" isFinal="true" visibility="public">
+                <Throw mangling="java.security.spec.InvalidKeySpecException"/>
+            </Method>
+            <Method signature="getKeySpec(javax.crypto.SecretKey,java.lang.Class)" returnType="[ext]java.security.spec.KeySpec" isFinal="true" visibility="public">
+                <Throw mangling="java.security.spec.InvalidKeySpecException"/>
+            </Method>
+            <Method signature="translateKey(javax.crypto.SecretKey)" returnType="javax.crypto.SecretKey" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.IllegalBlockSizeException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" visibility="public">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.ExemptionMechanismSpi" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="engineGetOutputSize(int)" returnType="[ext]int" isAbstract="true" visibility="protected"/>
+            <Method signature="engineInit(java.security.Key)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="engineInit(java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="engineInit(java.security.Key,java.security.AlgorithmParameters)" returnType="[ext]void" isAbstract="true" visibility="protected">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="engineGenExemptionBlob()" returnType="[ext]byte[]" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="engineGenExemptionBlob(byte[],int)" returnType="[ext]int" isAbstract="true" visibility="protected">
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.JceSecurity" extends="[ext]java.lang.Object" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="RANDOM" type="java.security.SecureRandom" isStatic="true" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="getInstance(java.lang.String,java.lang.Class,java.lang.String,java.lang.String)" isStatic="true" returnType="[ext]sun.security.jca.GetInstance.Instance">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.Class,java.lang.String,java.security.Provider)" isStatic="true" returnType="[ext]sun.security.jca.GetInstance.Instance">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.Class,java.lang.String)" isStatic="true" returnType="[ext]sun.security.jca.GetInstance.Instance">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="verifyExemptJar(java.net.URL)" isStatic="true" returnType="javax.crypto.CryptoPermissions">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="verifyProviderJar(java.net.URL)" isStatic="true" returnType="[ext]void">
+                <Throw mangling="java.lang.Exception"/>
+            </Method>
+            <Method signature="getVerificationResult(java.security.Provider)" isStatic="true" returnType="[ext]java.lang.Exception"/>
+            <Method signature="canUseProvider(java.security.Provider)" isStatic="true" returnType="[ext]boolean"/>
+            <Method signature="getCodeBase(java.lang.Class)" isStatic="true" returnType="[ext]java.net.URL"/>
+            <Method signature="getDefaultPolicy()" isStatic="true" returnType="javax.crypto.CryptoPermissions"/>
+            <Method signature="getExemptPolicy()" isStatic="true" returnType="javax.crypto.CryptoPermissions"/>
+            <Method signature="isRestricted()" isStatic="true" returnType="[ext]boolean"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CipherOutputStream" extends="[ext]java.io.FilterOutputStream" isGeneric="false" visibility="public">
+        <Extends mangling="java.io.FilterOutputStream"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(java.io.OutputStream,javax.crypto.Cipher)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.io.OutputStream)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="write(int)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="write(byte[])" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="write(byte[],int,int)" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="flush()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+            <Method signature="close()" returnType="[ext]void" visibility="public">
+                <Throw mangling="java.io.IOException"/>
+            </Method>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoAllPermissionCollection" extends="[ext]java.security.PermissionCollection" isGeneric="false" isFinal="true">
+        <Extends mangling="java.security.PermissionCollection"/>
+        <Implements mangling="[ext]java.io.Serializable"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="add(java.security.Permission)" returnType="[ext]void" visibility="public"/>
+            <Method signature="implies(java.security.Permission)" returnType="[ext]boolean" visibility="public"/>
+            <Method signature="elements()" returnType="[ext]java.util.Enumeration" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.JceSecurityManager" extends="[ext]java.lang.SecurityManager" isGeneric="false" isFinal="true">
+        <Extends mangling="java.lang.SecurityManager"/>
+        <Fields>
+            <Field name="INSTANCE" type="javax.crypto.JceSecurityManager" isStatic="true" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="getCryptoPermission(java.lang.String)" returnType="javax.crypto.CryptoPermission"/>
+            <Method signature="isCallerTrusted()" returnType="[ext]boolean"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.CryptoPolicyParser$CryptoPermissionEntry" extends="[ext]java.lang.Object" isGeneric="false">
+        <Extends mangling="java.lang.Object"/>
+        <Fields>
+            <Field name="cryptoPermission" type="java.lang.String"/>
+            <Field name="alg" type="java.lang.String"/>
+            <Field name="exemptionMechanism" type="java.lang.String"/>
+            <Field name="maxKeySize" type="int"/>
+            <Field name="checkParam" type="boolean"/>
+            <Field name="algParamSpec" type="java.security.spec.AlgorithmParameterSpec"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void"/>
+            <Method signature="hashCode()" returnType="[ext]int" visibility="public"/>
+            <Method signature="equals(java.lang.Object)" returnType="[ext]boolean" visibility="public"/>
+        </Methods>
+    </Class>
+    <Interface mangling="javax.crypto.interfaces.PBEKey" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="javax.crypto.SecretKey"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="getPassword()" returnType="[ext]char[]" isAbstract="true" visibility="public"/>
+            <Method signature="getSalt()" returnType="[ext]byte[]" isAbstract="true" visibility="public"/>
+            <Method signature="getIterationCount()" returnType="[ext]int" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="javax.crypto.interfaces.DHKey" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Methods>
+            <Method signature="getParams()" returnType="javax.crypto.spec.DHParameterSpec" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="javax.crypto.interfaces.DHPublicKey" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="javax.crypto.interfaces.DHKey"/>
+        <Implements mangling="[ext]java.security.PublicKey"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="getY()" returnType="[ext]java.math.BigInteger" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Interface mangling="javax.crypto.interfaces.DHPrivateKey" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="javax.crypto.interfaces.DHKey"/>
+        <Implements mangling="[ext]java.security.PrivateKey"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="getX()" returnType="[ext]java.math.BigInteger" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="javax.crypto.BadPaddingException" extends="[ext]java.security.GeneralSecurityException" isGeneric="false" visibility="public">
+        <Extends mangling="java.security.GeneralSecurityException"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor()" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(java.lang.String)" returnType="[ext]void" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="javax.crypto.ExemptionMechanism" extends="[ext]java.lang.Object" isGeneric="false" visibility="public">
+        <Extends mangling="java.lang.Object"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.ExemptionMechanismSpi,java.security.Provider,java.lang.String)" returnType="[ext]void" visibility="protected"/>
+            <Method signature="getName()" returnType="[ext]java.lang.String" isFinal="true" visibility="public"/>
+            <Method signature="getInstance(java.lang.String)" isStatic="true" returnType="javax.crypto.ExemptionMechanism" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.lang.String)" isStatic="true" returnType="javax.crypto.ExemptionMechanism" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+                <Throw mangling="java.security.NoSuchProviderException"/>
+            </Method>
+            <Method signature="getInstance(java.lang.String,java.security.Provider)" isStatic="true" returnType="javax.crypto.ExemptionMechanism" isFinal="true" visibility="public">
+                <Throw mangling="java.security.NoSuchAlgorithmException"/>
+            </Method>
+            <Method signature="getProvider()" returnType="[ext]java.security.Provider" isFinal="true" visibility="public"/>
+            <Method signature="isCryptoAllowed(java.security.Key)" returnType="[ext]boolean" isFinal="true" visibility="public">
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="getOutputSize(int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+            </Method>
+            <Method signature="init(java.security.Key)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.spec.AlgorithmParameterSpec)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="init(java.security.Key,java.security.AlgorithmParameters)" returnType="[ext]void" isFinal="true" visibility="public">
+                <Throw mangling="java.security.InvalidKeyException"/>
+                <Throw mangling="java.security.InvalidAlgorithmParameterException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="genExemptionBlob()" returnType="[ext]byte[]" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="genExemptionBlob(byte[])" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="genExemptionBlob(byte[],int)" returnType="[ext]int" isFinal="true" visibility="public">
+                <Throw mangling="java.lang.IllegalStateException"/>
+                <Throw mangling="javax.crypto.ShortBufferException"/>
+                <Throw mangling="javax.crypto.ExemptionMechanismException"/>
+            </Method>
+            <Method signature="finalize()" returnType="[ext]void" visibility="protected"/>
+        </Methods>
+    </Class>
+    <Interface mangling="sun.security.internal.interfaces.TlsMasterSecret" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="javax.crypto.SecretKey"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true" visibility="public"/>
+        </Fields>
+        <Methods>
+            <Method signature="getMajorVersion()" returnType="[ext]int" isAbstract="true" visibility="public"/>
+            <Method signature="getMinorVersion()" returnType="[ext]int" isAbstract="true" visibility="public"/>
+        </Methods>
+    </Interface>
+    <Class mangling="sun.security.internal.spec.TlsRsaPremasterSecretParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getMajorVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getMinorVersion()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="sun.security.internal.spec.TlsKeyMaterialParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.SecretKey,int,int,byte[],byte[],java.lang.String,int,int,int,int,java.lang.String,int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getMasterSecret()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getMajorVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getMinorVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getClientRandom()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getServerRandom()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getCipherAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getCipherKeyLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getExpandedCipherKeyLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getIvLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getMacKeyLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getPRFHashAlg()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getPRFHashLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getPRFBlockSize()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="sun.security.internal.spec.TlsKeyMaterialSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.KeySpec"/>
+        <Implements mangling="javax.crypto.SecretKey"/>
+        <Fields>
+            <Field name="serialVersionUID" type="long" isStatic="true" isFinal="true"/>
+        </Fields>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.SecretKey,javax.crypto.SecretKey)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(javax.crypto.SecretKey,javax.crypto.SecretKey,javax.crypto.SecretKey,javax.crypto.SecretKey)" returnType="[ext]void" visibility="public"/>
+            <Method signature="+ctor(javax.crypto.SecretKey,javax.crypto.SecretKey,javax.crypto.SecretKey,javax.crypto.spec.IvParameterSpec,javax.crypto.SecretKey,javax.crypto.spec.IvParameterSpec)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getAlgorithm()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getFormat()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getEncoded()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getClientMacKey()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getServerMacKey()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getClientCipherKey()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getClientIv()" returnType="javax.crypto.spec.IvParameterSpec" visibility="public"/>
+            <Method signature="getServerCipherKey()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getServerIv()" returnType="javax.crypto.spec.IvParameterSpec" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="sun.security.internal.spec.TlsMasterSecretParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.SecretKey,int,int,byte[],byte[],java.lang.String,int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="checkVersion(int)" isStatic="true" returnType="[ext]int"/>
+            <Method signature="getPremasterSecret()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getMajorVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getMinorVersion()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getClientRandom()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getServerRandom()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getPRFHashAlg()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getPRFHashLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getPRFBlockSize()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+    <Class mangling="sun.security.internal.spec.TlsPrfParameterSpec" extends="[ext]java.lang.Object" isGeneric="false" visibility="public" deprecated="true">
+        <Extends mangling="java.lang.Object"/>
+        <Implements mangling="[ext]java.security.spec.AlgorithmParameterSpec"/>
+        <Fields/>
+        <Methods>
+            <Method signature="+ctor(javax.crypto.SecretKey,java.lang.String,byte[],int,java.lang.String,int,int)" returnType="[ext]void" visibility="public"/>
+            <Method signature="getSecret()" returnType="javax.crypto.SecretKey" visibility="public"/>
+            <Method signature="getLabel()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getSeed()" returnType="[ext]byte[]" visibility="public"/>
+            <Method signature="getOutputLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getPRFHashAlg()" returnType="[ext]java.lang.String" visibility="public"/>
+            <Method signature="getPRFHashLength()" returnType="[ext]int" visibility="public"/>
+            <Method signature="getPRFBlockSize()" returnType="[ext]int" visibility="public"/>
+        </Methods>
+    </Class>
+</BlackBox>

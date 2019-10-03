@@ -1,0 +1,231 @@
+{
+    "id": 7842,
+    "name": "Avoid large Artifacts - too many Lines of Code",
+    "href": "AIP/quality-rules/7842",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of lines of code",
+    "description": "Artifacts should not have more than X lines of code (comments are not taken into account)\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Artifacts with more than X lines of code\nIt provides the following information: Artifact full name, number of lines of code",
+    "rationale": "Large Artifacts are more difficult to understand, and are a sign of a bad modularity of the code.",
+    "reference": "CISQ rule: ASCMM-MNT-8.",
+    "remediation": "Review the design of the Artifact to reduce its size",
+    "total": "Total number of Artifacts",
+    "alternativeName": "Avoid large Artifacts - too many Lines of Code",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 141901,
+            "name": ".NET (Legacy Analyzer)",
+            "href": "AIP/technologies/141901"
+        },
+        {
+            "id": -15,
+            "name": "ABAP",
+            "href": "AIP/technologies/-15"
+        },
+        {
+            "id": -2,
+            "name": "C",
+            "href": "AIP/technologies/-2"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": -4,
+            "name": "Cobol",
+            "href": "AIP/technologies/-4"
+        },
+        {
+            "id": -10,
+            "name": "Forms",
+            "href": "AIP/technologies/-10"
+        },
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": 140998,
+            "name": "Microsoft T-SQL",
+            "href": "AIP/technologies/140998"
+        },
+        {
+            "id": 139287,
+            "name": "PL/SQL",
+            "href": "AIP/technologies/139287"
+        },
+        {
+            "id": -13,
+            "name": "SQL Server",
+            "href": "AIP/technologies/-13"
+        },
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        },
+        {
+            "id": 141001,
+            "name": "Sybase T-SQL",
+            "href": "AIP/technologies/141001"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Line Count",
+            "description": "Maximum Line Count per artifact",
+            "technologies": [
+                {
+                    "id": 141901,
+                    "name": ".NET (Legacy Analyzer)",
+                    "href": "AIP/technologies/141901",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": -15,
+                    "name": "ABAP",
+                    "href": "AIP/technologies/-15",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": -2,
+                    "name": "C",
+                    "href": "AIP/technologies/-2",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": 138383,
+                    "name": "C#",
+                    "href": "AIP/technologies/138383",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": -3,
+                    "name": "C++",
+                    "href": "AIP/technologies/-3",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": -4,
+                    "name": "Cobol",
+                    "href": "AIP/technologies/-4",
+                    "values": [
+                        1000
+                    ]
+                },
+                {
+                    "id": 1020000,
+                    "name": "HTML5",
+                    "href": "AIP/technologies/1020000",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": 140029,
+                    "name": "JEE",
+                    "href": "AIP/technologies/140029",
+                    "values": [
+                        100
+                    ]
+                },
+                {
+                    "id": 139287,
+                    "name": "PL/SQL",
+                    "href": "AIP/technologies/139287",
+                    "values": [
+                        50
+                    ]
+                },
+                {
+                    "id": -13,
+                    "name": "SQL Server",
+                    "href": "AIP/technologies/-13",
+                    "values": [
+                        50
+                    ]
+                },
+                {
+                    "id": 1101000,
+                    "name": "SQLAnalyzer",
+                    "href": "AIP/technologies/1101000",
+                    "values": [
+                        50
+                    ]
+                },
+                {
+                    "id": 138385,
+                    "name": "VB.NET",
+                    "href": "AIP/technologies/138385",
+                    "values": [
+                        100
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

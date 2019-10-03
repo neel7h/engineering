@@ -1,0 +1,68 @@
+{
+    "id": 1012016,
+    "name": "Avoid unreferenced CL Programs  (CL400)",
+    "href": "AIP/quality-rules/1012016",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches for CL400 programs which are not referenced by other objects.",
+    "output": "This report lists all CL400 unreferenced programs.\nIt provides the following information:\n- CL400 program full name",
+    "rationale": "Unreferenced Sections and Paragraph may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.\n\nWarning:\nUnreferenced code can also be the symptoms of missing code (code not included in the source code analysis).",
+    "remediation": "Ckeck if the unreferenced programs means missing code. If it is not the case, try to reduce the number of them.",
+    "total": "Number of CL400 Programs",
+    "alternativeName": "Avoid unreferenced CL Programs  (CL400)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1012000,
+            "name": "CL400",
+            "href": "AIP/technologies/1012000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

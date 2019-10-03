@@ -1,0 +1,78 @@
+{
+    "id": 1007124,
+    "name": "Avoid artifacts throwing exceptions without @Throws tag in doc comments (PHP)",
+    "href": "AIP/quality-rules/1007124",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all artifacts that throw exceptions without having @Throws tag in doc comments. Contructor, function and methods are considered as artifacts for this QR.",
+    "output": "This report lists all artifacts throwing exceptions without having @Throws tag in doc comments.\n\nThis QR provides following information:\nArtifact full name.",
+    "rationale": "Every Function that throws an exception must have an @Throws tag in doc comments. This is specially important since PHP does not support \"throws\" declaration.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Squiz_Sniffs_Commenting_FunctionCommentThrowTagSniff.html",
+    "remediation": "Modify the source code to reduce the number of artifacts that throw exceptions without an @Throws tag in doc comments.",
+    "remediationSample": "<?php\n\n/**\n  * Doc comment\n  * @param int    $counter  counter\n  * @throws RuntimeException if counter is 1\n  */\nfunction afunction($counter) {\n   if (1 === $counter) {\n      throw new RuntimeException(\"Bad parameter!\");\n   }\n}\n\nclass ThrowsTagUse {\n   /**\n     * Doc comment\n     * @param int    $counter  counter\n     * @throws RuntimeException if counter is 1     \n     */\n   public function __construct() {\n      if (1 === $counter) {\n         throw new RuntimeException(\"Bad parameter!\");\n      }\n   }\n\n   /**\n     * Doc comment\n     * @param int    $counter  counter\n     * @throws RuntimeException if counter is 1\n     */\n   public function aMethod() {\n      if (1 === $counter) {\n         throw new RuntimeException(\"Bad parameter!\");\n      }\n   }\n   \n}\n\n?>",
+    "sample": "<?php\n\n/**\n  * Doc comment\n  * @param int    $counter  counter\n  */\nfunction afunction($counter) {\n   if (1 === $counter) {\n      throw new RuntimeException(\"Bad parameter!\");\n   }\n}\n\nclass ThrowsTagUse {\n   /**\n     * Doc comment\n     * @param int    $counter  counter\n     */\n   public function __construct() {\n      if (1 === $counter) {\n         throw new RuntimeException(\"Bad parameter!\");\n      }\n   }\n\n   /**\n     * Doc comment\n     * @param int    $counter  counter\n     */\n   public function aMethod() {\n      if (1 === $counter) {\n         throw new RuntimeException(\"Bad parameter!\");\n      }\n   }\n   \n}\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid artifacts throwing exceptions without @Throws tag in doc comments (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "FunctionCommentThrowTag"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

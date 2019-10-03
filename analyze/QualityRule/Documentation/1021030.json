@@ -1,0 +1,71 @@
+{
+    "id": 1021030,
+    "name": "Avoid hardcoded network resource names (Python)",
+    "href": "AIP/quality-rules/1021030",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Reports all Python artifacts harcoding network resources that do not partain to configuration, installation, or test files.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Built-in remote addresses cause problems when the target is moved. Avoid hardcoded network resources (e.g., IP addresses, URLs, absolute file paths, etc.) to assure robustness and portability.",
+    "remediation": "Utilize indirect access to network resources using underlaying operating system calls and relative paths. In case hardcoding is necessary, isolating hardcoded data to installation scripts or configuration files can limit its potential negative impact.",
+    "remediationSample": ">>> # \"server_address\" is uploaded from somewhere else\n>>> url = \"http://%s:%d/\" % server_address",
+    "sample": ">>> url = \"http://0.0.0.0:8080/'",
+    "total": "Number of Python artifacts opening file resources",
+    "alternativeName": "Ensure not having hardcoded network resources names in the source files (Python)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61004,
+            "name": "Architecture - OS and Platform Independence",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-18",
+            "name": "Storable and Member Data Element Initialization with Hard-Coded Network Resource Configuration Data",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "id": 1001182,
+    "name": "Avoid PLI Programs with more then 500 LoC and less then 5 Procedures (PL1)",
+    "href": "AIP/quality-rules/1001182",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for PL1 Main Procedures (Programs) that have more 500 LoC and less than 5 procedures.",
+    "output": "The report lists all the PL1 Main Procedures (Programs)  having more than 500 lines of code and less than 5 procedures.\n\nIt provides following information: \n- PL1 Main Procedures full name",
+    "rationale": "Having large programs with no structured sub artifacts is difficult to maintain.",
+    "remediation": "Review the PLI programs in order to not have more than 500 lines of code and less than 5 procedures.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid PLI Programs with more then 500 LoC and less then 5 Procedures (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Proc",
+            "description": "Max Proc",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

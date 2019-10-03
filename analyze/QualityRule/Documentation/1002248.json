@@ -1,0 +1,73 @@
+{
+    "id": 1002248,
+    "name": "Avoid untested Return Code variables after ALLOCATE in Subroutines (FORTRAN)",
+    "href": "AIP/quality-rules/1002248",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The STAT usage in a allocate or deallocate operation are causing the analysis to create specific variables where the return code is stored in. Whenever this variable is not used in any IF construct , the artifact is reported as a violation. The proper order in which this needs to take place is not taken into account; only the artifacts that have no testing of STAT variables are captured by this diagnostic.",
+    "rationale": "The variable that contains the STAT return code value must be tested to ensure properly handling of any errors in the ALLOCATE that may have occurred",
+    "remediation": "Always use a variable to capture the return code in and test this variable to see if the operation resulted in success or not.",
+    "alternativeName": "Avoid untested Return Code variables after ALLOCATE in Subroutines (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-252",
+            "name": "Unchecked Return Value",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

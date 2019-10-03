@@ -1,0 +1,108 @@
+{
+    "id": 1020050,
+    "name": "Avoid white-listing the \"dirname\" attribute in user generated content",
+    "href": "AIP/quality-rules/1020050",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Opera and Chrome support the HTML5 attribute \"dirname\", that can be used to have the browser communicate the text-flow direction of another input element by adding it to the server-sent request body. By injecting a \"dirname\" attribute in an existing form, an attacker can overwrite user input and thereby make it guessable for malicious purposes.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure you do not import content from an untrusted source.",
+    "reference": "https://html5sec.org/#136",
+    "sample": "<form action=\"\" method=\"post\"> \n   <input name=\"username\" value=\"admin\" /> \n   <input name=\"password\" type=\"password\" value=\"secret\" /> \n   <input name=\"injected\" value=\"injected\" dirname=\"password\" /> \n   <input type=\"submit\">\n</form>",
+    "total": "Number of HTML Contents",
+    "alternativeName": "Avoid white-listing the \"dirname\" attribute in user generated content",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69517",
+            "name": "The application must employ a deny-all, permit-by-exception (whitelist) policy to allow the execution of authorized software programs.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

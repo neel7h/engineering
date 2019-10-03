@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1022000</SetId>
+	<SetName>SET_JavaMethod</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaMethod</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1022001</SetId>
+	<SetName>scope of HIB_ENTITY, HIB_ENTITY_PROPERTY, JPA_ENTITY_PROPERTY, JPA_ENTITY_PROPERTY</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_PersistentEntityTypes</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>557</SetId>
+	<SetName>Scope of Java Methods and Generic Methods</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaMethodsAndGenerics</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>545</SetId>
+	<SetName>Scope of Java Constructor</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaCtor</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>552</SetId>
+	<SetName>Scope of Java Artifacts that has incompatible mutation</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaArtifactMutation</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>558</SetId>
+	<SetName>Scope of Java Methods, Generic Methods and Lambdas</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaMethodsAndLambdas</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>525</SetId>
+	<SetName>Scope of Java Methods that open a database resource</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaArtifactOpenDatabase</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>551</SetId>
+	<SetName>Scope of Java Methods that access a closed resource</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaArtifactInvalidAccess</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>529</SetId>
+	<SetName>Scope of Java Class, Java Instanciated Class and Generic Java Class</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaClass</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>531</SetId>
+	<SetName>Scope of Java Methods and Java Constructor</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JavaMethodsAndConstructor</SetProcedure>
+</SET_Definitions>
+</DATA>

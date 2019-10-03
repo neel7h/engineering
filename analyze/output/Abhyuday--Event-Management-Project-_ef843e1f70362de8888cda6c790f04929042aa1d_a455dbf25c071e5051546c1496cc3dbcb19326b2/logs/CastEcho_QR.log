@@ -1,0 +1,134 @@
+09/18/19 19:23:20 - [START] Compute Quality Rules
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 2230	Use of style sheets
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7378	Use of style sheets
+09/18/19 19:23:22 -   ->  quality rule DISABLED: 7908	Avoid unreferenced Methods
+09/18/19 19:23:22 - [START] load object, links and properties
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_1.json (1/6)
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_2.json (2/6)
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_3.json (3/6)
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_4.json (4/6)
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_5.json (5/6)
+09/18/19 19:23:22 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_6.json (6/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_1.json (1/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_2.json (2/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_3.json (3/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_4.json (4/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_5.json (5/6)
+09/18/19 19:23:22 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_6.json (6/6)
+09/18/19 19:23:22 -   Total loaded: 
+09/18/19 19:23:22 -     1289 objects
+09/18/19 19:23:22 -     1703 links
+09/18/19 19:23:22 -     2896 properties
+09/18/19 19:23:22 - [END] load object, links and properties
+09/18/19 19:23:22 - [START] Process Quality Rules
+09/18/19 19:23:22 -   -> processing quality rule: Avoid_direct_definition_of_JavaScript_Functions_in_a_Web_page
+09/18/19 19:23:22 -   -> processing quality rule: Avoid artifacts having recursive calls
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/18/19 19:23:22 -   -> processing quality rule: Avoid undocumented Function
+09/18/19 19:23:22 -   -> processing quality rule: Avoid undocumented Methods
+09/18/19 19:23:22 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/18/19 19:23:22 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/18/19 19:23:22 - [END] Process Quality Rules
+09/18/19 19:23:22 - [END] Compute Quality Rules
+09/18/19 19:23:21 - [START] Compute Quality Rules
+09/18/19 19:23:23 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/18/19 19:23:23 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/18/19 19:23:23 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/18/19 19:23:23 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/18/19 19:23:23 - [START] load object, links and properties
+09/18/19 19:23:23 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_SQLScript\ObjectDescriptors_1.json (1/1)
+09/18/19 19:23:23 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_SQLScript\ObjectDescriptors_1.json (1/1)
+09/18/19 19:23:23 -   Total loaded: 
+09/18/19 19:23:23 -     98 objects
+09/18/19 19:23:23 -     20 links
+09/18/19 19:23:23 -     285 properties
+09/18/19 19:23:23 - [END] load object, links and properties
+09/18/19 19:23:23 - [START] Process Quality Rules
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/18/19 19:23:23 -   -> processing quality rule: Avoid undocumented Function
+09/18/19 19:23:23 -   -> processing quality rule: Avoid undocumented Methods
+09/18/19 19:23:23 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/18/19 19:23:23 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/18/19 19:23:23 - [END] Process Quality Rules
+09/18/19 19:23:23 - [END] Compute Quality Rules
+09/18/19 20:35:04 - [START] Compute Quality Rules
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 2230	Use of style sheets
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7378	Use of style sheets
+09/18/19 20:35:06 -   ->  quality rule DISABLED: 7908	Avoid unreferenced Methods
+09/18/19 20:35:06 - [START] load object, links and properties
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_1.json (1/6)
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_2.json (2/6)
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_3.json (3/6)
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_4.json (4/6)
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_5.json (5/6)
+09/18/19 20:35:06 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_6.json (6/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_1.json (1/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_2.json (2/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_3.json (3/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_4.json (4/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_5.json (5/6)
+09/18/19 20:35:06 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_HTML5\ObjectDescriptors_6.json (6/6)
+09/18/19 20:35:06 -   Total loaded: 
+09/18/19 20:35:06 -     1289 objects
+09/18/19 20:35:06 -     1703 links
+09/18/19 20:35:06 -     2896 properties
+09/18/19 20:35:06 - [END] load object, links and properties
+09/18/19 20:35:06 - [START] Process Quality Rules
+09/18/19 20:35:06 -   -> processing quality rule: Avoid_direct_definition_of_JavaScript_Functions_in_a_Web_page
+09/18/19 20:35:06 -   -> processing quality rule: Avoid artifacts having recursive calls
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/18/19 20:35:06 -   -> processing quality rule: Avoid undocumented Function
+09/18/19 20:35:06 -   -> processing quality rule: Avoid undocumented Methods
+09/18/19 20:35:06 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/18/19 20:35:06 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/18/19 20:35:06 - [END] Process Quality Rules
+09/18/19 20:35:06 - [END] Compute Quality Rules
+09/18/19 20:35:05 - [START] Compute Quality Rules
+09/18/19 20:35:07 -   ->  quality rule DISABLED: 7776	Avoid Artifacts with High Fan-In
+09/18/19 20:35:07 -   ->  quality rule DISABLED: 7778	Avoid Artifacts with High Fan-Out
+09/18/19 20:35:07 -   ->  quality rule DISABLED: 7784	Avoid Artifacts with lines longer than 120 characters
+09/18/19 20:35:07 -   ->  quality rule DISABLED: 7830	Avoid unreferenced Interfaces
+09/18/19 20:35:07 - [START] load object, links and properties
+09/18/19 20:35:07 -   -> loading objects from file: output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_SQLScript\ObjectDescriptors_1.json (1/1)
+09/18/19 20:35:07 -   -> loading links from file:output\Abhyuday--Event-Management-Project-_ef843e1f70362de8888cda6c790f04929042aa1d_a455dbf25c071e5051546c1496cc3dbcb19326b2\repository\UA_SQLScript\ObjectDescriptors_1.json (1/1)
+09/18/19 20:35:07 -   Total loaded: 
+09/18/19 20:35:07 -     98 objects
+09/18/19 20:35:07 -     20 links
+09/18/19 20:35:07 -     285 properties
+09/18/19 20:35:07 - [END] load object, links and properties
+09/18/19 20:35:07 - [START] Process Quality Rules
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Artifacts with High Cyclomatic Complexity
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Artifacts with High Depth of Code
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Artifacts with High Essential Complexity
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Artifacts with High Integration Complexity
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Classes with a very low comment code ratio
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Classes with a High Number Of Children
+09/18/19 20:35:07 -   -> processing quality rule: Avoid undocumented Function
+09/18/19 20:35:07 -   -> processing quality rule: Avoid undocumented Methods
+09/18/19 20:35:07 -   -> processing quality rule: Avoid large Artifacts - too many Lines of Code
+09/18/19 20:35:07 -   -> processing quality rule: Avoid Methods with a very low comment code ratio
+09/18/19 20:35:07 - [END] Process Quality Rules
+09/18/19 20:35:07 - [END] Compute Quality Rules

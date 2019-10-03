@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2005 sp2 U (http://www.altova.com) by azerty (ytreza) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:complexType name="config-file-nodeType">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="object-node" type="object-nodeType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="link-node" type="link-nodeType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="object-attribute"
+				type="object-attributeType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="config-file-node"
+				type="config-file-nodeType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="xpath" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Use this attribute to specify the node in your Web
+					application's configuration file from where
+					information about the referenced configuration file
+					can be found.
+
+					The value of this attribute is an XPath query -
+					relative to the root of the referencing
+					configuration file.
+
+					It is recommended that this path points to an
+					element rather than an attribute.
+
+					Specifying this attribute is like determining a base
+					adress for all relative addresses within the
+					object-node element.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="location" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Specifies the Xpath path of node where to find the
+					referenced file's path.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="content-type" type="ContentType"
+			use="optional" default="xml-config-file">
+			<xs:annotation>
+				<xs:documentation>
+					A case-insensitive string value indicating the
+					content type of the referenced file. Allowed values
+					are: - stxx-transforms - tiles-definitions -
+					xml-config-file
+
+					xml-config-file is used for generic xml content. If
+					an empty or wrong value is specified,
+					xml-config-file is used.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					String value that specifies the version of the
+					referenced file. (i.e: 1.2)
+
+					For STXX transforms file, this should be the STXX
+					version ( 1.1, 1.2)
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					A string that identifies the confid-file-node
+					element. Must be unique within the configuration
+					file. Instead of duplicating configuration in
+					different locations, the Id can be used to apply the
+					needed configuration just by referencing using the
+					apply-config attribute.
+
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="apply-config" type="xs:string" use="optional"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="link-nodeType">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="query-param" type="query-paramType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="variable" type="variableType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="object-attribute"
+				type="object-attributeType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="xpath" type="xs:string" use="optional"
+			default=".">
+			<xs:annotation>
+				<xs:documentation>
+					Use this attribute to specify the node in the
+					configuration file from where information about the
+					link to create will be retrieved.
+
+					The value of this attribute is an XPath query -
+					relative to the parent node of the link-node
+					element.
+
+					It is recommended that this path points to an
+					element rather than an attribute.
+
+					Specifying this attribute is like determining a base
+					adress for all relative addresses within the
+					object-node element.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="called-object" type="xs:string"
+			use="optional" default=".">
+			<xs:annotation>
+				<xs:documentation>
+					Specifies where to find the the name of the callee
+					for the link to create.
+
+					The value of this attribute is an xpath path to the
+					element/attribute in the configuration file. It is
+					relative to the value specified in the xpath
+					attribute
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="match-whole-word" type="xs:boolean"
+			use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>
+					Whether or not the name of the called object should
+					match the whole string found (using the
+					called-object attribute) or just a sub-string. Note:
+					this attribute is not supported by the following
+					targets (@resolve-as values): - bean - url -
+					stxxtransform(if resolved via pipeline)
+
+					Any value different from 'false' is assumed to be
+					'true'. Default is true.
+
+					Resolution scope is not supported when this
+					attribute is set to false.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="user-deletable" type="xs:boolean"
+			use="optional" default="false">
+			<xs:annotation>
+				<xs:documentation>
+					Sets the autowire mode for spring beans (allowed
+					values are: byName, byType, constructor, autodetect)
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="autowire" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Setting this attribute to true allow end user to
+					check the created link and ignore it if needed
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="start-tag" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="end-tag" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation></xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="default" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Xpath query specifying the default value to use if
+					no string could be found using called-object
+					attribute
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="excluded-props" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Xpath query that specifies the list of properties to
+					exclude from the autowiring process.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="excluded-args" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Xpath query that specifies the list of constructor
+					arguments indexes or types to exclude from the
+					autowiring process.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolve-as" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Specifies what kind of object the callee should be.
+					While resolving the string gotten using the
+					called-object attribute, only object of that kind
+					will be retained.
+
+					Allowed values are: - javatype (deprecated) -
+					java-type - java-method - url - bean - spring-bean -
+					xml-bean - server-object - action-mapping -
+					property-mapping - forward - stxx-pipeline -
+					stxx-transform - xml-object - config-item - resource
+					- path
+
+					resource and config-item are compound values.
+					config-item = action-mapping | property-mapping |
+					forward | stxx-pipeline | stxx-transform |
+					xml-object | bean
+
+					resource = java-type | java-method | url | bean |
+					path
+
+					Multiple values can be specified using a ; separated
+					liste of the elements listed above. (i.e resolve-as
+					= "javatype;javamethod").
+
+					Note that resolution ends on the first matching
+					object .
+
+					Resolution order is as follows: - java-type -
+					java-method - bean - url - config-item(config items
+					are treated as whole. This means that with config
+					items resolution does not end on the first matching.
+					All matching objects are considered. So there's no
+					order within these objects ) - server-object
+
+					Notes: - When 'config-item' type is used to look for
+					a bean, only bean declared within configuration
+					files will be considered. - When 'resource' type is
+					used to look for a bean, all beans are considered
+					regardless of where tey've been created from.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="link-type" type="LinkType" use="optional"
+			default="call">
+			<xs:annotation>
+				<xs:documentation>
+					This is the type of the link to create. Default
+					value is 'call' Only single values are allowed.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolution-scope-src" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					This is the context within which the callee is to
+					search for.
+
+					The value of this attribute is an xpath path to a
+					node whose value is to be considered as the
+					resolution scope. Values retrieved from the
+					specified node should be a string value
+					corresponding to: - A fully qualified name of a java
+					type if we're resolving a java method - 'request',
+					'session' or 'application' if a bean is expected as
+					callee, - An Xpath path if callee should be a
+					configuration item created from xml file.
+
+					This attribute takes precedence on resolution-scope
+					attribute
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolution-scope" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					This is a string value spefiying the context within
+					which the callee is to search for.
+
+					Allowed values are: - A fully qualified name of a
+					java type if we're resolving a java method -
+					'request', 'session' or 'application' if a bean is
+					expected as callee, - An Xpath path if callee should
+					be a configuration item created from xml file.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="apply-config" type="xs:string"
+			use="optional">
+		</xs:attribute>
+		<xs:attribute name="inverse" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					set this attribute to true if link caller and callee
+					should be permuted.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="inverse-src" type="xs:string"
+			use="optional">
+		</xs:attribute>
+		<xs:attribute name="suffix-src" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Path of a node whose value will be used as a suffix
+					for the newly created object's name
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="prefix-src" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Path of a node whose value will be used as a prefix
+					for the newly created object's name
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="prefix" type="xs:string">
+
+
+			<xs:annotation>
+				<xs:documentation>
+					A string literal that will be used as a prefix for
+					the name of the object to create
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="suffix" type="xs:string">
+
+
+			<xs:annotation>
+				<xs:documentation>
+					A string literal that will be used as a suffix for
+					the name of the object to create.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="separator" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					String to be used as a separator for the newly
+					created object's name (when there's a suffix and/or
+					prefix )
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="verbose" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					Set this attribute to true if you want the analyzer
+					to log a message if resolution failed
+				</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="object-nodeType">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="object-attribute"
+				type="object-attributeType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="link-node" type="link-nodeType"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The link-node element instructs the CAST J2EE
+						Analyzer to create a link from the object
+						introduced by its parent element(the
+						configuration file if link-node element is not
+						within an object-node element) and object
+						specified by the link-node element's attributes
+						and child elements
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="object-node" type="object-nodeType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="param" type="paramType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The param element is used to provide further
+						information to the J2EE Analyzer.
+
+						These elements are supported only for STXX
+						transforms files. They are used mainly to
+						specify the path of a transform file(generaly
+						xsl files). A link is traced from the object
+						introduced by the parent obect-node element
+						toward these files.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="xpath" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Use this attribute to specify the node in your Web
+					application's configuration file from where
+					information about the object to create will be
+					retrieved.
+
+					The value of this attribute is an XPath query -
+					relative to the parent node of the object-node
+					element.
+
+					It is recommended that this path points to an
+					element rather than an attribute.
+
+					Specifying this attribute is like determining a base
+					adress for all relative addresses within the
+					object-node element.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					A free identifier(any string) to be used as the name
+					of the object to create.
+
+					This is really an ID, meaning that the name chosen
+					should be unique within those of all children of a
+					given objet: you can not have two sibling
+					object-node elements with the same name. No matter
+					what kind of objects they are.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="ObjectType" use="optional"
+			default="xml-object">
+			<xs:annotation>
+				<xs:documentation>
+					The type of the object to create.
+
+					They are not case sensitive.
+
+					If no value or a wrong value is specified,
+					xml-object is assumed. This is a generic object
+					type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="java-type" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Path to a node that specifies the java type on which
+					the newly created object relies. This is tipically
+					used for beans and bean properties. Note that a
+					rely-on link is created between the object and the
+					java type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					This attribute is deprecated.
+
+					Its purpose was to be used in association with an
+					action-mapping and its value is stored as a property
+					of the action mapping object.
+
+					This attribute's value is also resolved internaly as
+					a server object.
+
+					It is recommand not to use this attribute from now.
+					If there's a need to resolve its value, use the
+					link-node configuration element within the
+					object-node element instead.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="default" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Use this attribute if a 'default' property is to be
+					set for the object to create.
+
+					Alowed values are: - true - false - yes - no - 1 - 0
+
+					A description property named Default(available in
+					HTML properties) will be created for the object.
+
+					A tipical use of this attribute is to retrieve the
+					@unknown attribute value within a struts action.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="scope" type="BeanScope" use="optional"
+			default="session">
+			<xs:annotation>
+				<xs:documentation>
+					Used only for beans.
+
+					It specifies the scope within which the bean is to
+					be created.
+
+					The allowed values are: - session - application -
+					request
+
+					Default value is session.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="default-name" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Xpath query that specifies where to find the string
+					to use as default name of the newly created objet if
+					the query specified in name attribute returned no
+					result.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="given-name" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					A static string that specifies the default name of the newly created objet if
+					the query specified in name and default-name attributes returned no
+					result.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="id" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					A unique identifier for the current object-node
+					element. This id can be used later to reference the
+					current configuration
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="scope-src" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Path of a node whose value specifies the scope of a
+					bean.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="suffix-src" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Path of a node whose value will be used as a suffix
+					for the newly created object's name
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="prefix-src" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Path of a node whose value will be used as a prefix
+					for the newly created object's name
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="separator" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					String to be used as a separator for the newly
+					created object's name (when there's a suffix and/or
+					prefix )
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="apply-config" type="xs:string"
+			use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					Id of a configuration element within the current
+					file. This id should have been declared with the Id
+					attribute. Note that when redirecting to another
+					configuration node, only xpath and location
+					attributes are taken into account on the originating
+					node.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="prefix" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					A string literal that will be used as a prefix for
+					the name of the object to create
+				</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="suffix" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					A string literal that will be used as a suffix for
+					the name of the object to create.
+				</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="paramType">
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>String value specifying the name of the parameter.
+
+Recognized values are:
+- transform-file-path</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>String value specifying the type of the parameter.
+
+Recognized values are:
+- url</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Xpath path specifying the node containing the value of the parameter in the configuration file.
+
+In the case of STXX,a specific processing is done on the retrieved value as this value could be a path with place holders (numbers) that must first be unified(expended)  before we get the actual value.
+</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="alias-nodeType">
+		<xs:attribute name="xpath" type="xs:string" use="required" />
+
+		<xs:attribute name="object" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Xpath query specifying the object name.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="object-type" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>String value specifying the type of the object.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="alias" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>String value specifying the attribute value.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>	
+	
+	<xs:complexType name="object-attributeType">
+	<xs:choice/>
+	 <xs:attribute name="name" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>
+					String value specifying the attribute name.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="key" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Key name for a map attribute.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="select" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Xpath query specifying the attribute values.
+					Note that select attribute takes precedence over value attribute.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+
+		<xs:attribute name="value" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					String value specifying the attribute value.
+					Note that select attribute takes precedence over value attribute, meaning that the value attribute is taken into account only if select attribute returns no result.
+					So this attribute can be used to specify default values.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="multi-value" type="xs:boolean"
+			use="optional">
+            <xs:annotation>
+            	<xs:documentation>
+            		set this attribute to true if you want the object
+            		attribute you are setting up to hold pultiple
+            		values. If set to false, new value will override any
+            		existing value.
+            	</xs:documentation>
+            </xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="xpath" type="xs:string"></xs:attribute>
+	 <xs:attribute name="name-src" type="xs:string">
+	  <xs:annotation>
+	   <xs:documentation>An Xpath expression used to retrieve node whose value will be used as the name of the object attribute to create</xs:documentation>
+	  </xs:annotation>
+	 </xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="query-paramType">
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the query parameter
+
+example: In http://www.castsoftware.com?page=products.jsp,  name should be 'page'.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="xpath" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Use this attribute to specify  the node in the configuration file from where information about the link to create will be retrieved.
+
+The value of this attribute is an XPath query -  relative to the parent node of the link-node element.
+ 
+It is recommended that this path points to an element rather than an attribute.
+
+Specifying this attribute is like determining a base adress for all relative addresses within the object-node element.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolve-as" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Specifies what kind of object the callee is expected to be.
+While resolving the string gotten using the called-object attribute, only object of that kind will be retained.
+
+Multiple values can be specified using a ; separated liste of the elements listed above. (i.e resolve-as = "javatype;javamethod").
+
+Note that resolution ends on the first matching object .
+
+Resolution order is as follows:
+- javatype
+- java-method
+- bean
+- url
+- config-item(config items are treated as whole. This means that with config items resolution does not end on the first matching. All matching objects are considered. So there's no order within these objects )
+- server-object
+
+Notes: 
+- When 'config-item' type is used to look for a bean, only bean declared within configuration files will be considered.
+- When 'resource' type is used to look for a bean, all beans are considered regardless of where tey've been created from.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolution-scope-src" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>This is the context within which the calle is to search for.
+
+The value of this attribute is an xpath path to a node whose value is to be considered as the resolution scope.
+Values retrieved from the specified node should be a string value corresponding to:
+- A fully qualified name of a java type if we're resolving a java method
+- 'request', 'session' or 'application' if a bean is expected as callee,
+- An Xpath path if callee should be a configuration item created from xml file.
+
+This attribute takes precedence on resolution-scope attribute</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="match-whole-word" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>whether or not the name of the called object should match the whole string found (using the called-object attribute) or just a sub-string.
+Note: this attribute is not supported by the following targets (@resolve-as values):
+- bean
+- url
+- stxxtransform(if resolved via pipeline)
+
+Resolution scope is not supported when this attribute is set to false</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="default" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>String value that is to be used as callee name if the query does not have parameters (there's no '?' or there's nothing after)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="xml-config">
+		<xs:annotation>
+			<xs:documentation>This is the root element of the cast-config file.
+The purpose of this file is to allow users to configure the CAST J2EE analyzer so that it will create objects and links from an application's xml configuration files usualy used by frameworks like Struts, Tiles, STXX and so on.
+
+To do so, three main types of configuration elements are provided by the analyzer:
+- object-node element
+- link-node element
+- config-file-node element
+
+Notes: 
+For each object/link node, the xpath attribute specifies the node in the configuration file that contains the information needed to create the object/link. Once this node specified, the location of each peace of information to consider is given by an XPath query relatively to this node.
+The xpath attribute's value is an XPath query relative to the parent node of the node using this attribute. 
+It is recommended that this path points to an element rather than an attribute.
+
+If an object-node's type attribute is missing or has an unrecognized value, a generic xml object will be created.
+
+For more information, see the online help</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="object-node" type="object-nodeType"
+					minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Use this element to let the J2EE analyzer
+							create an object that will be stored in the
+							knowledge base. The name, type, scope... of
+							the object can be specified using the
+							element attributes. Relationships with other
+							objects are specified by the object-node
+							sub-elements.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="link-node" type="link-nodeType"
+					minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Use this element to let the J2EE analyzer
+							create a link between the configuration file
+							to interprete (using this configuration
+							file) and objects specified by this
+							element's attributes values.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="alias-node" type="alias-nodeType"
+					minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="config-file-node"
+					type="config-file-nodeType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Use this node to tell the J2EE Analyzer the
+							current file references another
+							configuration file you're interrested in.
+
+							You can then specify which information to
+							retrieve from this file. To do so, just use
+							the object-node and link-node elements
+							within the config-file-element.
+
+							Notes: - Sub-elements are not supported
+							tiles definitions file yet. This is because
+							the processing of this type of file is done
+							internaly. So, config-file-node element is
+							use just to indicate the location and tye of
+							the file. - An object(file) is created and
+							stored in the knowledge base(application
+							warehouse). The specific type of the object
+							is given by the @content-type attribute.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			<xs:element name="object-attribute"	type="object-attributeType" minOccurs="0" maxOccurs="unbounded" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ObjectType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="bean" />
+			<xs:enumeration value="bean-property" />
+			<xs:enumeration value="action-mapping" />
+			<xs:enumeration value="forward" />
+			<xs:enumeration value="stxx-pipeline" />
+			<xs:enumeration value="stxx-transform" />
+			<xs:enumeration value="spring-bean" />
+			<xs:enumeration value="xml-object" />
+			<xs:enumeration value="xml-bean" />
+			<xs:enumeration value="form-bean" />
+			<xs:enumeration value="validation-form" />
+			<xs:enumeration value="validation-form-field" />
+			<xs:enumeration value="hibernate-entity" />
+			<xs:enumeration value="hibernate-entity-property" />
+			<xs:enumeration value="hibernate-named-hql-query" />
+			<xs:enumeration value="hibernate-named-sql-query" />
+			<xs:enumeration value="jsf-managed-bean"></xs:enumeration>
+			<xs:enumeration value="jsf-converter"></xs:enumeration>
+			<xs:enumeration value="jsf-view-id-pattern"></xs:enumeration>
+			<xs:enumeration value="jsf-outcome"></xs:enumeration>
+			<xs:enumeration value="jsf-validator"></xs:enumeration>
+			<xs:enumeration value="validation-forms-set"></xs:enumeration>
+
+			<xs:enumeration value="jpa-entity"></xs:enumeration>
+			<xs:enumeration value="jpa-entity-property"></xs:enumeration>
+			<xs:enumeration value="jpa-embeddable"></xs:enumeration>
+			<xs:enumeration value="jpa-embeddable-property"></xs:enumeration>
+			<xs:enumeration value="jpa-named-query"></xs:enumeration>
+			<xs:enumeration value="jpa-named-native-query"></xs:enumeration>
+			<xs:enumeration value="jpa-sql-result-set"></xs:enumeration>
+
+			<xs:enumeration value="jpa-persistence-unit"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LinkType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="catch"/>
+			<xs:enumeration value="call"/>
+			<xs:enumeration value="include"/>
+			<xs:enumeration value="lock"/>
+			<xs:enumeration value="mention"/>
+			<xs:enumeration value="prototype"/>
+			<xs:enumeration value="raise"/>
+			<xs:enumeration value="throw"/>
+			<xs:enumeration value="access"/>
+			<xs:enumeration value="fire"/>
+			<xs:enumeration value="inherit"/>
+			<xs:enumeration value="refer"/>
+			<xs:enumeration value="relyon"/>
+			<xs:enumeration value="use"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResolutionTargetType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>Specifies what kind of object the callee is expected to be.
+				resource and config-item are compound values.
+config-item = all objects listed in the ObjectType type declaration.
+
+resource = java-type | java-method | url | bean
+
+</xs:documentation>
+			</xs:annotation>
+			<xs:enumeration value="javatype"/>
+			<xs:enumeration value="java-type"/>
+			<xs:enumeration value="java-method"/>
+			<xs:enumeration value="url"/>
+			<xs:enumeration value="bean"/>
+			<xs:enumeration value="spring-bean" />
+			<xs:enumeration value="xml-bean" />
+			<xs:enumeration value="form-bean" />
+			<xs:enumeration value="form-property" /> <!-- Java field for ActionForm or Bean Property DynaActionForm -->
+			<xs:enumeration value="server-object"/>
+			<xs:enumeration value="action-mapping"/>
+			<xs:enumeration value="property-mapping"/>
+			<xs:enumeration value="forward"/>
+			<xs:enumeration value="stxx-pipeline"/>
+			<xs:enumeration value="stxx-transform"/>
+			<xs:enumeration value="validation-form" />
+			<xs:enumeration value="validation-form-field" />
+			
+			<xs:enumeration value="jpa-entity"></xs:enumeration>
+			<xs:enumeration value="jpa-entity-property"></xs:enumeration>
+			<xs:enumeration value="jpa-embeddable"></xs:enumeration>
+			<xs:enumeration value="jpa-embeddable-property"></xs:enumeration>
+			<xs:enumeration value="jpa-named-query"></xs:enumeration>
+			<xs:enumeration value="jpa-named-native-query"></xs:enumeration>
+			<xs:enumeration value="jpa-sql-result-set"></xs:enumeration>
+
+			<xs:enumeration value="jpa-persistence-unit"></xs:enumeration>
+
+			<xs:enumeration value="hibernate-entity"			/>
+			<xs:enumeration value="hibernate-entity-property"	/>
+			<xs:enumeration value="hibernate-named-hql-query"	/>
+			<xs:enumeration value="hibernate-named-sql-query"	/>
+			<xs:enumeration value="xml-object"/>
+			<xs:enumeration value="config-item"/>
+			<xs:enumeration value="path"/>
+			<xs:enumeration value="resource"/>
+			<!-- config-item = action-mapping | property-mapping | forward | stxx-pipeline | validation-form | validation-form-field | stxx-transform | xml-object | form-bean | bean | spring-bean | xml-bean -->
+			<!-- resource = javatype | java-method | url | bean -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContentType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="tiles-definitions" />
+			<xs:enumeration value="spring-beans-file" />
+			<!-- deprecated. Use spring-beans -->
+			<xs:enumeration value="spring-beans" />
+			<xs:enumeration value="struts-config" />
+			<xs:enumeration value="form-validation" />
+			<xs:enumeration value="hibernate-mapping" />
+			<xs:enumeration value="xml-config-file" />
+			<xs:enumeration value="stxx-transforms" />
+			<xs:enumeration value="hibernate-configuration"></xs:enumeration>
+			<xs:enumeration value="faces-config"></xs:enumeration>
+			<xs:enumeration value="jpa-orm-configuration"></xs:enumeration>
+			<xs:enumeration value="jpa-pers-configuration"></xs:enumeration>
+			<xs:enumeration value="jpa-annotated-declarations"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BeanScope">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="session" />
+			<xs:enumeration value="application" />
+			<xs:enumeration value="request" />
+			<xs:enumeration value="none"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="variableType">
+		<xs:attribute name="name"	type="xs:string" use="required" />
+		<xs:attribute name="select" type="xs:string" use="required" />
+		<xs:attribute name="value"	type="xs:string" />
+	</xs:complexType>
+
+
+	<xs:simpleType name="IdType">
+        <xs:annotation>
+        	<xs:documentation>
+        		A string that identifies the confid-file-node element.
+        		Must be unique within the configuration file. Instead of
+        		duplicating configuration in different locations, the Id
+        		can be used to apply the needed configuration just by
+        		referencing using the apply-config attribute.
+        	</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+</xs:schema>

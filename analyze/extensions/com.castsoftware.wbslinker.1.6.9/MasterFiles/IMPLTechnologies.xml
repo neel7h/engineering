@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1020950" type="quality-rule" originalName="Avoid providing password in Web Service URL" filter="0" filterLabel="ALL TECHNOLOGIES" />
+</root>

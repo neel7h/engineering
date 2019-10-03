@@ -1,0 +1,73 @@
+{
+    "id": 1002018,
+    "name": "Process the default case in the instruction SELECT CASE in Fortran-90 Subroutines  (FORTRAN)",
+    "href": "AIP/quality-rules/1002018",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The number of SELECT CASE statements is compared to the number of CASE DEFAULT statements.",
+    "rationale": "Process the default case in the instruction SELECT CASE. Allows to safeguard against omissions and to process the default case.",
+    "remediation": "Add the CASE DEFAULT to the switch construct with the appropriate default processing in it.",
+    "alternativeName": "Process the default case in the instruction SELECT CASE in Fortran-90 Subroutines  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-1",
+            "name": "Control Flow Transfer Control Element outside Switch Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-478",
+            "name": "Missing Default Case in Switch Statement",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

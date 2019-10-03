@@ -1,0 +1,66 @@
+{
+    "id": 1020088,
+    "name": "Avoid Artifacts with lines longer than X characters (Javascript/HTML5)",
+    "href": "AIP/quality-rules/1020088",
+    "critical": false,
+    "maxWeight": 2,
+    "associatedValueName": "Number of characters",
+    "description": "Avoid Artifacts with lines longer than X characters.\nThe number of characters is a parameter and can be changed at will.",
+    "output": "This report lists all Artifacts with lines longer than X characters.\nIt provides the following information:\n Artifact full name, number of characters of the longest line.",
+    "rationale": "For better readability and portability (printers, terminals, IDE), Artifacts should not have lines longer than X characters.",
+    "remediation": "Consider splitting the line.",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid Artifacts with lines longer than X characters (Javascript/HTML5)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum length",
+            "description": "Maximum number of characters per line of code",
+            "technologies": [
+                {
+                    "id": 1020000,
+                    "name": "HTML5",
+                    "href": "AIP/technologies/1020000",
+                    "values": [
+                        120
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

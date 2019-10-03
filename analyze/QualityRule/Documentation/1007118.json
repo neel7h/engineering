@@ -1,0 +1,58 @@
+{
+    "id": 1007118,
+    "name": "Avoid artifacts with sql statements referring more than 4 Tables (PHP)",
+    "href": "AIP/quality-rules/1007118",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Sections containing sql statements referring more than 4 Tables. Artifacts considered for this quality rule are PHP section, method, function and constructor.",
+    "output": "This report lists all artifacts with sql statements referring more than 4 Tables\n\nThis QR provides the following information:\n- Artifact full name.",
+    "rationale": "Using complex queries in artifacts can cause performance issues.",
+    "remediation": "Modify the source code to reduce the number of Sections with sql statements referring more than 4 Tables.",
+    "sample": "<?php\necho \"select twentytwo_jan_local.student_impdetail.std_id, \ntwentytwo_jan_local.student_impdetail.std_name, \ntwentytwo_jan_local.student_impdetail.std_class, \ntwentytwo_jan_local.student_details.std_father_name, \ntwentytwo_jan_local.student_details.std_mother_name, \ntwentytwo_jan_local.student_details.std_age, \ntwentytwo_jan_local.student_contact.std_mail_id, \ntwentytwo_jan_local.student_contact.std_phone_no, \ntwentytwo_jan_local.student_LogIn.std_username, \ntwentytwo_jan_local.student_LogIn.std_password, \ntwentytwo_jan_local.student_report.std_result, \ntwentytwo_jan_local.student_report.std_remark\nfrom twentytwo_jan_local.student_impdetail\ninner join twentytwo_jan_local.student_details on twentytwo_jan_local.student_impdetail.std_id = twentytwo_jan_local.student_details.std_id\ninner join twentytwo_jan_local.student_contact on twentytwo_jan_local.student_impdetail.std_id = twentytwo_jan_local.student_contact.std_id\ninner join twentytwo_jan_local.student_LogIn on twentytwo_jan_local.student_impdetail.std_id = twentytwo_jan_local.student_LogIn.std_id\ninner join twentytwo_jan_local.student_report on twentytwo_jan_local.student_impdetail.std_id = twentytwo_jan_local.student_report.std_id\";\n?>\n\n---OR---\n\n<?php\n$query = \"select student_impdetail.std_id, \nstudent_impdetail.std_name, \nstudent_impdetail.std_class, \nstudent_details.std_father_name, \nstudent_details.std_mother_name, \nstudent_details.std_age, \nstudent_contact.std_mail_id, \nstudent_contact.std_phone_no, \nstudent_LogIn.std_username, \nstudent_LogIn.std_password, \nstudent_report.std_result, \nstudent_report.std_remark\nfrom twentyone_feb_one_local.student_impdetail as student_impdetail, \ntwentyone_feb_one_local.student_details as student_details, \ntwentyone_feb_one_local.student_contact as student_contact, \ntwentyone_feb_one_local.student_LogIn as student_LogIn, \ntwentyone_feb_one_local.student_report as student_report\n\"; \n<?php",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid artifacts with sql statements referring more than 4 Tables (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

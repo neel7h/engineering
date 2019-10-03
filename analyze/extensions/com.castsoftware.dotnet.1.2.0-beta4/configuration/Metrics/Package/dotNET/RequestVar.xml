@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+£ Author   : YLE@CAST 
+£ Date     : 2007.03.01
+£ Filename : RequestVar.xml
+£ Role     : Detection of the use of Request.Forms(...) not enclosed in
+£            a function call
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+
+
+<METRIC PACKAGE_NAME="dotNET.RequestVar" >
+  <ACTIVE>YES</ACTIVE>
+  
+  <!-- Actions used -->
+  <ACTION_LIST>
+		<ACTION NAME="MATCH IN TREE ELEMENT" >
+		  <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+		  <ACTIVE>YES</ACTIVE>
+		</ACTION>
+    <ACTION NAME="CALCULATE" >
+      <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>               
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+		<ACTION NAME="PERSISTENCE" >
+		  <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+		  <ACTIVE>YES</ACTIVE>
+		</ACTION>
+  </ACTION_LIST>
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+      
+      <!-- Match Request.Forms(...) enclosed in a function call -->
+      <CATEGORY NAME="MATCH_REQFORM_CALL">
+        <PROPERTY NAME="VALUE" type="integer" />
+        
+        <PROPERTY NAME="PATT_REQFORM_CALL" type="pattern">
+          <TREE>
+	          <OR>
+                <SIGNATURE>NODE_CSharp_ROOT</SIGNATURE>
+                <SIGNATURE>NODE_VbNet_ROOT</SIGNATURE>
+	         </OR>
+	           <TREE>													
+		           <OR>
+		               <SIGNATURE>NODE_CSharp_CALL</SIGNATURE>
+                   <SIGNATURE>NODE_VbNet_CALL</SIGNATURE>
+		           </OR>
+                 <SUB_TREE_CONTINUE>
+                   <TOKEN NAME="IDENTIFIER" EQUAL="Request"/>
+                   <TOKEN NAME="IDENTIFIER" EQUAL="Form"/>
+                 </SUB_TREE_CONTINUE>
+	           </TREE>
+          </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				  <MATCH>PATT_REQFORM_CALL</MATCH> 				
+				  <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				  <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				  <RESULT_COUNT>VALUE</RESULT_COUNT> 
+			  </ADD_ACTION>
+
+			</CATEGORY>
+      <!-- End of match Request.Forms(...) enclosed in a function call -->
+
+
+      <!-- Match Request.Forms(...) -->
+      <CATEGORY NAME="MATCH_REQFORM">
+        <PROPERTY NAME="VALUE" type="integer" />
+        
+        <PROPERTY NAME="PATT_REQFORM" type="pattern">
+          <TREE>
+	          <OR>
+                <SIGNATURE>NODE_CSharp_ROOT</SIGNATURE>
+                <SIGNATURE>NODE_VbNet_ROOT</SIGNATURE>
+	          </OR>
+               <SUB_TREE_CONTINUE>
+                 <TOKEN NAME="IDENTIFIER" EQUAL="Request"/>
+                 <TOKEN NAME="IDENTIFIER" EQUAL="Form"/>
+               </SUB_TREE_CONTINUE>
+          </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+				  <MATCH>PATT_REQFORM</MATCH> 				
+				  <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+				  <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+				  <RESULT_COUNT>VALUE</RESULT_COUNT> 
+			  </ADD_ACTION>
+
+			</CATEGORY>
+      <!-- End of match Request.Forms(...) -->
+
+    <!-- Compute the difference between the number of "Request.Forms(...) enclosed in
+     £   a function call" and the number of "Request.Forms(...)"
+     £   and save it -->
+    <CATEGORY NAME="REQFORM_REQFORM_CALL_DELTA">
+      <PROPERTY NAME="REQFORM_REQFORM_CALL_DELTA_VALUE" type="integer" />
+      
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>MATCH_REQFORM.VALUE</ADD_VALUE>
+        <LESS_VALUE>MATCH_REQFORM_CALL.VALUE</LESS_VALUE>
+        <RESULT>REQFORM_REQFORM_CALL_DELTA_VALUE</RESULT>
+      </ADD_ACTION>
+      
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>REQFORM_REQFORM_CALL_DELTA_VALUE</SAVE>
+        <SAVE>VALUE</SAVE>
+        <NAME>Always validate user input with Request variables</NAME>                
+      </ADD_ACTION>
+      
+    </CATEGORY>
+    <!-- End of Compute the difference between the number of "Request.Forms(...) ... -->
+ 
+  </CATEGORY_LIST>
+  <!-- End of categories -->			
+			
+
+</METRIC>

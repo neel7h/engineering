@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="aspx_server_controls.xsl"?>
+<controls>
+<control name="Label" class="System.Web.UI.WebControls.Label" tag="asp:Label" inf_typ="12005" inf_sub_typ="900001" description="asp:Label">
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad"	resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed"	resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="TextBox" class="System.Web.UI.WebControls.TextBox" tag="asp:TextBox" inf_typ="12005" inf_sub_typ="900002" description="asp:TextBox">
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnPreRender"  resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnTextChanged" resolveAS="event" context="." />
+</control>
+
+<control name="Button" class="System.Web.UI.WebControls.Button" tag="asp:Button" inf_typ="12005" inf_sub_typ="900003" description="asp:Button">
+	<attribut name="OnBlur" resolveAS="event" context="." />
+	<attribut name="OnClick" resolveAS="event" context="." />
+	<attribut name="OnCommand" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnFocus" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="LinkButton" class="System.Web.UI.WebControls.LinkButton" tag="asp:LinkButton" inf_typ="12005" inf_sub_typ="900004" description="asp:LinkButton">
+	<attribut name="OnClick" resolveAS="event" context="." />
+	<attribut name="OnCommand" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="HyperLink" class="System.Web.UI.WebControls.HyperLink" tag="asp:HyperLink" inf_typ="12005" inf_sub_typ="900005" description="asp:HyperLink">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+
+<control name="DropDownList" class="System.Web.UI.WebControls.DropDownList" tag="asp:DropDownList" inf_typ="12005" inf_sub_typ="900006" description="asp:DropDownList">
+	<attribut name="OnBlur" resolveAS="event" context="." />
+	<attribut name="OnSelectedIndexChanged" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnFocus" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="DataSource" resolveAS="class" context="" />
+</control>
+
+<control name="ListBox" class="System.Web.UI.WebControls.ListBox" tag="asp:ListBox" inf_typ="12005" inf_sub_typ="900007" description="asp:ListBox">
+	<attribut name="OnBlur" resolveAS="event" context="." />
+	<attribut name="OnSelectedIndexChanged" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnFocus" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="DataSource" resolveAS="class" context="" />
+</control>
+ 
+<control name="Repeater" class="System.Web.UI.WebControls.Repeater" tag="asp:Repeater" inf_typ="12005" inf_sub_typ="900008" description="asp:Repeater">
+	
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnItemCreated" resolveAS="event" context="." />
+	<attribut name="OnItemDataBound" resolveAS="event" context="." />
+	<attribut name="OnItemCommand" resolveAS="event" context="." />
+	<attribut name="DataSource" resolveAS="class" context="" />
+</control>
+
+<control name="CheckBox" class="System.Web.UI.WebControls.CheckBox" tag="asp:CheckBox" inf_typ="12005" inf_sub_typ="900009" description="asp:CheckBox">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnCheckedChanged" resolveAS="event" context="." />
+</control>
+
+<control name="CheckBoxList" class="System.Web.UI.WebControls.CheckBoxList" tag="asp:CheckBoxList" inf_typ="12005" inf_sub_typ="900010" description="asp:CheckBoxList">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnSelectedIndexChanged" resolveAS="event" context="." />
+	<attribut name="DataSource" resolveAS="class" context="" />
+</control>
+
+<control name="RadioButtonList" class="System.Web.UI.WebControls.RadioButtonList" tag="asp:RadioButtonList" inf_typ="12005" inf_sub_typ="900011" description="asp:RadioButtonList">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnSelectedIndexChanged" resolveAS="event" context="." />
+	<attribut name="DataSource" resolveAS="class" context="" />
+</control>
+
+<control name="RadioButton" class="System.Web.UI.WebControls.RadioButton" tag="asp:RadioButton" inf_typ="12005" inf_sub_typ="900012" description="asp:RadioButton">
+	<attribut name="OnCheckedChanged" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="Image" class="System.Web.UI.WebControls.Image" tag="asp:Image" inf_typ="12005" inf_sub_typ="900013" description="asp:Image">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ImageURL" resolveAS="URI" context="" />
+</control>
+
+<control name="Panel" class="System.Web.UI.WebControls.Panel" tag="asp:Panel" inf_typ="12005" inf_sub_typ="900014" description="asp:Panel">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="BackImageURL" resolveAS="URI" context="" />
+</control>
+
+<control name="PlaceHolder" class="System.Web.UI.WebControls.PlaceHolder" tag="asp:PlaceHolder" inf_typ="12005" inf_sub_typ="900015" description="asp:PlaceHolder">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="Calendar" class="System.Web.UI.WebControls.Calendar" tag="asp:Calendar" inf_typ="12005" inf_sub_typ="900016" description="asp:Calendar">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnSelectionChanged" resolveAS="event" context="." />
+	<attribut name="OnVisibleMonthChanged" resolveAS="event" context="." />
+	
+</control>
+
+<control name="AdRotator" class="System.Web.UI.WebControls.AdRotator" tag="asp:AdRotator" inf_typ="12005" inf_sub_typ="900017" description="asp:AdRotator">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="OnAddCreated" resolveAS="event" context="." />
+	<attribut name="AdvertisemntFile" resolveAS="URI" context="" />
+</control>
+
+<control name="RequiredFieldValidator" class="System.Web.UI.WebControls.RequiredFieldValidator" tag="asp:RequiredFieldValidator" inf_typ="12005" inf_sub_typ="900018" description="asp:RequiredFieldValidator">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ControlToValidate" resolveAS="control" context="." />
+</control>
+
+<control name="CompareValidator" class="System.Web.UI.WebControls.CompareValidator" tag="asp:CompareValidator" inf_typ="12005" inf_sub_typ="900019" description="asp:CompareValidator">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ControlToValidate" resolveAS="control" context="." />
+</control>
+
+<control name="RangeValidator" class="System.Web.UI.WebControls.RangeValidator" tag="asp:RangeValidator" inf_typ="12005" inf_sub_typ="900020" description="asp:RangeValidator">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ControlToValidate" resolveAS="control" context="." />
+</control>
+
+
+<control name="CustomValidator" class="System.Web.UI.WebControls.CustomValidator" tag="asp:CustomValidator" inf_typ="12005" inf_sub_typ="900021" description="asp:CustomValidator">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ControlToValidate" resolveAS="control" context="." />
+	<attribut name="ClientValidationFunction" resolveAS="event" context="." />
+</control>
+
+<control name="ValidationSummary" class="System.Web.UI.WebControls.ValidationSummary" tag="asp:ValidationSummary" inf_typ="12005" inf_sub_typ="900022" description="asp:ValidationSummary">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="RegularExpressionValidator" class="System.Web.UI.WebControls.RegularExpressionValidator" tag="asp:RegularExpressionValidator" inf_typ="12005" inf_sub_typ="900023" description="asp:RegularExpressionValidator" >
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ControlToValidate" resolveAS="control" context="." />
+</control>
+
+<control name="Xml" class="System.Web.UI.WebControls.Xml" tag="asp:Xml" inf_typ="12005" inf_sub_typ="900024" description="asp:Xml">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="DocumentSource" resolveAS="URI" context="." />
+	<attribut name="TransformSource" resolveAS="URI" context="." />
+</control>
+
+<control name="Literal" class="System.Web.UI.WebControls.Literal" tag="asp:Literal" inf_typ="12005" inf_sub_typ="900025" description="asp:Literal">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+</control>
+
+<control name="Table" class="System.Web.UI.WebControls.Table" tag="asp:Table" inf_typ="12005" inf_sub_typ="900026" description="asp:Table">
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="backImageURL" resolveAS="URI" context="" />
+</control>
+
+
+<control name="ImageButton" class="System.Web.UI.WebControls.ImageButton" tag="asp:ImageButton" inf_typ="12005" inf_sub_typ="900027" description="asp:ImageButton">
+	<attribut name="OnBlur" resolveAS="event" context="." />
+	<attribut name="OnFocus" resolveAS="event" context="." />
+	<attribut name="OnClick" resolveAS="event" context="." />
+	<attribut name="OnCommand" resolveAS="event" context="." />
+	<attribut name="OnDataBinding" resolveAS="event" context="." />
+	<attribut name="OnDisposed" resolveAS="event" context="." />
+	<attribut name="OnInit" resolveAS="event" context="." />
+	<attribut name="OnLoad" resolveAS="event" context="." />
+	<attribut name="OnPreRender" resolveAS="event" context="." />
+	<attribut name="OnUnload" resolveAS="event" context="." />
+	<attribut name="ImageURL" resolveAS="URI" context="" />
+
+</control>
+
+<control name="DataGrid" class="System.Web.UI.WebControls.DataGrid " tag="asp:DataGrid" inf_typ="12005" inf_sub_typ="900028" description="asp:DataGrid">
+	<attribut name="DataSource" resolveAS="class" context="" />
+	<attribut name="BackImageUrl" resolveAS="URI" context="." />
+    	<attribut name="OnCancelCommand" resolveAS="event" context="." />
+	<attribut name="OnDeleteCommand" resolveAS="event" context="." />
+	<attribut name="OnEditCommand" resolveAS="event" context="." />
+	<attribut name="OnItemCommand" resolveAS="event" context="." />
+	<attribut name="OnItemCreated" resolveAS="event" context="." />
+	<attribut name="OnPageIndexChanged" resolveAS="event" context="." />
+	<attribut name="OnSortCommand" resolveAS="event" context="." />
+	<attribut name="OnUpdateCommand" resolveAS="event" context="." />
+
+</control>
+
+<control name="DataList" class="System.Web.UI.WebControls.DataList" tag="asp:DataList" inf_typ="12005" inf_sub_typ="900029" description="asp:DataList">
+	<attribut name="DataSource" resolveAS="class" context="" />
+	<attribut name="OnCancelCommand" resolveAS="event" context="." />
+	<attribut name="OnDeleteCommand" resolveAS="event" context="." />
+	<attribut name="OnEditCommand"	resolveAS="event" context="." />
+	<attribut name="OnItemCommand"	resolveAS="event" context="." />
+	<attribut name="OnItemCreated"	resolveAS="event" context="." />
+	<attribut name="OnUpdateCommand" resolveAS="event" context="." />
+
+</control>
+</controls>
+

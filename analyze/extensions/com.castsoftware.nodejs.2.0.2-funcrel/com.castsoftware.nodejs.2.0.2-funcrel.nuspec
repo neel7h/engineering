@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.nodejs</id>
+    <version>2.0.2-funcrel</version>
+    <title>Node.js Framework</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/Node.js+-+2.0</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.nodejs.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for Node.js. The calculation of Automated Function Points for your HTML5/Javascript analyses will be improved through the creation of new objects and links specific to the Node.js framework that will link back to objects/links produced by the conventional HTML5/Javascript analyzer.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/Node.js+-+2.0+-+Release+Notes</releaseNotes>
+    <tags>Javascript Node.js CAIP8.0 CAIP8.1 CAIP8.2 CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+      <dependency id="com.castsoftware.html5" version="2.0.5-funcrel" />
+      <dependency id="com.castsoftware.wbslinker" version="1.6.1-funcrel" />
+    </dependencies>
+  </metadata>
+</package>

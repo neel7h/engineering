@@ -1,0 +1,63 @@
+{
+    "id": 1520742,
+    "name": "Siebel Scripting Review: Use of the SetViewMode() method",
+    "href": "AIP/quality-rules/1520742",
+    "critical": false,
+    "maxWeight": 6,
+    "associatedValueName": "Number of call",
+    "description": "Using number constants instead of literal ones increases the maintenance effort for the code.",
+    "output": "This rule reports Functions calling SetViewMode",
+    "rationale": "The SetViewMode( ) method is used within scripts containing number parameter instead of literal constants.",
+    "remediation": "Method SetViewMode sets the visibility type for the business component. This is used prior to a query. It is recommended to use literal constants instead of the number parameter in order to increase code clarity.",
+    "total": "Number of added or modified eScripts",
+    "alternativeName": "Siebel Scripting Review: Use of the SetViewMode() method",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

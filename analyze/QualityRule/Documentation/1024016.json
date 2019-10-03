@@ -1,0 +1,95 @@
+{
+    "id": 1024016,
+    "name": "A permission is required for securing Services",
+    "href": "AIP/quality-rules/1024016",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Services are the background processing components in Android. As Services typically perform some variety of processing that consists of updating databases, providing notifications of an external event, or performing some other task for the benefit of a component that will interact with the user, it is important to make sure that they are accessible only by appropriate consumers \n\nPermissions applied using the android:permission attribute to the <service> tag in the manifest restrict who can start or bind to the associated Service. The permission is checked during Context.startService(), Context.stopService() and Context.bindService(). If the caller doesn't have the required permission then SecurityException is thrown from the call. \n\nA violation reported when permission not set for exported Service and application.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The attacks and consequences of improperly exporting a component may depend on the exported component: \n\nIf access to an exported Service is not restricted, any application may start and bind to the Service. Depending on the exposed functionality, this may allow a malicious application to perform unauthorized actions, gain access to sensitive information, or corrupt the internal state of the application.",
+    "reference": "https://developer.android.com/topic/security/best-practices \nhttps://developer.android.com/guide/topics/manifest/receiver-element.html#prmsn \nhttps://cwe.mitre.org/data/definitions/926.html ",
+    "remediationSample": "1- Define permission in the top of the manifest file as following one \n\n<permission android:name=\"com.example.testapps.permission.BIND_TO_MAIL_LISTENER\" android:protectionLevel=\"signature\" /> \n\n\n2- Add the android:permission into service \n\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n package=\"com.example.testapps.test1\"> \n ... \n    <service android:name=\".MailListenerService\" \n              android:permission= \n                 \"com.example.testapps.permission.BIND_TO_MAIL_LISTENER\" \n              android:enabled=\"true\" \n              android:exported=\"true\"> \n              <intent-filter></intent-filter> \n    </service> \n  ... \n</manifest> ",
+    "sample": "\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\" \n package=\"com.example.testapps.test1\"> \n ... \n    <service android:name=\".MailListenerService\" \n              android:enabled=\"true\" \n              android:exported=\"true\"> \n              <intent-filter></intent-filter> \n    </service> \n  ... \n</manifest> \n",
+    "total": "Number of Android manifests",
+    "alternativeName": "A permission is required for securing Services",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-862",
+            "name": "Missing Authorization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-926",
+            "name": "Improper Export of Android Application Components",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M3-2016",
+            "name": "Insecure Communication",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

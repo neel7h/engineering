@@ -1,0 +1,110 @@
+{
+    "id": 1039052,
+    "name": "Avoid Http Session without expiration",
+    "href": "AIP/quality-rules/1039052",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check in java source or configuration files which parameter has been given to the setMaxInactiveInterval/session-timeout functions",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The lack of proper session expiration may improve the likely success of certain attacks. For example, an attacker may intercept a session ID, possibly via a network sniffer or Cross-site Scripting attack. In some scenario, a user might access a web site from a shared computer (such as at a library, Internet cafe, or open work environment). If the HTTP Session is active for long, it can generate security, memory usage and not allowed authentication issues. As an example, the insufficient Session Expiration could allow an attacker to use the browser's back button to access web pages previously accessed by the victim.",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication\nhttps://cwe.mitre.org/data/definitions/613.html",
+    "remediation": "Always set a definite timeout for sessions.",
+    "remediationSample": "#Remediation\n\nHttpSession sesssion = request.getSession(true);\nsesssion.setMaxInactiveInterval(90);",
+    "sample": "# Sample 1\nHttpSession sesssion = request.getSession(true);\nsesssion.setMaxInactiveInterval(-1);\n\n# Sample 2\n<session-config>\n    <session-timeout>-1</session-timeout>\n</session-config>\n\n# Sample 3\nHttpSession sesssion = request.getSession(true);\nsesssion.setMaxInactiveInterval(0);",
+    "total": "Number of Java Methods",
+    "alternativeName": "Always set an expiration time for an Http Session to improve security",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-613",
+            "name": "Insufficient Session Expiration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-12",
+            "name": "Session Termination",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-69243",
+            "name": "The application must automatically terminate the non-privileged user session and log off non-privileged users after a 15 minute idle time period has elapsed.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

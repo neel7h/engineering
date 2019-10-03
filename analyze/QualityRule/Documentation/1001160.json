@@ -1,0 +1,62 @@
+{
+    "id": 1001160,
+    "name": "Avoid  PLI Main procedures, PL1 function and PL1 Procedures using GOTO statement (PL1)",
+    "href": "AIP/quality-rules/1001160",
+    "critical": true,
+    "description": "This rule searches for all PL1 Main Procedures, PL1 Functions and PL1 Procedures using the GO TO statement to manage the control flow.",
+    "output": "\"The report lists all the PL1 Main Procedures, PL1 Functions and PL1 Procedures using the GO TO statement to manage the control flow.\n\nIt provides following information: \n- Main procedures, Function and Procedures full name \"",
+    "rationale": "Using Goto code breaks the process execution flow and makes the code more difficult to understand and maintain",
+    "remediation": "Try to reduce the number of GO TO and when it is possible replace it with alternative statements.",
+    "sample": "MY_PROG: PROC OPTIONS(MAIN) REORDER;\n  ...  \nGOTO TEST; \n... \nTEST:\nEND MY_PROG;",
+    "total": "Number of PL1 Main Procedures, PL1 Functions and PL1 Procedures.",
+    "alternativeName": "Avoid  PLI Main procedures, PL1 function and PL1 Procedures using GOTO statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

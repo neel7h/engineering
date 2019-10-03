@@ -1,0 +1,81 @@
+{
+    "id": 1001030,
+    "name": "Avoid PLI Main Proc with High Cyclomatic Complexity (PL1)",
+    "href": "AIP/quality-rules/1001030",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "This rule searches the PLI Main Procedures having High Cyclomatic Complexity. This is a measure of the complexity of the control structure of an Artifact and it is the number of linearly independent paths and therefore, the minimum number of independent paths when executing the software. \nThe threshold is a parameter and can be changed at will.",
+    "output": "The report lists all the PLI main procedures with High Cyclomatic Complexity. \n\nIt provides following information: \n-  PLI main procedures full name",
+    "rationale": "The effort and time for diagnosis of deficiencies or causes of failures, or for identification of parts to be modified is directly related to the number of execution paths, i.e. the complexity of the control flow. Analyzability declines with increasing Cyclomatic Complexity. Each modification must be correct for all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Changeability declines with increasing Cyclomatic Complexity. Complete testing requires coverage of all execution paths. Cyclomatic Complexity computes the number of the linearly independent paths, a lower bound of all execution paths ignoring multiple iterations. Testability declines with increasing Cyclomatic Complexity.",
+    "remediation": "Reduce the Cyclomatic Complexity for the PLI main procedures.",
+    "total": "Number of PLI Main Procedures",
+    "alternativeName": "Avoid PLI Main Proc with High Cyclomatic Complexity (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-11",
+            "name": "Callable and Method Control Element Excessive Cyclomatic Complexity Value",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max CC",
+            "description": "Max CC",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        150
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

@@ -1,0 +1,329 @@
+module Core.J2EE;
+use Core.ConstantsMetamodel;
+use Core.Log;
+
+/** 
+* NOTE that in the following function definition, the parameters type(s), objType, propertyName, metamodelProperty are constant string that are defined in the MetaModel.
+* All custom functions should have theirs parameters with different names from those used for native functions.
+*/
+
+/** 
+* Find object of a given name and type 
+* 
+* @param name: fullname of the object to find
+* @param type: type or category of the object to find
+*/
+native deprecated list(symbol) findSymbol(string name,string type);
+
+/**
+* Find objects of a given short name, type and that belong to a specific parent 
+* 
+* @param name: fullname of the object to find
+* @param type: type or category of the object to find
+* @param parent 
+*/
+native deprecated list(symbol) findSymbol(string name,string type,symbol parent);
+
+/**
+* Find objects of a given full name; objects to find can be of several types defined in types 
+* 
+* @param name: fullname of the object to find
+* @param types 
+*/
+native deprecated list(symbol) findSymbol(string name,list(string) types);
+
+/**
+* Find object of a given short name and that belong to a specific parent; 
+* 
+* @param name: fullname of the object to find
+* @param types: object to find can be of several types defined in 'types'
+* @param parent 
+*/
+native deprecated list(symbol) findSymbol(string name,list(string) types,symbol parent);
+
+/**
+* Find all child objects that belong to object specified in 'parent'
+* Objects to find are of type specified in type 
+* 
+* @param type: type or category of the object to find 
+* @param parent
+*/
+native deprecated list(symbol) findSymbol(string type,symbol parent);
+
+/**
+* Find all child objects that belong to object specified in 'parent'
+* Objects to find can be of several types specified in 'types'
+* 
+* @param types: list of possible types of the object to find 
+* @param parent
+*/
+native deprecated list(symbol) findSymbol(list(string) types,symbol parent);
+
+/**
+* Return Metamodel type of given object 
+* 
+* @param object  
+*/
+native deprecated string getMetaType(symbol object);
+
+/**
+* Get the return type of a function or the type of a field 
+*
+* @param object  
+*/
+native deprecated symbol getType(symbol object);
+
+/**
+* Get the list of objects that a specific object is extending; One level of inheritance 
+*
+* @param object  
+*/
+native deprecated list(symbol) getSuperTypes(symbol object);
+
+/**
+* Get the list of interfaces that a specific object is implementing; One level of inheritance 
+*
+* @param object  
+*/
+native deprecated list(symbol) getInterfaces(symbol object);
+
+/**
+* Verify if object or his parent has the specified annotation 
+* 
+* @param object: annotated object
+* @param annotation   
+*/
+native deprecated boolean hasAnnotation(symbol object,string annotation);
+
+/**
+* Return the annotations list applied on the specified object or his parents
+*
+* @param object: annotated object  
+*/
+native deprecated list(string) getAnnotations(symbol object);
+
+/**
+* Verify if object of specified fullname and type exists. 
+* If not, create a symbol of specified fullname and type.
+*
+* @param name: fullname of the symbol
+* @param type  
+*/
+native deprecated symbol findOrCreateSymbol(string name,string type);
+
+/**
+* Verifiy if object of specified short name, type and parent exists. 
+* If not, create symbol of specified short name, type and parent.
+* 
+* @param name: short name of the object to find
+* @param type
+* @param parent      
+*/
+native deprecated symbol findOrCreateSymbol(string name,string type,symbol parent);
+
+/**
+* Create a link between caller and callee of type linkType, linkType is Metamodel linkType 
+*
+* @param caller
+* @param callee
+* @param linkType  
+*/
+native deprecated boolean createLink(symbol caller, symbol callee,string linkType1);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value  
+*/
+native deprecated boolean setProperty(symbol object,string propertyName,string value);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value   
+*/
+native deprecated boolean setProperty(symbol object,string propertyName,boolean value);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the object specified by the first parameter (object).  
+* 
+* @param object
+* @param propertyName
+* @param value   
+*/
+native deprecated boolean setProperty(symbol object,string propertyName,int value);
+
+/**
+* Set the property 'propertyName' with the value specified by 'propertyValue' on the link between caller and callee specified in the first two parameters 
+* 
+* @param caller
+* @param callee  (only for JAVA types)
+* @param name
+* @param type
+* @param value   
+*/
+native deprecated boolean setProperty(symbol caller,symbol callee,string name,string type,string value);
+
+/**
+* Return full name or short name type of given object (if metamodelProperty equals identification.fullName or identification.name; see file: MetaModel\SavingFrameworkMetaModel.xml) 
+* 
+* @param object
+* @param property  
+*/
+native deprecated string getStringProperty(symbol object,string property);
+
+/**
+* Find object of a given name and type 
+* 
+* @param name: fullname of the symbol
+* @param type: found symbol type or category 
+*/
+deprecated symbol findUniqueSymbol(string name,string type)
+{
+    list(symbol) results = findSymbol(name,type);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/**
+* Find object of a given name, type and wich parent is objParent 
+* 
+* @param name: fullname of the symbol
+* @param type
+* @param parent
+*/
+deprecated symbol findUniqueSymbol(string name,string type,symbol parent)
+{
+    list(symbol) results = findSymbol(name,type,parent);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/**
+* Find object of a given name; objects to find can be of several types defined in types 
+* 
+* @param name: fullname of the symbol
+* @param types
+*/
+deprecated symbol findUniqueSymbol(string name,list(string) types)
+{
+    list(symbol) results = findSymbol(name,types);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/**
+* Find object of a given name; objects to find can be of several types defined in the typeList 
+*
+* @param name: fullname of the symbol
+* @param types
+* @param parent  
+*/
+deprecated symbol findUniqueSymbol(string name,list(string) types,symbol parent)
+{
+    list(symbol) results = findSymbol(name,types,parent);
+
+    foreach(symbol result in results)
+    {
+        return result;
+    }
+
+    return null;
+}
+
+/** 
+* Get full name of the interface implemented by the given class and annotated with annotationName
+*
+* @param class
+* @param annotationName 
+*/
+deprecated string getAnnotatedInheritImplementParents(symbol class, string annotationName)
+{
+    log(DEBUG, ">>> findImplementedInterfaceWithAnnotation("+getStringProperty(class, identification_fullName)+", "+annotationName+")");
+    list(symbol) interfaces = getInterfaces(class);
+
+    foreach(symbol interface in interfaces)
+    {
+        if(hasAnnotation(interface, annotationName))
+        {
+            log(DEBUG, "Annotation " + annotationName + " defined on " + getStringProperty(interface, identification_fullName));
+            return getStringProperty(interface, identification_fullName);
+        }
+        else
+        {
+            log(DEBUG, "Annotation " + annotationName + " not defined on " + getStringProperty(interface, identification_fullName));
+        }
+    }
+
+    return null;
+}		 
+
+/** 
+* Create links from all methods of the nterface to the same method of class (same signature); 
+* Add a "SynchronizedRemote" property on the link when remote is true.  
+*
+* @param interface
+* @param class
+* @param linkType
+* @param remote 
+*/
+deprecated boolean createLinksBetweenMethods( symbol interface, symbol class, string linkType, boolean remote)
+{
+    boolean result = true;
+    list(symbol) listMethods = findSymbol({JV_GENERIC_METHOD, JV_METHOD},interface);
+    foreach(symbol fromMethod in listMethods)
+    {
+        string methodName = getStringProperty( fromMethod, identification_name );
+        symbol toMethod = findUniqueSymbol(methodName, getMetaType(fromMethod), class);
+        if(toMethod == null)
+        {
+            log(DEBUG, "createLinksBetweenMethods: cannot find the method " + getStringProperty( class, identification_name ) + "." + methodName);
+            result = false;
+        }
+        else
+        {
+            boolean linkCreation = createLink(fromMethod, toMethod, linkType);
+            if(linkCreation)
+            {
+                if(remote)
+                {
+                    setProperty(fromMethod, Cast_MethodProperties_SynchronizedRemote, "true");
+                    /* if the implementation method is annotated with Remove, then we add a property 
+                        on the method of the remote interface to set it as remove */
+                    log(DEBUG, "createLinksBetweenMethods: add " + Cast_MethodProperties_SynchronizedRemote + " on method: " + getStringProperty(fromMethod, identification_name));
+                    if(hasAnnotation(toMethod, "javax.ejb.Remove"))
+                    {
+                        setProperty(fromMethod, Cast_Java_EJB_ObjectProperties_Remove, "true");
+                        log(DEBUG, "createLinksBetweenMethods: add " + Cast_Java_EJB_ObjectProperties_Remove + " on method: " + getStringProperty(toMethod, identification_fullName));
+                    }
+                }
+            }
+            else
+            {
+                result = false;
+                string msgError2 = "createLinksBetweenMethods: cannot create link from: " + getStringProperty( interface, identification_name ) + "." + methodName + getStringProperty( class, identification_name ) + "." + methodName;
+                log(DEBUG, msgError2);
+            }
+        }
+    }
+    return result;
+}

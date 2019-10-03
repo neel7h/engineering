@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- NodeJS Types -->
+    
+    <type name="CAST_NodeJS_External_Library" id="1020291">
+        <description>NodeJS external library</description>
+        <inheritedCategory name="CAST_HTML5_External_Library" />    
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_Service" id="1020043">
+        <description>NodeJS Service</description>
+        <inheritedCategory name="CAST_WebService_Service" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_Port" id="1020044">
+        <description>NodeJS Port</description>
+        <inheritedCategory name="CAST_WebService_Port" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_GetOperation" id="1020045">
+        <description>NodeJS Get Operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_PostOperation" id="1020046">
+        <description>NodeJS Post Operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_PutOperation" id="1020047">
+        <description>NodeJS Put Operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_DeleteOperation" id="1020048">
+        <description>NodeJS Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_UseOperation" id="1020126">
+        <description>NodeJS Use Operation</description>
+        <inheritedCategory name="CAST_WebService_AnyOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+	<!-- Following type is Obsolete : use CAST_NodeJS_MongoDB_Connection instead -->
+    <type name="CAST_NodeJS_Mongoose_Connection" id="1020049" status="deprecated">
+        <description>NodeJS MongoDB connection deprecated</description>
+        <property name="url" type="string" id="1020049">
+            <description>url</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020049"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+	<!-- Following type is Obsolete : use CAST_NodeJS_MongoDB_Collection instead -->
+    <type name="CAST_NodeJS_Mongoose_Model" id="1020051" status="deprecated">
+        <description>NodeJS MongoDB collection deprecated</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_MongoDB_Connection" id="1020219">
+        <description>NodeJS MongoDB connection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_MongoDB_Collection" id="1020220">
+        <description>NodeJS MongoDB collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_Collection" id="1020300">
+        <description>NodeJS collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+	<!-- LoopbackApp deprecated. Use CAST_NodeJS_Application for all framework-->
+    <type name="CAST_NodeJS_LoopbackApplication" id="1020301">
+        <description>NodeJS loopback application</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_Marklogic_Database" id="1020216">
+        <description>NodeJS Marklogic database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+    </type>
+
+    <type name="CAST_NodeJS_Marklogic_Collection" id="1020217">
+        <description>NodeJS Marklogic collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_NodeJS_CouchDB_Database" id="1020218">
+        <description>NodeJS CouchDB database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_NodeJS_Unknown_Database_Table" id="1020052">
+        <description>NodeJS unknown database table</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+    
+	<category name="CAST_NodeJS_Metric_AvoidLackErrorHandlingInCallbacks" id="1020053">
+		<description>Store Avoid lack of error handling in callbacks metric results</description>
+    	<property name="numberOfCallbacksWithoutErrorHandling" type="integer" merge="sum" id="1020051">
+			<description>Number of lack of error handling in callbacks</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="0"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidUsingProcessExit" id="1020096">
+		<description>Store Avoid using process.exit() without defining exitCode metric results</description>
+    	<property name="numberOfProcessExitCalls" type="integer" merge="sum" id="1020052">
+			<description>Number of process.exit() calls without defining exitCode</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="1"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidUsingStringConcatWithDirnameOrFilename" id="1020136">
+		<description>Store Avoid using string concatenation when using __dirname and __filename metric results</description>
+    	<property name="numberOfStringConcatWithDirnameOrFilename" type="integer" merge="sum" id="1020053">
+			<description>Number of string concatenation when using __dirname and __filename</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="2"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_EnsureContentSecurityPolicyActivation" id="1020146">
+		<description>Store Ensure the Content-Security-Policy is activated metric results</description>
+    	<property name="numberOfNonActivatedContentSecurityPolicy" type="integer" merge="sum" id="1020054">
+			<description>Number of non activated Content-Security-Policy</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="3"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_EnsureBrowserCanNotCachePage" id="1020191">
+		<description>Store Ensure that browser cannot cache or store a page metric results</description>
+    	<property name="numberOfMissingNoCache" type="integer" merge="sum" id="1020062">
+			<description>Number of missing no cache</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="11"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AllowOnlyHTTPSCommunication" id="1020192">
+		<description>Store Allow only HTTPS communication metric results</description>
+    	<property name="numberOfNoHTTPSCommunication" type="integer" merge="sum" id="1020063">
+			<description>Number of no HTTPS communication</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="12"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_UseSecureHTTPSProtocol" id="1020195">
+		<description>Store Use secure HTTPS protocol metric results</description>
+    	<property name="numberOfNoHTTPSProtocol" type="integer" merge="sum" id="1020064">
+			<description>Number of no HTTPS protocol</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="13"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_UseHTTPCreateServer" id="1020196">
+		<description>Store Use HTTP createServer</description>
+    	<property name="numberOfHTTPCreateServer" type="integer" merge="sum" id="1020065">
+			<description>Number of no HTTP createServer</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="14"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_EnsureXPoweredByHeaderDisabled" id="1020147">
+		<description>Store Ensure the X-Powered-By header is disabled metric results</description>
+    	<property name="numberOfXPoweredByHeaderNotDisabled" type="integer" merge="sum" id="1020056">
+			<description>Number of non disabled X-Powered-By header</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="5"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_CSRFProtectionEnabled" id="1020197">
+		<description>Store Ensure that CSRF protection is enabled metric results</description>
+    	<property name="numberOfNoCSRFProtection" type="integer" merge="sum" id="1020066">
+			<description>Number of no CSRF protection</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="15"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_EnsureXXSSProtectionHeaderEnabled" id="1020148">
+		<description>Store Ensure the X-XSS-Protection header is enabled metric results</description>
+    	<property name="numberOfXXSSProtectionHeaderNotEnabled" type="integer" merge="sum" id="1020057">
+			<description>Number of not enabled X-XSS-Protection header</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="6"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_EnsureXFrameOptionsHeaderSetup" id="1020149">
+		<description>Store Ensure the X-Frame-Options header is setup metric results</description>
+    	<property name="numberOfXFrameOptionsHeaderNotSetup" type="integer" merge="sum" id="1020058">
+			<description>Number of X-Frame-Options header header not setup</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="7"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_MultipleRoutesForSamePath" id="1020158">
+		<description>Store Multiple routes for the same path metric results</description>
+    	<property name="numberOfMultipleRoutesForSamePath" type="integer" merge="sum" id="1020059">
+			<description>Number of Multiple routes for the same path</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="8"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_httpGetOrRequestInsideLoop" id="1020159">
+		<description>Store Avoid call of web service with http.get or http.request metric results</description>
+    	<property name="numberOfHttpGetOrRequestInsideLoop" type="integer" merge="sum" id="1020060">
+			<description>Number of Call of web service with http.get or http.request</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="9"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_MarkedIsSanitized" id="1020198">
+		<description>Store Ensure that marked is sanitized metric results</description>
+    	<property name="numberOfNoSanitizedMarked" type="integer" merge="sum" id="1020068">
+			<description>Number of no sanitized marked</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="17"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_CookieWithoutHTTPOnly" id="1020202">
+		<description>Store Avoid creating cookie without HTTPOnly option metric results</description>
+    	<property name="numberOfCookieWithoutHTTPOnly" type="integer" merge="sum" id="1020070">
+			<description>Number of cookie without HTTPOnly option</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="19"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_UnclosedFileSystem" id="1020203">
+		<description>Store Ensure filesystem are closed metric results</description>
+    	<property name="numberOfUnclosedFileSystem" type="integer" merge="sum" id="1020071">
+			<description>Number of unclosed filesystem</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="20"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidUsingRiskyCryptographicHash" id="1020275">
+		<description>Store Avoid using risky cryptographic hash metric results</description>
+    	<property name="numberOfRiskyCryptographicHash" type="integer" merge="sum" id="1020083">
+			<description>Number of risky cryptographic hash</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="27"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_UnsecuredCookie" id="1020276">
+		<description>Store Avoid using unsecured cookie metric results</description>
+    	<property name="numberOfUnsecuredCookie" type="integer" merge="sum" id="1020084">
+			<description>Number of unsecured cookie</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="28"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_BypassSelfSignedSSLCertificate" id="1020278">
+		<description>Store bypassing self-signed ssl certificate metric results</description>
+    	<property name="numberOfBypassSelfSignedSSLCertificate" type="integer" merge="sum" id="1020087">
+			<description>Number of self-signed ssl certificate bypasses</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="29"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidDisablingSSLVerificationInNodeCurl" id="1020279">
+		<description>Store Disable SSL verification in node-curl metric results</description>
+    	<property name="numberOfDisablingSSLVerificationInNodeCurl" type="integer" merge="sum" id="1020088">
+			<description>Number of SSL verification in node-curl disabling</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="30"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidUsingTlsBeforeNodeVersions" id="1020293">
+		<description>Store Avoid using TLS library before Node.js 9.11.2 and 10.4.1 metric results</description>
+    	<property name="numberOfTlsUsagesBeforeNodeVersions" type="integer" merge="sum" id="1020098">
+			<description>Number of TLS usages with Node.js older that 9.11.2 and 10.4.1</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="35"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidUsingHttp2BeforeNodeVersions" id="1020296">
+		<description>Store Avoid using http2 library before Node.js 8.11.3, 9.11.2 and 10.4.1 metric results</description>
+    	<property name="numberOfHttp2UsagesBeforeNodeVersions" type="integer" merge="sum" id="1020099">
+			<description>Number of http2 usages with Node.js older that 8.11.3, 9.11.2 and 10.4.1</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="36"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidCookieWithOverlyBroadPath" id="1020282">
+		<description>Store Avoid creating cookie with overly broad path metric results</description>
+    	<property name="numberOfCookieWithOverlyBroadPath" type="integer" merge="sum" id="1020090">
+			<description>Number of cookie with overly broad path</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="32"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_NodeJS_Metric_AvoidCookieWithOverlyBroadDomain" id="1020283">
+		<description>Store Avoid creating cookie with overly broad domain metric results</description>
+    	<property name="numberOfCookieWithOverlyBroadDomain" type="integer" merge="sum" id="1020091">
+			<description>Number of cookie with overly broad domain</description>
+			<attribute name="INF_TYPE" intValue="1020051"/>
+			<attribute name="INF_SUB_TYPE" intValue="33"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+
+	<category name="CAST_NodeJS_Metric_AvoidUsingTheCallOfDataServiceWithNodeJSInsideALoop" id="1020304">
+		<description>Store Avoid using the call of data service with Node.js inside a loop</description>
+    	<property name="numberOfUsingTheCallOfDataServiceWithNodeJSInsideALoop" type="integer" merge="sum" id="1020103">
+			<description>Number of query call by dataservice</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="2"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	
+	<category name="CAST_NodeJS_Metric_AvoidUsingTheFilePathValidationBeforeNodeVersions" id="1020311">
+		<description>Store Avoid using the file path validation with Node.js 8.5.0</description>
+    	<property name="numberOfPathUsagesBeforeNodeVersions" type="integer" merge="sum" id="1020109">
+			<description>Number of path usages with Node.js 8.5.0</description>
+			<attribute name="INF_TYPE" intValue="1020101"/>
+			<attribute name="INF_SUB_TYPE" intValue="8"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>	
+	
+    <type name="CAST_NodeJS_GetHttpRequestService" id="1020128">
+        <description>NodeJS Get HttpRequest service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_PostHttpRequestService" id="1020129">
+        <description>NodeJS Post HttpRequest service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_PutHttpRequestService" id="1020135">
+        <description>NodeJS Put HttpRequest service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_DeleteHttpRequestService" id="1020130">
+        <description>NodeJS Delete HttpRequest service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+    
+    <partialType name="CAST_HTML5_JavaScript_Function">
+        <inheritedCategory name="CAST_NodeJS_Metrics_Category" />
+        <inheritedCategory name="APM Client Language Artifacts"/>
+    </partialType>
+    
+    <partialType name="CAST_HTML5_JavaScript_Method">
+        <inheritedCategory name="CAST_NodeJS_Metrics_Category" />
+        <inheritedCategory name="APM Client Language Artifacts"/>
+    </partialType>
+    
+    <partialType name="CAST_HTML5_JavaScript_Constructor">
+        <inheritedCategory name="CAST_NodeJS_Metrics_Category" />
+        <inheritedCategory name="APM Client Language Artifacts"/>
+    </partialType>
+    
+    <partialType name="CAST_HTML5_JavaScript_SourceCode">
+        <property name="useExpress" type="integer" id="1020055">
+            <description>use Express framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+        </property>
+        <property name="useHttp" type="integer" id="1020061">
+            <description>use http framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="10"/>
+        </property>
+        <property name="useMarked" type="integer" id="1020067">
+            <description>use marked framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="16"/>
+        </property>
+        <property name="useExpressSession" type="integer" id="1020069">
+            <description>use express-session framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="18"/>
+        </property>
+        <property name="useFs" type="integer" id="1020072">
+            <description>use express-session framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="21"/>
+        </property>
+        <property name="useCreateHash" type="integer" id="1020082">
+            <description>use createHash API</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="26"/>
+        </property>
+        <property name="useNodeCurl" type="integer" id="1020089">
+            <description>use node-curl framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="31"/>
+        </property>
+        <property name="useTls" type="integer" id="1020097">
+            <description>use tls framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="34"/>
+        </property>
+        <property name="useHttp2" type="integer" id="1020100">
+            <description>use http2 framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020051"/>
+            <attribute name="INF_SUB_TYPE" intValue="37"/>
+        </property>
+        <property name="usePath" type="integer" id="1020108">
+            <description>use path framework</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020101"/>
+            <attribute name="INF_SUB_TYPE" intValue="7"/>
+        </property>        
+        <inheritedCategory name="CAST_NodeJS_Metrics_Category" />
+        <inheritedCategory name="APM Client Language Artifacts"/>
+    </partialType>
+
+	<category name="CAST_NodeJS_Metrics_Category" id="1020137">
+		<description>Category for all metric results</description>
+        <property name="isnodejs" type="integer" id="1020050">
+            <description>is NodeJS</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="1020050"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidLackErrorHandlingInCallbacks" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingProcessExit" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingStringConcatWithDirnameOrFilename" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingRiskyCryptographicHash" />
+        <inheritedCategory name="CAST_NodeJS_Metric_EnsureContentSecurityPolicyActivation" />
+        <inheritedCategory name="CAST_NodeJS_Metric_EnsureXPoweredByHeaderDisabled" />
+        <inheritedCategory name="CAST_NodeJS_Metric_EnsureXXSSProtectionHeaderEnabled" />
+        <inheritedCategory name="CAST_NodeJS_Metric_EnsureXFrameOptionsHeaderSetup" />
+        <inheritedCategory name="CAST_NodeJS_Metric_MultipleRoutesForSamePath" />
+        <inheritedCategory name="CAST_NodeJS_Metric_httpGetOrRequestInsideLoop" />
+        <inheritedCategory name="CAST_NodeJS_Metric_EnsureBrowserCanNotCachePage" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AllowOnlyHTTPSCommunication" />
+        <inheritedCategory name="CAST_NodeJS_Metric_UseSecureHTTPSProtocol" />
+        <inheritedCategory name="CAST_NodeJS_UseHTTPCreateServer" />
+        <inheritedCategory name="CAST_NodeJS_Metric_CSRFProtectionEnabled" />
+        <inheritedCategory name="CAST_NodeJS_Metric_MarkedIsSanitized" />
+        <inheritedCategory name="CAST_NodeJS_Metric_CookieWithoutHTTPOnly" />
+        <inheritedCategory name="CAST_NodeJS_Metric_UnclosedFileSystem" />
+        <inheritedCategory name="CAST_NodeJS_Metric_UnsecuredCookie" />
+        <inheritedCategory name="CAST_NodeJS_Metric_BypassSelfSignedSSLCertificate" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidDisablingSSLVerificationInNodeCurl" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingTlsBeforeNodeVersions" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingHttp2BeforeNodeVersions" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidCookieWithOverlyBroadPath" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidCookieWithOverlyBroadDomain" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingTheCallOfDataServiceWithNodeJSInsideALoop" />
+        <inheritedCategory name="CAST_NodeJS_Metric_AvoidUsingTheFilePathValidationBeforeNodeVersions" />
+    </category>
+
+    <type name="CAST_NodeJS_Application" id="1020215">
+        <description>NodeJS Application</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_Express_Controller" id="1020261">
+        <description>NodeJS Express Controller</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_NodeJS_MQTT_Connection" id="1020319">
+        <description>NodeJS MQTT connection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_NodeJS_MQTT_Publisher" id="1020320">
+       <description>Publisher NodeJS MQTT</description>
+       <inheritedCategory name="CAST_Web"/>
+       <inheritedCategory name="CAST_PluginObject"/>
+       <inheritedCategory name="CAST_MQE_QueueCall"/>  
+    </type>
+
+    <type name="CAST_NodeJS_MQTT_Subscriber" id="1020321">
+       <description>Subscriber NodeJS MQTT</description>
+       <inheritedCategory name="CAST_Web"/>
+       <inheritedCategory name="CAST_PluginObject"/>
+       <inheritedCategory name="CAST_MQE_QueueReceive"/>  
+    </type>
+    
+    <type name="CAST_NodeJS_Seneca_Add" id="1020326">
+       <description>Add NodeJS Seneca</description>
+       <inheritedCategory name="CAST_Web"/>
+       <inheritedCategory name="CAST_PluginObject"/>
+       <inheritedCategory name="CAST_MQE_QueueReceive"/>  
+    </type>
+    
+    <type name="CAST_NodeJS_Seneca_Act" id="1020327">
+       <description>Act NodeJS Seneca</description>
+       <inheritedCategory name="CAST_Web"/>
+       <inheritedCategory name="CAST_PluginObject"/>
+       <inheritedCategory name="CAST_MQE_QueueCall"/>  
+    </type>        
+</metaModel>

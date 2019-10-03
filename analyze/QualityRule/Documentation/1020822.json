@@ -1,0 +1,86 @@
+{
+    "id": 1020822,
+    "name": "Always provide error callbacks when subscribing to HttpClient observables",
+    "href": "AIP/quality-rules/1020822",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks that an error callback is provided when subscribing to the observable returned by an HttpClient service call. Currently the verification is only performed when the subscribe method is invoked with positional arguments.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "In general, silently passing errors is a bad practice and can result in unexpected behavior and render more difficult finding the origin of bugs. Because of the asynchronous nature of observables returned by HttpClient service calls, arising errors from observables need to be handled by user-provided error callbacks instead of try/catch blocks.",
+    "reference": "https://angular.io/guide/http#error-handling\nhttps://angular.io/guide/observables",
+    "remediation": "Ensure that you provide an error callback to the subscribe method.",
+    "remediationSample": "export class AppComponent {\n  constructor(private http: HttpClient) {\n  }\n    \n  getData() {\n    this.http.get(this.url).subscribe(      // subscription to Observable\n      (data: Config) => this.config = { ...data },\n        error => this.error = error         // error path\n    );\n    // ...\n  }\n}",
+    "sample": "export class AppComponent {\n  constructor(private http: HttpClient) {\n  }\n    \n  getData() {\n    this.http.get(this.url).subscribe(      // subscription to Observable\n      (data: Config) => this.config = { ...data }\n    );\n    // ...\n  }\n}",
+    "total": "Number of TypeScript artifacts call Web services",
+    "alternativeName": "Always provide error callbacks when subscribing to HttpClient observables",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-391",
+            "name": "Unchecked Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

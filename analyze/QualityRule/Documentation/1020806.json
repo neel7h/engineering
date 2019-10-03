@@ -1,0 +1,74 @@
+{
+    "id": 1020806,
+    "name": "Avoid using NaN in comparison ",
+    "href": "AIP/quality-rules/1020806",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule list all the artifacts that are using outputs of the functions that do not return anything. This rule is compliant with CISQ OMG ASCRM-CWE-252-data, ASCRM-CWE-704, ASCMM-MNT-20 recommendations",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using NaN for comparison will produce unexpected results. Instead, the best way to see whether a variable is equal to NaN is to use Number.isNaN(), since ES2015, or (perhaps counter-intuitively) to compare it to itself. Since NaN !== NaN, when a !== a, you know it must equal NaN.",
+    "reference": "CISQ OMG ASCRM-CWE-252-data, ASCRM-CWE-704, ASCMM-MNT-20 recommendations",
+    "remediation": "Use Number.isNaN() instead .",
+    "remediationSample": "if (Number.isNaN(test )) { \n return Number.isNaN(x)\n }",
+    "sample": "if (test === NaN) { // violation \n  return x === NaN  // violation\n }",
+    "total": "Number of Typescript artifacts",
+    "alternativeName": "Avoid using NaN in comparison ",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-704",
+            "name": "Incorrect Type Conversion or Cast",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 1101074,
+    "name": "Tables aliases should not end with a numeric suffix",
+    "href": "AIP/quality-rules/1101074",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Table aliases improves readability when they are not suffixed by numbers.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Table aliases improves the readability of your query when you are referencing many tables that's why they should not end with a numeric suffix.",
+    "remediation": "Check the statement and if so, remove numbers from alias name.",
+    "remediationSample": "select sal.date,\n       sal.ord_num,\n       saldet.qty,\n       saldet.title_id,\n       saldet.discount,\n       titl.price,\n       total = saldet.qty * titl.price * (1 - saldet.discount/100)\nfrom sales sal\n     join salesdetail saldet on sal.ord_num = saldet.ord_num\n     join titles titl on titl.title_id = saldet.title_id\nwhere sal.stor_id = @stor_id\norder by sal.date desc, sal.ord_num",
+    "sample": "select sal1.date,\n       sal1.ord_num,\n       saldet1.qty,\n       saldet1.title_id,\n       saldet1.discount,\n       titl1.price,\n       total = saldet1.qty * titl1.price * (1 - saldet1.discount/100)\nfrom sales sal1\n     join salesdetail saldet1 on sal1.ord_num = saldet1.ord_num\n     join titles titl1 on titl1.title_id = saldet1.title_id\nwhere sal1.stor_id = @stor_id\norder by sal1.date desc, sal1.ord_num",
+    "total": "Number of Artifacts with SQL code having aliases.",
+    "alternativeName": "Tables aliases should not end with a numeric suffix",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

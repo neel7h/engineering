@@ -1,0 +1,59 @@
+{
+    "id": 1008066,
+    "name": "Avoid Programs with too many WHERE Clauses  (RPG400)",
+    "href": "AIP/quality-rules/1008066",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches all the programs having too many WHERE clauses.",
+    "output": "This report lists RPG400 Programs with too many WHERE Clauses.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Having complex queries in Programs can cause performance problems.",
+    "remediation": "The best solution is to review the query to reduce the number of WHERE clauses.",
+    "remediationSample": "The best solution is to review the query to reduce the number of WHERE clauses or use join:\nSELECT e.entertainerid, \n       e.firstname, \n       e.lastname, \n       b.customerid, \n       b.eventdate, \n       bd.category, \n       bd.duration, \n       s.specialitydescription, \n       es.entertainerspecialitycost\n  FROM ENTERTAINER e\n  JOIN BOOKINGDETAIL bd ON bd.entertainerid = e.entertainerid\n  JOIN BOOKING b ON b.bookingid = bd.bookingid\n  JOIN ENTERTAINERSPECIALITY es ON es.entertainerid = e.entertainerid\n  JOIN SPECIALITY s ON s.specialityid = es.specialityid\n WHERE e.entertainerid = 1",
+    "sample": "SELECT e.entertainerid, \n       e.firstname, \n       e.lastname, \n       b.customerid, \n       b.eventdate, \n       bd.category, \n       bd.duration, \n       s.specialitydescription, \n       es.entertainerspecialitycost\n  FROM Entertainer e,\n       BookingDetail bd,\n       Booking b,\n       EntertainerSpeciality es,\n       Speciality s\n WHERE e.entertainerid = bd.entertainerid\n   AND b.bookingid = bd.bookingid\n   AND e.entertainerid = es.entertainerid\n   AND s.specialityid = es.specialityid\n   AND e.entertainerid = 1",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid Programs with too many WHERE Clauses  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

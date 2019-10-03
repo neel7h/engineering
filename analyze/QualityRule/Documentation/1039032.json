@@ -1,0 +1,96 @@
+{
+    "id": 1039032,
+    "name": "Avoid using DocumentBuilder without restriction of XML External Entity Reference (XXE)",
+    "href": "AIP/quality-rules/1039032",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule detects the usage of XML parser calls not preceded in same Java method by a call to the secure mode of the parser.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.\n\nBy submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as \"file:///c:/winnt/win.ini\" designates (in Windows) the file C:\\Winnt\\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such as port scanning.\n\nOnce the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file contents.",
+    "reference": "https://cwe.mitre.org/data/definitions/611.html\nhttps://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)\nhttp://blog.bdoughan.com/2011/03/preventing-entity-expansion-attacks-in.html",
+    "remediation": "Add restriction before calling parser",
+    "remediationSample": "Example 1:\n\nDocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();\ndbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);\nDocumentBuilder db = dbf.newDocumentBuilder();\n\nDocument doc = db.parse(input);\n\nExample 2:\nDocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();\n\ndocBuilderFactory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);\nDocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();\nInputSource is = new InputSource( new FileInputStream(f) );\nDocument doc = docBuilder.parse(is);",
+    "sample": "DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();\n\nDocument doc = db.parse(input);",
+    "total": "Number of Java artifacts",
+    "alternativeName": "Ensure to preceed the call of DocumentBuilder by a call to the secure mode of the parser",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-611",
+            "name": "Improper Restriction of XML External Entity Reference",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A4-2017",
+            "name": "XML External Entities (XXE)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70237",
+            "name": "XML-based applications must mitigate DoS attacks by using XML filters, parser options, or gateways.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70269",
+            "name": "The application must not be vulnerable to XML-oriented attacks.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

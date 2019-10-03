@@ -1,0 +1,72 @@
+{
+    "id": 1007212,
+    "name": "Avoid having variables without naming conventions (PHP)",
+    "href": "AIP/quality-rules/1007212",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule process 3 types of variables\n1.Normal Variables\n2. Member variables ( variables declared as member variables in the class)\n3.Variables in a string\n\n\n1- For Normal variables  : If Variable is not in valid camel caps format\nthen there will be violation\n2- For Member Variables\n  - If Public member variable does not contain a leading underscore it will be a violation\n  - If member variable doesn't contain a leading underscore then that will be a violation\n  - If Member variable is not in valid camel Caps format then it will be a violation\n\n3- For Variables in string: If variable is not in valid camel Caps format then it will be a violation\n\n\n\n\nThis rule is based on Code Sniffer 2.5\n\nArtifacts considered for this QR are php Section, method, function, constructor and member variables",
+    "output": "This report lists all the artifacts having variables that do not follow naming convention\n\nThis QR provides the following information:\n- Artifact Full Name",
+    "rationale": "Using naming conventions helps reduce the effort to understand the SourceCode and also to increase the code quality",
+    "reference": "http://pear.php.net/package/PHP_CodeSniffer/docs/2.5.0/PHP_CodeSniffer/Zend_Sniffs_NamingConventions_ValidVariableNameSniff.html",
+    "remediationSample": "Normal Variables\n================\n\nCorrect Naming Convention\n\n$varName  = 'hello';\n$varname  = 'hello';\n$varname2 = 'hello';\n\necho $varName;\necho $varname;\necho $varName2;\n\necho 'Hello '.$varName;\necho MyClass::$var_name;\necho $this->varName;\necho $this->myFunction($one, $two);\n\n\n\nMember Variables Inside Class\n============================\nCorrect Naming Convention\n-------------------------\n\n1. $varName  = 'hello';\n2. $varname  = 'hello';\n3. $varname2 = 'hello';\n\npublic $varName  = 'hello';\npublic $varname  = 'hello';\npublic $varName2 = 'hello';\n\nprotected $_var_name = 'hello';\nprotected $varName   = 'hello';\nprotected $_varName2 = 'hello';\n\nprivate $_varName  = 'hello';\nprivate $_varname  = 'hello';\nprivate $_varName2 = 'hello';\n\nVariables in the string\n======================\n\nCorrect Naming Convention\n-------------------------\necho \"Hello $varName\";\necho \"Hello $varname\";\necho \"Hello $varName2\";",
+    "sample": "Normal Variables\n================\n\nIn Correct Naming Convention\n----------------------------\n\n$var_name = 'hello';\n$_varName = 'hello';\n\necho $var_name;\necho $_varName;\n\necho 'Hello '.$var_name;\necho MyClass::$var_name;\necho $this->var_name;\n\necho $object->myFunction($one_two, $var2);\n$someObject->my_function($var_name);\n\n\n\nMember Variables Inside Class\n============================\n\nIn Correct Naming Convention\n----------------------------\n$var_name = 'hello';\n$_varName = 'hello';\n\npublic $var_name = 'hello';\npublic $_varName = 'hello';\n\nprotected $_varName  = 'hello';\nprotected $_varname  = 'hello';\n\nprivate $_var_name = 'hello';\nprivate $varName   = 'hello';\n\n\nVariables in the string\n======================\nIn Correct Naming Convention\n----------------------------\necho \"Hello $var_name\";\necho \"Hello $_varName\";\n\necho \"{$_SERVER['HOSTNAME']} $var_name\";",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid having variables without naming conventions (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61017,
+            "name": "Documentation - Naming Convention Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Zend.NamingConventions.ValidVariableName"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

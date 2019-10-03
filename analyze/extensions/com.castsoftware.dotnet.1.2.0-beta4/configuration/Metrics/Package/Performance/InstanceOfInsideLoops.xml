@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ********************************* -->
+<!-- Use of 'Instance Of' inside loops -->
+<!-- ********************************* -->
+
+<METRIC PACKAGE_NAME="Performance.InstanceOfInsideLoops">
+  <ACTIVE>YES</ACTIVE>
+    <ACTION_LIST>
+	<ACTION NAME="MATCH IN TREE ELEMENT" >
+	  <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>
+	<ACTION NAME="CALCULATE" >
+	  <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>				
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>		
+
+	<ACTION NAME="PERSISTENCE" >
+	  <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+	  <ACTIVE>YES</ACTIVE>
+	</ACTION>
+    </ACTION_LIST>
+	
+    <CATEGORY_LIST>		
+      
+	  <!-- First category for Java's instanceof -->
+	  
+	  <CATEGORY NAME="MATCH_INSTOFINLOOPS_JAVA">
+        <PROPERTY NAME="VALUE" type="integer" />
+        
+        <!-- Instanceof in Java loops -->
+        <PROPERTY NAME="INSTOFINSIDELOOPS_JAVA" type="pattern">
+          <TREE>
+	        <OR>
+	          <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+		      <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+		      <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+		      <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+	        </OR>
+	        <TREE>													
+		      <OR>
+		        <SIGNATURE>NODE_J11_WhileStatement</SIGNATURE>
+		        <SIGNATURE>NODE_J11_ForStatement</SIGNATURE>
+		        <SIGNATURE>NODE_J11_DoStatement</SIGNATURE>
+		      </OR>
+		      <SUB_TREE_OR>
+		        <SIGNATURE NAME="NODE_J11_Expression" SUB_NAME="RELEXP_INSTANCE_OF" />
+		      </SUB_TREE_OR>
+	        </TREE>
+	      </TREE>
+        </PROPERTY>
+
+	
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+          <MATCH>INSTOFINSIDELOOPS_JAVA</MATCH>
+          <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+	      <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+	      <RESULT_COUNT>VALUE</RESULT_COUNT> 
+	    </ADD_ACTION>
+	
+	    <ADD_ACTION NAME="PERSISTENCE">
+	      <SAVE>VALUE</SAVE>
+	      <NAME>Avoid the use of InstanceOf inside loops</NAME>				
+	    </ADD_ACTION>
+      </CATEGORY>        
+
+	  <!-- Second category for .NET's TypeOf/Is -->
+
+      <CATEGORY NAME="MATCH_INSTOFINLOOPS_DOTNET">
+        <PROPERTY NAME="VALUE" type="integer" />
+
+        <!-- Instanceof in C#.NET loops -->
+        <!-- syntax is : If ( anObject is aType ) ... -->
+        <PROPERTY NAME="INSTOFINSIDELOOPS_CSHARP" type="pattern">
+          <BOOKMARK>YES</BOOKMARK>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_CSharp_BODY</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_CSharp_DO_WHILE</SIGNATURE>
+                <SIGNATURE>NODE_CSharp_WHILE</SIGNATURE>
+                <SIGNATURE>NODE_CSharp_FOR</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="_IS_"  />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </PROPERTY>
+        
+		<!-- Instanceof in VB.NET loops -->
+	    <!-- the syntax is : If TypeOf anObject Is aType Then ... -->
+        <PROPERTY NAME="INSTOFINSIDELOOPS_VB" type="pattern">
+          <BOOKMARK>YES</BOOKMARK>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_VbNet_FUNCTION</SIGNATURE>
+              <SIGNATURE>NODE_VbNet_SUB</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_VbNet_FOR</SIGNATURE>
+                <SIGNATURE>NODE_VbNet_DO_WHILE_UNTIL</SIGNATURE>
+                <SIGNATURE>NODE_VbNet_WHILE</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="_TYPEOF_"  />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </PROPERTY>
+
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+          <MATCH>INSTOFINSIDELOOPS_VB</MATCH>
+          <MATCH>INSTOFINSIDELOOPS_CSHARP</MATCH>
+	      <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+	      <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+	      <RESULT_COUNT>VALUE</RESULT_COUNT> 
+	    </ADD_ACTION>
+	
+	    <ADD_ACTION NAME="PERSISTENCE">
+	      <SAVE>VALUE</SAVE>
+	      <NAME>Avoid the use of is inside loops</NAME>				
+	    </ADD_ACTION>
+
+      </CATEGORY>
+
+
+	    <CATEGORY NAME="INSTANCE_OF_JAVA_CAT">
+        <PROPERTY NAME="VALUE" type="integer" />
+        
+        <!-- Java's instanceof -->
+        <PROPERTY NAME="INSTANCE_OF_JAVA_PATT" type="pattern">
+          <TREE>
+	          <OR>
+	            <SIGNATURE>NODE_J11_ClassInitializer</SIGNATURE>
+		          <SIGNATURE>NODE_J11_ClassInitializerASSEXP_EQ</SIGNATURE>
+		          <SIGNATURE>NODE_J11_MethodBody</SIGNATURE>						
+		          <SIGNATURE>NODE_J11_ConstructorBody</SIGNATURE>						
+	          </OR>
+		          <SUB_TREE_OR>
+		            <SIGNATURE NAME="NODE_J11_Expression" SUB_NAME="RELEXP_INSTANCE_OF" />
+		          </SUB_TREE_OR>
+	        </TREE>
+        </PROPERTY>
+
+	
+        <ADD_ACTION NAME="MATCH IN TREE ELEMENT">				
+          <MATCH>INSTANCE_OF_JAVA_PATT</MATCH>
+          <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN> 
+	        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE> 
+	        <RESULT_COUNT>VALUE</RESULT_COUNT> 
+	      </ADD_ACTION>
+	
+	      <ADD_ACTION NAME="PERSISTENCE">
+	        <SAVE>VALUE</SAVE>
+	        <NAME>Use of InstanceOf</NAME>				
+	      </ADD_ACTION>
+      </CATEGORY>        
+
+
+    </CATEGORY_LIST>
+
+</METRIC>
+
+
+
+
+

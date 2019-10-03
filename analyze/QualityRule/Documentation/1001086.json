@@ -1,0 +1,52 @@
+{
+    "id": 1001086,
+    "name": "Avoid programs with SQL queries using old style join convention instead of ANSI-Standard joins",
+    "href": "AIP/quality-rules/1001086",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all the PL1 Main Procedure having for each SQL SELECT statement, the number of tables enumerated after the FROM clause (A) and  the number of times the word JOIN is present after the FROM clause (B). If  B not = A-1 then the procedure is listed as a violation.",
+    "output": "The report lists all the PL1 Main Procedure having for each SQL SELECT statement, the number of tables enumerated after the FROM clause (A) and  the number of times the word JOIN is present after the FROM clause (B). If  B not = A-1 then the procedure is listed as a violation. \n\nIt provides following information: \n-  PL1 Main Procedure full name",
+    "rationale": "For a readability reason join and  predicates for selection must be encoded separately",
+    "remediation": "Encode separately join and selection predicates",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid programs with SQL queries using old style join convention instead of ANSI-Standard joins",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61006,
+            "name": "Documentation - Style Conformity",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

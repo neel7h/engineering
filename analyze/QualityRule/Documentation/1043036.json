@@ -1,0 +1,88 @@
+{
+    "id": 1043036,
+    "name": "Avoid Impersonate Globally",
+    "href": "AIP/quality-rules/1043036",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "\n    When using impersonation, ASP.NET applications can execute with the Windows identity (user account) of the user making the request. Impersonation is commonly used in applications that rely on Microsoft Internet Information Services (IIS) to authenticate the user.\n\nASP.NET impersonation is disabled by default. If impersonation is enabled for an ASP.NET application, that application runs in the context of the identity whose access token IIS passes to ASP.NET. That token can be either an authenticated user token, such as a token for a logged-in Windows user, or the token that IIS provides for anonymous users (typically, the IUSR_MACHINENAME identity).\n\nUsing the Impersonate method of the WindowsIdentity class, it is possible to use impersonation in a very controlled scope. This is in contrast to using the Impersonation property of the OperationBehaviorAttribute, which allows impersonation for the scope of the entire operation. Whenever possible, control the scope of impersonation by using the more precise Impersonate method.\n    ",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in config file",
+    "rationale": "The technical impact is attackers acting as users or administrators, or users using privileged functions, or creating, accessing, updating or deleting every record.\nThe business impact depends on the protection needs of the application and data.",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control\nhttps://docs.microsoft.com/en-us/previous-versions/aspnet/xh507fc5(v=vs.100)",
+    "remediation": "review the source code and reduce",
+    "remediationSample": "<configuration>\n  <system.web>\n    <identity impersonate=\"false\"/>\n  </system.web>\n</configuration>",
+    "sample": "<configuration>\n  <system.web>\n    <identity impersonate=\"true\"/>\n  </system.web>\n</configuration>",
+    "total": "Number of config files",
+    "alternativeName": "Avoid Impersonate Globally",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-520",
+            "name": ".NET Misconfiguration: Use of Impersonation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

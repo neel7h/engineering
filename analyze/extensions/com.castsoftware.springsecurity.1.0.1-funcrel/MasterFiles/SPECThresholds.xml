@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="1040002" type="quality-rule" originalName="Spring Security CSRF Protection must not be disabled" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040004" type="quality-rule" originalName="Ensure that any application request is authenticated with HTTP basic" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040006" type="quality-rule" originalName="Ensure that Content-Security-Policy is set for Spring Application" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040008" type="quality-rule" originalName="Ensure that login form is declared after requesting authorization and authentication" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040010" type="quality-rule" originalName="Cookies must be deleted during the logout" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040012" type="quality-rule" originalName="Ensure that HTTP Session is invalidated during logout" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040014" type="quality-rule" originalName="Avoid using Spring Security's debug mode" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040016" type="quality-rule" originalName="PermitAll or user role should be specified to access URL(s) of the application" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040018" type="quality-rule" originalName="X-Frame-Option should be correctly set to avoid Clickjacking attack" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040020" type="quality-rule" originalName="Ensure to enable Spring Boot Actuator Endpoint" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040022" type="quality-rule" originalName="Ensure to enable Spring Boot Admin MBean" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040024" type="quality-rule" originalName="Ensure Spring Boot Shutdown Actuator Endpoint is disabled" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040026" type="quality-rule" originalName="RequestMapping methods should specify HTTP method" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040028" type="quality-rule" originalName="Never Enable Spring Boot Devtools in Production." thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+  <metric id="1040030" type="quality-rule" originalName="Avoid Using Generic Authentication Exception Class" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040032" type="quality-rule" originalName="Avoid Using ControllerAdvice And HandlerExceptionResolver Simultaneously" thresholdToGet1="50.0" thresholdToGet2="90.0" thresholdToGet3="95.0" thresholdToGet4="99.0" />
+  <metric id="1040034" type="quality-rule" originalName="StrictHttpFirewall should be set as the HttpFirewall" thresholdToGet1="98.0" thresholdToGet2="99.0" thresholdToGet3="99.5" thresholdToGet4="99.99" />
+</root>

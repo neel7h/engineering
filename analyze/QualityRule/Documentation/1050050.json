@@ -1,0 +1,96 @@
+{
+    "id": 1050050,
+    "name": "Avoid using cryptography hash without salt (Objective-C)",
+    "href": "AIP/quality-rules/1050050",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When using some cryptography function, an empty salt could compromise system security in a way that cannot be easily remedied.",
+    "output": "This report lists all uses of CCKeyDerivationPBKDF, CCCalibratePBKDF function call\nAssociated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "This makes it easier for attackers to pre-compute the hash value using dictionary attack techniques such as rainbow tables. It should be noted that, despite common perceptions, the use of a good salt with a hash does not sufficiently increase the effort for an attacker who is targeting an individual password, or who has a large amount of computing resources available, such as with cloud-based services or specialized, inexpensive hardware. Offline password cracking can still be effective if the hash function is not expensive to compute; many cryptographic functions are designed to be efficient and can be vulnerable to attacks using massive computing resources, even if the hash is cryptographically strong. The use of a salt only slightly increases the computing requirements for an attacker compared to other strategies such as adaptive hash functions.",
+    "reference": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M5-Insufficient_Cryptography\nhttps://cwe.mitre.org/data/definitions/759",
+    "remediation": "Better to use the values are:\n\n- kCCKeySizeAES128 which is 128 bit AES key size.\n- kCCKeySizeAES192 which is 192 bit AES key size.\n- kCCKeySizeAES256 which is 256 bit AES key size.",
+    "remediationSample": "CCKeyDerivationPBKDF(kCCPBKDF2,\n                     password,\n                     passwordLen,\n                     \"NeedsASaltHere\",\n                     14,\n                     kCCPRFHmacAlgSHA256,\n                     100000,\n                     derivedKey,\n                     derivedKeyLen);",
+    "sample": "CCKeyDerivationPBKDF(kCCPBKDF2,\n                     password,\n                     passwordLen,\n                     \"\",\n                     0,\n                     kCCPRFHmacAlgSHA256,\n                     100000,\n                     derivedKey,\n                     derivedKeyLen);",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure you use values like kCCKeySizeAES128, kCCKeySizeAES192, kCCKeySizeAES256 as key size.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-327",
+            "name": "Broken or Risky Cryptographic Algorithm Usage",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-327",
+            "name": "Use of a Broken or Risky Cryptographic Algorithm",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SC-12",
+            "name": "Cryptographic Key Establishment and Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M5-2016",
+            "name": "Insufficient Cryptography",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-4.1",
+            "name": "Use strong cryptography and security protocols",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70245",
+            "name": "The application must protect the confidentiality and integrity of transmitted information.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

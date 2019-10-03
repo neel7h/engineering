@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.jaxrs</id>
+    <version>1.4.0-funcrel</version>
+    <title>JAX-RS Annotations</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://doc.castsoftware.com/display/TECHNOS/JAX-RS+-+1.4</projectUrl>
+    <iconUrl>https://extend.castsoftware.com/resources/com.castsoftware.jaxrs.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension provides support for the annotations introduced with JAX-RS (JSR 311). The analysis of your JEE/Spring application by the default AIP analyzer will be enriched with modelling of the REST API created with those annotations. This will enable transactions starting in a client application which uses these API (web app for instance) to be traced into the backend application.</description>
+    <releaseNotes>https://doc.castsoftware.com/display/TECHNOS/JAX-RS+-1.4+-+Release+Notes</releaseNotes>
+    <tags>JEE JAX-RS JSR311 REST HTTP API CAIP7.3 CAIP8.0 CAIP8.1 CAIP8.2 CAIP8.3</tags>
+    <dependencies>
+      <dependency id="CAIP" version="7.3.4" />
+      <dependency id="com.castsoftware.wbslinker" version="1.3.0-funcrel" />
+      <dependency id="com.castsoftware.internal.platform" version="0.2.0-funcrel" />
+    </dependencies>
+  </metadata>
+</package>

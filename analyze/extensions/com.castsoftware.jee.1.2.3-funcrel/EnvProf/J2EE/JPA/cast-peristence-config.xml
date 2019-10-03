@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================================================== -->
+<!-- ==================================       cast-persistence-congfig.xml      ============================= -->
+<!-- ==================================  based on version 1.0 of JPA persistence configuration file   ======= -->
+<!-- ================================== Applies to	peristence.xml file 	  =============================== -->
+<!-- ================================== since version 6.1 of CAST products    =============================== -->
+<!-- ======================================================================================================== -->
+<xml-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xsi:noNamespaceSchemaLocation=".\schemas\cast-config.xsd">
+
+	<config-file-node xpath ="/persistence"  content-type = "jpa-pers-configuration" location=".">
+
+		<!-- ======================================================================================================== -->
+		<!-- ========================================== OBJECTS AND LINKS TO CREATE ================================= -->
+		<!-- ======================================================================================================== -->
+	
+		<object-node xpath="/persistence/persistence-unit" id="PersUnitConfig" name="./@name" type="jpa-persistence-unit">
+	
+			<object-attribute xpath="." 					select="./provider/@name" 			name="provider"		/>
+			<object-attribute xpath="." 					select="./description"    			name="Comment" 		/>
+			<object-attribute xpath="./properties/property"	select="./@value" 					name-src="./@name" 	/>
+			<object-attribute xpath="." 					select="./exclude-unlisted-classes" name="exclude-unlisted-classes" />
+	
+			<!--Link toward mapping files-->
+			<link-node xpath="." called-object="./mapping-file"	resolve-as="path" verbose="true" />
+		</object-node>
+		
+	</config-file-node>
+</xml-config>

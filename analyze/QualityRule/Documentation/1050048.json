@@ -1,0 +1,61 @@
+{
+    "id": 1050048,
+    "name": "Avoid creating file without protection (Objective-C)",
+    "href": "AIP/quality-rules/1050048",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When using NSFileManage createFileAtPath, you must provide file protection option.",
+    "output": "This report lists all uses of NSFileManager createFileAtPath function with NSURLFileProtectionType option.\nAssociated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Insecure data storage vulnerabilities occur when development teams assume that users or malware will not have access to a mobile device's filesystem and subsequent sensitive information in data-stores on the device. \nIf the program does not ensure that the user is only requesting private files, then the user might be able to access other files on the system.",
+    "reference": "https://www.owasp.org/index.php/Mobile_Top_10_2016-M2-Insecure_Data_Storage",
+    "remediation": "Instead of using NSFileProtectionNone or NSURLFileProtectionNone options, please use one of the following option:\n\n- NSFileProtectionComplete\n- NSFileProtectionCompleteUnlessOpen\n- NSFileProtectionCompleteUntilFirstUserAuthentication\n\n- NSURLFileProtectionComplete\n- NSURLFileProtectionCompleteUnlessOpen\n- NSURLFileProtectionCompleteUntilFirstUserAuthentication",
+    "remediationSample": "[[NSFileManager defaultManager] createFileAtPath:PATH contents:someData attributes:@{NSFileProtectionKey:NSFileProtectionComplete}];\n\n[[NSFileManager defaultManager] createFileAtPath:PATH contents:someData attributes:@{NSURLFileProtectionKey:NSURLFileProtectionComplete}];",
+    "sample": "[[NSFileManager defaultManager] createFileAtPath:PATH contents:someData attributes:@{NSFileProtectionKey:NSFileProtectionNone}];\n\n[[NSFileManager defaultManager] createFileAtPath:PATH contents:someData attributes:@{NSURLFileProtectionKey:NSURLFileProtectionNone}];",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure, when using NSFileManage createFileAtPath, you provide file protection option.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "OWASP",
+            "id": "M2-2016",
+            "name": "Insecure Data Storage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

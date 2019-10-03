@@ -1,0 +1,63 @@
+{
+    "id": 1001170,
+    "name": "Avoid Main Procedures having LEAVE statement (PL1)",
+    "href": "AIP/quality-rules/1001170",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for PL1 Main Procedures having LEAVE statements.",
+    "output": "The report lists all the  PL1 Main Procedures having LEAVE statements.\n\nIt provides following information: \n-   PL1 Main Procedures full name",
+    "rationale": "Using the LEAVE statement results in the production of unstructureness coding.",
+    "remediation": "The logic flow of the program is to be upgraded and LEAVE statement must be eliminated.",
+    "sample": "TEST_LEAVE:\nDO LOOP;\nIF TEST2='CAST'\nTHEN LEAVE TEST_LEAVE:\nTEST_END:\nEND;\nTEST_LEAVE:",
+    "total": "Number of  PL1 Main Procedures.",
+    "alternativeName": "Avoid Main Procedures having LEAVE statement (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

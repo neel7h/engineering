@@ -1,0 +1,65 @@
+{
+    "id": 1020306,
+    "name": "Always use find for Id->Child nested selectors",
+    "href": "AIP/quality-rules/1020306",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Use find for Id->Child nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure that using jQuery selector request do not lead to a performance issue.",
+    "remediationSample": "var $productIds = $(\"#products\").find(\"div.id\"); // FAST",
+    "sample": "var $productIds = $(\"#products div.id\"); // SLOW",
+    "total": "Number of JQuery artifacts (Javascript source code containing JQuery)",
+    "alternativeName": "Always use find for Id->Child nested selectors",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

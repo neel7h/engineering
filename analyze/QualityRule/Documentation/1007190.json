@@ -1,0 +1,64 @@
+{
+    "id": 1007190,
+    "name": "Avoid using relative path for including files (PHP)",
+    "href": "AIP/quality-rules/1007190",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches artifacts that include files using relative paths. The artifacts considered are PHP Section, function, method and constructor.",
+    "output": "This report lists all artifacts containing that use relative paths to include files. It provides:\n- Artifact full name",
+    "rationale": "The mechanism for relative path inclusion will search for default include paths, then continue with current directory then so on. So file search in that case may take more time. It is recommended to use fully qualified path that are based on configuration of application.",
+    "remediation": "Use fully qualified path that is based on configuration of application.",
+    "remediationSample": "<?php\n\ninclude $APPROOT.\"../A.php\"; //violation removed\n?>",
+    "sample": "<?php\n\ninclude \"../A.php\"; //violation\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid using relative path for including files (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

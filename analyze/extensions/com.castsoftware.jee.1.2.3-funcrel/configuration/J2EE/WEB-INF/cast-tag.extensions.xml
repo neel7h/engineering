@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taglibs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./cast-tag-extensions.xsd">
+	<!-- Note: Make sure the value of the taglibs/taglib/@uri attribute matches the value of the taglib/uri element 
+		in your tld files.
+	-->
+	<!-- JSTL Tags -->
+	<!-- Core -->
+	<taglib uri="http://java.sun.com/jstl/core"
+		uri1="http://java.sun.com/jstl/core_rt"
+		uri2="http://java.sun.com/jsp/jstl/core">
+		<tag name="forEach">
+			<create nameSrc="var" kind="bean" scope="page" />
+			<create nameSrc="varStatus" kind="bean" scope="page"
+				type="javax.servlet.jsp.jstl.core.LoopTagStatus">
+				<create nameSrc="begin" kind="bean.property" />
+				<create nameSrc="end" kind="bean.property" />
+				<create nameSrc="step" kind="bean.property" />
+			</create>
+		</tag>
+
+		<tag name="forTokens">
+			<create nameSrc="var" kind="bean" scope="page"
+				type="java.lang.String" />
+			<create nameSrc="varStatus" kind="bean" scope="page"
+				type="javax.servlet.jsp.jstl.core.LoopTagStatus">
+				<create nameSrc="begin" kind="bean.property" />
+				<create nameSrc="end" kind="bean.property" />
+				<create nameSrc="step" kind="bean.property" />
+			</create>
+		</tag>
+
+		<tag name="if">
+			<search kind="bean" nameSrc="var" scopeSrc="scope" />
+		</tag>
+
+		<tag name="import">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<create nameSrc="varReader" kind="bean" scopeSrc="scope"
+				type="java.io.Reader" />
+			<attribute name="url" resolveValueAs="url" />
+		</tag>
+
+		<tag name="redirect">
+			<attribute name="url" resolveValueAs="url" />
+		</tag>
+
+		<tag name="remove">
+			<attribute name="var" resolveValueAs="bean"
+				resolutionScopeSrc="scope" />
+		</tag>
+
+		<tag name="set">
+			<create nameSrc="var" kind="bean" scopeSrc="scope">
+				<create nameSrc="property" kind="bean.property" />
+			</create>
+
+			<search kind="bean" nameSrc="target" scopeSrc="scope">
+				<create kind="bean.property" nameSrc="property" />
+			</search>
+
+		</tag>
+
+		<tag name="url">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<attribute name="value" resolveValueAs="URL" />
+			<attribute name="url" resolveValueAs="url" />
+		</tag>
+
+	</taglib>
+
+	<!-- Format -->
+	<taglib uri="http://java.sun.com/jstl/fmt"
+		uri1="http://java.sun.com/jstl/fmt_rt"
+		uri2="http://java.sun.com/jsp/jstl/fmt">
+		<tag name="setBundle">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="javax.servlet.jsp.jstl.fmt.LocalizationContext" />
+		</tag>
+		<tag name="message">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<search kind="bean" nameSrc="bundle" />
+			<attribute name="key" resolveValueAs="property-mapping"
+				resolutionScopeSrc="bundle" />
+		</tag>
+		<tag name="setTimeZone">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.util.TimeZone" />
+		</tag>
+		<tag name="parseDate">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.util.Date" />
+		</tag>
+		<tag name="formatDate">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+		</tag>
+		<tag name="parseNumber">
+			<create nameSrc="var" kind="bean" scopeSrc="scope" />
+		</tag>
+		<tag name="formatNumber">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+		</tag>
+	</taglib>
+
+	<!-- SQL -->
+	<taglib uri="http://java.sun.com/jstl/sql"
+		uri1="http://java.sun.com/jstl/sql_rt"
+		uri2="http://java.sun.com/jsp/jstl/sql">
+		<tag name="setDataSource">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.sql.DataSource" />
+		</tag>
+
+		<tag name="query">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="javax.servlet.jsp.jstl.sql.Result" />
+			<attribute name="sql" resolveValueAs="server-object" />
+		</tag>
+
+		<tag name="update">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.Integer" />
+			<attribute name="sql" resolveValueAs="server-object" />
+		</tag>
+	</taglib>
+
+	<!-- XML -->
+	<taglib uri="http://java.sun.com/jstl/xml"
+		uri1="http://java.sun.com/jstl/xml_rt"
+		uri2="http://java.sun.com/jsp/jstl/xml">
+		<tag name="parse">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<create nameSrc="varDom" kind="bean" scopeSrc="scopeDom"
+				type="org.w3c.dom.Document" />
+			<attribute name="xml" resolveValueAs="path" />
+			<attribute name="doc" resolveValueAs="path" />
+		</tag>
+
+		<tag name="set">
+			<create nameSrc="var" kind="bean" scopeSrc="scope" />
+		</tag>
+		<tag name="if">
+			<create nameSrc="var" kind="bean" scopeSrc="scope" />
+		</tag>
+		<tag name="transform">
+			<create nameSrc="var" kind="bean" scopeSrc="scope"
+				type="java.lang.String" />
+			<attribute name="xml" resolveValueAs="path" />
+			<attribute name="doc" resolveValueAs="path" />
+		</tag>
+	</taglib>
+ 
+</taglibs>

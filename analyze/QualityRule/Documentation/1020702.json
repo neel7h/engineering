@@ -1,0 +1,86 @@
+{
+    "id": 1020702,
+    "name": "Avoid using process.exit() without defining exitCode",
+    "href": "AIP/quality-rules/1020702",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The process.exit() method in Node.js is used to immediately stop the Node.js process and exit. This is a dangerous operation because it can occur in any method at any point in time, potentially stopping a Node.js application completely when an error occurs.\n\nThe reason this is problematic is because writes to process.stdout in Node.js are non-blocking and may occur over multiple ticks of the Node.js event loop. Calling process.exit(), however, forces the process to exit before those additional writes to stdout can be performed.\n\nRather than calling process.exit() directly, the code should set the process.exitCode and allow the process to exit naturally by avoiding scheduling any additional work for the event loop",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Ensure that some critical method are properly implemented. The misuse of system methods could lead to production issues and will have a huge impact on the application reliability.",
+    "reference": "CISQ OMG \nhttp://eslint.org/docs/rules/no-process-exit",
+    "remediation": "Check that process.exit() is not used",
+    "remediationSample": "if (somethingBadHappened) { \n    console.error(\"Something bad happened!\"); \n    process.exitCode = 1;\n    process.exit(); \n}",
+    "sample": "if (somethingBadHappened) { \n    console.error(\"Something bad happened!\"); \n    process.exit(1); \n}",
+    "total": "Number of NodeJS artifacts (javascript functions inside NodeJS files)",
+    "alternativeName": "Avoid using process.exit() without defining exitCode",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-393",
+            "name": "Return of Wrong Status Code",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

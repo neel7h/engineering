@@ -1,0 +1,72 @@
+{
+    "id": 1003162,
+    "name": "Avoid dynamic class (Flex)",
+    "href": "AIP/quality-rules/1003162",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports classes that are dynamic.",
+    "output": "This QR reports classes that are dynamic. It gives following information:\n- Class full name",
+    "rationale": "When using dynamic classes, you cannot control how the developer will use your class. It makes refactoring very difficult.",
+    "remediation": "Use non-dynamic class.",
+    "remediationSample": "public class DynamicObject // VIOLATION\n{\n}",
+    "sample": "dynamic public class DynamicObject // VIOLATION\n{\n}",
+    "total": "Number of classes",
+    "alternativeName": "Avoid dynamic class (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.DynamicClass"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

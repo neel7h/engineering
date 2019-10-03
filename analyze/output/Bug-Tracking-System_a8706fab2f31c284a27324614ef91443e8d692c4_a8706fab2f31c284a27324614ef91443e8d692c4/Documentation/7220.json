@@ -1,0 +1,63 @@
+{
+    "id": 7220,
+    "name": "Avoid Unused Imports",
+    "href": "AIP/quality-rules/7220",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Measures the amount of unused and unnecessary Java imports compared to all Java imports.",
+    "output": "This report lists Files having unused imports.\nIt provides the following information:\n File full name",
+    "rationale": "Leaving unused and unnecessary is detrimental to code readability.\nIt is also an issue for modularity and component reuse.",
+    "remediation": "Remove unused and unnecessary Java imports.\nThis remediation is now automated in the major Java development environments.",
+    "total": "Number of Java files and Web files",
+    "alternativeName": "Ensure to remove unused and unnecessary Java imports",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "id": 1101034,
+    "name": "DISTINCT should not be used in SQL SELECT statements",
+    "href": "AIP/quality-rules/1101034",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all Artifacts having \"DISTINCT\", \"DISTINCTROW\", \"UNIQUE\" modifiers in SQL \"SELECT\" statements",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Identify \"DISTINCT\", \"DISTINCTROW\", \"UNIQUE\" modifiers in SQL \"SELECT\" statements:\n- is frequently a \"code smell\"\n- it indicates that something is not quite right because using the DISTINCT keyword means that redundant data is being pulled from the database and then discarded\n- applicable for all sql, including embedded sql",
+    "remediation": "Check the statement and if so, rearrange the \"WHERE\" or the \"FROM\" clause in the SQL \"SELECT\" statement to only get the rows you need.",
+    "remediationSample": "Add an uncorrelated subquery:\nSELECT u.user_id, u.user_name, u.realname, u.email, u.confirm_hash\nFROM users u \nWHERE u.status = 'A' \n AND u.user_id \n IN (\n  SELECT ug.user_id \n  FROM user_group ug, groups g \n  WHERE ug.admin_flags='A' \n   AND g.status = 'A' \n   AND g.group_id = ug.group_id\n  )\nORDER BY u.user_id;",
+    "sample": "The following SQL \"SELECT\" statement should be reviewed:\nSELECT DISTINCT u.user_id, u.user_name, u.realname, u.email, u.confirm_hash \nFROM users u, user_group ug, groups g \nWHERE u.status='A' \n AND u.user_id=ug.user_id \n AND ug.admin_flags='A' \n AND g.status='A' \n AND g.group_id=ug.group_id \nORDER BY u.user_id;",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "DISTINCT should not be used in SQL SELECT statements",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

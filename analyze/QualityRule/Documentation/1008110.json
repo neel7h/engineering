@@ -1,0 +1,70 @@
+{
+    "id": 1008110,
+    "name": "Avoid Programs with more than X Subroutines  (RPG400)",
+    "href": "AIP/quality-rules/1008110",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches all the programs having more than X subroutines.\nX is a parameter and can be changed at will.",
+    "output": "This report lists RPG400 programs with more than X Subroutines. X is parameter value.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Maintainability of the code is facilitated if there the programs are not having too much data structures.",
+    "remediation": "Review the source code in order to have programs with less than X Subroutines.",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid Programs with more than X Subroutines  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max LOC",
+            "description": "Max LOC",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        30.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

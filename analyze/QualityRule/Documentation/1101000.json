@@ -1,0 +1,60 @@
+{
+    "id": 1101000,
+    "name": "Never use SQL queries with a cartesian product (SQL)",
+    "href": "AIP/quality-rules/1101000",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "List all SQL Artifacts which contain a query that has a cartesian join, i.e; that does not explicitly state a join condition among the tables\nA cartesian join is found if, for any of the table in the from clause, no column of the table is found in a join (either in the from or where clause).",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Cartesian joins which lead to cartesian products is an absolute performance killer, especially when large data sets are involved.  A cartesian join is a multiple-table query that does not explicitly state a join condition among the tables, it creates a Cartesian product. A Cartesian product consists of every possible combination of rows from the tables. This result set is usually extremely large and unwieldy, killing application performance.\nIn addition, most of the time, this is also a functional bug.",
+    "remediation": "Check the statement and if so, add a join clause  between the tables.",
+    "remediationSample": "Select * from table1 T1 inner join table2 T2 on (T1.C = T2.C)\n\nexample of non cartesian product:\nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id AND\n t.title_id = r.title_id\n--> 87 rows",
+    "sample": "Select * from table1, table2\n\nSelect count(*) from publishers\n->3 rows\nSelect count(*) from roysched\n->87 rows\nSelect count(*) from Titles\n-> 18 rows\n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r\n--> 4698 rows( 87 x 18 x 3)\n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id\n--> 1566 rows ( 87 x 18)\n \nSelect p.pub_name, p.city, t.title, r.royalty\nFrom\n publishers p,\n titles t,\n roysched r \nWhere\n p.pub_id = t.pub_id AND\n r.royalty = 14 \n--> 252 rows",
+    "total": "Number of Artifacts with SQL code.",
+    "alternativeName": "Never use SQL queries with a cartesian product (SQL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 0,
+            "name": "ALL TECHNOLOGIES",
+            "href": "AIP/technologies/0"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

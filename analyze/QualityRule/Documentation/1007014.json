@@ -1,0 +1,59 @@
+{
+    "id": 1007014,
+    "name": "Avoid direct definition of JavaScript Functions in a Web page (PHP)",
+    "href": "AIP/quality-rules/1007014",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for JavaScript Functions having direct definition in a web page.",
+    "output": "This report lists all JavaScript Functions having direct definition in a web page.\n\nThis QR provides the following information:\nJavaScript Function full name.",
+    "rationale": "For security reasons, the direct definition of Javascript functions in a web page is not recommended.",
+    "remediation": "Modify the source code to reduce the number of web pages having direct defination of Javascript Functions.",
+    "remediationSample": "<?php\n $a = 1;\n if ($a=1){\n?>\n<script type =\"text/javascript\" src=\"javascript.js\"> </script>    //VIOLATION REMOVED\n<?php\n}\n?>",
+    "sample": "<?php\n $a = 1;\n if ($a=1){\n?>\n<script>\nfunction f(){ alert('f() called'); }        //VIOLATION \n</script>\n<?php\n}\n?>",
+    "total": "Number of JavaScript Functions",
+    "alternativeName": "Avoid direct definition of JavaScript Functions in a Web page (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66009,
+            "name": "Architecture - Reuse",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

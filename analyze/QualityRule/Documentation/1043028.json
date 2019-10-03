@@ -1,0 +1,60 @@
+{
+    "id": 1043028,
+    "name": "Avoid disabling EnableViewStateMac in ASPX page",
+    "href": "AIP/quality-rules/1043028",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule will check if the enableViewStateMac option is set to false in the ASPX pages.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in aspx page",
+    "rationale": "This attribute should never be set to false in a production Web site, even if the application or page does not use view state. The view state MAC helps ensure the security of other ASP.NET functions in addition to view state.",
+    "reference": "https://docs.microsoft.com/dotnet/api/system.web.ui.page.enableviewstatemac?view=netframework-4.7.2\nhttps://devblogs.microsoft.com/aspnet/farewell-enableviewstatemac/",
+    "remediation": "Do not set enableViewStateMac to false",
+    "remediationSample": "<%@ Page enableViewStateMac =\"true\" %>\n\nand/or\n\n<pages enableViewStateMac =\"true\"/>",
+    "sample": "<%@ Page enableViewStateMac=\"false\" %>\n\nand/or\n\n<pages enableViewStateMac =\"false\"/>",
+    "total": "Number of aspx pages",
+    "alternativeName": "Avoid disabling EnableViewStateMac in ASPX page",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

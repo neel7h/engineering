@@ -1,0 +1,95 @@
+{
+    "id": 1043050,
+    "name": "Avoid having long timeout for HttpCookie (> 5 mn)",
+    "href": "AIP/quality-rules/1043050",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule checks for the Session Time value 5 min in the ASP.Net MVC.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Enables to attacker to comprise the user accounts if the session time is set to more than required (5mn).",
+    "reference": "https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication\nhttps://cwe.mitre.org/data/definitions/613.html\n\nOWASP Top 10 2004 -A10-Insecure Configuration Management\nOWASP Top 10 2007 -A7-Broken Authentication and Session Management\nOWASP Top 10 2010 -A6-Security Misconfiguration\nOWASP Top 10 2013 -A2-Broken Authentication and Session Management",
+    "remediation": "Set the time out to less than 5 min or less.",
+    "remediationSample": "<configuration>\n  <system.web>\n  <authentication>\n    <forms\n      timeout=\"5\" />\n  </authentication>\n  </system.web>\n</configuration>",
+    "sample": "<configuration>\n  <system.web>\n  <authentication>\n    <forms\n      timeout=\"60\" />\n  </authentication>\n  </system.web>\n</configuration>",
+    "total": "Number of config files",
+    "alternativeName": "Avoid having long timeout for HttpCookie (> 5 mn)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138636,
+            "name": "ASP.NET",
+            "href": "AIP/technologies/138636"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

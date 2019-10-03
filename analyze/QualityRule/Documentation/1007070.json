@@ -1,0 +1,67 @@
+{
+    "id": 1007070,
+    "name": "Avoid method and functions without comments denoting scope end (PHP)",
+    "href": "AIP/quality-rules/1007070",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all Methods and Functions that do not end with comments i.e. without an //end <function or method name>() For-example, //end anyFunction().",
+    "output": "This report lists all Methods and Functions that do not end with comments.\n\nThis QR provides the following information:\nMethod or Function full name.",
+    "rationale": "Methods and functions should end with comments denoting end of scope. This increases readability.",
+    "remediation": "Review the comments for all methods and functions in the source code and ensure they are always terminated correctly.",
+    "remediationSample": "<?php\nfunction test_function()\n{\n  echo \"this is test\",PHP_EOL;\n}//end test_function()\n\nclass Test\n{\n public function testMethod()\n {\n   echo \"this is test\",PHP_EOL;\n }//end testMethod()\n}\n?>",
+    "sample": "<?php\nfunction test_function()\n{\n  echo \"this is test\",PHP_EOL;\n}\n\nclass Test\n{\n public function testMethod()\n {\n   echo \"this is test\",PHP_EOL;\n }\n}\n?>",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid method and functions without comments denoting scope end (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61007,
+            "name": "Documentation - Bad Comments",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "ClosingDeclarationComment"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        70.0,
+        90.0,
+        100.0
+    ]
+}

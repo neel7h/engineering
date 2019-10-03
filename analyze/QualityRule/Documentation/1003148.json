@@ -1,0 +1,72 @@
+{
+    "id": 1003148,
+    "name": "Avoid clone method not overridden in a custom event (Flex)",
+    "href": "AIP/quality-rules/1003148",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "no-value",
+    "description": "This QR reports custom events that does not have clone method overridden.",
+    "output": "This QR reports custom events that does not have clone method overridden. It provides following information:\n\n- Flex Class Full name",
+    "rationale": "When creating your own custom Event class, you must override the inherited Event.clone() method in order for it to duplicate the properties of your custom class. If you do not set all the properties that you add in your event subclass, those properties will not have the correct values when the event is cloned. This is important because the Flex SDK clones events whenever redispatching takes place.",
+    "remediation": "Always override clone() method in custom event class.",
+    "sample": "public class FirstCustomEvent   // VIOLATION - clone method is missing\n{\n   public var lala : String;\n   \n   public function FirstCustomEvent()\n   {         \n   }\n}",
+    "total": "Number of classes",
+    "alternativeName": "Avoid clone method not overridden in a custom event (Flex)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.event.EventMissingCloneFunction"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

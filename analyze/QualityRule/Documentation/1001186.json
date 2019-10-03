@@ -1,0 +1,71 @@
+{
+    "id": 1001186,
+    "name": "Avoid PLC Copybook with more than XX lines of code (PL1)",
+    "href": "AIP/quality-rules/1001186",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for artifacts with more than X Lines of Code.\nThe threshold is a parameter and can be changed at will. The default value for maximum LoC is 4000.",
+    "output": "The report lists all the PLC Copybook having more than xx lines of code.\n\nIt provides following information: \n-  PLC Copybook full name",
+    "rationale": "Artifacts with more than XX lines of code are generally difficult to maintain.",
+    "remediation": "Split the PLC Copybooks in order to not have more than  XXX of code.",
+    "total": "Number of PLC CopyBooks",
+    "alternativeName": "Avoid PLC Copybook with more than XX lines of code (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61023,
+            "name": "Volume - Number of LOC",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1005000,
+            "name": "PLC",
+            "href": "AIP/technologies/1005000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-8",
+            "name": "Source Element Excessive Size",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "max Loc",
+            "description": "max Loc",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        4000
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

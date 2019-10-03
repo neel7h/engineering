@@ -1,0 +1,68 @@
+{
+    "id": 1006004,
+    "name": "Avoid unreferenced Programs  (Shell)",
+    "href": "AIP/quality-rules/1006004",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the unreferenced Shell Programs.",
+    "output": "The report lists all the  unreferenced Shell Programs\n\nIt provides following information: \n- Program full name",
+    "rationale": "Unreferenced code may be the symptom of Dead Code. Dead Code must be avoided as it makes source code less readable and increases the cost of the software maintenance.",
+    "remediation": "Try to reduce the number of unreferenced  Shell Programs.",
+    "total": "Number of  Shell Programs",
+    "alternativeName": "Avoid unreferenced Programs  (Shell)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61027,
+            "name": "Dead code (static)",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-20",
+            "name": "Unreachable Named Callable or Method Control Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

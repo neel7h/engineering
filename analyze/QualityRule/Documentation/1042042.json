@@ -1,0 +1,89 @@
+{
+    "id": 1042042,
+    "name": "Avoid using Rest Plugin with XStream handler to deserialise XML requests in Struts 2.1.2 - Struts 2.3.33, Struts 2.5 - Struts 2.5.12",
+    "href": "AIP/quality-rules/1042042",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check the use of XStream deserializing XML request and the Struts used by the application\nThe affected versions: \n\nApache Struts 2.1.2 and older \nApache Struts 2.3.33 and older \nApache Struts 2.5.12 and older",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "The REST Plugin is using a XStreamHandler with an instance of XStream for deserialization without any type filtering and this can lead to Remote Code Execution when deserializing XML payloads.\n\nComponents, such as libraries, frameworks, and other software modules, almost always run with full privileges. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications using components with known vulnerabilities may undermine application defenses and enable a range of possible attacks and impacts.",
+    "reference": "https://cwiki.apache.org/confluence/display/WW/S2-052\nhttps://nvd.nist.gov/vuln/detail/CVE-2017-9805\nhttps://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization\nhttps://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9805\nhttp://cwe.mitre.org/data/definitions/502.html",
+    "remediation": "Upgrade to Struts 2.5.13 or Struts 2.3.34.\n\nThe relevant method ( to be used) of the new version is:  createXStream(ActionInvocation invocation) method.",
+    "remediationSample": "Upgrade to Apache Struts version 2.5.13 or 2.3.34.\n\nhttps://cwiki.apache.org/confluence/display/WW/Version+Notes+2.3.34\nhttps://cwiki.apache.org/confluence/display/WW/Version+Notes+2.5.13\n\nRemediation sample code :\n\nstruts.xml\n------------------------------\n\n<bean type=\"org.apache.struts2.rest.handler.ContentTypeHandler\" name=\"xml\" class=\"org.apache.struts2.rest.handler.XStreamHandler\">\n\n.....\n\n<constant name=\"struts.action.extension\" value=\"xhtml,json\" />\n\nAction class:\n----------------------------\n\nimport org.apache.struts2.rest.handler.XStreamHandler;\n...\n\npublic class UserAction extends Action{\n\npublic ActionForward execute(ActionMapping mapping, ActionForm form,\n            HttpServletRequest request, HttpServletResponse response)\n            throws Exception {\n        \n       final XStreamHandler dataHandler = new XStreamHandler();\n   \n\n    // using this API will automatically secure the instance of XStream\n    XStream dataStream = dataHandler.createXStream(invocation)\n        \n        return mapping.findForward(\"success\");\n    }",
+    "sample": "Sample code :\n\nstruts.xml\n------------------------------\n<bean type=\"org.apache.struts2.rest.handler.ContentTypeHandler\" name=\"xml\" class=\"org.apache.struts2.rest.handler.XStreamHandler\">\n\n\n.....\n\n<constant name=\"struts.action.extension\" value=\"xhtml,xml,json\" />\n\nAction class:\n----------------------------\nimport org.apache.struts2.rest.handler.XStreamHandler\npublic class UserAction extends Action{\n\npublic ActionForward execute(ActionMapping mapping, ActionForm form,\n            HttpServletRequest request, HttpServletResponse response)\n            throws Exception {\n       final XStreamHandler dataHandler = new XStreamHandler();\n\n    XStream dataStream = dataHandler.createXStream()\n        return mapping.findForward(\"success\");\n    }",
+    "total": "Number of struts2 config XML file",
+    "alternativeName": "Using invoking dataHandler.createXStream method with type filtering to Remote Code Execution when deserializing XML payloads",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-502",
+            "name": "Deserialization of Untrusted Data",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A8-2017",
+            "name": "Insecure Deserialization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        98.0,
+        99.0,
+        99.5,
+        99.99
+    ]
+}

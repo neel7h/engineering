@@ -1,0 +1,66 @@
+{
+    "id": 1021070,
+    "name": "Avoid Superclass knowing Subclass (Python)",
+    "href": "AIP/quality-rules/1021070",
+    "critical": false,
+    "maxWeight": 9,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "A violation is raised when a Superclass directly knows about its Subclasses. This happens when a Superclass directly calls a Subclass-method, uses a Subclass-attribute or refers to the name of the Subclass.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Referencing down the inheritance tree is against Object-Oriented coding practices. It is a way of having two-way inheritance between class and subclass. This is an indication of poor class design and use of class inheritance. Such practices increase the complexity of the application.",
+    "reference": "CISQ ASCRM-RLB-14 recommendation.",
+    "remediation": "Review the design of the Class hierarchy.",
+    "sample": "class A: \n    def add_value(self, x): \n        if instance(x, B): \n            pass \n\nclass B(A): \n    pass",
+    "total": "Number of Python Classes",
+    "alternativeName": "Avoid Superclass knowing Subclass (Python)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-14",
+            "name": "Parent Class Element with References to Child Class Element",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "id": 1024030,
+    "name": "Avoid using FingerprintManager as biometric API",
+    "href": "AIP/quality-rules/1024030",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This class was deprecated in API level 28. instead, it's recommended to use BiometricPrompt which shows a system-provided dialog upon starting authentication. \nIn a world where devices may have different types of biometric authentication, it's much more realistic to have a system-provided authentication dialog since the method may vary by vendor/device.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Running an application which does not fail of/correctly use the platform capability is a mandatory step from development team. The defining characteristic of risks in this category of rules is that the platform (iOS, Android, Windows Phone, etc.) provides a feature or a capability that is documented and well understood.",
+    "reference": "https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager",
+    "remediation": "As of Android P (API 28) the FingerprintManager API was deprecated and Google suggests we should switch to BiometricPrompt API : https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt",
+    "sample": "FingerprintManager fingerprintManager = (FingerprintManager)\n        .getSystemService(Context.FINGERPRINT_SERVICE);\n\n-------------------------------\n\nif (initCipher()) {\ncancellationSignal = new CancellationSignal();\nfingerprintManager.authenticate(new FingerprintManager.CryptoObject(cipher),\n        cancellationSignal,\n        0,     // flags\n        this,  // authentication callback \n        null); // handler\n}",
+    "total": "Number of Android artifacts",
+    "alternativeName": "Prefer using BiometricPrompt API instead of FingerprintManager as the latter is deprecated",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66063,
+            "name": "Secure Coding - API Abuse",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-IA-9",
+            "name": "Service Identification and Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M4-2016",
+            "name": "Insecure Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.10",
+            "name": "Broken authentication and session management",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

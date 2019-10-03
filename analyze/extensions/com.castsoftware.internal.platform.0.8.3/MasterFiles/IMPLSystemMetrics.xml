@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="60006" type="folder" originalName="Move Quality Rules results" executionLocation="local" executionPrecedenceConstraint="60010" parentId="60001" parentType="folder" parentOriginalName="General Summary" resultType="N/A" localSiteInitialize="DSS_MOVE_QUALITY_RULES_RESULTS" localSitePrepare="N/A" localSiteCalculate="N/A" centralSiteCalculate="N/A" centralSiteInitialize="N/A" />
+  <metric id="60007" type="folder" originalName="Add DSS_OBJECT_EXCEPTIONS" executionLocation="local" executionPrecedenceConstraint="N/A" parentId="60002" parentType="folder" parentOriginalName="Initializations" resultType="N/A" localSiteInitialize="DSS_ADD_OBJECT_EXCEPTIONS" localSitePrepare="N/A" localSiteCalculate="N/A" centralSiteCalculate="N/A" centralSiteInitialize="N/A" />  
+</root>  

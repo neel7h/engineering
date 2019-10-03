@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- /CAIP/SRC/Analyzers/DotNet/DotNetNewAnalysisJobImpl/AmtJobConfig_DotNet.xml $ -->
+<!-- $Id: AmtJobConfig_DotNet.xml 163727 2016-11-14 17:16:58Z ERO $ -->
+
+<configuration>
+
+    <!-- Analyzer actions -->
+    <import file="AmtJobConfig_ComponentDotNetRaw.xml"/>
+
+    <actions>
+      <excludeStandardActions/>
+    </actions>
+
+    <analyzer name = "DotNet" keyName="DotNet" maxMem="1200" unlockTreeWalk="true"/>
+
+</configuration>

@@ -1,0 +1,71 @@
+{
+    "id": 1005064,
+    "name": "Avoid Artifacts With Queries on too many Tables (EGL)",
+    "href": "AIP/quality-rules/1005064",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "This rule searches for Queries with more than X Tables is considered complex",
+    "output": "This report lists the following information: Function full name, (number of Tables)",
+    "rationale": "Having complex queries in EGL Programs can cause performance problems.",
+    "reference": "Standard suggestions based on CAST Quality Model",
+    "remediation": "Review the query to reduce the number of involved Tables.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid Artifacts With Queries on too many Tables (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Tables",
+            "description": "Maximum Tables in a Select Clause",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        4.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

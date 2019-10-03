@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<constant>
+			<name>JSPAnalysisSingleJobDefinition</name>
+			<value>B0E8F31B-7280-4918-BFD1-BB038075AE30</value>
+		</constant>
+		<constant>
+			<name>JSPReFindAnalysisSingleJobDefinition</name>
+			<value>{C24E6150-4FCD-4F79-BB5B-7573233C1939}</value>
+		</constant>
+		<constant>
+			<name>JSPReFindChildAnalysisSingleJobDefinition</name>
+			<value>{A2236952-B182-4FF8-95C7-90C3B40DC12F}</value>
+		</constant>
+	</constantFamily>
+</constants>

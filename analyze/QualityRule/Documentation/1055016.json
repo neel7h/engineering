@@ -1,0 +1,95 @@
+{
+    "id": 1055016,
+    "name": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
+    "href": "AIP/quality-rules/1055016",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The Local Authentication framework provides facilities for requesting authentication from users with specified security policies. If you do not use properly the API, you can break the Face ID/Touch ID security check.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using LAContext evaluatePolicy: method provides a callback reply block reply:(void (^)(BOOL success, NSError *error))reply. The success returned value must be checked properly to avoid any misuse of the authentication check.",
+    "reference": "https://developer.apple.com/library/ios/documentation/LocalAuthentication/Reference/LocalAuthentication_Framework/",
+    "remediation": "Make sure you have implemented the check of success variable in the reply block callback",
+    "remediationSample": "let context = LAContext()\nvar authError: NSError?\n\nvar myLocalizedReasonString = \"String explaining why app needs authentication\"\n\nif myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&authError) {\n    myContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: myReasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in\n\n        if success {\n            // User authenticated successfully\n        } else {\n            // Authenticate failed\n        }\n    })\n} else{\n    // Could not evaluate policy; check authError\n}",
+    "sample": "let context = LAContext()\nvar authError: NSError?\n\nvar myLocalizedReasonString = \"String explaining why app needs authentication\"\n\nif myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&authError) {\n    myContext.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: myReasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in\n\n       println(\"the user seems to be connected\")\n\n    })\n} else{\n    // Could not evaluate policy; check authError\n}",
+    "total": "Number of Swift artifacts",
+    "alternativeName": "Ensure that LAContext evaluatePolicy reply block success is checked (Swift)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1055000,
+            "name": "Swift",
+            "href": "AIP/technologies/1055000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-863",
+            "name": "Incorrect Authorization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2017",
+            "name": "Broken Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2013",
+            "name": "Missing Function Level Access Control",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M1-2016",
+            "name": "Improper Platform Usage",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

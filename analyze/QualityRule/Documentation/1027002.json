@@ -1,0 +1,67 @@
+{
+    "id": 1027002,
+    "name": "Avoid exposing methods that use Platform Invocation Services to access unmanaged code",
+    "href": "AIP/quality-rules/1027002",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Avoid exposing methods that use Platform Invocation Services to access unmanaged code\n\nThis rule searches all the methods public or protected or protected internal that use Platform Invocation Services to access unmanaged code meaning that has the System.Runtime.InteropServices.DllImportAttribute attribute or implemented by the Declare keyword in Visual Basic.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Applications having methods exposed that use Platform Invocation Services to access unmanaged code can have security issues. These methods must not be exposed as they are accessing unmanaged code. By keeping these methods private or internal, you make sure that your library cannot be used to breach security by allowing callers access to unmanaged APIs that they could not call otherwise.",
+    "reference": "https://docs.microsoft.com/en-us/visualstudio/code-quality/ca1401-p-invokes-should-not-be-visible?view=vs-2015",
+    "remediation": "Change access modifier to \"private\", \"internal\"or \"private protected\"",
+    "remediationSample": "using System;\nusing System.Runtime.InteropServices;\n\nnamespace InteroperabilityLibrary\n{\n    public class NativeMethods\n    {\n        [DllImport(\"kernel32.dll\", CharSet = CharSet.Unicode)]\n        private static extern bool RemoveDirectory(string name);\n    }\n}",
+    "sample": "Will flag a violation if \"public\" or \"protected\" or \"protected internal\" access modifiers are used for P/Invoke declarations\n\nusing System;\nusing System.Runtime.InteropServices;\n\nnamespace InteroperabilityLibrary\n{ \n    public class NativeMethods\n    {\n        [DllImport(\"kernel32.dll\", CharSet = CharSet.Unicode)]\n        public static extern bool RemoveDirectory(string name);\n    }\n}",
+    "total": "Number of Methods using P/Invoke services",
+    "alternativeName": "Avoid exposing methods that use Platform Invocation Services to access unmanaged code",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-242",
+            "name": "Use of Inherently Dangerous Function",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

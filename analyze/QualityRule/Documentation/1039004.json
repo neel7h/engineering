@@ -1,0 +1,89 @@
+{
+    "id": 1039004,
+    "name": "Avoid using HttpServletRequest.getRequestedSessionId()",
+    "href": "AIP/quality-rules/1039004",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "The rule will check if the developer has used the method getRequestedSessionId() from an instance of HttpServletRequest.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "According to the Oracle Java API, the HttpServletRequest.getRequestedSessionId() method Returns the session ID specified by the client.  This may not be the same as the ID of the current valid session for this request. If the client did not specify a session ID, this method returns null.\n\nIf the session ID is transmitted in a URL or cookie, a hacker can manually update the value in the HTTP request. And because the session ID in the request should only be used by a servlet container (E.G. Tomcat or Jetty), a match with an other existing session could be done leading to an unauthenticated user to access an active session.",
+    "reference": "https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#getRequestedSessionId--",
+    "remediation": "Do NOT USE HttpServletRequest.getRequestedSessionId",
+    "remediationSample": "// Prefer using as an alternative (just one of possible solution)\n\nHttpSession session = request.getSession(true);\nsession.getId();",
+    "sample": "if(isActiveSession(request.getRequestedSessionId()) ){ \n               ... \n              }",
+    "total": "Number of Java Methods",
+    "alternativeName": "Ensure not relying on the session ID provided by \"request.getRequestedSessionId()\"",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-807",
+            "name": "Reliance on Untrusted Inputs in a Security Decision",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2013",
+            "name": "Broken Authentication and Session Management",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A2-2017",
+            "name": "Broken Authentication",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70205",
+            "name": "The application must not expose session IDs.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

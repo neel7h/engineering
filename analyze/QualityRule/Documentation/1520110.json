@@ -1,0 +1,62 @@
+{
+    "id": 1520110,
+    "name": "SiebelReview: Incorrect Join Specification To 1:1 Extension Table ROW_ID",
+    "href": "AIP/quality-rules/1520110",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "Although ROW_ID and PAR_ROW_ID are equivalent for extension tables in most cases, Siebel Engineering does not guarantee this to be the case.  Therefore, configuring a join in this manner is not recommended, as unexpected behavior may occur in future releases.\nAlso, from a performance perspective, indices in the Siebel data tables are built with the PAR_ROW_ID column included in many of the multi-column indexes.  These indices will not be used by the application if ROW_ID is referenced instead, which may impact performance.",
+    "output": "This rule reports all Joins with a bad configuration for 1:1 Extension Table",
+    "rationale": "A join specification to a 1:1 extension table has been created with the destination column property set to ROW_ID.  Only the PAR_ROW_ID column should be used as the destination column in join specifications to 1:1 extension tables (e.g., S_EVT_ACT_X) and tables that are part of the S_PARTY model (e.g., S_ORG_EXT, S_CONTACT, S_USER, S_POSTN, S_BU).",
+    "remediation": "When creating joins to 1:1 extension tables make sure that the join specification has a Destination Column of PAR_ROW_ID.",
+    "total": "Number of added or modified Joins",
+    "alternativeName": "SiebelReview: Incorrect Join Specification To 1:1 Extension Table ROW_ID",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

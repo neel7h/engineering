@@ -1,0 +1,67 @@
+{
+    "id": 1002188,
+    "name": "Avoid Functions with a low number of Comment Blocks (FORTRAN)",
+    "href": "AIP/quality-rules/1002188",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "Several consecutive comments are counted as a single comment block. The number of Comment Blocks is a threshold parameter and can be changed at will...",
+    "rationale": "BCOM: Number of blocks of comments used between the component's header and the closing curly bracket. Comment blocks can be considered as another indicator for the level of comments in an artifact.",
+    "alternativeName": "Avoid Functions with a low number of Comment Blocks (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Minimum number Comment blocks",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

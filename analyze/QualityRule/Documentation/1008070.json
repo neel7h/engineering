@@ -1,0 +1,58 @@
+{
+    "id": 1008070,
+    "name": "Avoid using NOT IN  (RPG400)",
+    "href": "AIP/quality-rules/1008070",
+    "critical": true,
+    "description": "This rule searches all the artifacts using NOT IN.",
+    "output": "This report lists RPG400 programs using NOT IN.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "Use of 'NOT IN' keyword slows down the query",
+    "remediation": "Queries should not use 'NOT IN' keywords in WHERE clause",
+    "remediationSample": "Use outer join and check for null:\nSELECT c.CustomerID \nFROM Sales.Customer AS c\nLEFT OUTER JOIN Sales.SalesOrderHeaderEnlarged AS h\nON c.CustomerID = h.CustomerID\nWHERE h.CustomerID IS NULL;",
+    "sample": "SELECT CustomerID \nFROM Sales.Customer \nWHERE CustomerID NOT IN \n(\n  SELECT CustomerID \n  FROM Sales.SalesOrderHeaderEnlarged\n);",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid using NOT IN  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "id": 1008056,
+    "name": "Avoid Programs With Queries on more than 4 Tables  (RPG400)",
+    "href": "AIP/quality-rules/1008056",
+    "critical": false,
+    "maxWeight": 2,
+    "description": "This rule searches all the programs with Queries on more than 4 tables.",
+    "output": "This report lists RPG400 Programs With Queries on more than 4 Tables.\nIt provides the following information:RPG400 Program full name",
+    "rationale": "Programs containing queries on a large number of tables can cause performance problems.",
+    "remediation": "Try to reduce the complexity of queries or the number of complex queries.",
+    "remediationSample": "Consider using CTEs to reduce complexity\n      With T (emp_id, emp_name , emp_pf, designation_name, pfacc1, pfacc2, pf_percent, pf_max)\n     AS (\n        SELECT ed.emp_id, ed.emp_name , ed.emp_pf, emd.designation_name, te.pfacc1, te.pfacc2, temp. pf_percent, temp.pf_max\n        FROM dbo.emp_details AS ed\n        LEFT JOIN dbo.emp_designation AS emd ON emd.designation_id = ed.emp_designation \n        LEFT JOIN dbo.tbl_empcontribution AS te ON te.eid = ed.emp_id\n        LEFT JOIN dbo.tbl_empdeduction AS temp ON temp.eid = ed.emp_id\n        LEFT JOIN dbo.tbl_empdeduction1 AS temp ON temp.eid = ed.emp_id\n        LEFT JOIN dbo.tbl_empdeduction1 AS temp ON temp.eid = ed.emp_id\n     )\n     \n     Select emp_id, emp_name , emp_pf, designation_name, pfacc1, pfacc2, pf_percent, pf_max\n     from T where e.team = 'CoE';",
+    "sample": "SELECT ed.emp_id, ed.emp_name , ed.emp_pf, emd.designation_name, te.pfacc1, te.pfacc2, temp. pf_percent, temp.pf_max\n     FROM dbo.emp_details AS ed\n     LEFT JOIN dbo.emp_designation AS emd ON emd.designation_id = ed.emp_designation \n     LEFT JOIN dbo.tbl_empcontribution AS te ON te.eid = ed.emp_id\n     LEFT JOIN dbo.tbl_empdeduction AS temp ON temp.eid = ed.emp_id\n     LEFT JOIN dbo.tbl_empdeduction1 AS temp ON temp.eid = ed.emp_id \n     LEFT JOIN dbo.tbl_empdeduction1 AS temp ON temp.eid = ed.emp_id\n     Where ed.team = 'CoE';",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Avoid Programs With Queries on more than 4 Tables  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

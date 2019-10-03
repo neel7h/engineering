@@ -1,0 +1,58 @@
+{
+    "id": 1007168,
+    "name": "Avoid using function or method return value that do not have return (PHP)",
+    "href": "AIP/quality-rules/1007168",
+    "critical": true,
+    "description": "This rule searches for all the functions that do not have a return and they are used in a right side of an assignment.",
+    "output": "This QR searches for all functions or method whose return value is used even though they do not return any value.\n\nThis QR provides the following information:\nMethod or function full name.",
+    "rationale": "In PHP the assignment of a function or method that has no return will always result in the value 'null'. This means that this statement has no effect. If the value returned by the function is re-used in the source code, this could produce a crash of part of the application or even the entire application.",
+    "remediation": "Modify the source code to remove using return value of functions or methods that do not return a value",
+    "remediationSample": "<?php\nfunction funcWithoutReturnValue() {\n   echo \"No return\", PHP_EOL;\n}\n \nfuncWithoutReturnValue();\n  ?>",
+    "sample": "<?php\nfunction funcWithoutReturnValue() {\n   echo \"No return\", PHP_EOL;\n}\n \n$lhs = funcWithoutReturnValue();\n  ?>",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid using function or method return value that do not have return (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

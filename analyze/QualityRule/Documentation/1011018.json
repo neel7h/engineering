@@ -1,0 +1,62 @@
+{
+    "id": 1011018,
+    "name": "Avoid Logical Files using DYNSLT  (DDS400)",
+    "href": "AIP/quality-rules/1011018",
+    "critical": false,
+    "maxWeight": 9,
+    "description": "This rule searches for all the Logical Files using DYNSLT",
+    "output": "This report lists DDS400 logical File using DYNSLT.\nIt provides the following information:\nDDS400 Logical File full name",
+    "rationale": "As your program does input operations to a logical file with the DYNSLT keyword specified, all the records in the associated physical file are tested by the system to see if they satisfy the select/omit values. Only those records that satisfy the values are supplied to your program. The testing of each record can result in slower I/O performance",
+    "remediation": "Check if DYNSLT is really necessary and if we can replace it.",
+    "total": "Total number of DDS400 Logical File",
+    "alternativeName": "Avoid Logical Files using DYNSLT  (DDS400)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 9,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1011000,
+            "name": "DDS400",
+            "href": "AIP/technologies/1011000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}

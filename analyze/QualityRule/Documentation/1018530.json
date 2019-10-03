@@ -1,0 +1,58 @@
+{
+    "id": 1018530,
+    "name": "Avoid undocumented processes (TIBCO BW)",
+    "href": "AIP/quality-rules/1018530",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "Processes should have comments",
+    "output": "This report lists all undocumented processes.\nIt provides the following information:\nProcess full name.",
+    "rationale": "No comments in Process makes the code harder to understand and maintain.",
+    "reference": "3.4.8 MAI-008: undocumented processes",
+    "remediation": "Add comments",
+    "total": "Number of Process",
+    "alternativeName": "Avoid undocumented processes (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

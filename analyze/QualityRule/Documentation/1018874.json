@@ -1,0 +1,62 @@
+{
+    "id": 1018874,
+    "name": "Avoid Activities With Queries on more than 4 Tables (TIBCO BW)",
+    "href": "AIP/quality-rules/1018874",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches for Activities having SQL queries on more than 4 tables.",
+    "output": "This report lists all Activities having SQL queries on more than 4 tables.\nIt provides following information:\n- Tibco Activities full name",
+    "rationale": "Activities containing queries on a large number of tables can cause performance problems.",
+    "remediation": "Try to reduce the complexity of queries or the number of complex queries.",
+    "total": "Number of Activities using esql",
+    "alternativeName": "Avoid Activities With Queries on more than 4 Tables (TIBCO BW)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1018000,
+            "name": "TIBCO",
+            "href": "AIP/technologies/1018000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

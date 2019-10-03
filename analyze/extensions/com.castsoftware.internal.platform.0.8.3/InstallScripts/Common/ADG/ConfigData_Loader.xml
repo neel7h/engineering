@@ -1,0 +1,27 @@
+<config name="Assessment Model" version="1.0.0.20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST_XMLDB_Format.xsd">
+  <table name="DSS_METRIC_TYPES" description="Definition of metrics">
+    <column name="METRIC_ID" type="int" nullable="false" description=" " />
+    <column name="METRIC_NAME" type="string" nullable="true" length="255" description=" " />
+    <column name="METRIC_DESCRIPTION" type="string" nullable="true" length="1500" description=" " />
+    <column name="METRIC_TYPE" type="int" nullable="false" description="0: not executed, 1: executed in central, 2: executed in local, 3: executed both in central &amp; local" />
+    <column name="METRIC_GROUP" type="int" nullable="false" description="0: standard, 1: diagnostic summary, 2: diagnostic detail, 3: folder, 4: category, 5: distribution, 6: user metric, 7: APM Summary, 8: Diag Aggregate, 9999: internal" />
+    <column name="METRIC_DEPENDS_ON" type="string" nullable="true" length="255" description="List of metrics whose results are needed to compute this one (comma separated list of metric IDs)." />
+    <column name="METRIC_OPTIONS" type="int" nullable="false" description="flag for XXL diags, or eventually other meaning" />
+    <column name="SCOPE_ID" type="int" nullable="false" default="0" description="When non zero, the scope dataset id" />
+    <column name="PROPERTY_ID" type="int" nullable="false" default="0" description="When non zero, the property id used to filter scope" />
+  </table>
+  <table name="DSS_METRIC_TYPE_TREES" description="Definition of the Metrics hierarchy">
+    <column name="METRIC_PARENT_ID" type="int" nullable="false" description=" " />
+    <column name="METRIC_ID" type="int" nullable="false" description=" " />
+    <column name="METRIC_INDEX" type="int" nullable="false" default="1" description="Default Execution order. if the metric are independant, all values can be set to 1." />
+    <column name="AGGREGATE_WEIGHT" type="num" nullable="false" precision="126" description="Weight of the current metric in order to compute the parent value." />
+    <column name="METRIC_SCOPE_PROCEDURE_NAME" type="string" nullable="true" length="255" description="Scope procedure executed for the current (METRIC_PARENT_ID, METRIC_ID)" />
+    <column name="METRIC_SCOPE_PROCEDURE_NAME_2" type="string" nullable="true" length="255" description="Scope procedure executed for the current (METRIC_PARENT_ID, METRIC_ID)" />
+    <column name="METRIC_CRITICAL" type="int" nullable="false" default="0" description="1 when metric is a critical contribution for its parent" />
+  </table>
+  
+  <scope name="FOLDER_60006">
+	<scopetable name="DSS_METRIC_TYPES"       filter="METRIC_ID in (60006,60007)"/> 
+        <scopetable name="DSS_METRIC_TYPE_TREES"  filter="METRIC_ID in (60006,60007)"/> 
+  </scope>
+ </config>

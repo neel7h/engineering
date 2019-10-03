@@ -1,0 +1,59 @@
+{
+    "id": 1520680,
+    "name": "SiebelReview: State Model on BusComps Not Based on CSSBCBase",
+    "href": "AIP/quality-rules/1520680",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Name of the class",
+    "description": "State Model functionality has been enabled for BusComps that are not directly based on the CSSBCBase class.",
+    "output": "This rule reports Business Components defining a State Model and not based on CSSBCBase",
+    "rationale": "The underlying code implemented in a specialized C++ class can override the settings of the State Model.\nOracle supports (via standard Tech Support channels) customers who enable State Model on any business component that is based directly on CSSBCBase.\nFor business components based on subclasses of CSSBCBase, it is quite likely that State Model would work, but this is not officially supported as there may be cases where the state model conflicts with other specialized behavior.\nIn cases where the State Model does not work as expected, the user may be permitted to make invalid transitions or prevented from making allowed transitions, leading to user interface and data integrity problems.",
+    "reference": "Oracle (via standard Tech Support channels)",
+    "remediation": "Set the BusComp class to CSSBCBase where possible, but note that this will disable any specialized functionality given by the specialized class.\nIf the specialized class is required, and business rules require the use of State Model in an unsupported fashion, test all configuration work thoroughly, remembering that workflow processes, EAI integration, scripting, and COM integration all are affected by this setting.\nAlternatives exist:\n- Workflow Processes\n- Scripting on the PreSetFieldValue event\nExpert Services can assist the customer in identifying such alternatives.",
+    "total": "Number of added or modified Business Components",
+    "alternativeName": "SiebelReview: State Model on BusComps Not Based on CSSBCBase",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

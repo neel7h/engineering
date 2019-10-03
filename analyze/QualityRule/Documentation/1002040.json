@@ -1,0 +1,73 @@
+{
+    "id": 1002040,
+    "name": "Avoid using too many CONTINUE statements in Fortran-77 Programs  (FORTRAN)",
+    "href": "AIP/quality-rules/1002040",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "Maximum allowed CONTINUE statements is a threshold and can be changed at will..",
+    "rationale": "Avoid too many CONTINU statements in Fortran-77. Too many CONTINUE statements make the code difficult to read and change.",
+    "remediation": "Reduce the number of CONTINUE statements by seeking alternative implementations.",
+    "alternativeName": "Avoid using too many CONTINUE statements in Fortran-77 Programs  (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max. number of CONTINUE statements",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

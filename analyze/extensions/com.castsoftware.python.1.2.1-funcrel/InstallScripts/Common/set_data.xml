@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+
+<SET_Definitions>
+	<SetId>1021000</SetId>
+	<SetName>SET_Python_Artifact</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_Python_1021000</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021001</SetId>
+    <SetName>SET_Python_httplib</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021001</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021002</SetId>
+    <SetName>SET_Python_requests</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021002</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021003</SetId>
+    <SetName>SET_Python_aiohttp</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021003</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021004</SetId>
+    <SetName>SET_Python_urllib</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021004</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021005</SetId>
+    <SetName>SET_Python_urllib2</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021005</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021006</SetId>
+    <SetName>SET_Python_httplib2</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021006</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021007</SetId>
+    <SetName>SET_Python_artifacts_using_yield</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021007</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021008</SetId>
+    <SetName>SET_Python_hashlib_MD5</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021008</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021009</SetId>
+    <SetName>SET_Python_empty_except</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021009</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021010</SetId>
+    <SetName>SET_Python_all_basic_scopes</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021010</SetProcedure>
+</SET_Definitions>
+
+<SET_Definitions>
+    <SetId>1021011</SetId>
+    <SetName>SET_Python_classes</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_Python_1021011</SetProcedure>
+</SET_Definitions>
+</DATA>
+
+

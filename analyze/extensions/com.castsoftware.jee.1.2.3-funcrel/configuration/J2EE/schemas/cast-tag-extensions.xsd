@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Napoleon (ANY) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xs:simpleType name="ResolutionTargetType">
+      <xs:restriction base="xs:string">
+         <xs:annotation>
+            <xs:documentation>A resolution scope(java type) should be specified</xs:documentation>
+         </xs:annotation>
+
+         <xs:enumeration value="javatype" />
+
+         <xs:enumeration value="java-type" />
+
+         <xs:enumeration value="java-method" />
+
+         <xs:enumeration value="url" />
+
+         <xs:enumeration value="bean" />
+
+         <xs:enumeration value="spring-bean" />
+
+         <xs:enumeration value="xml-bean" />
+
+         <xs:enumeration value="form-bean" />
+
+         <xs:enumeration value="server-object" />
+
+         <xs:enumeration value="action-mapping" />
+
+         <xs:enumeration value="property-mapping" />
+
+         <xs:enumeration value="forward" />
+
+         <xs:enumeration value="stxx-pipeline" />
+
+         <xs:enumeration value="stxx-transform" />
+
+         <xs:enumeration value="validation-form" />
+
+         <xs:enumeration value="validation-form-field" />
+
+         <xs:enumeration value="xml-object" />
+
+         <xs:enumeration value="config-item" />
+
+         <xs:enumeration value="path" />
+
+         <xs:enumeration value="resource" />
+
+<!-- config-item = action-mapping | property-mapping | forward | stxx-pipeline| validation-form | validation-form-field | stxx-transform | xml-object | bean  | form-bean | spring-bean | xml-bean -->
+<!-- resource = javatype | java-method | url | bean -->
+      </xs:restriction>
+   </xs:simpleType>
+
+	<xs:simpleType name="LinkType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="catch"/>
+			<xs:enumeration value="call"/>
+			<xs:enumeration value="include"/>
+			<xs:enumeration value="lock"/>
+			<xs:enumeration value="mention"/>
+			<xs:enumeration value="prototype"/>
+			<xs:enumeration value="raise"/>
+			<xs:enumeration value="throw"/>
+			<xs:enumeration value="access"/>
+			<xs:enumeration value="fire"/>
+			<xs:enumeration value="inherit"/>
+			<xs:enumeration value="refer"/>
+			<xs:enumeration value="relyon"/>
+			<xs:enumeration value="use"/>
+            <xs:enumeration value="read"/>
+            <xs:enumeration value="write"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+   <xs:complexType name="callType">
+      <xs:annotation>
+         <xs:documentation>An element of this type instructs CAST J2EE Analyzer to add code fragment in the generated servlet code (that consists in the invocation of a method) during the processing of a custom tag. Sub elements and/or attributes give more information on the method.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+         <xs:element name="search" type="searchType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:choice>
+
+      <xs:attribute name="instanceSrc" use="required" />
+
+      <xs:attribute name="propertySrc" />
+
+      <xs:attribute name="nameSrc" />
+
+      <xs:attribute name="prefix" />
+
+      <xs:attribute name="capitalizeName" />
+
+      <xs:attribute name="suffix" />
+   </xs:complexType>
+
+   
+   <xs:complexType name="createType">
+      <xs:annotation>
+         <xs:documentation>An element of this type instructs CAST J2EE Analyzer to create an objet during the processing of a custom tag. Sub elements and/or attributes give more information on the object to create.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+         <xs:element name="useTypeOf" type="useTypeOfType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>You can associate a java type to the component being created. This element allows for specifying how to detrminate this type. useTypeOf elements are treated in the order they appear in the configuration. Only the firts element that allowed the analyzer to get a value (that will be resolved later, regardless of the success of this resolution ) will be retained. If none of them could lead to the retrieval of a value, then java.lang.Object is used. Note that useTypeOf element that uses search sub-elements to search type whithin those of beans of the application always lead to a result: either the bean type if one is found or information that will be used later(since the analyzer could have not yet met the referenced bean declaration) to first search for the bean and then consider its type. So, this kind of useTypeOf element should appear last in the list.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+
+         <xs:element name="create" type="createType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Only bean-property creation elements are expected here (kind="bean.property"). This bean-property will be created as a child object of the containing bean(created with the parent create element)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+
+      <xs:attribute name="nameSrc" type="xs:string" >
+         <xs:annotation>
+            <xs:documentation>The value of this attribute should be the name of an attribute of the custom tag being analyzed. The value of the referenced attribute will be used as the name of the object being created.  One of name or nameSrc attribute bust be specified</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      
+      <xs:attribute name="name" type="xs:string" >
+         <xs:annotation>
+            <xs:documentation>The name of the object being created. One of name or nameSrc attribute bust be specified</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      
+      <xs:attribute name="kind" use="required">
+         <xs:annotation>
+            <xs:documentation>Use this attribute to specify the kind of the object to create.</xs:documentation>
+         </xs:annotation>
+
+         <xs:simpleType>
+         	<xs:restriction base="xs:string">
+         		<xs:enumeration value="bean" />
+
+         		<xs:enumeration value="bean.property" />
+         		<xs:enumeration value="jsf-input-field"></xs:enumeration>
+         	</xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="scopeSrc">
+         <xs:annotation>
+            <xs:documentation>The scope within which to place the created object(if we're creating a bean)</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="typeSrc">
+         <xs:annotation>
+            <xs:documentation>Use this attribute to indicate the name of an attribute of the analyzed custom tag whose value is to be considered as the java type of the component being created. The configuration for the code &lt;bean:define id="myBean" type="myPackage.MyClass"&gt; will look like: &lt;create nameSrc="id" kind="bean" typeSrc="type"&gt; This attribute takes precedence with regard to other type specification configuration elements. If not specified, or no value could be retrieved from the given attribute name, the analyzer then search for the type in the 'type' attribute of the create element (see bellow)</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="type">
+         <xs:annotation>
+            <xs:documentation>The value of this attribute should be a string litteral that corresponds to the qualified name of a java type, in opposite of the typeSrc attribute which used an indirect way to do the same. If not specified, the analyzer then search for the type in the 'useTypeOf' elements beneath the create element.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="valueSrc" type="xs:string" />
+
+      <xs:attribute name="valueType" type="xs:string" />
+
+      <xs:attribute name="scope" type="xs:string" />
+
+      <xs:attribute name="value" type="xs:string" />
+   </xs:complexType>
+
+   <xs:complexType name="declareType">
+      <xs:annotation>
+         <xs:documentation>An element of this type instructs CAST J2EE Analyzer to declare a variable in the servlet generated while running an analysis and when a given custom tag is met. Sub elements and/or attributes give more information on the variable to declare.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+         <xs:element name="useTypeOf" type="useTypeOfType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:choice>
+
+      <xs:attribute name="nameSrc">
+         <xs:annotation>
+            <xs:documentation>Deprecated: Use @name-from-attribute attribute instead. One of @nameSrc or @name-from-attribute or @name-given is required</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="name-from-attribute">
+         <xs:annotation>
+            <xs:documentation>Same as @nameSrc attribute. One of @nameSrc or @name-from-attribute or @name-given is required</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="name-given">
+         <xs:annotation>
+            <xs:documentation>For hard-coded name. One of @nameSrc or @name-from-attribute or @name-given is required</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="typeSrc" />
+
+      <xs:attribute name="type" />
+
+      <xs:attribute name="variable-class">
+         <xs:annotation>
+            <xs:documentation>Same as @type attribute.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="scope" default="NESTED">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="AT_BEGIN" />
+
+               <xs:enumeration value="NESTED" />
+
+               <xs:enumeration value="AT_END" />
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="declare" default="true">
+         <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="true" />
+
+               <xs:enumeration value="false" />
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="searchType">
+      <xs:annotation>
+         <xs:documentation>Use an element of this type to specify the type and scope of an object that you want CAST J2EE Analyzer to search for.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice>
+      	<xs:element name="create" type="createType" minOccurs="0"
+      		maxOccurs="unbounded">
+      		<xs:annotation>
+      			<xs:documentation>
+      				Only bean-property creation is expected
+      				here(kind="bean.property")
+      			</xs:documentation>
+      		</xs:annotation>
+      	</xs:element>
+      	<xs:element name="addAttribute" type="addAttributeType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      	<xs:element name="addLink" type="addLinkType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+      </xs:choice>
+
+      <xs:attribute name="kind" use="required">
+         <xs:annotation>
+            <xs:documentation>This attribute's value is always 'bean'</xs:documentation>
+         </xs:annotation>
+
+         <xs:simpleType>
+         	<xs:restriction base="xs:string">
+         		<xs:enumeration value="bean" />
+         		<xs:enumeration value="jsf-input-field"></xs:enumeration>
+         	</xs:restriction>
+         </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="nameSrc" use="optional">
+         <xs:annotation>
+            <xs:documentation>The value of this attribute should be the name of an attribute of the custom tag being analyzed. The value of the referenced attribute will be used as the name of the bean to search for.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="scopeSrc" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Specifies the name of the custom tag attribute that contains the scope within which the searched bean should be located</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="resolveValueAs" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Specifies which type the value (if any) of the searched object is expected to be of. This is a ';' separated list of values from ResolutionTargetType enumeration.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="scope" type="xs:string" />
+   </xs:complexType>
+
+   <xs:complexType name="tagAttributeType">
+   	<xs:annotation>
+   		<xs:documentation>
+   			This is a CAST J2EE Analyzer Processing Instruction that
+   			is used to specify how a custom tag attribute value
+   			should be processed.
+   		</xs:documentation>
+   	</xs:annotation>
+
+   	<xs:sequence>
+   		<xs:element name="search" type="searchType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+   	</xs:sequence>
+   	<xs:attribute name="name" use="required" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The name of the custom tag attribute
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="resolveValueAs" use="required"
+   		type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The type of object the value of the attribute sould
+   				be resolved against
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="resolutionScope" use="optional"
+   		type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the context within which the callee is to
+   				search for. The value of this attribute is an xpath
+   				path to a node whose value is to be considered as the
+   				resolution scope. Values retrieved from the specified
+   				node should be a string value corresponding to: - A
+   				fully qualified name of a java type if we're
+   				resolving a java method - 'request', 'session' or
+   				'application' if a bean is expected as callee, - An
+   				Xpath path if callee should be a configuration item
+   				created from xml file. This attribute takes
+   				precedence on resolution-scope attribute
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="resolutionScopeSrc" use="optional"
+   		type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the context within which the callee is to
+   				search for. The value of this attribute is a the name
+   				of one of the attributes of the current tag whose
+   				value is to be considered as the resolution scope.
+   				Values retrieved from the specified attribute should
+   				be a string value corresponding to: - A fully
+   				qualified name of a java type if we're resolving a
+   				java method - 'request', 'session' or 'application'
+   				if a bean is expected as callee,
+
+   				This attribute takes precedence on resolutionScope
+   				attribute
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+   	<xs:attribute name="linkType" type="LinkType" use="optional"
+   		default="call">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the type of the link to create.
+
+   				Allowed value are: - catch - call - include - lock -
+   				mention - prototype - raise - throw - access - fire -
+   				inherit - refer - relyon - use
+
+   				Default value is 'call' Only single values are
+   				allowed.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="userDeletable" use="optional"
+   		type="xs:boolean">
+   		<xs:annotation>
+   			<xs:documentation>
+   				Setting this attribute to true allow end user to
+   				check the created link and ignore it if needed
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="match-whole-word" use="optional"
+   		type="xs:boolean">
+   		<xs:annotation>
+   			<xs:documentation>
+   				Set this attribute to false to tell the analyzer the
+   				resolved object name can be a substring of the tag
+   				attribute's value
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="prefixSrc" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The name of an attribute within the parent tag whose
+   				value will be prepended to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="prefix" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				A static string to prepend to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="suffixSrc" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The name of an attribute within the parent tag whose
+   				value will append to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="suffix" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				A static string to append to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+
+   	<xs:attribute name="caller-name" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				name of the object to be used as caller of the
+   				resolved object. Default is the page containing the
+   				tag
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+   	<xs:attribute name="caller-type" type="caller-typeType"></xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="tagType">
+      <xs:annotation>
+         <xs:documentation>An element of this type is a CAST J2EE Analyzer Processing Instruction that is used to specify all actions that sould be carried out during the processing of a costum tag.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>Beneath the tag element, you can spefify all actions to be carried out. These include the declare, call, and create (with kind='bean')</xs:documentation>
+         </xs:annotation>
+
+         <xs:element name="create" type="createType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Only bean creation xml element(kind="bean") can appear under the tag element. Use this element to instruct the CAST J2EE analyzer to create a bean component. Information for the properties(name, type, scope) of this bean will be retrieved from the values of attributes of the custom tag being analyzed and that you can specify using the available attributes of this element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+
+         <xs:element name="call" type="callType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Use this element to instruct the CAST J2EE analyzer to generate a code fragment that consists in the invocation of a method of a bean java class. Information about this method will be retrieved from the values of attributes of the custom tag being analyzed that you can specify using the available attributes of this element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+
+         <xs:element name="declare" type="declareType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Use this element to instruct the CAST J2EE analyzer to generate a code fragment that consists in the declaration of a variable. Information about the type of this variable will be retrieved from the values of attributes of the custom tag being analyzed that you can specify using the available attributes of this element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         
+         <xs:element name="attribute" type="tagAttributeType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Use this element to configure interpretation of  tag attribute value.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         
+         <xs:element name="search" type="searchType">
+         </xs:element>
+      </xs:choice>
+
+      <xs:attribute name="name" type="xs:string" use="required">
+         <xs:annotation>
+            <xs:documentation>The local name of the tag (without namespace prefix)</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="taglibType">
+      <xs:annotation>
+         <xs:documentation>Use an element of this type to specify all tag that you want to customize the interpretation.</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+         <xs:element name="tag" type="tagType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Every tag to interprete should be introduced by an occurence of this element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+
+      <xs:attribute name="uri" type="xs:anyURI" use="required">
+         <xs:annotation>
+            <xs:documentation>The URI of the tag library containing tags you want to customize the interpretation. This uri should be exactly the same as the one declared in the tag library descriptor (tld file)</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:anyAttribute processContents="skip" />
+   </xs:complexType>
+
+   <xs:element name="taglibs">
+      <xs:annotation>
+         <xs:documentation>This is the root element of CAST tag extension configuration file. The purpose of this file is customize the way CAST J2EE analyzer interpretes custom tags while parsing a jsp file. In doing so, one can instructs the analyzer to create specific jsp components and/or add some code fragment in the servlet code generated from the jsp file that will lead to the creation of java objects( or links from pure jsp components towards java objetcs) when this code will be analyzed.</xs:documentation>
+      </xs:annotation>
+
+      <xs:complexType>
+         <xs:choice>
+            <xs:element name="taglib" type="taglibType" minOccurs="0" maxOccurs="unbounded" />
+         </xs:choice>
+      </xs:complexType>
+   </xs:element>
+
+   <xs:complexType name="useTypeOfType">
+      <xs:annotation>
+         <xs:documentation>An element of this type is a CAST J2EE Analyzer Processing Instruction that is used to specify the type of an object. The object is specified by the parent element. The only element expected beneath the useTypeOf element is the search element</xs:documentation>
+      </xs:annotation>
+
+      <xs:choice>
+         <xs:element name="search" type="searchType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:choice>
+
+      <xs:attribute name="instanceSrc" type="xs:string" use="required">
+         <xs:annotation>
+            <xs:documentation>This attribute specifies the name of the attribute of the custom tag that contains an object to be considered in the type computing process. This object may be a bean(the referenced attribute's value is then the bean's id), a java string object(the referenced attribute's value may be any string litteral) or a fully qualified name of a java class. The instanceSrc attribute is required. If no value could be retrieved from the given custom tag attribute then the entire useTypeOf parent element is ignored. This is a mean to express situation like: "if the custom tag has a 'value' attribute, then the type is given by the 'type' or 'typeSrc' attribute of the useTypeOf element"(see bellow)" "else, if the custom tag has a 'type' attribute, then the type is given by the 'type' or 'typeSrc attribute of the useTypeOf element" and so on.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="typeSrc">
+         <xs:annotation>
+            <xs:documentation>Gives the name of an attribute of the custom where to find the qualified name of a java class</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="type">
+         <xs:annotation>
+            <xs:documentation>The fully qualified name of a java class</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+
+      <xs:attribute name="memberSrc" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>When the type is to be computed from a bean property, instanceSrc gives the name of the attribute where to find the bean name and this attribute that where we can find the bean-property name. If the memberSrc attribute is not specified then only the bean type is considered. Else, the type will be the one of the firts parameter of a method named set&lt;Property&gt; within the bean type (&lt;Property&gt; is the value of the attribute given by memberSrc)</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+
+   <xs:simpleType name="ObjectType">
+   	<xs:annotation>
+   		<xs:documentation>
+   			This type is an enumeration of all kind of objects that
+   			can be created while processing a custom tag.
+   		</xs:documentation>
+   	</xs:annotation>
+
+   	<xs:restriction base="xs:string">
+   		<xs:enumeration value="bean" />
+
+   		<xs:enumeration value="bean.property" />
+   		<xs:enumeration value="jsf-input-field"></xs:enumeration>
+   	</xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="caller-typeType">
+   	<xs:restriction base="xs:string">
+   		<xs:enumeration value="jsf-input-field"></xs:enumeration>
+   	</xs:restriction>
+   </xs:simpleType>
+
+   <xs:complexType name="addAttributeType">
+   	<xs:attribute name="name" type="xs:string"></xs:attribute>
+   	<xs:attribute name="value" type="xs:string"></xs:attribute>
+   	<xs:attribute name="valueSrc" type="xs:string"></xs:attribute>
+   	<xs:attribute name="multiValue" type="xs:boolean"></xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="addLinkType">
+   	<xs:attribute name="resolutionScope" use="optional"
+   		type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the context within which the callee is to
+   				search for. The value of this attribute is an xpath
+   				path to a node whose value is to be considered as the
+   				resolution scope. Values retrieved from the specified
+   				node should be a string value corresponding to: - A
+   				fully qualified name of a java type if we're
+   				resolving a java method - 'request', 'session' or
+   				'application' if a bean is expected as callee, - An
+   				Xpath path if callee should be a configuration item
+   				created from xml file. This attribute takes
+   				precedence on resolution-scope attribute
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="resolutionScopeSrc" use="optional"
+   		type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the context within which the callee is to
+   				search for. The value of this attribute is a the name
+   				of one of the attributes of the current tag whose
+   				value is to be considered as the resolution scope.
+   				Values retrieved from the specified attribute should
+   				be a string value corresponding to: - A fully
+   				qualified name of a java type if we're resolving a
+   				java method - 'request', 'session' or 'application'
+   				if a bean is expected as callee,
+
+   				This attribute takes precedence on resolutionScope
+   				attribute
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+   	<xs:attribute name="linkType" type="LinkType" use="optional"
+   		default="call">
+   		<xs:annotation>
+   			<xs:documentation>
+   				This is the type of the link to create.
+
+   				Allowed value are: - catch - call - include - lock -
+   				mention - prototype - raise - throw - access - fire -
+   				inherit - refer - relyon - use
+
+   				Default value is 'call' Only single values are
+   				allowed.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="userDeletable" use="optional"
+   		type="xs:boolean">
+   		<xs:annotation>
+   			<xs:documentation>
+   				Setting this attribute to true allow end user to
+   				check the created link and ignore it if needed
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="match-whole-word" use="optional"
+   		type="xs:boolean">
+   		<xs:annotation>
+   			<xs:documentation>
+   				Set this attribute to false to tell the analyzer the
+   				resolved object name can be a substring of the tag
+   				attribute's value
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="prefixSrc" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The name of an attribute within the parent tag whose
+   				value will be prepended to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="prefix" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				A static string to prepend to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="suffixSrc" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				The name of an attribute within the parent tag whose
+   				value will be appended to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+   	<xs:attribute name="suffix" use="optional" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				A static string to appended to the value to resolve.
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+
+
+   	<xs:attribute name="caller-type" type="caller-typeType"></xs:attribute>
+   	<xs:attribute name="callee-type" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				see ResolutionTargetType
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+   	<xs:attribute name="callee" type="xs:string">
+   		<xs:annotation>
+   			<xs:documentation>
+   				name of the object to be used as caller of the
+   				resolved object. Default is the page containing the
+   				tag
+   			</xs:documentation>
+   		</xs:annotation>
+   	</xs:attribute>
+   	<xs:attribute name="calleeSrc" type="xs:string"></xs:attribute>
+   </xs:complexType>
+</xs:schema>
+

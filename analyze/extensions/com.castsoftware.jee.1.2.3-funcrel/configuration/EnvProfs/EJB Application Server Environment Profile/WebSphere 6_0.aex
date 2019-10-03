@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="ISO-8859-1" ?>
+<Root>
+	<Version>1.11</Version>
+	<GlobalEnvironmentProfiles-21121>
+		<EJBApplicationServerEnvironmentProfile-2770>
+			<Item>
+				<Name>WebSphere 6.0</Name>
+				<Uid>CAST_EJB_DEFAULT_WEBSPHERE_6</Uid>
+			</Item>
+		</EJBApplicationServerEnvironmentProfile-2770>
+	</GlobalEnvironmentProfiles-21121>
+	<Entity>
+		<Name>WebSphere 6.0</Name>
+		<Uid>CAST_EJB_DEFAULT_WEBSPHERE_6</Uid>
+		<Type>EJB Application Server Environment Profile-1770</Type>
+		<ApplicationServer-1523>WebSphere</ApplicationServer-1523>
+		<PersistanceDeploymentDescriptor-1823>META-INF\Map.mapxmi</PersistanceDeploymentDescriptor-1823>
+		<TransformationFile-1593>$(CastDir)\EnvProf\J2EE\EJB\websphere-60-pers.xslt</TransformationFile-1593>
+	</Entity>
+</Root>

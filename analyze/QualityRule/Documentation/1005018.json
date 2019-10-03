@@ -1,0 +1,81 @@
+{
+    "id": 1005018,
+    "name": "Avoid Programs with High Fan-Out (EGL)",
+    "href": "AIP/quality-rules/1005018",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the program  having the the sum of call links from child EGL functions to other programs too high.\nThe threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Program having more than X outgoing call links.\nIt provides the following information: Program full name, Nb of ougoing call links.",
+    "rationale": "The higher the number of referenced Artifacts, the more difficult the maintenance and evolution as all updates in referenced Artifacts will have to be tested and taken into account.",
+    "remediation": "Try to reduce the call link to other from childs EGL functions to other programs.",
+    "total": "Number of Programs",
+    "alternativeName": "Avoid Programs with High Fan-Out (EGL)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-4",
+            "name": "Callable and Method Control Element Number of Outward Calls",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Max Fan-Out",
+            "description": "Maximum Fan-Out",
+            "technologies": [
+                {
+                    "id": 1015000,
+                    "name": "EGL",
+                    "href": "AIP/technologies/1015000",
+                    "values": [
+                        1.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

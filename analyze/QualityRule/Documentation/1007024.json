@@ -1,0 +1,77 @@
+{
+    "id": 1007024,
+    "name": "Avoid incrementer jumbling in loops (PHP)",
+    "href": "AIP/quality-rules/1007024",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "The jumbling incrementer detects use of an outer incrementer in an inner loop and vice versa.",
+    "output": "This report lists all artifacts containing incrementer jumbling in loops.\n\nThis QR provides the following information:\nArtifact full name.",
+    "rationale": "For maintainability and readability reasons, it is preferable to avoid incrementer jumbling in loops.",
+    "reference": "Code Sniffer - http://pear.php.net/package/PHP_CodeSniffer/docs/1.5.2/PHP_CodeSniffer/Generic_Sniffs_CodeAnalysis_JumbledIncrementerSniff.html",
+    "remediation": "Modify the source code to reduce the number of artifacts with incrementer jumbling in loops.",
+    "sample": "<?php\nclass CastTest\n {\n      public function test()\n     {\n          for ($i = 0; $i<10; $i++)\n          {\n              for ($k = 0; $k<20; $k++, $i++)  //VIOLATION\n              {\n                  echo $i;\n              }\n          }\n      }\n  }\n$obj = new CastTest();\n$obj->test();\n?>",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid incrementer jumbling in loops (PHP)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "Generic.CodeAnalysis.JumbledIncrementer"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

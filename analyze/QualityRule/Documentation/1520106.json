@@ -1,0 +1,63 @@
+{
+    "id": 1520106,
+    "name": "SiebelReview: Avoid bad BusComp configuration when using Standard 1:M Extension Tables",
+    "href": "AIP/quality-rules/1520106",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Reason for the violation (1 of the 9 cases)",
+    "description": "Standard _XM tables can be used for multiple child BusComps for one parent BusComp. This is accomplished by configuring the Search Specification on the BusComp and the Predefault Value property on the Type field to filter the records for each type of use for the _XM table. This configuration practice should be followed even when the _XM table will be utilized for just one BusComp. This ensures the ability to re-use the table for other BusComps in the future.\nIn the event there are multiple BusComps mapped to the same _XM table, failure to configure the BusComp correctly may allow the user may see records belonging to different entities. In addition to showing users information that is inappropriate (and potentially should not be seen), this can result in data corruption issues as records are updated or deleted.",
+    "output": "This rule reports all Business Components with a bad configuration for 1:M Extension Table",
+    "rationale": "During the review, it was identified BusComps based on _XM tables are not configured in the prescribed way.",
+    "remediation": "The _XM tables can be used to store multiple types of data; make sure that each BusComp based on a _XM table is configured correctly.\nEach such BusComp must have (at least) the following 3 fields:\n* Parent Row Id mapped to PAR_ROW_ID\n* Type mapped to TYPE\n* Name mapped to NAME\nThese columns make up the user key sequence for the _XM table and cannot be NULL.\nIn addition, the field mapped to the TYPE column should have a Predefault value representing the type of entity, such as \"Entity\".The Type field should be the basis of the SearchSpec for the BusComp to make sure that only those records relevant to the entity are retrieved through any applet or MVG based on the BC  For example, the Search Specification could be Type = 'Entity'. Create a link between parent and child BusComp based on the _XM table. Link should have the Cascade Del property set to Delete, as a record on the _XM table will belong to only 1 parent record. If parent is deleted, the child should also be deleted to avoid orphaned records. This link can be used as the basis of an MVL to display this information in a MVG, or to add the new BC to a BO. Keep in mind that when exposing the BusComp as an MVG that a Primary ID Field should be specified and the Use Primary Join property set to TRUE. It will minimize performance impact of the MVG and prevent sub queries for each record in a list or form applet. These configuration guidelines should be followed even if only 1 BusComp is based on the _XM table.",
+    "total": "Number of added or modified Business Components based on 1:M Extension Table",
+    "alternativeName": "SiebelReview: Avoid bad BusComp configuration when using Standard 1:M Extension Tables",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61001,
+            "name": "Architecture - Multi-Layers and Data Access",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

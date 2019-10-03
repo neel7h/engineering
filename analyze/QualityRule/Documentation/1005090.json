@@ -1,0 +1,58 @@
+{
+    "id": 1005090,
+    "name": "Avoid Record Column without having the same nullable requirement as the corresponding SQL Table column (EGL)",
+    "href": "AIP/quality-rules/1005090",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "The isSQLNullable property indicates whether the field can be set to a null value. The property is available only for fields in an SQL record. Valid values are NO (the default) and YES. \n\nEGL maintains this property for compatibility with earlier versions. For new code, use the \"?\" type extension character to indicate a nullable variable.\n\nRecord mySQLRecord type SQLRecord\n            anInt INT  {column=\"anInt\",IsSqlNullable = yes};\nend",
+    "output": "This report lists the following information: Record Full Name, Column Name",
+    "rationale": "Discripancy in nullable requirement can lead to tentatively insert a NULL in a non nullable column , and thus a Exception to be raised.",
+    "reference": "EGL Best Practices: Coding For Performance. November 10, 2009. Edition 2",
+    "remediation": "Try to reduce the number of Record Column not having the same nullable requirement as the corresponding SQL table column.",
+    "total": "Number of Records",
+    "alternativeName": "Avoid Record Column without having the same nullable requirement as the corresponding SQL Table column (EGL)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        95.0,
+        98.0,
+        99.0,
+        100.0
+    ]
+}

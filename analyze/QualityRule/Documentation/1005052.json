@@ -1,0 +1,63 @@
+{
+    "id": 1005052,
+    "name": "Avoid using copyStr and compareStr functions (EGL)",
+    "href": "AIP/quality-rules/1005052",
+    "critical": false,
+    "maxWeight": 3,
+    "description": "This rule searches for all the programs using copyStr and compareStr functions.",
+    "output": "This report provides the following information: Function full name, Count of copySTR abd compareStr functions",
+    "rationale": "Expensive operations compared to substring and concatenation operator for CHAR data types and NUM datatypes.  Some concatenation operations like CHAR and PACK/DECIMAL will require string processing vs CHAR processing (see item above for cost). \nComments are generated into the COBOL program indicating which statements cause String processing to occur (in a performance considerations section in the initial comments).",
+    "reference": "EGL Best Practices: Coding For Performance. November 10, 2009. Edition 2",
+    "remediation": "Try to reduce the use of copyStr and compareStr",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid using copyStr and compareStr functions (EGL)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 3,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1015000,
+            "name": "EGL",
+            "href": "AIP/technologies/1015000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

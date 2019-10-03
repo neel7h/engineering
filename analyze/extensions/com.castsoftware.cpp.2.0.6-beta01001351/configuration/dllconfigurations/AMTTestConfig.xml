@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com configuration.xsd">
+	<includes>
+		<path>Common</path> <!-- for log service -->
+		<path>Analyzers</path> <!-- for amt actions-->
+        <path>wizardsandanalysisinfo\LDReader32Service.xml</path>
+        <!-- for amt actions-->
+	</includes>
+</configuration>

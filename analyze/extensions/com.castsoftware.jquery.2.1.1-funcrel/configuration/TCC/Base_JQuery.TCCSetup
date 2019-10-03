@@ -1,0 +1,84 @@
+<setup version="1.0.0.1" encoding="UTF-8">
+<associations package="Base_JQuery" version="1.0.0.0" encoding="UTF-8" date="Mon Oct 02 14:58:30 EDT 2017" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAST-Sets.xsd">
+<association>
+ <set name = "Standard Entry Point - JQuery" type = "Transaction entry points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_JQuery_Selector</value>
+   </property>
+   <excluded-from set ="Standard Entry Point - JQuery Called entries (GS)"/>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "HTML5 source code - JQuery (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_HTML5_SourceCode</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard Entry Point - JQuery Called entries (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_JQuery_Selector</value>
+   </property>
+   <callee-of>
+    <link-type>Call</link-type>
+    <member-of set ="HTML5 source code - JQuery (GS)"/>
+   </callee-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "Standard End Point - JQuery" type = "Transaction end points">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_JQuery_DeleteResourceService</value>
+    <value>CAST_JQuery_GetResourceService</value>
+    <value>CAST_JQuery_PostResourceService</value>
+    <value>CAST_JQuery_PutResourceService</value>
+   </property>
+   <excluded-from set ="Standard End Point - JQuery (GS)"/>
+  </selection-criteria>
+ </set>
+ <attribute name="Contribute">
+  <value>0</value>
+ </attribute>
+ <attribute name="DET">
+  <value>3</value>
+ </attribute>
+</association>
+<association>
+ <set name = "Standard End Point - JQuery (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "type" operator = "eq" >
+    <value>CAST_JQuery_DeleteResourceService</value>
+    <value>CAST_JQuery_GetResourceService</value>
+    <value>CAST_JQuery_PostResourceService</value>
+    <value>CAST_JQuery_PutResourceService</value>
+   </property>
+   <caller-of>
+    <link-type>Call</link-type>
+    <member-of set ="All Objects - JQuery (GS)"/>
+   </caller-of>
+  </selection-criteria>
+ </set>
+</association>
+<association>
+ <set name = "All Objects - JQuery (GS)" type = "Generic sets">
+  <selection-criteria subobjects="no" externalobjects="yes">
+   <property name = "name" operator = "notlike" >
+    <value>Everybody</value>
+   </property>
+  </selection-criteria>
+ </set>
+</association>
+</associations>
+<prefixes version="1.0.0.0" encoding="UTF-8">
+</prefixes>
+<ignoredtables version="1.0.0.0" encoding="UTF-8">
+</ignoredtables>
+</setup>

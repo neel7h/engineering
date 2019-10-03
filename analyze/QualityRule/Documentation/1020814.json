@@ -1,0 +1,63 @@
+{
+    "id": 1020814,
+    "name": "Avoid using web service calls inside a loop",
+    "href": "AIP/quality-rules/1020814",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "When designing web service to get/post/put/delete data, you want to make sure that you minimize the number of calls between the client application and web service server. This rule will check the official Angular syntax http/httpclient to do call to web service.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "When designing web service to get/put/post data, you want to make sure that you minimize the number of calls between the client application and web service server. By minimizing the number of calls, you improve application speed, reduce communications overhead (why send three request when you can do it by one), and reduce network traffic.",
+    "remediation": "Try to create a process queue that will manage all the requests with a limited number of concurrents requests. When a request callback has been managed /executed, a new request could be fired.",
+    "total": "Number of TypeScript artifacts",
+    "alternativeName": "Avoid using web service calls inside a loop",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66068,
+            "name": "Efficiency - Expensive Calls in Loops",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCPEM-PRF-8",
+            "name": "Control Elements Requiring Significant Resource Element within Control Flow Loop Block",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

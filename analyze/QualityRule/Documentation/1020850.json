@@ -1,0 +1,114 @@
+{
+    "id": 1020850,
+    "name": "Always handle errors when using ajax with RxJS",
+    "href": "AIP/quality-rules/1020850",
+    "critical": false,
+    "maxWeight": 7,
+    "associatedValueName": "Number of defects",
+    "description": "This quality rule checks that errors are handled before or at subscription for all ajax RxJS observables.",
+    "output": "Line and column for each violation",
+    "rationale": "Ensure that each web service callback is going to be properly checked in order to make sure you will not miss any problem that occurred in your application and you will give the information to the user.",
+    "reference": "https://angular.io/guide/rx-library#error-handling\nhttps://angular.io/guide/rx-library\nhttps://blog.angular-university.io/rxjs-error-handling/",
+    "remediation": "Add a catchError operator to the stream before the subscription or use an error handler function at subscription. \nNote that using a catchError operator offers more possibilities since it allows to recover from the error by emitting an alternative fallback value in the stream.",
+    "remediationSample": "import { ajax } from 'rxjs/ajax';\nimport { map, catchError } from 'rxjs/operators';\n// Return \"response\" from the API. If an error happens,\n// return an empty array.\nconst apiData = ajax('/api/data').pipe(\n  map(res => {\n    if (!res.response) {\n      throw new Error('Value expected!');\n    }\n    return res.response;\n  }),\n  catchError(err => of([]))\n);\n \napiData.subscribe({\n  next(x) { console.log('data: ', x); },\n  error(err) { console.log('errors already caught... will not run'); }\n});",
+    "sample": "import { ajax } from 'rxjs/ajax';\n\nconst apiData = ajax('/api/data').pipe(\n  map(res => {\n    if (!res.response) {\n      throw new Error('Value expected!');\n    }\n    return res.response;\n  }),\n);\n \napiData.subscribe({\n  next(x) { console.log('data: ', x); }\n});",
+    "total": "Number of artifacts containing a subscription to an ajax observable",
+    "alternativeName": null,
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-CWE-252-resource",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCRM-RLB-1",
+            "name": "Empty Exception Block",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-252-resource",
+            "name": "Unchecked Return Parameter Value of named Callable and Method Control Element with Read, Write, and Manage Access to Platform Resource",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-392",
+            "name": "Missing Report of Error Condition",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-11",
+            "name": "Error Handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.5",
+            "name": "Improper error handling",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70391",
+            "name": "The application must not be subject to error handling vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

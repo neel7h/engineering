@@ -1,0 +1,120 @@
+{
+    "id": 7794,
+    "name": "Avoid Classes with a High Public Data Ratio",
+    "href": "AIP/quality-rules/7794",
+    "critical": false,
+    "maxWeight": 4,
+    "associatedValueName": "Public Data Ratio",
+    "description": "Avoid Classes with a High Public Data Ratio greater than X %. Public Data Ratio is the percentage of public fields among all fields. The threshold is a parameter and can be changed at will.",
+    "output": "This report lists all Classes with a Public Data Ratio greater than X %. Const data members are not considered as public. Properties (.NET) are not considered as fields. It provides the following information:\n- Class full name, PDC",
+    "rationale": "Public fields are accessible by any other Class, therefore its value can be modified at any time, without control by the Class itself. This goes against the concept of OO Encapsulation.",
+    "remediation": "Change the field visibility to private and provide appropriate accessors.",
+    "total": "Number of classes",
+    "alternativeName": "Avoid Classes with a High Public Data Ratio",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 4,
+            "critical": false
+        },
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 141901,
+            "name": ".NET (Legacy Analyzer)",
+            "href": "AIP/technologies/141901"
+        },
+        {
+            "id": 138383,
+            "name": "C#",
+            "href": "AIP/technologies/138383"
+        },
+        {
+            "id": -3,
+            "name": "C++",
+            "href": "AIP/technologies/-3"
+        },
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        },
+        {
+            "id": -8,
+            "name": "PowerBuilder",
+            "href": "AIP/technologies/-8"
+        },
+        {
+            "id": 138385,
+            "name": "VB.NET",
+            "href": "AIP/technologies/138385"
+        },
+        {
+            "id": -9,
+            "name": "Visual Basic",
+            "href": "AIP/technologies/-9"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCMM-MNT-15",
+            "name": "Public Member Element",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Maximum Public Data Ratio (%)",
+            "description": "Max Public Data Ratio per class",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        85.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

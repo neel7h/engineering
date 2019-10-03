@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+	<SetId>1020300</SetId>
+	<SetName>SET_JSSourceCode_Artifact_Containing_Ajax</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_AJAX_1020300</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020301</SetId>
+	<SetName>SET_JSSourceCode_Artifact_Containing_JQuery</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_JQUERY_1020301</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+	<SetId>1020302</SetId>
+	<SetName>SET_JSSourceCode_Artifact_Containing_JQuery_Dialog_setter</SetName>
+	<SetType>DIAG_SCOPE</SetType>
+	<SetProcedure>SET_DIALOG_1020302</SetProcedure>
+</SET_Definitions>
+</DATA>

@@ -1,0 +1,1291 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- 
+	File : $/a3sql/CwMetrics/Metrics/Package/abap/abap_metrics.xml
+	What it is : the name says it all
+	Authors : IBO, ACA, YLE, CNU @ CAST
+	Creation date : 2007 Oct 23
+-->
+
+<METRIC PACKAGE_NAME="abap.abap_metrics" >
+  <ACTIVE>YES</ACTIVE>
+
+  <!-- Actions used -->
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="CALCULATE" >
+      <INTERNAL_UID>C74DDFFA-9B35-4e1c-8211-75352C5196FC</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+  <!-- End of actions used -->
+
+  <!-- Categories -->
+  <CATEGORY_LIST>
+
+    <!-- Number of statements -->
+
+    <!-- Match an abap statement -->
+    <CATEGORY NAME="MATCH_ABAP_STATEMENT_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <PROPERTY NAME="PATT_ABAP_STATEMENT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_Statement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>PATT_ABAP_STATEMENT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number of statements</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+    <!-- End of Match an abap statement -->
+
+    <!-- ************************************* -->
+    <!-- Missing WHEN OTHERS in CASE statement -->
+
+    <!-- Match case statements -->
+    <CATEGORY NAME="ABAP_CASE_STATEMENT_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="ABAP_CASE_STATEMENT_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_CaseStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>ABAP_CASE_STATEMENT_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Match case statements containing a WHEN OTHERS -->
+    <CATEGORY NAME="ABAP_CASE_STATEMENT_WHEN_OTHERS_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="ABAP_CASE_STATEMENT_WHEN_OTHERS_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_CaseStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_WhenStatement_Others" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>ABAP_CASE_STATEMENT_WHEN_OTHERS_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Compute the difference and store it -->
+    <CATEGORY NAME="CASE_STMT_CASE_STMT_WHOTH_DELTA">
+      <PROPERTY NAME="CASE_STMT_CASE_STMT_WHOTH_DELTA_VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>ABAP_CASE_STATEMENT_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>ABAP_CASE_STATEMENT_WHEN_OTHERS_CAT.VALUE</LESS_VALUE>
+        <RESULT>CASE_STMT_CASE_STMT_WHOTH_DELTA_VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>CASE_STMT_CASE_STMT_WHOTH_DELTA_VALUE</SAVE>
+        <NAME>Missing WHEN OTHERS in CASE statement</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid unchecked return code (SY-SUBRC) after OPENSQL or READ statement -->
+
+    <!-- Match OpenSQL statement -->
+    <CATEGORY NAME="ABAP_OPENSQL_STATEMENT_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="ABAP_OPENSQL_STATEMENT_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="SELECT_WITHOUT_ENDSELECT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="SELECT_END_SELECT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="UPDATE_STATEMENT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="DELETE_STATEMENT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="INSERT_STATEMENT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="FETCH_STATEMENT" />
+            <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="MODIFY_STATEMENT" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>ABAP_OPENSQL_STATEMENT_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number of OpenSQL statements</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid literals in assignments -->
+
+    <CATEGORY NAME="LITERALS_IN_ASSIGNMENT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="LITERALS_IN_ASSIGNMENT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_Assignment</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_AB4_AssignmentRightSide</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <TOKEN NAME="QUOTED_STRING" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <PROPERTY NAME="LITERALS_IN_CONCATENATE_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_ConcatenateStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <TOKEN NAME="QUOTED_STRING" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <PROPERTY NAME="LITERALS_IN_MOVE_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_MoveStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <TOKEN NAME="QUOTED_STRING" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <PROPERTY NAME="LITERALS_IN_REPLACE_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_ReplaceStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <TOKEN NAME="QUOTED_STRING" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <PROPERTY NAME="LITERALS_IN_DATA_VALUE_ADD_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_DataValueAddition</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <TOKEN NAME="QUOTED_STRING" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>LITERALS_IN_ASSIGNMENT_ABAP_PATT</MATCH>
+        <MATCH>LITERALS_IN_CONCATENATE_ABAP_PATT</MATCH>
+        <MATCH>LITERALS_IN_MOVE_ABAP_PATT</MATCH>
+        <MATCH>LITERALS_IN_REPLACE_ABAP_PATT</MATCH>
+        <MATCH>LITERALS_IN_DATA_VALUE_ADD_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- Compute the difference and store it -->
+    <CATEGORY NAME="LITERALS_IN_ASSIGNMENT_NOCALL_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="LITERALS_IN_ASSIGNMENT_NOCALL_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_Assignment</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_AB4_AssignmentRightSide</SIGNATURE>
+              </OR>
+              <TREE>
+                <OR>
+                  <SIGNATURE>NODE_AB4_DirectCallMethod</SIGNATURE>
+                </OR>
+                <SUB_TREE_OR>
+                  <TOKEN NAME="QUOTED_STRING" />
+                </SUB_TREE_OR>
+              </TREE>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>LITERALS_IN_ASSIGNMENT_NOCALL_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+    <CATEGORY NAME="LITERALS_IN_ASSIGNMENT_NODEFAULTSTRMSG_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="LITERALS_IN_ASSIGNMENT_NODEFAULTSTRMSG_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_Assignment</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_AB4_AssignmentRightSide</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_AB4_DefaultMessageString" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>LITERALS_IN_ASSIGNMENT_NODEFAULTSTRMSG_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+    <CATEGORY NAME="LITERALS_IN_ASSIGNMENT_FINAL_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>LITERALS_IN_ASSIGNMENT_ABAP_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>LITERALS_IN_ASSIGNMENT_NOCALL_ABAP_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>LITERALS_IN_ASSIGNMENT_NODEFAULTSTRMSG_ABAP_CAT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Literals in assignments</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of ON CHANGE OF -->
+
+    <CATEGORY NAME="ON_CHANGE_OF_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="ON_CHANGE_OF_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_OnChangeStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>ON_CHANGE_OF_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of ON CHANGE OF</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of BREAK or BREAK-POINT statement -->
+
+		<CATEGORY NAME="BREAK_OR_BREAK_POINT_ABAP_CAT">
+			<PROPERTY NAME="VALUE" type="integer" />
+			<PROPERTY NAME="BREAK_OR_BREAK_POINT_ABAP_PATT" type="pattern">
+				<TREE>
+					<OR>
+						<SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+					</OR>
+					<SUB_TREE_OR>
+						<SIGNATURE NAME="NODE_AB4_BREAK" />
+						<SIGNATURE NAME="NODE_AB4_BREAK_POINT" SUB_NAME="BREAK_POINT_NOID" />
+					</SUB_TREE_OR>
+				</TREE>
+			</PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>BREAK_OR_BREAK_POINT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of BREAK or BREAK-POINT statement</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of hard-coded path -->
+
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_STD_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_STD_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+        <!--
+				- Windows path:
+				- ([a-z]+:?|\.\.?)\\([-a-z_0-9.^{}@()$#%'~ [\]]|\\)*
+				- URL or Unix path:
+				- ([a-z]+:/|[-a-z_0-9.^{}@()$#%'~ [\]]+)?/[-a-z_0-9.^{}@()$#%'~ [\]][-a-z_0-9.^{}@()$#%'~ /[\]]*
+				- JDBC url:
+				- jdbc:oracle:thin:@//myhost:1521/orcl
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] of
+					 'HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_CAT' below in this same file
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] of
+					 'HARD_CODED_PATH_REGEX_STD_CAT2' in configuration\Metrics\Package\Miscellaneous\HardcodedResource.xml
+				-->
+        <!-- Keep this reg. exp. in sync. with the one between ['`]...['`] at the tail of the one of
+					 'HARD_CODED_PATH_REGEX_STD_PATT' in configuration\Metrics\Package\Miscellaneous\HardcodedResource.xml
+				-->
+        <REGEXP><![CDATA[(?:(?:[[:L*:]]+:?|\.\.?)\\(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]]|\\)*|(?:[[:L*:]]+:/?|(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])+|(?:[[:L*:][:N*:]@]+:)+[[:L*:][:N*:]@]+/)?/(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~:/[\]])*)]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_STD_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_XMLTAG_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_XMLTAG_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+
+        <REGEXP><![CDATA[</[[:L*:][:N*:]_]+>]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_XMLTAG_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_HTMLTAG_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_HTMLTAG_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+
+        <REGEXP><![CDATA[[[:L*:][:N*:]_]*text/html[[:L*:][:N*:]_]*]]></REGEXP>
+        <REGEXP><![CDATA[[[:L*:][:N*:]_]*text/css[[:L*:][:N*:]_]*]]></REGEXP>
+        <REGEXP><![CDATA[[[:L*:][:N*:]_]*text/plain[[:L*:][:N*:]_]*]]></REGEXP>
+        <REGEXP><![CDATA[[[:L*:][:N*:]_]*application/javascript[[:L*:][:N*:]_]*]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_HTMLTAG_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_RESERVEDWORDS_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_RESERVEDWORDS_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+        <REGEXP><![CDATA[/[[:N*:]][[:N*:]]?]]></REGEXP>
+        <REGEXP><![CDATA[/EE]]></REGEXP>
+        <REGEXP><![CDATA[/EBACK]]></REGEXP>
+        <REGEXP><![CDATA[/ECLR]]></REGEXP>
+        <REGEXP><![CDATA[/EENTE]]></REGEXP>
+        <REGEXP><![CDATA[/EBR2]]></REGEXP>
+        <REGEXP><![CDATA[/EVORG]]></REGEXP>
+        <REGEXP><![CDATA[/EPIC]]></REGEXP>
+        <REGEXP><![CDATA[/ESMANUAL]]></REGEXP>
+        <REGEXP><![CDATA[/ECANC]]></REGEXP>
+        <REGEXP><![CDATA[/ERETU]]></REGEXP>
+        <REGEXP><![CDATA[/EBRK]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_RESERVEDWORDS_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>Yes</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>No</MATCH_WHOLE_WORD_ONLY>
+
+        <!-- 
+				* Keep the part near the tail of this is reg. exp. between ['`]...['`] in sync.
+				  with the reg. exp. of 'HARD_CODED_PATH_REGEX_STD_CAT' above in this same file.
+				* Keep the part near the tail of this is reg. exp. between ['`]...['`] in sync.
+				  with the reg. exp. of 'HARD_CODED_PATH_REGEX_STD_CAT2' in the other file
+				  configuration\Metrics\Package\Miscellaneous\HardcodedResource.xml.
+				* The sub reg.exp. "(([^'`.])|('[^'/\\]*')|(`[^`/\\]*`)|("[^\r\n]*)|(\n[*][^\r\n]*))+"
+				  matches 1..N strings not containing the / or \ mandatory inside any hard-coded path,
+				  or 1..N comments of the form « *... » or « "... », or 1..N characters different from
+				  the ABAP instruction terminator '.' for preventing any match past the end of the 
+				  current instruction.
+				* Known limitation: if a CALL FUNCTION, for example, contains 2 ore more hard coded
+				  paths, only the first will be matched, as in the following source code example:
+				  CALL FUNCTION 'WS_FILEGET'
+					EXPORTING
+					  ARG1 = 'C:\temp\foo.txt' " matched
+					  ARG2 = 'C:\temp\bar.txt' " not matched
+				-->
+        <REGEXP><![CDATA[(?:MESSAGE|WRITE|(?:CALL(?:[[:Zs:]\t]+FUNCTION)?))(?:[^'`.]|(?:'[^'/\\]*')|(?:`[^`/\\]*`)|(?:"[^\r\n]*)|(?:\n[*][^\r\n]*))+['`](?:(?:[[:L*:]]+:?|\.\.?)\\(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]]|\\)*|(?:[[:L*:]]+:/?|(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])+|(?:[[:L*:][:N*:]@]+:)+[[:L*:][:N*:]@]+/)?/(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~[\]])(?:[-[:L*:][:N*:][:Zs:]_.^{}@()$#%'~:/[\]])*)['`]]]></REGEXP>
+      </PROPERTY>
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+
+        <REGEXP><![CDATA[((_+/)+)|(/_+)]]></REGEXP>
+        <REGEXP><![CDATA[[/\\][[:Zs:]\t]+]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Hardcoded Path Exception -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_IGNORE_MIMETYPES_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="HARD_CODED_PATH_REGEX_IGNORE_MIMETYPES_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>No</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+        <REGEXP><![CDATA[application/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[x-world/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[text/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[video/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[audio/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[image/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[drawing/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[model/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[x-conference/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[i-world/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[music/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[message/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[x-music/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[www/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[chemical/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[paleovu/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[multipart/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[xgl/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[pdf/[^\r\n\t]*]]></REGEXP>
+        <REGEXP><![CDATA[N/A]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>HARD_CODED_PATH_REGEX_IGNORE_MIMETYPES_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Remove exceptions from standard Hardcoded path -->
+    <CATEGORY NAME="HARD_CODED_PATH_REGEX_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>HARD_CODED_PATH_REGEX_STD_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_XMLTAG_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_HTMLTAG_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_RESERVEDWORDS_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_CALLFUNCTION_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_SLASH_AND_UNDERSCORE_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>HARD_CODED_PATH_REGEX_IGNORE_MIMETYPES_CAT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of hard-coded path</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of nested SELECT ENDSELECT statements -->
+
+    <CATEGORY NAME="NESTED_SELECT_END_SELECT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NESTED_SELECT_END_SELECT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectWithEndselectStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_OpenSQL_Statement" SUB_NAME="SELECT_END_SELECT"/>
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NESTED_SELECT_END_SELECT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of nested SELECT ENDSELECT statements</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of READ TABLE without BINARY SEARCH -->
+
+    <CATEGORY NAME="READ_TABLE_STATEMENT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="READ_TABLE_STATEMENT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_ReadTableStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>READ_TABLE_STATEMENT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of READ TABLE statement</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Wrong use of LOOP AT WHERE constructs -->
+
+    <CATEGORY NAME="LOOP_AT_STMT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="LOOP_AT_STMT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_LoopAtWhereStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>LOOP_AT_STMT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of LOOP AT statement</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="AT_EVENT_IN_LOOP_AT_STMT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="AT_EVENT_IN_LOOP_AT_STMT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_LoopAtWhereStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_AtFirstStatement" />
+              <SIGNATURE NAME="NODE_AB4_AtLastStatement" />
+              <SIGNATURE NAME="NODE_AB4_AtEndStatement" />
+              <SIGNATURE NAME="NODE_AB4_AtNewStatement" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>AT_EVENT_IN_LOOP_AT_STMT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of AT events in LOOP AT statement</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Select Into Corresponding fields of -->
+
+    <CATEGORY NAME="SELECT_INTO_CORRESP_FIELDS_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="SELECT_INTO_CORRESP_FIELDS_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <OR>
+                <SIGNATURE>NODE_AB4_AnyIntoClause</SIGNATURE>
+              </OR>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_AB4_CorrespondingFieldsOf" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SELECT_INTO_CORRESP_FIELDS_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of SELECT INTO CORRESPONDING FIELDS OF</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of FOR ALL ENTRIES IN without emptiness check-->
+
+    <CATEGORY NAME="CHECK_IF_NOT_IS_INITIAL_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="CHECK_IF_NOT_IS_INITIAL_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_IfExpression</SIGNATURE>
+              <SIGNATURE>NODE_AB4_CheckStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_NOT_" />
+              <TOKEN NAME="_IS_" />
+              <TOKEN NAME="_INITIAL_" />
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>CHECK_IF_NOT_IS_INITIAL_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="CHECK_IF_IS_NOT_INITIAL_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="CHECK_IF_IS_NOT_INITIAL_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_IfExpression</SIGNATURE>
+              <SIGNATURE>NODE_AB4_CheckStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_IS_" />
+              <TOKEN NAME="_NOT_" />
+              <TOKEN NAME="_INITIAL_" />
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>CHECK_IF_IS_NOT_INITIAL_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="FOR_ALL_ENTRIES_IN_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="FOR_ALL_ENTRIES_IN_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_OpenSQL_StatementSELECT_WITHOUT_ENDSELECT</SIGNATURE>
+              <SIGNATURE>NODE_AB4_OpenSQL_StatementSELECT_END_SELECT</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_ForAllEntriesIn" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>FOR_ALL_ENTRIES_IN_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Compute the difference and store it -->
+    <CATEGORY NAME="CHECK_FOR_ALL_ENTRIES_DELTA_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>FOR_ALL_ENTRIES_IN_ABAP_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>CHECK_IF_NOT_IS_INITIAL_ABAP_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>CHECK_IF_IS_NOT_INITIAL_ABAP_CAT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of FOR ALL ENTRIES IN without emptiness check</NAME>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Use of SELECT ENDSELECT statement -->
+
+    <CATEGORY NAME="SELECT_ENDSELECT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="SELECT_ENDSELECT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <SUB_TREE_OR>
+            <SIGNATURE NAME="NODE_AB4_SelectWithEndselectStatement" />
+          </SUB_TREE_OR>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SELECT_ENDSELECT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="SELECT_ENDSELECT_UPTOONEROWS_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="SELECT_ENDSELECT_UPTOONEROWS_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectWithEndselectStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_UP_" />
+              <TOKEN NAME="_TO_" />
+              <TOKEN NAME="IDENTIFIER" EQUAL="ONE" />
+              <TOKEN NAME="_ROWS_" />
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SELECT_ENDSELECT_UPTOONEROWS_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="SELECT_ENDSELECT_UPTO1ROWS_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="SELECT_ENDSELECT_UPTO1ROWS_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectWithEndselectStatement</SIGNATURE>
+            </OR>
+            <SUB_TREE_CONTINUE>
+              <TOKEN NAME="_UP_" />
+              <TOKEN NAME="_TO_" />
+              <TOKEN NAME="INTEGER" EQUAL="1" />
+              <TOKEN NAME="_ROWS_" />
+            </SUB_TREE_CONTINUE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SELECT_ENDSELECT_UPTO1ROWS_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+    </CATEGORY>
+
+    <!-- Compute the difference and store it -->
+    <CATEGORY NAME="COMPUTE_SELECT_ENDSELECT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>SELECT_ENDSELECT_ABAP_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>SELECT_ENDSELECT_UPTOONEROWS_ABAP_CAT.VALUE</LESS_VALUE>
+        <LESS_VALUE>SELECT_ENDSELECT_UPTO1ROWS_ABAP_CAT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Use of SELECT ENDSELECT statement</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Never reuse standard code with OSS notes into custom code -->
+
+    <CATEGORY NAME="USE_OSS_NOTES_IN_CUSTOM_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="USE_OSS_NOTES_IN_CUSTOM_ABAP_REGEX_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>Yes</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>Yes</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <REGEXP><![CDATA[(OSS|NOTE)(\-[[:L*:][:N*:]]+)?[[:Zs:]][[:N*:]]+]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>USE_OSS_NOTES_IN_CUSTOM_ABAP_REGEX_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Never reuse standard code with OSS notes into custom code</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid using ORDER BY in SELECT -->
+
+    <CATEGORY NAME="ORDER_BY_IN_SELECT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="ORDER_BY_IN_SELECT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <SUB_TREE_CONTINUE>
+                <TOKEN NAME="_ORDER_" />
+                <TOKEN NAME="_BY_" />
+              </SUB_TREE_CONTINUE>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>ORDER_BY_IN_SELECT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid using ORDER BY in SELECT</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid using SELECT DISTINCT, use DELETE-ADJACENT -->
+
+    <CATEGORY NAME="SELECT_DISTINCT_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="SELECT_DISTINCT_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_SelectStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <SUB_TREE_OR>
+                <TOKEN NAME="_DISTINCT_" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>SELECT_DISTINCT_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid using SELECT DISTINCT, use DELETE-ADJACENT</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid empty catch blocks -->
+
+    <CATEGORY NAME="NB_EMPTY_CATCH_BLOCK_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NB_EMPTY_CATCH_BLOCK_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_TryCatch_CatchBlock</SIGNATURE>
+            </OR>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_EmptyCatchBlock" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NB_EMPTY_CATCH_BLOCK_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid empty catch blocks</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Avoid using EXIT statement in include -->
+
+    <CATEGORY NAME="NB_EXIT_IN_INCLUDE_ALL_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NB_EXIT_IN_INCLUDE_ALL_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileLevelCodeUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <SUB_TREE_OR>
+              <SIGNATURE NAME="NODE_AB4_ExitStatement" />
+            </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NB_EXIT_IN_INCLUDE_ALL_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+
+    <CATEGORY NAME="NB_EXIT_LOOP_IN_INCLUDE_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NB_EXIT_LOOP_IN_INCLUDE_ABAP_PATT" type="pattern">
+        <TREE>
+          <OR>
+            <SIGNATURE>NODE_AB4_FileLevelCodeUnit</SIGNATURE>
+          </OR>
+          <TREE>
+            <OR>
+              <SIGNATURE>NODE_AB4_DoStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_LoopStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_LoopAtStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_LoopAtWhereStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_AtNewStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_AtLastStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_WhileStatement</SIGNATURE>
+              <SIGNATURE>NODE_AB4_WhileAddition</SIGNATURE>
+              <SIGNATURE>NODE_AB4_SelectWithEndselectStatement</SIGNATURE>
+            </OR>
+            <TREE>
+              <SUB_TREE_OR>
+                <SIGNATURE NAME="NODE_AB4_ExitStatement" />
+              </SUB_TREE_OR>
+            </TREE>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>NB_EXIT_LOOP_IN_INCLUDE_ABAP_PATT</MATCH>
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- Compute the difference and store it -->
+    <CATEGORY NAME="NB_EXIT_IN_INCLUDE_ABAP_CAT">
+      <PROPERTY NAME="VALUE" type="integer" />
+
+      <ADD_ACTION NAME="CALCULATE">
+        <ADD_VALUE>NB_EXIT_IN_INCLUDE_ALL_ABAP_CAT.VALUE</ADD_VALUE>
+        <LESS_VALUE>NB_EXIT_LOOP_IN_INCLUDE_ABAP_CAT.VALUE</LESS_VALUE>
+        <RESULT>VALUE</RESULT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid using EXIT statement in include</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+    <!-- ************************************* -->
+    <!-- Number of Extended Check comments -->
+
+    <CATEGORY NAME="NUMBER_OF_EXTENDED_CHECK_COMMENTS">
+      <PROPERTY NAME="VALUE" type="integer" />
+      <PROPERTY NAME="NUMBER_OF_EXTENDED_CHECK_COMMENTS_PATT" type="regexp_pattern">
+        <LANGUAGE>ABAP-LANGUAGE</LANGUAGE>
+        <SEARCH_IN_CODE>No</SEARCH_IN_CODE>
+        <SEARCH_IN_COMMENT>Yes</SEARCH_IN_COMMENT>
+        <SEARCH_IN_STRING>No</SEARCH_IN_STRING>
+        <SEARCH_IN_EMBEDDEDSQL>No</SEARCH_IN_EMBEDDEDSQL>
+        <MATCH_WHOLE_WORD_ONLY>Yes</MATCH_WHOLE_WORD_ONLY>
+        <SEARCH_CASE_SENSITIVE>No</SEARCH_CASE_SENSITIVE>
+        <REGEXP><![CDATA[\#EC[[:Zs:]\t\r\n]]]></REGEXP>
+      </PROPERTY>
+
+      <ADD_ACTION NAME="MATCH">
+        <MATCH>NUMBER_OF_EXTENDED_CHECK_COMMENTS_PATT</MATCH>
+        <CLASS>ABAP_CLASS.CLASS</CLASS>
+        <SOURCE_CODE>OBJECT.SOURCECODE</SOURCE_CODE>
+        <VALUE_OUTPUT>VALUE</VALUE_OUTPUT>
+      </ADD_ACTION>
+
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Number of Extended Check comments</NAME>
+      </ADD_ACTION>
+    </CATEGORY>
+
+  </CATEGORY_LIST>
+
+</METRIC>

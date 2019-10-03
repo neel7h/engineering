@@ -1,0 +1,70 @@
+{
+    "id": 1001178,
+    "name": "Avoid PLI Programs with more then XX Procedures (PL1)",
+    "href": "AIP/quality-rules/1001178",
+    "critical": false,
+    "maxWeight": 4,
+    "description": "This rule searches for PL1 Main Procedures (Programs) that have more than XX procedures and functions. XX Parameter can be set at will. The default parameter value is 50.",
+    "output": "The report lists all the for PL1 Main Procedures having more than XX procedures.\n\nIt provides following information: \n- for PL1 Main Procedures full name",
+    "rationale": "Having artifacts with more then XX Procedures makes them more difficult to maintain.",
+    "remediation": "Review the source code in order that the PLI programs not have more than XX procedures.",
+    "total": "Number of PL1 Main Procedures",
+    "alternativeName": "Avoid PLI Programs with more then XX Procedures (PL1)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61022,
+            "name": "Volume - Number of Components",
+            "weight": 4,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Proc",
+            "description": "Max Proc",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        50
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

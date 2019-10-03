@@ -1,0 +1,104 @@
+{
+    "id": 1007256,
+    "name": "Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)",
+    "href": "AIP/quality-rules/1007256",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Reasoning",
+    "description": "A reflected cross-site scripting (XSS) vulnerability occurs when user input is embedded unsanitized into the HTML response page of the web application. It allows an attacker to inject arbitrary HTML or JavaScript code into the response page of a tampered request. Usually, this attack is performed by crafting a malicious link that is sent to a victim. When opened, the attacker's JavaScript payload within the link is reflected by the application and executed in the victim's browser in the context of the web application's domain. This enables the attacker to perform phishing attacks or to steal cookies associated with the domain.",
+    "output": "This report lists all artifacts that do improper neutralization of input in script tag during web page generation which could expose application to XSS attack. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "The detected injection occurs within a script element that executes JavaScript code. An attacker can inject malicious JavaScript code by altering the current JavaScript syntax or by terminating the current JavaScript context with a script element and injecting a new HTML element.",
+    "reference": "https://cwe.mitre.org/data/definitions/80.html\nhttps://www.owasp.org/index.php/Cross-site_Scripting_(XSS)\nhttps://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet",
+    "remediation": "To prevent, use the built-in function json_encode() for strings or with typecasts for numerical values.",
+    "remediationSample": "<?php\n$script = $_GET['script'];\n?>\n\u2026\n<script>\n   <?php echo json_encode($script); ?>\n</script>",
+    "sample": "<?php\n$script = $_GET['script'];\n?>\n\u2026\n<script>\n   <?php echo $script; ?>\n</script>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid cross-site scripting - Improper Neutralization of input in script tag during web page generation (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-79",
+            "name": "Cross-site Scripting Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A3-2013",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A7-2017",
+            "name": "Cross-Site Scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.7",
+            "name": "  Cross-site scripting (XSS)",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70257",
+            "name": "The application must protect from Cross-Site Scripting (XSS) vulnerabilities.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

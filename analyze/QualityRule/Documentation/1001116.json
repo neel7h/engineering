@@ -1,0 +1,63 @@
+{
+    "id": 1001116,
+    "name": "Avoid Function and Procedures using Builtin Function \"String\" (PL1)",
+    "href": "AIP/quality-rules/1001116",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "This rule searches for all PL1 Functions and PL1 Procedures using builtin function 'String'",
+    "output": "The report lists all the PL1 Functions and PL1 Procedures using Builtin function 'String'.\n\nIt provides following information: \n-  PL1 Function and PL1 Procedure full name",
+    "rationale": "Builtin 'String'  function may not be efficient if large structures are passed to it as arguments.",
+    "remediation": "Try to reduce the use of builtin function 'String' and if possible replace it with any other equivalent function.",
+    "sample": "THEN DO;        \n         STRING(TEST1)='';        \n         TEST1=TEST2;",
+    "total": "Number of PL1 Functions and PL1 Procedures.",
+    "alternativeName": "Avoid Function and Procedures using Builtin Function \"String\" (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "id": 1020330,
+    "name": "Avoid using $(location.hash) with jQuery version older than 1.6.3",
+    "href": "AIP/quality-rules/1020330",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "Cross-site scripting (XSS) vulnerability in jQuery older than version 1.6.3, when using location.hash to select elements, allows remote attackers to inject arbitrary web script or HTML via a crafted tag. This rule has been listed as CVE-2011-4969 in the CVE registry.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "While some known vulnerabilities lead to only minor impacts, some of the largest breaches to date have relied on exploiting known vulnerabilities in components. Depending on the assets you are protecting, perhaps this risk should be at the top of the list.",
+    "reference": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4969",
+    "remediation": "Do not use jQuery $(location.hash)",
+    "remediationSample": "<script src=\"https://code.jquery.com/jquery-1.6.3.js\"></script> \n\n...\n$(location.hash) // XSS vulnerability blocked\n...",
+    "sample": "<script src=\"https://code.jquery.com/jquery-1.6.2.js\"></script> \n\n...\n$(location.hash) // XSS vulnerability\n...",
+    "total": "Number of JQuery artifacts",
+    "alternativeName": "Avoid using $(location.hash) with jQuery version older than 1.6.3",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66064,
+            "name": "Secure Coding - Weak Security Features",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-676",
+            "name": "Use of Potentially Dangerous Function",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2013",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A9-2017",
+            "name": "Using Components with Known Vulnerabilities",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

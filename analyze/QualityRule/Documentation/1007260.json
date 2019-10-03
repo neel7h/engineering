@@ -1,0 +1,103 @@
+{
+    "id": 1007260,
+    "name": "Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+    "href": "AIP/quality-rules/1007260",
+    "critical": true,
+    "associatedValueName": "Reasoning",
+    "description": "A command execution vulnerability occurs when user input is embedded unsanitized into a system command. It allows an attacker to terminate the intended command and to append arbitrary system commands for execution. Common character sequences to separate commands are semicolons (;), boolean operators (&|), $(subcommands), `backticks`, and newline characters (%0a).",
+    "output": "This report lists all artifacts that allow command injection through use of unsanitized user input. \nThis QR provides the following information:\nArtifact Full Name",
+    "rationale": "Allowing command injection can lead allows an attacker to terminate the intended command and to append arbitrary system commands for execution.",
+    "reference": "https://cwe.mitre.org/data/definitions/78.html\nhttps://www.owasp.org/index.php/Command_Injection",
+    "remediation": "It is highly recommended to avoid invoking system commands from a web application whenever possible. If must, user input should be sanitized with built-in function escapeshellcmd() on the whole command or by escaping all command arguments with the built-in function escapeshellarg().",
+    "remediationSample": "<?php\n\n$pass = $_GET[\"password\"];\nexec(\"/bin/cat /usr/share/dict/words | grep \" . escapeshellcmd($pass), $output, $status);\n\n?>",
+    "sample": "<?php\n\n$pass = $_GET[\"password\"];\nexec(\"/bin/cat /usr/share/dict/words | grep \" . $pass, $output, $status);\n\n\n?>",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Command Injection - Improper Neutralization of Special Elements used in an OS Command (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 5,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-78",
+            "name": "OS Command Injection Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-78",
+            "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-SI-10",
+            "name": "Information Input Validation",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2013",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A1-2017",
+            "name": "Injection",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <metric extern="true" id="60001" type="folder" originalName="General Summary" active="N/A" detached="N/A" ignored="false"/>
+  <metric extern="true" id="60002" type="folder" originalName="Initializations" active="N/A" detached="N/A" ignored="false"/>
+  <metric id="60006" type="folder" originalName="Move Quality Rules results" active="true" detached="N/A" ignored="false"/>
+  <metric id="60007" type="folder" originalName="Add DSS_OBJECT_EXCEPTIONS" active="true" detached="N/A" ignored="false"/>  
+</root>  
+  
+  

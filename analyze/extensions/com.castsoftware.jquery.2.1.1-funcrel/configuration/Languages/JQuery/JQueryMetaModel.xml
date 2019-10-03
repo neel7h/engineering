@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+    <!-- JQuery Types -->
+
+    <type name="CAST_JQuery_Selector" id="1020050">
+        <description>JQuery selector</description>
+        <property name="type" type="string" id="140564">
+            <description>Event type</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="140564"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_JQuery_GetResourceService" id="1020060">
+        <description>JQuery GET resource service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_JQuery_PutResourceService" id="1020061">
+        <description>JQuery PUT resource service</description>
+        <inheritedCategory name="CAST_PutResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_JQuery_PostResourceService" id="1020062">
+        <description>JQuery POST resource service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_JQuery_DeleteResourceService" id="1020083">
+        <description>JQuery DELETE resource service</description>
+        <inheritedCategory name="CAST_DeleteResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_APM_Artifacts" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+    
+	<category name="CAST_JQuery_Metric_UseOfDollarAjaxInLoop" id="1020063">
+		<description>Store Avoid the use of $.ajax in loop metric results</description>
+    	<property name="numberOfDollarAjaxInLoop" type="integer" merge="sum" id="1020300">
+			<description>Number of $.ajax in loop</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="0"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfElementType" id="1020080">
+		<description>Store Avoid the use of element type metric results</description>
+    	<property name="numberOfElementType" type="integer" merge="sum" id="1020302">
+			<description>Number of element type usages</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="2"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutCallbacks" id="1020081">
+		<description>Store Avoid the use of $.ajax without callbacks for jquery versions &lt; 3 metric results</description>
+    	<property name="numberOfDollarAjaxWithoutCallbacks" type="integer" merge="sum" id="1020304">
+			<description>Number of $.ajax without callbacks for jquery versions &lt; 3</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="4"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutCallbacksJQuery3" id="1020309">
+		<description>Store Avoid the use of $.ajax without callbacks for jquery versions &gt;= 3 metric results</description>
+    	<property name="numberOfDollarAjaxWithoutCallbacksJQuery3" type="integer" merge="sum" id="1020317">
+			<description>Number of $.ajax without callbacks for jquery versions &gt;= 3</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="17"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UnuseOfFindForIdChildNestedSelector" id="1020095">
+		<description>Store Always use find for Id-Child nested selector metric results</description>
+    	<property name="numberOfIdChildNestedSelectorWithoutFind" type="integer" merge="sum" id="1020305">
+			<description>Number of Id-Child nested selector without find</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="5"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfUncachedObject" id="1020098">
+		<description>Store Always cache the returned objects in variables to be reused metric results</description>
+    	<property name="numberOfUncachedObject" type="integer" merge="sum" id="1020306">
+			<description>Number of uncached object usage</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="6"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseTypeToSelectElementsByType" id="1020100">
+		<description>Store Use 'type=' to select elements by type metric results</description>
+    	<property name="numberOfSelectElementsByTypeWithoutType" type="integer" merge="sum" id="1020307">
+			<description>Number of select elements by type without type</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="7"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfAnonymousFunctionsForEvents" id="1020101">
+		<description>Store Avoid use of anonymous functions to attach events metric results</description>
+    	<property name="numberOfAnonymousFunctionsForEvents" type="integer" merge="sum" id="1020308">
+			<description>Number of anonymous functions for events</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="8"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfCss" id="1020102">
+		<description>Store Avoid using css() of many elements metric results</description>
+    	<property name="numberOfCss" type="integer" merge="sum" id="1020309">
+			<description>Number of css() calls</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="9"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_AvoidUniversalSelectors" id="1020108">
+		<description>Store Avoid Universal Selectors metric results</description>
+    	<property name="numberOfUniversalSelectors" type="integer" merge="sum" id="1020310">
+			<description>Number of universal selectors</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="10"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_AvoidJQueryDeprecatedMethods" id="1020138">
+		<description>Store Avoid JQuery deprecated methods metric results</description>
+    	<property name="numberOfJQueryDeprecatedMethods" type="integer" merge="sum" id="1020311">
+			<description>Number of JQuery deprecated methods</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="11"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+    	<property name="methodName" type="string" id="1020312">
+			<description>JQuery deprecated method name</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="12"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_AvoidJQueryCookie" id="1020280">
+		<description>Store Avoid using jQuery $.cookie metric results</description>
+    	<property name="numberOfJQueryCookie" type="integer" merge="sum" id="1020313">
+			<description>Number of $.cookie</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="13"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_AvoidJQueryLocationHashBefore163" id="1020325">
+		<description>Store Avoid using jQuery $(location.hash) before 1.6.3 metric results</description>
+    	<property name="numberOfJQueryLocationHash" type="integer" merge="sum" id="1020318">
+			<description>Number of $(location.hash) before 1.6.3</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="18"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutDataType" id="1020281">
+		<description>Store Avoid using Ajax method without dataType metric results</description>
+    	<property name="numberOfDollarAjaxWithouDataType" type="integer" merge="sum" id="1020314">
+			<description>Number of $.ajax without dataType</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="14"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfDialogWithCloseText" id="1020284">
+		<description>Store Avoid using dialog with closeText parameter before jQuery UI 1.12 metric results</description>
+    	<property name="numberOfDialogWithCloseText" type="integer" merge="sum" id="1020315">
+			<description>Number of dialog with closeText parameter before jQuery UI 1.12</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="15"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+    
+	<category name="CAST_JQuery_Metric_UseOfAppendOrAfter" id="1020329">
+		<description>Store Avoid using append or after before jQuery 1.4.2 (included) metric results</description>
+    	<property name="numberOfAppendOrAfter" type="integer" merge="sum" id="1020319">
+			<description>Number of append or after call before jQuery 1.4.2 (included)</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="19"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	<category name="CAST_JQuery_Metric_UseOfAttr_300rc1" id="1020330">
+		<description>Store Avoid using attr() with jQuery 3.0.0-rc1 metric results</description>
+    	<property name="numberOfAttr300rc1" type="integer" merge="sum" id="1020320">
+			<description>Number of attr call with jQuery 3.0.0-rc1</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="20"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	<category name="CAST_JQuery_Metric_UseOfHtmlFunction" id="1020331">
+		<description>Store Avoid using html() with version 1.9.0 (or older) metric results</description>
+    	<property name="numberOfHtmlCall" type="integer" merge="sum" id="1020321">
+			<description>Number of html call with jQuery 1.9.0 (or older)</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="21"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	<category name="CAST_JQuery_Metric_UseOfDialog" id="1020332">
+		<description>Store Avoid using dialog() with jQuery UI version older than 1.10.0 metric results</description>
+    	<property name="numberOfDialogCall" type="integer" merge="sum" id="1020322">
+			<description>Number of dialog call with jQuery UI version older than 1.10.0</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="22"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	<category name="CAST_JQuery_Metric_UseOfTooltip" id="1020333">
+		<description>Store Avoid using tooltip() with jQuery UI version older than 1.10.0 metric results</description>
+    	<property name="numberOfTooltipCall" type="integer" merge="sum" id="1020323">
+			<description>Number of tooltip call with jQuery UI version older than 1.10.0</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="23"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_HTML" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+		</property>
+	</category>
+	<category name="CAST_JQuery_Properties" id="1020160">
+		<description>Store Properties for jquery</description>
+    	<property name="containsAjaxCall" type="integer" id="1020301">
+			<description>Contains ajax call (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="1"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsJQueryCall" type="integer" id="1020303">
+			<description>Contains JQuery call (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="3"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+    	<property name="containsJQueryDialogCall" type="integer" id="1020316">
+			<description>Contains JQuery dialog call (1 if Yes)</description>
+			<attribute name="INF_TYPE" intValue="1020300"/>
+			<attribute name="INF_SUB_TYPE" intValue="16"/>
+			<attribute name="ACCESS_APPVIEW" intValue="0"/>
+			<attribute name="ACCESS_HTML" intValue="0"/>
+			<attribute name="ACCESS_CVS" intValue="0"/>
+		</property>
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDollarAjaxInLoop" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfElementType" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutCallbacks" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutCallbacksJQuery3" />
+        <inheritedCategory name="CAST_JQuery_Metric_UnuseOfFindForIdChildNestedSelector" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfUncachedObject" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseTypeToSelectElementsByType" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfAnonymousFunctionsForEvents" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfCss" />
+        <inheritedCategory name="CAST_JQuery_Metric_AvoidUniversalSelectors" />
+        <inheritedCategory name="CAST_JQuery_Metric_AvoidJQueryDeprecatedMethods" />
+        <inheritedCategory name="CAST_JQuery_Metric_AvoidJQueryCookie" />
+        <inheritedCategory name="CAST_JQuery_Metric_AvoidJQueryLocationHashBefore163" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDollarAjaxWithoutDataType" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDialogWithCloseText" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfAppendOrAfter" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfAttr_300rc1" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfHtmlFunction" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfDialog" />
+        <inheritedCategory name="CAST_JQuery_Metric_UseOfTooltip" />
+
+	</category>
+
+	<partialType name="CAST_HTML5_JavaScript_SourceCode">
+        <inheritedCategory name="CAST_JQuery_Properties" />
+	</partialType>
+
+	<partialType name="CAST_HTML5_JavaScript_SourceCode_Fragment">
+        <inheritedCategory name="CAST_JQuery_Properties" />
+	</partialType>
+
+	<partialType name="CAST_HTML5_JSX_SourceCode">
+        <inheritedCategory name="CAST_JQuery_Properties" />
+	</partialType>
+
+</metaModel>

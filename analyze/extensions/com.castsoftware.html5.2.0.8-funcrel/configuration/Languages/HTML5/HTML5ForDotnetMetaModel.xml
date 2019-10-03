@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="20">
+
+    <category name="CAST_HTML5_Razor_Controller_Method_Access" id="1020190">
+        <description>HTML5 Razor method access</description>
+    </category>
+
+    <type name="CAST_HTML5_Razor_Controller_Method_Call" id="1020186">
+        <description>HTML5 Razor method call</description>
+        <inheritedCategory name="CAST_HTML5_Razor_Controller_Method_Access" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_Razor_Controller_Method_Post" id="1020188">
+        <description>HTML5 Razor POST method call</description>
+        <inheritedCategory name="CAST_HTML5_Razor_Controller_Method_Access" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_Razor_Controller_Method_Get" id="1020189">
+        <description>HTML5 Razor GET method call</description>
+        <inheritedCategory name="CAST_HTML5_Razor_Controller_Method_Access" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="HTML5" />
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_CSHTML_Content" id="1020187">
+        <description>HTML5 CSHTML Content</description>
+        <inheritedCategory name="CAST_MetricAssistant_Metric_cyclomaticComplexity" />
+        <inheritedCategory name="CAST_MetricAssistant_Metric_lengthOfTheLongestLine" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <inheritedCategory name="CAST_HTML5_SourceCode_Diags" />
+        <inheritedCategory name="APM_Inventory_Web_Pages" />
+        <inheritedCategory name="APM IFPUG Transaction"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_AspDotNet_GetOperation" id="1020223">
+        <description>ASP.NET Get Operation</description>
+        <inheritedCategory name="CAST_WebService_GetOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_AspDotNet_PostOperation" id="1020224">
+        <description>ASP.NET Post Operation</description>
+        <inheritedCategory name="CAST_WebService_PostOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_AspDotNet_PutOperation" id="1020227">
+        <description>ASP.NET Put Operation</description>
+        <inheritedCategory name="CAST_WebService_PutOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_AspDotNet_DeleteOperation" id="1020228">
+        <description>ASP.NET Delete Operation</description>
+        <inheritedCategory name="CAST_WebService_DeleteOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_AspDotNet_AnyOperation" id="1020229">
+        <description>ASP.NET Any Operation</description>
+        <inheritedCategory name="CAST_WebService_AnyOperation" />
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="CAST_DotNet_DotNet" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="GROUP_WSD" category="EnlightenTree"/>
+    </type>
+
+    <type name="CAST_HTML5_Razor_GetService" id="1020225">
+        <description>HTML5 Razor Get service</description>
+        <inheritedCategory name="CAST_GetResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+    <type name="CAST_HTML5_Razor_PostService" id="1020226">
+        <description>HTML5 Razor Post service</description>
+        <inheritedCategory name="CAST_PostResourceService" />
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="METRICABLE" />
+        <inheritedCategory name="HTML5" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+        <tree parent="CAST_HTML5_Enlighten" category="EnlightenTree" />
+    </type>
+
+</metaModel>

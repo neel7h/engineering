@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ File : CursorInsideCursorLoops.xml
+ Author : YLE@CAST
+ Date : 28 Feb 2007
+ Role : Detects the use of a cursor inside a cursor loop
+
+ Here we have to detect the use of a cursor inside a cursor loop,
+ to do so we simply look for the OPEN instruction inside a loop.
+ So the processed object will be erroneously marked as not conforming
+ to the diag in the case where the loop is not a cursor loop as in
+ the following piece of code :
+   LOOP
+     BEGIN
+        DECLARE CURSOR cursor_b IS
+                  SELECT * FROM TITLES
+                  WHERE TITLE_ID IN ( SELECT TITLE_ID FROM TITLEAUTHOR
+                                      WHERE AU_ID = row_authors.AU_ID
+                                    ) ;
+        BEGIN
+          OPEN cursor_b;
+          /* truncated code */
+          CLOSE cursor_b;
+        END;
+     END;
+   END LOOP;
+ Maybe one day it will be possible to detect a loop that is a cursor loop
+ but for the moment it seems quite difficult
+-->
+
+
+<METRIC PACKAGE_NAME="SQL Metric.CursorInsideCursorLoops">
+  <ACTIVE>YES</ACTIVE>
+  
+  <ACTION_LIST>
+    <ACTION NAME="MATCH IN TREE ELEMENT" >
+      <INTERNAL_UID>8033D1FB-9FAB-4fcc-99A8-3ECD667C2889</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+    <ACTION NAME="PERSISTENCE" >
+      <INTERNAL_UID>1AE3873E-AE59-4813-8914-18CF33125148</INTERNAL_UID>
+      <ACTIVE>YES</ACTIVE>
+    </ACTION>
+  </ACTION_LIST>
+  
+  <CATEGORY_LIST>
+    <CATEGORY NAME="MATCH_SQL_CURSOR_IN_A_LOOP">
+      <PROPERTY NAME="VALUE" TYPE="integer"/>
+      
+      <!-- Pattern definition -->
+      <PROPERTY NAME="PATT_SQL_CURSOR_IN_LOOP" TYPE="pattern">
+        <TREE>
+          <OR>
+            <!-- PL-SQL -->
+            <SIGNATURE>CLASS_PLSQL_function_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_function_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_TRIGGER</SIGNATURE>
+            <SIGNATURE>NODE_PL_TRIGGER</SIGNATURE> --
+            <SIGNATURE>CLASS_PLSQL_procedure_body</SIGNATURE>
+            <SIGNATURE>CLASS_PL_procedure_body</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_1</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_1</SIGNATURE> --
+            <SIGNATURE>NODE_P23_PACKAGE_BODY_2</SIGNATURE>
+            <SIGNATURE>NODE_PL_PACKAGE_BODY_2</SIGNATURE> --
+          </OR>
+          <TREE>
+            <OR>
+              <!-- PL-SQL -->
+              <SIGNATURE>NODE_P23_STATEMENT_LOOP_WHILE</SIGNATURE>
+              <SIGNATURE>NODE_PL_STATEMENT_LOOP_WHILE</SIGNATURE> --
+              <SIGNATURE>NODE_P23_STATEMENT_LOOP</SIGNATURE>
+              <SIGNATURE>NODE_PL_STATEMENT_LOOP</SIGNATURE> --
+              <!-- T-SQL -->
+              <SIGNATURE>NODE_49X_WHILE</SIGNATURE>
+            </OR>
+              <SUB_TREE_OR>
+                <!-- PL-SQL -->
+                <SIGNATURE NAME="NODE_P23_STATEMENT_OPEN_FOR_USING"/>
+                <SIGNATURE NAME="NODE_P23_STATEMENT_SQL_OPEN_FOR"/>
+                <SIGNATURE NAME="NODE_P23_STATEMENT_SQL_OPEN"/>
+                <SIGNATURE NAME="NODE_PL_STATEMENT_SQL_OPEN"/> --
+                <SIGNATURE NAME="NODE_P23_STATEMENT_LOOP_FOR_CURSOR"/>
+                <!-- T-SQL -->
+                <SIGNATURE NAME="NODE_M60_OPEN_CURSOR"/>
+                <SIGNATURE NAME="NODE_M70_OPEN_CURSOR_1"/>
+                <SIGNATURE NAME="NODE_M70_OPEN_CURSOR_2"/>
+                <SIGNATURE NAME="NODE_S10_OPEN_CURSOR"/>
+              </SUB_TREE_OR>
+          </TREE>
+        </TREE>
+      </PROPERTY>
+      <!-- End of pattern definition -->
+      
+      <ADD_ACTION NAME="MATCH IN TREE ELEMENT">
+        <MATCH>PATT_SQL_CURSOR_IN_LOOP</MATCH>        
+        <TOKEN>TOKEN_AND_TREE_ELEMENT.TOKEN_VALUE</TOKEN>
+        <SIGNATURE>TOKEN_AND_TREE_ELEMENT.SIGNATURE_VALUE</SIGNATURE>
+        <RESULT_COUNT>VALUE</RESULT_COUNT>
+      </ADD_ACTION>
+      
+      <ADD_ACTION NAME="PERSISTENCE">
+        <SAVE>VALUE</SAVE>
+        <NAME>Avoid cursors inside a cursor loop</NAME>
+      </ADD_ACTION>
+      
+    </CATEGORY>
+  </CATEGORY_LIST>
+  
+</METRIC>
+
+

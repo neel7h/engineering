@@ -1,0 +1,66 @@
+{
+    "id": 1003100,
+    "name": "Avoid protected fields in final class (Flex)",
+    "href": "AIP/quality-rules/1003100",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This QR reports artifacts that have protected field in final classes.",
+    "output": "This QR reports artifacts that have protected field in final classes. It provides following information:\n\n- Artifact full name",
+    "rationale": "Protected fields are of no use in final class.",
+    "remediation": "Make protected fields private in final class.",
+    "sample": "final public class Foo\n{\n   protected var bar : int; // VIOLATION      \n}",
+    "total": "Number of artifacts",
+    "alternativeName": "Avoid protected fields in final class (Flex)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1007000,
+            "name": "Flex",
+            "href": "AIP/technologies/1007000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "FlexMetricName",
+            "description": "FlexMetricName",
+            "technologies": [
+                {
+                    "id": 1007000,
+                    "name": "Flex",
+                    "href": "AIP/technologies/1007000",
+                    "values": [
+                        "adobe.ac.pmd.rules.maintanability.AvoidProtectedFieldInFinalClass"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

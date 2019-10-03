@@ -1,0 +1,76 @@
+{
+    "id": 1007004,
+    "name": "Avoid Methods and Functions with High Fan-In (PHP)",
+    "href": "AIP/quality-rules/1007004",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Fan-In",
+    "description": "This rule searches for all Functions and Methods with High Fan-In.\n         The Fan-in of Method or Function is the number of other artifacts that are referencing it.\n         When computing the Fan-In of an artifact, multiple accesses to it from the same artifact are counted as one access. \n         The threshold is a parameter and can be changed as per requirement.",
+    "output": "This report lists all Methods and Functions with a High Fan-In.\n               \nThis QR provides the following information:\nMethod or Function full name.",
+    "rationale": "If an artifact is referenced by large number of artifacts, maintenance and evolution becomes difficult. This is because all the referencing artifacts need to be updated and\\or retested.",
+    "remediation": "Modify the source code to reduce the number of Methods and Functions with a High Fan-In.",
+    "total": "Number of Methods and Functions",
+    "alternativeName": "Avoid Methods and Functions with High Fan-In (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66032,
+            "name": "Architectural Design",
+            "href": "AIP/business-criteria/66032"
+        },
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61013,
+            "name": "Architecture - Object-level Dependencies",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "MAx Fan in",
+            "description": "Max Fan in",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        5.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

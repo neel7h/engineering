@@ -1,0 +1,70 @@
+{
+    "id": 1006008,
+    "name": "Avoid programs with low comment / code ratio  (Shell)",
+    "href": "AIP/quality-rules/1006008",
+    "critical": false,
+    "maxWeight": 6,
+    "description": "This rule searches all the programs having a low comment/code ratio.",
+    "output": "The report lists all the  unreferenced Shell Programs\nIt provides following information: \n- Program full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the program.",
+    "remediation": "Try to increase the comment/code ratio for programs.",
+    "total": "Number of  Shell Programs",
+    "alternativeName": "Avoid programs with low comment / code ratio  (Shell)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 6,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1016000,
+            "name": "Shell",
+            "href": "AIP/technologies/1016000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "CommCode Ratio",
+            "description": "CommCode Ratio",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        20
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

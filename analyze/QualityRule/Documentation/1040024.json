@@ -1,0 +1,89 @@
+{
+    "id": 1040024,
+    "name": "Spring Boot Shutdown Actuator Endpoint must be secured from unauthenticated access.",
+    "href": "AIP/quality-rules/1040024",
+    "critical": true,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will check if Spring Boot Shutdown Actuator is both enabled and exposed, as this configuration will allow users/attackers to shut down the application without authentication.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.",
+    "reference": "https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html\nhttps://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-customizing-endpoints",
+    "remediation": "Disable the Spring Boot Actuator shutdown endpoint as follow in application.properties or application.yml file : management.endpoint.shutdown.enabled=false",
+    "remediationSample": "management.endpoint.shutdown.enabled=false\nendpoints.shutdown.sensitive=true\n\nOr keep using the Spring Secutrity default configuration",
+    "sample": "The following sample enables the shutdown endpoint:\n\nSample 1: \nmanagement.endpoint.shutdown.enabled=true\n------------------------------------------------\n\nSample 2: Enabling all endpoints except info:\nmanagement.endpoints.enabled-by-default=true \nmanagement.endpoint.info.enabled=false\n\n\n\nThe following sample allows exposing the shutdown endpoint:\n\nSample 1: \nendpoints.shutdown.sensitive=false\n----------------------------------\n\nSample 2: exposing all endpoints except info: \nendpoints.sensitive=true\nendpoints.info.sensitive=false",
+    "total": "Number of Properties file object",
+    "alternativeName": "Ensure securing Shutdown Actuator Endpoint from unauthenticated access.",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66066,
+            "name": "Secure Coding - Encapsulation",
+            "weight": 7,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 140029,
+            "name": "JEE",
+            "href": "AIP/technologies/140029"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-489",
+            "name": "Leftover Debug Code",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "NIST-SP-800-53R4",
+            "id": "NIST-AC-3",
+            "name": "Access Enforcement",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A5-2013",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "A6-2017",
+            "name": "Security Misconfiguration",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-2.2.4",
+            "name": "Configure system security parameters to prevent misuse.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

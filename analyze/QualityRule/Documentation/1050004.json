@@ -1,0 +1,84 @@
+{
+    "id": 1050004,
+    "name": "Avoid using NSPredicate predicateWithFormat",
+    "href": "AIP/quality-rules/1050004",
+    "critical": true,
+    "description": "An attacker could access other user information thanks to string injection. Manipulating input, an attacker could fetch more data from the database than what was originally intended by the application.\nThe injection could be done in NSPredicate using the methods\npredicateWithFormat:,\npredicateWithFormat:arguments:,\npredicateWithFormat:argumentArray:\nThe injection point will be part of the format string as @\"...%@...\". \nThis rule is compliant with CISQ OMG ASCSM-CWE-134 and ASCSM-CWE-89 recommendations and with OWASP 2016-M7 recommendation",
+    "output": "Line and column for each violation \nAssociated value => number of violations found",
+    "rationale": "An attacker could access other user information thanks to string injection through the withFormat method. This is why it is highly recommended to avoid the usage of the API",
+    "total": "Number of Objective-C artifacts",
+    "alternativeName": "Ensure not using string uncontrolled string concatenation to build NSPredicate request",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66062,
+            "name": "Secure Coding - Input Validation",
+            "weight": 8,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1050001,
+            "name": "Objective-C",
+            "href": "AIP/technologies/1050001"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CISQ",
+            "id": "ASCSM-CWE-134",
+            "name": "Format String Improper Input Neutralization",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "CWE",
+            "id": "CWE-134",
+            "name": "Use of Externally-Controlled Format String",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "OWASP",
+            "id": "M7-2016",
+            "name": "Poor Code Quality",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "PCI-DSS-V3.1",
+            "id": "PCI-Requirement-6.5.1",
+            "name": "Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.",
+            "url": null,
+            "description": null
+        },
+        {
+            "standard": "STIG-V4R8",
+            "id": "STIG-V-70261",
+            "name": "The application must protect from command injection.",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

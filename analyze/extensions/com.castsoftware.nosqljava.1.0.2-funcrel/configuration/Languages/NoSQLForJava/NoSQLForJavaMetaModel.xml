@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="builtin" file_no="101">
+
+    <category name="CAST_Java_MongoDB_Artifacts" rid="917">
+        <description>Java MongoDB Artifacts</description>
+        <inheritedCategory name="APM Client Language Artifacts" />
+    </category>
+    
+    <!-- QRs -->
+    
+    <category name="CAST_Java_MongoDB_Metric_ensureSimilarCompoundIndexForCollection" rid="919">
+        <description>Number of dissimilar compound indexes</description>
+        <property name="similarCompoundIndex" type="integer" merge="sum" rid="919">
+            <description>When using compound indexes, avoid having different indexes</description>
+            <attribute name="INF_TYPE" intValue="1101919"/>
+            <attribute name="INF_SUB_TYPE" intValue="4"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Java_MongoDB_Metric_ensureAuthenticationPriorAccess" rid="921">
+        <description>Number of unauthenticated access</description>
+        <property name="authenticationCheck" type="integer" merge="sum" rid="921">
+            <description>Avoid having MongoDB databases access without authentication activated</description>
+            <attribute name="INF_TYPE" intValue="1101921"/>
+            <attribute name="INF_SUB_TYPE" intValue="6"/>
+            
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+        </property>
+    </category>
+    
+    <category name="CAST_Java_MongoDB_Metric_AvoidExplainInExecutionCode" rid="923">
+    	<description>Number of explain in execution code</description>
+    	 <property name="explainCheck" type="integer" merge="sum" rid="923">
+    	 	<description>Avoid using explain() in production code (JEE)</description>
+    	 	<attribute name="INF_TYPE" intValue="1101923"/>
+    	 	<attribute name="INF_SUB_TYPE" intValue="7"/>
+    	 	<attribute name="ACCESS_HTML" intValue="1"/>
+    	 	<attribute name="ACCESS_CVS" intValue="1"/>
+    	 </property>
+    </category>
+
+    <type name="CAST_Java_MongoDB_Connection" rid="900">
+        <description>Java MongoDB connection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        <inheritedCategory name="CAST_Java_MongoDB_Artifacts" />
+        <inheritedCategory name="CAST_Java_MongoDB_Metric_ensureAuthenticationPriorAccess" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_Java_MongoDB_Collection" rid="901">
+        <description>Java MongoDB collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        <inheritedCategory name="CAST_Java_MongoDB_Artifacts" />
+        <inheritedCategory name="CAST_Java_MongoDB_Metric_ensureSimilarCompoundIndexForCollection" />
+        <inheritedCategory name="CAST_Java_MongoDB_Metric_AvoidExplainInExecutionCode" />
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_MongoDB_Database" rid="902">
+        <description>Java MongoDB database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_MarkLogic_Database" rid="903">
+        <description>Java MarkLogic database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+    
+    <type name="CAST_Java_MarkLogic_Collection" rid="904">
+        <description>Java MarkLogic collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+        
+     <type name="CAST_Java_Unknown_MongoDB_Collection" rid="905">
+        <description>Java unknown MongoDB collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>   
+
+    <type name="CAST_Java_Unknown_MarkLogic_Collection" rid="906">
+        <description>Java unknown MarkLogic collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_Unknown_MongoDB_Database" rid="907">
+        <description>Java unknown MongoDB database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_Unknown_MarkLogic_Database" rid="908">
+        <description>Java unknown MarkLogic database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_Java_Couchbase_Connection" rid="909">
+        <description>Java Couchbase connection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_Java_Couchbase_Collection" rid="910">
+        <description>Java Couchbase collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_Couchbase_Database" rid="911">
+        <description>Java Couchbase database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+    
+    <type name="CAST_Java_Unknown_Couchbase_Connection" rid="912">
+        <description>Java Unknown Couchbase connection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <attribute name="AUTO_FOLDER_THRESHOLD" intValue="1"/>
+    </type>
+
+    <type name="CAST_Java_Unknown_Couchbase_Collection" rid="913">
+        <description>Java Unknown Couchbase collection</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>
+
+    <type name="CAST_Java_Unknown_Couchbase_Database" rid="914">
+        <description>Java Unknown Couchbase database</description>
+        <inheritedCategory name="CAST_PluginObject" />
+        <inheritedCategory name="Java" />
+        
+        <inheritedCategory name="APM IFPUG Data Function" />
+    </type>             
+</metaModel>

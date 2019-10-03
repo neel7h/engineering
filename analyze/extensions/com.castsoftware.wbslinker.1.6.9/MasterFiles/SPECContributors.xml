@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="66066" type="technical-criterion" originalName="Secure Coding - Encapsulation" contributorId="1020950" contributorType="quality-rule" contributorOriginalName="Avoid providing password in Web Service URL" critical="true" weight="7" />
+</root>

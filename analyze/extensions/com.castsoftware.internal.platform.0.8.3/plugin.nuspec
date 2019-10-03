@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>com.castsoftware.internal.platform</id>
+    <version>0.8.3</version>
+    <title>CAST AIP Internal Extension</title>
+    <authors>CAST Product</authors>
+    <owners>CAST</owners>
+    <licenseUrl>https://help.castsoftware.com/hc/en-us/articles/212612648-AIP-Extension-License</licenseUrl>
+    <projectUrl>https://confluence.castsoftware.com/display/PSTS/Extension+SDK</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/resources/master/technologyplaceholder.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This extension is delivered as a dependency to specifically provide additional features common to all extensions. It will be automatically downloaded with other extensions therefore there is no need to download the extension manually.</description>
+    <releaseNotes>Extensible quality rules.</releaseNotes>
+    <tags>not defined</tags>
+    <dependencies>
+      <dependency id="CAIP" version="8.0.0" />
+    </dependencies>
+  </metadata>
+</package>

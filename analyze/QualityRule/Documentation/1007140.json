@@ -1,0 +1,72 @@
+{
+    "id": 1007140,
+    "name": "Avoid unused private fields (PHP)",
+    "href": "AIP/quality-rules/1007140",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with unused private fields.",
+    "output": "This report lists all the classes with unused private fields.\n\nThis QR provides the following information:\nClass  full name.",
+    "rationale": "Unused private fields make the code more complex to read and are redundant.",
+    "reference": "PHPMD - http://phpmd.org/rules/unusedcode.html#unusedprivatefield",
+    "remediation": "Modify the source code of the class to reduce the number of unused private fields.",
+    "sample": "<?php\nclass CastTest {\n   private static $test = 2; // violation\n   private $a = 5; // violation\n}\n?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid unused private fields (PHP)",
+    "businessCriteria": [
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61003,
+            "name": "Programming Practices - OO Inheritance and Polymorphism",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "RuleName",
+            "description": "External PHP Code scanner Rule Name",
+            "technologies": [
+                {
+                    "id": 1017000,
+                    "name": "PHP",
+                    "href": "AIP/technologies/1017000",
+                    "values": [
+                        "UnusedPrivateField"
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

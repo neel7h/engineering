@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- File describing Java language -->
+
+<LanguagePattern id="Java">
+
+
+
+<version_num value="1.0">
+
+	<identifier>
+		<definition>[_a-zA-Z][_a-zA-Z0-9]*</definition>
+		<case_sensitivity>true</case_sensitivity>
+	</identifier>
+
+	<language_characters>
+		<a>[a-zA-Z0-9$_\xa2-\xa5\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\xff]</a>
+	</language_characters>
+
+	<comment>
+		<begin>/*</begin>
+		<end>*/</end>
+	</comment>
+	<comment>
+		<begin>//</begin>
+		<end>([\r]|[\n]|[\r\n])</end>
+	</comment>
+
+	<section_to_ignore>
+		<begin>//</begin>
+		<end>([\r]|[\n]|[\r\n])</end>	
+	</section_to_ignore>
+
+	<string>
+		<begin>"</begin>
+		<end>"</end>
+		<escape_char>\</escape_char>
+	</string>
+
+	<keyword>
+		<k1>if</k1>
+		<k2>else</k2>
+		<k3>for</k3>
+		<k3a>do</k3a>
+		<k4>while</k4>
+		<k5>switch</k5>
+		<k6>case</k6>
+		<k7>default</k7>
+		<k8>goto</k8>
+		<k9>public</k9>
+		<k10>class</k10>
+		<k11>protected</k11>
+		<k12>private</k12>
+		<k13>static</k13>
+		<k14>void</k14>		
+	</keyword>
+</version_num>
+
+
+</LanguagePattern>
+
+
+
+

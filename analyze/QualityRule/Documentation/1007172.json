@@ -1,0 +1,59 @@
+{
+    "id": 1007172,
+    "name": "Avoid having constructors with return value (PHP)",
+    "href": "AIP/quality-rules/1007172",
+    "critical": false,
+    "maxWeight": 5,
+    "description": "This rule searches for all the classes with constructors returning value.",
+    "output": "This report lists all the classes with constructors returning value.\n\nThis QR provides the following information:\n- Class  full name.",
+    "rationale": "In PHP, a constructor is the function that is called when an object is created and can be used for initialization. Although constructor can return value, that value is not useful unless constructor is called explicitly which is not a good practice. \n\nReturning value from constructor is done normally to return error code if initialization encounters an error. This functionality should be achieved either by member function that gives result of along with factory pattern or using exceptions.",
+    "remediation": "Change the source code to implement alternate methods of returning initialization status to the object creator:\n    - Throw an exception (PHP5 only)\n    - Put this functionality in a separate function and call it. This function can then either return the object or an error.",
+    "remediationSample": "<?php\nclass ClassErrorInInitFactory {\n   public static function createMe() {\n      return new ClassErrorInInitFactory();\n   }\n   \n   private function __construct() {\n      \n   }\n   \n   public function init($filepath) {\n      if (false === file_exists($filepath)) {\n         return false;\n      }\n      \n      return true;\n   }\n}\n\n$obj = ClassErrorInInitFactory::createMe();\nif (false === $obj->init(\"C:\\\\Nonexistant\")) {\n   echo \"file does not exist\", PHP_EOL;\n} else {\n   echo \"file exists\", PHP_EOL;\n}\n\n// ---- OR --- \nclass ClassErrorInInitException {\n   public function __construct($filepath) {\n      if (false === file_exists($filepath)) {\n         throw new RuntimeException(\"file $filepath does not exist!\");\n      }\n   }\n}\n\n\ntry {\n   $obj =  new ClassErrorInInitException(\"C:\\\\NonExistant\");\n} catch(RuntimeException $e) {\n   echo \"Exception while creating object \" , $e->getMessage(), PHP_EOL;\n}\n\n  ?>",
+    "sample": "<?php\nclass ClassReturingValueFromConstructor {\n   \n   public function ClassReturingValueFromConstructor($filepath) {\n      if (false === file_exists($filepath)) {\n         return false;\n      }\n      \n      return true;\n   }\n   \n}\n\n$obj = new ClassReturingValueFromConstructor(\"C:\\\\NonExistant\");\n\n  ?>",
+    "total": "Number of Classes",
+    "alternativeName": "Avoid having constructors with return value (PHP)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 66069,
+            "name": "Programming Practices - Unexpected Behavior",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1017000,
+            "name": "PHP",
+            "href": "AIP/technologies/1017000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        70.0,
+        90.0,
+        98.0,
+        100.0
+    ]
+}

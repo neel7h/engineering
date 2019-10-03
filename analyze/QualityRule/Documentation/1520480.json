@@ -1,0 +1,58 @@
+{
+    "id": 1520480,
+    "name": "SiebelReview: Avoid BusComp using Sort specifications on non-indexed Fields",
+    "href": "AIP/quality-rules/1520480",
+    "critical": true,
+    "associatedValueName": "Number of exception handling inside a loop",
+    "description": "Sorting or searching on non-indexed fields can have detrimental effects on database performance, especially on large tables, as it will produce table scans and temporary tables in the SQL execution plan.\nKeep in mind that pre-defined queries where the filter or sort is based on a non-indexed column will also result in a performance impact.",
+    "output": "This rule reports Functions with exception handling events inside a loop",
+    "rationale": "Several Search and Sort Specifications were identified in the documentation as keying off non-indexed columns. When specifying Search and Sort Specifications, it is important to use fields mapped to indexed columns whenever possible.",
+    "reference": "http://it.toolbox.com/blogs/siebel-answers/performance-considerations-for-siebel-configurationscripting-26490",
+    "remediation": "Be aware that Search Specifications affect the WHERE clause and Sort Specifications affect the ORDER BY clause of the generated SQL.\nTo assist the database engine in efficiently retrieving and sorting data, be sure that search and sort specifications reference indexed columns whenever possible.  For best performance, such specifications should not only cover all of the key columns for a desirable index, but also cover them in the exact index sequence order.  This will encourage the database engine to use the index and possibly prevent unnecessary physical sorts in temporary tables.\nReview the performance of the above mentioned objects. If performance is slow determine whether an index could help.",
+    "total": "Number of added or modified Business Components",
+    "alternativeName": "SiebelReview: Avoid BusComp using Sort specifications on non-indexed Fields",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 9,
+            "critical": true
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1520000,
+            "name": "Siebel",
+            "href": "AIP/technologies/1520000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        60.0,
+        80.0,
+        95.0,
+        100.0
+    ]
+}

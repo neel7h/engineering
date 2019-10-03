@@ -1,0 +1,76 @@
+{
+    "id": 1020090,
+    "name": "Avoid Artifacts with High Depth of Code (Javascript)",
+    "href": "AIP/quality-rules/1020090",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Depth of code",
+    "description": "Depth of Code is measured as the maximum number of nested control statements in an artifact. For example, an \nArtifact that contains an IF statement which contains a While loop which itself contains another IF statement will have a Depth of Code of 3 (at least).\nAvoid Artifacts with Depth of Code (DoC) greater than X. The threshold level is a parameter that can be changed at will.",
+    "output": "This report lists all Artifacts with a Depth of Code greater than X. It provides the following information: Artifact full name, Depth of code",
+    "rationale": "Complex Artifacts are difficult to maintain. Keeping Artifacts small and simple ensures a good readability of the code.",
+    "remediation": "Review the design of the Artifact to reduce the Depth of Code",
+    "total": "Number of Artifacts",
+    "alternativeName": "Avoid Artifacts with High Depth of Code (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max Depth of Code",
+            "description": "Max Depth of Code per artifact",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

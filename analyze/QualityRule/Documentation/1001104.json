@@ -1,0 +1,70 @@
+{
+    "id": 1001104,
+    "name": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+    "href": "AIP/quality-rules/1001104",
+    "critical": false,
+    "maxWeight": 0,
+    "description": "This rule searches for all the PLI Main Procedures having variables being allocated, but not de-allocated using the FREE statement. The diagnostic will report only the mis-behavior on the artifact level in terms of number of variables not de-allocated.",
+    "output": "The report lists all the PLI Main Procedures using variables with ALLOCATE and without FREE.\n\nIt provides following information: \n-  PLI Main Procedure full name",
+    "rationale": "Not freeing up the memory can lead to performance issues",
+    "remediation": "Free all your allocated variables.",
+    "remediationSample": ".....\nDECLARE X(N) FIXED BIN CTL; \nN=20;\nALLOCATE X;\n.....\nFREE X;",
+    "sample": ".....\nDECLARE X(N) FIXED BIN CTL; \nN=20;\nALLOCATE X;\n....",
+    "total": "Number of the PLI Main Procedures",
+    "alternativeName": "Avoid PLI Main procedures using variables with ALLOCATE and without FREE  (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61018,
+            "name": "Efficiency - Memory, Network and Disk Space Management",
+            "weight": 0,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        {
+            "standard": "CWE",
+            "id": "CWE-401",
+            "name": "Missing Release of Memory after Effective Lifetime",
+            "url": null,
+            "description": null
+        }
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        90.0,
+        95.0,
+        99.0,
+        100.0
+    ]
+}

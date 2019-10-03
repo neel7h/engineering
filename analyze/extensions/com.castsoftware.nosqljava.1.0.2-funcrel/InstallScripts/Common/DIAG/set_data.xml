@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA model="OBJSET" version="1.0.0.0" scope="OBJSETINIT" export="OK">
+<SET_Definitions>
+    <SetId>1101915</SetId>
+    <SetName>SET_NoSQLJava_Collection</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_NoSQLJava_1101915</SetProcedure>
+</SET_Definitions>
+<SET_Definitions>
+    <SetId>1101916</SetId>
+    <SetName>SET_NoSQLJava_Connection</SetName>
+    <SetType>DIAG_SCOPE</SetType>
+    <SetProcedure>SET_NoSQLJava_1101916</SetProcedure>
+</SET_Definitions>
+
+</DATA>

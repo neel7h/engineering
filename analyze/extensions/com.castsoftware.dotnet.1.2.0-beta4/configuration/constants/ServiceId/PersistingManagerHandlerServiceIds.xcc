@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="constants.xsl"?>
+<constants xmlns="http://www.castsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.castsoftware.com stringConstants.xsd">
+	<constantFamily>
+		<name>ServiceId</name>
+		<!-- PersistingManagerHandlerFactory -->
+		<constant>
+			<name>PersistingManagerHandlerFactory </name>
+			<value>F77EC3F4-592F-45e3-BFE3-F8B6EEC37642</value>
+		</constant>		
+	</constantFamily>
+</constants>

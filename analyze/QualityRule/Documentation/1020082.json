@@ -1,0 +1,57 @@
+{
+    "id": 1020082,
+    "name": "Avoid undocumented Functions (Javascript)",
+    "href": "AIP/quality-rules/1020082",
+    "critical": false,
+    "maxWeight": 7,
+    "description": "Functions should be documented. This reports shows all functions with no comments.",
+    "output": "This rule lists all undocumented Functions.\nIt provides following information:\n- Function full name",
+    "rationale": "Maintainability of the code is facilitated if there is documentation in the code. This rule will ensure there are comments within the Artifact.",
+    "remediation": "Add comments into functions to explain what is their goal and how they work.",
+    "total": "Number of Functions",
+    "alternativeName": "Avoid undocumented Functions (Javascript)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66033,
+            "name": "Documentation",
+            "href": "AIP/business-criteria/66033"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61028,
+            "name": "Documentation - Volume of Comments",
+            "weight": 7,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1020000,
+            "name": "HTML5",
+            "href": "AIP/technologies/1020000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "id": 1101068,
+    "name": "Avoid synonym with both private and public definition",
+    "href": "AIP/quality-rules/1101068",
+    "critical": false,
+    "maxWeight": 1,
+    "associatedValueName": "Synonym name",
+    "description": "Synonyms and aliases should not have two definitions: one private and one public",
+    "output": "This report lists all Synonyms with both private and public definition\nIt provides the following information: \nPublic Synonym Full Name, Private Synonym Name",
+    "rationale": "Presence of a synonym and aliases with several definitions induces code complexity.",
+    "reference": "Oracle documentation",
+    "remediation": "Reconsider the use of synonym with multiple definitions: one idea could be to rename one of them",
+    "remediationSample": "CREATE PUBLIC SYNONYM emp FOR SCOTT.EMP;\n\nALTER SESSION SET CURRENT_SCHEMA = joe;\nCREATE SYNONYM joe_emp FOR SCOTT.EMP;",
+    "sample": "CREATE PUBLIC SYNONYM emp FOR SCOTT.EMP;\n\nALTER SESSION SET CURRENT_SCHEMA = joe;\nCREATE SYNONYM emp FOR SCOTT.EMP;",
+    "total": "Number of Synonyms.",
+    "alternativeName": "Avoid synonym with both private and public definition",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1101000,
+            "name": "SQLAnalyzer",
+            "href": "AIP/technologies/1101000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

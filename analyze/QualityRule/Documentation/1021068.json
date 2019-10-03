@@ -1,0 +1,55 @@
+{
+    "id": 1021068,
+    "name": "Avoid using global statement",
+    "href": "AIP/quality-rules/1021068",
+    "critical": false,
+    "maxWeight": 5,
+    "associatedValueName": "Number of violation occurrences",
+    "description": "This rule will raise a violation when a variable is explicitly declared as global using the \"global\" keyword. This rule doesn't apply to Python Script objects.",
+    "output": "Associated to each violation, the following information is provided:\n- The number of violation occurrences\n- Bookmarks for violation occurrences found in the source code",
+    "rationale": "Using global variables in short scripts can facilitate the rapid development of effective solutions. Python being originally a scripting language has the \"global\" keyword to declare in a given code block the scope of a variable as global. However use of global variables in OOP is strongly discouraged as it is contrary to encapsulation. Indeed, relying on global state can be a source of unexpected behavior because different elements in a code can freely modify it. Using global variables in Python can also have a negative impact on performance as code involving only local variables runs significantly faster.",
+    "remediation": "Create a static data member in the appropriate class to replace the global variable.",
+    "remediationSample": "class Status: \n    def __init__(self): \n        self.status = None\n    \n    def set_status(value) \n        status = value",
+    "sample": "status = 0 \n\ndef set_status(value): \n    global status \n    status = value",
+    "total": "Number of Python Modules and Functions",
+    "alternativeName": "Avoid using global statement",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61020,
+            "name": "Programming Practices - Modularity and OO Encapsulation Conformity",
+            "weight": 5,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1021000,
+            "name": "Python",
+            "href": "AIP/technologies/1021000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        50.0,
+        90.0,
+        95.0,
+        99.0
+    ]
+}

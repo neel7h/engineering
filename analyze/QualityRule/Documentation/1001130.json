@@ -1,0 +1,70 @@
+{
+    "id": 1001130,
+    "name": "Avoid Main Procedures with High Raw SQL Complexity (SQL complexity greater than X) (PL1)",
+    "href": "AIP/quality-rules/1001130",
+    "critical": false,
+    "maxWeight": 2,
+    "description": "The rule searches for all PL1 Main Procedures, PL1 Functions and PL1 Procedures with High RAW SQL Complexity (SQL Complexity greater than X).\nRAW SQL Complexity measures the total number of tables used in FROM Clauses (Note: a single table used X times counts X).\nThe threshold is a parameter and can be changed at will. The default value for parameter is 5.",
+    "output": "The report lists all the PL1 Main Procedures, PL1 Functions and PL1 Procedures with HIGH RAW SQL Complexity.\n\nIt provides following information: \n- PL1 Main Procedures, PL1 Functions and PL1 Procedures full name",
+    "rationale": "High Raw SQL Complexity denotes an artifact that either contains a very large number of queries and/or very complex queries.\nThe artifacts high Raw SQL Complexity can be difficult to change and can potentially cause performance problems.",
+    "remediation": "Try to reduce the High Raw SQL Complexity for all the concerned artifacts.",
+    "total": "Number of PL1 Main Procedures, PL1 Functions and PL1 Procedures",
+    "alternativeName": "Avoid Main Procedures with High Raw SQL Complexity (SQL complexity greater than X) (PL1)",
+    "businessCriteria": [
+        {
+            "id": 60014,
+            "name": "Efficiency",
+            "href": "AIP/business-criteria/60014"
+        },
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61019,
+            "name": "Efficiency - SQL and Data Handling Performance",
+            "weight": 2,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1004000,
+            "name": "PLI",
+            "href": "AIP/technologies/1004000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Max RAW SQL",
+            "description": "Max RAW SQL",
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        5
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        10.0,
+        70.0,
+        90.0,
+        99.0
+    ]
+}

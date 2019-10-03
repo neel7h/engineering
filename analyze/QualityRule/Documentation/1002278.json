@@ -1,0 +1,59 @@
+{
+    "id": 1002278,
+    "name": "Avoid using fixed format files in Fortran-90 (FORTRAN)",
+    "href": "AIP/quality-rules/1002278",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "All the files that are coded using a fixed format are reported. A file may contain Programs, Functions, Modules and Subroutines.",
+    "rationale": "It is not allowed to use the fixed format; only free format is allowed. The rules applied by the Fortran pre-processor are the following.\nBy default the file is assumed to be a fixed format, unless of the following conditions is violated:\n- Comment starts at column 1 of the source lines\n- Labels can exists in column 1 to column 5\n- A continuation character can only exist in column 6\n- Statements always start at column 7\n- Lines cannot have more than 72 characters.",
+    "alternativeName": "Avoid using fixed format files in Fortran-90 (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61024,
+            "name": "Programming Practices - Structuredness",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

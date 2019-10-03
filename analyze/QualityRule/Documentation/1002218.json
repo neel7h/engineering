@@ -1,0 +1,73 @@
+{
+    "id": 1002218,
+    "name": "Avoid Subroutines with a High number of Paths (FORTRAN)",
+    "href": "AIP/quality-rules/1002218",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "The following statements are counted as causing an additional path in the artifact: IF, ELSE, DO, WHILE, CASE, AND, OR, XOR, CALL, GOTO, RETURN and EXIT. The number of allowed path's is a threshold and can changed at will.",
+    "rationale": "PATH: Number of non-cyclic execution paths. It is calculated according to the transfers of control induced by the various types of statement. The PATH for a sequence of statements with the same nesting level is the product of each statement's PATH.",
+    "remediation": "Reduce the number of PATH's through to the artifact.",
+    "alternativeName": "Avoid Subroutines with a High number of Paths (FORTRAN)",
+    "businessCriteria": [
+        {
+            "id": 60012,
+            "name": "Changeability",
+            "href": "AIP/business-criteria/60012"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60011,
+            "name": "Transferability",
+            "href": "AIP/business-criteria/60011"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61009,
+            "name": "Complexity - Algorithmic and Control Structure Complexity",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1006000,
+            "name": "Fortran",
+            "href": "AIP/technologies/1006000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        {
+            "name": "Maximum number of PATH",
+            "description": null,
+            "technologies": [
+                {
+                    "id": 0,
+                    "name": "ALL TECHNOLOGIES",
+                    "href": "AIP/technologies/0",
+                    "values": [
+                        10.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "thresholds": [
+        null,
+        null,
+        null,
+        null
+    ]
+}

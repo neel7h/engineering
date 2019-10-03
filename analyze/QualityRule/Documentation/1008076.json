@@ -1,0 +1,65 @@
+{
+    "id": 1008076,
+    "name": "Specify Program Status Data Area  (RPG400)",
+    "href": "AIP/quality-rules/1008076",
+    "critical": false,
+    "maxWeight": 1,
+    "description": "This rule searches all the programs not having Specified status Data Area",
+    "output": "This report lists RPG400 programs having Status data Area.\nIt provides the following information:\nRPG400 Program full name",
+    "rationale": "One needs to specify the program status data area to ensure that the error and exceptions raised by the RPG program are made available and can be properly utilized by the application.",
+    "reference": "http://publib.boulder.ibm.com/infocenter/iseries/v5r4/index.jsp?topic=%2Fbooks_web%2Fc092508690.htm",
+    "remediation": "Try to specify Program Status Data Area for every program.",
+    "remediationSample": "D                SDS\n     D PROC_NAME         *PROC\n     D PGM_STATUS        *STATUS\n     D PRV_STATUS             16     20S 0",
+    "sample": "A program status data structure (SDS) can be defined to make program exception/error information available to an RPG program.\nThe SDS must be defined in the main source section; therefore, there is only one SDS per module.\n\n     D PROC_NAME         *PROC\n     D PGM_STATUS        *STATUS\n     D PRV_STATUS             16     20S 0",
+    "total": "Total number of RPG400 Programs",
+    "alternativeName": "Specify Program Status Data Area  (RPG400)",
+    "businessCriteria": [
+        {
+            "id": 20140522,
+            "name": "Green Stuff",
+            "href": "AIP/business-criteria/20140522"
+        },
+        {
+            "id": 66031,
+            "name": "Programming Practices",
+            "href": "AIP/business-criteria/66031"
+        },
+        {
+            "id": 60013,
+            "name": "Robustness",
+            "href": "AIP/business-criteria/60013"
+        },
+        {
+            "id": 60016,
+            "name": "Security",
+            "href": "AIP/business-criteria/60016"
+        }
+    ],
+    "technicalCriteria": [
+        {
+            "id": 61014,
+            "name": "Programming Practices - Error and Exception Handling",
+            "weight": 1,
+            "critical": false
+        }
+    ],
+    "technologies": [
+        {
+            "id": 1008000,
+            "name": "RPG400",
+            "href": "AIP/technologies/1008000"
+        }
+    ],
+    "qualityStandards": [
+        
+    ],
+    "parameters": [
+        
+    ],
+    "thresholds": [
+        10.0,
+        50.0,
+        90.0,
+        100.0
+    ]
+}
