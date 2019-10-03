@@ -1,0 +1,143 @@
+{
+  "additionalInputs": [
+    {
+      "label": "applications",
+      "content": {
+        "query": "AAD/applications"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "label": "modules",
+      "content": {
+        "model": "Modules",
+        "query": "${domain}/modules"
+      },
+      "parameter":{
+        "key":"modules",
+        "value":"$all"
+      }
+    },
+    {
+      "label": "technologies",
+      "content": {
+        "model": "Technologies",
+        "query": "${domain}/technologies"
+      },
+      "parameter":{
+        "key":"technologies",
+        "value":"$all"
+      }
+    },
+    {
+      "label": "technical size",
+      "parameter": {
+        "key": "sizing-measures",
+        "value": "technical-size-measures"
+      },
+      "content": {
+        "parameters": [
+          {
+            "label": "Lines of Code",
+            "parameter":{
+              "key": "sizing-measures",
+              "value": 10151
+            }
+          },
+          {
+            "label": "Lines of Comments",
+            "parameter":{
+              "key": "sizing-measures",
+              "value": 10107
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "business criteria",
+      "content": {
+        "model": "BusinessCriteria"
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"business-criteria"
+      }
+    },
+    {
+      "label": "technical criteria",
+      "content": {
+        "model": "TechnicalCriteria"
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"quality-rules"
+      }
+    },
+    {
+      "label": "critical quality rules",
+      "content": {
+        "model": "CriticalQualityRules"
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"cc:60017"
+      }
+    },
+    {
+      "label": "quality rules",
+      "content": {
+        "model": "QualityRules",
+        "subLevel":{
+          "model":"QualityRuleViolations"
+        }
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"quality-rules"
+      }
+    },
+    {
+      "label": "quality measures",
+      "content": {
+        "model": "QualityMeasures"
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"quality-measures"
+      }
+    },
+    {
+      "label": "quality distributions",
+      "content": {
+        "model": "QualityDistributions"
+      },
+      "parameter":{
+        "key":"quality-indicators",
+        "value":"quality-distributions"
+      }
+    },
+    {
+      "label": "violation ratio",
+      "parameter":{
+        "key": "select",
+        "value": "violationRatio"
+      }
+    },
+    {
+      "label": "evolution summary",
+      "parameter":{
+        "key": "select",
+        "value": "evolutionSummary"
+      }
+    },
+    {
+      "label": "categories",
+      "parameter":{
+        "key": "select",
+        "value": "categories"
+      }
+    }
+  ]
+}
