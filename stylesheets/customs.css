@@ -1,0 +1,14 @@
+/* Feel free to override styling here */
+
+.breadcrumb .breadcrumb-path li a span.icon-20150522:before {
+    content: '\e90b';
+}
+.breadcrumb .breadcrumb-path li a span.icon-20140522:before {
+    content: '\e632';
+}
+.disable-selector {
+    pointer-events: none;
+}
+.custom-hidden {
+    display: none !important;
+}

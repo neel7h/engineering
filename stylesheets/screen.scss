@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'ced-icon';
+  src: url('icomoon/fonts/ced-icon.eot?-pxmtdo');
+  src: url('icomoon/fonts/ced-icon.eot?#iefix-pxmtdo') format('embedded-opentype'),
+  url('icomoon/fonts/ced-icon.woff?-pxmtdo') format('woff'),
+  url('icomoon/fonts/ced-icon.ttf?-pxmtdo') format('truetype'),
+  url('icomoon/fonts/ced-icon.svg?-pxmtdo#ced-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osLight';
+  src: url('icomoon/fonts/osl.eot?-g8cks7');
+  src: url('icomoon/fonts/osl.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osl.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osl.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osl.svg?-g8cks7#osl') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osRegular';
+  src: url('icomoon/fonts/osr.eot?-g8cks7');
+  src: url('icomoon/fonts/osr.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osr.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osr.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osr.svg?-g8cks7#osr') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osSemiBold';
+  src: url('icomoon/fonts/ossb.eot?-g8cks7');
+  src: url('icomoon/fonts/ossb.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/ossb.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/ossb.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/ossb.svg?-g8cks7#osSemiBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osBold';
+  src: url('icomoon/fonts/osb.eot?-g8cks7');
+  src: url('icomoon/fonts/osb.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osb.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osb.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osb.svg?-g8cks7#osb') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osExtraBold';
+  src:  url('icomoon/fonts/oseb.eot');  /* IE9 Compat Modes */
+  src:  url('icomoon/fonts/oseb.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('icomoon/fonts/oseb.woff') format('woff'), /* Modern Browsers */
+  url('icomoon/fonts/oseb.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('icomoon/fonts/oseb.svg#osExtraBold') format('svg');  /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'sansumi';
+  src: url("icomoon/fonts/Sansumi-Regular.eot?-g8cks7");
+  src: url("icomoon/fonts/Sansumi-Regular.eot?#iefix-g8cks7") format("embedded-opentype"), url("icomoon/fonts/Sansumi-Regular.woff?-g8cks7") format("woff"), url("icomoon/fonts/Sansumi-Regular.ttf?-g8cks7") format("truetype"), url("icomoon/fonts/Sansumi-Regular.svg?-g8cks7#osb") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'raiders';
+  src: url("icomoon/fonts/rd.eot");
+  src: url("icomoon/fonts/rd.eot") format("embedded-opentype"), url("icomoon/fonts/rd.woff") format("woff"), url("icomoon/fonts/rd.ttf") format("truetype"), url("icomoon/fonts/rd.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.extra-bold {
+  font-family: 'osExtraBold';
+}
+
+.bold {
+  font-family: 'osBold';
+  font-size: 1.75em;
+}
+
+.regular {
+  font-family: 'osRegular';
+}
+
+.light {
+  font-family: 'osLight';
+  font-size: 0.875em;
+}
+
+@mixin icon() {
+  font-family: "ced-icon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+body, html {
+
+}
+
+
+
+#gizmo{width: 1680px;}
+
+.home-page, .drill-page {
+  position: absolute;
+  top: 130px;
+  bottom: 0;
+  left: 60px;
+  right: 0;
+  overflow: hidden;
+}
+
+.home-page {
+  overflow: auto;
+  top:70px;
+}
+
+div.jqcloud a:hover, div.jqcloud span{
+  -webkit-transition: color 250ms ease-in-out;
+  -moz-transition: color 250ms ease-in-out;
+  -o-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+}
+
+
+
+/* ===================================================================================================*/
+/* =========================================   1720   ================================================*/
+/* ===================================================================================================*/
+@media screen and (max-width:1720px) and (min-width:1440px) {
+  #gizmo{width: 1440px;}
+}
+
+
+
+
+
+/* ===================================================================================================*/
+/* =========================================   1440   ================================================*/
+/* ===================================================================================================*/
+@media screen and (max-width:1439px) and (min-width:420px) {
+  #gizmo{width: 420px;}
+}
+
+
+
+
+
+/* ===================================================================================================*/
+/* =====================================   SCSS IMPORTATION   ========================================*/
+/* ===================================================================================================*/
+@import 'variables';
+@import 'animate';
+@import "splitter";
+@import "bootstrap";
+@import '../sources/dashboard/modules/login/screen';
+@import '../sources/dashboard/modules/help/screen';
+@import '../sources/dashboard/plugins/views/screen';
+@import '../sources/dashboard/modules/home/screen';
+@import '../sources/dashboard/modules/menu/screen';
+@import '../sources/dashboard/modules/header/screen';
+@import '../sources/dashboard/modules/license/screen';
+@import '../sources/dashboard/modules/pastSnapshots/screen';
+@import '../sources/dashboard/modules/breadcrumb/screen';
+@import '../sources/dashboard/modules/technologies/screen';
+@import '../sources/dashboard/modules/qualityModelInvestigation/screen';
+@import '../sources/dashboard/modules/qualityModelInvestigation/tables';
+@import '../sources/dashboard/modules/componentsInvestigation/screen';
+@import '../sources/dashboard/modules/transactionInvestigation/screen';
+@import '../sources/dashboard/modules/search/screen';
+@import '../sources/dashboard/modules/notifications/screen';
+@import '../sources/dashboard/modules/filtering/screen';
+@import '../sources/dashboard/modules/actionPlan/screen';
+@import '../sources/dashboard/modules/advanceSearch/screen';
+@import '../sources/dashboard/modules/reportGenerator/screen';
+@import '../sources/dashboard/modules/sourceCodeViewer/screen';
+@import '../sources/dashboard/plugins/advancedUI/_advancedUI';
+@import '../sources/dashboard/modules/applicationSelection/screen';
+@import '../sources/dashboard/modules/errorPage/screen';

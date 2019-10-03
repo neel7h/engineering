@@ -1,0 +1,772 @@
+@font-face {
+  font-family: 'ced-icon';
+  src: url('icomoon/fonts/ced-icon.eot?-pxmtdo');
+  src: url('icomoon/fonts/ced-icon.eot?#iefix-pxmtdo') format('embedded-opentype'),
+  url('icomoon/fonts/ced-icon.woff?-pxmtdo') format('woff'),
+  url('icomoon/fonts/ced-icon.ttf?-pxmtdo') format('truetype'),
+  url('icomoon/fonts/ced-icon.svg?-pxmtdo#ced-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osLight';
+  src: url('icomoon/fonts/osl.eot?-g8cks7');
+  src: url('icomoon/fonts/osl.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osl.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osl.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osl.svg?-g8cks7#osl') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osRegular';
+  src: url('icomoon/fonts/osr.eot?-g8cks7');
+  src: url('icomoon/fonts/osr.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osr.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osr.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osr.svg?-g8cks7#osr') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osSemiBold';
+  src: url('icomoon/fonts/ossb.eot?-g8cks7');
+  src: url('icomoon/fonts/ossb.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/ossb.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/ossb.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/ossb.svg?-g8cks7#osSemiBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osBold';
+  src: url('icomoon/fonts/osb.eot?-g8cks7');
+  src: url('icomoon/fonts/osb.eot?#iefix-g8cks7') format('embedded-opentype'),
+  url('icomoon/fonts/osb.woff?-g8cks7') format('woff'),
+  url('icomoon/fonts/osb.ttf?-g8cks7') format('truetype'),
+  url('icomoon/fonts/osb.svg?-g8cks7#osb') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'osExtraBold';
+  src: url('icomoon/fonts/oseb.eot');  /* IE9 Compat Modes */
+  src: url('icomoon/fonts/oseb.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('icomoon/fonts/oseb.woff') format('woff'), /* Modern Browsers */
+  url('icomoon/fonts/oseb.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('icomoon/fonts/oseb.svg#osExtraBold') format('svg');  /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'sansumi';
+  src: url("icomoon/fonts/Sansumi-Regular.eot?-g8cks7");
+  src: url("icomoon/fonts/Sansumi-Regular.eot?#iefix-g8cks7") format("embedded-opentype"), url("icomoon/fonts/Sansumi-Regular.woff?-g8cks7") format("woff"), url("icomoon/fonts/Sansumi-Regular.ttf?-g8cks7") format("truetype"), url("icomoon/fonts/Sansumi-Regular.svg?-g8cks7#osb") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'raiders';
+  src: url("icomoon/fonts/rd.eot");
+  src: url("icomoon/fonts/rd.eot") format("embedded-opentype"), url("icomoon/fonts/rd.woff") format("woff"), url("icomoon/fonts/rd.ttf") format("truetype"), url("icomoon/fonts/rd.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.extra-bold {
+  font-family: 'osExtraBold';
+}
+
+.bold {
+  font-family: 'osBold';
+  font-size: 1.75em;
+}
+
+.regular {
+  font-family: 'osRegular';
+}
+
+.light {
+  font-family: 'osLight';
+  font-size: 0.875em;
+}
+
+body{
+  overflow: hidden;;
+}
+@mixin icon() {
+  font-family: "ced-icon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+@import 'variables';
+
+.error{
+  color: #a33;
+}
+
+.bookmark-line {
+  background-color: #eec72c;
+  &::before{
+    color: #fff !important;
+  }
+}
+
+.bookmark-object {
+  background-color: #ee2c2c;
+  &::before{
+    color: #fff !important;
+  }
+}
+.highlight-secondaryBookmark {
+  background-color: rgba(44, 188, 238, 0.2);
+  .operator {
+    background-color: transparent !important;
+  }
+}
+
+.secondaryBookmark {
+  background-color: #2cbcee;
+ &::before{
+   color: #fff !important;
+ }
+}
+
+.highlight-critical {
+  background-color: rgba(238, 44, 44, 0.2);
+  .operator {
+    background-color: transparent !important;
+  }
+}
+
+.highlight-noncritical{
+  background-color: rgba(238, 199, 44, 0.2);
+  .operator {
+    background-color: transparent !important;
+  }
+}
+
+
+.bookmark-object {
+  background-color: #ee2c2c;
+}
+.highlight-secondaryBookmark {
+  background-color: rgba(44, 188, 238, 0.2);
+}
+
+.secondaryBookmark {
+  background-color: #2cbcee;
+}
+
+.highlight-critical {
+  background-color: rgba(238, 44, 44, 0.2);
+}
+
+.highlight-noncritical{
+  background-color: rgba(238, 199, 44, 0.2);
+}
+
+.source-bookmark {
+  position: relative;
+
+}
+
+.show-violation-button {
+  float: right;
+  text-decoration: none;
+  margin-top: -4px;
+  background-color: transparent;
+  color: #3c3c3c;
+  outline: 0px;
+  align-content: center;
+  font-size: 11px;
+  font-family: 'osExtraBold';
+  padding: 10px;
+  border: solid 2px #3c3c3c;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: #3c3c3c;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+
+  background-color: #fff;
+  height: 40px;
+  margin-left: 8px;
+  font-family: osRegular;
+  h1 {
+    color: #999;
+    font-family: 'osLight';
+    padding-left: 140px;
+    background: url(screen/cast-logo.png) no-repeat 15px center;
+    background-size: 110px 12px;
+    font-size: 1.1em;
+    font-weight: 100;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+    em {
+      font-style: normal;
+      font-weight: 700;
+      font-family: osExtraBold;
+      color: #676767;
+    }
+    &.large {
+      display: inline-block;
+    }
+    &.small {
+      display: none;
+    }
+  }
+  .snapshot-info{
+    float: right;
+    text-align: right;
+
+    font-size: 12px;
+    line-height: 20px;
+
+    b {
+      font-family: osExtraBold;
+    }
+
+
+  }
+}
+
+div.left-panel{
+  position: absolute;
+  top: 90px;
+  bottom:0px;
+  left: 0;
+  width: 50%;
+
+  section{
+    top:0px;
+  }
+}
+
+div.right-panel{
+  border-left: solid 1px #aaa;
+  position: absolute;
+  top: 90px;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+
+  section{
+    top:0px;
+  }}
+
+.component-selector{
+  font-family: 'osExtraBold';
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-top: -4px;
+
+  .drop-down.light-grey{
+    &.opened {
+      .options{
+        &::before{
+          content: 'Select an object'
+        }
+      }
+    }
+  }
+}
+
+
+
+section {
+  position: absolute;
+  top: 90px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  div.code-fragment-name{
+    position: absolute;
+    top: 34px;
+
+    .drop-down.light-grey{
+      .selector{
+        color: #fff;
+        font-family: osRegular;
+        background-color: #20282b;
+        font-size: 0.9em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        a{
+          background-image: url("bootstrap/0.3.2/screen/drop-down/arrow-down.png");
+        }
+      }
+      &.opened {
+        .options{
+          &::before{
+            content: 'Select a file'
+          }
+        }
+      }
+    }
+  }
+
+  h1.code-fragment-name {
+    display: inline-block;
+    color: #fff;
+    font-family: osRegular;
+    background-color:#20282b;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 0.8em;
+    letter-spacing: 0.5px;
+    padding:14px 20px;
+  }
+
+  .source-code {
+    position: absolute;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    top: 70px;
+    overflow: auto;
+    background: #f8f8f8;
+  }
+
+}
+.container{
+.drop-down.light-grey {
+  .selector {
+    background-color: #fff;
+    color: #676767;
+    padding-left: 0px;
+
+    /* ----------------- AED COMMON DEFINITION -----------------*/
+    border-radius: 2px 2px 0 0;
+    /* ----------------- AED COMMON DEFINITION -----------------*/
+
+    a {
+      background-image: url("bootstrap/0.3.2/screen/drop-down/tag_expand.grey-negative.png");
+      margin-left: 0;
+    }
+  }
+
+  .options {
+    padding: 0;
+    float: none;
+    display: block;
+    .selectable {
+      width: auto;
+      border-top: 1px solid #e0e1e2;
+      padding: 7px 80px 7px 28px;
+      // width: inherit;
+      display: list-item;
+      &:hover{
+        border-top-color: #60696d;
+        background-color: #60696d;
+        color: #fff;
+      }
+      &.selected{
+        &:hover{
+          color: #21282b;
+          border-top-color: #e0e1e2;
+        }
+        background-color: #fff;
+      }
+      &.separator {
+        border-bottom: 2px solid #aaa;
+      }
+      &.no-separator {
+        border-style: none;
+      }
+    }
+  }
+
+  .cont {
+    max-width: 904px;
+    background-color: #fff;
+    color: #21282b;
+    padding:0;
+    font-family: 'osRegular', Arial;
+    font-size: 0.750em;
+    max-height: 500px;
+    letter-spacing: 0;
+    border-radius: 0;
+  }
+
+  &.opened {
+    .options{
+      &::before{
+        content: 'Select an object'
+      }
+    }
+    .selector {
+      background-color: #373737;
+      color: #fff;
+      a {
+        background-image: url("bootstrap/0.3.2/screen/drop-down/tag_expand.png");
+      }
+    }
+  }
+}}
+
+
+
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+abap+actionscript+apacheconf+apl+applescript+asciidoc+aspnet+autoit+autohotkey+bash+basic+batch+c+brainfuck+bison+csharp+cpp+coffeescript+ruby+css-extras+d+dart+diff+docker+eiffel+elixir+erlang+fsharp+fortran+gherkin+git+glsl+go+groovy+haml+handlebars+haskell+haxe+http+icon+inform7+ini+j+jade+java+json+julia+keyman+kotlin+latex+less+lolcode+lua+makefile+markdown+matlab+mel+mizar+monkey+nasm+nginx+nim+nix+nsis+objectivec+ocaml+oz+parigp+parser+pascal+perl+php+php-extras+powershell+processing+prolog+puppet+pure+python+q+qore+r+jsx+rest+rip+roboconf+crystal+rust+sas+sass+scss+scala+scheme+smalltalk+smarty+sql+stylus+swift+tcl+textile+twig+typescript+verilog+vhdl+vim+wiki+yaml&plugins=line-numbers */
+/**
+* prism.js default theme for JavaScript, CSS and HTML
+* Based on dabblet (http://dabblet.com)
+* @author Lea Verou
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  //text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f8f8f8;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+  background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+
+
+
+pre.line-numbers > code {
+  position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: -1em;
+  padding-top: 1em;
+  font-size: 100%;
+  left: -3.8em;
+
+  letter-spacing: -1px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #eaeaea;
+
+}
+
+pre.line-numbers.more-than-thousands{
+  padding-left: 4.8em;
+}
+.line-numbers.more-than-thousands .line-numbers-rows {
+  left: -4.8em;
+}
+
+pre.line-numbers.more-than-ten-thousands{
+  padding-left: 5.8em;
+}
+.line-numbers.more-than-ten-thousands .line-numbers-rows {
+  left: -5.8em;
+}
+
+pre.line-numbers.more-than-hundred-thousands{
+  padding-left: 6.8em;
+}
+.line-numbers.more-than-hundred-thousands .line-numbers-rows {
+  left: -6.8em;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+  padding-left: 1em;
+
+  &:last-of-type{
+    padding-bottom: 1em;
+  }
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #434343;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+
+.session-error{
+  display:none;
+  background-color: #9e9cb9;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  font-family: 'osRegular';
+
+
+  .centered{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 550px;
+    height: 380px;
+    background-color: #fff;
+  }
+
+  h2{
+    margin: 0;
+    line-height: 68px;
+    padding-left: 46px;
+    font-size: 1.2em;
+    font-weight: 800;
+    font-family: osBold;
+  }
+
+  .message {
+    background-color: #f00041;
+    color: #fff;
+  }
+
+  p {
+    text-align: justify;
+    padding: 0px 30px 0px 46px;
+    padding: 20px 20px 20px 46px;
+    font-size: 14px;
+
+
+    em {
+      font-style: normal;
+      font-weight: 700;
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  .log-in-container{
+    position: relative;
+    padding: 30px 100px;
+
+    input {
+      display: block;
+      height: 32px;
+      line-height: 32px;
+      width: 344px;
+      margin-bottom: 6px;
+      font-size: 1.1em;
+      font-family: 'osBold', Arial;
+      color: #000;
+      background: #eaeaea;
+      transition: background 0.5s;
+      border: 1px #eaeaea solid;
+      padding-left: 10px;
+
+      &:-webkit-autofill {
+        background-color:#eaeaea !important;
+        -webkit-box-shadow: 0 0 0px 1000px #eaeaea inset;
+      }
+      &:first-of-type{
+        margin-bottom: 18px;
+      }
+    }
+
+    .error-message{
+      display: none;
+      width: 344px;
+      font-size: 14px;
+      color: #eb213b;
+      font-family: osBold;
+      padding:6px;
+    }
+
+
+  }
+  button {
+    cursor: pointer;
+    position: absolute;
+    right: 94px;
+    bottom: 20px;
+    min-width: 80px;
+    margin-top: 10px;
+    margin-right: 0;
+    height: 32px;
+    line-height: 28px;
+    max-height: 32px;
+    padding: 0 20px 0 20px;
+    font-size: 12px;
+    font-family: osBold;
+    text-transform: uppercase;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    background-color: #eb213b;
+    border: 2px solid #eb213b;
+    color: #fff;
+
+    &:hover{
+      background-color: #eb213b;
+      color: #fff;
+    }
+    &:focus {
+    outline: #eb213b auto 5px;
+    }
+  }
+
+}
+
+@import '_bootstrap.scss';

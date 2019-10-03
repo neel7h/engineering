@@ -1,0 +1,621 @@
+// FIXME extract colors to a _colorTheme.scss
+// FIXME nest components properly instead of too flat data-structure it is hard to see the impacts right away
+.breadcrumb {
+
+  position: absolute;
+  left: 60px;
+  top: 70px;
+  right: 0;
+  height: 60px;
+
+  &.hide {
+    display: none;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  > div, ul, li {
+    display: inline-block;
+  }
+
+  .breadcrumb-path {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+    height: 60px;
+    li {
+      font-size: 0.750em;
+      letter-spacing: 0.01px;
+      font-family: 'osRegular';
+
+      margin-left: 30px;
+
+      a {
+        outline: none;
+        text-decoration: none;
+        line-height: 60px;
+        display: inline-block;
+
+        span {
+          &.bread-icon {
+            width: 30px;
+            margin-right: 24px;
+
+            &:before {
+              transition: opacity 1s;
+              @include icon();
+              line-height: 60px;
+              font-size: 32px;
+              position: absolute;
+              margin-left: -20px;
+            }
+          }
+
+          &.icon-60011 {
+            &:before {
+              content: '\e62b';
+            }
+          }
+          &.icon-60012 {
+            &:before {
+              content: '\e62a';
+            }
+          }
+          &.icon-60013 {
+            &:before {
+              content: '\e628';
+            }
+          }
+          &.icon-60014 {
+            &:before {
+              content: '\e622';
+            }
+          }
+          &.icon-60015 {
+            &:before {
+              content: '\e633';
+            }
+          }
+          &.icon-60016 {
+            &:before {
+              content: '\e606';
+            }
+          }
+          &.icon-60017 {
+            &:before {
+              content: '\e605';
+            }
+          }
+          &.icon-66031 {
+            &:before {
+              content: '\e631';
+            }
+          }
+          &.icon-66032 {
+            &:before {
+              content: '\e634';
+            }
+          }
+          &.icon-66033 {
+            &:before {
+              content: '\e635';
+            }
+          }
+
+        }
+        &:before {
+          transition: opacity 1s;
+          @include icon();
+          opacity: 0.8;
+          line-height: 60px;
+          content: '\e608';
+          font-size: 32px;
+          position: absolute;
+          margin-left: -30px;
+        }
+
+        &.short {
+          display: none;
+        }
+
+        &.shorter {
+          display: none;
+        }
+      }
+    }
+    li:last-child{font-family: 'osSemiBold', Arial;}
+    li:first-child {
+      margin-left: 40px;
+
+      a {
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    ul.short {
+
+      a.short {
+        display: inherit;
+
+      }
+
+      a.long {
+        display: none;
+      }
+      span.long {
+        display: none;
+      }
+
+    }
+
+    ul.shorter {
+
+      a.shorter {
+        display: inherit;
+
+      }
+      a.short {
+        display: none;
+      }
+
+      a.long {
+        display: none;
+      }
+      span.long {
+        display: none;
+      }
+
+    }
+
+    span.score {
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      padding: 2px;
+      margin-left: 5px;
+      display: inline-block;
+      line-height: 16px;
+      width: 36px;
+      font-family: 'osExtraBold';
+      letter-spacing: 0.02em;
+    }
+
+  }
+
+  /* ************************************************************************************************************** */
+  /* Colors - separated to take contextual themes into account 'easily'                                             */
+  /* ************************************************************************************************************** */
+  // Default orange theme
+  background: #ffa200; /* Old browsers */
+  /* background: -moz-linear-gradient(top, rgba(226,75,85,1) 0%, rgba(216,84,93,1) 100%); /* FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,75,85,1)), color-stop(100%,rgba(216,84,93,1)));  Chrome,Safari4+
+  background: -webkit-linear-gradient(top, rgba(226,75,85,1) 0%,rgba(216,84,93,1) 100%); /* Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, rgba(226,75,85,1) 0%,rgba(216,84,93,1) 100%); /* Opera 11.10+
+  background: -ms-linear-gradient(top, rgba(226,75,85,1) 0%,rgba(216,84,93,1) 100%); /* IE10+
+  background: linear-gradient(to bottom, rgba(226,75,85,1) 0%,rgba(216,84,93,1) 100%); /* W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e24b55', endColorstr='#d8545d',GradientType=0 ); /* IE6-9 */
+  .breadcrumb-path {
+    overflow: hidden;
+    li {
+      color: #fff;
+      a {
+        color: rgba(255, 255, 255, 0.8);
+        span.bread-icon {
+          &:after, &:before {
+            color: #fff;
+          }
+        }
+        &:before {
+          color: #953237;
+        }
+      }
+      span.score {
+        background-color: #56181B;
+        color: #f00041;
+      }
+    }
+    li:last-child{
+      a{color: #fff;}
+    }
+  }
+  .icon:before {
+    color: #fff;
+  }
+
+  .option-selector {
+    // position: absolute;
+    // top: 0;
+    // right: 10px;
+    // height: 60px;
+    float:right;
+    padding-right: 10px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .breadrumb-selector {
+    margin-top: (60px - 34px)/2;
+
+    .selector {
+      background-color: #56181B;
+      color: #fff;
+      //border-radius: 20px;
+      font-family: osBold;
+
+      &:hover a:after{
+        font-size: 45px;
+        margin-left: -9px;
+      }
+
+      a {
+        background-image: none;
+        &:after {
+          @include icon();
+          content: '\e601';
+          font-size: 32px;
+          line-height: 28px;
+          margin-left: -3px;
+          color: #ffa200;
+
+          -webkit-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+          -moz-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+          -o-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+          transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+        }
+      }
+    }
+
+    &.default {
+      .selector {
+        color: #ffa200;
+      }
+    }
+
+    .options {
+      &:before {
+        padding-right: 58px;
+      }
+      .selectable {
+        padding-right: 58px;
+        &.selected {
+          color: #ffa200;
+          &:before {
+            background-color: #ffa200;
+          }
+        }
+      }
+    }
+
+    &.opened {
+      .selector {
+        border-radius: 2px 2px 0 0;
+        background-color: #501418;
+        color: #fff;
+        a {
+          background-color: rgba(0, 0, 0, 0.15);
+          &:after {
+            color: #fff;
+            margin-right: 7px;
+          }
+        }
+        &:hover {
+          a {
+            &:after{
+              margin-right: 4px;
+              padding-right: 1px;
+              padding-left: 1px;
+          }
+          }
+        }
+      }
+    }
+
+    &.disabled {
+      .selector {
+        cursor: default;
+      }
+      .label {
+        padding-left:6px;
+        padding-right:4px;
+        cursor:default;
+
+      }
+    }
+
+  }
+}
+
+.components-investigation {
+  .loading {
+       #square1, #square4 {
+         background-color: #c3a5af;
+       }
+     }
+
+  .breadcrumb {
+    background: #c3a5af; /* Old browsers */
+    /* background: -moz-linear-gradient(top, rgba(124,107,139,1) 0%, rgba(109,92,124,1) 100%); /* FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(124,107,139,1)), color-stop(100%,rgba(109,92,124,1))); /* Chrome,Safari4+
+    background: -webkit-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* Opera 11.10+
+    background: -ms-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* IE10+
+    background: linear-gradient(to bottom, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* W3C
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7c6b8b', endColorstr='#6d5c7c',GradientType=0 ); /* IE6-9 */
+    .breadcrumb-path {
+      li {
+        color: #fff;
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          span.bread-icon {
+            &:after, &:before {
+              color: #fff;
+            }
+          }
+          &:before {
+            color: #3d1946;
+          }
+        }
+        span.score {
+          background-color: #3d1946;
+          color: #c3a5af;
+        }
+      }
+      li:last-child{
+        a{color: #fff;}
+      }
+    }
+    .breadrumb-selector {
+      margin-top: (60px - 34px)/2;
+
+      .selector {
+        background-color: #504550;
+        color: #fff;
+        //border-radius: 20px;
+        font-family: osBold;
+
+        &:hover a:after{
+          font-size: 45px;
+          margin-left: -9px;
+        }
+
+        a {
+          background-image: none;
+          &:after {
+            @include icon();
+            content: '\e601';
+            font-size: 32px;
+            line-height: 28px;
+            margin-left: -3px;
+            color: #c3a5af;
+
+            -webkit-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            -moz-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            -o-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+          }
+        }
+      }
+
+      &.default {
+        .selector {
+          color: #c3a5af;
+        }
+      }
+
+      .options {
+        &:before {
+          content: '';
+          padding-right: 58px;
+        }
+        .selectable {
+          padding-right: 58px;
+          &.selected {
+            color: #000;
+            &:before {
+              background-color: #000;
+            }
+          }
+        }
+      }
+
+      &.business-selector {
+        .options {
+          &:before {
+            content: attr(data-before);
+          }
+        }
+      }
+
+
+      &.opened {
+        .selector {
+          border-radius: 2px 2px 0 0;
+          background-color: #331f38;
+          color: #fff;
+          a {
+            background-color: rgba(0, 0, 0, 0.15);
+            &:after {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+    }
+    .option-selector {
+      right: 10px;
+    }
+  }
+}
+
+
+.transaction-investigation {
+
+  .breadcrumb {
+    background: #9a95ab; /* Old browsers */
+    /* background: -moz-linear-gradient(top, rgba(124,107,139,1) 0%, rgba(109,92,124,1) 100%); /* FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(124,107,139,1)), color-stop(100%,rgba(109,92,124,1))); /* Chrome,Safari4+
+    background: -webkit-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* Opera 11.10+
+    background: -ms-linear-gradient(top, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* IE10+
+    background: linear-gradient(to bottom, rgba(124,107,139,1) 0%,rgba(109,92,124,1) 100%); /* W3C
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7c6b8b', endColorstr='#6d5c7c',GradientType=0 ); /* IE6-9 */
+    .breadcrumb-path {
+      li {
+        color: #fff;
+        a {
+          color: rgba(255, 255, 255, 0.8);
+          span.bread-icon {
+            &:after, &:before {
+              color: #fff;
+            }
+          }
+          &:before {
+            color: #3d1946;
+          }
+        }
+        span.score {
+          background-color: #3d1946;
+          color: #c3a5af;
+        }
+      }
+      li:last-child{
+        a{color: #fff;}
+      }
+    }
+    .breadrumb-selector {
+      margin-top: (60px - 34px)/2;
+
+      .selector {
+        background-color: #504550;
+        color: #fff;
+        //border-radius: 20px;
+        font-family: osBold;
+
+        &:hover a:after{
+          font-size: 45px;
+          margin-left: -9px;
+        }
+
+        a {
+          background-image: none;
+          &:after {
+            @include icon();
+            content: '\e601';
+            font-size: 32px;
+            line-height: 28px;
+            margin-left: -3px;
+            color: #c3a5af;
+
+            -webkit-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            -moz-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            -o-transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+            transition: margin-left 200ms ease-in-out, font-size 200ms ease-in-out;
+          }
+        }
+      }
+
+      &.default {
+        .selector {
+          color: #c3a5af;
+        }
+      }
+
+      .options {
+        &:before {
+          content: '';
+          padding-right: 58px;
+        }
+        .selectable {
+          padding-right: 58px;
+          &.selected {
+            color: #000;
+            &:before {
+              background-color: #000;
+            }
+          }
+        }
+      }
+
+      &.business-selector {
+        .options {
+          &:before {
+            content: attr(data-before);
+          }
+        }
+      }
+
+
+      &.opened {
+        .selector {
+          border-radius: 2px 2px 0 0;
+          background-color: #331f38;
+          color: #fff;
+          a {
+            background-color: rgba(0, 0, 0, 0.15);
+            &:after {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+    }
+    .option-selector {
+      right: 10px;
+    }
+  }
+}
+
+.module-selector {
+  .options {
+    &:before {
+      content: attr(data-before);
+    }
+  }
+}
+
+@-webkit-keyframes click-bookmark {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes click-bookmark {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes click-bookmark {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes click-bookmark {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

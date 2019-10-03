@@ -1,0 +1,39 @@
+// FIXME extract colors to a _colorTheme.scss
+// FIXME nest components properly instead of too flat data-structure it is hard to see the impacts right away
+.error-page {
+
+  left: 50%;
+  margin: -43px 0 0 -250px;
+  position: absolute;
+  top: 40%;
+  width: 600px;
+  line-height: 1.5;
+
+
+  h1 {
+    color: #555;
+    font-size: 2em;
+    font-weight: 400;
+  }
+
+  p {
+    line-height: 1.2;
+    margin-top: 10px;
+  }
+
+  li {
+    list-style: initial;
+    margin-left: 20px;
+  }
+
+  .json-area {
+    margin-top: 10px;
+
+  }
+  a{
+    color: #464646;
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+
+}

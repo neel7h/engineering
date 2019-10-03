@@ -1,0 +1,8 @@
+
+.technology-selector{
+  .options {
+    &:before {
+      content: attr(data-before);
+    }
+  }
+}

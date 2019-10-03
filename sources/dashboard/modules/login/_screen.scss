@@ -1,0 +1,626 @@
+// FIXME extract colors to a _colorTheme.scss
+// FIXME nest components properly instead of too flat data-structure it is hard to see the impacts right away
+@font-face{
+  font-family:KG Pro Light;
+  src: url('./fonts/kgprolight.eot'); /* IE9 Compat Modes */
+  src: url('./fonts/kgprolight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./fonts/kgprolight.woff') format('woff'), /* Modern Browsers */
+  url('./fonts/kgprolight.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('./fonts/kgprolight.svg#HeroL') format('svg'); /* Legacy iOS */
+
+}
+
+#login-cast-logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100000;
+  font-family: 'osRegular';
+  font-size: 11px;
+  background: url(screen/cast_logo_copyright.png) no-repeat left;
+  background-size: 25%;
+  padding: 0 20px 0 130px;
+  line-height: 30px;
+  font-size: 0.75em;
+  right: 7px;
+}
+
+.login-space {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  font-family: 'osRegular';
+  // add background to avoid flashing effect on aed-aad destination switch
+  background: url(screen/login/login_aad_bg_dark.jpg) no-repeat left;
+  background-size: 50% 100%;
+
+  .welcome-back {
+    color: #f7f7f7;
+    font-family: 'osBold';
+    font-size: 12px;
+    text-decoration: none;
+    vertical-align: top;
+    line-height: 32px;
+    height: 32px;
+    padding-left: 32px;
+    -webkit-transition: color 250ms ease-out;
+    -moz-transition: color 250ms ease-out;
+    -o-transition: color 250ms ease-out;
+    transition: color 250ms ease-out;
+
+    /* Specific position for test purpose */
+    margin-left: 36px;
+    margin-top: 12px;
+    display: inline-block;
+    position: absolute;
+    z-index: 100000;
+    cursor: pointer;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .welcome-back:before {
+    content: '\e63d';
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    font-family: 'ced-icon';
+    position: absolute;
+    margin-left: -32px;
+    -webkit-transition: margin-left 250ms ease-out;
+    -moz-transition: margin-left 250ms ease-out;
+    -o-transition: margin-left 250ms ease-out;
+    transition: margin-left 250ms ease-out;
+  }
+
+  .welcome-back:hover {
+    color: #fff;
+  }
+  .welcome-back:hover:before {
+    margin-left: -38px;
+  }
+
+  .login-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+
+      background: #35393c url(screen/login/login_aad_bg_dark.jpg) no-repeat center;
+      background-size: 100% 100%;
+    transition: background 0.4s;
+
+    .outer {
+      display: table;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .inner {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      h1 {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 40px 0 0 150px;
+        font-family: inherit;
+        font-size: 1.7em;
+        text-transform: uppercase;
+        line-height: normal;
+        letter-spacing: 0px;
+        font-weight: normal;
+        margin: -16px 0 0 0;
+        font-family: 'osLight', Arial;
+
+        em {
+          font-family: 'raiders';
+          font-style: normal;
+        }
+        span.blue {
+          color: #00C2FF;
+        }
+        span.red {
+          color: #f00041;
+        }
+
+      }
+    }
+
+    .inner {
+      .title-block-aad {
+        max-width: 520px;
+        margin: -24px auto 0 auto;
+        overflow: auto;
+
+        &:before {
+          $width: 126px;
+          display: block;
+          float: left;
+          width: $width;
+          height: $width;
+          background: url(screen/login/aad-logo-grey.svg) no-repeat center;
+          background-size: $width $width;
+          content: '';
+          opacity: 0.8;
+        }
+      }
+      .title-block-aed {
+        display: none;
+      }
+
+    }
+
+    &.aed {
+      background: url(screen/login/login_aed_bg_dark.jpg) no-repeat center;
+      background-size: 100% 100%;
+
+      .inner {
+        .title-block-aad {
+          display: none;
+        }
+        .title-block-aed {
+          display: block;
+          max-width: 542px;
+          margin: -24px auto 0 auto;
+          overflow: auto;
+
+          &:before {
+            $width: 126px;
+            display: block;
+            float: left;
+            width: $width;
+            height: $width;
+            background: url(screen/login/aed-logo-grey.svg) no-repeat center;
+            background-size: $width $width;
+            content: '';
+            opacity: 0.8;
+          }
+          h3{
+            position: absolute;
+            background-color: #f00041;
+            color: #fff;
+            padding: 10px;
+            margin-left: 150px;
+            width: calc(100% - 174px);
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+
+  }
+
+  .actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+
+    background: #dbdbdd url(screen/login/login_bg_light.jpg) no-repeat center;
+    background-size: 100% 100%;
+    transition: background 0.4s;
+
+    .outer {
+      display: table;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    .middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .inner {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+    }
+
+    .login {
+
+      .inner {
+        width: 370px;
+      }
+
+      .login-error {
+        color: #f66;
+        line-height: 22px;
+        height: 36px;
+        text-align: right;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-style: normal;
+        float: right;
+        p {
+          display: none;
+              background: #f2004a none repeat scroll 0 0;
+              color: white;
+              font-family: osBold;
+              padding: 0 29px;
+        }
+      }
+
+    }
+
+    .cannot-access {
+      display: none;
+      line-height: 1.4;
+      font-size: 1em;
+      .inner {
+        width: 370px;
+
+        h2 {
+          font-size: 18px;
+          color: #8e8f91;
+          border-bottom: 1px solid #8e8f91;
+          margin: 0 0 10px 0;
+          font-weight: normal;
+          letter-spacing: initial;
+          font-family: 'KG Pro Light', Verdana, Arial, Helvetica, sans-serif;
+          line-height: 1.4;
+
+          &:before {
+            display: block;
+            float: left;
+            background: url(screen/login/aad-request-access-grey.svg) no-repeat center;
+            background-size: 45px 45px;
+            content: '';
+            width: 40px;
+            height: 40px;
+            margin-top: -18px;
+            margin-left: -5px;
+            margin-right: 8px;
+          }
+        }
+
+        p {
+          font-size: 12px;
+          margin-bottom: 10px;
+          color: #8e8f91;
+        }
+
+        input[type=text] {
+          margin-top: 16px;
+        }
+
+        div.login-request-access {
+          font-size: 14px;
+        }
+      }
+    }
+
+    input[type=text], input[type=password] {
+      display: inline-block;
+      height: 32px;
+      line-height: 32px;
+      width: 358px;
+      margin-bottom: 18px;
+
+      font-size: 1.1em;
+      font-family: 'osBold', Arial;
+      color: #000;
+      background: #c9c9c9; /* Old browsers */
+      transition: background 0.5s;
+
+      border: 1px #c9c9c9 solid;
+      padding-left: 10px;
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    div.login-actions {
+      padding-left: 2px;
+      margin-top: 2px;
+    }
+
+    a.login-help-action {
+      font-size: 0.8em;
+      color: #464646;
+      text-decoration: underline;
+      line-height: 32px;
+      cursor: pointer;
+    }
+
+    .login-action {
+      font-size: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'osBold', Arial;
+      color: #474747;
+      border: 2px solid #474747;
+      padding: 0 28px 0 28px;
+      background-color: rgba(0,0,0,0);
+      float: right;
+      line-height: 32px;
+      text-align: center;
+      margin-right: 2px;
+      -webkit-transition:all 200ms ease-out;
+      -moz-transition:all 200ms ease-out;
+      -o-transition:all 200ms ease-out;
+      transition:all 200ms ease-out;
+
+      &:hover {
+        color: #dbdbdd;
+        background:#000;
+        border: 2px solid #000;
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #929192;
+    font-size: 11px;
+    line-height: 32px;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #929192;
+    opacity:  1;
+    font-size: 11px;
+    line-height: 32px;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #929192;
+    opacity:  1;
+    font-size: 11px;
+    line-height: 32px;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #929192;
+    font-size: 11px;
+    line-height: 32px;
+  }
+
+}
+
+:root input[type="checkbox"] {
+  /* :root here acting as a filter for older browsers */
+  position: absolute;
+  opacity: 0;
+}
+
+:root input[type="checkbox"].toggle-button + div {
+  display: inline-block;
+  vertical-align: middle;
+  width: 52px;
+  height: 24px;
+  border: 2px solid #898989;
+  border-radius: 24px;
+  margin: 0 1px;
+  overflow: hidden;
+  transition-duration: .4s;
+  transition-property: padding, width, background-position, text-indent, border;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+:root input[type="checkbox"].toggle-button:checked + div {
+  border: 2px solid #474747;
+  padding-left: 26px;
+  width: 26px;
+
+}
+
+:root input[type="checkbox"].toggle-button:focus + div {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+:root input[type="checkbox"].toggle-button + div:before {
+  content: 'On';
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 3px 3px 3px 4px;
+
+  border-radius: inherit;
+  background: #aeaeae;
+
+  color: #474747;
+  text-indent: -22px;
+  line-height: 18px;
+  transition-duration: .4s;
+  transition-property: background;
+}
+
+:root input[type="checkbox"].toggle-button:checked + div:before {
+  background: #474747;
+}
+
+:root input[type="checkbox"].toggle-button + div:before,
+:root input[type="checkbox"].toggle-button + div:after {
+  //  font: bold 60%/1.9 sans-serif;
+  text-transform: uppercase;
+}
+
+:root input[type="checkbox"].toggle-button + div:after {
+  content: 'Off';
+  float: left;
+  text-indent: 0;
+  width: 20px;
+  margin-top: 2px;
+  line-height: 20px;
+  color: #898989;
+}
+
+/* Switch code ends here, from now on it’s just bling for the demo page */
+
+.aed-enable {
+  position: relative;
+  display: block;
+  margin: 0 auto 50px 0;
+
+  label {
+    position: relative;
+    margin-left: 3px;
+  }
+
+  .title {
+    margin-left: 14px;
+    height: 28px;
+    line-height: 28px;
+    display: inline-block;
+    border-bottom: 1px solid #8e8f93;
+    width: 294px;
+    position: absolute;
+    color: #8e8f93;
+    font-weight: 200;
+
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    margin-right: 2px;
+
+    &.aed {
+      color: #474747;
+      border-bottom: 1px solid #474747;
+    }
+
+    em {
+      font-style: normal;
+      font-family: inherit;
+      font-weight: 200;
+      margin-left: -1px;
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .login-space {
+    .login-title {
+      .inner {
+
+        h1 {
+          padding: 26px 0 0 100px;
+          font-size: 19px;
+        }
+      }
+
+      .inner {
+        .title-block-aad {
+          max-width: 380px;
+          margin: -40px auto 0 auto;
+
+          &:before {
+            $width: 80px;
+            width: $width;
+            height: $width;
+            background-size: $width $width;
+          }
+        }
+
+      }
+
+      &.aed {
+        .inner {
+          .title-block-aed {
+            max-width: 380px;
+            margin: -40px auto 0 auto;
+
+            &:before {
+              $width: 80px;
+              width: $width;
+              height: $width;
+              background-size: $width $width;
+            }
+            h3{
+              margin-left: 100px;
+              width: calc(100% - 124px);
+              font-size: 15px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .login-space {
+    .login-title {
+      position: absolute;
+      top: 0;
+      bottom: 200px;
+      left: 0;
+      right: 0;
+      .outer {
+        height: 200px;
+      }
+      .inner {
+
+        h1 {
+          padding: 24px 0 0 100px;
+          font-size: 1.2em;
+        }
+      }
+
+      .inner {
+        .title-block-aad {
+          max-width: 380px;
+          margin: 40px auto 0 auto;
+
+          &:before {
+            $width: 80px;
+            width: $width;
+            height: $width;
+            background-size: $width $width;
+          }
+        }
+
+      }
+
+      &.aed {
+        .inner {
+          .title-block-aed {
+            max-width: 380px;
+            margin: 40px auto 0 auto;
+
+            &:before {
+              $width: 80px;
+              width: $width;
+              height: $width;
+              background-size: $width $width;
+            }
+            h3{
+              margin-left: 100px;
+              padding: 6px;
+              width: auto;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+    }
+    .actions {
+      position: absolute;
+      top: 200px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

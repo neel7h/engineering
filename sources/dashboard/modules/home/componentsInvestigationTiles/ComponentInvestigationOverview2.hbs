@@ -1,0 +1,10 @@
+<h2 class="modules">{{t "Application components"}}</h2>
+<div class="module-count-block">
+  <div class="value modules-count">{{formatNumber moduleCount "0,000"}}</div>
+  <div class="label modules-count-label">Module{{#if plural}}s{{/if}}</div>
+</div>
+<div class="application-size-block">
+  <div id="LOC" class="value line-of-code"  title="{{formatNumber lineOfCode "0,000"}}">{{formatNumber lineOfCode "0.0a"}}</div>
+  <div class="label application-size-label">{{t "lines of code"}}</div>
+</div>
+<div class="defect-summaries"></div>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=11,chrome=1">
+  <title>Engineering Dashboard - Source code display</title>
+
+  <meta name="apple-mobile-web-app-capable" content="no"/>
+  <meta name="viewport"
+  content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,target-densityDpi=device-dpi"/>
+  <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+  <link rel="apple-touch-icon" href="resources/images/touchico.png"/>
+  <link rel="stylesheet" href="stylesheets/sourceScreen.css">
+  <script>
+  // redirect for some escaping issues met in firefox
+  var decodedURL = decodeURI(location.href);
+  if (decodedURL !== location.href) {
+    window.location.href = decodedURL;
+  }
+  </script>
+</head>
+<body>
+  <div class="session-error">
+    <div class="centered">
+      <h2>Login</h2>
+      <p class="message">Adequate credentials is required to access data<br />
+      Please log in using the following form</p>
+      <div class="log-in-container">
+        <input  id="username" type="text" autocorrect="off" placeholder="username" autocapitalize="none"/>
+        <input id="password" type="password" placeholder="password"/>
+        <div class="error-message"></div>
+      </div>
+      <button onclick="cast.login()" >Log in</button>
+    </div>
+  </div>
+  <div class="container">
+    <header>
+      <h1 class="large">Engineering Dashboard - <em class="application-name"></em></h1>
+      <h1 class="small" title="Engineering Dashboard">ED - <em class="application-name"></em></h1>
+      <div class="snapshot-info">
+        <div class="message">Snapshot: <b id="snapshot-reference"></b></div>
+        <div class="message-small">Version: <b id="snapshot-version"></b> - Date: <b id="snapshot-date"></b></div>
+      </div>
+    </header>
+    <section>
+      <h1 class="code-fragment-name"></h1>
+      <button class="show-violation-button">Show Violation</button>
+      <div class="source-code">
+        <pre class="language-none line-numbers"><code></code></pre>
+      </div>
+    </section>
+  </div>
+  <script src="sources/stem/base/3rdParties/jquery/jquery.min.js"></script>
+  <script src="sources/stem/base/3rdParties/prismjs/1.3.0/prism.js"></script>
+  <script src="sources/stem/base/3rdParties/underscore/1.6.0/underscore.js"></script>
+  <script src="sources/externalSourceCode.js"></script>
+
+  <script>
+
+
+  // step 1 - process hash parameters
+  (function ($) {
+
+    // expect :domain/application/:applicationId/snapshots/:snapshotId/components/:componentId/local-sites/:localSites/file-contents/:fileContents
+    var fragments = window.location.hash.split('?')[0].replace('#', '').split('/');
+    var domainId = fragments[0];
+    var applicationId = null;
+    var snapshotId = null;
+    var componentId = null;
+    var localSites = null;
+    var fileContents = null;
+    for (var i = 0; i < fragments.length; i++) {
+      if ('applications' === fragments[i])
+      applicationId = parseInt(fragments[i + 1]);
+      if ('snapshots' === fragments[i])
+      snapshotId = parseInt(fragments[i + 1]);
+      if ('components' === fragments[i])
+      componentId = parseInt(fragments[i + 1]);
+      if ('local-sites' == fragments[i])
+      localSites = parseInt(fragments[i + 1]);
+      if ('file-contents' == fragments[i])
+      fileContents = parseInt(fragments[i + 1]);
+    }
+
+
+    (function processApplication(domainId, applicationId) {
+      $.ajax({
+        type: 'GET',
+        url: '../rest/' + domainId + '/applications/' + applicationId,
+        headers: {
+          accept: 'application/json'
+        }
+      }).done(function (data) {
+        $('.container').show()
+        $('.application-name').html(data.name);
+      }).fail(function (error) {
+        if (470 === error.status){
+          if(navigator.appVersion.match(/MSIE 9/)){
+            cast.placeholder($('input'));
+          }
+          $('input').on('keyup', cast.loginOnReturn)
+          $('button').on('keyup', cast.loginOnReturn)
+          $('.session-error').show()
+          return
+        }
+        $('.container').show()
+        $('.application-name').html('no application found').addClass('error');
+      })
+    })(domainId, applicationId);
+
+    (function processSnapshot(domainId, snapshotId) {
+      $.ajax({
+        type: 'GET',
+        url: '../rest/' + domainId + '/configuration/snapshots/' + snapshotId,
+        headers: {
+          accept: 'application/json'
+        }
+      }).done(function (data) {
+        $('#snapshot-reference').html(data.annotation.name);
+        $('#snapshot-version').html(data.annotation.version);
+        $('#snapshot-date').html(data.annotation.date.isoDate);
+      }).fail(function (error) {
+        $('#snapshot-reference').html('no snapshot found').addClass('error');
+        $('#snapshot-version').html('no version found').addClass('error');
+        $('#snapshot-date').html('no date found').addClass('error');
+      })
+    })(domainId, snapshotId);
+    $('.show-violation-button').on('click', function(event){
+        $(".source-code").animate({ scrollTop: $('.bookmark-object, .bookmark-line, .secondaryBookmark').first().position().top - 37}, 1000);
+        $(".show-violation-button").prop('disabled',true)
+        setTimeout(function () {
+            $(".show-violation-button").prop('disabled',false);
+        },2000)
+    })
+    $.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+    }
+    cast.processSourceCode(domainId, componentId, snapshotId,  $('.container'), localSites, fileContents);
+
+  })(jQuery);
+  </script>
+  <script src="sources/stem/base/3rdParties/jquery/jquery.visible.min.js"></script>
+
+</body>
+</html>

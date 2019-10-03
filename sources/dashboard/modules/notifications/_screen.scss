@@ -1,0 +1,84 @@
+// FIXME extract colors to a _colorTheme.scss
+// FIXME nest components properly instead of too flat data-structure it is hard to see the impacts right away
+.notification-container {
+  $maxWidth:400px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: $maxWidth;
+  min-width: 200px;
+  max-height: 460px;
+  z-index: 999999;
+
+  .notification-popup {
+    background-color: #21292c;
+    color: #f4f6f7;
+    margin-top: 2px;
+    opacity: 1;
+    transition: all 1s;
+    padding: 14px 86px 22px 32px;
+    position: relative;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+
+    h3 {
+      margin-top: 4px;
+      font-weight: normal;
+    }
+
+    .remove-notification {
+      position: absolute;
+      line-height: 1;
+      top:40%;
+      right: 24px;
+      width: 24px;
+      height: 24px;
+      display: block;
+      cursor: pointer;
+      color: #f4f6f7;
+
+      &:after {
+        @include icon();
+        content: '\e62d';
+        height: 24px;
+        width: 24px;
+        font-size: 24px;
+        color: #f4f6f7;
+      }
+    }
+
+    .message {
+      max-width:$maxWidth;
+      font-size: 12px;
+
+      a{
+        text-transform: capitalize;
+        text-decoration: underline;
+        color: #ed2a3b;
+        cursor: pointer;
+        outline:none;
+      }
+
+      h3 {
+        em{
+          font-style: normal;
+          font-weight: 700;
+        }
+        margin-top: 4px;
+        color: #f4f6f7;
+        font-weight: normal;
+        font-size:12px;;
+      }
+    }
+  }
+
+  &.on-top {
+    bottom: inherit;
+    top: 60px;
+    right: 40px;
+
+
+    .message {
+      width:262px;
+    }
+  }
+}

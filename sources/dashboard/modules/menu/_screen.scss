@@ -1,0 +1,243 @@
+// FIXME extract colors to a _colorTheme.scss
+// FIXME nest components properly instead of too flat data-structure it is hard to see the impacts right away
+.help-disable-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(60, 56, 114, 0.3);
+  z-index: 200000;
+}
+
+.menu {
+  background-color: #21282b;
+  width: 60px;
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+
+  .button {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    height: 52px;
+    margin-top: 8px;
+
+    a{
+      text-decoration: none;
+    }
+
+    &.selected{
+      $w:5px;
+      .menu-cursor{
+        border-left: solid $w #ffa200;
+        height: 44px;
+        text-align: center;
+
+        .icon {
+          left: 14px;
+          &:before {
+            color: #ffa200;
+          }
+          &.component-investigation {
+            &:before {
+              color: #c3a5af;
+            }
+          }
+          &.education-overview {
+            &:before {
+              color: #00ADFF;
+            }
+          }
+          &.action-plan-overview {
+            &:before {
+              color: #00ADFF;
+            }
+          }
+          &.advance-search {
+            &:before {
+              color: #00ADFF;
+            }
+          }
+          &.report-generator {
+            &:before {
+              color: #ff8100;
+            }
+          }
+          &.help {
+            &:before {
+              color: #00ADFF;
+            }
+          }
+        }
+      }
+      &#componentsInvestigation .menu-cursor{border-left-color: #c3a5af;}
+      &#actionPlanOverview .menu-cursor{border-left-color: #00ADFF;}
+      &#educationOverview .menu-cursor{border-left-color: #00ADFF;}
+      &#search .menu-cursor{border-left-color: #00ADFF;}
+      &#report .menu-cursor{border-left-color: #ff8100;}
+
+      .icon {
+        left: 14px;
+        &:before {
+          color: #E73A50;
+        }
+      }
+    }
+    .menu-cursor{
+      height: 60px;
+      text-align: center;
+    }
+
+    &.help-mode{
+      $w:4px;
+      z-index: 200001;
+      background-color: #C5C3D5;
+
+      .menu-cursor {
+        height: 44px;
+
+        .icon {
+          left: 14px;
+          &:before {
+            content: '\e62d';
+            color: #fff;
+            border-radius:  50%;
+            font-size: 26px;
+            background-color: #21282b;
+            border: 2px solid #21282b;
+          }
+        }
+      }
+      .icon {
+        left: 14px - $w;
+        &:before {
+          color: #e24a56;
+        }
+      }
+    }
+
+    .notification {
+      color: #fff;
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      border-radius: 9px;
+      min-width: 12px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 11px;
+      padding: 0 2px;
+
+      &.red {
+        background-color: #fe011a;
+      }
+      &.blue {
+        background-color: #0287ef;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      left: 14px;
+      width: 32px;
+
+
+
+      &:before {
+        @include icon();
+        content: '\e600';
+        font-size: 32px;
+        color: #9FA4A7;
+        line-height: 44px;
+        -webkit-transition: color 200ms ease-out;
+        -moz-transition: color 200ms ease-out;
+        -o-transition: color 200ms ease-out;
+        transition: color 200ms ease-out;
+      }
+    }
+
+    .home {
+      &:before {
+        content: '\e603';
+      }
+    }
+
+    .quality-investigation{
+      &:before {
+        content: '\e623';
+      }
+    }
+
+    .component-investigation{
+      &:before {
+        content: '\e624';
+      }
+    }
+
+    .advanced-search {
+      &:before {
+        content: '\e625';
+      }
+    }
+    .note {
+      &:before {
+        content: '\e604';
+      }
+    }
+    .help {
+      &:before {
+        content: '\e61e';
+        line-height: 53px;
+      }
+    }
+
+    .education-overview{
+      overflow: hidden;
+      &:before {
+        font-size: 35px;
+        content: '\e954';
+      }
+    }
+
+    .action-plan-overview {
+      &:before {
+        content: '\e626';
+      }
+    }
+
+    .advance-search {
+      &:before {
+        font-size: 25px;
+        content: '\e951';
+      }
+    }
+
+    .report-generator {
+      &:before {
+        font-size: 25px;
+        content: '\e958';
+      }
+    }
+
+    &:hover {
+      .icon {
+        &:before {
+          color: #a3abaf;
+        }
+      }
+      .notification {
+        &.red {
+          background-color: #fe798f;
+        }
+        &.blue {
+          background-color: #5b9fef;
+        }
+      }
+//      .icon {
+//        opacity: 0.6;
+//      }
+    }
+  }
+}
