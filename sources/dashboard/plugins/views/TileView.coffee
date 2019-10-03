@@ -1,1 +1,0 @@
-TileView = (_, BackboneWrapper, Handlebars) ->
